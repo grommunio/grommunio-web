@@ -684,12 +684,10 @@ msgstr "Adjuntos"
 msgid "Date"
 msgstr "Fecha"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "From"
 msgstr "De"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "To"
 msgstr "A"
@@ -1041,10 +1039,9 @@ msgstr "A o cc"
 msgid "Meeting"
 msgstr "Reunión"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
-msgstr "Los recursos han sido planificados."
+msgstr "S'han planificat els recursos"
 
 msgid "Insufficient privileges"
 msgstr "Privilegis insuficients"
@@ -1309,17 +1306,14 @@ msgstr "Enviar la cancelación ahora."
 msgid "Send Meeting Request Confirmation"
 msgstr "Enviar confirmación solicitud de reunión"
 
-#, fuzzy
 msgid "This meeting will be accepted and moved to your calendar. Do you want to include comments with your response?"
-msgstr "Esta reunión ha sido aceptada y será trasladada a su calendario. ¿Quiere incluir comentarios con su respuesta?"
+msgstr "Aquesta reunió s'acceptarà i es mourà al vostre calendari. Voleu incloure comentaris amb la vostra resposta?"
 
-#, fuzzy
 msgid "This meeting will be tentatively accepted and moved to your calendar. Do you want to include comments with your response?"
-msgstr "Esta reunión ha sido aceptada provisionalmente y será trasladada a su calendario. ¿Quiere incluir comentarios con su respuesta?"
+msgstr "Aquesta reunió s'acceptarà provisionalment i es mourà al vostre calendari. Voleu incloure comentaris amb la vostra resposta?"
 
-#, fuzzy
 msgid "This meeting will be declined and moved to your Deleted Items folder. Do you want to include comments with your response?"
-msgstr "Esta reunión ha sido rechazada y será trasladada a su papelera de reciclaje. ¿Quiere incluir comentarios con su respuesta?"
+msgstr "Aquesta reunió es rebutjarà i es mourà a la vostra carpeta d'elements suprimits. Voleu incloure comentaris amb la vostra resposta?"
 
 msgid "Edit the response before sending"
 msgstr "Editeu la resposta abans d'enviar-la"
@@ -1715,7 +1709,7 @@ msgid "jS F Y"
 msgstr "jS F Y"
 
 msgid "Online meeting"
-msgstr ""
+msgstr "Reunió en línia"
 
 msgid "Attendees"
 msgstr "Els assistents"
@@ -1889,8 +1883,8 @@ msgstr "No tens privilegis suficients per suprimir elements d'aquesta carpeta."
 
 msgid "You have insufficient privileges to delete one of the selected items."
 msgid_plural "You have insufficient privileges to delete {0} of the selected items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "No teniu privilegis suficients per suprimir un dels elements seleccionats."
+msgstr[1] "No teniu privilegis suficients per suprimir {0} dels elements seleccionats."
 
 msgid "Notify recipients"
 msgstr "Notificar als destinataris"
@@ -1929,14 +1923,13 @@ msgid "Recipient already exists."
 msgstr "El destinatari ja existeix."
 
 msgid "Remove attachment"
-msgstr ""
+msgstr "Elimina el fitxer adjunt"
 
 msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
-msgstr ""
+msgstr "Voleu eliminar \"{0}\" d'aquest missatge? Després no es podrà restaurar el fitxer adjunt."
 
-#, fuzzy
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
-msgstr "El emisor de este mensaje ha solicitado la notificación al leer este mensaje. ¿Desea enviar la notificación?"
+msgstr "El remitent d'aquest correu ha sol·licitat una confirmació de lectura. Voleu notificar-ho al remitent?"
 
 msgid "Import"
 msgstr "Importar"
@@ -1963,20 +1956,20 @@ msgid "Untitled"
 msgstr "Sense títol"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "No s'han pogut desar els fitxers adjunts."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "No s'ha pogut desar aquest fitxer adjunt: {0}"
+msgstr[1] "No s'han pogut desar aquests fitxers adjunts: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "S'ha desat {0} fitxer adjunt."
+msgstr[1] "S'han desat {0} fitxers adjunts."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "Desa els fitxers adjunts"
 
 msgid "Insert item"
 msgstr "Insereix l'element"
@@ -2024,7 +2017,7 @@ msgid "Preview"
 msgstr "Vista Previa"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "Previsualitza en un diàleg"
 
 msgid "Download"
 msgstr "Descarga"
@@ -2033,7 +2026,7 @@ msgid "Download all as ZIP"
 msgstr "Baixeu-ho tot com a ZIP"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "Desa la selecció en un directori"
 
 msgid "Import to folder"
 msgstr "Importa a la carpeta"
@@ -2045,10 +2038,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "Per utilitzar la funció d'importació d'ICS/VCS, actualitzeu el vostre Gromox a la versió 0 o superior."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "Previsualitza en una pestanya de grommunio Web"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "Previsualitza en una finestra del navegador"
 
 msgid "Attachment error"
 msgstr "Error"
@@ -2245,7 +2238,7 @@ msgid "Folder '{0}' selected."
 msgstr "Carpeta \"{0}\" seleccionada."
 
 msgid "Suggested folders"
-msgstr ""
+msgstr "Carpetes suggerides"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "Els elements seleccionats no es poden moure a aquesta carpeta perquè conté un tipus de contingut diferent."
@@ -2443,7 +2436,7 @@ msgid "Redo the last undone action"
 msgstr "Refés l'última acció desfeta"
 
 msgid "Jump to the search box, press again for the browser search"
-msgstr ""
+msgstr "Salta al quadre de cerca, torna a prémer per a la cerca del navegador"
 
 msgid "Open the command palette"
 msgstr "Obre la paleta d'ordres"
@@ -2503,28 +2496,28 @@ msgid "Presentation"
 msgstr "Presentació"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Pantalla completa"
 
 msgid "Previous page"
-msgstr ""
+msgstr "Pàgina anterior"
 
 msgid "Next page"
-msgstr ""
+msgstr "Pàgina següent"
 
 msgid "Page:"
-msgstr ""
+msgstr "Pàgina:"
 
 msgid "of {0}"
-msgstr ""
+msgstr "de {0}"
 
 msgid "Zoom out"
-msgstr ""
+msgstr "Redueix el zoom"
 
 msgid "Zoom in"
-msgstr ""
+msgstr "Amplia el zoom"
 
 msgid "Zoom"
-msgstr ""
+msgstr "Zoom"
 
 msgid "Automatic"
 msgstr "Automàtic"
@@ -2536,37 +2529,37 @@ msgid "Page width"
 msgstr "Amplada de la pàgina"
 
 msgid "Rotate left"
-msgstr ""
+msgstr "Gira a l'esquerra"
 
 msgid "Rotate right"
-msgstr ""
+msgstr "Gira a la dreta"
 
 msgid "This document could not be previewed."
-msgstr ""
+msgstr "No s'ha pogut previsualitzar aquest document."
 
 msgid "This file cannot be previewed."
-msgstr ""
+msgstr "Aquest fitxer no es pot previsualitzar."
 
 msgid "Download the file to open it with a program that can read it."
-msgstr ""
+msgstr "Descarregueu el fitxer per obrir-lo amb un programa que el pugui llegir."
 
 msgid "The document is empty."
-msgstr ""
+msgstr "El document és buit."
 
 msgid "This sheet is empty."
-msgstr ""
+msgstr "Aquest full és buit."
 
 msgid "Showing the first {0} rows and {1} columns."
-msgstr ""
+msgstr "Es mostren les primeres {0} files i {1} columnes."
 
 msgid "Wrap lines"
-msgstr ""
+msgstr "Ajusta les línies"
 
 msgid "Line numbers"
-msgstr ""
+msgstr "Números de línia"
 
 msgid "This message has no content."
-msgstr ""
+msgstr "Aquest missatge no té contingut."
 
 msgid "grommunio Web print"
 msgstr "grommunio impressió web"
@@ -3281,10 +3274,9 @@ msgctxt "mail.previewpanel"
 msgid "{0} has declined."
 msgstr "{0}ha rebutjat."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} has declined on behalf of {1}."
-msgstr "{0} ha aceptado el nombre de {1}."
+msgstr "{0} ha rebutjat en nom de {1}."
 
 msgctxt "mail.previewpanel"
 msgid "{0} tentatively accepted and proposed a new time for this meeting."
@@ -3342,10 +3334,9 @@ msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
 msgstr "Has reenviat aquest missatge."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr "Ha propuesto un nuevo tiempo para esta reunión en {0}"
+msgstr "Has respost a aquest missatge el {0}."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
@@ -3437,19 +3428,19 @@ msgid "in"
 msgstr "en"
 
 msgid "Digitally sign this message"
-msgstr ""
+msgstr "Signa digitalment aquest missatge"
 
 msgid "Encrypt this message"
-msgstr ""
+msgstr "Xifra aquest missatge"
 
 msgid "Autosave is paused while encryption is selected."
-msgstr ""
+msgstr "El desament automàtic es posa en pausa mentre el xifratge està seleccionat."
 
 msgid "Turn off {0} signing and encryption first."
-msgstr ""
+msgstr "Primer desactiveu la signatura i el xifratge amb {0}."
 
 msgid "options"
-msgstr ""
+msgstr "(opcions)"
 
 msgid "Sign"
 msgstr "Signar"
@@ -4250,9 +4241,8 @@ msgstr "Guardado"
 msgid "Saved successfully"
 msgstr "Grabación finalizada"
 
-#, fuzzy
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
-msgstr "Ud. va a perder los cambios no guardados. ¿ Está seguro de cerrar esta ventana ?"
+msgstr "Perdreu tota la feina no desada. Segur que voleu tancar aquesta finestra?"
 
 msgid "grommunio Content Panel"
 msgstr "Panel de Contenido grommunio"
@@ -4436,10 +4426,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Tareas"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Junk Email"
-msgstr "papelera de reciclaje"
+msgstr "Correu brossa"
 
 msgid "Missing folders"
 msgstr "Carpeta no encontradas"
@@ -4797,13 +4786,13 @@ msgid "You have insufficient privileges to move this folder. Would you like to c
 msgstr "No tens privilegis suficients per moure aquesta carpeta. Vols copiar-la en lloc de moure-la?"
 
 msgid "Enable OpenPGP before replying to this protected message."
-msgstr ""
+msgstr "Activeu OpenPGP abans de respondre aquest missatge protegit."
 
 msgid "The protected message could not be opened. No reply or forward was created."
-msgstr ""
+msgstr "No s'ha pogut obrir el missatge protegit. No s'ha creat cap resposta ni cap reenviament."
 
 msgid "Unable to open response"
-msgstr ""
+msgstr "No s'ha pogut obrir la resposta"
 
 msgid "CC"
 msgstr "CC"
@@ -4972,13 +4961,13 @@ msgid "Filter"
 msgstr "Filtre"
 
 msgid "This browser cannot attach the decrypted file. Download it before forwarding."
-msgstr ""
+msgstr "Aquest navegador no pot adjuntar el fitxer desxifrat. Descarregueu-lo abans de reenviar el missatge."
 
 msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
-msgstr ""
+msgstr "Un fitxer adjunt desxifrat supera els límits de pujada. No s'ha creat cap resposta incompleta."
 
 msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
-msgstr ""
+msgstr "No s'ha pogut pujar un fitxer adjunt desxifrat. No s'ha creat cap resposta incompleta."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -5059,7 +5048,7 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}Desa automàticament el correu no enviat cada {B} minut(s)"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
-msgstr ""
+msgstr "Desa automàticament també quan el xifratge està seleccionat (els esborranys es desen sense xifrar)"
 
 msgid "Conversation view settings"
 msgstr "Configuració de la visualització de la conversa"
@@ -5513,7 +5502,7 @@ msgid "Auto"
 msgstr "Automàtic"
 
 msgid "Preview documents and files in grommunio Web"
-msgstr ""
+msgstr "Previsualitza els documents i els fitxers a grommunio Web"
 
 msgid "Document default zoom"
 msgstr "Zoom predeterminat del document"
@@ -5522,10 +5511,10 @@ msgid "PDF zoom"
 msgstr "Zoom PDF"
 
 msgid "Dialog"
-msgstr ""
+msgstr "Diàleg"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "Obre les previsualitzacions a"
 
 msgid "File previewing"
 msgstr "Vista prèvia del fitxer"
@@ -5692,22 +5681,22 @@ msgid "Reset all settings to defaults"
 msgstr "Restableix tots els paràmetres als valors predeterminats"
 
 msgid "Migrate legacy categories"
-msgstr ""
+msgstr "Migra les categories antigues"
 
 msgid "This will scan all folders and migrate the categories assigned to items."
-msgstr ""
+msgstr "Això analitzarà totes les carpetes i migrarà les categories assignades als elements."
 
 msgid "The legacy category settings will remain unchanged."
-msgstr ""
+msgstr "La configuració antiga de categories es mantindrà sense canvis."
 
 msgid "Migrate"
-msgstr ""
+msgstr "Migra"
 
 msgid "Legacy categories migrated successfully."
-msgstr ""
+msgstr "Les categories antigues s'han migrat correctament."
 
 msgid "Could not migrate legacy categories."
-msgstr ""
+msgstr "No s'han pogut migrar les categories antigues."
 
 msgid "Changes to assigned task"
 msgstr "Canvis a la tasca assignada"
@@ -5772,13 +5761,11 @@ msgstr "Acceptació de la tasca"
 msgid "Declining Task"
 msgstr "Rebuig de la tasca"
 
-#, fuzzy
 msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
-msgstr "Esta reunión ha sido aceptada y será trasladada a su calendario. ¿Quiere incluir comentarios con su respuesta?"
+msgstr "Aquesta tasca s'acceptarà i es mourà a la vostra carpeta de tasques. Voleu incloure comentaris amb la vostra resposta?"
 
-#, fuzzy
 msgid "This task will be declined and moved into the Deleted Items folder. Do you want to edit the response before sending it?"
-msgstr "Esta reunión ha sido rechazada y será trasladada a su papelera de reciclaje. ¿Quiere incluir comentarios con su respuesta?"
+msgstr "Aquesta tasca es rebutjarà i es mourà a la carpeta d'elements suprimits. Voleu editar la resposta abans d'enviar-la?"
 
 msgid "Send the response now"
 msgstr "Envieu la resposta ara"
@@ -6244,7 +6231,7 @@ msgid "The response was interrupted and may be incomplete."
 msgstr "La resposta s'ha interromput i pot estar incompleta."
 
 msgid "The answer reached the output limit configured for this model and stops here."
-msgstr ""
+msgstr "La resposta ha arribat al límit de sortida configurat per a aquest model i s'atura aquí."
 
 msgid "Insert at cursor"
 msgstr "Insereix al cursor"
@@ -6673,7 +6660,7 @@ msgid "Create office document"
 msgstr "Crear document d'oficina"
 
 msgid "Preview file"
-msgstr ""
+msgstr "Previsualitza el fitxer"
 
 msgid "Download files"
 msgstr "Descarregar fitxers"
@@ -6842,10 +6829,10 @@ msgid "Mobile Device Manager"
 msgstr "Gestor de dispositius mòbils"
 
 msgid "Device removed"
-msgstr ""
+msgstr "S'ha eliminat el dispositiu"
 
 msgid "The device was not removed. Check your password and try again."
-msgstr ""
+msgstr "No s'ha eliminat el dispositiu. Comproveu la vostra contrasenya i torneu-ho a provar."
 
 msgid "Wiping device"
 msgstr "S'està esborrant el dispositiu"
@@ -7149,463 +7136,463 @@ msgid "Password is weak. Password should contain capital, non-capital letters an
 msgstr "La contrasenya és feble. La contrasenya hauria de contenir majúscules, minúscules i números. La contrasenya hauria de tenir entre 8 i 20 caràcters."
 
 msgid "The OpenPGP request failed. Please try again."
-msgstr ""
+msgstr "La sol·licitud d'OpenPGP ha fallat. Torneu-ho a provar."
 
 msgid "Working…"
-msgstr ""
+msgstr "S'està processant…"
 
 msgid "The operation failed. Please try again."
-msgstr ""
+msgstr "L'operació ha fallat. Torneu-ho a provar."
 
 msgid "Passphrase"
-msgstr ""
+msgstr "Frase de contrasenya"
 
 msgid "Unlock OpenPGP private key"
-msgstr ""
+msgstr "Desbloqueja la clau privada OpenPGP"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Desbloqueja"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr ""
+msgstr "La vostra frase de contrasenya i la clau desbloquejada no surten d'aquesta pestanya del navegador. La clau es bloqueja automàticament al cap d'un temps limitat o quan es tanca la pestanya. Empremta digital: "
 
 msgid "Set up OpenPGP"
-msgstr ""
+msgstr "Configura OpenPGP"
 
 msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
-msgstr ""
+msgstr "Afegiu una clau privada que coincideixi amb l'adreça del remitent per signar missatges o poder llegir la còpia xifrada que es desa a la carpeta d'elements enviats. Podeu importar una clau existent o crear-ne una a la configuració d'OpenPGP."
 
 msgid "Open key settings"
-msgstr ""
+msgstr "Obre la configuració de claus"
 
 msgid "Choose OpenPGP key"
-msgstr ""
+msgstr "Tria una clau OpenPGP"
 
 msgid "Private key"
-msgstr ""
+msgstr "Clau privada"
 
 msgid "Use key"
-msgstr ""
+msgstr "Utilitza la clau"
 
 msgid "Private-key unlocking was cancelled."
-msgstr ""
+msgstr "S'ha cancel·lat el desbloqueig de la clau privada."
 
 msgid "Key selection was cancelled."
-msgstr ""
+msgstr "S'ha cancel·lat la selecció de la clau."
 
 msgid "Choose private key…"
-msgstr ""
+msgstr "Tria la clau privada…"
 
 msgid "Manage OpenPGP keys…"
-msgstr ""
+msgstr "Gestiona les claus OpenPGP…"
 
 msgid "Lock private keys"
-msgstr ""
+msgstr "Bloqueja les claus privades"
 
 msgid "Signing key: "
-msgstr ""
+msgstr "Clau de signatura: "
 
 msgid "Decryption alone does not authenticate the sender."
-msgstr ""
+msgstr "El desxifratge per si sol no autentica el remitent."
 
 msgid "OpenPGP security information"
-msgstr ""
+msgstr "Informació de seguretat OpenPGP"
 
 msgid "OpenPGP"
-msgstr ""
+msgstr "OpenPGP"
 
 msgid "OpenPGP signed or encrypted message"
-msgstr ""
+msgstr "Missatge signat o xifrat amb OpenPGP"
 
 msgid "OpenPGP Plugin"
-msgstr ""
+msgstr "Connector OpenPGP"
 
 msgid "The OpenPGP operation was cancelled."
-msgstr ""
+msgstr "S'ha cancel·lat l'operació d'OpenPGP."
 
 msgid "S/MIME and OpenPGP cannot protect the same message."
-msgstr ""
+msgstr "S/MIME i OpenPGP no poden protegir el mateix missatge."
 
 msgid "Saving the OpenPGP draft timed out. Please retry."
-msgstr ""
+msgstr "S'ha exhaurit el temps d'espera en desar l'esborrany d'OpenPGP. Torneu-ho a provar."
 
 msgid "The draft could not be saved. Nothing was sent."
-msgstr ""
+msgstr "No s'ha pogut desar l'esborrany. No s'ha enviat res."
 
 msgid "The sender or message protection changed. Please send again."
-msgstr ""
+msgstr "El remitent o la protecció del missatge han canviat. Torneu a enviar el missatge."
 
 msgid "The selected private key is not valid for this sender and protection mode."
-msgstr ""
+msgstr "La clau privada seleccionada no és vàlida per a aquest remitent i aquest mode de protecció."
 
 msgid "A matching, passphrase-protected private key is required."
-msgstr ""
+msgstr "Cal una clau privada coincident i protegida amb una frase de contrasenya."
 
 msgid "A recipient key is invalid, expired or does not match its email address."
-msgstr ""
+msgstr "La clau d'un destinatari no és vàlida, ha caducat o no coincideix amb la seva adreça electrònica."
 
 msgid "No verified recipient keys are available."
-msgstr ""
+msgstr "No hi ha disponible cap clau de destinatari comprovada."
 
 msgid "This message is too large for browser OpenPGP processing."
-msgstr ""
+msgstr "Aquest missatge és massa gran per processar-lo amb OpenPGP al navegador."
 
 msgid "Message protection changed while preparing the message. Please send again."
-msgstr ""
+msgstr "La protecció del missatge ha canviat mentre es preparava. Torneu a enviar el missatge."
 
 msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
-msgstr ""
+msgstr "El missatge protegit ocupa {0} MB, més del que aquest servidor accepta en una sola sol·licitud ({1} MB). Elimineu fitxers adjunts o demaneu a l'administrador que augmenti el límit de pujada."
 
 msgid "The attachment archive is too large."
-msgstr ""
+msgstr "L'arxiu comprimit dels fitxers adjunts és massa gran."
 
 msgid "Unlock the message again to download this attachment."
-msgstr ""
+msgstr "Torneu a desbloquejar el missatge per descarregar aquest fitxer adjunt."
 
 msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
-msgstr ""
+msgstr "Aquest missatge conté una protecció S/MIME imbricada que OpenPGP no pot obrir."
 
 msgid "Too many nested OpenPGP envelopes."
-msgstr ""
+msgstr "Hi ha massa sobres OpenPGP imbricats."
 
 msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
-msgstr ""
+msgstr "La signatura no és vàlida o la seva clau pública no està disponible. No us refieu d'aquesta identitat del remitent."
 
 msgid "The private key was locked while opening this message."
-msgstr ""
+msgstr "La clau privada s'ha bloquejat mentre s'obria aquest missatge."
 
 msgid "This message contains too many attachments."
-msgstr ""
+msgstr "Aquest missatge conté massa fitxers adjunts."
 
 msgid "The decoded attachments are too large."
-msgstr ""
+msgstr "Els fitxers adjunts descodificats són massa grans."
 
 msgid "The OpenPGP operation failed."
-msgstr ""
+msgstr "L'operació d'OpenPGP ha fallat."
 
 msgid "OpenPGP: checking message security…"
-msgstr ""
+msgstr "OpenPGP: s'està comprovant la seguretat del missatge…"
 
 msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
-msgstr ""
+msgstr "Missatge xifrat desat sense el sobre MIME — deseu el fitxer adjunt i desxifreu-lo amb una eina OpenPGP"
 
 msgid "Signed message stored without its original MIME — the signature cannot be verified"
-msgstr ""
+msgstr "Missatge signat desat sense el MIME original — la signatura no es pot verificar"
 
 msgid "Message decrypted"
-msgstr ""
+msgstr "Missatge desxifrat"
 
 msgid "Message could not be decrypted — click for details or retry"
-msgstr ""
+msgstr "No s'ha pogut desxifrar el missatge — feu clic per veure'n els detalls o tornar-ho a provar"
 
 msgid "Encrypted message — unlock your private key to read"
-msgstr ""
+msgstr "Missatge xifrat — desbloqueu la vostra clau privada per llegir-lo"
 
 msgid "Signature could not be verified"
 msgstr "No s'ha pogut verificar la signatura"
 
 msgid "Valid signature, but the signing key does not match the sender"
-msgstr ""
+msgstr "Signatura vàlida, però la clau de signatura no coincideix amb el remitent"
 
 msgid "Valid signature — sender fingerprint has not been verified"
-msgstr ""
+msgstr "Signatura vàlida — no s'ha verificat l'empremta digital del remitent"
 
 msgid "Valid signature from a verified sender"
-msgstr ""
+msgstr "Signatura vàlida d'un remitent verificat"
 
 msgid "The signing key has since expired"
-msgstr ""
+msgstr "La clau de signatura ha caducat posteriorment"
 
 msgid "Message is not signed"
-msgstr ""
+msgstr "El missatge no està signat"
 
 msgid "Inline OpenPGP protects the body only; attachments are not covered"
-msgstr ""
+msgstr "L'OpenPGP inline només protegeix el cos del missatge; els fitxers adjunts no queden coberts"
 
 msgid "Unprotected text after the OpenPGP block is not shown"
-msgstr ""
+msgstr "El text no protegit posterior al bloc OpenPGP no es mostra"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr ""
+msgstr "No s'han pogut carregar les vostres claus públiques, de manera que no s'han pogut comprovar les signatures"
 
 msgid "Security information"
-msgstr ""
+msgstr "Informació de seguretat"
 
 msgid "Choose when composing"
-msgstr ""
+msgstr "Tria la clau en redactar"
 
 msgid "Personal and public keys"
-msgstr ""
+msgstr "Claus personals i públiques"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr ""
+msgstr "Les vostres claus es desen a la vostra bústia. Les claus privades es mantenen protegides amb una frase de contrasenya; la signatura, el xifratge i el desbloqueig es fan en aquest navegador. Verifiqueu les empremtes digitals dels vostres contactes a través d'un canal de confiança independent. Els canvis a les claus tenen efecte immediatament."
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
-msgstr ""
+msgstr "No hi ha cap clau OpenPGP. Importeu o genereu una clau per començar."
 
 msgid "Identity"
-msgstr ""
+msgstr "Identitat"
 
 msgid "Fingerprint"
-msgstr ""
+msgstr "Empremta digital"
 
 msgid "Public key"
-msgstr ""
+msgstr "Clau pública"
 
 msgid "Revoked"
-msgstr ""
+msgstr "Revocada"
 
 msgid "Expired"
-msgstr ""
+msgstr "Caducada"
 
 msgid "Fingerprint verified"
-msgstr ""
+msgstr "Empremta digital verificada"
 
 msgid "Not verified"
-msgstr ""
+msgstr "No verificada"
 
 msgid "Unlocked"
-msgstr ""
+msgstr "Desbloquejada"
 
 msgid "Locked"
-msgstr ""
+msgstr "Bloquejada"
 
 msgid "Expires"
 msgstr "Caduca"
 
 msgid "No expiry"
-msgstr ""
+msgstr "Sense caducitat"
 
 msgid "Generate key"
-msgstr ""
+msgstr "Genera una clau"
 
 msgid "Import key"
-msgstr ""
+msgstr "Importa una clau"
 
 msgid "Find public key"
-msgstr ""
+msgstr "Cerca una clau pública"
 
 msgid "Details / verify"
-msgstr ""
+msgstr "Detalls / verifica"
 
 msgid "Export public key"
-msgstr ""
+msgstr "Exporta la clau pública"
 
 msgid "Back up private key"
-msgstr ""
+msgstr "Fes una còpia de seguretat de la clau privada"
 
 msgid "Unlock in this browser"
-msgstr ""
+msgstr "Desbloqueja-la en aquest navegador"
 
 msgid "Change passphrase"
 msgstr "Canvia la contrasenya"
 
 msgid "Lock all"
-msgstr ""
+msgstr "Bloqueja-ho tot"
 
 msgid "Default private key"
-msgstr ""
+msgstr "Clau privada per defecte"
 
 msgid "Sign new messages by default"
-msgstr ""
+msgstr "Signa els missatges nous per defecte"
 
 msgid "Encrypt new messages by default"
-msgstr ""
+msgstr "Xifra els missatges nous per defecte"
 
 msgid "Manage keyservers"
-msgstr ""
+msgstr "Gestiona els servidors de claus"
 
 msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
-msgstr ""
+msgstr "Els valors per defecte de redacció només s'apliquen als missatges OpenPGP nous. S/MIME i OpenPGP no es poden combinar en un mateix missatge."
 
 msgid "Generate OpenPGP key"
-msgstr ""
+msgstr "Genera una clau OpenPGP"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "Algorisme"
 
 msgid "Expires in"
-msgstr ""
+msgstr "Caduca d'aquí a"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 any"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 anys"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 anys"
 
 msgid "Repeat passphrase"
-msgstr ""
+msgstr "Repetiu la frase de contrasenya"
 
 msgid "Passphrases do not match."
-msgstr ""
+msgstr "Les frases de contrasenya no coincideixen."
 
 msgid "Generate"
-msgstr ""
+msgstr "Genera"
 
 msgid "Key created. Back up the private key and store its passphrase separately."
-msgstr ""
+msgstr "S'ha creat la clau. Feu una còpia de seguretat de la clau privada i guardeu-ne la frase de contrasenya per separat."
 
 msgid "Revocation certificate — keep secure"
-msgstr ""
+msgstr "Certificat de revocació — guardeu-ho en un lloc segur"
 
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
-msgstr ""
+msgstr "Trieu una frase de contrasenya robusta de 12 caràcters com a mínim. La generació es fa localment en aquest navegador i pot trigar una estona. Guardeu el certificat de revocació i una còpia de seguretat de la clau privada en un lloc segur."
 
 msgid "Import OpenPGP key"
-msgstr ""
+msgstr "Importa una clau OpenPGP"
 
 msgid "Choose armored OpenPGP key file"
-msgstr ""
+msgstr "Trieu el fitxer de clau OpenPGP amb armadura ASCII"
 
 msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr ""
+msgstr "El fitxer de clau és massa gran. Mida màxima: 1 MiB."
 
 msgid "The key file could not be read."
-msgstr ""
+msgstr "No s'ha pogut llegir el fitxer de clau."
 
 msgid "Armored key"
-msgstr ""
+msgstr "Clau amb armadura ASCII"
 
 msgid "Protect unencrypted key"
-msgstr ""
+msgstr "Protegiu la clau no xifrada"
 
 msgid "Optional: new passphrase for an unprotected private key"
-msgstr ""
+msgstr "Opcional: frase de contrasenya nova per a una clau privada sense protegir"
 
 msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr ""
+msgstr "S'ha importat la clau. Verifiqueu les empremtes digitals dels destinataris abans d'enviar-los missatges xifrats."
 
 msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr ""
+msgstr "Trieu un fitxer o enganxeu una única clau amb armadura ASCII, incloses les línies BEGIN i END. Si la clau privada no està protegida, introduïu una frase de contrasenya nova per protegir-la localment abans de desar-la. Les claus de destinataris importades no passen a ser de confiança automàticament."
 
 msgid "Public OpenPGP key"
-msgstr ""
+msgstr "Clau pública OpenPGP"
 
 msgid "Back up private OpenPGP key"
-msgstr ""
+msgstr "Fes una còpia de seguretat de la clau privada OpenPGP"
 
 msgid "Create backup"
-msgstr ""
+msgstr "Crea la còpia de seguretat"
 
 msgid "Private key backup — keep secure"
-msgstr ""
+msgstr "Còpia de seguretat de la clau privada — guardeu-ho en un lloc segur"
 
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
-msgstr ""
+msgstr "Confirmeu la vostra frase de contrasenya localment abans de descarregar aquesta còpia de seguretat xifrada de la clau privada. Guardeu-la en un lloc segur i no l'envieu mai a cap destinatari ni a cap servidor de claus."
 
 msgid "Current passphrase"
-msgstr ""
+msgstr "Frase de contrasenya actual"
 
 msgid "New passphrase"
 msgstr "Nova contrasenya"
 
 msgid "Change OpenPGP passphrase"
-msgstr ""
+msgstr "Canvia la frase de contrasenya OpenPGP"
 
 msgid "Repeat new passphrase"
-msgstr ""
+msgstr "Repetiu la frase de contrasenya nova"
 
 msgid "Passphrase changed. Make a new private-key backup."
-msgstr ""
+msgstr "S'ha canviat la frase de contrasenya. Feu una còpia de seguretat nova de la clau privada."
 
 msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
-msgstr ""
+msgstr "La clau privada es torna a xifrar localment. Les còpies de seguretat existents continuen necessitant la seva frase de contrasenya original."
 
 msgid "Verify OpenPGP fingerprint"
-msgstr ""
+msgstr "Verifica l'empremta digital OpenPGP"
 
 msgid "Verified identities"
-msgstr ""
+msgstr "Identitats verificades"
 
 msgid "Email identity"
-msgstr ""
+msgstr "Identitat de correu"
 
 msgid "Confirm fingerprint"
-msgstr ""
+msgstr "Confirmeu l'empremta digital"
 
 msgid "Enter the full fingerprint shown above."
-msgstr ""
+msgstr "Introduïu l'empremta digital completa que es mostra a dalt."
 
 msgid "I verified this fingerprint"
-msgstr ""
+msgstr "He verificat aquesta empremta digital"
 
 msgid "Save verification"
-msgstr ""
+msgstr "Desa la verificació"
 
 msgid "Fingerprint verification updated."
-msgstr ""
+msgstr "S'ha actualitzat la verificació de l'empremta digital."
 
 msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
-msgstr ""
+msgstr "Compareu l'empremta digital completa amb el vostre contacte a través d'un canal de confiança independent. Si marqueu la casella, aquesta clau queda fixada per a l'adreça seleccionada; si la deixeu desmarcada, se n'elimina la verificació."
 
 msgid "All private keys in this browser tab are locked."
-msgstr ""
+msgstr "Totes les claus privades d'aquesta pestanya del navegador estan bloquejades."
 
 msgid "Delete OpenPGP key"
-msgstr ""
+msgstr "Suprimeix la clau OpenPGP"
 
 msgid "Type the full fingerprint to confirm deletion."
-msgstr ""
+msgstr "Escriviu l'empremta digital completa per confirmar la supressió."
 
 msgid "Delete key"
-msgstr ""
+msgstr "Suprimeix la clau"
 
 msgid "Key removed from your mailbox."
-msgstr ""
+msgstr "S'ha eliminat la clau de la vostra bústia."
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
-msgstr ""
+msgstr "Si suprimiu aquesta clau privada, no podreu llegir els missatges xifrats per a aquesta clau si no en teniu una còpia de seguretat. Feu una còpia de seguretat de la clau privada abans de continuar."
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr ""
+msgstr "Això elimina del vostre clauer la clau pública i les seves empremtes digitals verificades."
 
 msgid "Manage OpenPGP keyservers"
-msgstr ""
+msgstr "Gestiona els servidors de claus OpenPGP"
 
 msgid "HTTPS keyservers"
-msgstr ""
+msgstr "Servidors de claus HTTPS"
 
 msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
-msgstr ""
+msgstr "Introduïu un origen de servidor HTTPS per línia, sense camí, credencials ni consulta."
 
 msgid "Save keyservers"
-msgstr ""
+msgstr "Desa els servidors de claus"
 
 msgid "Keyservers updated."
-msgstr ""
+msgstr "S'han actualitzat els servidors de claus."
 
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
-msgstr ""
+msgstr "Només es poden utilitzar els servidors de claus HTTPS aprovats per l'administrador. Les cerques requereixen una empremta digital completa. Les claus no es pugen mai automàticament."
 
 msgid "Approved servers: "
-msgstr ""
+msgstr "Servidors aprovats: "
 
 msgid "Find OpenPGP public key"
-msgstr ""
+msgstr "Cerca una clau pública OpenPGP"
 
 msgid "Keyserver"
-msgstr ""
+msgstr "Servidor de claus"
 
 msgid "Full fingerprint"
-msgstr ""
+msgstr "Empremta digital completa"
 
 msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
-msgstr ""
+msgstr "Introduïu una empremta digital hexadecimal completa de 40 o 64 caràcters."
 
 msgid "Find and import"
-msgstr ""
+msgstr "Cerca i importa"
 
 msgid "The keyserver did not return the requested public key."
-msgstr ""
+msgstr "El servidor de claus no ha retornat la clau pública sol·licitada."
 
 msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr ""
+msgstr "S'ha importat la clau pública. Verifiqueu-ne l'empremta digital abans d'enviar missatges xifrats al seu propietari."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
-msgstr ""
+msgstr "El servidor rebrà l'empremta digital que cerqueu. Una clau descarregada encara necessita la verificació de l'empremta digital abans d'enviar missatges xifrats al seu propietari."
 
 msgid "Old passphrase"
 msgstr "Antiga frase de contrasenya"
@@ -8313,7 +8300,7 @@ msgid "PHP-CURL not installed"
 msgstr "PHP-CURL no instal·lat"
 
 msgid "Unknown backend"
-msgstr ""
+msgstr "Backend desconegut"
 
 msgid "Account is ready to use."
 msgstr "El compte està llest per utilitzar."
@@ -8328,10 +8315,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Aquest fitxer ja no està disponible. Torneu a carregar la carpeta."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "Aquest backend no admet la cerca de destinataris"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "No s'han pogut cercar els destinataris"
 
 msgid "Kendox certificate path is not configured."
 msgstr "El camí del certificat de Kendox no està configurat."
@@ -8353,7 +8340,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "S'ha produït un error inesperat. Poseu-vos en contacte amb l'administrador del sistema. Codi d'error: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "Aquest servidor no admet la gestió de carpetes compartides."
 
 msgid "No data received."
 msgstr "No s'han rebut dades."
@@ -8374,13 +8361,13 @@ msgid "Password has been changed successfully."
 msgstr "La contrasenya s'ha canviat correctament."
 
 msgid "The OpenPGP operation could not be completed."
-msgstr ""
+msgstr "No s'ha pogut completar l'operació d'OpenPGP."
 
 msgid "OpenPGP: message was not sent"
-msgstr ""
+msgstr "OpenPGP: el missatge no s'ha enviat"
 
 msgid "The OpenPGP message could not be read."
-msgstr ""
+msgstr "No s'ha pogut llegir el missatge OpenPGP."
 
 msgid "No certificate available"
 msgstr "No hi ha cap certificat disponible"
@@ -8407,13 +8394,13 @@ msgid "Unable to generate certs-only message"
 msgstr "No es pot generar un missatge només de certificats"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "No es pot llegir el missatge certs-only"
 
 msgid "LDAP not configured"
 msgstr "LDAP no configurat"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "Configuració LDAP no vàlida"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Falten certificats públics per als següents destinataris:"
@@ -8459,7 +8446,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "El certificat s'ha revocat, però s'ha importat."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "No s'ha pogut verificar l'estat de revocació del certificat. S'ha importat el certificat."
 
 msgid "Unable to read public certificate"
 msgstr "No es pot llegir el certificat públic"
@@ -8504,7 +8491,7 @@ msgid "Cannot store the category list in this mailbox."
 msgstr "No es pot desar la llista de categories en aquesta bústia."
 
 msgid "Cannot scan this mailbox for categories."
-msgstr ""
+msgstr "No es pot analitzar aquesta bústia per cercar-hi categories."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -8532,16 +8519,16 @@ msgid "%1$s of %2$s"
 msgstr "%1$sde%2$s"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "Actualment OpenPGP està desactivat o no està disponible. El vostre missatge no s'ha enviat. Activeu OpenPGP abans de tornar-ho a provar, o bé desactiveu explícitament la signatura i el xifratge."
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
-msgstr ""
+msgstr "S'han enviat massa missatges en poc temps. Espereu un moment i torneu a enviar el missatge."
 
 msgid "Message was not sent"
-msgstr ""
+msgstr "El missatge no s'ha enviat"
 
 msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "Aquest esborrany demana protecció OpenPGP, però no s'ha aplicat. El missatge no s'ha enviat. Activeu OpenPGP abans de tornar-ho a provar, o bé desactiveu explícitament la signatura i el xifratge."
 
 msgid "Error retrieving existing settings"
 msgstr "S'ha produït un error en recuperar la configuració existent"
@@ -8909,7 +8896,7 @@ msgid "Could not decline Task Request."
 msgstr "No s'ha pogut rebutjar la sol·licitud de tasca."
 
 msgid "Could not open the attachment."
-msgstr ""
+msgstr "No s'ha pogut obrir el fitxer adjunt."
 
 msgid "Conflicts with another appointment."
 msgstr "Conflictes amb una altra cita."
@@ -8927,7 +8914,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "No s'ha pogut contactar amb els destinataris següents"
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
+msgstr "L'administrador ha desactivat l'eliminació de fitxers adjunts."
 
 msgid "l, F j, Y g:i A"
 msgstr "l, j F, Y G:i"

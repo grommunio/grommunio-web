@@ -1709,7 +1709,7 @@ msgid "jS F Y"
 msgstr "j F Y"
 
 msgid "Online meeting"
-msgstr ""
+msgstr "Çevrimiçi toplantı"
 
 msgid "Attendees"
 msgstr "Katılımcılar"
@@ -1883,8 +1883,8 @@ msgstr "Bu klasördeki öğeleri silmek için yeterli yetkiniz yok."
 
 msgid "You have insufficient privileges to delete one of the selected items."
 msgid_plural "You have insufficient privileges to delete {0} of the selected items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Seçili öğelerden birini silmek için yeterli yetkiniz yok."
+msgstr[1] "Seçili öğelerden {0} tanesini silmek için yeterli yetkiniz yok."
 
 msgid "Notify recipients"
 msgstr "Alıcıları bilgilendir"
@@ -1923,10 +1923,10 @@ msgid "Recipient already exists."
 msgstr "Alıcı zaten mevcut."
 
 msgid "Remove attachment"
-msgstr ""
+msgstr "Eki kaldır"
 
 msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
-msgstr ""
+msgstr "\"{0}\" bu mesajdan kaldırılsın mı? Ek daha sonra geri getirilemez."
 
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "Bu e-postayı gönderen kişi okundu bilgisi talep etmiştir. Göndereni bilgilendirmek istiyor musunuz?"
@@ -1956,20 +1956,20 @@ msgid "Untitled"
 msgstr "Başlıksız"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "Ekler kaydedilemedi."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Şu ek kaydedilemedi: {0}"
+msgstr[1] "Şu ekler kaydedilemedi: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} ek kaydedildi."
+msgstr[1] "{0} ek kaydedildi."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "Ekleri kaydetme"
 
 msgid "Insert item"
 msgstr "Öğe ekle"
@@ -2017,7 +2017,7 @@ msgid "Preview"
 msgstr "Önizleme"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "İletişim kutusunda önizle"
 
 msgid "Download"
 msgstr "Indir"
@@ -2026,7 +2026,7 @@ msgid "Download all as ZIP"
 msgstr "Tümünü ZIP olarak indirin"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "Seçimi klasöre kaydet"
 
 msgid "Import to folder"
 msgstr "Klasöre aktar"
@@ -2038,10 +2038,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "ICS / VCS içe aktarma özelliğini kullanmak için Gromox'unuzu 0 veya daha yüksek bir sürüme yükseltin."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "grommunio Web sekmesinde önizle"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "Tarayıcı penceresinde önizle"
 
 msgid "Attachment error"
 msgstr "Eklenti hatası"
@@ -2238,7 +2238,7 @@ msgid "Folder '{0}' selected."
 msgstr "Klasör '{0}' seçildi."
 
 msgid "Suggested folders"
-msgstr ""
+msgstr "Önerilen klasörler"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "Seçili öğeler, farklı türde içerik barındırdığı için bu klasöre taşınamaz."
@@ -2436,7 +2436,7 @@ msgid "Redo the last undone action"
 msgstr "Geri alınan son eylemi yinele"
 
 msgid "Jump to the search box, press again for the browser search"
-msgstr ""
+msgstr "Arama kutusuna atla, tarayıcı araması için tekrar bas"
 
 msgid "Open the command palette"
 msgstr "Komut paletini aç"
@@ -2496,28 +2496,28 @@ msgid "Presentation"
 msgstr "Sunum"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Tam ekran"
 
 msgid "Previous page"
-msgstr ""
+msgstr "Önceki sayfa"
 
 msgid "Next page"
-msgstr ""
+msgstr "Sonraki sayfa"
 
 msgid "Page:"
-msgstr ""
+msgstr "Sayfa:"
 
 msgid "of {0}"
-msgstr ""
+msgstr "/ {0}"
 
 msgid "Zoom out"
-msgstr ""
+msgstr "Uzaklaştır"
 
 msgid "Zoom in"
-msgstr ""
+msgstr "Yakınlaştır"
 
 msgid "Zoom"
-msgstr ""
+msgstr "Yakınlaştırma"
 
 msgid "Automatic"
 msgstr "Otomatik"
@@ -2529,37 +2529,37 @@ msgid "Page width"
 msgstr "Sayfa genişliği"
 
 msgid "Rotate left"
-msgstr ""
+msgstr "Sola döndür"
 
 msgid "Rotate right"
-msgstr ""
+msgstr "Sağa döndür"
 
 msgid "This document could not be previewed."
-msgstr ""
+msgstr "Bu belge önizlenemedi."
 
 msgid "This file cannot be previewed."
-msgstr ""
+msgstr "Bu dosya önizlenemiyor."
 
 msgid "Download the file to open it with a program that can read it."
-msgstr ""
+msgstr "Dosyayı indirin ve onu okuyabilen bir programla açın."
 
 msgid "The document is empty."
-msgstr ""
+msgstr "Belge boş."
 
 msgid "This sheet is empty."
-msgstr ""
+msgstr "Bu çalışma sayfası boş."
 
 msgid "Showing the first {0} rows and {1} columns."
-msgstr ""
+msgstr "Yalnızca ilk {0} satır ve {1} sütun gösteriliyor."
 
 msgid "Wrap lines"
-msgstr ""
+msgstr "Satırları kaydır"
 
 msgid "Line numbers"
-msgstr ""
+msgstr "Satır numaraları"
 
 msgid "This message has no content."
-msgstr ""
+msgstr "Bu mesajın içeriği yok."
 
 msgid "grommunio Web print"
 msgstr "grommunio Web baskısı"
@@ -3428,19 +3428,19 @@ msgid "in"
 msgstr "içinde"
 
 msgid "Digitally sign this message"
-msgstr ""
+msgstr "Bu mesajı dijital olarak imzala"
 
 msgid "Encrypt this message"
-msgstr ""
+msgstr "Bu mesajı şifrele"
 
 msgid "Autosave is paused while encryption is selected."
-msgstr ""
+msgstr "Şifreleme seçiliyken otomatik kaydetme duraklatılır."
 
 msgid "Turn off {0} signing and encryption first."
-msgstr ""
+msgstr "Önce {0} imzalamayı ve şifrelemeyi kapatın."
 
 msgid "options"
-msgstr ""
+msgstr "seçenekleri"
 
 msgid "Sign"
 msgstr "İşaret"
@@ -4786,13 +4786,13 @@ msgid "You have insufficient privileges to move this folder. Would you like to c
 msgstr "Bu klasörü taşımak için yeterli ayrıcalığa sahip değilsiniz. Bunun yerine kopyalamak ister misiniz?"
 
 msgid "Enable OpenPGP before replying to this protected message."
-msgstr ""
+msgstr "Bu korumalı mesajı yanıtlamadan önce OpenPGP'yi etkinleştirin."
 
 msgid "The protected message could not be opened. No reply or forward was created."
-msgstr ""
+msgstr "Korumalı mesaj açılamadı. Yanıt veya iletme mesajı oluşturulmadı."
 
 msgid "Unable to open response"
-msgstr ""
+msgstr "Yanıt açılamadı"
 
 msgid "CC"
 msgstr "CC"
@@ -4961,13 +4961,13 @@ msgid "Filter"
 msgstr "Filtre"
 
 msgid "This browser cannot attach the decrypted file. Download it before forwarding."
-msgstr ""
+msgstr "Bu tarayıcı, şifresi çözülmüş dosyayı ekleyemiyor. İletmeden önce dosyayı indirin."
 
 msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
-msgstr ""
+msgstr "Şifresi çözülmüş bir ek, yükleme sınırlarını aşıyor. Eksik bir yanıt mesajı oluşturulmadı."
 
 msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
-msgstr ""
+msgstr "Şifresi çözülmüş bir ek yüklenemedi. Eksik bir yanıt mesajı oluşturulmadı."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -5048,7 +5048,7 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "gönderilemeyen e-postaları her {B} dakika {A}otomatik kaydet"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
-msgstr ""
+msgstr "Şifreleme seçiliyken de otomatik kaydet (taslaklar şifrelenmemiş olarak saklanır)"
 
 msgid "Conversation view settings"
 msgstr "Görüşme görünümü ayarları"
@@ -5502,7 +5502,7 @@ msgid "Auto"
 msgstr "Otomatik"
 
 msgid "Preview documents and files in grommunio Web"
-msgstr ""
+msgstr "Belgeleri ve dosyaları grommunio Web'de önizle"
 
 msgid "Document default zoom"
 msgstr "Varsayılan yakınlaştırma"
@@ -5511,10 +5511,10 @@ msgid "PDF zoom"
 msgstr "PDF yakınlaştırma"
 
 msgid "Dialog"
-msgstr ""
+msgstr "İletişim kutusu"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "Önizlemeyi şurada aç"
 
 msgid "File previewing"
 msgstr "Dosya önizleme"
@@ -5681,22 +5681,22 @@ msgid "Reset all settings to defaults"
 msgstr "Tüm ayarları varsayılanlara sıfırla"
 
 msgid "Migrate legacy categories"
-msgstr ""
+msgstr "Eski kategorileri taşı"
 
 msgid "This will scan all folders and migrate the categories assigned to items."
-msgstr ""
+msgstr "Bu işlem tüm klasörleri tarar ve öğelere atanmış kategorileri taşır."
 
 msgid "The legacy category settings will remain unchanged."
-msgstr ""
+msgstr "Eski kategori ayarları değişmeden kalacaktır."
 
 msgid "Migrate"
-msgstr ""
+msgstr "Taşı"
 
 msgid "Legacy categories migrated successfully."
-msgstr ""
+msgstr "Eski kategoriler başarıyla taşındı."
 
 msgid "Could not migrate legacy categories."
-msgstr ""
+msgstr "Eski kategoriler taşınamadı."
 
 msgid "Changes to assigned task"
 msgstr "Atanan görevde değişiklikler"
@@ -6231,7 +6231,7 @@ msgid "The response was interrupted and may be incomplete."
 msgstr "Yanıt kesildi ve eksik olabilir."
 
 msgid "The answer reached the output limit configured for this model and stops here."
-msgstr ""
+msgstr "Yanıt, bu model için yapılandırılan çıktı sınırına ulaştı ve burada sona eriyor."
 
 msgid "Insert at cursor"
 msgstr "İmleç konumuna ekle"
@@ -6660,7 +6660,7 @@ msgid "Create office document"
 msgstr "Ofis belgesi oluşturma"
 
 msgid "Preview file"
-msgstr ""
+msgstr "Dosyayı önizle"
 
 msgid "Download files"
 msgstr "Dosyaları indir"
@@ -6829,10 +6829,10 @@ msgid "Mobile Device Manager"
 msgstr "Mobil Cihaz Yöneticisi"
 
 msgid "Device removed"
-msgstr ""
+msgstr "Cihaz kaldırıldı"
 
 msgid "The device was not removed. Check your password and try again."
-msgstr ""
+msgstr "Cihaz kaldırılmadı. Şifrenizi kontrol edip tekrar deneyin."
 
 msgid "Wiping device"
 msgstr "Cihaz siliniyor"
@@ -7136,463 +7136,463 @@ msgid "Password is weak. Password should contain capital, non-capital letters an
 msgstr "Şifre zayıf. Şifre büyük, küçük harfler ve rakamlar içermelidir. Şifre 8 ila 20 karakterden oluşmalıdır."
 
 msgid "The OpenPGP request failed. Please try again."
-msgstr ""
+msgstr "OpenPGP isteği başarısız oldu. Lütfen tekrar deneyin."
 
 msgid "Working…"
-msgstr ""
+msgstr "İşleniyor…"
 
 msgid "The operation failed. Please try again."
-msgstr ""
+msgstr "İşlem başarısız oldu. Lütfen tekrar deneyin."
 
 msgid "Passphrase"
-msgstr ""
+msgstr "Parola"
 
 msgid "Unlock OpenPGP private key"
-msgstr ""
+msgstr "OpenPGP özel anahtarının kilidini aç"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Kilidi aç"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr ""
+msgstr "Parolanız ve kilidi açılan anahtar bu tarayıcı sekmesinde kalır. Anahtar, sınırlı bir süre sonra veya sekme kapandığında kendiliğinden kilitlenir. Parmak izi: "
 
 msgid "Set up OpenPGP"
-msgstr ""
+msgstr "OpenPGP kurulumu"
 
 msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
-msgstr ""
+msgstr "Mesajları imzalamak veya gönderilen şifreli kopyayı okunabilir tutmak için gönderen adresiyle eşleşen bir özel anahtar ekleyin. Mevcut bir anahtarı içe aktarabilir veya OpenPGP ayarlarında yeni bir anahtar oluşturabilirsiniz."
 
 msgid "Open key settings"
-msgstr ""
+msgstr "Anahtar ayarlarını aç"
 
 msgid "Choose OpenPGP key"
-msgstr ""
+msgstr "OpenPGP anahtarı seç"
 
 msgid "Private key"
-msgstr ""
+msgstr "Özel anahtar"
 
 msgid "Use key"
-msgstr ""
+msgstr "Anahtarı kullan"
 
 msgid "Private-key unlocking was cancelled."
-msgstr ""
+msgstr "Özel anahtarın kilidini açma işlemi iptal edildi."
 
 msgid "Key selection was cancelled."
-msgstr ""
+msgstr "Anahtar seçimi iptal edildi."
 
 msgid "Choose private key…"
-msgstr ""
+msgstr "Özel anahtar seç…"
 
 msgid "Manage OpenPGP keys…"
-msgstr ""
+msgstr "OpenPGP anahtarlarını yönet…"
 
 msgid "Lock private keys"
-msgstr ""
+msgstr "Özel anahtarları kilitle"
 
 msgid "Signing key: "
-msgstr ""
+msgstr "İmzalama anahtarı: "
 
 msgid "Decryption alone does not authenticate the sender."
-msgstr ""
+msgstr "Şifrenin çözülmüş olması tek başına gönderenin kimliğini doğrulamaz."
 
 msgid "OpenPGP security information"
-msgstr ""
+msgstr "OpenPGP güvenlik bilgileri"
 
 msgid "OpenPGP"
-msgstr ""
+msgstr "OpenPGP"
 
 msgid "OpenPGP signed or encrypted message"
-msgstr ""
+msgstr "OpenPGP ile imzalanmış veya şifrelenmiş mesaj"
 
 msgid "OpenPGP Plugin"
-msgstr ""
+msgstr "OpenPGP Eklentisi"
 
 msgid "The OpenPGP operation was cancelled."
-msgstr ""
+msgstr "OpenPGP işlemi iptal edildi."
 
 msgid "S/MIME and OpenPGP cannot protect the same message."
-msgstr ""
+msgstr "S/MIME ve OpenPGP aynı mesajı birlikte koruyamaz."
 
 msgid "Saving the OpenPGP draft timed out. Please retry."
-msgstr ""
+msgstr "OpenPGP taslağı kaydedilirken zaman aşımı oluştu. Lütfen tekrar deneyin."
 
 msgid "The draft could not be saved. Nothing was sent."
-msgstr ""
+msgstr "Taslak kaydedilemedi. Hiçbir şey gönderilmedi."
 
 msgid "The sender or message protection changed. Please send again."
-msgstr ""
+msgstr "Gönderen veya mesaj koruması değişti. Lütfen yeniden gönderin."
 
 msgid "The selected private key is not valid for this sender and protection mode."
-msgstr ""
+msgstr "Seçilen özel anahtar bu gönderen ve koruma modu için geçerli değil."
 
 msgid "A matching, passphrase-protected private key is required."
-msgstr ""
+msgstr "Eşleşen ve parolayla korunan bir özel anahtar gerekiyor."
 
 msgid "A recipient key is invalid, expired or does not match its email address."
-msgstr ""
+msgstr "Bir alıcı anahtarı geçersiz, süresi dolmuş veya e-posta adresiyle eşleşmiyor."
 
 msgid "No verified recipient keys are available."
-msgstr ""
+msgstr "Kullanılabilecek doğrulanmış alıcı anahtarı yok."
 
 msgid "This message is too large for browser OpenPGP processing."
-msgstr ""
+msgstr "Bu mesaj, tarayıcıda OpenPGP ile işlenmek için çok büyük."
 
 msgid "Message protection changed while preparing the message. Please send again."
-msgstr ""
+msgstr "Mesaj hazırlanırken mesaj koruması değişti. Lütfen yeniden gönderin."
 
 msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
-msgstr ""
+msgstr "Korumalı mesaj {0} MB, bu sunucunun tek bir istekte kabul ettiği boyuttan ({1} MB) daha büyük. Ekleri kaldırın veya yöneticiden yükleme sınırını yükseltmesini isteyin."
 
 msgid "The attachment archive is too large."
-msgstr ""
+msgstr "Ek arşivi çok büyük."
 
 msgid "Unlock the message again to download this attachment."
-msgstr ""
+msgstr "Bu eki indirmek için mesajın kilidini yeniden açın."
 
 msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
-msgstr ""
+msgstr "Bu mesaj, OpenPGP'nin açamadığı iç içe bir S/MIME koruması içeriyor."
 
 msgid "Too many nested OpenPGP envelopes."
-msgstr ""
+msgstr "Çok fazla iç içe OpenPGP zarfı var."
 
 msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
-msgstr ""
+msgstr "İmza geçersiz ya da imzalayanın genel anahtarı mevcut değil. Bu gönderen kimliğine güvenmeyin."
 
 msgid "The private key was locked while opening this message."
-msgstr ""
+msgstr "Bu mesaj açılırken özel anahtar kilitlendi."
 
 msgid "This message contains too many attachments."
-msgstr ""
+msgstr "Bu mesaj çok fazla ek içeriyor."
 
 msgid "The decoded attachments are too large."
-msgstr ""
+msgstr "Çözümlenen ekler çok büyük."
 
 msgid "The OpenPGP operation failed."
-msgstr ""
+msgstr "OpenPGP işlemi başarısız oldu."
 
 msgid "OpenPGP: checking message security…"
-msgstr ""
+msgstr "OpenPGP: mesaj güvenliği denetleniyor…"
 
 msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
-msgstr ""
+msgstr "Şifreli mesaj MIME zarfı olmadan saklanmış — eki kaydedin ve bir OpenPGP aracıyla şifresini çözün"
 
 msgid "Signed message stored without its original MIME — the signature cannot be verified"
-msgstr ""
+msgstr "İmzalı mesaj özgün MIME verisi olmadan saklanmış — imza doğrulanamaz"
 
 msgid "Message decrypted"
-msgstr ""
+msgstr "Mesajın şifresi çözüldü"
 
 msgid "Message could not be decrypted — click for details or retry"
-msgstr ""
+msgstr "Mesajın şifresi çözülemedi — ayrıntılar veya yeniden deneme için tıklayın"
 
 msgid "Encrypted message — unlock your private key to read"
-msgstr ""
+msgstr "Şifreli mesaj — okumak için özel anahtarınızın kilidini açın"
 
 msgid "Signature could not be verified"
 msgstr "İmza doğrulanamadı"
 
 msgid "Valid signature, but the signing key does not match the sender"
-msgstr ""
+msgstr "Geçerli imza, ancak imzalama anahtarı gönderenle eşleşmiyor"
 
 msgid "Valid signature — sender fingerprint has not been verified"
-msgstr ""
+msgstr "Geçerli imza — gönderenin parmak izi doğrulanmadı"
 
 msgid "Valid signature from a verified sender"
-msgstr ""
+msgstr "Doğrulanmış bir gönderenden geçerli imza"
 
 msgid "The signing key has since expired"
-msgstr ""
+msgstr "İmzalama anahtarının süresi daha sonra dolmuş"
 
 msgid "Message is not signed"
-msgstr ""
+msgstr "Mesaj imzalanmamış"
 
 msgid "Inline OpenPGP protects the body only; attachments are not covered"
-msgstr ""
+msgstr "Satır içi OpenPGP yalnızca mesaj gövdesini korur; ekler kapsam dışındadır"
 
 msgid "Unprotected text after the OpenPGP block is not shown"
-msgstr ""
+msgstr "OpenPGP bloğundan sonraki korumasız metin gösterilmez"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr ""
+msgstr "Genel anahtarlarınız yüklenemedi, bu nedenle imzalar denetlenemedi"
 
 msgid "Security information"
-msgstr ""
+msgstr "Güvenlik bilgileri"
 
 msgid "Choose when composing"
-msgstr ""
+msgstr "Mesaj yazarken seç"
 
 msgid "Personal and public keys"
-msgstr ""
+msgstr "Kişisel ve genel anahtarlar"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr ""
+msgstr "Anahtarlarınız posta kutunuzda saklanır. Özel anahtarlar parolayla korunmaya devam eder; imzalama, şifreleme ve kilit açma bu tarayıcıda gerçekleşir. Kişilerinizin parmak izlerini ayrı ve güvenilir bir kanal üzerinden doğrulayın. Anahtar değişiklikleri anında geçerli olur."
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
-msgstr ""
+msgstr "OpenPGP anahtarı yok. Başlamak için bir anahtar içe aktarın veya oluşturun."
 
 msgid "Identity"
-msgstr ""
+msgstr "Kimlik"
 
 msgid "Fingerprint"
-msgstr ""
+msgstr "Parmak izi"
 
 msgid "Public key"
-msgstr ""
+msgstr "Genel anahtar"
 
 msgid "Revoked"
-msgstr ""
+msgstr "İptal edilmiş"
 
 msgid "Expired"
-msgstr ""
+msgstr "Süresi dolmuş"
 
 msgid "Fingerprint verified"
-msgstr ""
+msgstr "Parmak izi doğrulanmış"
 
 msgid "Not verified"
-msgstr ""
+msgstr "Doğrulanmamış"
 
 msgid "Unlocked"
-msgstr ""
+msgstr "Kilidi açık"
 
 msgid "Locked"
-msgstr ""
+msgstr "Kilitli"
 
 msgid "Expires"
 msgstr "Süre sonu"
 
 msgid "No expiry"
-msgstr ""
+msgstr "Süre sonu yok"
 
 msgid "Generate key"
-msgstr ""
+msgstr "Anahtar oluştur"
 
 msgid "Import key"
-msgstr ""
+msgstr "Anahtar içe aktar"
 
 msgid "Find public key"
-msgstr ""
+msgstr "Genel anahtar bul"
 
 msgid "Details / verify"
-msgstr ""
+msgstr "Ayrıntılar / doğrula"
 
 msgid "Export public key"
-msgstr ""
+msgstr "Genel anahtarı dışa aktar"
 
 msgid "Back up private key"
-msgstr ""
+msgstr "Özel anahtarı yedekle"
 
 msgid "Unlock in this browser"
-msgstr ""
+msgstr "Bu tarayıcıda kilidi aç"
 
 msgid "Change passphrase"
 msgstr "Parolayı değiştir"
 
 msgid "Lock all"
-msgstr ""
+msgstr "Tümünü kilitle"
 
 msgid "Default private key"
-msgstr ""
+msgstr "Varsayılan özel anahtar"
 
 msgid "Sign new messages by default"
-msgstr ""
+msgstr "Yeni mesajları varsayılan olarak imzala"
 
 msgid "Encrypt new messages by default"
-msgstr ""
+msgstr "Yeni mesajları varsayılan olarak şifrele"
 
 msgid "Manage keyservers"
-msgstr ""
+msgstr "Anahtar sunucularını yönet"
 
 msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
-msgstr ""
+msgstr "Mesaj yazma varsayılanları yalnızca yeni OpenPGP mesajları için geçerlidir. S/MIME ve OpenPGP aynı mesajda birlikte kullanılamaz."
 
 msgid "Generate OpenPGP key"
-msgstr ""
+msgstr "OpenPGP anahtarı oluştur"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "Algoritma"
 
 msgid "Expires in"
-msgstr ""
+msgstr "Geçerlilik süresi"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 yıl"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 yıl"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 yıl"
 
 msgid "Repeat passphrase"
-msgstr ""
+msgstr "Parola tekrarı"
 
 msgid "Passphrases do not match."
-msgstr ""
+msgstr "Parolalar eşleşmiyor."
 
 msgid "Generate"
-msgstr ""
+msgstr "Oluştur"
 
 msgid "Key created. Back up the private key and store its passphrase separately."
-msgstr ""
+msgstr "Anahtar oluşturuldu. Özel anahtarı yedekleyin ve parolasını ayrı bir yerde saklayın."
 
 msgid "Revocation certificate — keep secure"
-msgstr ""
+msgstr "İptal sertifikası — güvenli saklayın"
 
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
-msgstr ""
+msgstr "En az 12 karakterden oluşan güçlü bir parola seçin. Anahtar oluşturma bu tarayıcıda yerel olarak çalışır ve biraz zaman alabilir. İptal sertifikasını ve özel anahtar yedeğini güvenli bir yerde saklayın."
 
 msgid "Import OpenPGP key"
-msgstr ""
+msgstr "OpenPGP anahtarı içe aktar"
 
 msgid "Choose armored OpenPGP key file"
-msgstr ""
+msgstr "ASCII zırhlı OpenPGP anahtar dosyasını seçin"
 
 msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr ""
+msgstr "Anahtar dosyası çok büyük. Maksimum boyut: 1 MiB."
 
 msgid "The key file could not be read."
-msgstr ""
+msgstr "Anahtar dosyası okunamadı."
 
 msgid "Armored key"
-msgstr ""
+msgstr "Zırhlı anahtar"
 
 msgid "Protect unencrypted key"
-msgstr ""
+msgstr "Korumasız anahtar parolası"
 
 msgid "Optional: new passphrase for an unprotected private key"
-msgstr ""
+msgstr "İsteğe bağlı: korumasız özel anahtar için yeni parola"
 
 msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr ""
+msgstr "Anahtar içe aktarıldı. Alıcılara şifreli mesaj göndermeden önce parmak izlerini doğrulayın."
 
 msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr ""
+msgstr "Bir dosya seçin veya BEGIN ve END satırları dahil olmak üzere tek bir ASCII zırhlı anahtar yapıştırın. Korumasız bir özel anahtar için, saklanmadan önce anahtarı yerel olarak korumak üzere yeni bir parola girin. İçe aktarılan alıcı anahtarları otomatik olarak güvenilir sayılmaz."
 
 msgid "Public OpenPGP key"
-msgstr ""
+msgstr "Genel OpenPGP anahtarı"
 
 msgid "Back up private OpenPGP key"
-msgstr ""
+msgstr "Özel OpenPGP anahtarını yedekle"
 
 msgid "Create backup"
-msgstr ""
+msgstr "Yedek oluştur"
 
 msgid "Private key backup — keep secure"
-msgstr ""
+msgstr "Özel anahtar yedeği — güvenli saklayın"
 
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
-msgstr ""
+msgstr "Bu şifreli özel anahtar yedeğini indirmeden önce parolanızı yerel olarak onaylayın. Yedeği güvenli bir yerde saklayın ve hiçbir alıcıya veya anahtar sunucusuna göndermeyin."
 
 msgid "Current passphrase"
-msgstr ""
+msgstr "Mevcut parola"
 
 msgid "New passphrase"
 msgstr "Yeni parola"
 
 msgid "Change OpenPGP passphrase"
-msgstr ""
+msgstr "OpenPGP parolasını değiştir"
 
 msgid "Repeat new passphrase"
-msgstr ""
+msgstr "Yeni parola tekrarı"
 
 msgid "Passphrase changed. Make a new private-key backup."
-msgstr ""
+msgstr "Parola değiştirildi. Yeni bir özel anahtar yedeği oluşturun."
 
 msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
-msgstr ""
+msgstr "Özel anahtar yerel olarak yeniden şifrelenir. Mevcut yedekler için hâlâ kendi özgün parolaları gerekir."
 
 msgid "Verify OpenPGP fingerprint"
-msgstr ""
+msgstr "OpenPGP parmak izini doğrula"
 
 msgid "Verified identities"
-msgstr ""
+msgstr "Doğrulanmış kimlikler"
 
 msgid "Email identity"
-msgstr ""
+msgstr "E-posta kimliği"
 
 msgid "Confirm fingerprint"
-msgstr ""
+msgstr "Parmak izi onayı"
 
 msgid "Enter the full fingerprint shown above."
-msgstr ""
+msgstr "Yukarıda gösterilen parmak izinin tamamını girin."
 
 msgid "I verified this fingerprint"
-msgstr ""
+msgstr "Bu parmak izini doğruladım"
 
 msgid "Save verification"
-msgstr ""
+msgstr "Doğrulamayı kaydet"
 
 msgid "Fingerprint verification updated."
-msgstr ""
+msgstr "Parmak izi doğrulaması güncellendi."
 
 msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
-msgstr ""
+msgstr "Parmak izinin tamamını, ayrı ve güvenilir bir kanal üzerinden ilgili kişiyle karşılaştırın. Kutuyu işaretlemek bu anahtarı seçilen adrese sabitler; işaretsiz bırakmak ise bu doğrulamayı kaldırır."
 
 msgid "All private keys in this browser tab are locked."
-msgstr ""
+msgstr "Bu tarayıcı sekmesindeki tüm özel anahtarlar artık kilitli."
 
 msgid "Delete OpenPGP key"
-msgstr ""
+msgstr "OpenPGP anahtarını sil"
 
 msgid "Type the full fingerprint to confirm deletion."
-msgstr ""
+msgstr "Silmeyi onaylamak için parmak izinin tamamını yazın."
 
 msgid "Delete key"
-msgstr ""
+msgstr "Anahtarı sil"
 
 msgid "Key removed from your mailbox."
-msgstr ""
+msgstr "Anahtar posta kutunuzdan kaldırıldı."
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
-msgstr ""
+msgstr "Bu özel anahtarı silerseniz, yedeğiniz yoksa bu anahtar için şifrelenmiş mesajları okuyamazsınız. Devam etmeden önce bir özel anahtar yedeği oluşturun."
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr ""
+msgstr "Bu işlem, genel anahtarı ve doğrulanmış parmak izlerini anahtarlığınızdan kaldırır."
 
 msgid "Manage OpenPGP keyservers"
-msgstr ""
+msgstr "OpenPGP anahtar sunucularını yönet"
 
 msgid "HTTPS keyservers"
-msgstr ""
+msgstr "HTTPS anahtar sunucuları"
 
 msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
-msgstr ""
+msgstr "Her satıra yol, kimlik bilgisi veya sorgu içermeyen tek bir HTTPS sunucu kökeni girin."
 
 msgid "Save keyservers"
-msgstr ""
+msgstr "Anahtar sunucularını kaydet"
 
 msgid "Keyservers updated."
-msgstr ""
+msgstr "Anahtar sunucuları güncellendi."
 
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
-msgstr ""
+msgstr "Yalnızca yönetici tarafından onaylanan HTTPS anahtar sunucuları kullanılabilir. Aramalar için parmak izinin tamamı gerekir. Anahtarlar hiçbir zaman otomatik olarak sunucuya yüklenmez."
 
 msgid "Approved servers: "
-msgstr ""
+msgstr "Onaylanan sunucular: "
 
 msgid "Find OpenPGP public key"
-msgstr ""
+msgstr "OpenPGP genel anahtarı bul"
 
 msgid "Keyserver"
-msgstr ""
+msgstr "Anahtar sunucusu"
 
 msgid "Full fingerprint"
-msgstr ""
+msgstr "Tam parmak izi"
 
 msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
-msgstr ""
+msgstr "40 veya 64 karakterden oluşan eksiksiz bir onaltılık parmak izi girin."
 
 msgid "Find and import"
-msgstr ""
+msgstr "Bul ve içe aktar"
 
 msgid "The keyserver did not return the requested public key."
-msgstr ""
+msgstr "Anahtar sunucusu istenen genel anahtarı döndürmedi."
 
 msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr ""
+msgstr "Genel anahtar içe aktarıldı. Sahibine şifreli mesaj göndermeden önce parmak izini doğrulayın."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
-msgstr ""
+msgstr "Sunucu, aradığınız parmak izini alacaktır. İndirilen bir anahtarın, sahibine şifreli mesaj göndermeden önce yine de parmak izi doğrulamasından geçmesi gerekir."
 
 msgid "Old passphrase"
 msgstr "Eski parola"
@@ -8300,7 +8300,7 @@ msgid "PHP-CURL not installed"
 msgstr "PHP-CURL yüklü değil"
 
 msgid "Unknown backend"
-msgstr ""
+msgstr "Bilinmeyen arka uç"
 
 msgid "Account is ready to use."
 msgstr "Hesap kullanıma hazırdır."
@@ -8315,10 +8315,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Bu dosya artık mevcut değil. Lütfen klasörü yeniden yükleyin."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "Alıcı araması bu arka uç tarafından desteklenmiyor"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "Alıcılar aranamadı"
 
 msgid "Kendox certificate path is not configured."
 msgstr "Kendox sertifika yolu yapılandırılmamış."
@@ -8340,7 +8340,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "Beklenmeyen bir hata oluştu. Lütfen sistem yöneticinize başvurun. Hata kodu: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "Paylaşılan klasörleri yönetme bu sunucu tarafından desteklenmiyor."
 
 msgid "No data received."
 msgstr "Veri alınamadı."
@@ -8361,13 +8361,13 @@ msgid "Password has been changed successfully."
 msgstr "Şifre başarıyla değiştirildi."
 
 msgid "The OpenPGP operation could not be completed."
-msgstr ""
+msgstr "OpenPGP işlemi tamamlanamadı."
 
 msgid "OpenPGP: message was not sent"
-msgstr ""
+msgstr "OpenPGP: mesaj gönderilmedi"
 
 msgid "The OpenPGP message could not be read."
-msgstr ""
+msgstr "OpenPGP mesajı çözümlenemedi."
 
 msgid "No certificate available"
 msgstr "Sertifika mevcut değil"
@@ -8394,13 +8394,13 @@ msgid "Unable to generate certs-only message"
 msgstr "Yalnızca certs iletisi oluşturulamıyor"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "certs-only mesajı okunamıyor"
 
 msgid "LDAP not configured"
 msgstr "LDAP yapılandırılmamış"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "Geçersiz LDAP yapılandırması"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Aşağıdaki alıcılar için eksik kamu sertifikaları: "
@@ -8446,7 +8446,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "Sertifika iptal edildi, ancak içe aktarıldı."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "Sertifikanın iptal durumu doğrulanamadı. Sertifika içe aktarıldı."
 
 msgid "Unable to read public certificate"
 msgstr "Genel sertifika okunamıyor"
@@ -8491,7 +8491,7 @@ msgid "Cannot store the category list in this mailbox."
 msgstr "Kategori listesi bu posta kutusuna kaydedilemiyor."
 
 msgid "Cannot scan this mailbox for categories."
-msgstr ""
+msgstr "Bu posta kutusu kategoriler için taranamıyor."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -8519,16 +8519,16 @@ msgid "%1$s of %2$s"
 msgstr "%1$s - %2$s"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "OpenPGP şu anda devre dışı veya kullanılamıyor. Mesajınız gönderilmedi. Yeniden denemeden önce OpenPGP'yi etkinleştirin ya da imzalamayı ve şifrelemeyi açıkça kapatın."
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
-msgstr ""
+msgstr "Kısa süre içinde çok fazla mesaj gönderildi. Lütfen biraz bekleyip yeniden gönderin."
 
 msgid "Message was not sent"
-msgstr ""
+msgstr "Mesaj gönderilmedi"
 
 msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "Bu taslak OpenPGP koruması istiyor, ancak koruma uygulanmadı. Mesaj gönderilmedi. Yeniden denemeden önce OpenPGP'yi etkinleştirin ya da imzalamayı ve şifrelemeyi açıkça kapatın."
 
 msgid "Error retrieving existing settings"
 msgstr "Mevcut ayarlar alınırken hata oluştu"
@@ -8896,7 +8896,7 @@ msgid "Could not decline Task Request."
 msgstr "Görev Talebi reddedilemedi."
 
 msgid "Could not open the attachment."
-msgstr ""
+msgstr "Ek açılamadı."
 
 msgid "Conflicts with another appointment."
 msgstr "Başka bir randevu ile çakışıyor."
@@ -8914,7 +8914,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "Aşağıdaki alıcı (lar) ulaşılamadı"
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
+msgstr "Ek kaldırma özelliği yönetici tarafından devre dışı bırakıldı."
 
 msgid "l, F j, Y g:i A"
 msgstr "l, j F Y G:i"

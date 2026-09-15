@@ -322,7 +322,6 @@ msgstr "αληθές"
 msgid "false"
 msgstr "ψευδές"
 
-#, fuzzy
 msgid "This field should be an e-mail address in the format \"user@example.com\""
 msgstr "Αυτό το πεδίο πρέπει να είναι μια διεύθυνση ηλεκτρονικού ταχυδρομείου με τη μορφή \"user@example.com\""
 
@@ -485,7 +484,6 @@ msgstr "Αντιγραφή επαφών"
 msgid "Address book"
 msgstr "Βιβλίο διευθύνσεων"
 
-#, fuzzy
 msgid "Showing only the first {0} names. Use search to find more specific results."
 msgstr "Εμφάνιση μόνο των πρώτων {0} ονομάτων. Χρησιμοποιήστε την αναζήτηση για να βρείτε πιο συγκεκριμένα αποτελέσματα."
 
@@ -758,9 +756,8 @@ msgstr "Φόρτωση αποτελεσμάτων αναζήτησης"
 msgid "Sorting tip"
 msgstr "Συμβουλή ταξινόμησης"
 
-#, fuzzy
 msgid "You can sort by date if you narrow down your search results. Enable filters or adjust your input."
-msgstr "Μπορείτε να ταξινομήσετε ανά ημερομηνία, αν περιορίσετε τα αποτελέσματα της αναζήτησής σας. Ενεργοποιήστε τα φίλτρα ή προσαρμόστε την εισαγωγή σας."
+msgstr "Μπορείτε να ταξινομήσετε κατά ημερομηνία, αν περιορίσετε τα αποτελέσματα της αναζήτησής σας. Ενεργοποιήστε τα φίλτρα ή προσαρμόστε τους όρους αναζήτησής σας."
 
 msgid "Did you mean"
 msgstr "Εννοείτε"
@@ -784,13 +781,11 @@ msgstr "Ο διοργανωτής της συνάντησης θα ενημερ�
 msgid "Error"
 msgstr "Σφάλμα"
 
-#, fuzzy
 msgid "Could not accept proposal as this meeting is not available in calendar; It may have been moved or deleted."
-msgstr "Δεν ήταν δυνατή η αποδοχή της πρότασης, καθώς η εν λόγω συνεδρίαση δεν είναι διαθέσιμη στο ημερολόγιο- ενδέχεται να έχει μετακινηθεί ή διαγραφεί."
+msgstr "Δεν ήταν δυνατή η αποδοχή της πρότασης, καθώς αυτή η συνάντηση δεν είναι διαθέσιμη στο ημερολόγιο. Ενδέχεται να έχει μετακινηθεί ή διαγραφεί."
 
-#, fuzzy
 msgid "Could not view proposal as this meeting is not available in calendar; It may have been moved or deleted."
-msgstr "Δεν ήταν δυνατή η προβολή της πρότασης, καθώς αυτή η συνάντηση δεν είναι διαθέσιμη στο ημερολόγιο- ενδέχεται να έχει μετακινηθεί ή διαγραφεί."
+msgstr "Δεν ήταν δυνατή η προβολή της πρότασης, καθώς αυτή η συνάντηση δεν είναι διαθέσιμη στο ημερολόγιο. Ενδέχεται να έχει μετακινηθεί ή διαγραφεί."
 
 msgid "Required"
 msgstr "Απαιτείται"
@@ -1017,7 +1012,6 @@ msgstr "Κάνε Κράτηση"
 msgid "Create in other calendar"
 msgstr "Δημιουργία σε άλλο ημερολόγιο"
 
-#, fuzzy
 msgid "The selected calendar has \"read-only\" permissions. Instead you can create an item in your own calendar."
 msgstr "Το επιλεγμένο ημερολόγιο έχει δικαιώματα \"μόνο για ανάγνωση\". Αντ' αυτού, μπορείτε να δημιουργήσετε ένα στοιχείο στο δικό σας ημερολόγιο."
 
@@ -1046,7 +1040,6 @@ msgstr "Προς ή cc"
 msgid "Meeting"
 msgstr "Συνάντηση"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "Έχουν προγραμματιστεί πόροι"
@@ -1069,9 +1062,8 @@ msgstr "Δεν έχετε δικαίωμα να διαγράψετε αυτό τ
 msgid "Send update to attendees"
 msgstr "Αποστολή ενημέρωσης στους συμμετέχοντες"
 
-#, fuzzy
 msgid "You have made changes to the list of attendees. What would you like to do?"
-msgstr "Έχετε κάνει αλλαγές στη λίστα των συμμετεχόντων. Τι θα θέλατε να κάνετε"
+msgstr "Έχετε κάνει αλλαγές στη λίστα των συμμετεχόντων. Τι θα θέλατε να κάνετε;"
 
 msgid "Send updates to only added or deleted attendees."
 msgstr "Στείλτε ενημερώσεις μόνο σε προστιθέμενους ή διαγραμμένους συμμετέχοντες."
@@ -1091,80 +1083,65 @@ msgstr "Χρονοδρομολόγηση"
 msgid "Tracking"
 msgstr "Παρακολούθηση"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
 msgstr "Δεν μπόρεσαν να επιλυθούν όλοι οι συμμετέχοντες."
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
-msgstr "{0} συμμετέχοντες αποδεκτοί, {1} προσωρινά αποδεκτοί, {2} απορριπτόμενοι."
+msgstr "{0} συμμετέχοντες αποδέχθηκαν, {1} αποδέχθηκαν προσωρινά, {2} απέρριψαν."
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "{0} attendees proposed a new time for this meeting. Click the Scheduling tab for details."
-msgstr "{0} οι παρευρισκόμενοι πρότειναν νέα ώρα για τη συνάντηση αυτή. Κάντε κλικ στην καρτέλα Προγραμματισμός για λεπτομέρειες."
+msgstr "{0} συμμετέχοντες πρότειναν νέα ώρα για τη συνάντηση αυτή. Κάντε κλικ στην καρτέλα «Χρονοδρομολόγηση» για λεπτομέρειες."
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
 msgstr "Προτείνατε νέα ώρα για τη συνάντηση αυτή στις {0}"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
 msgstr "{0} πρότεινε νέα ώρα για τη συνάντηση αυτή στις {1}"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
 msgstr "Αποδεκτή στις {0}"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Accepted by {0} on {1}"
-msgstr "Αποδεκτό από {0} στις {1}"
+msgstr "Αποδεκτή από {0} στις {1}"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
 msgstr "Προσωρινά αποδεκτή στις {0}"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
 msgstr "Προσωρινά αποδεκτή από {0} στις {1}"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
-msgstr "Αυτό το ραντεβού πραγματοποιείται στο παρελθόν."
+msgstr "Αυτό το ραντεβού βρίσκεται στο παρελθόν."
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Please respond."
 msgstr "Παρακαλώ απαντήστε."
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "No responses have been received for this meeting."
-msgstr "Δεν ελήφθησαν απαντήσεις για την παρούσα συνεδρίαση."
+msgstr "Δεν έχουν ληφθεί απαντήσεις για αυτή τη συνάντηση."
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Meeting has been canceled."
 msgstr "Η συνάντηση ακυρώθηκε."
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Invitations have not been sent for this meeting."
 msgstr "Δεν έχουν αποσταλεί προσκλήσεις για τη συνάντηση αυτή."
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer"
-msgstr "Λάβετε υπόψη ότι τυχόν αλλαγές που θα κάνετε θα αντικατασταθούν όταν το αίτημα σύσκεψης ενημερωθεί από τον διοργανωτή"
+msgstr "Λάβετε υπόψη ότι τυχόν αλλαγές που θα κάνετε θα αντικατασταθούν όταν το αίτημα συνάντησης ενημερωθεί από τον διοργανωτή"
 
 msgid "Show as"
 msgstr "Προβολή ως"
@@ -1196,9 +1173,8 @@ msgstr "Πληκτρολογήστε το μήνυμα σας εδώ…"
 msgid "Update location"
 msgstr "Ενημέρωση τοποθεσίας"
 
-#, fuzzy
 msgid "Do you want to update the location \"{0}\" with the new location \"{1}\"?"
-msgstr "Θέλετε να ενημερώσετε τη θέση \"{0}\" με τη νέα θέση \"{1}\""
+msgstr "Θέλετε να ενημερώσετε την τοποθεσία \"{0}\" με τη νέα τοποθεσία \"{1}\";"
 
 msgid "{0} more notice"
 msgid_plural "{0} more notices"
@@ -1315,9 +1291,8 @@ msgstr "Σχόλιο"
 msgid "Send Meeting Request Cancellation"
 msgstr "Αποστολή αιτήματος ακύρωσης συνάντησης"
 
-#, fuzzy
 msgid "This meeting will be cancelled. Do you want to include comments with your cancellation?"
-msgstr "Η συνεδρίαση αυτή θα ακυρωθεί. Θέλετε να συμπεριλάβετε σχόλια στην ακύρωση"
+msgstr "Αυτή η συνάντηση θα ακυρωθεί. Θέλετε να συμπεριλάβετε σχόλια στην ακύρωση;"
 
 msgid "Edit the cancellation before Sending."
 msgstr "Επεξεργαστείτε την ακύρωση πριν από την αποστολή."
@@ -1331,17 +1306,14 @@ msgstr "Στείλτε την ακύρωση τώρα."
 msgid "Send Meeting Request Confirmation"
 msgstr "Αποστολή επιβεβαίωσης αιτήματος συνάντησης"
 
-#, fuzzy
 msgid "This meeting will be accepted and moved to your calendar. Do you want to include comments with your response?"
-msgstr "Αυτή η συνάντηση θα γίνει δεκτή και θα μεταφερθεί στο ημερολόγιό σας. Θέλετε να συμπεριλάβετε σχόλια στην απάντησή σας"
+msgstr "Αυτή η συνάντηση θα γίνει δεκτή και θα μεταφερθεί στο ημερολόγιό σας. Θέλετε να συμπεριλάβετε σχόλια στην απάντησή σας;"
 
-#, fuzzy
 msgid "This meeting will be tentatively accepted and moved to your calendar. Do you want to include comments with your response?"
-msgstr "Αυτή η συνάντηση θα γίνει προσωρινά αποδεκτή και θα μεταφερθεί στο ημερολόγιό σας. Θέλετε να συμπεριλάβετε σχόλια στην απάντησή σας"
+msgstr "Αυτή η συνάντηση θα γίνει προσωρινά αποδεκτή και θα μεταφερθεί στο ημερολόγιό σας. Θέλετε να συμπεριλάβετε σχόλια στην απάντησή σας;"
 
-#, fuzzy
 msgid "This meeting will be declined and moved to your Deleted Items folder. Do you want to include comments with your response?"
-msgstr "Αυτή η συνάντηση θα απορριφθεί και θα μεταφερθεί στο φάκελο Διαγραμμένα στοιχεία. Θέλετε να συμπεριλάβετε σχόλια στην απάντησή σας"
+msgstr "Αυτή η συνάντηση θα απορριφθεί και θα μεταφερθεί στο φάκελο Διαγραμμένα στοιχεία. Θέλετε να συμπεριλάβετε σχόλια στην απάντησή σας;"
 
 msgid "Edit the response before sending"
 msgstr "Επεξεργαστείτε την απάντηση πριν την αποστολή"
@@ -1651,17 +1623,14 @@ msgstr "Λίστα ραντεβού"
 msgid "Loading appointments"
 msgstr "Φόρτωση ραντεβού"
 
-#, fuzzy
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Δεν έχετε επαρκή δικαιώματα για να μετακινήσετε και να αντιγράψετε αυτό το στοιχείο. Ζητήστε από τον ιδιοκτήτη του φακέλου να σας χορηγήσει δικαιώματα ή επικοινωνήστε με το διαχειριστή του συστήματός σας."
 
-#, fuzzy
 msgid "You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Δεν έχετε επαρκή δικαιώματα για να αντιγράψετε αυτό το στοιχείο. Ζητήστε από τον ιδιοκτήτη του φακέλου να σας χορηγήσει δικαιώματα ή επικοινωνήστε με το διαχειριστή του συστήματός σας."
 
-#, fuzzy
 msgid "Copying this appointment will unset it as private. Are you sure you want to continue?"
-msgstr "Αντιγράφοντας αυτό το ραντεβού θα το ακυρώσετε ως ιδιωτικό. Είστε σίγουροι ότι θέλετε να συνεχίσετε"
+msgstr "Η αντιγραφή αυτού του ραντεβού θα καταργήσει τον χαρακτηρισμό του ως ιδιωτικού. Είστε σίγουροι ότι θέλετε να συνεχίσετε;"
 
 msgid "Private item"
 msgstr "Ιδιωτικό αντικείμενο"
@@ -1669,9 +1638,8 @@ msgstr "Ιδιωτικό αντικείμενο"
 msgid "Copy"
 msgstr "Αντιγραφή"
 
-#, fuzzy
 msgid "Moving this appointment will unset it as private. Are you sure you want to continue?"
-msgstr "Η μετακίνηση αυτού του ραντεβού θα το ακυρώσει ως ιδιωτικό. Είστε σίγουροι ότι θέλετε να συνεχίσετε"
+msgstr "Η μετακίνηση αυτού του ραντεβού θα καταργήσει τον χαρακτηρισμό του ως ιδιωτικού. Είστε σίγουροι ότι θέλετε να συνεχίσετε;"
 
 msgid "Move"
 msgstr "Μετακίνηση"
@@ -1697,9 +1665,8 @@ msgstr "Επόμενο"
 msgid "grommunio Web"
 msgstr "grommunio Web"
 
-#, fuzzy
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
-msgstr "Λάβετε υπόψη ότι τυχόν αλλαγές που θα κάνετε θα αντικατασταθούν όταν το αίτημα σύσκεψης ενημερωθεί από τον διοργανωτή. Θα θέλατε να μετακινήσετε αυτή τη συνάντηση"
+msgstr "Λάβετε υπόψη ότι τυχόν αλλαγές που θα κάνετε θα αντικατασταθούν όταν το αίτημα συνάντησης ενημερωθεί από τον διοργανωτή. Θα θέλατε να μετακινήσετε αυτή τη συνάντηση;"
 
 msgid "Don't move"
 msgstr "Μην κινείστε"
@@ -1714,10 +1681,9 @@ msgid "Show all appointments"
 msgstr "Εμφάνιση όλων των ραντεβού"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Proposed"
-msgstr "Προτεινόμενο"
+msgstr "Προτεινόμενη ώρα"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent
 msgctxt "mail.previewpanel"
@@ -1732,7 +1698,6 @@ msgstr "Τοποθεσία"
 msgid "No additional response required"
 msgstr "Δεν απαιτείται πρόσθετη απάντηση"
 
-#, fuzzy
 msgid "Your calendar has been updated automatically. This meeting request will now be deleted."
 msgstr "Το ημερολόγιό σας ενημερώθηκε αυτόματα. Αυτό το αίτημα συνάντησης θα διαγραφεί."
 
@@ -1744,7 +1709,7 @@ msgid "jS F Y"
 msgstr "jS F Y"
 
 msgid "Online meeting"
-msgstr ""
+msgstr "Διαδικτυακή συνάντηση"
 
 msgid "Attendees"
 msgstr "Συμμετέχοντες"
@@ -1829,30 +1794,26 @@ msgstr "Η εκτύπωση αυτής της προβολής δεν είναι
 msgid "Recurring Message"
 msgstr "Επαναλαμβανόμενο μήνυμα"
 
-#, fuzzy
 msgid "This is a recurring message. Do you want to open only this occurrence or the series?"
-msgstr "Αυτό είναι ένα επαναλαμβανόμενο μήνυμα. Θέλετε να ανοίξετε μόνο αυτό το περιστατικό ή όλη τη σειρά"
+msgstr "Αυτό είναι ένα επαναλαμβανόμενο μήνυμα. Θέλετε να ανοίξετε μόνο αυτό το περιστατικό ή όλη τη σειρά;"
 
 msgid "Recurring Appointment"
 msgstr "Επαναλαμβανόμενο ραντεβού"
 
-#, fuzzy
 msgid "This is a recurring appointment. Do you want to open only this occurrence or the series?"
-msgstr "Πρόκειται για επαναλαμβανόμενο ραντεβού. Θέλετε να ανοίξετε μόνο αυτό το περιστατικό ή τη σειρά"
+msgstr "Πρόκειται για επαναλαμβανόμενο ραντεβού. Θέλετε να ανοίξετε μόνο αυτό το περιστατικό ή τη σειρά;"
 
 msgid "Recurring Meeting Request"
 msgstr "Αίτημα για επαναλαμβανόμενη συνάντηση"
 
-#, fuzzy
 msgid "This is a recurring meeting request. Do you want to open only this occurrence or the series?"
-msgstr "Πρόκειται για ένα επαναλαμβανόμενο αίτημα συνάντησης. Θέλετε να ανοίξετε μόνο αυτό το περιστατικό ή τη σειρά"
+msgstr "Πρόκειται για ένα επαναλαμβανόμενο αίτημα συνάντησης. Θέλετε να ανοίξετε μόνο αυτό το περιστατικό ή τη σειρά;"
 
 msgid "Recurring Task Request"
 msgstr "Αίτηση επαναλαμβανόμενης εργασίας"
 
-#, fuzzy
 msgid "This is a recurring task request. Do you want to open only this occurrence or the series?"
-msgstr "Αυτό είναι ένα επαναλαμβανόμενο αίτημα εργασίας. Θέλετε να ανοίξετε μόνο αυτό το περιστατικό ή τη σειρά"
+msgstr "Αυτό είναι ένα επαναλαμβανόμενο αίτημα εργασίας. Θέλετε να ανοίξετε μόνο αυτό το περιστατικό ή τη σειρά;"
 
 msgid "Open this occurrence"
 msgstr "Ανοίξτε αυτό το περιστατικό"
@@ -1863,9 +1824,8 @@ msgstr "Ανοίξτε τη σειρά"
 msgid "Paste Recurring {0}"
 msgstr "Επικόλληση επαναλαμβανόμενη {0}"
 
-#, fuzzy
 msgid "This is a recurring {0}. Do you want to paste only this occurrence or the series?"
-msgstr "Αυτό είναι ένα επαναλαμβανόμενο {0}. Θέλετε να επικολλήσετε μόνο αυτό το περιστατικό ή τη σειρά"
+msgstr "Αυτό είναι ένα επαναλαμβανόμενο {0}. Θέλετε να επικολλήσετε μόνο αυτό το περιστατικό ή τη σειρά;"
 
 msgid "message"
 msgstr "μήνυμα"
@@ -1882,21 +1842,17 @@ msgstr "Επικολλήστε μόνο αυτό το περιστατικό"
 msgid "Paste the series…"
 msgstr "Επικολλήστε τη σειρά.."
 
-#, fuzzy
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
-msgstr "Αυτό είναι ένα επαναλαμβανόμενο μήνυμα. Θέλετε να διαγράψετε μόνο αυτό το περιστατικό ή τη σειρά"
+msgstr "Αυτό είναι ένα επαναλαμβανόμενο μήνυμα. Θέλετε να διαγράψετε μόνο αυτό το περιστατικό ή τη σειρά;"
 
-#, fuzzy
 msgid "This is a recurring appointment. Do you want to delete only this occurrence or the series?"
-msgstr "Πρόκειται για επαναλαμβανόμενο ραντεβού. Θέλετε να διαγράψετε μόνο αυτό το περιστατικό ή τη σειρά"
+msgstr "Πρόκειται για επαναλαμβανόμενο ραντεβού. Θέλετε να διαγράψετε μόνο αυτό το περιστατικό ή τη σειρά;"
 
-#, fuzzy
 msgid "This is a recurring meeting request. Do you want to delete only this occurrence or the series?"
-msgstr "Πρόκειται για ένα επαναλαμβανόμενο αίτημα συνάντησης. Θέλετε να διαγράψετε μόνο αυτό το περιστατικό ή τη σειρά"
+msgstr "Πρόκειται για ένα επαναλαμβανόμενο αίτημα συνάντησης. Θέλετε να διαγράψετε μόνο αυτό το περιστατικό ή τη σειρά;"
 
-#, fuzzy
 msgid "This is a recurring task request. Do you want to delete only this occurrence or the series?"
-msgstr "Αυτό είναι ένα επαναλαμβανόμενο αίτημα εργασίας. Θέλετε να διαγράψετε μόνο αυτό το περιστατικό ή τη σειρά"
+msgstr "Αυτό είναι ένα επαναλαμβανόμενο αίτημα εργασίας. Θέλετε να διαγράψετε μόνο αυτό το περιστατικό ή τη σειρά;"
 
 msgid "Delete this occurrence"
 msgstr "Διαγραφή της περίστασης"
@@ -1927,15 +1883,14 @@ msgstr "Δεν έχετε επαρκή δικαιώματα για να διαγ
 
 msgid "You have insufficient privileges to delete one of the selected items."
 msgid_plural "You have insufficient privileges to delete {0} of the selected items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Δεν έχετε επαρκή δικαιώματα για να διαγράψετε ένα από τα επιλεγμένα στοιχεία."
+msgstr[1] "Δεν έχετε επαρκή δικαιώματα για να διαγράψετε {0} από τα επιλεγμένα στοιχεία."
 
 msgid "Notify recipients"
 msgstr "Ειδοποίηση παραληπτών"
 
-#, fuzzy
 msgid "A cancellation message will be sent to all recipients, do you wish to continue?"
-msgstr "Θα σταλεί μήνυμα ακύρωσης σε όλους τους παραλήπτες, επιθυμείτε να συνεχίσετε"
+msgstr "Θα σταλεί μήνυμα ακύρωσης σε όλους τους παραλήπτες, επιθυμείτε να συνεχίσετε;"
 
 msgid "Notify sender"
 msgstr "Ειδοποίηση αποστολέα"
@@ -1968,14 +1923,13 @@ msgid "Recipient already exists."
 msgstr "Ο παραλήπτης υπάρχει ήδη."
 
 msgid "Remove attachment"
-msgstr ""
+msgstr "Αφαίρεση συνημμένου"
 
 msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
-msgstr ""
+msgstr "Να αφαιρεθεί το «{0}» από αυτό το μήνυμα; Το συνημμένο δεν μπορεί να επαναφερθεί στη συνέχεια."
 
-#, fuzzy
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
-msgstr "Ο αποστολέας αυτού του email έχει ζητήσει απόδειξη παραλαβής. Θέλετε να ενημερώσετε τον αποστολέα"
+msgstr "Ο αποστολέας αυτού του email έχει ζητήσει απόδειξη ανάγνωσης. Θέλετε να ενημερώσετε τον αποστολέα;"
 
 msgid "Import"
 msgstr "Εισαγωγή"
@@ -1992,32 +1946,30 @@ msgstr "Σφάλμα εισαγωγής"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "Αδυναμία εισαγωγής \"{0}\". Το αρχείο δεν είναι έγκυρο"
 
-#, fuzzy
 msgid "You have insufficient privileges to move these items. Would you like to copy instead?"
-msgstr "Δεν έχετε επαρκή δικαιώματα για να μετακινήσετε αυτά τα στοιχεία. Θα θέλατε να αντιγράψετε"
+msgstr "Δεν έχετε επαρκή δικαιώματα για να μετακινήσετε αυτά τα στοιχεία. Θα θέλατε να τα αντιγράψετε αντ' αυτού;"
 
-#, fuzzy
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
-msgstr "Δεν έχετε επαρκή δικαιώματα για να μετακινήσετε αυτό το στοιχείο. Θα θέλατε να αντιγράψετε"
+msgstr "Δεν έχετε επαρκή δικαιώματα για να μετακινήσετε αυτό το στοιχείο. Θα θέλατε να το αντιγράψετε αντ' αυτού;"
 
 msgid "Untitled"
 msgstr "Χωρίς τίτλο"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η αποθήκευση των συνημμένων."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Δεν ήταν δυνατή η αποθήκευση αυτού του συνημμένου: {0}"
+msgstr[1] "Δεν ήταν δυνατή η αποθήκευση αυτών των συνημμένων: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Αποθηκεύτηκε {0} συνημμένο."
+msgstr[1] "Αποθηκεύτηκαν {0} συνημμένα."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "Αποθήκευση συνημμένων"
 
 msgid "Insert item"
 msgstr "Εισαγωγή στοιχείου"
@@ -2046,16 +1998,14 @@ msgstr "Λήψη ως ZIP"
 msgid "Continue"
 msgstr "Συνέχεια"
 
-#, fuzzy
 msgid "These attachments have an unsupported file type and can not be added to the ZIP file:"
 msgstr "Αυτά τα συνημμένα έχουν μη υποστηριζόμενο τύπο αρχείου και δεν μπορούν να προστεθούν στο αρχείο ZIP:"
 
 msgid "Would you like to continue downloading without adding these files?"
 msgstr "Θέλετε να συνεχίσετε τη λήψη χωρίς να προσθέσετε αυτά τα αρχεία"
 
-#, fuzzy
 msgid "Always continue download of ZIP files without adding unsupported file types."
-msgstr "Συνεχίστε πάντα τη λήψη αρχείων ZIP χωρίς να προσθέτετε μη υποστηριζόμενους τύπους αρχείων."
+msgstr "Να συνεχίζεται πάντα η λήψη αρχείων ZIP χωρίς την προσθήκη μη υποστηριζόμενων τύπων αρχείων."
 
 msgid "File upload"
 msgstr "Ανέβασμα αρχείου"
@@ -2067,7 +2017,7 @@ msgid "Preview"
 msgstr "Προεπισκόπηση"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "Προεπισκόπηση σε παράθυρο διαλόγου"
 
 msgid "Download"
 msgstr "Λήψη"
@@ -2076,24 +2026,22 @@ msgid "Download all as ZIP"
 msgstr "Κατεβάστε τα όλα ως ZIP"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "Αποθήκευση επιλογής σε τοπικό φάκελο"
 
 msgid "Import to folder"
 msgstr "Εισαγωγή σε φάκελο"
 
-#, fuzzy
 msgid "In order to use the vCard import feature, upgrade your Gromox to version 0 or higher."
 msgstr "Για να χρησιμοποιήσετε τη δυνατότητα εισαγωγής vCard, αναβαθμίστε το Gromox στην έκδοση 0 ή νεότερη."
 
-#, fuzzy
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
-msgstr "Για να χρησιμοποιήσετε τη λειτουργία εισαγωγής ICS / VCS, αναβαθμίστε το Gromox σας στην έκδοση 0 ή νεότερη."
+msgstr "Για να χρησιμοποιήσετε τη δυνατότητα εισαγωγής ICS / VCS, αναβαθμίστε το Gromox στην έκδοση 0 ή νεότερη."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "Προεπισκόπηση σε καρτέλα grommunio Web"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "Προεπισκόπηση σε παράθυρο προγράμματος περιήγησης"
 
 msgid "Attachment error"
 msgstr "Σφάλμα συνημμένου"
@@ -2137,9 +2085,8 @@ msgstr "Γρήγορη πρόσβαση"
 msgid "Delete Category"
 msgstr "Διαγραφή κατηγορίας"
 
-#, fuzzy
 msgid "Are you sure you want to delete the category \"{0}\"? Other items keep this category, but lose the assigned color."
-msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε την κατηγορία \"{0}\" Τα άλλα στοιχεία διατηρούν αυτή την κατηγορία, αλλά χάνουν το χρώμα που τους έχει ανατεθεί."
+msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε την κατηγορία \"{0}\"; Τα άλλα στοιχεία διατηρούν αυτή την κατηγορία, αλλά χάνουν το χρώμα που τους έχει ανατεθεί."
 
 msgid "Rename Category"
 msgstr "Μετονομασία κατηγορίας"
@@ -2159,14 +2106,12 @@ msgstr "Καρφίτσα για γρήγορη πρόσβαση"
 msgid "Create"
 msgstr "Δημιουργία"
 
-#, fuzzy
 msgid "You must apply the changes you have made to the categories before you can create this category."
 msgstr "Πρέπει να εφαρμόσετε τις αλλαγές που έχετε κάνει στις κατηγορίες πριν δημιουργήσετε αυτή την κατηγορία."
 
 msgid "You already have a category named '{0}'. Please use another name."
 msgstr "Έχετε ήδη μια κατηγορία με το όνομα '{0}'. Χρησιμοποιήστε ένα άλλο όνομα."
 
-#, fuzzy
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
 msgstr "Έχετε ήδη μια κατηγορία με όνομα '{0}' στις εκκρεμείς αλλαγές σας. Παρακαλώ χρησιμοποιήστε άλλο όνομα."
 
@@ -2179,9 +2124,8 @@ msgstr "Αυτή είναι η πρώτη φορά που χρησιμοποιε
 msgid "Do you want to rename it?"
 msgstr "Θέλετε να το μετονομάσετε"
 
-#, fuzzy
 msgid "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and \"{2}\" categories?"
-msgstr "Η κατηγορία \"{0}\" υπάρχει ήδη. Θέλετε να συγχωνεύσετε τις κατηγορίες \"{1}\" και \"{2}\""
+msgstr "Η κατηγορία \"{0}\" υπάρχει ήδη. Θέλετε να συγχωνεύσετε τις κατηγορίες \"{1}\" και \"{2}\";"
 
 msgid "Merge"
 msgstr "Συγχώνευση"
@@ -2264,9 +2208,8 @@ msgstr "Παρακαλώ επιλέξτε έναν εκπρόσωπο."
 msgid "Delegates can send items on your behalf."
 msgstr "Οι αντιπρόσωποι μπορούν να στέλνουν αντικείμενα εκ μέρους σας."
 
-#, fuzzy
 msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
-msgstr "Αν θέλετε να ορίσετε μόνο δικαιώματα φακέλου, κάντε δεξί κλικ σε έναν φάκελο για να ανοίξετε το μενού περιβάλλοντος και κάντε κλικ στο \"Κοινή χρήση φακέλου…\""
+msgstr "Αν θέλετε να ορίσετε μόνο δικαιώματα φακέλου, κάντε δεξί κλικ σε έναν φάκελο για να ανοίξετε το μενού περιβάλλοντος και κάντε κλικ στο \"Φάκελος κοινής χρήσης…\""
 
 msgid "Permission"
 msgstr "Δικαίωμα"
@@ -2295,7 +2238,7 @@ msgid "Folder '{0}' selected."
 msgstr "Επιλεγμένος φάκελος '{0}'."
 
 msgid "Suggested folders"
-msgstr ""
+msgstr "Προτεινόμενοι φάκελοι"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "Τα επιλεγμένα στοιχεία δεν μπορούν να μετακινηθούν σε αυτόν τον φάκελο, επειδή περιέχει διαφορετικό τύπο περιεχομένου."
@@ -2312,13 +2255,11 @@ msgstr "Δεν ήταν δυνατή η εκτέλεση της ενέργεια
 msgid "The selected items are no longer available."
 msgstr "Τα επιλεγμένα στοιχεία δεν είναι πλέον διαθέσιμα."
 
-#, fuzzy
 msgid "You have insufficient privileges to move this folder. Ask the folder owner to grant you permissions or contact your system administrator."
-msgstr "Δεν έχετε επαρκή δικαιώματα για να μετακινήσετε αυτόν τον φάκελο. Ζητήστε από τον ιδιοκτήτη του φακέλου να σας χορηγήσει δικαιώματα ή επικοινωνήστε με το διαχειριστή του συστήματός σας."
+msgstr "Δεν έχετε επαρκή δικαιώματα για να μετακινήσετε αυτόν τον φάκελο. Ζητήστε από τον ιδιοκτήτη του φακέλου να σας χορηγήσει δικαιώματα ή επικοινωνήστε με τον διαχειριστή του συστήματός σας."
 
-#, fuzzy
 msgid "You have insufficient privileges to copy this folder. Ask the folder owner to grant you permissions or contact your system administrator."
-msgstr "Δεν έχετε επαρκή δικαιώματα για να αντιγράψετε αυτόν τον φάκελο. Ζητήστε από τον ιδιοκτήτη του φακέλου να σας χορηγήσει δικαιώματα ή επικοινωνήστε με το διαχειριστή του συστήματός σας."
+msgstr "Δεν έχετε επαρκή δικαιώματα για να αντιγράψετε αυτόν τον φάκελο. Ζητήστε από τον ιδιοκτήτη του φακέλου να σας χορηγήσει δικαιώματα ή επικοινωνήστε με τον διαχειριστή του συστήματός σας."
 
 msgid "You have insufficient privileges to move following items."
 msgstr "Δεν έχετε επαρκή προνόμια για να μετακινήσετε τα ακόλουθα στοιχεία."
@@ -2485,7 +2426,6 @@ msgstr "Άνοιγμα διαλόγου αντιγραφής/μετακίνησ�
 msgid "Delete selected item"
 msgstr "Διαγραφή επιλεγμένου στοιχείου"
 
-#, fuzzy
 msgid "Delete selected item without moving it to the Deleted Items folder. The deleted item can still be restored."
 msgstr "Διαγραφή επιλεγμένου στοιχείου χωρίς να το μετακινήσετε στο φάκελο Διαγραμμένα στοιχεία. Το διαγραμμένο στοιχείο μπορεί ακόμα να επαναφερθεί."
 
@@ -2496,7 +2436,7 @@ msgid "Redo the last undone action"
 msgstr "Επανάληψη της τελευταίας ενέργειας που αναιρέθηκε"
 
 msgid "Jump to the search box, press again for the browser search"
-msgstr ""
+msgstr "Μετάβαση στο πεδίο αναζήτησης, πατήστε ξανά για την αναζήτηση του προγράμματος περιήγησης"
 
 msgid "Open the command palette"
 msgstr "Άνοιγμα της παλέτας εντολών"
@@ -2556,28 +2496,28 @@ msgid "Presentation"
 msgstr "Παρουσίαση"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Πλήρης οθόνη"
 
 msgid "Previous page"
-msgstr ""
+msgstr "Προηγούμενη σελίδα"
 
 msgid "Next page"
-msgstr ""
+msgstr "Επόμενη σελίδα"
 
 msgid "Page:"
-msgstr ""
+msgstr "Σελίδα:"
 
 msgid "of {0}"
-msgstr ""
+msgstr "από {0}"
 
 msgid "Zoom out"
-msgstr ""
+msgstr "Σμίκρυνση"
 
 msgid "Zoom in"
-msgstr ""
+msgstr "Μεγέθυνση"
 
 msgid "Zoom"
-msgstr ""
+msgstr "Ζουμ"
 
 msgid "Automatic"
 msgstr "Αυτόματο"
@@ -2589,37 +2529,37 @@ msgid "Page width"
 msgstr "Πλάτος σελίδας"
 
 msgid "Rotate left"
-msgstr ""
+msgstr "Περιστροφή αριστερά"
 
 msgid "Rotate right"
-msgstr ""
+msgstr "Περιστροφή δεξιά"
 
 msgid "This document could not be previewed."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η προεπισκόπηση αυτού του εγγράφου."
 
 msgid "This file cannot be previewed."
-msgstr ""
+msgstr "Δεν είναι δυνατή η προεπισκόπηση αυτού του αρχείου."
 
 msgid "Download the file to open it with a program that can read it."
-msgstr ""
+msgstr "Κάντε λήψη του αρχείου για να το ανοίξετε με ένα πρόγραμμα που μπορεί να το διαβάσει."
 
 msgid "The document is empty."
-msgstr ""
+msgstr "Το έγγραφο είναι κενό."
 
 msgid "This sheet is empty."
-msgstr ""
+msgstr "Αυτό το φύλλο εργασίας είναι κενό."
 
 msgid "Showing the first {0} rows and {1} columns."
-msgstr ""
+msgstr "Εμφανίζονται οι πρώτες {0} γραμμές και {1} στήλες."
 
 msgid "Wrap lines"
-msgstr ""
+msgstr "Αναδίπλωση γραμμών"
 
 msgid "Line numbers"
-msgstr ""
+msgstr "Αριθμοί γραμμών"
 
 msgid "This message has no content."
-msgstr ""
+msgstr "Αυτό το μήνυμα δεν έχει περιεχόμενο."
 
 msgid "grommunio Web print"
 msgstr "grommunio Εκτύπωση στο διαδίκτυο"
@@ -2633,9 +2573,8 @@ msgstr "Διεύθυνση Email"
 msgid "Expand distribution list"
 msgstr "Επέκταση λίστας διανομής"
 
-#, fuzzy
 msgid "Distribution list will be replaced with its members. You will not be able to collapse it again."
-msgstr "Η λίστα διανομής θα αντικατασταθεί με τα μέλη της. Δεν θα μπορείτε να την καταρρίψετε ξανά."
+msgstr "Η λίστα διανομής θα αντικατασταθεί από τα μέλη της. Δεν θα μπορείτε να τη συμπτύξετε ξανά."
 
 msgid "Edit Recipient"
 msgstr "Επεξεργασία παραλήπτη"
@@ -2798,12 +2737,11 @@ msgstr "Κάντε κλικ στο κουμπί Snooze για να σας το �
 msgid "Snooze"
 msgstr "Snooze"
 
-#, fuzzy
 msgctxt "reminder.dialog"
 msgid "{0} reminder is selected."
 msgid_plural "{0} reminders are selected."
-msgstr[0] "έχει επιλεγεί η υπενθύμιση {0}."
-msgstr[1] "{0} έχουν επιλεγεί υπενθυμίσεις."
+msgstr[0] "Έχει επιλεγεί {0} υπενθύμιση."
+msgstr[1] "Έχουν επιλεγεί {0} υπενθυμίσεις."
 
 msgid "Restore Softdeleted Items"
 msgstr "Επαναφορά μαλακά διαγραμμένων στοιχείων"
@@ -3026,9 +2964,8 @@ msgstr "Word"
 msgid "and"
 msgstr "και"
 
-#, fuzzy
 msgid "Distribution lists are not supported in rules, would you like to replace the distribution list with its members?"
-msgstr "Οι λίστες διανομής δεν υποστηρίζονται σε κανόνες, θα θέλατε να αντικαταστήσετε τη λίστα διανομής με τα μέλη της"
+msgstr "Οι λίστες διανομής δεν υποστηρίζονται στους κανόνες, θα θέλατε να αντικαταστήσετε τη λίστα διανομής με τα μέλη της;"
 
 msgid "or"
 msgstr "ή"
@@ -3126,9 +3063,8 @@ msgstr "Κάντε κλικ για εναλλαγή: ΚΑΙ → Ή → ΟΧΙ"
 msgid "Folder does not exist"
 msgstr "Ο φάκελος δεν υπάρχει"
 
-#, fuzzy
 msgid "The folder you are searching through no longer exists. Please select another folder"
-msgstr "Ο φάκελος που αναζητάτε δεν υπάρχει πλέον. Παρακαλώ επιλέξτε έναν άλλο φάκελο"
+msgstr "Ο φάκελος στον οποίο πραγματοποιείτε αναζήτηση δεν υπάρχει πλέον. Παρακαλώ επιλέξτε έναν άλλο φάκελο"
 
 msgid "Add/Edit sender"
 msgstr "Προσθήκη/Επεξεργασία αποστολέα"
@@ -3297,137 +3233,111 @@ msgstr "Προσθήκη τομέα στη λίστα ασφαλών αποστ�
 #. importance the message was sent. For example:
 #. 'This message was sent with high importance.'
 #. 'This message was sent with low importance.'
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
-msgstr "Αυτό το μήνυμα στάλθηκε με {0} σημασία."
+msgstr "Αυτό το μήνυμα στάλθηκε με σημασία: {0}."
 
 #. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
 #. sensitivity level applies to the message. For example:
 #. 'Please treat this as Personal.'
 #. 'Please treat this as Private.'
 #. 'Please treat this as Confidential.'
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Please treat this as {0}."
 msgstr "Παρακαλούμε να το αντιμετωπίσετε ως {0}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "Κάντε κλικ εδώ για να κατεβάσετε φωτογραφίες. Για την προστασία της ιδιωτικής σας ζωής, το grommunio Web απέτρεψε την αυτόματη λήψη ορισμένων εικόνων σε αυτό το μήνυμα."
+msgstr "Κάντε κλικ εδώ για λήψη εικόνων. Για την προστασία της ιδιωτικής σας ζωής, το grommunio Web απέτρεψε την αυτόματη λήψη ορισμένων εικόνων σε αυτό το μήνυμα."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
 msgstr "Αυτό το μήνυμα είναι κατεστραμμένο και δεν θα εμφανιστεί σωστά, κάντε κλικ εδώ για να το διορθώσετε."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
-msgstr "{0} έχει αποδεχτεί."
+msgstr "{0} αποδέχθηκε."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted on behalf of {1}."
-msgstr "ο {0} αποδέχθηκε εκ μέρους του {1}."
+msgstr "{0} αποδέχθηκε εκ μέρους του/της {1}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} has tentatively accepted."
-msgstr "{0} έχει αποδεχθεί προσωρινά."
+msgstr "{0} αποδέχθηκε προσωρινά."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} has tentatively accepted on behalf of {1}."
-msgstr "η {0} έχει αποδεχθεί προσωρινά εκ μέρους της {1}."
+msgstr "{0} αποδέχθηκε προσωρινά εκ μέρους του/της {1}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} has declined."
-msgstr "{0} έχει μειωθεί."
+msgstr "{0} αρνήθηκε."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} has declined on behalf of {1}."
-msgstr "ο {0} αρνήθηκε εκ μέρους του {1}."
+msgstr "{0} αρνήθηκε εκ μέρους του/της {1}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} tentatively accepted and proposed a new time for this meeting."
 msgstr "{0} αποδέχθηκε προσωρινά και πρότεινε νέα ώρα για τη συνάντηση αυτή."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} tentatively accepted on behalf of {1} and proposed a new time for this meeting."
-msgstr "ο {0} αποδέχθηκε προσωρινά εκ μέρους του {1} και πρότεινε νέα ώρα για τη συνάντηση αυτή."
+msgstr "{0} αποδέχθηκε προσωρινά εκ μέρους του/της {1} και πρότεινε νέα ώρα για τη συνάντηση αυτή."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} declined and proposed a new time for this meeting."
 msgstr "{0} αρνήθηκε και πρότεινε νέα ώρα για τη συνάντηση αυτή."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "{0} declined on behalf of {1} and proposed a new time for this meeting."
-msgstr "ο {0} αρνήθηκε εκ μέρους του {1} και πρότεινε νέα ώρα για τη συνάντηση αυτή."
+msgstr "{0} αρνήθηκε εκ μέρους του/της {1} και πρότεινε νέα ώρα για τη συνάντηση αυτή."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "This meeting is not in the Calendar; it may have been moved or deleted."
-msgstr "Αυτή η συνάντηση δεν περιλαμβάνεται στο Ημερολόγιο- ενδέχεται να έχει μετακινηθεί ή διαγραφεί."
+msgstr "Αυτή η συνάντηση δεν περιλαμβάνεται στο Ημερολόγιο· ενδέχεται να έχει μετακινηθεί ή διαγραφεί."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "This meeting request was updated after this message was sent. You should open the latest update or open the item from the calendar."
-msgstr "Αυτό το αίτημα σύσκεψης ενημερώθηκε μετά την αποστολή αυτού του μηνύματος. Θα πρέπει να ανοίξετε την τελευταία ενημέρωση ή να ανοίξετε το στοιχείο από το ημερολόγιο."
+msgstr "Αυτό το αίτημα συνάντησης ενημερώθηκε μετά την αποστολή αυτού του μηνύματος. Θα πρέπει να ανοίξετε την τελευταία ενημέρωση ή να ανοίξετε το στοιχείο από το ημερολόγιο."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "As the meeting organizer, you do not need to respond to the meeting"
-msgstr "Ως διοργανωτής της σύσκεψης, δεν χρειάζεται να απαντήσετε στη σύσκεψη"
+msgstr "Ως διοργανωτής της συνάντησης, δεν χρειάζεται να απαντήσετε στη συνάντηση"
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "The meeting was updated after the attendee sent this response"
-msgstr "Η συνάντηση ενημερώθηκε μετά την αποστολή της ακόλουθης απάντησης από τον συμμετέχοντα"
+msgstr "Η συνάντηση ενημερώθηκε μετά την αποστολή αυτής της απάντησης από τον συμμετέχοντα"
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
-msgstr "Αυτό το ραντεβού πραγματοποιείται στο παρελθόν."
+msgstr "Αυτό το ραντεβού βρίσκεται στο παρελθόν."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Please respond."
 msgstr "Παρακαλώ απαντήστε."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "This is an update of a previously sent meeting request."
-msgstr "Πρόκειται για επικαιροποίηση ενός αιτήματος συνάντησης που είχε αποσταλεί προηγουμένως."
+msgstr "Πρόκειται για ενημέρωση ενός αιτήματος συνάντησης που είχε αποσταλεί προηγουμένως."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Received for {0}."
 msgstr "Ελήφθη για {0}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
 msgstr "Απαντήσατε σε αυτό το μήνυμα."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr "Εσείς προωθήσατε αυτό το μήνυμα."
+msgstr "Προωθήσατε αυτό το μήνυμα."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
 msgstr "Απαντήσατε σε αυτό το μήνυμα στις {0}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
 msgstr "Προωθήσατε αυτό το μήνυμα στις {0}."
@@ -3459,9 +3369,8 @@ msgstr "{0} ενημέρωσε για λογαριασμό του {1} {2} ."
 msgid "Fix message"
 msgstr "Μήνυμα διόρθωσης"
 
-#, fuzzy
 msgid "We are going to try to fix a corrupted mail message, do you wish to continue?"
-msgstr "Θα προσπαθήσουμε να διορθώσουμε ένα κατεστραμμένο μήνυμα ηλεκτρονικού ταχυδρομείου, θέλετε να συνεχίσετε"
+msgstr "Θα προσπαθήσουμε να διορθώσουμε ένα κατεστραμμένο μήνυμα ηλεκτρονικού ταχυδρομείου, θέλετε να συνεχίσετε;"
 
 msgid "The matching task was not found in your task list."
 msgstr "Η αντίστοιχη εργασία δεν βρέθηκε στη λίστα εργασιών σας."
@@ -3473,7 +3382,6 @@ msgctxt "mail.previewpanel"
 msgid "To"
 msgstr "Προς"
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Cc"
 msgstr "Cc"
@@ -3492,10 +3400,9 @@ msgid "Recipients"
 msgstr "Παραλήπτες"
 
 #. TRANSLATORS: check if the mail is send by some delegator or not. if then display "on behalf of".
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "on behalf of"
-msgstr "για λογαριασμό της"
+msgstr "εκ μέρους"
 
 #. TRANSLATORS: This message is used to indicate that no sent date is available for the message (because it has not been sent yet).
 msgctxt "mail.previewpanel"
@@ -3521,19 +3428,19 @@ msgid "in"
 msgstr "σε"
 
 msgid "Digitally sign this message"
-msgstr ""
+msgstr "Ψηφιακή υπογραφή αυτού του μηνύματος"
 
 msgid "Encrypt this message"
-msgstr ""
+msgstr "Κρυπτογράφηση αυτού του μηνύματος"
 
 msgid "Autosave is paused while encryption is selected."
-msgstr ""
+msgstr "Η αυτόματη αποθήκευση είναι σε παύση όσο είναι επιλεγμένη η κρυπτογράφηση."
 
 msgid "Turn off {0} signing and encryption first."
-msgstr ""
+msgstr "Απενεργοποιήστε πρώτα την υπογραφή και την κρυπτογράφηση {0}."
 
 msgid "options"
-msgstr ""
+msgstr "επιλογές"
 
 msgid "Sign"
 msgstr "Υπογραφή"
@@ -3825,7 +3732,6 @@ msgstr "Email 3 Εμφάνιση ως"
 msgid "Loading contacts"
 msgstr "Φόρτωση επαφών"
 
-#, fuzzy
 msgid "There are no items to show in this list. Update the filter for more results."
 msgstr "Δεν υπάρχουν στοιχεία προς εμφάνιση σε αυτή τη λίστα. Ενημερώστε το φίλτρο για περισσότερα αποτελέσματα."
 
@@ -3985,29 +3891,23 @@ msgstr "Γρήγορη επαφή"
 msgid "Open in new browser window"
 msgstr "Άνοιγμα σε νέο παράθυρο του προγράμματος περιήγησης"
 
-#, fuzzy
 msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
 msgstr "Το πρόγραμμα περιήγησής σας φαίνεται να έχει μπλοκάρει ένα ή περισσότερα αναδυόμενα παράθυρα. Παρακαλούμε αλλάξτε τις ρυθμίσεις του προγράμματος περιήγησής σας ώστε να επιτρέπετε πάντα τα αναδυόμενα παράθυρα από το grommunio Web."
 
-#, fuzzy
 msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "Δεν είναι δυνατή η μεταφόρτωση συνημμένου, επιτρέπεται η προσθήκη μόνο {0} συνημμένων στο μήνυμα"
 
-#, fuzzy
 msgid "Cannot upload attachment, attachment is {0} while the allowed maximum is {1}."
 msgstr "Δεν είναι δυνατή η μεταφόρτωση συνημμένου αρχείου, το συνημμένο αρχείο είναι {0} ενώ το μέγιστο επιτρεπόμενο είναι {1}."
 
-#, fuzzy
 msgid "Cannot upload attachment, the total attachment size is {0} while the allowed maximum is {1}"
-msgstr "Δεν είναι δυνατή η μεταφόρτωση συνημμένου, το συνολικό μέγεθος του συνημμένου είναι {0} ενώ το επιτρεπόμενο μέγιστο είναι {1}"
+msgstr "Δεν είναι δυνατή η μεταφόρτωση συνημμένου, το συνολικό μέγεθος των συνημμένων είναι {0} ενώ το μέγιστο επιτρεπόμενο είναι {1}"
 
-#, fuzzy
 msgid "Cannot upload attachment, total attachment is {0} while the allowed maximum attachment in single request is {1}."
 msgstr "Δεν είναι δυνατή η μεταφόρτωση συνημμένου, το συνολικό συνημμένο είναι {0} ενώ το μέγιστο επιτρεπόμενο συνημμένο σε ένα αίτημα είναι {1}."
 
-#, fuzzy
 msgid "Cannot upload attachment, total attachments are {0} files while the maximum {1} files are allowed in single request."
-msgstr "Δεν είναι δυνατή η μεταφόρτωση συνημμένου αρχείου, τα συνολικά συνημμένα αρχεία είναι {0} αρχεία ενώ το μέγιστο {1} αρχεία επιτρέπονται σε ένα αίτημα."
+msgstr "Δεν είναι δυνατή η μεταφόρτωση συνημμένου, τα συνολικά συνημμένα είναι {0} αρχεία, ενώ επιτρέπονται το πολύ {1} αρχεία σε ένα αίτημα."
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -4341,9 +4241,8 @@ msgstr "Αποθηκεύτηκε"
 msgid "Saved successfully"
 msgstr "Αποθηκεύτηκε επιτυχώς"
 
-#, fuzzy
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
-msgstr "Θα χάσετε όλη τη μη σωζόμενη εργασία. Σίγουρα θέλετε να κλείσετε αυτό το παράθυρο"
+msgstr "Θα χάσετε όλη τη μη αποθηκευμένη εργασία. Είστε σίγουροι ότι θέλετε να κλείσετε αυτό το παράθυρο;"
 
 msgid "grommunio Content Panel"
 msgstr "grommunio Πίνακας περιεχομένου"
@@ -4438,7 +4337,6 @@ msgstr "Ο διακομιστής ανέφερε ένα απροσδιόριστ
 msgid "The session has expired, reauthentication is required."
 msgstr "Η σύνοδος έχει λήξει, απαιτείται νέα πιστοποίηση."
 
-#, fuzzy
 msgid "The session in the current browser window has been closed from another browser window or tab."
 msgstr "Η συνεδρία στο τρέχον παράθυρο του προγράμματος περιήγησης έχει κλείσει από άλλο παράθυρο ή καρτέλα του προγράμματος περιήγησης."
 
@@ -4485,7 +4383,6 @@ msgstr "Λείπει κατάστημα"
 msgid "The default store is missing from the hierarchy."
 msgstr "Το προεπιλεγμένο κατάστημα λείπει από την ιεραρχία."
 
-#, fuzzy
 msgid "Not all functionality of grommunio Web might be working properly because of this."
 msgstr "Εξαιτίας αυτού, ενδέχεται να μην λειτουργούν σωστά όλες οι λειτουργίες του grommunio Web."
 
@@ -4493,17 +4390,14 @@ msgctxt "hierarchy.foldername"
 msgid "Inbox"
 msgstr "Εισερχόμενα"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Outbox"
-msgstr "Outbox"
+msgstr "Εξερχόμενα"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Sent Items"
-msgstr "Απεσταλμένα αντικείμενα"
+msgstr "Απεσταλμένα στοιχεία"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
 msgstr "Διαγραμμένα στοιχεία"
@@ -4532,10 +4426,9 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Εργασίες"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Junk Email"
-msgstr "Junk Email"
+msgstr "Ανεπιθύμητη αλληλογραφία"
 
 msgid "Missing folders"
 msgstr "Λείπουν φάκελοι"
@@ -4551,13 +4444,11 @@ msgstr "Η φόρτωση του μοντέλου από το διακομιστ
 msgid "Out of Office is currently activated. Would you like to turn it off?"
 msgstr "Το Out of Office είναι ενεργοποιημένο. Θα θέλατε να την απενεργοποιήσετε"
 
-#, fuzzy
 msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
-msgstr "Δεν έχετε αρκετά δικαιώματα για να ανοίξετε αυτό το κατάστημα, θέλετε να το αφαιρέσετε από την ιεραρχία"
+msgstr "Δεν έχετε αρκετά δικαιώματα για να ανοίξετε αυτό το γραμματοκιβώτιο, θέλετε να το αφαιρέσετε από την ιεραρχία;"
 
-#, fuzzy
 msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
-msgstr "Δεν έχετε αρκετά δικαιώματα για να ανοίξετε αυτόν τον φάκελο, θέλετε να τον αφαιρέσετε από την ιεραρχία"
+msgstr "Δεν έχετε αρκετά δικαιώματα για να ανοίξετε αυτόν τον φάκελο, θέλετε να τον αφαιρέσετε από την ιεραρχία;"
 
 msgid "Insufficient Permissions"
 msgstr "Ανεπαρκή δικαιώματα"
@@ -4873,13 +4764,11 @@ msgstr "Μοιραστείτε το {0} με.."
 msgid "Properties of {0} - {1}"
 msgstr "Ιδιότητες του {0} - {1}"
 
-#, fuzzy
 msgid "Are you sure you want to permanently delete all the items and subfolders in the \"{0}\" folder?"
-msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε μόνιμα όλα τα στοιχεία και τους υποφακέλους του φακέλου \"{0}\""
+msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε μόνιμα όλα τα στοιχεία και τους υποφακέλους του φακέλου \"{0}\";"
 
-#, fuzzy
 msgid "Are you sure you want to delete the folder \"{0}\" and move all of its contents into the Deleted Items folder?"
-msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε το φάκελο \"{0}\" και να μετακινήσετε όλα τα περιεχόμενά του στο φάκελο Διαγραμμένα στοιχεία"
+msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε το φάκελο \"{0}\" και να μετακινήσετε όλα τα περιεχόμενά του στο φάκελο Διαγραμμένα στοιχεία;"
 
 msgid "Delete folder"
 msgstr "Διαγραφή φακέλου"
@@ -4893,18 +4782,17 @@ msgstr "Προβολή Όλων"
 msgid "Filter folders"
 msgstr "Φάκελοι φίλτρων"
 
-#, fuzzy
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
-msgstr "Δεν έχετε επαρκή δικαιώματα για να μετακινήσετε αυτόν τον φάκελο. Θα θέλατε να αντιγράψετε"
+msgstr "Δεν έχετε επαρκή δικαιώματα για να μετακινήσετε αυτόν τον φάκελο. Θα θέλατε να τον αντιγράψετε αντ' αυτού;"
 
 msgid "Enable OpenPGP before replying to this protected message."
-msgstr ""
+msgstr "Ενεργοποιήστε το OpenPGP πριν απαντήσετε σε αυτό το προστατευμένο μήνυμα."
 
 msgid "The protected message could not be opened. No reply or forward was created."
-msgstr ""
+msgstr "Δεν ήταν δυνατό το άνοιγμα του προστατευμένου μηνύματος. Δεν δημιουργήθηκε απάντηση ή προώθηση."
 
 msgid "Unable to open response"
-msgstr ""
+msgstr "Αδυναμία ανοίγματος απάντησης"
 
 msgid "CC"
 msgstr "CC"
@@ -5073,13 +4961,13 @@ msgid "Filter"
 msgstr "Φίλτρο"
 
 msgid "This browser cannot attach the decrypted file. Download it before forwarding."
-msgstr ""
+msgstr "Αυτό το πρόγραμμα περιήγησης δεν μπορεί να επισυνάψει το αποκρυπτογραφημένο αρχείο. Κάντε λήψη του πριν από την προώθηση."
 
 msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
-msgstr ""
+msgstr "Ένα αποκρυπτογραφημένο συνημμένο υπερβαίνει τα όρια μεταφόρτωσης. Δεν δημιουργήθηκε ημιτελής απάντηση."
 
 msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η μεταφόρτωση ενός αποκρυπτογραφημένου συνημμένου. Δεν δημιουργήθηκε ημιτελής απάντηση."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -5160,7 +5048,7 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}Αυτόματη αποθήκευση μη αποσταλμένων μηνυμάτων κάθε {B} λεπτό(α)"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
-msgstr ""
+msgstr "Αυτόματη αποθήκευση και όταν είναι επιλεγμένη η κρυπτογράφηση (τα πρόχειρα αποθηκεύονται μη κρυπτογραφημένα)"
 
 msgid "Conversation view settings"
 msgstr "Ρυθμίσεις προβολής συνομιλίας"
@@ -5281,9 +5169,8 @@ msgstr "Μόνο οι επαφές μου"
 msgid "Anyone outside my organization"
 msgstr "Οποιοσδήποτε εκτός του οργανισμού μου"
 
-#, fuzzy
 msgid "The time you entered is before the out of office date. Please reschedule."
-msgstr "Η ώρα που πληκτρολογήσατε είναι πριν από την ημερομηνία λήξης της υπηρεσίας. Παρακαλείστε να επαναπρογραμματίσετε."
+msgstr "Η ώρα που πληκτρολογήσατε είναι πριν από την ημερομηνία έναρξης της απουσίας από το γραφείο. Παρακαλούμε επαναπρογραμματίστε."
 
 msgid "Safe Recipients"
 msgstr "Ασφαλείς παραλήπτες"
@@ -5300,7 +5187,6 @@ msgstr "Λίστες αποστολέων"
 msgid "Safe Senders"
 msgstr "Ασφαλείς αποστολείς"
 
-#, fuzzy
 msgid "To protect your privacy email addresses or domains can only be added via the \"Add to safe sender list\" functionality in an opened email."
 msgstr "Για την προστασία του απορρήτου σας, οι διευθύνσεις ηλεκτρονικού ταχυδρομείου ή οι τομείς μπορούν να προστεθούν μόνο μέσω της λειτουργίας \"Προσθήκη στη λίστα ασφαλών αποστολέων\" σε ένα ανοιχτό μήνυμα ηλεκτρονικού ταχυδρομείου."
 
@@ -5492,7 +5378,6 @@ msgstr "Σημειώσεις φόρτωσης"
 msgid "Quick Note"
 msgstr "Γρήγορη σημείωση"
 
-#, fuzzy
 msgid "You must reload grommunio Web for the changes to take effect. Unsaved changes will be lost."
 msgstr "Πρέπει να επαναφορτώσετε το grommunio Web για να τεθούν σε ισχύ οι αλλαγές. Οι μη αποθηκευμένες αλλαγές θα χαθούν."
 
@@ -5617,7 +5502,7 @@ msgid "Auto"
 msgstr "Αυτόματα"
 
 msgid "Preview documents and files in grommunio Web"
-msgstr ""
+msgstr "Προεπισκόπηση εγγράφων και αρχείων στο grommunio Web"
 
 msgid "Document default zoom"
 msgstr "Προεπιλεγμένο ζουμ εγγράφου"
@@ -5626,10 +5511,10 @@ msgid "PDF zoom"
 msgstr "Ζουμ PDF"
 
 msgid "Dialog"
-msgstr ""
+msgstr "Παράθυρο διαλόγου"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "Άνοιγμα προεπισκόπησης σε"
 
 msgid "File previewing"
 msgstr "Προεπισκόπηση αρχείων"
@@ -5649,7 +5534,6 @@ msgstr "Άπειρη κύλιση"
 msgid "grommunio Web automatically loads additional items when you scroll down"
 msgstr "το grommunio Web φορτώνει αυτόματα πρόσθετα στοιχεία όταν κάνετε κύλιση προς τα κάτω"
 
-#, fuzzy
 msgid "grommunio Web displays items on pages and you can use navigation controls to navigate"
 msgstr "το grommunio Web εμφανίζει στοιχεία σε σελίδες και μπορείτε να χρησιμοποιήσετε τα στοιχεία πλοήγησης για να πλοηγηθείτε"
 
@@ -5713,7 +5597,6 @@ msgstr "Έχετε υπερβεί το hard quota, δεν μπορείτε να 
 msgid "At {0} you won't be able to send mails."
 msgstr "Στη διεύθυνση {0} δεν θα μπορείτε να στέλνετε μηνύματα."
 
-#, fuzzy
 msgid "You can not send mails as you have exceeded soft quota, at {0} you won't be able to receive mails."
 msgstr "Δεν μπορείτε να στείλετε μηνύματα καθώς έχετε υπερβεί το soft quota, στο {0} δεν θα μπορείτε να λαμβάνετε μηνύματα."
 
@@ -5729,11 +5612,9 @@ msgstr "Επαναφορά ρυθμίσεων"
 msgid "Reset settings to their original defaults."
 msgstr "Επαναφορά των ρυθμίσεων στις αρχικές τους προεπιλογές."
 
-#, fuzzy
 msgid "This will close all opened shared stores and resets all settings to the default value."
-msgstr "Αυτό θα κλείσει όλα τα ανοιχτά κοινά καταστήματα και θα επαναφέρει όλες τις ρυθμίσεις στην προεπιλεγμένη τιμή."
+msgstr "Αυτό θα κλείσει όλα τα ανοιχτά κοινόχρηστα γραμματοκιβώτια και θα επαναφέρει όλες τις ρυθμίσεις στην προεπιλεγμένη τιμή."
 
-#, fuzzy
 msgid "grommunio Web will automatically reload in order for these changes to take effect"
 msgstr "το grommunio Web θα επαναφορτωθεί αυτόματα για να τεθούν σε ισχύ αυτές οι αλλαγές"
 
@@ -5800,27 +5681,26 @@ msgid "Reset all settings to defaults"
 msgstr "Επαναφορά όλων των ρυθμίσεων στις προεπιλογές"
 
 msgid "Migrate legacy categories"
-msgstr ""
+msgstr "Μεταφορά κατηγοριών παλαιού τύπου"
 
 msgid "This will scan all folders and migrate the categories assigned to items."
-msgstr ""
+msgstr "Θα γίνει σάρωση όλων των φακέλων και μεταφορά των κατηγοριών που έχουν αποδοθεί στα στοιχεία."
 
 msgid "The legacy category settings will remain unchanged."
-msgstr ""
+msgstr "Οι ρυθμίσεις κατηγοριών παλαιού τύπου θα παραμείνουν αμετάβλητες."
 
 msgid "Migrate"
-msgstr ""
+msgstr "Μεταφορά"
 
 msgid "Legacy categories migrated successfully."
-msgstr ""
+msgstr "Οι κατηγορίες παλαιού τύπου μεταφέρθηκαν με επιτυχία."
 
 msgid "Could not migrate legacy categories."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η μεταφορά των κατηγοριών παλαιού τύπου."
 
 msgid "Changes to assigned task"
 msgstr "Αλλαγές στην ανατεθείσα εργασία"
 
-#, fuzzy
 msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
 msgstr "Λάβετε υπόψη ότι οι εργασίες που έχουν ανατεθεί θα αντικατασταθούν όταν ο παραλήπτης κάνει αλλαγές."
 
@@ -5881,13 +5761,11 @@ msgstr "Αποδοχή εργασίας"
 msgid "Declining Task"
 msgstr "Παρακμάζουσα εργασία"
 
-#, fuzzy
 msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
-msgstr "Αυτή η εργασία θα γίνει αποδεκτή και θα μεταφερθεί στο φάκελο εργασιών σας. Θέλετε να συμπεριλάβετε σχόλια στην απάντησή σας"
+msgstr "Αυτή η εργασία θα γίνει αποδεκτή και θα μεταφερθεί στο φάκελο εργασιών σας. Θέλετε να συμπεριλάβετε σχόλια στην απάντησή σας;"
 
-#, fuzzy
 msgid "This task will be declined and moved into the Deleted Items folder. Do you want to edit the response before sending it?"
-msgstr "Αυτή η εργασία θα απορριφθεί και θα μεταφερθεί στο φάκελο Διαγραμμένα αντικείμενα. Θέλετε να επεξεργαστείτε την απάντηση πριν την στείλετε"
+msgstr "Αυτή η εργασία θα απορριφθεί και θα μεταφερθεί στο φάκελο Διαγραμμένα στοιχεία. Θέλετε να επεξεργαστείτε την απάντηση πριν τη στείλετε;"
 
 msgid "Send the response now"
 msgstr "Στείλτε την απάντηση τώρα"
@@ -6353,7 +6231,7 @@ msgid "The response was interrupted and may be incomplete."
 msgstr "Η απάντηση διακόπηκε και ενδέχεται να είναι ελλιπής."
 
 msgid "The answer reached the output limit configured for this model and stops here."
-msgstr ""
+msgstr "Η απάντηση έφτασε στο όριο εξόδου που έχει οριστεί για αυτό το μοντέλο και σταματά εδώ."
 
 msgid "Insert at cursor"
 msgstr "Εισαγωγή στον δρομέα"
@@ -6502,9 +6380,8 @@ msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετ�
 msgid "Are you sure want to delete {0} folders and all of their contents?"
 msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε τους φακέλους {0} και όλα τα περιεχόμενά τους"
 
-#, fuzzy
 msgid "Are you sure want to delete the selected items and all of their contents?"
-msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε τα επιλεγμένα στοιχεία και όλα τα περιεχόμενά τους"
+msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε τα επιλεγμένα στοιχεία και όλα τα περιεχόμενά τους;"
 
 msgid "Confirm overwrite"
 msgstr "Επιβεβαίωση αντικατάστασης"
@@ -6584,11 +6461,9 @@ msgstr "Επαναφέρει τις ρυθμίσεις αρχείων στις �
 msgid "Are you sure to remove all settings and accounts?"
 msgstr "Έχετε σίγουρα αφαιρέσει όλες τις ρυθμίσεις και τους λογαριασμούς"
 
-#, fuzzy
 msgid "Accounts marked by your administrator as \"cannot be changed\" will not be removed."
-msgstr "Οι λογαριασμοί που έχουν επισημανθεί από το διαχειριστή σας ως \"δεν μπορούν να αλλάξουν\" δεν θα διαγραφούν."
+msgstr "Οι λογαριασμοί που έχουν επισημανθεί από το διαχειριστή σας ως \"δεν μπορούν να αλλάξουν\" δεν θα αφαιρεθούν."
 
-#, fuzzy
 msgid "grommunio Web will automatically restart in order for these changes to take effect."
 msgstr "το grommunio Web θα επανεκκινήσει αυτόματα για να τεθούν σε ισχύ αυτές οι αλλαγές."
 
@@ -6785,7 +6660,7 @@ msgid "Create office document"
 msgstr "Δημιουργία εγγράφου γραφείου"
 
 msgid "Preview file"
-msgstr ""
+msgstr "Προεπισκόπηση αρχείου"
 
 msgid "Download files"
 msgstr "Λήψη αρχείων"
@@ -6805,9 +6680,8 @@ msgstr "Δημιουργία email... Παρακαλώ περιμένετε!"
 msgid "Edit share"
 msgstr "Επεξεργασία μεριδίου"
 
-#, fuzzy
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
-msgstr "Δεν έχουν προστεθεί λογαριασμοί. Πηγαίνετε στις ρυθμίσεις, στην καρτέλα Αρχεία και προσθέστε έναν λογαριασμό"
+msgstr "Δεν έχουν προστεθεί λογαριασμοί. Μεταβείτε στις ρυθμίσεις, στην καρτέλα Αρχεία και προσθέστε έναν λογαριασμό"
 
 msgid "Filesize"
 msgstr "Μέγεθος αρχείου"
@@ -6955,10 +6829,10 @@ msgid "Mobile Device Manager"
 msgstr "Διαχείριση συσκευών κινητής τηλεφωνίας"
 
 msgid "Device removed"
-msgstr ""
+msgstr "Η συσκευή αφαιρέθηκε"
 
 msgid "The device was not removed. Check your password and try again."
-msgstr ""
+msgstr "Η συσκευή δεν αφαιρέθηκε. Ελέγξτε τον κωδικό πρόσβασής σας και δοκιμάστε ξανά."
 
 msgid "Wiping device"
 msgstr "Διαγραφή συσκευής"
@@ -7044,7 +6918,6 @@ msgstr "Κοινόχρηστοι φάκελοι"
 msgid "Manage Shared Folders"
 msgstr "Διαχείριση κοινόχρηστων φακέλων"
 
-#, fuzzy
 msgid "Select folders to sync to your device from the list below. To add additional mailboxes to the list, open them in grommunio Web first."
 msgstr "Επιλέξτε φακέλους για συγχρονισμό με τη συσκευή σας από την παρακάτω λίστα. Για να προσθέσετε επιπλέον γραμματοκιβώτια στη λίστα, ανοίξτε τα πρώτα στο grommunio Web."
 
@@ -7057,7 +6930,6 @@ msgstr "Διαχείριση κινητών συσκευών"
 msgid "Mobile Devices"
 msgstr "Κινητές συσκευές"
 
-#, fuzzy
 msgid "Unable to connect to the grommunio-sync server. Click {0} to enter your credentials"
 msgstr "Αδυναμία σύνδεσης με τον διακομιστή grommunio-sync. Κάντε κλικ στο {0} για να εισαγάγετε τα διαπιστευτήριά σας"
 
@@ -7131,12 +7003,11 @@ msgstr ""
 "Θέλετε πραγματικά να διαγράψετε τα δεδομένα της συσκευής σας;\n"
 " Πληκτρολογήστε WIPE για επιβεβαίωση."
 
-#, fuzzy
 msgid ""
 "Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
-"Θέλετε πραγματικά να σβήσετε τη συσκευή σας\n"
+"Θέλετε πραγματικά να διαγράψετε τα δεδομένα της συσκευής σας;\n"
 " Εισάγετε τον κωδικό πρόσβασής σας για επιβεβαίωση."
 
 msgid ""
@@ -7146,12 +7017,11 @@ msgstr ""
 "Θέλετε πραγματικά να καταργήσετε τη συσκευή σας;\n"
 " Πληκτρολογήστε REMOVE για επιβεβαίωση."
 
-#, fuzzy
 msgid ""
 "Do you really want to remove your device?\n"
 " Enter your password to confirm."
 msgstr ""
-"Θέλετε πραγματικά να αφαιρέσετε τη συσκευή σας\n"
+"Θέλετε πραγματικά να αφαιρέσετε τη συσκευή σας;\n"
 " Εισάγετε τον κωδικό πρόσβασής σας για επιβεβαίωση."
 
 msgid "Add meeting"
@@ -7202,9 +7072,8 @@ msgstr "Προσθέστε το όνομα του διοργανωτή στο ό
 msgid "Add the URL to the meeting location rather than overwriting it"
 msgstr "Προσθέστε τη διεύθυνση URL στην τοποθεσία συνάντησης αντί να την αντικαταστήσετε"
 
-#, fuzzy
 msgid "Prevent the URL in the meeting location from being overridden automatically (ex: when adding a meetingroom)"
-msgstr "Αποτροπή της αυτόματης παράκαμψης της διεύθυνσης URL στην τοποθεσία σύσκεψης (π.χ.: κατά την προσθήκη μιας αίθουσας σύσκεψης)"
+msgstr "Αποτροπή της αυτόματης αντικατάστασης της διεύθυνσης URL στην τοποθεσία συνάντησης (π.χ.: κατά την προσθήκη μιας αίθουσας σύσκεψης)"
 
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr "Αν έχετε προβλήματα κατά τη δημιουργία συσκέψεων, δοκιμάστε να απενεργοποιήσετε αυτή τη ρύθμιση"
@@ -7263,468 +7132,467 @@ msgstr "Ο νέος κωδικός πρόσβασης είναι άδειος."
 msgid "One or more fields does contain errors."
 msgstr "Ένα ή περισσότερα πεδία περιέχουν σφάλματα."
 
-#, fuzzy
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
 msgstr "Ο κωδικός πρόσβασης είναι αδύναμος. Ο κωδικός πρόσβασης πρέπει να περιέχει κεφαλαία, μη κεφαλαία γράμματα και αριθμούς. Ο κωδικός πρόσβασης πρέπει να έχει 8 έως 20 χαρακτήρες."
 
 msgid "The OpenPGP request failed. Please try again."
-msgstr ""
+msgstr "Το αίτημα OpenPGP απέτυχε. Δοκιμάστε ξανά."
 
 msgid "Working…"
-msgstr ""
+msgstr "Σε εξέλιξη…"
 
 msgid "The operation failed. Please try again."
-msgstr ""
+msgstr "Η λειτουργία απέτυχε. Δοκιμάστε ξανά."
 
 msgid "Passphrase"
-msgstr ""
+msgstr "Συνθηματική φράση"
 
 msgid "Unlock OpenPGP private key"
-msgstr ""
+msgstr "Ξεκλείδωμα ιδιωτικού κλειδιού OpenPGP"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Ξεκλείδωμα"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr ""
+msgstr "Η συνθηματική φράση και το ξεκλειδωμένο κλειδί σας παραμένουν σε αυτή την καρτέλα του προγράμματος περιήγησης. Το κλειδί κλειδώνει αυτόματα μετά από περιορισμένο χρονικό διάστημα ή όταν κλείσει η καρτέλα. Δακτυλικό αποτύπωμα: "
 
 msgid "Set up OpenPGP"
-msgstr ""
+msgstr "Ρύθμιση OpenPGP"
 
 msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
-msgstr ""
+msgstr "Προσθέστε ένα ιδιωτικό κλειδί που αντιστοιχεί στη διεύθυνση του αποστολέα, για να υπογράφετε μηνύματα ή να διατηρείτε αναγνώσιμο το κρυπτογραφημένο αντίγραφο στα απεσταλμένα. Μπορείτε να εισαγάγετε ένα υπάρχον κλειδί ή να δημιουργήσετε ένα νέο στις ρυθμίσεις OpenPGP."
 
 msgid "Open key settings"
-msgstr ""
+msgstr "Άνοιγμα ρυθμίσεων κλειδιών"
 
 msgid "Choose OpenPGP key"
-msgstr ""
+msgstr "Επιλογή κλειδιού OpenPGP"
 
 msgid "Private key"
-msgstr ""
+msgstr "Ιδιωτικό κλειδί"
 
 msgid "Use key"
-msgstr ""
+msgstr "Χρήση κλειδιού"
 
 msgid "Private-key unlocking was cancelled."
-msgstr ""
+msgstr "Το ξεκλείδωμα του ιδιωτικού κλειδιού ακυρώθηκε."
 
 msgid "Key selection was cancelled."
-msgstr ""
+msgstr "Η επιλογή κλειδιού ακυρώθηκε."
 
 msgid "Choose private key…"
-msgstr ""
+msgstr "Επιλογή ιδιωτικού κλειδιού…"
 
 msgid "Manage OpenPGP keys…"
-msgstr ""
+msgstr "Διαχείριση κλειδιών OpenPGP…"
 
 msgid "Lock private keys"
-msgstr ""
+msgstr "Κλείδωμα ιδιωτικών κλειδιών"
 
 msgid "Signing key: "
-msgstr ""
+msgstr "Κλειδί υπογραφής: "
 
 msgid "Decryption alone does not authenticate the sender."
-msgstr ""
+msgstr "Η αποκρυπτογράφηση από μόνη της δεν πιστοποιεί την ταυτότητα του αποστολέα."
 
 msgid "OpenPGP security information"
-msgstr ""
+msgstr "Πληροφορίες ασφάλειας OpenPGP"
 
 msgid "OpenPGP"
-msgstr ""
+msgstr "OpenPGP"
 
 msgid "OpenPGP signed or encrypted message"
-msgstr ""
+msgstr "Μήνυμα υπογεγραμμένο ή κρυπτογραφημένο με OpenPGP"
 
 msgid "OpenPGP Plugin"
-msgstr ""
+msgstr "Πρόσθετο OpenPGP"
 
 msgid "The OpenPGP operation was cancelled."
-msgstr ""
+msgstr "Η λειτουργία OpenPGP ακυρώθηκε."
 
 msgid "S/MIME and OpenPGP cannot protect the same message."
-msgstr ""
+msgstr "Το S/MIME και το OpenPGP δεν μπορούν να προστατεύσουν το ίδιο μήνυμα."
 
 msgid "Saving the OpenPGP draft timed out. Please retry."
-msgstr ""
+msgstr "Λήξη χρονικού ορίου κατά την αποθήκευση του προχείρου OpenPGP. Δοκιμάστε ξανά."
 
 msgid "The draft could not be saved. Nothing was sent."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η αποθήκευση του προχείρου. Δεν στάλθηκε τίποτα."
 
 msgid "The sender or message protection changed. Please send again."
-msgstr ""
+msgstr "Ο αποστολέας ή η προστασία του μηνύματος άλλαξε. Στείλτε το ξανά."
 
 msgid "The selected private key is not valid for this sender and protection mode."
-msgstr ""
+msgstr "Το επιλεγμένο ιδιωτικό κλειδί δεν είναι έγκυρο για αυτόν τον αποστολέα και αυτόν τον τρόπο προστασίας."
 
 msgid "A matching, passphrase-protected private key is required."
-msgstr ""
+msgstr "Απαιτείται αντίστοιχο ιδιωτικό κλειδί προστατευμένο με συνθηματική φράση."
 
 msgid "A recipient key is invalid, expired or does not match its email address."
-msgstr ""
+msgstr "Το κλειδί ενός παραλήπτη είναι άκυρο, έχει λήξει ή δεν αντιστοιχεί στη διεύθυνση email του."
 
 msgid "No verified recipient keys are available."
-msgstr ""
+msgstr "Δεν υπάρχουν διαθέσιμα ελεγμένα κλειδιά παραληπτών."
 
 msgid "This message is too large for browser OpenPGP processing."
-msgstr ""
+msgstr "Αυτό το μήνυμα είναι πολύ μεγάλο για επεξεργασία OpenPGP στο πρόγραμμα περιήγησης."
 
 msgid "Message protection changed while preparing the message. Please send again."
-msgstr ""
+msgstr "Η προστασία του μηνύματος άλλαξε κατά την προετοιμασία του μηνύματος. Στείλτε το ξανά."
 
 msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
-msgstr ""
+msgstr "Το προστατευμένο μήνυμα είναι {0} MB, περισσότερα από όσα δέχεται αυτός ο διακομιστής σε ένα αίτημα ({1} MB). Αφαιρέστε συνημμένα ή ζητήστε από τον διαχειριστή να αυξήσει το όριο μεταφόρτωσης."
 
 msgid "The attachment archive is too large."
-msgstr ""
+msgstr "Το συμπιεσμένο αρχείο των συνημμένων είναι πολύ μεγάλο."
 
 msgid "Unlock the message again to download this attachment."
-msgstr ""
+msgstr "Ξεκλειδώστε ξανά το μήνυμα για να κάνετε λήψη αυτού του συνημμένου."
 
 msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
-msgstr ""
+msgstr "Αυτό το μήνυμα περιέχει ένθετη προστασία S/MIME, την οποία το OpenPGP δεν μπορεί να ανοίξει."
 
 msgid "Too many nested OpenPGP envelopes."
-msgstr ""
+msgstr "Υπερβολικά πολλά ένθετα επίπεδα OpenPGP."
 
 msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
-msgstr ""
+msgstr "Η υπογραφή δεν είναι έγκυρη ή το δημόσιο κλειδί της δεν είναι διαθέσιμο. Μην βασίζεστε στην ταυτότητα αυτού του αποστολέα."
 
 msgid "The private key was locked while opening this message."
-msgstr ""
+msgstr "Το ιδιωτικό κλειδί κλειδώθηκε κατά το άνοιγμα αυτού του μηνύματος."
 
 msgid "This message contains too many attachments."
-msgstr ""
+msgstr "Αυτό το μήνυμα περιέχει υπερβολικά πολλά συνημμένα."
 
 msgid "The decoded attachments are too large."
-msgstr ""
+msgstr "Τα αποκωδικοποιημένα συνημμένα είναι υπερβολικά μεγάλα."
 
 msgid "The OpenPGP operation failed."
-msgstr ""
+msgstr "Η λειτουργία OpenPGP απέτυχε."
 
 msgid "OpenPGP: checking message security…"
-msgstr ""
+msgstr "OpenPGP: έλεγχος ασφάλειας μηνύματος…"
 
 msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
-msgstr ""
+msgstr "Κρυπτογραφημένο μήνυμα αποθηκευμένο χωρίς το περίβλημα MIME — αποθηκεύστε το συνημμένο και αποκρυπτογραφήστε το με ένα εργαλείο OpenPGP"
 
 msgid "Signed message stored without its original MIME — the signature cannot be verified"
-msgstr ""
+msgstr "Υπογεγραμμένο μήνυμα αποθηκευμένο χωρίς το αρχικό MIME — η υπογραφή δεν μπορεί να επαληθευτεί"
 
 msgid "Message decrypted"
-msgstr ""
+msgstr "Το μήνυμα αποκρυπτογραφήθηκε"
 
 msgid "Message could not be decrypted — click for details or retry"
-msgstr ""
+msgstr "Δεν ήταν δυνατή η αποκρυπτογράφηση του μηνύματος — κάντε κλικ για λεπτομέρειες ή νέα προσπάθεια"
 
 msgid "Encrypted message — unlock your private key to read"
-msgstr ""
+msgstr "Κρυπτογραφημένο μήνυμα — ξεκλειδώστε το ιδιωτικό σας κλειδί για να το διαβάσετε"
 
 msgid "Signature could not be verified"
 msgstr "Η υπογραφή δεν μπόρεσε να επαληθευτεί"
 
 msgid "Valid signature, but the signing key does not match the sender"
-msgstr ""
+msgstr "Έγκυρη υπογραφή, αλλά το κλειδί υπογραφής δεν αντιστοιχεί στον αποστολέα"
 
 msgid "Valid signature — sender fingerprint has not been verified"
-msgstr ""
+msgstr "Έγκυρη υπογραφή — το δακτυλικό αποτύπωμα του αποστολέα δεν έχει επαληθευτεί"
 
 msgid "Valid signature from a verified sender"
-msgstr ""
+msgstr "Έγκυρη υπογραφή από επαληθευμένο αποστολέα"
 
 msgid "The signing key has since expired"
-msgstr ""
+msgstr "Το κλειδί υπογραφής έχει λήξει στο μεταξύ"
 
 msgid "Message is not signed"
-msgstr ""
+msgstr "Το μήνυμα δεν είναι υπογεγραμμένο"
 
 msgid "Inline OpenPGP protects the body only; attachments are not covered"
-msgstr ""
+msgstr "Το ενσωματωμένο OpenPGP προστατεύει μόνο το κύριο κείμενο — τα συνημμένα δεν καλύπτονται"
 
 msgid "Unprotected text after the OpenPGP block is not shown"
-msgstr ""
+msgstr "Το μη προστατευμένο κείμενο μετά το μπλοκ OpenPGP δεν εμφανίζεται"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr ""
+msgstr "Δεν ήταν δυνατή η φόρτωση των δημόσιων κλειδιών σας, οπότε δεν ήταν δυνατός ο έλεγχος των υπογραφών"
 
 msgid "Security information"
-msgstr ""
+msgstr "Πληροφορίες ασφάλειας"
 
 msgid "Choose when composing"
-msgstr ""
+msgstr "Επιλογή κατά τη σύνταξη"
 
 msgid "Personal and public keys"
-msgstr ""
+msgstr "Προσωπικά και δημόσια κλειδιά"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr ""
+msgstr "Τα κλειδιά σας αποθηκεύονται στο γραμματοκιβώτιό σας. Τα ιδιωτικά κλειδιά παραμένουν προστατευμένα με συνθηματική φράση· η υπογραφή, η κρυπτογράφηση και το ξεκλείδωμα γίνονται σε αυτό το πρόγραμμα περιήγησης. Επαληθεύστε τα δακτυλικά αποτυπώματα των επαφών σας μέσω ξεχωριστού αξιόπιστου διαύλου. Οι αλλαγές στα κλειδιά ισχύουν άμεσα."
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
-msgstr ""
+msgstr "Δεν υπάρχουν κλειδιά OpenPGP. Εισαγάγετε ή δημιουργήστε ένα κλειδί για να ξεκινήσετε."
 
 msgid "Identity"
-msgstr ""
+msgstr "Ταυτότητα"
 
 msgid "Fingerprint"
-msgstr ""
+msgstr "Δακτυλικό αποτύπωμα"
 
 msgid "Public key"
-msgstr ""
+msgstr "Δημόσιο κλειδί"
 
 msgid "Revoked"
-msgstr ""
+msgstr "Ανακλημένο"
 
 msgid "Expired"
-msgstr ""
+msgstr "Ληγμένο"
 
 msgid "Fingerprint verified"
-msgstr ""
+msgstr "Επαληθευμένο αποτύπωμα"
 
 msgid "Not verified"
-msgstr ""
+msgstr "Μη επαληθευμένο"
 
 msgid "Unlocked"
-msgstr ""
+msgstr "Ξεκλειδωμένο"
 
 msgid "Locked"
-msgstr ""
+msgstr "Κλειδωμένο"
 
 msgid "Expires"
 msgstr "Λήγει"
 
 msgid "No expiry"
-msgstr ""
+msgstr "Χωρίς λήξη"
 
 msgid "Generate key"
-msgstr ""
+msgstr "Δημιουργία κλειδιού"
 
 msgid "Import key"
-msgstr ""
+msgstr "Εισαγωγή κλειδιού"
 
 msgid "Find public key"
-msgstr ""
+msgstr "Αναζήτηση δημόσιου κλειδιού"
 
 msgid "Details / verify"
-msgstr ""
+msgstr "Λεπτομέρειες / επαλήθευση"
 
 msgid "Export public key"
-msgstr ""
+msgstr "Εξαγωγή δημόσιου κλειδιού"
 
 msgid "Back up private key"
-msgstr ""
+msgstr "Αντίγραφο ασφαλείας ιδιωτικού κλειδιού"
 
 msgid "Unlock in this browser"
-msgstr ""
+msgstr "Ξεκλείδωμα σε αυτό το πρόγραμμα περιήγησης"
 
 msgid "Change passphrase"
 msgstr "Αλλαγή κωδικής φράσης"
 
 msgid "Lock all"
-msgstr ""
+msgstr "Κλείδωμα όλων"
 
 msgid "Default private key"
-msgstr ""
+msgstr "Προεπιλεγμένο ιδιωτικό κλειδί"
 
 msgid "Sign new messages by default"
-msgstr ""
+msgstr "Υπογραφή νέων μηνυμάτων από προεπιλογή"
 
 msgid "Encrypt new messages by default"
-msgstr ""
+msgstr "Κρυπτογράφηση νέων μηνυμάτων από προεπιλογή"
 
 msgid "Manage keyservers"
-msgstr ""
+msgstr "Διαχείριση διακομιστών κλειδιών"
 
 msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
-msgstr ""
+msgstr "Οι προεπιλογές σύνταξης ισχύουν μόνο για νέα μηνύματα OpenPGP. Το S/MIME και το OpenPGP δεν μπορούν να συνδυαστούν στο ίδιο μήνυμα."
 
 msgid "Generate OpenPGP key"
-msgstr ""
+msgstr "Δημιουργία κλειδιού OpenPGP"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "Αλγόριθμος"
 
 msgid "Expires in"
-msgstr ""
+msgstr "Λήγει σε"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 έτος"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 έτη"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 έτη"
 
 msgid "Repeat passphrase"
-msgstr ""
+msgstr "Επανάληψη συνθηματικής φράσης"
 
 msgid "Passphrases do not match."
-msgstr ""
+msgstr "Οι συνθηματικές φράσεις δεν ταιριάζουν."
 
 msgid "Generate"
-msgstr ""
+msgstr "Δημιουργία"
 
 msgid "Key created. Back up the private key and store its passphrase separately."
-msgstr ""
+msgstr "Το κλειδί δημιουργήθηκε. Δημιουργήστε αντίγραφο ασφαλείας του ιδιωτικού κλειδιού και φυλάξτε τη συνθηματική του φράση χωριστά."
 
 msgid "Revocation certificate — keep secure"
-msgstr ""
+msgstr "Πιστοποιητικό ανάκλησης — φυλάξτε το με ασφάλεια"
 
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
-msgstr ""
+msgstr "Επιλέξτε μια ισχυρή συνθηματική φράση τουλάχιστον 12 χαρακτήρων. Η δημιουργία γίνεται τοπικά σε αυτό το πρόγραμμα περιήγησης και μπορεί να διαρκέσει λίγο. Φυλάξτε το πιστοποιητικό ανάκλησης και ένα αντίγραφο ασφαλείας του ιδιωτικού κλειδιού σε ασφαλές μέρος."
 
 msgid "Import OpenPGP key"
-msgstr ""
+msgstr "Εισαγωγή κλειδιού OpenPGP"
 
 msgid "Choose armored OpenPGP key file"
-msgstr ""
+msgstr "Επιλέξτε αρχείο κλειδιού OpenPGP σε μορφή ASCII"
 
 msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr ""
+msgstr "Το αρχείο κλειδιού είναι πολύ μεγάλο. Μέγιστο μέγεθος: 1 MiB."
 
 msgid "The key file could not be read."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου κλειδιού."
 
 msgid "Armored key"
-msgstr ""
+msgstr "Κλειδί σε μορφή ASCII"
 
 msgid "Protect unencrypted key"
-msgstr ""
+msgstr "Προστασία μη κρυπτογραφημένου κλειδιού"
 
 msgid "Optional: new passphrase for an unprotected private key"
-msgstr ""
+msgstr "Προαιρετικό: νέα συνθηματική φράση για μη προστατευμένο ιδιωτικό κλειδί"
 
 msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr ""
+msgstr "Το κλειδί εισήχθη. Επαληθεύστε τα δακτυλικά αποτυπώματα των παραληπτών πριν κρυπτογραφήσετε μηνύματα για αυτούς."
 
 msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr ""
+msgstr "Επιλέξτε ένα αρχείο ή επικολλήστε ένα μόνο κλειδί σε μορφή ASCII, μαζί με τις γραμμές BEGIN και END. Για μη προστατευμένο ιδιωτικό κλειδί, εισαγάγετε μια νέα συνθηματική φράση ώστε να προστατευτεί τοπικά πριν από την αποθήκευση. Τα κλειδιά παραληπτών που εισάγονται δεν θεωρούνται αυτόματα αξιόπιστα."
 
 msgid "Public OpenPGP key"
-msgstr ""
+msgstr "Δημόσιο κλειδί OpenPGP"
 
 msgid "Back up private OpenPGP key"
-msgstr ""
+msgstr "Αντίγραφο ασφαλείας ιδιωτικού κλειδιού OpenPGP"
 
 msgid "Create backup"
-msgstr ""
+msgstr "Δημιουργία αντιγράφου ασφαλείας"
 
 msgid "Private key backup — keep secure"
-msgstr ""
+msgstr "Αντίγραφο ασφαλείας ιδιωτικού κλειδιού — φυλάξτε το με ασφάλεια"
 
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
-msgstr ""
+msgstr "Επιβεβαιώστε τοπικά τη συνθηματική σας φράση πριν από τη λήψη αυτού του κρυπτογραφημένου αντιγράφου ασφαλείας του ιδιωτικού κλειδιού. Φυλάξτε το με ασφάλεια και μην το στείλετε ποτέ σε παραλήπτη ή σε διακομιστή κλειδιών."
 
 msgid "Current passphrase"
-msgstr ""
+msgstr "Τρέχουσα συνθηματική φράση"
 
 msgid "New passphrase"
 msgstr "Νέα συνθηματική φράση"
 
 msgid "Change OpenPGP passphrase"
-msgstr ""
+msgstr "Αλλαγή συνθηματικής φράσης OpenPGP"
 
 msgid "Repeat new passphrase"
-msgstr ""
+msgstr "Επανάληψη νέας συνθηματικής φράσης"
 
 msgid "Passphrase changed. Make a new private-key backup."
-msgstr ""
+msgstr "Η συνθηματική φράση άλλαξε. Δημιουργήστε νέο αντίγραφο ασφαλείας του ιδιωτικού κλειδιού."
 
 msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
-msgstr ""
+msgstr "Το ιδιωτικό κλειδί κρυπτογραφείται εκ νέου τοπικά. Τα υπάρχοντα αντίγραφα ασφαλείας εξακολουθούν να απαιτούν την αρχική τους συνθηματική φράση."
 
 msgid "Verify OpenPGP fingerprint"
-msgstr ""
+msgstr "Επαλήθευση δακτυλικού αποτυπώματος OpenPGP"
 
 msgid "Verified identities"
-msgstr ""
+msgstr "Επαληθευμένες ταυτότητες"
 
 msgid "Email identity"
-msgstr ""
+msgstr "Ταυτότητα email"
 
 msgid "Confirm fingerprint"
-msgstr ""
+msgstr "Επιβεβαίωση δακτυλικού αποτυπώματος"
 
 msgid "Enter the full fingerprint shown above."
-msgstr ""
+msgstr "Εισαγάγετε ολόκληρο το δακτυλικό αποτύπωμα που εμφανίζεται παραπάνω."
 
 msgid "I verified this fingerprint"
-msgstr ""
+msgstr "Επαλήθευσα αυτό το δακτυλικό αποτύπωμα"
 
 msgid "Save verification"
-msgstr ""
+msgstr "Αποθήκευση επαλήθευσης"
 
 msgid "Fingerprint verification updated."
-msgstr ""
+msgstr "Η επαλήθευση του δακτυλικού αποτυπώματος ενημερώθηκε."
 
 msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
-msgstr ""
+msgstr "Συγκρίνετε ολόκληρο το δακτυλικό αποτύπωμα με την επαφή σας μέσω ξεχωριστού αξιόπιστου διαύλου. Αν επιλέξετε το πλαίσιο, το κλειδί συνδέεται μόνιμα με την επιλεγμένη διεύθυνση· αν δεν το επιλέξετε, η επαλήθευση αυτή αφαιρείται."
 
 msgid "All private keys in this browser tab are locked."
-msgstr ""
+msgstr "Όλα τα ιδιωτικά κλειδιά σε αυτή την καρτέλα του προγράμματος περιήγησης είναι πλέον κλειδωμένα."
 
 msgid "Delete OpenPGP key"
-msgstr ""
+msgstr "Διαγραφή κλειδιού OpenPGP"
 
 msgid "Type the full fingerprint to confirm deletion."
-msgstr ""
+msgstr "Πληκτρολογήστε ολόκληρο το δακτυλικό αποτύπωμα για να επιβεβαιώσετε τη διαγραφή."
 
 msgid "Delete key"
-msgstr ""
+msgstr "Διαγραφή κλειδιού"
 
 msgid "Key removed from your mailbox."
-msgstr ""
+msgstr "Το κλειδί αφαιρέθηκε από το γραμματοκιβώτιό σας."
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
-msgstr ""
+msgstr "Αν διαγράψετε αυτό το ιδιωτικό κλειδί, δεν θα μπορείτε να διαβάσετε τα μηνύματα που έχουν κρυπτογραφηθεί για αυτό, εκτός αν διαθέτετε αντίγραφο ασφαλείας. Δημιουργήστε αντίγραφο ασφαλείας του ιδιωτικού κλειδιού πριν συνεχίσετε."
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr ""
+msgstr "Αυτό αφαιρεί το δημόσιο κλειδί και τα επαληθευμένα δακτυλικά αποτυπώματά του από την κλειδοθήκη σας."
 
 msgid "Manage OpenPGP keyservers"
-msgstr ""
+msgstr "Διαχείριση διακομιστών κλειδιών OpenPGP"
 
 msgid "HTTPS keyservers"
-msgstr ""
+msgstr "Διακομιστές κλειδιών HTTPS"
 
 msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
-msgstr ""
+msgstr "Εισαγάγετε μία προέλευση διακομιστή HTTPS ανά γραμμή, χωρίς διαδρομή, διαπιστευτήρια ή ερώτημα."
 
 msgid "Save keyservers"
-msgstr ""
+msgstr "Αποθήκευση διακομιστών κλειδιών"
 
 msgid "Keyservers updated."
-msgstr ""
+msgstr "Οι διακομιστές κλειδιών ενημερώθηκαν."
 
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
-msgstr ""
+msgstr "Μπορούν να χρησιμοποιηθούν μόνο διακομιστές κλειδιών HTTPS εγκεκριμένοι από τον διαχειριστή. Οι αναζητήσεις απαιτούν ολόκληρο το δακτυλικό αποτύπωμα. Τα κλειδιά δεν αποστέλλονται ποτέ αυτόματα."
 
 msgid "Approved servers: "
-msgstr ""
+msgstr "Εγκεκριμένοι διακομιστές: "
 
 msgid "Find OpenPGP public key"
-msgstr ""
+msgstr "Αναζήτηση δημόσιου κλειδιού OpenPGP"
 
 msgid "Keyserver"
-msgstr ""
+msgstr "Διακομιστής κλειδιών"
 
 msgid "Full fingerprint"
-msgstr ""
+msgstr "Πλήρες δακτυλικό αποτύπωμα"
 
 msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
-msgstr ""
+msgstr "Εισαγάγετε ένα πλήρες δεκαεξαδικό δακτυλικό αποτύπωμα 40 ή 64 χαρακτήρων."
 
 msgid "Find and import"
-msgstr ""
+msgstr "Αναζήτηση και εισαγωγή"
 
 msgid "The keyserver did not return the requested public key."
-msgstr ""
+msgstr "Ο διακομιστής κλειδιών δεν επέστρεψε το ζητούμενο δημόσιο κλειδί."
 
 msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr ""
+msgstr "Το δημόσιο κλειδί εισήχθη. Επαληθεύστε το δακτυλικό του αποτύπωμα πριν κρυπτογραφήσετε μηνύματα για τον κάτοχό του."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
-msgstr ""
+msgstr "Ο διακομιστής κλειδιών θα λάβει το δακτυλικό αποτύπωμα που αναζητάτε. Ένα κλειδί που λαμβάνετε εξακολουθεί να χρειάζεται επαλήθευση του δακτυλικού αποτυπώματος πριν κρυπτογραφήσετε μηνύματα για τον κάτοχό του."
 
 msgid "Old passphrase"
 msgstr "Παλιά συνθηματική φράση"
@@ -7780,9 +7648,8 @@ msgstr "S/MIME Plugin"
 msgid "Please select a certificate."
 msgstr "Παρακαλούμε επιλέξτε ένα πιστοποιητικό."
 
-#, fuzzy
 msgid "Do you really want to remove your private certificate? If you remove your certificate you will not be able to sign or decrypt S/MIME emails."
-msgstr "Θέλετε πραγματικά να καταργήσετε το ιδιωτικό σας πιστοποιητικό Εάν αφαιρέσετε το πιστοποιητικό σας, δεν θα μπορείτε να υπογράψετε ή να αποκρυπτογραφήσετε μηνύματα ηλεκτρονικού ταχυδρομείου S/MIME."
+msgstr "Θέλετε πραγματικά να αφαιρέσετε το ιδιωτικό σας πιστοποιητικό; Εάν αφαιρέσετε το πιστοποιητικό σας, δεν θα μπορείτε να υπογράψετε ή να αποκρυπτογραφήσετε μηνύματα ηλεκτρονικού ταχυδρομείου S/MIME."
 
 msgid "Signing"
 msgstr "Υπογραφή"
@@ -7850,7 +7717,6 @@ msgstr "Έχετε έγκυρο πιστοποιητικό που αντιστο
 msgid "Upload your certificate"
 msgstr "Ανεβάστε το πιστοποιητικό σας"
 
-#, fuzzy
 msgid "Below you can upload your private certificate in PKCS#12 format. grommunio Web only accepts certificates which are valid and only stores one private certificate on the server."
 msgstr "Παρακάτω μπορείτε να ανεβάσετε το ιδιωτικό σας πιστοποιητικό σε μορφή PKCS#12. Το grommunio Web δέχεται μόνο έγκυρα πιστοποιητικά και αποθηκεύει μόνο ένα ιδιωτικό πιστοποιητικό στον διακομιστή."
 
@@ -7878,14 +7744,12 @@ msgstr "υπογραφή & κρυπτογράφηση"
 msgid "Sign message"
 msgstr "Μήνυμα υπογραφής"
 
-#, fuzzy
 msgid "Ensure the authenticity of the message by adding a digital signature to this message. Any changes to the message will invalidate the signature."
 msgstr "Διασφαλίστε τη γνησιότητα του μηνύματος προσθέτοντας μια ψηφιακή υπογραφή σε αυτό το μήνυμα. Οποιαδήποτε αλλαγή στο μήνυμα θα ακυρώσει την υπογραφή."
 
 msgid "Encrypt message"
 msgstr "Κρυπτογράφηση μηνύματος"
 
-#, fuzzy
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Διασφαλίστε το απόρρητο του μηνύματος με κρυπτογράφηση του περιεχομένου του. Μόνο ο παραλήπτης του μηνύματος θα μπορεί να το ανοίξει."
 
@@ -7898,11 +7762,9 @@ msgstr "Τι συμβαίνει με το email μου"
 msgid "CBC mode"
 msgstr "Λειτουργία CBC"
 
-#, fuzzy
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
-msgstr "το grommunio Web μπορεί να επαληθεύσει τις ψηφιακές υπογραφές των μηνυμάτων ηλεκτρονικού ταχυδρομείου. Μια επιτυχής επαλήθευση σας διαβεβαιώνει ότι το μήνυμα δεν έχει αλλοιωθεί και επικυρώνει την ταυτότητα του αποστολέα."
+msgstr "Το grommunio Web μπορεί να επαληθεύσει τις ψηφιακές υπογραφές των μηνυμάτων ηλεκτρονικού ταχυδρομείου. Μια επιτυχής επαλήθευση σας διαβεβαιώνει ότι το μήνυμα δεν έχει αλλοιωθεί και επικυρώνει την ταυτότητα του αποστολέα."
 
-#, fuzzy
 msgid "You are seeing this message because the verification of the digital signature"
 msgstr "Βλέπετε αυτό το μήνυμα επειδή η επαλήθευση της ψηφιακής υπογραφής"
 
@@ -7918,49 +7780,39 @@ msgstr "Τι προκάλεσε αυτό το πρόβλημα"
 msgid "What should I do?"
 msgstr "Τι πρέπει να κάνω"
 
-#, fuzzy
 msgid "You can continue to work. However, you should keep in mind that the identity and the authenticity of the message content could not be verified."
 msgstr "Μπορείτε να συνεχίσετε να εργάζεστε. Ωστόσο, θα πρέπει να έχετε κατά νου ότι η ταυτότητα και η αυθεντικότητα του περιεχομένου του μηνύματος δεν μπορούν να επαληθευτούν."
 
-#, fuzzy
 msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
 msgstr "Μπορείτε να επικοινωνήσετε με το γραφείο βοήθειας ή το διαχειριστή συστήματος, αν δεν είστε σίγουροι για το τι πρέπει να κάνετε στη συνέχεια."
 
-#, fuzzy
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "το grommunio Web μπορεί να επαληθεύσει τις ψηφιακές υπογραφές των μηνυμάτων ηλεκτρονικού ταχυδρομείου. Μια επιτυχής επαλήθευση σας διαβεβαιώνει"
+msgstr "Το grommunio Web μπορεί να επαληθεύσει τις ψηφιακές υπογραφές των μηνυμάτων ηλεκτρονικού ταχυδρομείου. Μια επιτυχής επαλήθευση σας διαβεβαιώνει "
 
-#, fuzzy
 msgid "that the message has not been tampered with and validates the identity of the sender."
 msgstr "ότι το μήνυμα δεν έχει αλλοιωθεί και επικυρώνει την ταυτότητα του αποστολέα."
 
-#, fuzzy
 msgid "The verification of the digital signature was successful for this email message."
 msgstr "Η επαλήθευση της ψηφιακής υπογραφής ήταν επιτυχής για αυτό το μήνυμα ηλεκτρονικού ταχυδρομείου."
 
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr "το grommunio Web δεν μπόρεσε να βρει δημόσιο πιστοποιητικό για τον παραλήπτη."
 
-#, fuzzy
 msgid "The identity of the sender and authenticity of the message content have been verified, but the certificate used to sign the message expired on [d-m-Y]."
-msgstr "Η ταυτότητα του αποστολέα και η γνησιότητα του περιεχομένου του μηνύματος έχουν επαληθευτεί, αλλά το πιστοποιητικό που χρησιμοποιήθηκε για την υπογραφή του μηνύματος έληξε στις [δ-μ-υ]."
+msgstr "Η ταυτότητα του αποστολέα και η γνησιότητα του περιεχομένου του μηνύματος έχουν επαληθευτεί, αλλά το πιστοποιητικό που χρησιμοποιήθηκε για την υπογραφή του μηνύματος έληξε στις [d-m-Y]."
 
 msgid "The digital signature could not be verified for unknown reasons."
 msgstr "Η ψηφιακή υπογραφή δεν μπόρεσε να επαληθευτεί για άγνωστους λόγους."
 
-#, fuzzy
 msgid "The digital certificate used to sign this message has been revoked (i.e. the sender has marked it as compromised)"
 msgstr "Το ψηφιακό πιστοποιητικό που χρησιμοποιήθηκε για την υπογραφή αυτού του μηνύματος έχει ανακληθεί (δηλ. ο αποστολέας το έχει επισημάνει ως παραβιασμένο)"
 
-#, fuzzy
 msgid "The verification service of the certificate authority that signed the sender's certificate is not available. The validity of the certificate could not be verified."
-msgstr "Η υπηρεσία επαλήθευσης της αρχής πιστοποιητικών που υπέγραψε το πιστοποιητικό του αποστολέα δεν είναι διαθέσιμη. Η εγκυρότητα του πιστοποιητικού δεν μπόρεσε να επαληθευτεί."
+msgstr "Η υπηρεσία επαλήθευσης της αρχής έκδοσης πιστοποιητικών που υπέγραψε το πιστοποιητικό του αποστολέα δεν είναι διαθέσιμη. Η εγκυρότητα του πιστοποιητικού δεν μπόρεσε να επαληθευτεί."
 
-#, fuzzy
 msgid "The revocation status of the digital certificate used to sign this email is unknown (Server is unavailable or certificate does not support OCSP). The validity of the certificate could not be verified."
 msgstr "Η κατάσταση ανάκλησης του ψηφιακού πιστοποιητικού που χρησιμοποιείται για την υπογραφή αυτού του email είναι άγνωστη (ο διακομιστής δεν είναι διαθέσιμος ή το πιστοποιητικό δεν υποστηρίζει OCSP). Η εγκυρότητα του πιστοποιητικού δεν μπόρεσε να επαληθευτεί."
 
-#, fuzzy
 msgid "The revocation status of the digital certificate used to sign this email is disabled (OCSP). The validity of the certificate could not be verified."
 msgstr "Η κατάσταση ανάκλησης του ψηφιακού πιστοποιητικού που χρησιμοποιείται για την υπογραφή αυτού του email είναι απενεργοποιημένη (OCSP). Η εγκυρότητα του πιστοποιητικού δεν μπόρεσε να επαληθευτεί."
 
@@ -8204,7 +8056,6 @@ msgstr "Αναμονή"
 msgid "You have been automatically logged out"
 msgstr "Έχετε αποσυνδεθεί αυτόματα"
 
-#, fuzzy
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "Λυπούμαστε, η πρόσβαση στο grommunio Web δεν είναι διαθέσιμη με αυτόν τον λογαριασμό χρήστη. Επικοινωνήστε με το διαχειριστή του συστήματός σας."
 
@@ -8449,7 +8300,7 @@ msgid "PHP-CURL not installed"
 msgstr "Το PHP-CURL δεν έχει εγκατασταθεί"
 
 msgid "Unknown backend"
-msgstr ""
+msgstr "Άγνωστο backend"
 
 msgid "Account is ready to use."
 msgstr "Ο λογαριασμός είναι έτοιμος για χρήση."
@@ -8464,10 +8315,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Αυτό το αρχείο δεν είναι πλέον διαθέσιμο. Παρακαλούμε επαναφορτώστε το φάκελο."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "Η αναζήτηση παραληπτών δεν υποστηρίζεται από αυτό το backend"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "Αδυναμία αναζήτησης παραληπτών"
 
 msgid "Kendox certificate path is not configured."
 msgstr "Η διαδρομή του πιστοποιητικού Kendox δεν έχει ρυθμιστεί."
@@ -8484,12 +8335,12 @@ msgstr "Το πιστοποιητικό Kendox δεν είναι αναγνώσ�
 msgid "Mobile device management plugin"
 msgstr "Πρόσθετο διαχείρισης κινητών συσκευών"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Εμφανίστηκε απροσδόκητο σφάλμα. Επικοινωνήστε με το διαχειριστή του συστήματός σας. Κωδικός σφάλματος: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "Η διαχείριση κοινόχρηστων φακέλων δεν υποστηρίζεται από αυτόν τον διακομιστή."
 
 msgid "No data received."
 msgstr "Δεν ελήφθησαν δεδομένα."
@@ -8497,7 +8348,6 @@ msgstr "Δεν ελήφθησαν δεδομένα."
 msgid "Account is empty."
 msgstr "Ο λογαριασμός είναι άδειος."
 
-#, fuzzy
 msgid "Your password is wrong or you have insufficient permission to change password"
 msgstr "Ο κωδικός πρόσβασής σας είναι λανθασμένος ή δεν έχετε επαρκή άδεια για να αλλάξετε τον κωδικό πρόσβασης"
 
@@ -8511,13 +8361,13 @@ msgid "Password has been changed successfully."
 msgstr "Ο κωδικός πρόσβασης άλλαξε με επιτυχία."
 
 msgid "The OpenPGP operation could not be completed."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η ολοκλήρωση της λειτουργίας OpenPGP."
 
 msgid "OpenPGP: message was not sent"
-msgstr ""
+msgstr "OpenPGP: το μήνυμα δεν στάλθηκε"
 
 msgid "The OpenPGP message could not be read."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η ανάγνωση του μηνύματος OpenPGP."
 
 msgid "No certificate available"
 msgstr "Δεν υπάρχει διαθέσιμο πιστοποιητικό"
@@ -8544,13 +8394,13 @@ msgid "Unable to generate certs-only message"
 msgstr "Αδυναμία δημιουργίας μηνύματος certs-only"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "Αδυναμία ανάγνωσης μηνύματος certs-only"
 
 msgid "LDAP not configured"
 msgstr "Το LDAP δεν έχει ρυθμιστεί"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "Μη έγκυρη διαμόρφωση LDAP"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Λείπουν δημόσια πιστοποιητικά για τους ακόλουθους παραλήπτες: "
@@ -8558,7 +8408,6 @@ msgstr "Λείπουν δημόσια πιστοποιητικά για τους
 msgid ". Please contact your system administrator for details"
 msgstr ". Επικοινωνήστε με το διαχειριστή του συστήματός σας για λεπτομέρειες"
 
-#, fuzzy
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
 msgstr "Το δημόσιο πιστοποιητικό σας δεν έχει εγκατασταθεί. Χωρίς αυτό το πιστοποιητικό, δεν θα μπορείτε να διαβάσετε κρυπτογραφημένα μηνύματα που έχετε στείλει σε άλλους."
 
@@ -8597,7 +8446,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "Το πιστοποιητικό έχει ανακληθεί, αλλά εισήχθη."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η επαλήθευση της κατάστασης ανάκλησης του πιστοποιητικού. Το πιστοποιητικό εισήχθη."
 
 msgid "Unable to read public certificate"
 msgstr "Αδυναμία ανάγνωσης δημόσιου πιστοποιητικού"
@@ -8642,15 +8491,14 @@ msgid "Cannot store the category list in this mailbox."
 msgstr "Δεν είναι δυνατή η αποθήκευση της λίστας κατηγοριών σε αυτό το γραμματοκιβώτιο."
 
 msgid "Cannot scan this mailbox for categories."
-msgstr ""
+msgstr "Δεν είναι δυνατή η σάρωση αυτού του γραμματοκιβωτίου για κατηγορίες."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "Άγνωστη ενότητα '%s' με αναγνωριστικό '%s'"
 
-#, fuzzy
 msgid "Server encountered some problem, so it was not able to handle the request."
-msgstr "Ο διακομιστής αντιμετώπισε κάποιο πρόβλημα και δεν μπόρεσε να χειριστεί την αίτηση."
+msgstr "Ο διακομιστής αντιμετώπισε κάποιο πρόβλημα και δεν μπόρεσε να χειριστεί το αίτημα."
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -8671,16 +8519,16 @@ msgid "%1$s of %2$s"
 msgstr "%1$s από %2$s"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "Το OpenPGP είναι προς το παρόν απενεργοποιημένο ή μη διαθέσιμο. Το μήνυμά σας δεν στάλθηκε. Ενεργοποιήστε το OpenPGP πριν δοκιμάσετε ξανά ή απενεργοποιήστε ρητά την υπογραφή και την κρυπτογράφηση."
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
-msgstr ""
+msgstr "Στάλθηκαν πάρα πολλά μηνύματα σε σύντομο χρονικό διάστημα. Περιμένετε λίγο και στείλτε ξανά."
 
 msgid "Message was not sent"
-msgstr ""
+msgstr "Το μήνυμα δεν στάλθηκε"
 
 msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "Αυτό το πρόχειρο ζητά προστασία OpenPGP, η οποία όμως δεν εφαρμόστηκε. Το μήνυμα δεν στάλθηκε. Ενεργοποιήστε το OpenPGP πριν δοκιμάσετε ξανά ή απενεργοποιήστε ρητά την υπογραφή και την κρυπτογράφηση."
 
 msgid "Error retrieving existing settings"
 msgstr "Σφάλμα ανάκτησης υφιστάμενων ρυθμίσεων"
@@ -8694,7 +8542,6 @@ msgstr "Η σύνδεση απέτυχε. Παρακαλούμε επαληθε�
 msgid "Cannot connect to Gromox."
 msgstr "Δεν μπορεί να συνδεθεί στο Gromox."
 
-#, fuzzy
 msgid "Login did not work due to a duplicate session. The issue was automatically resolved, please log in again."
 msgstr "Η σύνδεση δεν λειτούργησε λόγω διπλής συνεδρίας. Το πρόβλημα επιλύθηκε αυτόματα, παρακαλούμε συνδεθείτε ξανά."
 
@@ -8808,28 +8655,27 @@ msgstr "ένα ραντεβού"
 msgid "You have insufficient privileges to move "
 msgstr "Δεν έχετε επαρκή δικαιώματα για να μετακινηθείτε "
 
-#, fuzzy
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "Δεν μπορείτε να ορίσετε μια υπενθύμιση να εμφανιστεί πριν από την προηγούμενη εμφάνιση. Επαναφέρετε την υπενθύμιση για να αποθηκεύσετε την αλλαγή"
 
 msgid "Two occurrences cannot occur on the same day"
 msgstr "Δύο περιστατικά δεν μπορούν να συμβούν την ίδια ημέρα"
 
-#, fuzzy, php-format
+#, php-format
 msgid "You marked '%s' as a resource. You cannot schedule a meeting with '%s' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule '%s'."
-msgstr "Σημειώσατε το '%s' ως πόρο. Δεν μπορείτε να προγραμματίσετε μια συνάντηση με τον '%s' επειδή δεν έχετε τα κατάλληλα δικαιώματα για αυτόν τον λογαριασμό. Είτε καταχωρίστε το όνομα ως υποχρεωτικό ή προαιρετικό συμμετέχοντα είτε μιλήστε με το διαχειριστή σας για να σας δώσει το δικαίωμα να προγραμματίσετε τη συνάντηση '%s'."
+msgstr "Σημειώσατε το '%s' ως πόρο. Δεν μπορείτε να προγραμματίσετε μια συνάντηση με τον '%s' επειδή δεν έχετε τα κατάλληλα δικαιώματα για αυτόν τον λογαριασμό. Είτε καταχωρίστε το όνομα ως υποχρεωτικό ή προαιρετικό συμμετέχοντα είτε μιλήστε με το διαχειριστή σας για να σας δώσει το δικαίωμα να προγραμματίσετε το '%s'."
 
-#, fuzzy, php-format
+#, php-format
 msgid "'%s' has declined your meeting because '%s' does not automatically accept meeting requests."
-msgstr "το '%s' απέρριψε τη συνάντησή σας επειδή το '%s' δεν δέχεται αυτόματα αιτήματα συνάντησης."
+msgstr "Το '%s' απέρριψε τη συνάντησή σας επειδή το '%s' δεν δέχεται αυτόματα αιτήματα συνάντησης."
 
-#, fuzzy, php-format
+#, php-format
 msgid "'%s' has declined your meeting because it is recurring. You must book each meeting separately with this resource."
-msgstr "το '%s' απέρριψε τη συνάντησή σας επειδή είναι επαναλαμβανόμενη. Πρέπει να κλείσετε κάθε συνάντηση ξεχωριστά με αυτόν τον πόρο."
+msgstr "Το '%s' απέρριψε τη συνάντησή σας επειδή είναι επαναλαμβανόμενη. Πρέπει να κλείσετε κάθε συνάντηση ξεχωριστά με αυτόν τον πόρο."
 
-#, fuzzy, php-format
+#, php-format
 msgid "'%s' is already booked for this specified time. You must use another time or find another resource."
-msgstr "το '%s' είναι ήδη κλεισμένο για τη συγκεκριμένη ώρα. Πρέπει να χρησιμοποιήσετε άλλη ώρα ή να βρείτε άλλο πόρο."
+msgstr "Το '%s' είναι ήδη κλεισμένο για τη συγκεκριμένη ώρα. Πρέπει να χρησιμοποιήσετε άλλη ώρα ή να βρείτε άλλο πόρο."
 
 msgid "Meeting was not scheduled."
 msgstr "Η συνάντηση δεν προγραμματίστηκε."
@@ -8934,7 +8780,6 @@ msgstr "Δεν μπόρεσε να αδειάσει το φάκελο."
 msgid "Could not perform action correctly."
 msgstr "Δεν μπόρεσε να εκτελέσει σωστά την ενέργεια."
 
-#, fuzzy
 msgid "A favorite folder with this name already exists, please use another name."
 msgstr "Ένας αγαπημένος φάκελος με αυτό το όνομα υπάρχει ήδη, παρακαλούμε χρησιμοποιήστε ένα άλλο όνομα."
 
@@ -8968,7 +8813,7 @@ msgstr "Δεν μπόρεσε να κλείσει τον κοινόχρηστο 
 msgid "User could not be resolved."
 msgstr "Ο χρήστης δεν μπόρεσε να επιλυθεί."
 
-#, fuzzy, php-format
+#, php-format
 msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
 msgstr "Δεν έχετε επαρκή δικαιώματα για να ανοίξετε αυτόν τον φάκελο %1$s. Ο ιδιοκτήτης του φακέλου μπορεί να τα ορίσει χρησιμοποιώντας την καρτέλα \"δικαιώματα\" των ιδιοτήτων του φακέλου (δεξί κλικ στο φάκελο %1$s > ιδιότητες > δικαιώματα)."
 
@@ -8990,7 +8835,6 @@ msgstr "Δεν ήταν δυνατή η αντιγραφή φακέλου"
 msgid "You have insufficient privileges to open this message."
 msgstr "Δεν έχετε επαρκή δικαιώματα για να ανοίξετε αυτό το μήνυμα."
 
-#, fuzzy
 msgid "Could not find message, either it has been moved or deleted or you don't have access to open this message."
 msgstr "Δεν μπόρεσα να βρω το μήνυμα, είτε έχει μετακινηθεί ή διαγραφεί είτε δεν έχετε πρόσβαση για να ανοίξετε αυτό το μήνυμα."
 
@@ -9021,7 +8865,6 @@ msgstr "Δεν ήταν δυνατή η αποθήκευση μηνύματος"
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Δεν έχετε επαρκή δικαιώματα για να αφαιρέσετε στοιχείο από το ημερολόγιο."
 
-#, fuzzy
 msgid "Message is no longer in the outgoing queue, typically because it has already been sent."
 msgstr "Το μήνυμα δεν βρίσκεται πλέον στην ουρά εξερχομένων, συνήθως επειδή έχει ήδη αποσταλεί."
 
@@ -9034,9 +8877,8 @@ msgstr "Δεν έχετε επαρκή δικαιώματα για να διαγ
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Δεν έχετε επαρκή δικαιώματα για να επισυνάψετε το στοιχείο ως συνημμένο."
 
-#, fuzzy
 msgid "You have insufficient privileges to reclaim the ownership for the Task Request."
-msgstr "Δεν έχετε επαρκή προνόμια για να ανακτήσετε την κυριότητα του αιτήματος εργασίας."
+msgstr "Δεν έχετε επαρκή δικαιώματα για να ανακτήσετε την κυριότητα του αιτήματος εργασίας."
 
 msgid "Could not reclaim the ownership for the Task Request."
 msgstr "Δεν κατέστη δυνατή η ανάκτηση της κυριότητας για το αίτημα εργασίας."
@@ -9054,12 +8896,12 @@ msgid "Could not decline Task Request."
 msgstr "Δεν ήταν δυνατή η απόρριψη του αιτήματος εργασίας."
 
 msgid "Could not open the attachment."
-msgstr ""
+msgstr "Δεν ήταν δυνατό το άνοιγμα του συνημμένου."
 
 msgid "Conflicts with another appointment."
 msgstr "Συγκρούεται με άλλο ραντεβού."
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s occurrence of this recurring appointment conflicts with other appointment."
 msgid_plural "%s occurrences of this recurring appointment conflicts with other appointments."
 msgstr[0] "%s εμφάνιση αυτού του επαναλαμβανόμενου ραντεβού συγκρούεται με άλλο ραντεβού."
@@ -9072,7 +8914,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "Δεν ήταν δυνατή η επικοινωνία με τον/τους ακόλουθο/ους παραλήπτη/τες"
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
+msgstr "Η αφαίρεση συνημμένων έχει απενεργοποιηθεί από τον διαχειριστή."
 
 msgid "l, F j, Y g:i A"
 msgstr "l, j F Y G:i"
@@ -9092,7 +8934,6 @@ msgstr "Δεν έχετε επαρκή δικαιώματα για να δείτ
 msgid "Could not load the contents of this folder."
 msgstr "Δεν μπόρεσε να φορτώσει τα περιεχόμενα αυτού του φακέλου."
 
-#, fuzzy
 msgid "You have insufficient privileges to perform search operation in this folder."
 msgstr "Δεν έχετε επαρκή δικαιώματα για να εκτελέσετε αναζήτηση σε αυτόν τον φάκελο."
 
@@ -9150,9 +8991,8 @@ msgstr "Σφάλμα στην επέκταση της λίστας διανομ�
 msgid "The message store has exceeded its hard quota limit."
 msgstr "Ο χώρος αποθήκευσης μηνυμάτων έχει υπερβεί το όριο της σκληρής ποσόστωσης."
 
-#, fuzzy
 msgid "To reduce the amount of data in this message store, select some items that you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr "Για να μειώσετε τον όγκο των δεδομένων σε αυτή την αποθήκη μηνυμάτων, επιλέξτε ορισμένα στοιχεία που δεν χρειάζεστε πλέον, διαγράψτε τα και καθαρίστε το φάκελο Διαγραμμένα στοιχεία."
+msgstr "Για να μειώσετε τον όγκο των δεδομένων σε αυτόν τον χώρο αποθήκευσης μηνυμάτων, επιλέξτε ορισμένα στοιχεία που δεν χρειάζεστε πλέον, διαγράψτε τα και καθαρίστε το φάκελο Διαγραμμένα στοιχεία."
 
 msgid "The message store has exceeded its soft quota limit."
 msgstr "Ο χώρος αποθήκευσης μηνυμάτων έχει υπερβεί το όριο της μαλακής ποσόστωσης."
@@ -9221,13 +9061,11 @@ msgstr "Μια επέκταση PHP σταμάτησε το ανέβασμα τ�
 msgid "There is no contact found in this file."
 msgstr "Δεν βρέθηκε καμία επαφή σε αυτό το αρχείο."
 
-#, fuzzy
 msgid "grommunio Web does not support importing multiple VCF with this version."
-msgstr "το grommunio Web δεν υποστηρίζει την εισαγωγή πολλαπλών VCF με αυτή την έκδοση."
+msgstr "Το grommunio Web δεν υποστηρίζει την εισαγωγή πολλαπλών VCF με αυτή την έκδοση."
 
-#, fuzzy
 msgid "grommunio Web does not support importing multiple ICS with this version."
-msgstr "το grommunio Web δεν υποστηρίζει την εισαγωγή πολλαπλών ICS με αυτή την έκδοση."
+msgstr "Το grommunio Web δεν υποστηρίζει την εισαγωγή πολλαπλών ICS με αυτή την έκδοση."
 
 msgid "GB"
 msgstr "GB"

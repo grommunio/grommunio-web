@@ -1709,7 +1709,7 @@ msgid "jS F Y"
 msgstr "jS F Y"
 
 msgid "Online meeting"
-msgstr ""
+msgstr "Veebikoosolek"
 
 msgid "Attendees"
 msgstr "Osalejad"
@@ -1883,8 +1883,8 @@ msgstr "Teil ei ole piisavalt õigusi selles kaustas olevate objektide kustutami
 
 msgid "You have insufficient privileges to delete one of the selected items."
 msgid_plural "You have insufficient privileges to delete {0} of the selected items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Teil ei ole piisavalt õigusi ühe valitud kirje kustutamiseks."
+msgstr[1] "Teil ei ole piisavalt õigusi {0} valitud kirje kustutamiseks."
 
 msgid "Notify recipients"
 msgstr "Palun teavita saajaid"
@@ -1923,10 +1923,10 @@ msgid "Recipient already exists."
 msgstr "Saaja on juba olemas."
 
 msgid "Remove attachment"
-msgstr ""
+msgstr "Eemalda manus"
 
 msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
-msgstr ""
+msgstr "Kas eemaldada „{0}“ sellest sõnumist? Manust ei saa hiljem taastada."
 
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "Selle e-kirja saatja on taotlenud lugemiskviitungi. Kas soovite saatjat teavitada?"
@@ -1956,20 +1956,20 @@ msgid "Untitled"
 msgstr "Ilma nimeta"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "Manuseid ei õnnestunud salvestada."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Seda manust ei õnnestunud salvestada: {0}"
+msgstr[1] "Neid manuseid ei õnnestunud salvestada: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Salvestati {0} manus."
+msgstr[1] "Salvestati {0} manust."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "Manuste salvestamine"
 
 msgid "Insert item"
 msgstr "Sisesta kirje"
@@ -2017,7 +2017,7 @@ msgid "Preview"
 msgstr "Eelvaade"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "Ava eelvaade dialoogiaknas"
 
 msgid "Download"
 msgstr "Laadi alla"
@@ -2026,7 +2026,7 @@ msgid "Download all as ZIP"
 msgstr "Laadi kõik alla zip-failina"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "Salvesta valik kataloogi"
 
 msgid "Import to folder"
 msgstr "Impordi kausta"
@@ -2038,10 +2038,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "ICS / VCS impordifunktsiooni kasutamiseks uuenda oma Gromox versioonile 0 või uuemale."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "Ava eelvaade grommunio Webi vahekaardil"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "Ava eelvaade brauseriaknas"
 
 msgid "Attachment error"
 msgstr "Kinnitusviga"
@@ -2238,7 +2238,7 @@ msgid "Folder '{0}' selected."
 msgstr "Kaust '{0}' valitud."
 
 msgid "Suggested folders"
-msgstr ""
+msgstr "Soovitatud kaustad"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "Valitud üksusi ei saa sellesse kausta teisaldada, sest see sisaldab teist tüüpi sisu."
@@ -2436,7 +2436,7 @@ msgid "Redo the last undone action"
 msgstr "Tee viimane tagasivõetud toiming uuesti"
 
 msgid "Jump to the search box, press again for the browser search"
-msgstr ""
+msgstr "Liigu otsinguväljale, järgmine vajutus avab brauseri otsingu"
 
 msgid "Open the command palette"
 msgstr "Ava käsupalett"
@@ -2496,28 +2496,28 @@ msgid "Presentation"
 msgstr "Esitlus"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Täisekraan"
 
 msgid "Previous page"
-msgstr ""
+msgstr "Eelmine leht"
 
 msgid "Next page"
-msgstr ""
+msgstr "Järgmine leht"
 
 msgid "Page:"
-msgstr ""
+msgstr "Leht:"
 
 msgid "of {0}"
-msgstr ""
+msgstr "{0}-st"
 
 msgid "Zoom out"
-msgstr ""
+msgstr "Vähenda"
 
 msgid "Zoom in"
-msgstr ""
+msgstr "Suurenda"
 
 msgid "Zoom"
-msgstr ""
+msgstr "Suurendus"
 
 msgid "Automatic"
 msgstr "Automaatne"
@@ -2529,37 +2529,37 @@ msgid "Page width"
 msgstr "Lehekülje laius"
 
 msgid "Rotate left"
-msgstr ""
+msgstr "Pööra vasakule"
 
 msgid "Rotate right"
-msgstr ""
+msgstr "Pööra paremale"
 
 msgid "This document could not be previewed."
-msgstr ""
+msgstr "Selle dokumendi eelvaadet ei õnnestunud kuvada."
 
 msgid "This file cannot be previewed."
-msgstr ""
+msgstr "Seda faili ei saa eelvaates kuvada."
 
 msgid "Download the file to open it with a program that can read it."
-msgstr ""
+msgstr "Laadige fail alla, et avada see programmiga, mis oskab seda lugeda."
 
 msgid "The document is empty."
-msgstr ""
+msgstr "Dokument on tühi."
 
 msgid "This sheet is empty."
-msgstr ""
+msgstr "See tööleht on tühi."
 
 msgid "Showing the first {0} rows and {1} columns."
-msgstr ""
+msgstr "Kuvatakse esimesed {0} rida ja {1} veergu."
 
 msgid "Wrap lines"
-msgstr ""
+msgstr "Murra read"
 
 msgid "Line numbers"
-msgstr ""
+msgstr "Reanumbrid"
 
 msgid "This message has no content."
-msgstr ""
+msgstr "Sellel sõnumil puudub sisu."
 
 msgid "grommunio Web print"
 msgstr "grommunio Web printimine"
@@ -3428,19 +3428,19 @@ msgid "in"
 msgstr "aadressil"
 
 msgid "Digitally sign this message"
-msgstr ""
+msgstr "Allkirjasta see sõnum digitaalselt"
 
 msgid "Encrypt this message"
-msgstr ""
+msgstr "Krüpteeri see sõnum"
 
 msgid "Autosave is paused while encryption is selected."
-msgstr ""
+msgstr "Automaatsalvestus on peatatud, kuni krüpteerimine on valitud."
 
 msgid "Turn off {0} signing and encryption first."
-msgstr ""
+msgstr "Lülitage esmalt välja {0} allkirjastamine ja krüpteerimine."
 
 msgid "options"
-msgstr ""
+msgstr "valikud"
 
 msgid "Sign"
 msgstr "Allkiri"
@@ -4786,13 +4786,13 @@ msgid "You have insufficient privileges to move this folder. Would you like to c
 msgstr "Sul ei ole selle kausta teisaldamiseks piisavalt õigusi. Kas soovid hoopis kopeerida?"
 
 msgid "Enable OpenPGP before replying to this protected message."
-msgstr ""
+msgstr "Lubage OpenPGP, enne kui vastate sellele kaitstud sõnumile."
 
 msgid "The protected message could not be opened. No reply or forward was created."
-msgstr ""
+msgstr "Kaitstud sõnumit ei õnnestunud avada. Vastust ega edasisaadetavat sõnumit ei loodud."
 
 msgid "Unable to open response"
-msgstr ""
+msgstr "Vastuse avamine ebaõnnestus"
 
 msgid "CC"
 msgstr "CC"
@@ -4961,13 +4961,13 @@ msgid "Filter"
 msgstr "Filter"
 
 msgid "This browser cannot attach the decrypted file. Download it before forwarding."
-msgstr ""
+msgstr "See brauser ei saa dekrüpteeritud faili manusena lisada. Laadige see enne edasisaatmist alla."
 
 msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
-msgstr ""
+msgstr "Üks dekrüpteeritud manus ületab üleslaadimise piirangud. Poolikut vastust ei loodud."
 
 msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
-msgstr ""
+msgstr "Üht dekrüpteeritud manust ei õnnestunud üles laadida. Poolikut vastust ei loodud."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -5048,7 +5048,7 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}AutoSave saatmata posti iga {B} minuti(de) järel"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
-msgstr ""
+msgstr "Automaatsalvestus ka siis, kui krüpteerimine on valitud (mustandid salvestatakse krüpteerimata)"
 
 msgid "Conversation view settings"
 msgstr "Vestlusvaate seaded"
@@ -5502,7 +5502,7 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Preview documents and files in grommunio Web"
-msgstr ""
+msgstr "Dokumentide ja failide eelvaade grommunio Webis"
 
 msgid "Document default zoom"
 msgstr "Dokumendi vaikimisi suumimine"
@@ -5511,10 +5511,10 @@ msgid "PDF zoom"
 msgstr "PDF-suumimine"
 
 msgid "Dialog"
-msgstr ""
+msgstr "Dialoogiaken"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "Eelvaate avamise koht"
 
 msgid "File previewing"
 msgstr "Faili eelvaade"
@@ -5681,22 +5681,22 @@ msgid "Reset all settings to defaults"
 msgstr "Lähtestada kõik seaded vaikimisi seadistustesse"
 
 msgid "Migrate legacy categories"
-msgstr ""
+msgstr "Migreeri vanad kategooriad"
 
 msgid "This will scan all folders and migrate the categories assigned to items."
-msgstr ""
+msgstr "See läbib kõik kaustad ja migreerib kirjetele määratud kategooriad."
 
 msgid "The legacy category settings will remain unchanged."
-msgstr ""
+msgstr "Vanade kategooriate seaded jäävad muutmata."
 
 msgid "Migrate"
-msgstr ""
+msgstr "Migreeri"
 
 msgid "Legacy categories migrated successfully."
-msgstr ""
+msgstr "Vanad kategooriad on edukalt migreeritud."
 
 msgid "Could not migrate legacy categories."
-msgstr ""
+msgstr "Vanade kategooriate migreerimine ebaõnnestus."
 
 msgid "Changes to assigned task"
 msgstr "Muudatused määratud ülesandes"
@@ -6231,7 +6231,7 @@ msgid "The response was interrupted and may be incomplete."
 msgstr "Vastus katkestati ja see võib olla puudulik."
 
 msgid "The answer reached the output limit configured for this model and stops here."
-msgstr ""
+msgstr "Vastus jõudis selle mudeli jaoks seadistatud väljundipiiranguni ja katkeb siin."
 
 msgid "Insert at cursor"
 msgstr "Lisa kursori kohta"
@@ -6660,7 +6660,7 @@ msgid "Create office document"
 msgstr "Büroodokumendi loomine"
 
 msgid "Preview file"
-msgstr ""
+msgstr "Ava faili eelvaade"
 
 msgid "Download files"
 msgstr "Laadi failid alla"
@@ -6829,10 +6829,10 @@ msgid "Mobile Device Manager"
 msgstr "Mobiilseadmete haldur"
 
 msgid "Device removed"
-msgstr ""
+msgstr "Seade eemaldatud"
 
 msgid "The device was not removed. Check your password and try again."
-msgstr ""
+msgstr "Seadet ei eemaldatud. Kontrollige oma salasõna ja proovige uuesti."
 
 msgid "Wiping device"
 msgstr "Seadme sisu on kustutamisel"
@@ -7136,463 +7136,463 @@ msgid "Password is weak. Password should contain capital, non-capital letters an
 msgstr "Salasõna on nõrk. Mõistlik salasõna peaks sisaldama suurtähti, väiketähti ja numbreid ning olema pikkusega 8-20 tähemärki."
 
 msgid "The OpenPGP request failed. Please try again."
-msgstr ""
+msgstr "OpenPGP päring ebaõnnestus. Palun proovige uuesti."
 
 msgid "Working…"
-msgstr ""
+msgstr "Töötleme…"
 
 msgid "The operation failed. Please try again."
-msgstr ""
+msgstr "Toiming ebaõnnestus. Palun proovige uuesti."
 
 msgid "Passphrase"
-msgstr ""
+msgstr "Salasõna"
 
 msgid "Unlock OpenPGP private key"
-msgstr ""
+msgstr "Ava OpenPGP privaatvõti lukust"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Ava lukust"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr ""
+msgstr "Teie salasõna ja lukust avatud võti jäävad sellesse brauseri vahekaarti. Võti lukustub automaatselt teatud aja möödudes või vahekaardi sulgemisel. Sõrmejälg: "
 
 msgid "Set up OpenPGP"
-msgstr ""
+msgstr "OpenPGP seadistamine"
 
 msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
-msgstr ""
+msgstr "Lisage saatja aadressiga sobiv privaatvõti, et sõnumeid allkirjastada või hoida saadetud kirja krüpteeritud koopiat loetavana. OpenPGP seadetes saate importida olemasoleva võtme või luua uue."
 
 msgid "Open key settings"
-msgstr ""
+msgstr "Ava võtmeseaded"
 
 msgid "Choose OpenPGP key"
-msgstr ""
+msgstr "Vali OpenPGP võti"
 
 msgid "Private key"
-msgstr ""
+msgstr "Privaatvõti"
 
 msgid "Use key"
-msgstr ""
+msgstr "Kasuta võtit"
 
 msgid "Private-key unlocking was cancelled."
-msgstr ""
+msgstr "Privaatvõtme lukust avamine katkestati."
 
 msgid "Key selection was cancelled."
-msgstr ""
+msgstr "Võtme valimine katkestati."
 
 msgid "Choose private key…"
-msgstr ""
+msgstr "Vali privaatvõti…"
 
 msgid "Manage OpenPGP keys…"
-msgstr ""
+msgstr "Halda OpenPGP võtmeid…"
 
 msgid "Lock private keys"
-msgstr ""
+msgstr "Lukusta privaatvõtmed"
 
 msgid "Signing key: "
-msgstr ""
+msgstr "Allkirjastamisvõti: "
 
 msgid "Decryption alone does not authenticate the sender."
-msgstr ""
+msgstr "Dekrüpteerimine üksi ei autendi saatjat."
 
 msgid "OpenPGP security information"
-msgstr ""
+msgstr "OpenPGP turbeteave"
 
 msgid "OpenPGP"
-msgstr ""
+msgstr "OpenPGP"
 
 msgid "OpenPGP signed or encrypted message"
-msgstr ""
+msgstr "OpenPGP-ga allkirjastatud või krüpteeritud sõnum"
 
 msgid "OpenPGP Plugin"
-msgstr ""
+msgstr "OpenPGP plugin"
 
 msgid "The OpenPGP operation was cancelled."
-msgstr ""
+msgstr "OpenPGP toiming katkestati."
 
 msgid "S/MIME and OpenPGP cannot protect the same message."
-msgstr ""
+msgstr "S/MIME ja OpenPGP ei saa sama sõnumit korraga kaitsta."
 
 msgid "Saving the OpenPGP draft timed out. Please retry."
-msgstr ""
+msgstr "OpenPGP mustandi salvestamine aegus. Palun proovige uuesti."
 
 msgid "The draft could not be saved. Nothing was sent."
-msgstr ""
+msgstr "Mustandit ei õnnestunud salvestada. Midagi ei saadetud."
 
 msgid "The sender or message protection changed. Please send again."
-msgstr ""
+msgstr "Saatja või sõnumi kaitse muutus. Palun saatke uuesti."
 
 msgid "The selected private key is not valid for this sender and protection mode."
-msgstr ""
+msgstr "Valitud privaatvõti ei sobi selle saatja ja kaitserežiimi jaoks."
 
 msgid "A matching, passphrase-protected private key is required."
-msgstr ""
+msgstr "Vajalik on sobiv, salasõnaga kaitstud privaatvõti."
 
 msgid "A recipient key is invalid, expired or does not match its email address."
-msgstr ""
+msgstr "Mõne saaja võti on vigane, aegunud või ei vasta tema e-posti aadressile."
 
 msgid "No verified recipient keys are available."
-msgstr ""
+msgstr "Ühtegi kontrollitud saaja võtit ei ole saadaval."
 
 msgid "This message is too large for browser OpenPGP processing."
-msgstr ""
+msgstr "See sõnum on brauseris OpenPGP-ga töötlemiseks liiga suur."
 
 msgid "Message protection changed while preparing the message. Please send again."
-msgstr ""
+msgstr "Sõnumi ettevalmistamise ajal muutus sõnumi kaitse. Palun saatke uuesti."
 
 msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
-msgstr ""
+msgstr "Kaitstud sõnum on {0} MB, mis ületab selle serveri ühe päringu piiri ({1} MB). Eemaldage manuseid või paluge administraatoril üleslaadimise piirangut suurendada."
 
 msgid "The attachment archive is too large."
-msgstr ""
+msgstr "Manuste arhiiv on liiga suur."
 
 msgid "Unlock the message again to download this attachment."
-msgstr ""
+msgstr "Selle manuse allalaadimiseks avage sõnum uuesti lukust."
 
 msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
-msgstr ""
+msgstr "See sõnum sisaldab pesastatud S/MIME kaitset, mida OpenPGP ei suuda avada."
 
 msgid "Too many nested OpenPGP envelopes."
-msgstr ""
+msgstr "Liiga palju pesastatud OpenPGP ümbrikke."
 
 msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
-msgstr ""
+msgstr "Allkiri on vigane või selle avalik võti pole saadaval. Ärge tuginege selle saatja identiteedile."
 
 msgid "The private key was locked while opening this message."
-msgstr ""
+msgstr "Selle sõnumi avamise ajal lukustati privaatvõti."
 
 msgid "This message contains too many attachments."
-msgstr ""
+msgstr "See sõnum sisaldab liiga palju manuseid."
 
 msgid "The decoded attachments are too large."
-msgstr ""
+msgstr "Dekodeeritud manused on liiga suured."
 
 msgid "The OpenPGP operation failed."
-msgstr ""
+msgstr "OpenPGP toiming ebaõnnestus."
 
 msgid "OpenPGP: checking message security…"
-msgstr ""
+msgstr "OpenPGP: kontrollime sõnumi turvalisust…"
 
 msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
-msgstr ""
+msgstr "Krüpteeritud sõnum on salvestatud ilma MIME-ümbrikuta — salvestage manus ja dekrüpteerige see OpenPGP tööriistaga"
 
 msgid "Signed message stored without its original MIME — the signature cannot be verified"
-msgstr ""
+msgstr "Allkirjastatud sõnum on salvestatud ilma algse MIME-ta — allkirja ei saa kontrollida"
 
 msgid "Message decrypted"
-msgstr ""
+msgstr "Sõnum dekrüpteeritud"
 
 msgid "Message could not be decrypted — click for details or retry"
-msgstr ""
+msgstr "Sõnumit ei õnnestunud dekrüpteerida — klõpsake, et näha üksikasju või proovida uuesti"
 
 msgid "Encrypted message — unlock your private key to read"
-msgstr ""
+msgstr "Krüpteeritud sõnum — lugemiseks avage privaatvõti lukust"
 
 msgid "Signature could not be verified"
 msgstr "Allkirja ei olnud võimalik kontrollida"
 
 msgid "Valid signature, but the signing key does not match the sender"
-msgstr ""
+msgstr "Kehtiv allkiri, kuid allkirjastamisvõti ei vasta saatjale"
 
 msgid "Valid signature — sender fingerprint has not been verified"
-msgstr ""
+msgstr "Kehtiv allkiri — saatja sõrmejälg on kinnitamata"
 
 msgid "Valid signature from a verified sender"
-msgstr ""
+msgstr "Kehtiv allkiri kinnitatud saatjalt"
 
 msgid "The signing key has since expired"
-msgstr ""
+msgstr "Allkirjastamisvõti on vahepeal aegunud"
 
 msgid "Message is not signed"
-msgstr ""
+msgstr "Sõnum ei ole allkirjastatud"
 
 msgid "Inline OpenPGP protects the body only; attachments are not covered"
-msgstr ""
+msgstr "Tekstisisene OpenPGP kaitseb ainult sõnumi sisu; manused jäävad kaitseta"
 
 msgid "Unprotected text after the OpenPGP block is not shown"
-msgstr ""
+msgstr "OpenPGP ploki järel olevat kaitsmata teksti ei kuvata"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr ""
+msgstr "Teie avalikke võtmeid ei õnnestunud laadida, seetõttu jäid allkirjad kontrollimata"
 
 msgid "Security information"
-msgstr ""
+msgstr "Turbeteave"
 
 msgid "Choose when composing"
-msgstr ""
+msgstr "Vali kirja koostamisel"
 
 msgid "Personal and public keys"
-msgstr ""
+msgstr "Isiklikud ja avalikud võtmed"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr ""
+msgstr "Teie võtmed salvestatakse teie postkasti. Privaatvõtmed jäävad salasõnaga kaitstuks; allkirjastamine, krüpteerimine ja lukust avamine toimuvad selles brauseris. Kontrollige oma kontaktide sõrmejälgi eraldi usaldusväärse kanali kaudu. Võtmete muudatused jõustuvad kohe."
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
-msgstr ""
+msgstr "OpenPGP võtmeid pole. Alustamiseks importige või genereerige võti."
 
 msgid "Identity"
-msgstr ""
+msgstr "Identiteet"
 
 msgid "Fingerprint"
-msgstr ""
+msgstr "Sõrmejälg"
 
 msgid "Public key"
-msgstr ""
+msgstr "Avalik võti"
 
 msgid "Revoked"
-msgstr ""
+msgstr "Tühistatud"
 
 msgid "Expired"
-msgstr ""
+msgstr "Aegunud"
 
 msgid "Fingerprint verified"
-msgstr ""
+msgstr "Sõrmejälg kinnitatud"
 
 msgid "Not verified"
-msgstr ""
+msgstr "Kinnitamata"
 
 msgid "Unlocked"
-msgstr ""
+msgstr "Lukust avatud"
 
 msgid "Locked"
-msgstr ""
+msgstr "Lukustatud"
 
 msgid "Expires"
 msgstr "Aegub"
 
 msgid "No expiry"
-msgstr ""
+msgstr "Tähtajatu"
 
 msgid "Generate key"
-msgstr ""
+msgstr "Genereeri võti"
 
 msgid "Import key"
-msgstr ""
+msgstr "Impordi võti"
 
 msgid "Find public key"
-msgstr ""
+msgstr "Otsi avalikku võtit"
 
 msgid "Details / verify"
-msgstr ""
+msgstr "Üksikasjad / kontrolli"
 
 msgid "Export public key"
-msgstr ""
+msgstr "Ekspordi avalik võti"
 
 msgid "Back up private key"
-msgstr ""
+msgstr "Varunda privaatvõti"
 
 msgid "Unlock in this browser"
-msgstr ""
+msgstr "Ava lukust selles brauseris"
 
 msgid "Change passphrase"
 msgstr "Muuda paroollauset"
 
 msgid "Lock all"
-msgstr ""
+msgstr "Lukusta kõik"
 
 msgid "Default private key"
-msgstr ""
+msgstr "Vaikimisi privaatvõti"
 
 msgid "Sign new messages by default"
-msgstr ""
+msgstr "Allkirjasta uued sõnumid vaikimisi"
 
 msgid "Encrypt new messages by default"
-msgstr ""
+msgstr "Krüpteeri uued sõnumid vaikimisi"
 
 msgid "Manage keyservers"
-msgstr ""
+msgstr "Halda võtmeservereid"
 
 msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
-msgstr ""
+msgstr "Koostamise vaikeseaded kehtivad ainult uutele OpenPGP sõnumitele. S/MIME-i ja OpenPGP-d ei saa samas sõnumis ühendada."
 
 msgid "Generate OpenPGP key"
-msgstr ""
+msgstr "Genereeri OpenPGP võti"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "Algoritm"
 
 msgid "Expires in"
-msgstr ""
+msgstr "Kehtivusaeg"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 aasta"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 aastat"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 aastat"
 
 msgid "Repeat passphrase"
-msgstr ""
+msgstr "Korrake salasõna"
 
 msgid "Passphrases do not match."
-msgstr ""
+msgstr "Salasõnad ei ühti."
 
 msgid "Generate"
-msgstr ""
+msgstr "Genereeri"
 
 msgid "Key created. Back up the private key and store its passphrase separately."
-msgstr ""
+msgstr "Võti on loodud. Varundage privaatvõti ja hoidke selle salasõna eraldi."
 
 msgid "Revocation certificate — keep secure"
-msgstr ""
+msgstr "Tühistamissertifikaat — hoidke turvaliselt"
 
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
-msgstr ""
+msgstr "Valige tugev, vähemalt 12 tähemärgi pikkune salasõna. Genereerimine toimub selles brauseris ja võib veidi aega võtta. Hoidke tühistamissertifikaati ja privaatvõtme varukoopiat turvalises kohas."
 
 msgid "Import OpenPGP key"
-msgstr ""
+msgstr "Impordi OpenPGP võti"
 
 msgid "Choose armored OpenPGP key file"
-msgstr ""
+msgstr "Valige ASCII-vormingus OpenPGP võtmefail"
 
 msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr ""
+msgstr "Võtmefail on liiga suur. Maksimaalne suurus: 1 MiB."
 
 msgid "The key file could not be read."
-msgstr ""
+msgstr "Võtmefaili ei õnnestunud lugeda."
 
 msgid "Armored key"
-msgstr ""
+msgstr "ASCII-vormingus võti"
 
 msgid "Protect unencrypted key"
-msgstr ""
+msgstr "Kaitsmata võtme salasõna"
 
 msgid "Optional: new passphrase for an unprotected private key"
-msgstr ""
+msgstr "Valikuline: uus salasõna kaitsmata privaatvõtmele"
 
 msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr ""
+msgstr "Võti on imporditud. Enne saajatele krüpteerimist kontrollige nende sõrmejälgi."
 
 msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr ""
+msgstr "Valige fail või kleepige üks ASCII-vormingus võti koos selle BEGIN- ja END-ridadega. Kaitsmata privaatvõtme puhul sisestage uus salasõna, et võti enne salvestamist selles brauseris kaitsta. Imporditud saajate võtmed ei muutu automaatselt usaldusväärseks."
 
 msgid "Public OpenPGP key"
-msgstr ""
+msgstr "Avalik OpenPGP võti"
 
 msgid "Back up private OpenPGP key"
-msgstr ""
+msgstr "Varunda OpenPGP privaatvõti"
 
 msgid "Create backup"
-msgstr ""
+msgstr "Loo varukoopia"
 
 msgid "Private key backup — keep secure"
-msgstr ""
+msgstr "Privaatvõtme varukoopia — hoidke turvaliselt"
 
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
-msgstr ""
+msgstr "Enne selle krüpteeritud privaatvõtme varukoopia allalaadimist kinnitage oma salasõna selles brauseris. Hoidke varukoopiat turvaliselt ja ärge saatke seda kunagi saajale ega võtmeserverisse."
 
 msgid "Current passphrase"
-msgstr ""
+msgstr "Praegune salasõna"
 
 msgid "New passphrase"
 msgstr "Uus salasõna"
 
 msgid "Change OpenPGP passphrase"
-msgstr ""
+msgstr "Muuda OpenPGP salasõna"
 
 msgid "Repeat new passphrase"
-msgstr ""
+msgstr "Korrake uut salasõna"
 
 msgid "Passphrase changed. Make a new private-key backup."
-msgstr ""
+msgstr "Salasõna on muudetud. Tehke privaatvõtmest uus varukoopia."
 
 msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
-msgstr ""
+msgstr "Privaatvõti krüpteeritakse selles brauseris uuesti. Olemasolevad varukoopiad vajavad endiselt oma algset salasõna."
 
 msgid "Verify OpenPGP fingerprint"
-msgstr ""
+msgstr "Kontrolli OpenPGP sõrmejälge"
 
 msgid "Verified identities"
-msgstr ""
+msgstr "Kinnitatud identiteedid"
 
 msgid "Email identity"
-msgstr ""
+msgstr "E-posti identiteet"
 
 msgid "Confirm fingerprint"
-msgstr ""
+msgstr "Kinnitage sõrmejälg"
 
 msgid "Enter the full fingerprint shown above."
-msgstr ""
+msgstr "Sisestage ülal kuvatud täielik sõrmejälg."
 
 msgid "I verified this fingerprint"
-msgstr ""
+msgstr "Olen selle sõrmejälje üle kontrollinud"
 
 msgid "Save verification"
-msgstr ""
+msgstr "Salvesta kinnitus"
 
 msgid "Fingerprint verification updated."
-msgstr ""
+msgstr "Sõrmejälje kinnitus on uuendatud."
 
 msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
-msgstr ""
+msgstr "Võrrelge täielikku sõrmejälge oma kontaktiga eraldi usaldusväärse kanali kaudu. Märkeruudu märkimine seob selle võtme valitud aadressiga; märkimata jätmine eemaldab selle kinnituse."
 
 msgid "All private keys in this browser tab are locked."
-msgstr ""
+msgstr "Kõik privaatvõtmed on selles brauseri vahekaardis lukustatud."
 
 msgid "Delete OpenPGP key"
-msgstr ""
+msgstr "Kustuta OpenPGP võti"
 
 msgid "Type the full fingerprint to confirm deletion."
-msgstr ""
+msgstr "Kustutamise kinnitamiseks kirjutage täielik sõrmejälg."
 
 msgid "Delete key"
-msgstr ""
+msgstr "Kustuta võti"
 
 msgid "Key removed from your mailbox."
-msgstr ""
+msgstr "Võti on teie postkastist eemaldatud."
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
-msgstr ""
+msgstr "Selle privaatvõtme kustutamisel ei saa te enam lugeda sõnumeid, mis on sellele krüpteeritud, kui teil pole varukoopiat. Tehke enne jätkamist privaatvõtmest varukoopia."
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr ""
+msgstr "See eemaldab teie võtmehoidlast avaliku võtme ja selle kinnitatud sõrmejäljed."
 
 msgid "Manage OpenPGP keyservers"
-msgstr ""
+msgstr "Halda OpenPGP võtmeservereid"
 
 msgid "HTTPS keyservers"
-msgstr ""
+msgstr "HTTPS-võtmeserverid"
 
 msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
-msgstr ""
+msgstr "Sisestage igale reale üks HTTPS-serveri päritolu, ilma tee, kasutajaandmete või päringuosata."
 
 msgid "Save keyservers"
-msgstr ""
+msgstr "Salvesta võtmeserverid"
 
 msgid "Keyservers updated."
-msgstr ""
+msgstr "Võtmeserverid on uuendatud."
 
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
-msgstr ""
+msgstr "Kasutada saab ainult administraatori lubatud HTTPS-võtmeservereid. Otsimiseks on vaja täielikku sõrmejälge. Võtmeid ei laadita kunagi automaatselt üles."
 
 msgid "Approved servers: "
-msgstr ""
+msgstr "Lubatud serverid: "
 
 msgid "Find OpenPGP public key"
-msgstr ""
+msgstr "Otsi OpenPGP avalikku võtit"
 
 msgid "Keyserver"
-msgstr ""
+msgstr "Võtmeserver"
 
 msgid "Full fingerprint"
-msgstr ""
+msgstr "Täielik sõrmejälg"
 
 msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
-msgstr ""
+msgstr "Sisestage täielik sõrmejälg, mis koosneb 40 või 64 kuueteistkümnendmärgist."
 
 msgid "Find and import"
-msgstr ""
+msgstr "Otsi ja impordi"
 
 msgid "The keyserver did not return the requested public key."
-msgstr ""
+msgstr "Võtmeserver ei tagastanud soovitud avalikku võtit."
 
 msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr ""
+msgstr "Avalik võti on imporditud. Enne võtme omanikule krüpteerimist kontrollige selle sõrmejälge."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
-msgstr ""
+msgstr "Server saab teada, millist sõrmejälge te otsite. Allalaaditud võtme sõrmejälg tuleb enne selle omanikule krüpteerimist siiski üle kontrollida."
 
 msgid "Old passphrase"
 msgstr "Vana salasõna"
@@ -8300,7 +8300,7 @@ msgid "PHP-CURL not installed"
 msgstr "PHP-CURL ei ole paigaldatud"
 
 msgid "Unknown backend"
-msgstr ""
+msgstr "Tundmatu taustsüsteem"
 
 msgid "Account is ready to use."
 msgstr "Konto on kasutusvalmis."
@@ -8315,10 +8315,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "See fail ei ole enam saadaval. Palun laadi kaust uuesti."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "See taustsüsteem ei toeta saajate otsingut"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "Saajate otsimine ebaõnnestus"
 
 msgid "Kendox certificate path is not configured."
 msgstr "Kendoxi sertifikaadi tee pole seadistatud."
@@ -8340,7 +8340,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "Tekkis ootamatu viga. Palun võtke ühendust oma süsteemiadministraatoriga. Veakood: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "See server ei toeta jagatud kaustade haldamist."
 
 msgid "No data received."
 msgstr "Andmeid ei ole saadud."
@@ -8361,13 +8361,13 @@ msgid "Password has been changed successfully."
 msgstr "Salasõna on muutmine õnnestus."
 
 msgid "The OpenPGP operation could not be completed."
-msgstr ""
+msgstr "OpenPGP toimingut ei õnnestunud lõpule viia."
 
 msgid "OpenPGP: message was not sent"
-msgstr ""
+msgstr "OpenPGP: sõnumit ei saadetud"
 
 msgid "The OpenPGP message could not be read."
-msgstr ""
+msgstr "OpenPGP sõnumit ei õnnestunud lugeda."
 
 msgid "No certificate available"
 msgstr "Sertifikaat puudub"
@@ -8394,13 +8394,13 @@ msgid "Unable to generate certs-only message"
 msgstr "Ei ole võimalik genereerida ainult sertifikaate sisaldavat teadet"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "Ei ole võimalik lugeda certs-only teadet"
 
 msgid "LDAP not configured"
 msgstr "LDAP ei ole konfigureeritud"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "Vigane LDAP-i seadistus"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Järgmiste saajate avalikud sertifikaadid puuduvad: "
@@ -8446,7 +8446,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "Sertifikaat on tühistatud, kuid see on imporditud."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "Sertifikaadi kehtetuks tunnistamise staatust ei olnud võimalik kontrollida. Sertifikaat imporditi."
 
 msgid "Unable to read public certificate"
 msgstr "Ei saa lugeda avalikku sertifikaati"
@@ -8491,7 +8491,7 @@ msgid "Cannot store the category list in this mailbox."
 msgstr "Kategooriate loendit ei saa sellesse postkasti salvestada."
 
 msgid "Cannot scan this mailbox for categories."
-msgstr ""
+msgstr "Kategooriate otsimiseks ei saa seda postkasti läbi vaadata."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -8519,16 +8519,16 @@ msgid "%1$s of %2$s"
 msgstr "%1$s of %2$s"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "OpenPGP on praegu välja lülitatud või kättesaamatu. Teie sõnumit ei saadetud. Enne uut katset lubage OpenPGP või lülitage allkirjastamine ja krüpteerimine sõnaselgelt välja."
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
-msgstr ""
+msgstr "Lühikese aja jooksul saadeti liiga palju sõnumeid. Palun oodake hetk ja saatke uuesti."
 
 msgid "Message was not sent"
-msgstr ""
+msgstr "Sõnumit ei saadetud"
 
 msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "See mustand nõuab OpenPGP kaitset, kuid seda ei rakendatud. Sõnumit ei saadetud. Enne uut katset lubage OpenPGP või lülitage allkirjastamine ja krüpteerimine sõnaselgelt välja."
 
 msgid "Error retrieving existing settings"
 msgstr "Olemasolevate seadete päringu viga"
@@ -8896,7 +8896,7 @@ msgid "Could not decline Task Request."
 msgstr "Ei saanud keelduda ülesande taotlusest."
 
 msgid "Could not open the attachment."
-msgstr ""
+msgstr "Manust ei õnnestunud avada."
 
 msgid "Conflicts with another appointment."
 msgstr "Kokkupuude mõne teise kohtumisega."
@@ -8914,7 +8914,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "Järgmis(t)e vastuvõtja(te)ga ei olnud võimalik ühendust võtta"
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
+msgstr "Administraator on manuste eemaldamise keelanud."
 
 msgid "l, F j, Y g:i A"
 msgstr "l, j. F Y G:i"

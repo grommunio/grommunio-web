@@ -1707,7 +1707,7 @@ msgid "jS F Y"
 msgstr "jS F Y"
 
 msgid "Online meeting"
-msgstr ""
+msgstr "Fjarfundur"
 
 msgid "Attendees"
 msgstr "Fundarmenn"
@@ -1881,8 +1881,8 @@ msgstr "Þú hefur ófullnægjandi réttindi til að eyða hlutum í þessari m�
 
 msgid "You have insufficient privileges to delete one of the selected items."
 msgid_plural "You have insufficient privileges to delete {0} of the selected items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Þú hefur ófullnægjandi réttindi til að eyða einu af völdu atriðunum."
+msgstr[1] "Þú hefur ófullnægjandi réttindi til að eyða {0} af völdu atriðunum."
 
 msgid "Notify recipients"
 msgstr "Láta viðtakendur vita"
@@ -1921,10 +1921,10 @@ msgid "Recipient already exists."
 msgstr "Viðtakandi er þegar til."
 
 msgid "Remove attachment"
-msgstr ""
+msgstr "Fjarlægja viðhengi"
 
 msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
-msgstr ""
+msgstr "Fjarlægja „{0}“ úr þessum skilaboðum? Ekki er hægt að endurheimta viðhengið eftir á."
 
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "Sendandi þessa tölvupósts óskar eftir leskvittun. Viltu láta sendandann vita?"
@@ -1954,20 +1954,20 @@ msgid "Untitled"
 msgstr "Án titils"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "Ekki tókst að vista viðhengin."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ekki tókst að vista þetta viðhengi: {0}"
+msgstr[1] "Ekki tókst að vista þessi viðhengi: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} viðhengi var vistað."
+msgstr[1] "{0} viðhengi voru vistuð."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "Vista viðhengi"
 
 msgid "Insert item"
 msgstr "Setja inn"
@@ -2015,7 +2015,7 @@ msgid "Preview"
 msgstr "Forsýn"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "Forskoða í svarglugga"
 
 msgid "Download"
 msgstr "Niðurhal"
@@ -2024,7 +2024,7 @@ msgid "Download all as ZIP"
 msgstr "Hala öllu niður sem ZIP skrá"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "Vista valið í möppu"
 
 msgid "Import to folder"
 msgstr "Lesa inn í möppu"
@@ -2036,10 +2036,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "Til að nota ICS/VCS innflutningsaðgerðina skaltu uppfæra Gromox í útgáfu 0 eða nýrri."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "Forskoða á flipa í grommunio Web"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "Forskoða í vafraglugga"
 
 msgid "Attachment error"
 msgstr "Viðhengisvilla"
@@ -2236,7 +2236,7 @@ msgid "Folder '{0}' selected."
 msgstr "Mappa '{0}' valin."
 
 msgid "Suggested folders"
-msgstr ""
+msgstr "Tillögur að möppum"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "Ekki er hægt að færa valin atriði í þessa möppu þar sem hún inniheldur annars konar efni."
@@ -2434,7 +2434,7 @@ msgid "Redo the last undone action"
 msgstr "Endurtaka síðustu afturkölluðu aðgerð"
 
 msgid "Jump to the search box, press again for the browser search"
-msgstr ""
+msgstr "Fara í leitarreitinn, ýta aftur til að leita í vafranum"
 
 msgid "Open the command palette"
 msgstr "Opna skipanaspjaldið"
@@ -2494,28 +2494,28 @@ msgid "Presentation"
 msgstr "Kynning"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Heilskjár"
 
 msgid "Previous page"
-msgstr ""
+msgstr "Fyrri síða"
 
 msgid "Next page"
-msgstr ""
+msgstr "Næsta síða"
 
 msgid "Page:"
-msgstr ""
+msgstr "Síða:"
 
 msgid "of {0}"
-msgstr ""
+msgstr "af {0}"
 
 msgid "Zoom out"
-msgstr ""
+msgstr "Minnka aðdrátt"
 
 msgid "Zoom in"
-msgstr ""
+msgstr "Auka aðdrátt"
 
 msgid "Zoom"
-msgstr ""
+msgstr "Aðdráttur"
 
 msgid "Automatic"
 msgstr "Sjálfvirk"
@@ -2527,37 +2527,37 @@ msgid "Page width"
 msgstr "Síðubreidd"
 
 msgid "Rotate left"
-msgstr ""
+msgstr "Snúa til vinstri"
 
 msgid "Rotate right"
-msgstr ""
+msgstr "Snúa til hægri"
 
 msgid "This document could not be previewed."
-msgstr ""
+msgstr "Ekki tókst að forskoða þetta skjal."
 
 msgid "This file cannot be previewed."
-msgstr ""
+msgstr "Ekki er hægt að forskoða þessa skrá."
 
 msgid "Download the file to open it with a program that can read it."
-msgstr ""
+msgstr "Sæktu skrána til að opna hana í forriti sem getur lesið hana."
 
 msgid "The document is empty."
-msgstr ""
+msgstr "Skjalið er tómt."
 
 msgid "This sheet is empty."
-msgstr ""
+msgstr "Þetta vinnublað er tómt."
 
 msgid "Showing the first {0} rows and {1} columns."
-msgstr ""
+msgstr "Aðeins fyrstu {0} raðir og {1} dálkar eru sýnd."
 
 msgid "Wrap lines"
-msgstr ""
+msgstr "Skipta línum"
 
 msgid "Line numbers"
-msgstr ""
+msgstr "Línunúmer"
 
 msgid "This message has no content."
-msgstr ""
+msgstr "Þessi skilaboð innihalda ekkert efni."
 
 msgid "grommunio Web print"
 msgstr "grommunio vefprentun"
@@ -3426,19 +3426,19 @@ msgid "in"
 msgstr "í"
 
 msgid "Digitally sign this message"
-msgstr ""
+msgstr "Undirrita þessi skilaboð stafrænt"
 
 msgid "Encrypt this message"
-msgstr ""
+msgstr "Dulkóða þessi skilaboð"
 
 msgid "Autosave is paused while encryption is selected."
-msgstr ""
+msgstr "Hlé er gert á sjálfvistun á meðan dulkóðun er valin."
 
 msgid "Turn off {0} signing and encryption first."
-msgstr ""
+msgstr "Slökktu fyrst á undirritun og dulkóðun með {0}."
 
 msgid "options"
-msgstr ""
+msgstr "valmöguleikar"
 
 msgid "Sign"
 msgstr "Skráðu þig"
@@ -4784,13 +4784,13 @@ msgid "You have insufficient privileges to move this folder. Would you like to c
 msgstr "Þú hefur ekki nægar heimildir til að færa þessa möppu. Viltu í staðinn afrita hana?"
 
 msgid "Enable OpenPGP before replying to this protected message."
-msgstr ""
+msgstr "Virkjaðu OpenPGP áður en þú svarar þessum vernduðu skilaboðum."
 
 msgid "The protected message could not be opened. No reply or forward was created."
-msgstr ""
+msgstr "Ekki tókst að opna vernduðu skilaboðin. Hvorki svar né áframsending var búin til."
 
 msgid "Unable to open response"
-msgstr ""
+msgstr "Ekki tókst að opna svar"
 
 msgid "CC"
 msgstr "Afrit"
@@ -4959,13 +4959,13 @@ msgid "Filter"
 msgstr "Sía"
 
 msgid "This browser cannot attach the decrypted file. Download it before forwarding."
-msgstr ""
+msgstr "Þessi vafri getur ekki hengt afkóðuðu skrána við. Sæktu hana áður en þú áframsendir."
 
 msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
-msgstr ""
+msgstr "Afkóðað viðhengi fer yfir stærðarmörk upphals. Ekkert hálfklárað svar var búið til."
 
 msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
-msgstr ""
+msgstr "Ekki tókst að hlaða upp afkóðuðu viðhengi. Ekkert hálfklárað svar var búið til."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -5046,7 +5046,7 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}Sjálfvista ósenda pósta á {B} mínútu/na fresti"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
-msgstr ""
+msgstr "Sjálfvista einnig þegar dulkóðun er valin (uppköst eru geymd ódulkóðuð)"
 
 msgid "Conversation view settings"
 msgstr "Stillingar samtalaskoðunar"
@@ -5500,7 +5500,7 @@ msgid "Auto"
 msgstr "Sjálfvirk"
 
 msgid "Preview documents and files in grommunio Web"
-msgstr ""
+msgstr "Forskoða skjöl og skrár í grommunio Web"
 
 msgid "Document default zoom"
 msgstr "Sjálfgefinn aðdráttur skjals"
@@ -5509,10 +5509,10 @@ msgid "PDF zoom"
 msgstr "PDF aðdráttur"
 
 msgid "Dialog"
-msgstr ""
+msgstr "Svargluggi"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "Opna forsýn í"
 
 msgid "File previewing"
 msgstr "Forskoðun skráa"
@@ -5679,22 +5679,22 @@ msgid "Reset all settings to defaults"
 msgstr "Endurstilla allar stillingar í sjálfgefnar stillingar"
 
 msgid "Migrate legacy categories"
-msgstr ""
+msgstr "Yfirfæra eldri flokka"
 
 msgid "This will scan all folders and migrate the categories assigned to items."
-msgstr ""
+msgstr "Þetta fer í gegnum allar möppur og yfirfærir flokkana sem úthlutað hefur verið á atriði."
 
 msgid "The legacy category settings will remain unchanged."
-msgstr ""
+msgstr "Eldri flokkastillingarnar haldast óbreyttar."
 
 msgid "Migrate"
-msgstr ""
+msgstr "Yfirfæra"
 
 msgid "Legacy categories migrated successfully."
-msgstr ""
+msgstr "Eldri flokkar voru yfirfærðir."
 
 msgid "Could not migrate legacy categories."
-msgstr ""
+msgstr "Ekki tókst að yfirfæra eldri flokka."
 
 msgid "Changes to assigned task"
 msgstr "Breytingar á úthlutuðu verki"
@@ -6229,7 +6229,7 @@ msgid "The response was interrupted and may be incomplete."
 msgstr "Svarið var rofið og gæti verið ófullgert."
 
 msgid "The answer reached the output limit configured for this model and stops here."
-msgstr ""
+msgstr "Svarið náði þeim lengdarmörkum sem stillt eru fyrir þetta líkan og endar hér."
 
 msgid "Insert at cursor"
 msgstr "Setja inn við bendil"
@@ -6658,7 +6658,7 @@ msgid "Create office document"
 msgstr "Búðu til Office skjal"
 
 msgid "Preview file"
-msgstr ""
+msgstr "Forskoða skrá"
 
 msgid "Download files"
 msgstr "Sækja skrár"
@@ -6827,10 +6827,10 @@ msgid "Mobile Device Manager"
 msgstr "Snjalltækjastjórn"
 
 msgid "Device removed"
-msgstr ""
+msgstr "Tæki fjarlægt"
 
 msgid "The device was not removed. Check your password and try again."
-msgstr ""
+msgstr "Tækið var ekki fjarlægt. Athugaðu lykilorðið þitt og reyndu aftur."
 
 msgid "Wiping device"
 msgstr "Hreinsa tæki"
@@ -7134,463 +7134,463 @@ msgid "Password is weak. Password should contain capital, non-capital letters an
 msgstr "Auðkennið er veikt. Auðkennið ætti að innihalda stórstafi, smástafi og tölur. Auðkennið ætti að vera 8 til 20 stafir."
 
 msgid "The OpenPGP request failed. Please try again."
-msgstr ""
+msgstr "OpenPGP-beiðnin mistókst. Vinsamlegast reyndu aftur."
 
 msgid "Working…"
-msgstr ""
+msgstr "Vinn…"
 
 msgid "The operation failed. Please try again."
-msgstr ""
+msgstr "Aðgerðin mistókst. Vinsamlegast reyndu aftur."
 
 msgid "Passphrase"
-msgstr ""
+msgstr "Aðgangsorð"
 
 msgid "Unlock OpenPGP private key"
-msgstr ""
+msgstr "Aflæsa OpenPGP-einkalykli"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Aflæsa"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr ""
+msgstr "Aðgangsorðið þitt og aflæsti lykillinn eru eingöngu í þessum vafraflipa. Lykillinn læsist sjálfkrafa eftir takmarkaðan tíma eða þegar flipanum er lokað. Fingrafar: "
 
 msgid "Set up OpenPGP"
-msgstr ""
+msgstr "Setja upp OpenPGP"
 
 msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
-msgstr ""
+msgstr "Bættu við einkalykli sem passar við netfang sendandans til að undirrita skilaboð eða eiga læsilegt afrit af dulkóðuðum sendum skilaboðum. Þú getur flutt inn lykil sem þú átt fyrir eða búið til nýjan í OpenPGP-stillingunum."
 
 msgid "Open key settings"
-msgstr ""
+msgstr "Opna lyklastillingar"
 
 msgid "Choose OpenPGP key"
-msgstr ""
+msgstr "Velja OpenPGP-lykil"
 
 msgid "Private key"
-msgstr ""
+msgstr "Einkalykill"
 
 msgid "Use key"
-msgstr ""
+msgstr "Nota lykil"
 
 msgid "Private-key unlocking was cancelled."
-msgstr ""
+msgstr "Hætt var við að aflæsa einkalyklinum."
 
 msgid "Key selection was cancelled."
-msgstr ""
+msgstr "Hætt var við að velja lykil."
 
 msgid "Choose private key…"
-msgstr ""
+msgstr "Velja einkalykil…"
 
 msgid "Manage OpenPGP keys…"
-msgstr ""
+msgstr "Umsjón OpenPGP-lykla…"
 
 msgid "Lock private keys"
-msgstr ""
+msgstr "Læsa einkalyklum"
 
 msgid "Signing key: "
-msgstr ""
+msgstr "Undirritunarlykill: "
 
 msgid "Decryption alone does not authenticate the sender."
-msgstr ""
+msgstr "Afkóðun ein og sér sannreynir ekki auðkenni sendandans."
 
 msgid "OpenPGP security information"
-msgstr ""
+msgstr "OpenPGP-öryggisupplýsingar"
 
 msgid "OpenPGP"
-msgstr ""
+msgstr "OpenPGP"
 
 msgid "OpenPGP signed or encrypted message"
-msgstr ""
+msgstr "Skilaboð undirrituð eða dulkóðuð með OpenPGP"
 
 msgid "OpenPGP Plugin"
-msgstr ""
+msgstr "OpenPGP-íbót"
 
 msgid "The OpenPGP operation was cancelled."
-msgstr ""
+msgstr "Hætt var við OpenPGP-aðgerðina."
 
 msgid "S/MIME and OpenPGP cannot protect the same message."
-msgstr ""
+msgstr "S/MIME og OpenPGP geta ekki verndað sömu skilaboðin."
 
 msgid "Saving the OpenPGP draft timed out. Please retry."
-msgstr ""
+msgstr "Tímamörk runnu út þegar OpenPGP-uppkastið var vistað. Vinsamlegast reyndu aftur."
 
 msgid "The draft could not be saved. Nothing was sent."
-msgstr ""
+msgstr "Ekki tókst að vista uppkastið. Ekkert var sent."
 
 msgid "The sender or message protection changed. Please send again."
-msgstr ""
+msgstr "Sendandinn eða vernd skilaboðanna breyttist. Vinsamlegast sendu aftur."
 
 msgid "The selected private key is not valid for this sender and protection mode."
-msgstr ""
+msgstr "Valdi einkalykillinn er ekki gildur fyrir þennan sendanda og þessa tegund verndar."
 
 msgid "A matching, passphrase-protected private key is required."
-msgstr ""
+msgstr "Það þarf einkalykil sem passar og er varinn með aðgangsorði."
 
 msgid "A recipient key is invalid, expired or does not match its email address."
-msgstr ""
+msgstr "Lykill viðtakanda er ógildur, útrunninn eða passar ekki við netfang viðtakandans."
 
 msgid "No verified recipient keys are available."
-msgstr ""
+msgstr "Engir gildir lyklar viðtakenda eru tiltækir."
 
 msgid "This message is too large for browser OpenPGP processing."
-msgstr ""
+msgstr "Þessi skilaboð eru of stór fyrir OpenPGP-vinnslu í vafranum."
 
 msgid "Message protection changed while preparing the message. Please send again."
-msgstr ""
+msgstr "Vernd skilaboðanna breyttist á meðan þau voru undirbúin. Vinsamlegast sendu aftur."
 
 msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
-msgstr ""
+msgstr "Vernduðu skilaboðin eru {0} MB, sem er meira en þessi þjónn tekur við í einni beiðni ({1} MB). Fjarlægðu viðhengi eða biddu kerfisstjórann um að hækka mörkin fyrir upphal."
 
 msgid "The attachment archive is too large."
-msgstr ""
+msgstr "Safnskráin með viðhengjunum er of stór."
 
 msgid "Unlock the message again to download this attachment."
-msgstr ""
+msgstr "Aflæstu skilaboðunum aftur til að sækja þetta viðhengi."
 
 msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
-msgstr ""
+msgstr "Þessi skilaboð innihalda hreiðraða S/MIME-vernd sem OpenPGP getur ekki opnað."
 
 msgid "Too many nested OpenPGP envelopes."
-msgstr ""
+msgstr "Of mörg hreiðruð OpenPGP-umslög."
 
 msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
-msgstr ""
+msgstr "Undirskriftin er ógild eða opinberi lykill hennar er ekki tiltækur. Treystu ekki þessu auðkenni sendandans."
 
 msgid "The private key was locked while opening this message."
-msgstr ""
+msgstr "Einkalyklinum var læst á meðan þessi skilaboð voru opnuð."
 
 msgid "This message contains too many attachments."
-msgstr ""
+msgstr "Þessi skilaboð innihalda of mörg viðhengi."
 
 msgid "The decoded attachments are too large."
-msgstr ""
+msgstr "Afkóðuðu viðhengin eru of stór."
 
 msgid "The OpenPGP operation failed."
-msgstr ""
+msgstr "OpenPGP-aðgerðin mistókst."
 
 msgid "OpenPGP: checking message security…"
-msgstr ""
+msgstr "OpenPGP: athuga öryggi skilaboðanna…"
 
 msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
-msgstr ""
+msgstr "Dulkóðuð skilaboð geymd án MIME-umslagsins — vistaðu viðhengið og afkóðaðu það með OpenPGP-forriti"
 
 msgid "Signed message stored without its original MIME — the signature cannot be verified"
-msgstr ""
+msgstr "Undirrituð skilaboð geymd án upprunalegu MIME-gagnanna — ekki er hægt að sannreyna undirskriftina"
 
 msgid "Message decrypted"
-msgstr ""
+msgstr "Skilaboð afkóðuð"
 
 msgid "Message could not be decrypted — click for details or retry"
-msgstr ""
+msgstr "Ekki tókst að afkóða skilaboðin — smelltu fyrir nánari upplýsingar eða til að reyna aftur"
 
 msgid "Encrypted message — unlock your private key to read"
-msgstr ""
+msgstr "Dulkóðuð skilaboð — aflæstu einkalyklinum þínum til að lesa þau"
 
 msgid "Signature could not be verified"
 msgstr "Ekki tókst að staðfesta undirskrift"
 
 msgid "Valid signature, but the signing key does not match the sender"
-msgstr ""
+msgstr "Gild undirskrift, en undirritunarlykillinn passar ekki við sendandann"
 
 msgid "Valid signature — sender fingerprint has not been verified"
-msgstr ""
+msgstr "Gild undirskrift — fingrafar sendanda hefur ekki verið staðfest"
 
 msgid "Valid signature from a verified sender"
-msgstr ""
+msgstr "Gild undirskrift frá staðfestum sendanda"
 
 msgid "The signing key has since expired"
-msgstr ""
+msgstr "Undirritunarlykillinn hefur síðan runnið út"
 
 msgid "Message is not signed"
-msgstr ""
+msgstr "Skilaboðin eru ekki undirrituð"
 
 msgid "Inline OpenPGP protects the body only; attachments are not covered"
-msgstr ""
+msgstr "Innfellt OpenPGP verndar aðeins innihaldið; viðhengin eru ekki varin"
 
 msgid "Unprotected text after the OpenPGP block is not shown"
-msgstr ""
+msgstr "Óvarinn texti á eftir OpenPGP-blokkinni er ekki sýndur"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr ""
+msgstr "Ekki tókst að hlaða opinberu lyklunum þínum og því var ekki hægt að sannreyna undirskriftir"
 
 msgid "Security information"
-msgstr ""
+msgstr "Öryggisupplýsingar"
 
 msgid "Choose when composing"
-msgstr ""
+msgstr "Velja þegar skrifað er"
 
 msgid "Personal and public keys"
-msgstr ""
+msgstr "Eigin og opinberir lyklar"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr ""
+msgstr "Lyklarnir þínir eru geymdir í pósthólfinu þínu. Einkalyklar eru áfram varðir með aðgangsorði; undirritun, dulkóðun og aflæsing fara fram í þessum vafra. Staðfestu fingraför tengiliðanna þinna í gegnum aðra trausta samskiptaleið. Breytingar á lyklum taka gildi strax."
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
-msgstr ""
+msgstr "Engir OpenPGP-lyklar. Flyttu inn lykil eða búðu til nýjan til að byrja."
 
 msgid "Identity"
-msgstr ""
+msgstr "Auðkenni"
 
 msgid "Fingerprint"
-msgstr ""
+msgstr "Fingrafar"
 
 msgid "Public key"
-msgstr ""
+msgstr "Opinber lykill"
 
 msgid "Revoked"
-msgstr ""
+msgstr "Afturkallaður"
 
 msgid "Expired"
-msgstr ""
+msgstr "Útrunninn"
 
 msgid "Fingerprint verified"
-msgstr ""
+msgstr "Fingrafar staðfest"
 
 msgid "Not verified"
-msgstr ""
+msgstr "Óstaðfest"
 
 msgid "Unlocked"
-msgstr ""
+msgstr "Aflæstur"
 
 msgid "Locked"
-msgstr ""
+msgstr "Læstur"
 
 msgid "Expires"
 msgstr "Rennur út"
 
 msgid "No expiry"
-msgstr ""
+msgstr "Ótímabundinn"
 
 msgid "Generate key"
-msgstr ""
+msgstr "Búa til lykil"
 
 msgid "Import key"
-msgstr ""
+msgstr "Flytja inn lykil"
 
 msgid "Find public key"
-msgstr ""
+msgstr "Finna opinberan lykil"
 
 msgid "Details / verify"
-msgstr ""
+msgstr "Upplýsingar / staðfesta"
 
 msgid "Export public key"
-msgstr ""
+msgstr "Flytja út opinberan lykil"
 
 msgid "Back up private key"
-msgstr ""
+msgstr "Taka öryggisafrit af einkalykli"
 
 msgid "Unlock in this browser"
-msgstr ""
+msgstr "Aflæsa í þessum vafra"
 
 msgid "Change passphrase"
 msgstr "Breyta lykilorði"
 
 msgid "Lock all"
-msgstr ""
+msgstr "Læsa öllum"
 
 msgid "Default private key"
-msgstr ""
+msgstr "Sjálfgefinn einkalykill"
 
 msgid "Sign new messages by default"
-msgstr ""
+msgstr "Undirrita ný skilaboð sjálfgefið"
 
 msgid "Encrypt new messages by default"
-msgstr ""
+msgstr "Dulkóða ný skilaboð sjálfgefið"
 
 msgid "Manage keyservers"
-msgstr ""
+msgstr "Umsjón lyklaþjóna"
 
 msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
-msgstr ""
+msgstr "Sjálfgefnar stillingar við ritun gilda eingöngu um ný OpenPGP-skilaboð. Ekki er hægt að sameina S/MIME og OpenPGP í sömu skilaboðum."
 
 msgid "Generate OpenPGP key"
-msgstr ""
+msgstr "Búa til OpenPGP-lykil"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "Reiknirit"
 
 msgid "Expires in"
-msgstr ""
+msgstr "Rennur út eftir"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 ár"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 ár"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 ár"
 
 msgid "Repeat passphrase"
-msgstr ""
+msgstr "Endurtaktu aðgangsorðið"
 
 msgid "Passphrases do not match."
-msgstr ""
+msgstr "Aðgangsorðin passa ekki saman."
 
 msgid "Generate"
-msgstr ""
+msgstr "Búa til"
 
 msgid "Key created. Back up the private key and store its passphrase separately."
-msgstr ""
+msgstr "Lykillinn var búinn til. Taktu öryggisafrit af einkalyklinum og geymdu aðgangsorð hans annars staðar."
 
 msgid "Revocation certificate — keep secure"
-msgstr ""
+msgstr "Afturköllunarvottorð — geymdu á öruggum stað"
 
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
-msgstr ""
+msgstr "Veldu sterkt aðgangsorð með að minnsta kosti 12 stöfum. Lyklagerðin fer fram í þessum vafra og getur tekið stutta stund. Geymdu afturköllunarvottorðið og öryggisafrit af einkalyklinum á öruggum stað."
 
 msgid "Import OpenPGP key"
-msgstr ""
+msgstr "Flytja inn OpenPGP-lykil"
 
 msgid "Choose armored OpenPGP key file"
-msgstr ""
+msgstr "Veldu OpenPGP-lykilskrá á ASCII-sniði"
 
 msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr ""
+msgstr "Lykilskráin er of stór. Hámarksstærð: 1 MiB."
 
 msgid "The key file could not be read."
-msgstr ""
+msgstr "Ekki tókst að lesa lykilskrána."
 
 msgid "Armored key"
-msgstr ""
+msgstr "Lykill á ASCII-sniði"
 
 msgid "Protect unencrypted key"
-msgstr ""
+msgstr "Vernda ódulkóðaðan lykil"
 
 msgid "Optional: new passphrase for an unprotected private key"
-msgstr ""
+msgstr "Valfrjálst: nýtt aðgangsorð fyrir óvarinn einkalykil"
 
 msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr ""
+msgstr "Lykill fluttur inn. Staðfestu fingraför viðtakenda áður en þú sendir þeim dulkóðuð skilaboð."
 
 msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr ""
+msgstr "Veldu skrá eða límdu inn einn lykil á ASCII-sniði, ásamt BEGIN- og END-línunum. Ef einkalykillinn er óvarinn skaltu slá inn nýtt aðgangsorð til að verja hann í vafranum áður en hann er geymdur. Innfluttum lyklum viðtakenda er ekki sjálfkrafa treyst."
 
 msgid "Public OpenPGP key"
-msgstr ""
+msgstr "Opinber OpenPGP-lykill"
 
 msgid "Back up private OpenPGP key"
-msgstr ""
+msgstr "Taka öryggisafrit af OpenPGP-einkalykli"
 
 msgid "Create backup"
-msgstr ""
+msgstr "Búa til öryggisafrit"
 
 msgid "Private key backup — keep secure"
-msgstr ""
+msgstr "Öryggisafrit einkalykils — geymdu á öruggum stað"
 
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
-msgstr ""
+msgstr "Staðfestu aðgangsorðið þitt í vafranum áður en þú sækir þetta dulkóðaða öryggisafrit einkalykilsins. Geymdu það á öruggum stað og sendu það aldrei til viðtakanda eða á lyklaþjón."
 
 msgid "Current passphrase"
-msgstr ""
+msgstr "Núverandi aðgangsorð"
 
 msgid "New passphrase"
 msgstr "Nýtt lykilorð"
 
 msgid "Change OpenPGP passphrase"
-msgstr ""
+msgstr "Breyta OpenPGP-aðgangsorði"
 
 msgid "Repeat new passphrase"
-msgstr ""
+msgstr "Endurtaktu nýja aðgangsorðið"
 
 msgid "Passphrase changed. Make a new private-key backup."
-msgstr ""
+msgstr "Aðgangsorðinu var breytt. Taktu nýtt öryggisafrit af einkalyklinum."
 
 msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
-msgstr ""
+msgstr "Einkalykillinn er endurdulkóðaður í þessum vafra. Fyrirliggjandi öryggisafrit krefjast áfram upprunalega aðgangsorðsins."
 
 msgid "Verify OpenPGP fingerprint"
-msgstr ""
+msgstr "Staðfesta OpenPGP-fingrafar"
 
 msgid "Verified identities"
-msgstr ""
+msgstr "Staðfest auðkenni"
 
 msgid "Email identity"
-msgstr ""
+msgstr "Auðkenni netfangs"
 
 msgid "Confirm fingerprint"
-msgstr ""
+msgstr "Staðfestu fingrafarið"
 
 msgid "Enter the full fingerprint shown above."
-msgstr ""
+msgstr "Sláðu inn fulla fingrafarið sem sýnt er hér að ofan."
 
 msgid "I verified this fingerprint"
-msgstr ""
+msgstr "Ég hef staðfest þetta fingrafar"
 
 msgid "Save verification"
-msgstr ""
+msgstr "Vista staðfestingu"
 
 msgid "Fingerprint verification updated."
-msgstr ""
+msgstr "Staðfesting fingrafars uppfærð."
 
 msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
-msgstr ""
+msgstr "Berðu fulla fingrafarið saman við tengiliðinn þinn í gegnum aðra trausta samskiptaleið. Ef hakað er í reitinn er þessi lykill festur við valið netfang; sé hakið tekið af fellur sú staðfesting niður."
 
 msgid "All private keys in this browser tab are locked."
-msgstr ""
+msgstr "Öllum einkalyklum í þessum vafraflipa hefur verið læst."
 
 msgid "Delete OpenPGP key"
-msgstr ""
+msgstr "Eyða OpenPGP-lykli"
 
 msgid "Type the full fingerprint to confirm deletion."
-msgstr ""
+msgstr "Sláðu inn fulla fingrafarið til að staðfesta eyðinguna."
 
 msgid "Delete key"
-msgstr ""
+msgstr "Eyða lykli"
 
 msgid "Key removed from your mailbox."
-msgstr ""
+msgstr "Lykillinn var fjarlægður úr pósthólfinu þínu."
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
-msgstr ""
+msgstr "Ef þú eyðir þessum einkalykli geturðu ekki lesið skilaboð sem eru dulkóðuð fyrir hann, nema þú eigir öryggisafrit. Taktu öryggisafrit af einkalyklinum áður en þú heldur áfram."
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr ""
+msgstr "Þetta fjarlægir opinbera lykilinn og staðfest fingraför hans úr lyklakippunni þinni."
 
 msgid "Manage OpenPGP keyservers"
-msgstr ""
+msgstr "Umsjón OpenPGP-lyklaþjóna"
 
 msgid "HTTPS keyservers"
-msgstr ""
+msgstr "HTTPS-lyklaþjónar"
 
 msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
-msgstr ""
+msgstr "Sláðu inn einn HTTPS-uppruna í hverja línu, án slóðar, notandaupplýsinga eða fyrirspurnar."
 
 msgid "Save keyservers"
-msgstr ""
+msgstr "Vista lyklaþjóna"
 
 msgid "Keyservers updated."
-msgstr ""
+msgstr "Lyklaþjónar uppfærðir."
 
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
-msgstr ""
+msgstr "Aðeins má nota HTTPS-lyklaþjóna sem kerfisstjóri hefur samþykkt. Leit krefst fulls fingrafars. Lyklum er aldrei hlaðið upp sjálfkrafa."
 
 msgid "Approved servers: "
-msgstr ""
+msgstr "Samþykktir þjónar: "
 
 msgid "Find OpenPGP public key"
-msgstr ""
+msgstr "Finna opinberan OpenPGP-lykil"
 
 msgid "Keyserver"
-msgstr ""
+msgstr "Lyklaþjónn"
 
 msgid "Full fingerprint"
-msgstr ""
+msgstr "Fullt fingrafar"
 
 msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
-msgstr ""
+msgstr "Sláðu inn fullt fingrafar, 40 eða 64 stafi í sextándakerfi."
 
 msgid "Find and import"
-msgstr ""
+msgstr "Finna og flytja inn"
 
 msgid "The keyserver did not return the requested public key."
-msgstr ""
+msgstr "Lyklaþjónninn skilaði ekki umbeðnum opinberum lykli."
 
 msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr ""
+msgstr "Opinber lykill fluttur inn. Staðfestu fingrafar hans áður en þú sendir eiganda hans dulkóðuð skilaboð."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
-msgstr ""
+msgstr "Þjónninn fær að vita hvaða fingrafar þú leitar að. Þó að lykill sé sóttur þarf enn að staðfesta fingrafar hans áður en þú sendir eiganda hans dulkóðuð skilaboð."
 
 msgid "Old passphrase"
 msgstr "Gamalt lykilorð"
@@ -8298,7 +8298,7 @@ msgid "PHP-CURL not installed"
 msgstr "PHP-CURL ekki uppsett"
 
 msgid "Unknown backend"
-msgstr ""
+msgstr "Óþekktur bakendi"
 
 msgid "Account is ready to use."
 msgstr "Reikningurinn er tilbúinn til notkunar."
@@ -8313,10 +8313,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Þessi skrá er ekki lengur tiltæk. Vinsamlegast endurhlaðið möppuna."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "Leit að viðtakendum er ekki studd af þessum bakenda"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "Ekki tókst að fletta upp viðtakendum"
 
 msgid "Kendox certificate path is not configured."
 msgstr "Slóð Kendox-vottorðs er ekki stillt."
@@ -8338,7 +8338,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "Óviðbúin villa kom upp. Hafðu samband við kerfisstjórn. Villunúmer: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "Þessi þjónn styður ekki umsjón sameiginlegra mappa."
 
 msgid "No data received."
 msgstr "Engin gögn móttekin."
@@ -8359,13 +8359,13 @@ msgid "Password has been changed successfully."
 msgstr "Lykilorði hefur verið breytt."
 
 msgid "The OpenPGP operation could not be completed."
-msgstr ""
+msgstr "Ekki tókst að ljúka OpenPGP-aðgerðinni."
 
 msgid "OpenPGP: message was not sent"
-msgstr ""
+msgstr "OpenPGP: skilaboðin voru ekki send"
 
 msgid "The OpenPGP message could not be read."
-msgstr ""
+msgstr "Ekki tókst að lesa OpenPGP-skilaboðin."
 
 msgid "No certificate available"
 msgstr "Ekkert vottorð í boði"
@@ -8392,13 +8392,13 @@ msgid "Unable to generate certs-only message"
 msgstr "Ekki er hægt að búa til skilaboð sem eru eingöngu fyrir vottorð"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "Ekki er hægt að lesa certs-only skilaboð"
 
 msgid "LDAP not configured"
 msgstr "LDAP ekki stillt"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "Ógildar LDAP-stillingar"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Vantar opinber vottorð fyrir eftirfarandi viðtakendur:"
@@ -8444,7 +8444,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "Vottorð er afturkallað, en var flutt inn."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "Ekki tókst að staðfesta stöðu afturköllunar vottorðsins. Vottorð var flutt inn."
 
 msgid "Unable to read public certificate"
 msgstr "Ekki er hægt að lesa opinbert vottorð"
@@ -8489,7 +8489,7 @@ msgid "Cannot store the category list in this mailbox."
 msgstr "Ekki er hægt að vista flokkalistann í þessu pósthólfi."
 
 msgid "Cannot scan this mailbox for categories."
-msgstr ""
+msgstr "Ekki er hægt að leita að flokkum í þessu pósthólfi."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -8517,16 +8517,16 @@ msgid "%1$s of %2$s"
 msgstr "%1$saf%2$s"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "OpenPGP er sem stendur óvirkt eða ekki tiltækt. Skilaboðin þín voru ekki send. Virkjaðu OpenPGP áður en þú reynir aftur, eða slökktu sérstaklega á undirritun og dulkóðun."
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
-msgstr ""
+msgstr "Of mörg skilaboð voru send á skömmum tíma. Vinsamlegast bíddu andartak og sendu aftur."
 
 msgid "Message was not sent"
-msgstr ""
+msgstr "Skilaboðin voru ekki send"
 
 msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "Þetta uppkast biður um OpenPGP-vernd en hún var ekki sett á. Skilaboðin voru ekki send. Virkjaðu OpenPGP áður en þú reynir aftur, eða slökktu sérstaklega á undirritun og dulkóðun."
 
 msgid "Error retrieving existing settings"
 msgstr "Villa við að sækja núverandi stillingar"
@@ -8894,7 +8894,7 @@ msgid "Could not decline Task Request."
 msgstr "Gat ekki hafnað verkbeiðni."
 
 msgid "Could not open the attachment."
-msgstr ""
+msgstr "Ekki tókst að opna viðhengið."
 
 msgid "Conflicts with another appointment."
 msgstr "Árekstur við aðra tímabókun."
@@ -8912,7 +8912,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "Ekki náðist í eftirfarandi viðtakanda/viðtakendur"
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
+msgstr "Fjarlæging viðhengja hefur verið gerð óvirk af kerfisstjóra."
 
 msgid "l, F j, Y g:i A"
 msgstr "l, j. F Y G:i"

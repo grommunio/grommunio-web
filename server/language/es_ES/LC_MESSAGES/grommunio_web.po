@@ -1710,7 +1710,7 @@ msgid "jS F Y"
 msgstr "jS F Y"
 
 msgid "Online meeting"
-msgstr ""
+msgstr "Reunión en línea"
 
 msgid "Attendees"
 msgstr "Asistentes"
@@ -1884,8 +1884,8 @@ msgstr "No tiene privilegios suficientes para eliminar elementos de esta carpeta
 
 msgid "You have insufficient privileges to delete one of the selected items."
 msgid_plural "You have insufficient privileges to delete {0} of the selected items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "No tiene privilegios suficientes para eliminar uno de los elementos seleccionados."
+msgstr[1] "No tiene privilegios suficientes para eliminar {0} de los elementos seleccionados."
 
 msgid "Notify recipients"
 msgstr "Notificar a los destinatarios"
@@ -1924,10 +1924,10 @@ msgid "Recipient already exists."
 msgstr "Ya existe este Usuario."
 
 msgid "Remove attachment"
-msgstr ""
+msgstr "Eliminar adjunto"
 
 msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
-msgstr ""
+msgstr "¿Desea eliminar \"{0}\" de este mensaje? El adjunto no se podrá recuperar después."
 
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "El remitente de este mensaje ha solicitado una confirmación de lectura. ¿Desea notificárselo?"
@@ -1957,20 +1957,20 @@ msgid "Untitled"
 msgstr "Sin título"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "No se han podido guardar los adjuntos."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "No se ha podido guardar este adjunto: {0}"
+msgstr[1] "No se han podido guardar estos adjuntos: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Se ha guardado {0} adjunto."
+msgstr[1] "Se han guardado {0} adjuntos."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "Guardar adjuntos"
 
 msgid "Insert item"
 msgstr "Insertar elemento"
@@ -2018,7 +2018,7 @@ msgid "Preview"
 msgstr "Vista Previa"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "Vista previa en un cuadro de diálogo"
 
 msgid "Download"
 msgstr "Descarga"
@@ -2027,7 +2027,7 @@ msgid "Download all as ZIP"
 msgstr "Descargar todo como un archivo ZIP"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "Guardar selección en carpeta del equipo"
 
 msgid "Import to folder"
 msgstr "Importar a carpeta"
@@ -2039,10 +2039,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "Para utilizar la función de importación ICS / VCS, actualice su Gromox a la versión 0 o superior."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "Vista previa en una pestaña de grommunio Web"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "Vista previa en una ventana del navegador"
 
 msgid "Attachment error"
 msgstr "Error"
@@ -2239,7 +2239,7 @@ msgid "Folder '{0}' selected."
 msgstr "Carpeta '{0}' seleccionada."
 
 msgid "Suggested folders"
-msgstr ""
+msgstr "Carpetas sugeridas"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "Los elementos seleccionados no se pueden mover a esta carpeta porque contiene otro tipo de contenido."
@@ -2437,7 +2437,7 @@ msgid "Redo the last undone action"
 msgstr "Rehacer la última acción deshecha"
 
 msgid "Jump to the search box, press again for the browser search"
-msgstr ""
+msgstr "Ir al cuadro de búsqueda, pulsar de nuevo para la búsqueda del navegador"
 
 msgid "Open the command palette"
 msgstr "Abrir la paleta de comandos"
@@ -2497,28 +2497,28 @@ msgid "Presentation"
 msgstr "Presentación"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Pantalla completa"
 
 msgid "Previous page"
-msgstr ""
+msgstr "Página anterior"
 
 msgid "Next page"
-msgstr ""
+msgstr "Página siguiente"
 
 msgid "Page:"
-msgstr ""
+msgstr "Página:"
 
 msgid "of {0}"
-msgstr ""
+msgstr "de {0}"
 
 msgid "Zoom out"
-msgstr ""
+msgstr "Reducir zoom"
 
 msgid "Zoom in"
-msgstr ""
+msgstr "Aumentar zoom"
 
 msgid "Zoom"
-msgstr ""
+msgstr "Zoom"
 
 msgid "Automatic"
 msgstr "Automático"
@@ -2530,37 +2530,37 @@ msgid "Page width"
 msgstr "Ancho de página"
 
 msgid "Rotate left"
-msgstr ""
+msgstr "Girar a la izquierda"
 
 msgid "Rotate right"
-msgstr ""
+msgstr "Girar a la derecha"
 
 msgid "This document could not be previewed."
-msgstr ""
+msgstr "No se ha podido mostrar la vista previa de este documento."
 
 msgid "This file cannot be previewed."
-msgstr ""
+msgstr "No se puede mostrar la vista previa de este archivo."
 
 msgid "Download the file to open it with a program that can read it."
-msgstr ""
+msgstr "Descargue el archivo para abrirlo con un programa que pueda leerlo."
 
 msgid "The document is empty."
-msgstr ""
+msgstr "El documento está vacío."
 
 msgid "This sheet is empty."
-msgstr ""
+msgstr "Esta hoja está vacía."
 
 msgid "Showing the first {0} rows and {1} columns."
-msgstr ""
+msgstr "Se muestran las primeras {0} filas y {1} columnas."
 
 msgid "Wrap lines"
-msgstr ""
+msgstr "Ajustar líneas"
 
 msgid "Line numbers"
-msgstr ""
+msgstr "Números de línea"
 
 msgid "This message has no content."
-msgstr ""
+msgstr "Este mensaje no tiene contenido."
 
 msgid "grommunio Web print"
 msgstr "grommunio Impresión web"
@@ -3435,19 +3435,19 @@ msgid "in"
 msgstr "en"
 
 msgid "Digitally sign this message"
-msgstr ""
+msgstr "Firmar digitalmente este mensaje"
 
 msgid "Encrypt this message"
-msgstr ""
+msgstr "Cifrar este mensaje"
 
 msgid "Autosave is paused while encryption is selected."
-msgstr ""
+msgstr "AutoGuardar está en pausa mientras el cifrado esté seleccionado."
 
 msgid "Turn off {0} signing and encryption first."
-msgstr ""
+msgstr "Desactive primero la firma y el cifrado {0}."
 
 msgid "options"
-msgstr ""
+msgstr "(opciones)"
 
 msgid "Sign"
 msgstr "Firmar"
@@ -4793,13 +4793,13 @@ msgid "You have insufficient privileges to move this folder. Would you like to c
 msgstr "No tiene suficientes privilegios para mover esta carpeta. ¿Desea copiarla en su lugar?"
 
 msgid "Enable OpenPGP before replying to this protected message."
-msgstr ""
+msgstr "Active OpenPGP antes de responder a este mensaje protegido."
 
 msgid "The protected message could not be opened. No reply or forward was created."
-msgstr ""
+msgstr "No se ha podido abrir el mensaje protegido. No se ha creado ninguna respuesta ni ningún reenvío."
 
 msgid "Unable to open response"
-msgstr ""
+msgstr "No se puede abrir la respuesta"
 
 msgid "CC"
 msgstr "CC"
@@ -4968,13 +4968,13 @@ msgid "Filter"
 msgstr "Filtro"
 
 msgid "This browser cannot attach the decrypted file. Download it before forwarding."
-msgstr ""
+msgstr "Este navegador no puede adjuntar el archivo descifrado. Descárguelo antes de reenviarlo."
 
 msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
-msgstr ""
+msgstr "Un adjunto descifrado supera los límites de subida. No se ha creado ninguna respuesta incompleta."
 
 msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
-msgstr ""
+msgstr "No se ha podido subir un adjunto descifrado. No se ha creado ninguna respuesta incompleta."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -5055,7 +5055,7 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A} AutoGuardar correo(s) no enviado(s) cada {B} minuto(s)"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
-msgstr ""
+msgstr "Usar AutoGuardar también cuando el cifrado esté seleccionado (los borradores se guardan sin cifrar)"
 
 msgid "Conversation view settings"
 msgstr "Ajustes de la vista de conversación"
@@ -5509,7 +5509,7 @@ msgid "Auto"
 msgstr "Automático"
 
 msgid "Preview documents and files in grommunio Web"
-msgstr ""
+msgstr "Previsualizar documentos y archivos en grommunio Web"
 
 msgid "Document default zoom"
 msgstr "Zoom por defecto del documento"
@@ -5518,10 +5518,10 @@ msgid "PDF zoom"
 msgstr "Zoom PDF"
 
 msgid "Dialog"
-msgstr ""
+msgstr "Cuadro de diálogo"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "Abrir las vistas previas en"
 
 msgid "File previewing"
 msgstr "Previsualización de archivos"
@@ -5688,22 +5688,22 @@ msgid "Reset all settings to defaults"
 msgstr "Restablecer todos los ajustes por defecto"
 
 msgid "Migrate legacy categories"
-msgstr ""
+msgstr "Migrar categorías heredadas"
 
 msgid "This will scan all folders and migrate the categories assigned to items."
-msgstr ""
+msgstr "Esta operación examinará todas las carpetas y migrará las categorías asignadas a los elementos."
 
 msgid "The legacy category settings will remain unchanged."
-msgstr ""
+msgstr "La configuración de categorías heredadas permanecerá sin cambios."
 
 msgid "Migrate"
-msgstr ""
+msgstr "Migrar"
 
 msgid "Legacy categories migrated successfully."
-msgstr ""
+msgstr "Categorías heredadas migradas correctamente."
 
 msgid "Could not migrate legacy categories."
-msgstr ""
+msgstr "No se han podido migrar las categorías heredadas."
 
 msgid "Changes to assigned task"
 msgstr "Cambios en la tarea asignada"
@@ -6238,7 +6238,7 @@ msgid "The response was interrupted and may be incomplete."
 msgstr "La respuesta se ha interrumpido y puede estar incompleta."
 
 msgid "The answer reached the output limit configured for this model and stops here."
-msgstr ""
+msgstr "La respuesta ha alcanzado el límite de salida configurado para este modelo y termina aquí."
 
 msgid "Insert at cursor"
 msgstr "Insertar en el cursor"
@@ -6667,7 +6667,7 @@ msgid "Create office document"
 msgstr "Crear documento de oficina"
 
 msgid "Preview file"
-msgstr ""
+msgstr "Vista previa del archivo"
 
 msgid "Download files"
 msgstr "Descargar archivos"
@@ -6836,10 +6836,10 @@ msgid "Mobile Device Manager"
 msgstr "Gestor de dispositivos móviles"
 
 msgid "Device removed"
-msgstr ""
+msgstr "Dispositivo eliminado"
 
 msgid "The device was not removed. Check your password and try again."
-msgstr ""
+msgstr "El dispositivo no se ha eliminado. Compruebe su contraseña y vuelva a intentarlo."
 
 msgid "Wiping device"
 msgstr "Dispositivo de limpieza"
@@ -7143,463 +7143,463 @@ msgid "Password is weak. Password should contain capital, non-capital letters an
 msgstr "La contraseña es débil. Debe tener entre 8 y 20 caracteres e incluir letras mayúsculas, letras minúsculas y números."
 
 msgid "The OpenPGP request failed. Please try again."
-msgstr ""
+msgstr "La solicitud de OpenPGP ha fallado. Vuelva a intentarlo."
 
 msgid "Working…"
-msgstr ""
+msgstr "Procesando…"
 
 msgid "The operation failed. Please try again."
-msgstr ""
+msgstr "La operación ha fallado. Vuelva a intentarlo."
 
 msgid "Passphrase"
-msgstr ""
+msgstr "Frase de contraseña"
 
 msgid "Unlock OpenPGP private key"
-msgstr ""
+msgstr "Desbloquear clave privada OpenPGP"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Desbloquear"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr ""
+msgstr "Su frase de contraseña y la clave desbloqueada permanecen en esta pestaña del navegador. La clave se bloquea automáticamente pasado un tiempo limitado o al cerrar la pestaña. Huella digital: "
 
 msgid "Set up OpenPGP"
-msgstr ""
+msgstr "Configurar OpenPGP"
 
 msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
-msgstr ""
+msgstr "Añada una clave privada que coincida con la dirección del remitente para firmar mensajes o para que la copia cifrada de los mensajes enviados siga siendo legible. Puede importar una clave existente o crear una en la configuración de OpenPGP."
 
 msgid "Open key settings"
-msgstr ""
+msgstr "Abrir configuración de claves"
 
 msgid "Choose OpenPGP key"
-msgstr ""
+msgstr "Elegir clave OpenPGP"
 
 msgid "Private key"
-msgstr ""
+msgstr "Clave privada"
 
 msgid "Use key"
-msgstr ""
+msgstr "Usar clave"
 
 msgid "Private-key unlocking was cancelled."
-msgstr ""
+msgstr "Se ha cancelado el desbloqueo de la clave privada."
 
 msgid "Key selection was cancelled."
-msgstr ""
+msgstr "Se ha cancelado la selección de la clave."
 
 msgid "Choose private key…"
-msgstr ""
+msgstr "Elegir clave privada…"
 
 msgid "Manage OpenPGP keys…"
-msgstr ""
+msgstr "Gestionar claves OpenPGP…"
 
 msgid "Lock private keys"
-msgstr ""
+msgstr "Bloquear claves privadas"
 
 msgid "Signing key: "
-msgstr ""
+msgstr "Clave de firma: "
 
 msgid "Decryption alone does not authenticate the sender."
-msgstr ""
+msgstr "El descifrado por sí solo no autentica al remitente."
 
 msgid "OpenPGP security information"
-msgstr ""
+msgstr "Información de seguridad de OpenPGP"
 
 msgid "OpenPGP"
-msgstr ""
+msgstr "OpenPGP"
 
 msgid "OpenPGP signed or encrypted message"
-msgstr ""
+msgstr "Mensaje firmado o cifrado con OpenPGP"
 
 msgid "OpenPGP Plugin"
-msgstr ""
+msgstr "Plugin OpenPGP"
 
 msgid "The OpenPGP operation was cancelled."
-msgstr ""
+msgstr "Se ha cancelado la operación de OpenPGP."
 
 msgid "S/MIME and OpenPGP cannot protect the same message."
-msgstr ""
+msgstr "S/MIME y OpenPGP no pueden proteger el mismo mensaje."
 
 msgid "Saving the OpenPGP draft timed out. Please retry."
-msgstr ""
+msgstr "Se ha agotado el tiempo de espera al guardar el borrador OpenPGP. Vuelva a intentarlo."
 
 msgid "The draft could not be saved. Nothing was sent."
-msgstr ""
+msgstr "No se ha podido guardar el borrador. No se ha enviado nada."
 
 msgid "The sender or message protection changed. Please send again."
-msgstr ""
+msgstr "El remitente o la protección del mensaje han cambiado. Vuelva a enviarlo."
 
 msgid "The selected private key is not valid for this sender and protection mode."
-msgstr ""
+msgstr "La clave privada seleccionada no es válida para este remitente y este modo de protección."
 
 msgid "A matching, passphrase-protected private key is required."
-msgstr ""
+msgstr "Se necesita una clave privada que coincida y esté protegida con una frase de contraseña."
 
 msgid "A recipient key is invalid, expired or does not match its email address."
-msgstr ""
+msgstr "La clave de un destinatario no es válida, ha caducado o no coincide con su dirección de correo electrónico."
 
 msgid "No verified recipient keys are available."
-msgstr ""
+msgstr "No hay disponible ninguna clave de destinatario válida."
 
 msgid "This message is too large for browser OpenPGP processing."
-msgstr ""
+msgstr "Este mensaje es demasiado grande para procesarlo con OpenPGP en el navegador."
 
 msgid "Message protection changed while preparing the message. Please send again."
-msgstr ""
+msgstr "La protección del mensaje ha cambiado mientras se preparaba el mensaje. Vuelva a enviarlo."
 
 msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
-msgstr ""
+msgstr "El mensaje protegido ocupa {0} MB, más de lo que este servidor acepta en una sola petición ({1} MB). Elimine adjuntos o pida al administrador que aumente el límite de subida."
 
 msgid "The attachment archive is too large."
-msgstr ""
+msgstr "El archivo ZIP de los adjuntos es demasiado grande."
 
 msgid "Unlock the message again to download this attachment."
-msgstr ""
+msgstr "Vuelva a desbloquear el mensaje para descargar este adjunto."
 
 msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
-msgstr ""
+msgstr "Este mensaje contiene una protección S/MIME anidada que OpenPGP no puede abrir."
 
 msgid "Too many nested OpenPGP envelopes."
-msgstr ""
+msgstr "Demasiados sobres OpenPGP anidados."
 
 msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
-msgstr ""
+msgstr "La firma no es válida o no está disponible la clave pública del firmante. No confíe en la identidad de este remitente."
 
 msgid "The private key was locked while opening this message."
-msgstr ""
+msgstr "La clave privada se bloqueó mientras se abría este mensaje."
 
 msgid "This message contains too many attachments."
-msgstr ""
+msgstr "Este mensaje contiene demasiados adjuntos."
 
 msgid "The decoded attachments are too large."
-msgstr ""
+msgstr "Los adjuntos descodificados son demasiado grandes."
 
 msgid "The OpenPGP operation failed."
-msgstr ""
+msgstr "La operación de OpenPGP ha fallado."
 
 msgid "OpenPGP: checking message security…"
-msgstr ""
+msgstr "OpenPGP: comprobando la seguridad del mensaje…"
 
 msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
-msgstr ""
+msgstr "Mensaje cifrado guardado sin su sobre MIME — guarde el adjunto y descífrelo con una herramienta OpenPGP"
 
 msgid "Signed message stored without its original MIME — the signature cannot be verified"
-msgstr ""
+msgstr "Mensaje firmado guardado sin su MIME original — no se puede verificar la firma"
 
 msgid "Message decrypted"
-msgstr ""
+msgstr "Mensaje descifrado"
 
 msgid "Message could not be decrypted — click for details or retry"
-msgstr ""
+msgstr "No se ha podido descifrar el mensaje — haga clic para ver los detalles o reintentar"
 
 msgid "Encrypted message — unlock your private key to read"
-msgstr ""
+msgstr "Mensaje cifrado — desbloquee su clave privada para leerlo"
 
 msgid "Signature could not be verified"
 msgstr "No se ha podido verificar la firma"
 
 msgid "Valid signature, but the signing key does not match the sender"
-msgstr ""
+msgstr "Firma válida, pero la clave de firma no coincide con el remitente"
 
 msgid "Valid signature — sender fingerprint has not been verified"
-msgstr ""
+msgstr "Firma válida — no se ha verificado la huella digital del remitente"
 
 msgid "Valid signature from a verified sender"
-msgstr ""
+msgstr "Firma válida de un remitente verificado"
 
 msgid "The signing key has since expired"
-msgstr ""
+msgstr "La clave de firma ha caducado desde entonces"
 
 msgid "Message is not signed"
-msgstr ""
+msgstr "El mensaje no está firmado"
 
 msgid "Inline OpenPGP protects the body only; attachments are not covered"
-msgstr ""
+msgstr "OpenPGP inline solo protege el cuerpo del mensaje; los adjuntos no quedan protegidos"
 
 msgid "Unprotected text after the OpenPGP block is not shown"
-msgstr ""
+msgstr "No se muestra el texto sin proteger que hay después del bloque OpenPGP"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr ""
+msgstr "No se han podido cargar sus claves públicas, por lo que no se han podido comprobar las firmas"
 
 msgid "Security information"
-msgstr ""
+msgstr "Información de seguridad"
 
 msgid "Choose when composing"
-msgstr ""
+msgstr "Elegir al redactar"
 
 msgid "Personal and public keys"
-msgstr ""
+msgstr "Claves personales y públicas"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr ""
+msgstr "Sus claves se guardan en su buzón. Las claves privadas permanecen protegidas con una frase de contraseña; la firma, el cifrado y el desbloqueo se realizan en este navegador. Verifique las huellas digitales de sus contactos por un canal de confianza independiente. Los cambios en las claves surten efecto inmediatamente."
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
-msgstr ""
+msgstr "No hay claves OpenPGP. Importe o genere una clave para empezar."
 
 msgid "Identity"
-msgstr ""
+msgstr "Identidad"
 
 msgid "Fingerprint"
-msgstr ""
+msgstr "Huella digital"
 
 msgid "Public key"
-msgstr ""
+msgstr "Clave pública"
 
 msgid "Revoked"
-msgstr ""
+msgstr "Revocada"
 
 msgid "Expired"
-msgstr ""
+msgstr "Caducada"
 
 msgid "Fingerprint verified"
-msgstr ""
+msgstr "Huella verificada"
 
 msgid "Not verified"
-msgstr ""
+msgstr "Sin verificar"
 
 msgid "Unlocked"
-msgstr ""
+msgstr "Desbloqueada"
 
 msgid "Locked"
-msgstr ""
+msgstr "Bloqueada"
 
 msgid "Expires"
 msgstr "Expira"
 
 msgid "No expiry"
-msgstr ""
+msgstr "Sin caducidad"
 
 msgid "Generate key"
-msgstr ""
+msgstr "Generar clave"
 
 msgid "Import key"
-msgstr ""
+msgstr "Importar clave"
 
 msgid "Find public key"
-msgstr ""
+msgstr "Buscar clave pública"
 
 msgid "Details / verify"
-msgstr ""
+msgstr "Detalles / verificar"
 
 msgid "Export public key"
-msgstr ""
+msgstr "Exportar clave pública"
 
 msgid "Back up private key"
-msgstr ""
+msgstr "Crear copia de seguridad de la clave privada"
 
 msgid "Unlock in this browser"
-msgstr ""
+msgstr "Desbloquear en este navegador"
 
 msgid "Change passphrase"
 msgstr "Cambiar frase de contraseña"
 
 msgid "Lock all"
-msgstr ""
+msgstr "Bloquear todas"
 
 msgid "Default private key"
-msgstr ""
+msgstr "Clave privada por defecto"
 
 msgid "Sign new messages by default"
-msgstr ""
+msgstr "Firmar los mensajes nuevos por defecto"
 
 msgid "Encrypt new messages by default"
-msgstr ""
+msgstr "Cifrar los mensajes nuevos por defecto"
 
 msgid "Manage keyservers"
-msgstr ""
+msgstr "Gestionar servidores de claves"
 
 msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
-msgstr ""
+msgstr "Las opciones de redacción por defecto solo se aplican a los mensajes OpenPGP nuevos. S/MIME y OpenPGP no se pueden combinar en el mismo mensaje."
 
 msgid "Generate OpenPGP key"
-msgstr ""
+msgstr "Generar clave OpenPGP"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "Algoritmo"
 
 msgid "Expires in"
-msgstr ""
+msgstr "Caduca en"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 año"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 años"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 años"
 
 msgid "Repeat passphrase"
-msgstr ""
+msgstr "Repetir frase de contraseña"
 
 msgid "Passphrases do not match."
-msgstr ""
+msgstr "Las frases de contraseña no coinciden."
 
 msgid "Generate"
-msgstr ""
+msgstr "Generar"
 
 msgid "Key created. Back up the private key and store its passphrase separately."
-msgstr ""
+msgstr "Clave creada. Haga una copia de seguridad de la clave privada y guarde su frase de contraseña por separado."
 
 msgid "Revocation certificate — keep secure"
-msgstr ""
+msgstr "Certificado de revocación — guardar en lugar seguro"
 
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
-msgstr ""
+msgstr "Elija una frase de contraseña segura de al menos 12 caracteres. La generación se realiza localmente en este navegador y puede tardar un momento. Guarde el certificado de revocación y una copia de seguridad de la clave privada en un lugar seguro."
 
 msgid "Import OpenPGP key"
-msgstr ""
+msgstr "Importar clave OpenPGP"
 
 msgid "Choose armored OpenPGP key file"
-msgstr ""
+msgstr "Elegir archivo de clave OpenPGP con armadura ASCII"
 
 msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr ""
+msgstr "El archivo de clave es demasiado grande. Tamaño máximo: 1 MiB."
 
 msgid "The key file could not be read."
-msgstr ""
+msgstr "No se ha podido leer el archivo de clave."
 
 msgid "Armored key"
-msgstr ""
+msgstr "Clave con armadura ASCII"
 
 msgid "Protect unencrypted key"
-msgstr ""
+msgstr "Proteger clave no cifrada"
 
 msgid "Optional: new passphrase for an unprotected private key"
-msgstr ""
+msgstr "Opcional: nueva frase de contraseña para una clave privada sin cifrar"
 
 msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr ""
+msgstr "Clave importada. Verifique las huellas digitales de los destinatarios antes de cifrar mensajes para ellos."
 
 msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr ""
+msgstr "Elija un archivo o pegue una única clave con armadura ASCII, incluidas sus líneas BEGIN y END. Si la clave privada no está cifrada, introduzca una nueva frase de contraseña para protegerla localmente antes de guardarla. Las claves de destinatarios importadas no se consideran de confianza automáticamente."
 
 msgid "Public OpenPGP key"
-msgstr ""
+msgstr "Clave pública OpenPGP"
 
 msgid "Back up private OpenPGP key"
-msgstr ""
+msgstr "Crear copia de seguridad de la clave privada OpenPGP"
 
 msgid "Create backup"
-msgstr ""
+msgstr "Crear copia de seguridad"
 
 msgid "Private key backup — keep secure"
-msgstr ""
+msgstr "Copia de seguridad de la clave privada — guardar en lugar seguro"
 
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
-msgstr ""
+msgstr "Confirme su frase de contraseña localmente antes de descargar esta copia de seguridad cifrada de la clave privada. Guárdela en un lugar seguro y no la envíe nunca a un destinatario ni a un servidor de claves."
 
 msgid "Current passphrase"
-msgstr ""
+msgstr "Frase de contraseña actual"
 
 msgid "New passphrase"
 msgstr "Nueva contraseña"
 
 msgid "Change OpenPGP passphrase"
-msgstr ""
+msgstr "Cambiar frase de contraseña OpenPGP"
 
 msgid "Repeat new passphrase"
-msgstr ""
+msgstr "Repetir nueva frase de contraseña"
 
 msgid "Passphrase changed. Make a new private-key backup."
-msgstr ""
+msgstr "Frase de contraseña cambiada. Haga una nueva copia de seguridad de la clave privada."
 
 msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
-msgstr ""
+msgstr "La clave privada se vuelve a cifrar localmente. Las copias de seguridad existentes siguen necesitando su frase de contraseña original."
 
 msgid "Verify OpenPGP fingerprint"
-msgstr ""
+msgstr "Verificar huella digital OpenPGP"
 
 msgid "Verified identities"
-msgstr ""
+msgstr "Identidades verificadas"
 
 msgid "Email identity"
-msgstr ""
+msgstr "Identidad de correo"
 
 msgid "Confirm fingerprint"
-msgstr ""
+msgstr "Confirmar huella digital"
 
 msgid "Enter the full fingerprint shown above."
-msgstr ""
+msgstr "Introduzca la huella digital completa que se muestra arriba."
 
 msgid "I verified this fingerprint"
-msgstr ""
+msgstr "He verificado esta huella digital"
 
 msgid "Save verification"
-msgstr ""
+msgstr "Guardar verificación"
 
 msgid "Fingerprint verification updated."
-msgstr ""
+msgstr "Se ha actualizado la verificación de la huella digital."
 
 msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
-msgstr ""
+msgstr "Compare la huella digital completa con su contacto por un canal de confianza independiente. Si marca la casilla, esta clave queda fijada para la dirección seleccionada; si la deja sin marcar, se elimina esa verificación."
 
 msgid "All private keys in this browser tab are locked."
-msgstr ""
+msgstr "Todas las claves privadas de esta pestaña del navegador están bloqueadas."
 
 msgid "Delete OpenPGP key"
-msgstr ""
+msgstr "Eliminar clave OpenPGP"
 
 msgid "Type the full fingerprint to confirm deletion."
-msgstr ""
+msgstr "Escriba la huella digital completa para confirmar la eliminación."
 
 msgid "Delete key"
-msgstr ""
+msgstr "Eliminar clave"
 
 msgid "Key removed from your mailbox."
-msgstr ""
+msgstr "Se ha eliminado la clave de su buzón."
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
-msgstr ""
+msgstr "Si elimina esta clave privada, no podrá leer los mensajes cifrados para ella, salvo que disponga de una copia de seguridad. Haga una copia de seguridad de la clave privada antes de continuar."
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr ""
+msgstr "Esto elimina la clave pública y sus huellas digitales verificadas de su anillo de claves."
 
 msgid "Manage OpenPGP keyservers"
-msgstr ""
+msgstr "Gestionar servidores de claves OpenPGP"
 
 msgid "HTTPS keyservers"
-msgstr ""
+msgstr "Servidores de claves HTTPS"
 
 msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
-msgstr ""
+msgstr "Introduzca un origen de servidor HTTPS por línea, sin ruta, credenciales ni cadena de consulta."
 
 msgid "Save keyservers"
-msgstr ""
+msgstr "Guardar servidores de claves"
 
 msgid "Keyservers updated."
-msgstr ""
+msgstr "Se han actualizado los servidores de claves."
 
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
-msgstr ""
+msgstr "Solo se pueden usar servidores de claves HTTPS aprobados por el administrador. Las búsquedas requieren una huella digital completa. Las claves nunca se suben automáticamente."
 
 msgid "Approved servers: "
-msgstr ""
+msgstr "Servidores aprobados: "
 
 msgid "Find OpenPGP public key"
-msgstr ""
+msgstr "Buscar clave pública OpenPGP"
 
 msgid "Keyserver"
-msgstr ""
+msgstr "Servidor de claves"
 
 msgid "Full fingerprint"
-msgstr ""
+msgstr "Huella digital completa"
 
 msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
-msgstr ""
+msgstr "Introduzca una huella digital hexadecimal completa de 40 o 64 caracteres."
 
 msgid "Find and import"
-msgstr ""
+msgstr "Buscar e importar"
 
 msgid "The keyserver did not return the requested public key."
-msgstr ""
+msgstr "El servidor de claves no ha devuelto la clave pública solicitada."
 
 msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr ""
+msgstr "Clave pública importada. Verifique su huella digital antes de cifrar mensajes para su propietario."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
-msgstr ""
+msgstr "El servidor recibirá la huella digital que busque. Una clave descargada sigue necesitando la verificación de su huella digital antes de cifrar mensajes para su propietario."
 
 msgid "Old passphrase"
 msgstr "Frase de contraseña antigua"
@@ -8307,7 +8307,7 @@ msgid "PHP-CURL not installed"
 msgstr "PHP-CURL no instalado"
 
 msgid "Unknown backend"
-msgstr ""
+msgstr "Backend desconocido"
 
 msgid "Account is ready to use."
 msgstr "La cuenta está lista para ser utilizada."
@@ -8322,10 +8322,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Este archivo ya no está disponible. Vuelva a cargar la carpeta."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "La búsqueda de destinatarios no es compatible con este backend"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "No se pueden buscar destinatarios"
 
 msgid "Kendox certificate path is not configured."
 msgstr "La ruta del certificado de Kendox no está configurada."
@@ -8347,7 +8347,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "Se ha producido un error inesperado. Por favor, póngase en contacto con el administrador del sistema. Código de error: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "Este servidor no admite la gestión de carpetas compartidas."
 
 msgid "No data received."
 msgstr "No se han recibido datos."
@@ -8368,13 +8368,13 @@ msgid "Password has been changed successfully."
 msgstr "La contraseña se ha cambiado correctamente."
 
 msgid "The OpenPGP operation could not be completed."
-msgstr ""
+msgstr "No se ha podido completar la operación de OpenPGP."
 
 msgid "OpenPGP: message was not sent"
-msgstr ""
+msgstr "OpenPGP: no se ha enviado el mensaje"
 
 msgid "The OpenPGP message could not be read."
-msgstr ""
+msgstr "No se ha podido leer el mensaje OpenPGP."
 
 msgid "No certificate available"
 msgstr "No hay certificado disponible"
@@ -8401,13 +8401,13 @@ msgid "Unable to generate certs-only message"
 msgstr "No se puede generar el mensaje \"Sólo certificados"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "No se puede leer el mensaje certs-only"
 
 msgid "LDAP not configured"
 msgstr "LDAP no configurado"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "Configuración LDAP no válida"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Faltan los certificados públicos de los siguientes destinatarios: "
@@ -8453,7 +8453,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "Certificado revocado, pero importado."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "No se ha podido verificar el estado de revocación del certificado. Se ha importado el certificado."
 
 msgid "Unable to read public certificate"
 msgstr "No se puede leer el certificado público"
@@ -8498,7 +8498,7 @@ msgid "Cannot store the category list in this mailbox."
 msgstr "No se puede guardar la lista de categorías en este buzón."
 
 msgid "Cannot scan this mailbox for categories."
-msgstr ""
+msgstr "No se puede examinar este buzón en busca de categorías."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -8526,16 +8526,16 @@ msgid "%1$s of %2$s"
 msgstr "%1$s de %2$s"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "OpenPGP está desactivado o no está disponible en este momento. Su mensaje no se ha enviado. Active OpenPGP antes de volver a intentarlo o desactive explícitamente la firma y el cifrado."
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
-msgstr ""
+msgstr "Se han enviado demasiados mensajes en poco tiempo. Espere un momento y vuelva a enviarlo."
 
 msgid "Message was not sent"
-msgstr ""
+msgstr "No se ha enviado el mensaje"
 
 msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "Este borrador solicita protección OpenPGP, pero no se ha aplicado. El mensaje no se ha enviado. Active OpenPGP antes de volver a intentarlo o desactive explícitamente la firma y el cifrado."
 
 msgid "Error retrieving existing settings"
 msgstr "Error al recuperar la configuración existente"
@@ -8903,7 +8903,7 @@ msgid "Could not decline Task Request."
 msgstr "No se ha podido rechazar la solicitud de tarea."
 
 msgid "Could not open the attachment."
-msgstr ""
+msgstr "No se ha podido abrir el adjunto."
 
 msgid "Conflicts with another appointment."
 msgstr "Entra en conflicto con otra cita."
@@ -8921,7 +8921,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "No se ha podido contactar con el/los siguiente(s) destinatario(s)"
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
+msgstr "El administrador ha desactivado la eliminación de adjuntos."
 
 msgid "l, F j, Y g:i A"
 msgstr "l, j \\d\\e F \\d\\e Y G:i"

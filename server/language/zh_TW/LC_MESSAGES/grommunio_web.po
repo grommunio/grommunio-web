@@ -675,15 +675,13 @@ msgstr "附件"
 msgid "Date"
 msgstr "日期"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "From"
-msgstr "寄件者"
+msgstr "自"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "To"
-msgstr "收件人"
+msgstr "至"
 
 msgid "Filter category…"
 msgstr "篩選分類..."
@@ -1028,10 +1026,9 @@ msgstr "收件人或副本"
 msgid "Meeting"
 msgstr "會議"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
-msgstr "資源已被預約"
+msgstr "資源已預約"
 
 msgid "Insufficient privileges"
 msgstr "特權不足"
@@ -1294,17 +1291,14 @@ msgstr "現在傳送取消通知"
 msgid "Send Meeting Request Confirmation"
 msgstr "傳送會議邀請確認"
 
-#, fuzzy
 msgid "This meeting will be accepted and moved to your calendar. Do you want to include comments with your response?"
-msgstr "此會議已被接受並且會移入你的行事曆，你要包含你的回應意見嗎?"
+msgstr "此會議將被接受並移至您的行事曆。您要在回應中加入意見嗎？"
 
-#, fuzzy
 msgid "This meeting will be tentatively accepted and moved to your calendar. Do you want to include comments with your response?"
-msgstr "此會議已被暫時的接受並且會移入你的行事曆，你要包含你的回應意見嗎?"
+msgstr "此會議將被暫時接受並移至您的行事曆。您要在回應中加入意見嗎？"
 
-#, fuzzy
 msgid "This meeting will be declined and moved to your Deleted Items folder. Do you want to include comments with your response?"
-msgstr "此會議已被拒絕並且會移到刪除項目資料夾，你要包含你的回應意見嗎?"
+msgstr "此會議將被拒絕並移至您的「已刪除項目」資料夾。您要在回應中加入意見嗎？"
 
 msgid "Edit the response before sending"
 msgstr "傳送前編輯回應"
@@ -1699,7 +1693,7 @@ msgid "jS F Y"
 msgstr "jS F Y"
 
 msgid "Online meeting"
-msgstr ""
+msgstr "線上會議"
 
 msgid "Attendees"
 msgstr "與會者"
@@ -1873,7 +1867,7 @@ msgstr "您的權限不足以刪除此資料夾中的項目。"
 
 msgid "You have insufficient privileges to delete one of the selected items."
 msgid_plural "You have insufficient privileges to delete {0} of the selected items."
-msgstr[0] ""
+msgstr[0] "您沒有足夠的權限刪除所選項目中的 {0} 項。"
 
 msgid "Notify recipients"
 msgstr "通知收件人"
@@ -1912,14 +1906,13 @@ msgid "Recipient already exists."
 msgstr "收件人已經存在。"
 
 msgid "Remove attachment"
-msgstr ""
+msgstr "移除附件"
 
 msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
-msgstr ""
+msgstr "要從此郵件中移除「{0}」嗎？移除後將無法還原該附件。"
 
-#, fuzzy
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
-msgstr "當讀取時會通知寄件者此訊息已讀取，您希望通知寄件者嗎?"
+msgstr "此電子郵件的寄件者已要求讀取回條。您要通知寄件者嗎？"
 
 msgid "Import"
 msgstr "進口"
@@ -1946,18 +1939,18 @@ msgid "Untitled"
 msgstr "無題"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "無法儲存附件。"
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
+msgstr[0] "下列附件無法儲存：{0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
+msgstr[0] "已儲存 {0} 個附件。"
 
 msgid "Save attachments"
-msgstr ""
+msgstr "儲存附件"
 
 msgid "Insert item"
 msgstr "插入項目"
@@ -2005,7 +1998,7 @@ msgid "Preview"
 msgstr "預覽"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "在對話方塊中預覽"
 
 msgid "Download"
 msgstr "下載"
@@ -2014,7 +2007,7 @@ msgid "Download all as ZIP"
 msgstr "以 ZIP 檔案下載所有內容"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "儲存選取項目至本機資料夾"
 
 msgid "Import to folder"
 msgstr "匯入至資料夾"
@@ -2026,10 +2019,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "若要使用 ICS / VCS 匯入功能，請將您的 Gromox 升級至 0 版或更高版本。"
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "在 grommunio Web 標籤中預覽"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "在瀏覽器視窗中預覽"
 
 msgid "Attachment error"
 msgstr "附件錯誤"
@@ -2225,7 +2218,7 @@ msgid "Folder '{0}' selected."
 msgstr "選擇了 '{0}' 資料夾"
 
 msgid "Suggested folders"
-msgstr ""
+msgstr "建議的資料夾"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "無法將選取的項目移至此資料夾，因為該資料夾存放的是其他類型的內容。"
@@ -2423,7 +2416,7 @@ msgid "Redo the last undone action"
 msgstr "重做上一個已復原的動作"
 
 msgid "Jump to the search box, press again for the browser search"
-msgstr ""
+msgstr "跳至搜尋框，再按一次可使用瀏覽器搜尋"
 
 msgid "Open the command palette"
 msgstr "開啟命令選擇區"
@@ -2483,28 +2476,28 @@ msgid "Presentation"
 msgstr "簡報"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "全螢幕"
 
 msgid "Previous page"
-msgstr ""
+msgstr "上一頁"
 
 msgid "Next page"
-msgstr ""
+msgstr "下一頁"
 
 msgid "Page:"
-msgstr ""
+msgstr "頁碼："
 
 msgid "of {0}"
-msgstr ""
+msgstr "共 {0} 頁"
 
 msgid "Zoom out"
-msgstr ""
+msgstr "縮小"
 
 msgid "Zoom in"
-msgstr ""
+msgstr "放大"
 
 msgid "Zoom"
-msgstr ""
+msgstr "縮放"
 
 msgid "Automatic"
 msgstr "自動"
@@ -2516,37 +2509,37 @@ msgid "Page width"
 msgstr "頁面寬度"
 
 msgid "Rotate left"
-msgstr ""
+msgstr "向左旋轉"
 
 msgid "Rotate right"
-msgstr ""
+msgstr "向右旋轉"
 
 msgid "This document could not be previewed."
-msgstr ""
+msgstr "無法預覽此文件。"
 
 msgid "This file cannot be previewed."
-msgstr ""
+msgstr "此檔案不支援預覽。"
 
 msgid "Download the file to open it with a program that can read it."
-msgstr ""
+msgstr "請下載此檔案，並以能夠讀取該檔案的程式開啟。"
 
 msgid "The document is empty."
-msgstr ""
+msgstr "此文件是空的。"
 
 msgid "This sheet is empty."
-msgstr ""
+msgstr "此工作表是空的。"
 
 msgid "Showing the first {0} rows and {1} columns."
-msgstr ""
+msgstr "僅顯示前 {0} 列與 {1} 欄。"
 
 msgid "Wrap lines"
-msgstr ""
+msgstr "自動換行"
 
 msgid "Line numbers"
-msgstr ""
+msgstr "行號"
 
 msgid "This message has no content."
-msgstr ""
+msgstr "此郵件沒有內容。"
 
 msgid "grommunio Web print"
 msgstr "grommunio 網頁列印"
@@ -3411,19 +3404,19 @@ msgid "in"
 msgstr "於"
 
 msgid "Digitally sign this message"
-msgstr ""
+msgstr "數位簽署此郵件"
 
 msgid "Encrypt this message"
-msgstr ""
+msgstr "加密此郵件"
 
 msgid "Autosave is paused while encryption is selected."
-msgstr ""
+msgstr "選取加密時會暫停自動儲存。"
 
 msgid "Turn off {0} signing and encryption first."
-msgstr ""
+msgstr "請先關閉 {0} 簽署與加密。"
 
 msgid "options"
-msgstr ""
+msgstr "選項"
 
 msgid "Sign"
 msgstr "簽名"
@@ -4224,9 +4217,8 @@ msgstr "已儲存"
 msgid "Saved successfully"
 msgstr "儲存成功"
 
-#, fuzzy
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
-msgstr "你將失去所有改變。你確定要關閉此視窗嗎?"
+msgstr "您將遺失所有未儲存的變更。您確定要關閉此視窗嗎？"
 
 msgid "grommunio Content Panel"
 msgstr "grommunio 內容面板"
@@ -4410,7 +4402,6 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "任務"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Junk Email"
 msgstr "垃圾郵件"
@@ -4766,13 +4757,13 @@ msgid "You have insufficient privileges to move this folder. Would you like to c
 msgstr "您的權限不足以移動此資料夾。您要改為複製嗎？"
 
 msgid "Enable OpenPGP before replying to this protected message."
-msgstr ""
+msgstr "請先啟用 OpenPGP，才能回覆此受保護的郵件。"
 
 msgid "The protected message could not be opened. No reply or forward was created."
-msgstr ""
+msgstr "無法開啟此受保護的郵件。未建立任何回覆或轉寄郵件。"
 
 msgid "Unable to open response"
-msgstr ""
+msgstr "無法開啟回覆或轉寄郵件"
 
 msgid "CC"
 msgstr "副本"
@@ -4941,13 +4932,13 @@ msgid "Filter"
 msgstr "过滤器"
 
 msgid "This browser cannot attach the decrypted file. Download it before forwarding."
-msgstr ""
+msgstr "此瀏覽器無法附加已解密的檔案。請先下載該檔案再轉寄。"
 
 msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
-msgstr ""
+msgstr "已解密的附件超過上傳限制。未建立不完整的回覆或轉寄郵件。"
 
 msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
-msgstr ""
+msgstr "已解密的附件無法上傳。未建立不完整的回覆或轉寄郵件。"
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -5028,7 +5019,7 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A} 每 {B} 分鐘自動儲存未寄出的郵件"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
-msgstr ""
+msgstr "選取加密時仍自動儲存（草稿會以未加密方式儲存）"
 
 msgid "Conversation view settings"
 msgstr "對話檢視設定"
@@ -5482,7 +5473,7 @@ msgid "Auto"
 msgstr "自動"
 
 msgid "Preview documents and files in grommunio Web"
-msgstr ""
+msgstr "在 grommunio Web 中預覽文件與檔案"
 
 msgid "Document default zoom"
 msgstr "文件預設縮放"
@@ -5491,10 +5482,10 @@ msgid "PDF zoom"
 msgstr "PDF 縮放"
 
 msgid "Dialog"
-msgstr ""
+msgstr "對話方塊"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "預覽開啟位置"
 
 msgid "File previewing"
 msgstr "檔案預覽"
@@ -5660,22 +5651,22 @@ msgid "Reset all settings to defaults"
 msgstr "將所有設定重設為預設值"
 
 msgid "Migrate legacy categories"
-msgstr ""
+msgstr "移轉舊版類別"
 
 msgid "This will scan all folders and migrate the categories assigned to items."
-msgstr ""
+msgstr "此操作將掃描所有資料夾，並移轉已指派給項目的類別。"
 
 msgid "The legacy category settings will remain unchanged."
-msgstr ""
+msgstr "舊版類別設定將維持不變。"
 
 msgid "Migrate"
-msgstr ""
+msgstr "移轉"
 
 msgid "Legacy categories migrated successfully."
-msgstr ""
+msgstr "舊版類別移轉成功。"
 
 msgid "Could not migrate legacy categories."
-msgstr ""
+msgstr "無法移轉舊版類別。"
 
 msgid "Changes to assigned task"
 msgstr "變更指派的任務"
@@ -5740,13 +5731,11 @@ msgstr "接受任務"
 msgid "Declining Task"
 msgstr "遞減任務"
 
-#, fuzzy
 msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
-msgstr "此會議已被接受並且會移入你的行事曆，你要包含你的回應意見嗎?"
+msgstr "此任務將被接受並移至您的任務資料夾。您要在回應中加入意見嗎？"
 
-#, fuzzy
 msgid "This task will be declined and moved into the Deleted Items folder. Do you want to edit the response before sending it?"
-msgstr "此會議已被拒絕並且會移到刪除項目資料夾，你要包含你的回應意見嗎?"
+msgstr "此任務將被拒絕並移至「已刪除項目」資料夾。您要在傳送前編輯回應嗎？"
 
 msgid "Send the response now"
 msgstr "立即傳送回覆"
@@ -6212,7 +6201,7 @@ msgid "The response was interrupted and may be incomplete."
 msgstr "回應已中斷，可能不完整。"
 
 msgid "The answer reached the output limit configured for this model and stops here."
-msgstr ""
+msgstr "回答已達到此模型設定的輸出上限，因此在此中斷。"
 
 msgid "Insert at cursor"
 msgstr "插入到游標處"
@@ -6641,7 +6630,7 @@ msgid "Create office document"
 msgstr "建立辦公室文件"
 
 msgid "Preview file"
-msgstr ""
+msgstr "預覽檔案"
 
 msgid "Download files"
 msgstr "下載檔案"
@@ -6810,10 +6799,10 @@ msgid "Mobile Device Manager"
 msgstr "行動裝置管理員"
 
 msgid "Device removed"
-msgstr ""
+msgstr "裝置已移除"
 
 msgid "The device was not removed. Check your password and try again."
-msgstr ""
+msgstr "裝置未移除。請確認您的密碼後再試一次。"
 
 msgid "Wiping device"
 msgstr "清除裝置中"
@@ -7117,463 +7106,463 @@ msgid "Password is weak. Password should contain capital, non-capital letters an
 msgstr "密碼過於簡單。密碼應包含大寫字母、小寫字母及數字。密碼長度應為 8 至 20 個字元。"
 
 msgid "The OpenPGP request failed. Please try again."
-msgstr ""
+msgstr "OpenPGP 請求失敗。請再試一次。"
 
 msgid "Working…"
-msgstr ""
+msgstr "處理中…"
 
 msgid "The operation failed. Please try again."
-msgstr ""
+msgstr "操作失敗。請再試一次。"
 
 msgid "Passphrase"
-msgstr ""
+msgstr "密碼"
 
 msgid "Unlock OpenPGP private key"
-msgstr ""
+msgstr "解鎖 OpenPGP 私密金鑰"
 
 msgid "Unlock"
-msgstr ""
+msgstr "解鎖"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr ""
+msgstr "您的密碼與已解鎖的金鑰只會留在此瀏覽器分頁中。金鑰會在一段時間後或分頁關閉時自動鎖定。指紋： "
 
 msgid "Set up OpenPGP"
-msgstr ""
+msgstr "設定 OpenPGP"
 
 msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
-msgstr ""
+msgstr "請新增與寄件者地址相符的私密金鑰，以便簽署郵件，或讓寄件備份中的加密副本仍可閱讀。您可以匯入現有金鑰，或在 OpenPGP 設定中建立新金鑰。"
 
 msgid "Open key settings"
-msgstr ""
+msgstr "開啟金鑰設定"
 
 msgid "Choose OpenPGP key"
-msgstr ""
+msgstr "選擇 OpenPGP 金鑰"
 
 msgid "Private key"
-msgstr ""
+msgstr "私密金鑰"
 
 msgid "Use key"
-msgstr ""
+msgstr "使用金鑰"
 
 msgid "Private-key unlocking was cancelled."
-msgstr ""
+msgstr "已取消解鎖私密金鑰。"
 
 msgid "Key selection was cancelled."
-msgstr ""
+msgstr "已取消選擇金鑰。"
 
 msgid "Choose private key…"
-msgstr ""
+msgstr "選擇私密金鑰…"
 
 msgid "Manage OpenPGP keys…"
-msgstr ""
+msgstr "管理 OpenPGP 金鑰…"
 
 msgid "Lock private keys"
-msgstr ""
+msgstr "鎖定私密金鑰"
 
 msgid "Signing key: "
-msgstr ""
+msgstr "簽署金鑰： "
 
 msgid "Decryption alone does not authenticate the sender."
-msgstr ""
+msgstr "能夠解密並不足以驗證寄件者的身分。"
 
 msgid "OpenPGP security information"
-msgstr ""
+msgstr "OpenPGP 安全性資訊"
 
 msgid "OpenPGP"
-msgstr ""
+msgstr "OpenPGP"
 
 msgid "OpenPGP signed or encrypted message"
-msgstr ""
+msgstr "OpenPGP 簽署或加密的郵件"
 
 msgid "OpenPGP Plugin"
-msgstr ""
+msgstr "OpenPGP 外掛程式"
 
 msgid "The OpenPGP operation was cancelled."
-msgstr ""
+msgstr "OpenPGP 操作已取消。"
 
 msgid "S/MIME and OpenPGP cannot protect the same message."
-msgstr ""
+msgstr "S/MIME 與 OpenPGP 無法同時保護同一封郵件。"
 
 msgid "Saving the OpenPGP draft timed out. Please retry."
-msgstr ""
+msgstr "儲存 OpenPGP 草稿逾時。請重試。"
 
 msgid "The draft could not be saved. Nothing was sent."
-msgstr ""
+msgstr "無法儲存草稿。未傳送任何郵件。"
 
 msgid "The sender or message protection changed. Please send again."
-msgstr ""
+msgstr "寄件者或郵件保護方式已變更。請重新傳送。"
 
 msgid "The selected private key is not valid for this sender and protection mode."
-msgstr ""
+msgstr "所選私密金鑰不適用於此寄件者與保護模式。"
 
 msgid "A matching, passphrase-protected private key is required."
-msgstr ""
+msgstr "必須使用相符且有密碼保護的私密金鑰。"
 
 msgid "A recipient key is invalid, expired or does not match its email address."
-msgstr ""
+msgstr "收件者金鑰無效、已過期或與其電子郵件地址不符。"
 
 msgid "No verified recipient keys are available."
-msgstr ""
+msgstr "沒有可用的有效收件者金鑰。"
 
 msgid "This message is too large for browser OpenPGP processing."
-msgstr ""
+msgstr "此郵件太大，瀏覽器無法以 OpenPGP 處理。"
 
 msgid "Message protection changed while preparing the message. Please send again."
-msgstr ""
+msgstr "準備郵件時，郵件保護方式已變更。請重新傳送。"
 
 msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
-msgstr ""
+msgstr "受保護的郵件大小為 {0} MB，超過此伺服器單次請求可接受的上限（{1} MB）。請移除附件，或請管理員提高上傳限制。"
 
 msgid "The attachment archive is too large."
-msgstr ""
+msgstr "附件壓縮檔太大。"
 
 msgid "Unlock the message again to download this attachment."
-msgstr ""
+msgstr "請重新解鎖此郵件以下載此附件。"
 
 msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
-msgstr ""
+msgstr "此郵件內含巢狀的 S/MIME 保護，OpenPGP 無法開啟。"
 
 msgid "Too many nested OpenPGP envelopes."
-msgstr ""
+msgstr "巢狀的 OpenPGP 封套層數過多。"
 
 msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
-msgstr ""
+msgstr "簽章無效，或其公開金鑰無法取得。請勿信任此寄件者身分。"
 
 msgid "The private key was locked while opening this message."
-msgstr ""
+msgstr "開啟此郵件時，私密金鑰已被鎖定。"
 
 msgid "This message contains too many attachments."
-msgstr ""
+msgstr "此郵件的附件數量過多。"
 
 msgid "The decoded attachments are too large."
-msgstr ""
+msgstr "解碼後的附件太大。"
 
 msgid "The OpenPGP operation failed."
-msgstr ""
+msgstr "OpenPGP 操作失敗。"
 
 msgid "OpenPGP: checking message security…"
-msgstr ""
+msgstr "OpenPGP: 正在檢查郵件安全性…"
 
 msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
-msgstr ""
+msgstr "加密郵件儲存時未保留 MIME 封套 — 請儲存附件並以 OpenPGP 工具解密"
 
 msgid "Signed message stored without its original MIME — the signature cannot be verified"
-msgstr ""
+msgstr "簽署的郵件儲存時未保留原始 MIME — 無法驗證簽章"
 
 msgid "Message decrypted"
-msgstr ""
+msgstr "郵件已解密"
 
 msgid "Message could not be decrypted — click for details or retry"
-msgstr ""
+msgstr "郵件無法解密 — 請點選以查看詳細資料或重試"
 
 msgid "Encrypted message — unlock your private key to read"
-msgstr ""
+msgstr "加密的郵件 — 請解鎖您的私密金鑰以閱讀內容"
 
 msgid "Signature could not be verified"
 msgstr "簽署無法驗證"
 
 msgid "Valid signature, but the signing key does not match the sender"
-msgstr ""
+msgstr "簽章有效，但簽署金鑰與寄件者不符"
 
 msgid "Valid signature — sender fingerprint has not been verified"
-msgstr ""
+msgstr "簽章有效 — 尚未驗證寄件者的金鑰指紋"
 
 msgid "Valid signature from a verified sender"
-msgstr ""
+msgstr "簽章有效，來自已驗證的寄件者"
 
 msgid "The signing key has since expired"
-msgstr ""
+msgstr "簽署金鑰在簽署後已過期"
 
 msgid "Message is not signed"
-msgstr ""
+msgstr "郵件未經簽署"
 
 msgid "Inline OpenPGP protects the body only; attachments are not covered"
-msgstr ""
+msgstr "內嵌式 OpenPGP 僅保護郵件內文；附件不在保護範圍內"
 
 msgid "Unprotected text after the OpenPGP block is not shown"
-msgstr ""
+msgstr "OpenPGP 區塊之後未受保護的文字不會顯示"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr ""
+msgstr "無法載入您的公開金鑰，因此無法驗證簽章"
 
 msgid "Security information"
-msgstr ""
+msgstr "安全性資訊"
 
 msgid "Choose when composing"
-msgstr ""
+msgstr "撰寫郵件時選擇"
 
 msgid "Personal and public keys"
-msgstr ""
+msgstr "個人與公開金鑰"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr ""
+msgstr "您的金鑰儲存在您的信箱中。私密金鑰會持續受密碼保護；簽署、加密與解鎖都在此瀏覽器中進行。請透過另一個可信任的管道驗證聯絡人的金鑰指紋。金鑰的變更會立即生效。"
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
-msgstr ""
+msgstr "尚無 OpenPGP 金鑰。請匯入或產生金鑰以開始使用。"
 
 msgid "Identity"
-msgstr ""
+msgstr "身分"
 
 msgid "Fingerprint"
-msgstr ""
+msgstr "指紋"
 
 msgid "Public key"
-msgstr ""
+msgstr "公開金鑰"
 
 msgid "Revoked"
-msgstr ""
+msgstr "已撤銷"
 
 msgid "Expired"
-msgstr ""
+msgstr "已過期"
 
 msgid "Fingerprint verified"
-msgstr ""
+msgstr "指紋已驗證"
 
 msgid "Not verified"
-msgstr ""
+msgstr "尚未驗證"
 
 msgid "Unlocked"
-msgstr ""
+msgstr "已解鎖"
 
 msgid "Locked"
-msgstr ""
+msgstr "已鎖定"
 
 msgid "Expires"
 msgstr "到期"
 
 msgid "No expiry"
-msgstr ""
+msgstr "無到期日"
 
 msgid "Generate key"
-msgstr ""
+msgstr "產生金鑰"
 
 msgid "Import key"
-msgstr ""
+msgstr "匯入金鑰"
 
 msgid "Find public key"
-msgstr ""
+msgstr "尋找公開金鑰"
 
 msgid "Details / verify"
-msgstr ""
+msgstr "詳細資料 / 驗證"
 
 msgid "Export public key"
-msgstr ""
+msgstr "匯出公開金鑰"
 
 msgid "Back up private key"
-msgstr ""
+msgstr "備份私密金鑰"
 
 msgid "Unlock in this browser"
-msgstr ""
+msgstr "在此瀏覽器中解鎖"
 
 msgid "Change passphrase"
 msgstr "變更密碼"
 
 msgid "Lock all"
-msgstr ""
+msgstr "全部鎖定"
 
 msgid "Default private key"
-msgstr ""
+msgstr "預設私密金鑰"
 
 msgid "Sign new messages by default"
-msgstr ""
+msgstr "預設簽署新郵件"
 
 msgid "Encrypt new messages by default"
-msgstr ""
+msgstr "預設加密新郵件"
 
 msgid "Manage keyservers"
-msgstr ""
+msgstr "管理金鑰伺服器"
 
 msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
-msgstr ""
+msgstr "撰寫郵件的預設值僅適用於新的 OpenPGP 郵件。S/MIME 與 OpenPGP 無法同時用於同一封郵件。"
 
 msgid "Generate OpenPGP key"
-msgstr ""
+msgstr "產生 OpenPGP 金鑰"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "演算法"
 
 msgid "Expires in"
-msgstr ""
+msgstr "有效期限"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 年"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 年"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 年"
 
 msgid "Repeat passphrase"
-msgstr ""
+msgstr "再次輸入密碼"
 
 msgid "Passphrases do not match."
-msgstr ""
+msgstr "密碼不相符。"
 
 msgid "Generate"
-msgstr ""
+msgstr "產生"
 
 msgid "Key created. Back up the private key and store its passphrase separately."
-msgstr ""
+msgstr "金鑰已建立。請備份私密金鑰，並將其密碼分開保存。"
 
 msgid "Revocation certificate — keep secure"
-msgstr ""
+msgstr "撤銷憑證 — 請妥善保管"
 
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
-msgstr ""
+msgstr "請選擇至少 12 個字元的強式密碼。金鑰會在此瀏覽器中產生，可能需要一點時間。請將撤銷憑證與私密金鑰備份妥善保存。"
 
 msgid "Import OpenPGP key"
-msgstr ""
+msgstr "匯入 OpenPGP 金鑰"
 
 msgid "Choose armored OpenPGP key file"
-msgstr ""
+msgstr "選擇 ASCII 封裝的 OpenPGP 金鑰檔案"
 
 msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr ""
+msgstr "金鑰檔案太大。大小上限：1 MiB。"
 
 msgid "The key file could not be read."
-msgstr ""
+msgstr "無法讀取金鑰檔案。"
 
 msgid "Armored key"
-msgstr ""
+msgstr "ASCII 封裝金鑰"
 
 msgid "Protect unencrypted key"
-msgstr ""
+msgstr "保護未加密的金鑰"
 
 msgid "Optional: new passphrase for an unprotected private key"
-msgstr ""
+msgstr "選填：未受保護私密金鑰的新密碼"
 
 msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr ""
+msgstr "金鑰已匯入。請先驗證收件者的金鑰指紋，再加密郵件寄給他們。"
 
 msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr ""
+msgstr "請選擇檔案，或貼上一份 ASCII 封裝金鑰，包含其 BEGIN 與 END 行。若匯入的是未受保護的私密金鑰，請輸入新密碼，在儲存前於此瀏覽器中為其加上保護。匯入的收件者金鑰不會自動被信任。"
 
 msgid "Public OpenPGP key"
-msgstr ""
+msgstr "OpenPGP 公開金鑰"
 
 msgid "Back up private OpenPGP key"
-msgstr ""
+msgstr "備份 OpenPGP 私密金鑰"
 
 msgid "Create backup"
-msgstr ""
+msgstr "建立備份"
 
 msgid "Private key backup — keep secure"
-msgstr ""
+msgstr "私密金鑰備份 — 請妥善保管"
 
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
-msgstr ""
+msgstr "下載此加密的私密金鑰備份前，請先在此瀏覽器中確認您的密碼。請妥善保管此備份，切勿將其傳送給收件者或金鑰伺服器。"
 
 msgid "Current passphrase"
-msgstr ""
+msgstr "目前的密碼"
 
 msgid "New passphrase"
 msgstr "新密碼"
 
 msgid "Change OpenPGP passphrase"
-msgstr ""
+msgstr "變更 OpenPGP 密碼"
 
 msgid "Repeat new passphrase"
-msgstr ""
+msgstr "再次輸入新密碼"
 
 msgid "Passphrase changed. Make a new private-key backup."
-msgstr ""
+msgstr "密碼已變更。請重新建立私密金鑰備份。"
 
 msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
-msgstr ""
+msgstr "私密金鑰會在此瀏覽器中重新加密。既有的備份仍需使用其原本的密碼。"
 
 msgid "Verify OpenPGP fingerprint"
-msgstr ""
+msgstr "驗證 OpenPGP 指紋"
 
 msgid "Verified identities"
-msgstr ""
+msgstr "已驗證的身分"
 
 msgid "Email identity"
-msgstr ""
+msgstr "電子郵件身分"
 
 msgid "Confirm fingerprint"
-msgstr ""
+msgstr "確認指紋"
 
 msgid "Enter the full fingerprint shown above."
-msgstr ""
+msgstr "請輸入上方顯示的完整指紋。"
 
 msgid "I verified this fingerprint"
-msgstr ""
+msgstr "我已驗證此指紋"
 
 msgid "Save verification"
-msgstr ""
+msgstr "儲存驗證狀態"
 
 msgid "Fingerprint verification updated."
-msgstr ""
+msgstr "指紋驗證狀態已更新。"
 
 msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
-msgstr ""
+msgstr "請透過另一個可信任的管道與對方核對完整指紋。勾選此核取方塊會將此金鑰綁定至所選地址；不勾選則會移除該驗證。"
 
 msgid "All private keys in this browser tab are locked."
-msgstr ""
+msgstr "此瀏覽器分頁中的所有私密金鑰都已鎖定。"
 
 msgid "Delete OpenPGP key"
-msgstr ""
+msgstr "刪除 OpenPGP 金鑰"
 
 msgid "Type the full fingerprint to confirm deletion."
-msgstr ""
+msgstr "請輸入完整指紋以確認刪除。"
 
 msgid "Delete key"
-msgstr ""
+msgstr "刪除金鑰"
 
 msgid "Key removed from your mailbox."
-msgstr ""
+msgstr "金鑰已從您的信箱中移除。"
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
-msgstr ""
+msgstr "刪除此私密金鑰後，除非您有備份，否則將無法閱讀以此金鑰加密的郵件。請先備份私密金鑰再繼續。"
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr ""
+msgstr "這會將公開金鑰及其已驗證的指紋從您的金鑰圈中移除。"
 
 msgid "Manage OpenPGP keyservers"
-msgstr ""
+msgstr "管理 OpenPGP 金鑰伺服器"
 
 msgid "HTTPS keyservers"
-msgstr ""
+msgstr "HTTPS 金鑰伺服器"
 
 msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
-msgstr ""
+msgstr "每行請輸入一個 HTTPS 伺服器來源，不得包含路徑、帳號密碼或查詢字串。"
 
 msgid "Save keyservers"
-msgstr ""
+msgstr "儲存金鑰伺服器"
 
 msgid "Keyservers updated."
-msgstr ""
+msgstr "金鑰伺服器已更新。"
 
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
-msgstr ""
+msgstr "僅能使用管理員核准的 HTTPS 金鑰伺服器。搜尋時必須提供完整指紋。系統絕不會自動上傳金鑰。"
 
 msgid "Approved servers: "
-msgstr ""
+msgstr "已核准的伺服器： "
 
 msgid "Find OpenPGP public key"
-msgstr ""
+msgstr "尋找 OpenPGP 公開金鑰"
 
 msgid "Keyserver"
-msgstr ""
+msgstr "金鑰伺服器"
 
 msgid "Full fingerprint"
-msgstr ""
+msgstr "完整指紋"
 
 msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
-msgstr ""
+msgstr "請輸入完整的 40 或 64 位十六進位指紋。"
 
 msgid "Find and import"
-msgstr ""
+msgstr "尋找並匯入"
 
 msgid "The keyserver did not return the requested public key."
-msgstr ""
+msgstr "金鑰伺服器未傳回所要求的公開金鑰。"
 
 msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr ""
+msgstr "公開金鑰已匯入。請先驗證其指紋，再加密郵件寄給金鑰擁有者。"
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
-msgstr ""
+msgstr "金鑰伺服器會得知您所搜尋的指紋。下載的金鑰仍需先完成指紋驗證，才能加密郵件寄給其擁有者。"
 
 msgid "Old passphrase"
 msgstr "舊密碼"
@@ -8281,7 +8270,7 @@ msgid "PHP-CURL not installed"
 msgstr "未安裝 PHP-CURL"
 
 msgid "Unknown backend"
-msgstr ""
+msgstr "未知的後端"
 
 msgid "Account is ready to use."
 msgstr "帳戶可隨時使用。"
@@ -8296,10 +8285,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "此檔案不再可用。請重新載入資料夾。"
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "此後端不支援搜尋共用對象"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "無法查詢共用對象"
 
 msgid "Kendox certificate path is not configured."
 msgstr "尚未設定 Kendox 憑證路徑。"
@@ -8321,7 +8310,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "發生意外錯誤。請聯絡您的系統管理員。錯誤代碼：%s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "此伺服器不支援管理共用資料夾。"
 
 msgid "No data received."
 msgstr "未收到資料。"
@@ -8342,13 +8331,13 @@ msgid "Password has been changed successfully."
 msgstr "密碼已成功變更。"
 
 msgid "The OpenPGP operation could not be completed."
-msgstr ""
+msgstr "OpenPGP 操作無法完成。"
 
 msgid "OpenPGP: message was not sent"
-msgstr ""
+msgstr "OpenPGP: 郵件未傳送"
 
 msgid "The OpenPGP message could not be read."
-msgstr ""
+msgstr "無法讀取此 OpenPGP 郵件。"
 
 msgid "No certificate available"
 msgstr "無證書"
@@ -8375,13 +8364,13 @@ msgid "Unable to generate certs-only message"
 msgstr "無法產生僅憑憑證訊息"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "無法讀取 certs-only 訊息"
 
 msgid "LDAP not configured"
 msgstr "未設定 LDAP"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "LDAP 設定無效"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "下列收件人的公開憑證遺失： "
@@ -8427,7 +8416,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "憑證已撤銷，但已匯入。"
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "無法驗證憑證的撤銷狀態。憑證已匯入。"
 
 msgid "Unable to read public certificate"
 msgstr "無法讀取公開憑證"
@@ -8472,7 +8461,7 @@ msgid "Cannot store the category list in this mailbox."
 msgstr "無法將類別清單儲存在此信箱中。"
 
 msgid "Cannot scan this mailbox for categories."
-msgstr ""
+msgstr "無法掃描此信箱的類別。"
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -8500,16 +8489,16 @@ msgid "%1$s of %2$s"
 msgstr "%1$s 的%2$s"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "OpenPGP 目前已停用或無法使用。您的郵件並未傳送。請先啟用 OpenPGP 再重試，或明確關閉簽署與加密。"
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
-msgstr ""
+msgstr "短時間內傳送的郵件過多。請稍候片刻再重新傳送。"
 
 msgid "Message was not sent"
-msgstr ""
+msgstr "郵件未傳送"
 
 msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "此草稿要求使用 OpenPGP 保護，但保護並未套用。郵件並未傳送。請先啟用 OpenPGP 再重試，或明確關閉簽署與加密。"
 
 msgid "Error retrieving existing settings"
 msgstr "擷取現有設定出錯"
@@ -8877,7 +8866,7 @@ msgid "Could not decline Task Request."
 msgstr "Could not decline Task Request."
 
 msgid "Could not open the attachment."
-msgstr ""
+msgstr "無法開啟此附件。"
 
 msgid "Conflicts with another appointment."
 msgstr "Conflicts with another appointment."
@@ -8894,7 +8883,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "The following recipient(s) could not be reached"
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
+msgstr "系統管理員已停用移除附件功能。"
 
 msgid "l, F j, Y g:i A"
 msgstr "Y年n月j日 l G:i"

@@ -1713,7 +1713,7 @@ msgid "jS F Y"
 msgstr "j F Y"
 
 msgid "Online meeting"
-msgstr ""
+msgstr "Onlinevergadering"
 
 msgid "Attendees"
 msgstr "Aanwezigen"
@@ -1887,8 +1887,8 @@ msgstr "U heeft onvoldoende rechten om iets te verwijderen in deze folder."
 
 msgid "You have insufficient privileges to delete one of the selected items."
 msgid_plural "You have insufficient privileges to delete {0} of the selected items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "U hebt onvoldoende rechten om een van de geselecteerde items te verwijderen."
+msgstr[1] "U hebt onvoldoende rechten om {0} van de geselecteerde items te verwijderen."
 
 msgid "Notify recipients"
 msgstr "Stel genodigden op de hoogte"
@@ -1927,10 +1927,10 @@ msgid "Recipient already exists."
 msgstr "Ontvanger bestaat al."
 
 msgid "Remove attachment"
-msgstr ""
+msgstr "Bijlage verwijderen"
 
 msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
-msgstr ""
+msgstr "'{0}' uit dit bericht verwijderen? De bijlage kan daarna niet meer worden hersteld."
 
 # Nog ff niet vertalen, WA-2159 heeft het nodig!
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
@@ -1961,20 +1961,20 @@ msgid "Untitled"
 msgstr "Geen naam"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "De bijlagen konden niet worden opgeslagen."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Deze bijlage kon niet worden opgeslagen: {0}"
+msgstr[1] "Deze bijlagen konden niet worden opgeslagen: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} bijlage is opgeslagen."
+msgstr[1] "{0} bijlagen zijn opgeslagen."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "Bijlagen opslaan"
 
 msgid "Insert item"
 msgstr "Item invoegen"
@@ -2022,7 +2022,7 @@ msgid "Preview"
 msgstr "Voorbeeld"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "Voorbeeld in dialoogvenster"
 
 msgid "Download"
 msgstr "Downloaden"
@@ -2031,7 +2031,7 @@ msgid "Download all as ZIP"
 msgstr "Allen downloaden als ZIP"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "Selectie opslaan in lokale map"
 
 msgid "Import to folder"
 msgstr "Importeren naar map"
@@ -2043,10 +2043,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "Om de ICS / VCS import functie te gebruiken, moet u uw Gromox upgraden naar versie 0 of hoger."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "Voorbeeld in grommunio Web-tab"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "Voorbeeld in browservenster"
 
 msgid "Attachment error"
 msgstr "Bijlagefout"
@@ -2243,7 +2243,7 @@ msgid "Folder '{0}' selected."
 msgstr "Map '{0}' geselecteerd."
 
 msgid "Suggested folders"
-msgstr ""
+msgstr "Voorgestelde mappen"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "De geselecteerde items kunnen niet naar deze map worden verplaatst omdat deze een ander type inhoud bevat."
@@ -2441,7 +2441,7 @@ msgid "Redo the last undone action"
 msgstr "De laatst ongedaan gemaakte actie opnieuw uitvoeren"
 
 msgid "Jump to the search box, press again for the browser search"
-msgstr ""
+msgstr "Naar het zoekvak springen, nogmaals indrukken om in de browser te zoeken"
 
 msgid "Open the command palette"
 msgstr "Het opdrachtenpalet openen"
@@ -2501,28 +2501,28 @@ msgid "Presentation"
 msgstr "Presentatie"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Volledig scherm"
 
 msgid "Previous page"
-msgstr ""
+msgstr "Vorige pagina"
 
 msgid "Next page"
-msgstr ""
+msgstr "Volgende pagina"
 
 msgid "Page:"
-msgstr ""
+msgstr "Pagina:"
 
 msgid "of {0}"
-msgstr ""
+msgstr "van {0}"
 
 msgid "Zoom out"
-msgstr ""
+msgstr "Uitzoomen"
 
 msgid "Zoom in"
-msgstr ""
+msgstr "Inzoomen"
 
 msgid "Zoom"
-msgstr ""
+msgstr "Zoomniveau"
 
 msgid "Automatic"
 msgstr "Automatisch"
@@ -2534,37 +2534,37 @@ msgid "Page width"
 msgstr "Pagina breedte"
 
 msgid "Rotate left"
-msgstr ""
+msgstr "Linksom draaien"
 
 msgid "Rotate right"
-msgstr ""
+msgstr "Rechtsom draaien"
 
 msgid "This document could not be previewed."
-msgstr ""
+msgstr "Van dit document kon geen voorbeeld worden weergegeven."
 
 msgid "This file cannot be previewed."
-msgstr ""
+msgstr "Van dit bestand kan geen voorbeeld worden weergegeven."
 
 msgid "Download the file to open it with a program that can read it."
-msgstr ""
+msgstr "Download het bestand om het te openen met een programma dat het kan lezen."
 
 msgid "The document is empty."
-msgstr ""
+msgstr "Het document is leeg."
 
 msgid "This sheet is empty."
-msgstr ""
+msgstr "Dit werkblad is leeg."
 
 msgid "Showing the first {0} rows and {1} columns."
-msgstr ""
+msgstr "Alleen de eerste {0} rijen en {1} kolommen worden weergegeven."
 
 msgid "Wrap lines"
-msgstr ""
+msgstr "Regelterugloop"
 
 msgid "Line numbers"
-msgstr ""
+msgstr "Regelnummers"
 
 msgid "This message has no content."
-msgstr ""
+msgstr "Dit bericht heeft geen inhoud."
 
 msgid "grommunio Web print"
 msgstr "grommunio Web print"
@@ -3433,19 +3433,19 @@ msgid "in"
 msgstr "over"
 
 msgid "Digitally sign this message"
-msgstr ""
+msgstr "Dit bericht digitaal ondertekenen"
 
 msgid "Encrypt this message"
-msgstr ""
+msgstr "Dit bericht versleutelen"
 
 msgid "Autosave is paused while encryption is selected."
-msgstr ""
+msgstr "Automatisch opslaan is gepauzeerd zolang versleuteling is ingeschakeld."
 
 msgid "Turn off {0} signing and encryption first."
-msgstr ""
+msgstr "Schakel eerst ondertekening en versleuteling van {0} uit."
 
 msgid "options"
-msgstr ""
+msgstr "opties"
 
 msgid "Sign"
 msgstr "Ondertekenen"
@@ -4791,13 +4791,13 @@ msgid "You have insufficient privileges to move this folder. Would you like to c
 msgstr "U heeft onvoldoende toegangsrechten om deze map te verplaatsen. Wilt u in plaats daarvan kopiëren?"
 
 msgid "Enable OpenPGP before replying to this protected message."
-msgstr ""
+msgstr "Schakel OpenPGP in voordat u op dit beveiligde bericht reageert."
 
 msgid "The protected message could not be opened. No reply or forward was created."
-msgstr ""
+msgstr "Het beveiligde bericht kon niet worden geopend. Er is geen antwoord of doorstuurbericht gemaakt."
 
 msgid "Unable to open response"
-msgstr ""
+msgstr "Kan reactie niet openen"
 
 msgid "CC"
 msgstr "CC"
@@ -4966,13 +4966,13 @@ msgid "Filter"
 msgstr "Filter"
 
 msgid "This browser cannot attach the decrypted file. Download it before forwarding."
-msgstr ""
+msgstr "Deze browser kan het ontsleutelde bestand niet als bijlage toevoegen. Download het voordat u het bericht doorstuurt."
 
 msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
-msgstr ""
+msgstr "Een ontsleutelde bijlage overschrijdt de uploadlimieten. Er is geen onvolledige reactie gemaakt."
 
 msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
-msgstr ""
+msgstr "Een ontsleutelde bijlage kon niet worden geüpload. Er is geen onvolledige reactie gemaakt."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -5053,7 +5053,7 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A} niet verstuurde e-mail iedere {B} minuten opslaan"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
-msgstr ""
+msgstr "Ook automatisch opslaan wanneer versleuteling is ingeschakeld (concepten worden onversleuteld opgeslagen)"
 
 msgid "Conversation view settings"
 msgstr "Instellen voor gespreksweergave"
@@ -5507,7 +5507,7 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Preview documents and files in grommunio Web"
-msgstr ""
+msgstr "Voorbeelden van documenten en bestanden weergeven in grommunio Web"
 
 msgid "Document default zoom"
 msgstr "Document standaard zoom"
@@ -5516,10 +5516,10 @@ msgid "PDF zoom"
 msgstr "PDF zoom"
 
 msgid "Dialog"
-msgstr ""
+msgstr "Dialoogvenster"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "Voorbeeld openen in"
 
 msgid "File previewing"
 msgstr "Voorbeeldweergave van bestanden"
@@ -5686,22 +5686,22 @@ msgid "Reset all settings to defaults"
 msgstr "Alle instellingen terugzetten op standaardwaarden"
 
 msgid "Migrate legacy categories"
-msgstr ""
+msgstr "Verouderde categorieën migreren"
 
 msgid "This will scan all folders and migrate the categories assigned to items."
-msgstr ""
+msgstr "Hiermee worden alle mappen doorzocht en worden de aan items toegewezen categorieën gemigreerd."
 
 msgid "The legacy category settings will remain unchanged."
-msgstr ""
+msgstr "De verouderde categorie-instellingen blijven ongewijzigd."
 
 msgid "Migrate"
-msgstr ""
+msgstr "Migreren"
 
 msgid "Legacy categories migrated successfully."
-msgstr ""
+msgstr "Verouderde categorieën zijn succesvol gemigreerd."
 
 msgid "Could not migrate legacy categories."
-msgstr ""
+msgstr "Kon de verouderde categorieën niet migreren."
 
 msgid "Changes to assigned task"
 msgstr "Veranderingen in toegewezen taak"
@@ -6236,7 +6236,7 @@ msgid "The response was interrupted and may be incomplete."
 msgstr "Het antwoord is onderbroken en is mogelijk onvolledig."
 
 msgid "The answer reached the output limit configured for this model and stops here."
-msgstr ""
+msgstr "Het antwoord heeft de voor dit model ingestelde uitvoerlimiet bereikt en stopt hier."
 
 msgid "Insert at cursor"
 msgstr "Invoegen bij cursor"
@@ -6665,7 +6665,7 @@ msgid "Create office document"
 msgstr "Een kantoordocument maken"
 
 msgid "Preview file"
-msgstr ""
+msgstr "Voorbeeld van bestand"
 
 msgid "Download files"
 msgstr "Bestanden downloaden"
@@ -6834,10 +6834,10 @@ msgid "Mobile Device Manager"
 msgstr "Mobiel Apparaat Beheer"
 
 msgid "Device removed"
-msgstr ""
+msgstr "Apparaat verwijderd"
 
 msgid "The device was not removed. Check your password and try again."
-msgstr ""
+msgstr "Het apparaat is niet verwijderd. Controleer uw wachtwoord en probeer het opnieuw."
 
 msgid "Wiping device"
 msgstr "Apparaat wissen"
@@ -7141,463 +7141,463 @@ msgid "Password is weak. Password should contain capital, non-capital letters an
 msgstr "Wachtwoord is zwak. Wachtwoord moet hoofdletters, kleine letters en cijfers bevatten. Wachtwoord moet 8 tot 20 tekens bevatten."
 
 msgid "The OpenPGP request failed. Please try again."
-msgstr ""
+msgstr "Het OpenPGP-verzoek is mislukt. Probeer het opnieuw."
 
 msgid "Working…"
-msgstr ""
+msgstr "Bezig…"
 
 msgid "The operation failed. Please try again."
-msgstr ""
+msgstr "De bewerking is mislukt. Probeer het opnieuw."
 
 msgid "Passphrase"
-msgstr ""
+msgstr "Wachtwoordzin"
 
 msgid "Unlock OpenPGP private key"
-msgstr ""
+msgstr "OpenPGP-privésleutel ontgrendelen"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Ontgrendelen"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr ""
+msgstr "Uw wachtwoordzin en de ontgrendelde sleutel blijven in dit browsertabblad. De sleutel wordt automatisch vergrendeld na een beperkte tijd of wanneer het tabblad wordt gesloten. Vingerafdruk: "
 
 msgid "Set up OpenPGP"
-msgstr ""
+msgstr "OpenPGP instellen"
 
 msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
-msgstr ""
+msgstr "Voeg een privésleutel toe die overeenkomt met het afzenderadres om berichten te ondertekenen of om een leesbare versleutelde kopie van uw verzonden berichten te behouden. U kunt een bestaande sleutel importeren of er een aanmaken in de OpenPGP-instellingen."
 
 msgid "Open key settings"
-msgstr ""
+msgstr "Sleutelinstellingen openen"
 
 msgid "Choose OpenPGP key"
-msgstr ""
+msgstr "OpenPGP-sleutel kiezen"
 
 msgid "Private key"
-msgstr ""
+msgstr "Privésleutel"
 
 msgid "Use key"
-msgstr ""
+msgstr "Sleutel gebruiken"
 
 msgid "Private-key unlocking was cancelled."
-msgstr ""
+msgstr "Het ontgrendelen van de privésleutel is geannuleerd."
 
 msgid "Key selection was cancelled."
-msgstr ""
+msgstr "De sleutelkeuze is geannuleerd."
 
 msgid "Choose private key…"
-msgstr ""
+msgstr "Privésleutel kiezen…"
 
 msgid "Manage OpenPGP keys…"
-msgstr ""
+msgstr "OpenPGP-sleutels beheren…"
 
 msgid "Lock private keys"
-msgstr ""
+msgstr "Privésleutels vergrendelen"
 
 msgid "Signing key: "
-msgstr ""
+msgstr "Ondertekeningssleutel: "
 
 msgid "Decryption alone does not authenticate the sender."
-msgstr ""
+msgstr "Ontsleuteling op zich bewijst de identiteit van de afzender niet."
 
 msgid "OpenPGP security information"
-msgstr ""
+msgstr "OpenPGP-beveiligingsinformatie"
 
 msgid "OpenPGP"
-msgstr ""
+msgstr "OpenPGP"
 
 msgid "OpenPGP signed or encrypted message"
-msgstr ""
+msgstr "Met OpenPGP ondertekend of versleuteld bericht"
 
 msgid "OpenPGP Plugin"
-msgstr ""
+msgstr "OpenPGP Plugin"
 
 msgid "The OpenPGP operation was cancelled."
-msgstr ""
+msgstr "De OpenPGP-bewerking is geannuleerd."
 
 msgid "S/MIME and OpenPGP cannot protect the same message."
-msgstr ""
+msgstr "S/MIME en OpenPGP kunnen hetzelfde bericht niet samen beveiligen."
 
 msgid "Saving the OpenPGP draft timed out. Please retry."
-msgstr ""
+msgstr "Het opslaan van het OpenPGP-concept duurde te lang. Probeer het opnieuw."
 
 msgid "The draft could not be saved. Nothing was sent."
-msgstr ""
+msgstr "Het concept kon niet worden opgeslagen. Er is niets verzonden."
 
 msgid "The sender or message protection changed. Please send again."
-msgstr ""
+msgstr "De afzender of de berichtbeveiliging is gewijzigd. Verzend het bericht opnieuw."
 
 msgid "The selected private key is not valid for this sender and protection mode."
-msgstr ""
+msgstr "De geselecteerde privésleutel is niet geldig voor deze afzender en beveiligingsmodus."
 
 msgid "A matching, passphrase-protected private key is required."
-msgstr ""
+msgstr "Er is een bijpassende, met een wachtwoordzin beveiligde privésleutel vereist."
 
 msgid "A recipient key is invalid, expired or does not match its email address."
-msgstr ""
+msgstr "Een sleutel van een ontvanger is ongeldig of verlopen, of komt niet overeen met het bijbehorende e-mailadres."
 
 msgid "No verified recipient keys are available."
-msgstr ""
+msgstr "Er zijn geen gecontroleerde sleutels van ontvangers beschikbaar."
 
 msgid "This message is too large for browser OpenPGP processing."
-msgstr ""
+msgstr "Dit bericht is te groot om in de browser met OpenPGP te verwerken."
 
 msgid "Message protection changed while preparing the message. Please send again."
-msgstr ""
+msgstr "De berichtbeveiliging is gewijzigd tijdens het voorbereiden van het bericht. Verzend het bericht opnieuw."
 
 msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
-msgstr ""
+msgstr "Het beveiligde bericht is {0} MB, meer dan deze server in één verzoek accepteert ({1} MB). Verwijder bijlagen of vraag de beheerder om de uploadlimiet te verhogen."
 
 msgid "The attachment archive is too large."
-msgstr ""
+msgstr "Het archief met bijlagen is te groot."
 
 msgid "Unlock the message again to download this attachment."
-msgstr ""
+msgstr "Ontgrendel het bericht opnieuw om deze bijlage te downloaden."
 
 msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
-msgstr ""
+msgstr "Dit bericht bevat geneste S/MIME-beveiliging die OpenPGP niet kan openen."
 
 msgid "Too many nested OpenPGP envelopes."
-msgstr ""
+msgstr "Te veel geneste OpenPGP-enveloppen."
 
 msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
-msgstr ""
+msgstr "De handtekening is ongeldig of de bijbehorende publieke sleutel is niet beschikbaar. Vertrouw niet op de identiteit van deze afzender."
 
 msgid "The private key was locked while opening this message."
-msgstr ""
+msgstr "De privésleutel is vergrendeld tijdens het openen van dit bericht."
 
 msgid "This message contains too many attachments."
-msgstr ""
+msgstr "Dit bericht bevat te veel bijlagen."
 
 msgid "The decoded attachments are too large."
-msgstr ""
+msgstr "De gedecodeerde bijlagen zijn te groot."
 
 msgid "The OpenPGP operation failed."
-msgstr ""
+msgstr "De OpenPGP-bewerking is mislukt."
 
 msgid "OpenPGP: checking message security…"
-msgstr ""
+msgstr "OpenPGP: berichtbeveiliging wordt gecontroleerd…"
 
 msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
-msgstr ""
+msgstr "Versleuteld bericht opgeslagen zonder MIME-envelop — sla de bijlage op en ontsleutel deze met een OpenPGP-programma"
 
 msgid "Signed message stored without its original MIME — the signature cannot be verified"
-msgstr ""
+msgstr "Ondertekend bericht opgeslagen zonder de oorspronkelijke MIME — de handtekening kan niet worden gevalideerd"
 
 msgid "Message decrypted"
-msgstr ""
+msgstr "Bericht ontsleuteld"
 
 msgid "Message could not be decrypted — click for details or retry"
-msgstr ""
+msgstr "Bericht kon niet worden ontsleuteld — klik voor details of opnieuw proberen"
 
 msgid "Encrypted message — unlock your private key to read"
-msgstr ""
+msgstr "Versleuteld bericht — ontgrendel uw privésleutel om het te lezen"
 
 msgid "Signature could not be verified"
 msgstr "Handtekening kon niet worden gevalideerd"
 
 msgid "Valid signature, but the signing key does not match the sender"
-msgstr ""
+msgstr "Geldige handtekening, maar de ondertekeningssleutel komt niet overeen met de afzender"
 
 msgid "Valid signature — sender fingerprint has not been verified"
-msgstr ""
+msgstr "Geldige handtekening — vingerafdruk van de afzender is niet geverifieerd"
 
 msgid "Valid signature from a verified sender"
-msgstr ""
+msgstr "Geldige handtekening van een geverifieerde afzender"
 
 msgid "The signing key has since expired"
-msgstr ""
+msgstr "De ondertekeningssleutel is inmiddels verlopen"
 
 msgid "Message is not signed"
-msgstr ""
+msgstr "Bericht is niet ondertekend"
 
 msgid "Inline OpenPGP protects the body only; attachments are not covered"
-msgstr ""
+msgstr "Inline OpenPGP beveiligt alleen de berichttekst; bijlagen vallen er niet onder"
 
 msgid "Unprotected text after the OpenPGP block is not shown"
-msgstr ""
+msgstr "Onbeveiligde tekst na het OpenPGP-blok wordt niet weergegeven"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr ""
+msgstr "Uw publieke sleutels konden niet worden geladen, waardoor handtekeningen niet konden worden gecontroleerd"
 
 msgid "Security information"
-msgstr ""
+msgstr "Beveiligingsinformatie"
 
 msgid "Choose when composing"
-msgstr ""
+msgstr "Kiezen bij het opstellen"
 
 msgid "Personal and public keys"
-msgstr ""
+msgstr "Persoonlijke en publieke sleutels"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr ""
+msgstr "Uw sleutels worden opgeslagen in uw postvak. Privésleutels blijven beveiligd met een wachtwoordzin; ondertekenen, versleutelen en ontgrendelen gebeuren in deze browser. Verifieer de vingerafdrukken van uw contactpersonen via een apart, vertrouwd kanaal. Wijzigingen aan sleutels worden meteen doorgevoerd."
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
-msgstr ""
+msgstr "Geen OpenPGP-sleutels. Importeer of genereer een sleutel om te beginnen."
 
 msgid "Identity"
-msgstr ""
+msgstr "Identiteit"
 
 msgid "Fingerprint"
-msgstr ""
+msgstr "Vingerafdruk"
 
 msgid "Public key"
-msgstr ""
+msgstr "Publieke sleutel"
 
 msgid "Revoked"
-msgstr ""
+msgstr "Ingetrokken"
 
 msgid "Expired"
-msgstr ""
+msgstr "Verlopen"
 
 msgid "Fingerprint verified"
-msgstr ""
+msgstr "Vingerafdruk geverifieerd"
 
 msgid "Not verified"
-msgstr ""
+msgstr "Niet geverifieerd"
 
 msgid "Unlocked"
-msgstr ""
+msgstr "Ontgrendeld"
 
 msgid "Locked"
-msgstr ""
+msgstr "Vergrendeld"
 
 msgid "Expires"
 msgstr "Verloopt"
 
 msgid "No expiry"
-msgstr ""
+msgstr "Nooit"
 
 msgid "Generate key"
-msgstr ""
+msgstr "Sleutel genereren"
 
 msgid "Import key"
-msgstr ""
+msgstr "Sleutel importeren"
 
 msgid "Find public key"
-msgstr ""
+msgstr "Publieke sleutel zoeken"
 
 msgid "Details / verify"
-msgstr ""
+msgstr "Details / verifiëren"
 
 msgid "Export public key"
-msgstr ""
+msgstr "Publieke sleutel exporteren"
 
 msgid "Back up private key"
-msgstr ""
+msgstr "Back-up van privésleutel maken"
 
 msgid "Unlock in this browser"
-msgstr ""
+msgstr "Ontgrendelen in deze browser"
 
 msgid "Change passphrase"
 msgstr "Wachtwoordzin wijzigen"
 
 msgid "Lock all"
-msgstr ""
+msgstr "Alles vergrendelen"
 
 msgid "Default private key"
-msgstr ""
+msgstr "Standaard privésleutel"
 
 msgid "Sign new messages by default"
-msgstr ""
+msgstr "Nieuwe berichten standaard ondertekenen"
 
 msgid "Encrypt new messages by default"
-msgstr ""
+msgstr "Nieuwe berichten standaard versleutelen"
 
 msgid "Manage keyservers"
-msgstr ""
+msgstr "Sleutelservers beheren"
 
 msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
-msgstr ""
+msgstr "Standaardinstellingen voor het opstellen gelden alleen voor nieuwe OpenPGP-berichten. S/MIME en OpenPGP kunnen niet worden gecombineerd in hetzelfde bericht."
 
 msgid "Generate OpenPGP key"
-msgstr ""
+msgstr "OpenPGP-sleutel genereren"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "Algoritme"
 
 msgid "Expires in"
-msgstr ""
+msgstr "Verloopt over"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 jaar"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 jaar"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 jaar"
 
 msgid "Repeat passphrase"
-msgstr ""
+msgstr "Wachtwoordzin herhalen"
 
 msgid "Passphrases do not match."
-msgstr ""
+msgstr "De wachtwoordzinnen komen niet overeen."
 
 msgid "Generate"
-msgstr ""
+msgstr "Genereren"
 
 msgid "Key created. Back up the private key and store its passphrase separately."
-msgstr ""
+msgstr "Sleutel aangemaakt. Maak een back-up van de privésleutel en bewaar de bijbehorende wachtwoordzin apart."
 
 msgid "Revocation certificate — keep secure"
-msgstr ""
+msgstr "Intrekkingscertificaat — veilig bewaren"
 
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
-msgstr ""
+msgstr "Kies een sterke wachtwoordzin van minimaal 12 tekens. Het genereren gebeurt lokaal in deze browser en kan even duren. Bewaar het intrekkingscertificaat en een back-up van de privésleutel op een veilige plaats."
 
 msgid "Import OpenPGP key"
-msgstr ""
+msgstr "OpenPGP-sleutel importeren"
 
 msgid "Choose armored OpenPGP key file"
-msgstr ""
+msgstr "OpenPGP-sleutelbestand in ASCII-formaat kiezen"
 
 msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr ""
+msgstr "Het sleutelbestand is te groot. Maximale grootte: 1 MiB."
 
 msgid "The key file could not be read."
-msgstr ""
+msgstr "Het sleutelbestand kon niet worden gelezen."
 
 msgid "Armored key"
-msgstr ""
+msgstr "ASCII-sleutel"
 
 msgid "Protect unencrypted key"
-msgstr ""
+msgstr "Onbeveiligde sleutel beschermen"
 
 msgid "Optional: new passphrase for an unprotected private key"
-msgstr ""
+msgstr "Optioneel: nieuwe wachtwoordzin voor onbeveiligde privésleutel"
 
 msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr ""
+msgstr "Sleutel geïmporteerd. Verifieer de vingerafdrukken van ontvangers voordat u berichten voor hen versleutelt."
 
 msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr ""
+msgstr "Kies een bestand of plak één sleutel in ASCII-formaat, inclusief de BEGIN- en END-regels. Voer voor een onbeveiligde privésleutel een nieuwe wachtwoordzin in om de sleutel lokaal te beschermen voordat deze wordt opgeslagen. Geïmporteerde sleutels van ontvangers worden niet automatisch vertrouwd."
 
 msgid "Public OpenPGP key"
-msgstr ""
+msgstr "Publieke OpenPGP-sleutel"
 
 msgid "Back up private OpenPGP key"
-msgstr ""
+msgstr "Back-up van OpenPGP-privésleutel maken"
 
 msgid "Create backup"
-msgstr ""
+msgstr "Back-up maken"
 
 msgid "Private key backup — keep secure"
-msgstr ""
+msgstr "Back-up van privésleutel — veilig bewaren"
 
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
-msgstr ""
+msgstr "Bevestig uw wachtwoordzin lokaal voordat u deze versleutelde back-up van de privésleutel downloadt. Bewaar de back-up veilig en stuur deze nooit naar een ontvanger of een sleutelserver."
 
 msgid "Current passphrase"
-msgstr ""
+msgstr "Huidige wachtwoordzin"
 
 msgid "New passphrase"
 msgstr "Nieuwe wachtwoordzin"
 
 msgid "Change OpenPGP passphrase"
-msgstr ""
+msgstr "OpenPGP-wachtwoordzin wijzigen"
 
 msgid "Repeat new passphrase"
-msgstr ""
+msgstr "Nieuwe wachtwoordzin herhalen"
 
 msgid "Passphrase changed. Make a new private-key backup."
-msgstr ""
+msgstr "Wachtwoordzin gewijzigd. Maak een nieuwe back-up van de privésleutel."
 
 msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
-msgstr ""
+msgstr "De privésleutel wordt lokaal opnieuw versleuteld. Voor bestaande back-ups is nog steeds de oorspronkelijke wachtwoordzin nodig."
 
 msgid "Verify OpenPGP fingerprint"
-msgstr ""
+msgstr "OpenPGP-vingerafdruk verifiëren"
 
 msgid "Verified identities"
-msgstr ""
+msgstr "Geverifieerde identiteiten"
 
 msgid "Email identity"
-msgstr ""
+msgstr "E-mailidentiteit"
 
 msgid "Confirm fingerprint"
-msgstr ""
+msgstr "Vingerafdruk bevestigen"
 
 msgid "Enter the full fingerprint shown above."
-msgstr ""
+msgstr "Voer de volledige vingerafdruk in die hierboven wordt weergegeven."
 
 msgid "I verified this fingerprint"
-msgstr ""
+msgstr "Ik heb deze vingerafdruk geverifieerd"
 
 msgid "Save verification"
-msgstr ""
+msgstr "Verificatie opslaan"
 
 msgid "Fingerprint verification updated."
-msgstr ""
+msgstr "Vingerafdrukverificatie bijgewerkt."
 
 msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
-msgstr ""
+msgstr "Vergelijk de volledige vingerafdruk met uw contactpersoon via een apart, vertrouwd kanaal. Als u het vakje aanvinkt, wordt deze sleutel vastgelegd voor het geselecteerde adres; laat u het leeg, dan wordt die verificatie verwijderd."
 
 msgid "All private keys in this browser tab are locked."
-msgstr ""
+msgstr "Alle privésleutels in dit browsertabblad zijn nu vergrendeld."
 
 msgid "Delete OpenPGP key"
-msgstr ""
+msgstr "OpenPGP-sleutel verwijderen"
 
 msgid "Type the full fingerprint to confirm deletion."
-msgstr ""
+msgstr "Typ de volledige vingerafdruk om het verwijderen te bevestigen."
 
 msgid "Delete key"
-msgstr ""
+msgstr "Sleutel verwijderen"
 
 msgid "Key removed from your mailbox."
-msgstr ""
+msgstr "Sleutel verwijderd uit uw postvak."
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
-msgstr ""
+msgstr "Als u deze privésleutel verwijdert, kunt u berichten die voor deze sleutel zijn versleuteld niet meer lezen, tenzij u een back-up hebt. Maak een back-up van de privésleutel voordat u doorgaat."
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr ""
+msgstr "Hiermee worden de publieke sleutel en de bijbehorende geverifieerde vingerafdrukken uit uw sleutelbos verwijderd."
 
 msgid "Manage OpenPGP keyservers"
-msgstr ""
+msgstr "OpenPGP-sleutelservers beheren"
 
 msgid "HTTPS keyservers"
-msgstr ""
+msgstr "HTTPS-sleutelservers"
 
 msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
-msgstr ""
+msgstr "Voer per regel één HTTPS-oorsprong in, zonder pad, inloggegevens of query."
 
 msgid "Save keyservers"
-msgstr ""
+msgstr "Sleutelservers opslaan"
 
 msgid "Keyservers updated."
-msgstr ""
+msgstr "Sleutelservers bijgewerkt."
 
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
-msgstr ""
+msgstr "Alleen door de beheerder goedgekeurde HTTPS-sleutelservers kunnen worden gebruikt. Zoekopdrachten vereisen een volledige vingerafdruk. Sleutels worden nooit automatisch geüpload."
 
 msgid "Approved servers: "
-msgstr ""
+msgstr "Goedgekeurde servers: "
 
 msgid "Find OpenPGP public key"
-msgstr ""
+msgstr "Publieke OpenPGP-sleutel zoeken"
 
 msgid "Keyserver"
-msgstr ""
+msgstr "Sleutelserver"
 
 msgid "Full fingerprint"
-msgstr ""
+msgstr "Volledige vingerafdruk"
 
 msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
-msgstr ""
+msgstr "Voer een volledige hexadecimale vingerafdruk van 40 of 64 tekens in."
 
 msgid "Find and import"
-msgstr ""
+msgstr "Zoeken en importeren"
 
 msgid "The keyserver did not return the requested public key."
-msgstr ""
+msgstr "De sleutelserver heeft de gevraagde publieke sleutel niet teruggestuurd."
 
 msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr ""
+msgstr "Publieke sleutel geïmporteerd. Verifieer de vingerafdruk voordat u berichten voor de eigenaar versleutelt."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
-msgstr ""
+msgstr "De server ontvangt de vingerafdruk waarnaar u zoekt. Een gedownloade sleutel moet nog op vingerafdruk worden geverifieerd voordat u berichten voor de eigenaar versleutelt."
 
 msgid "Old passphrase"
 msgstr "Oude wachtwoordzin"
@@ -8305,7 +8305,7 @@ msgid "PHP-CURL not installed"
 msgstr "PHP-CURL is niet geïnstalleerd"
 
 msgid "Unknown backend"
-msgstr ""
+msgstr "Onbekende backend"
 
 msgid "Account is ready to use."
 msgstr "Account klaar voor gebruik."
@@ -8320,10 +8320,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Dit bestand is niet langer beschikbaar. Herlaad de map."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "Zoeken naar ontvangers wordt niet ondersteund door deze backend"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "Kan ontvangers niet opzoeken"
 
 msgid "Kendox certificate path is not configured."
 msgstr "Pad van Kendox-certificaat is niet geconfigureerd."
@@ -8345,7 +8345,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "Onverwachte fout opgetreden. Neem contact op met uw systeemadministrator. Foutmelding: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "Het beheren van gedeelde mappen wordt niet ondersteund door deze server."
 
 msgid "No data received."
 msgstr "Geen gegevens ontvangen."
@@ -8366,13 +8366,13 @@ msgid "Password has been changed successfully."
 msgstr "Wachtwoord is succesvol gewijzigd."
 
 msgid "The OpenPGP operation could not be completed."
-msgstr ""
+msgstr "De OpenPGP-bewerking kon niet worden voltooid."
 
 msgid "OpenPGP: message was not sent"
-msgstr ""
+msgstr "OpenPGP: bericht is niet verzonden"
 
 msgid "The OpenPGP message could not be read."
-msgstr ""
+msgstr "Het OpenPGP-bericht kon niet worden gelezen."
 
 msgid "No certificate available"
 msgstr "Geen certificaat beschikbaar"
@@ -8399,13 +8399,13 @@ msgid "Unable to generate certs-only message"
 msgstr "Kan alleen certs bericht niet genereren"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "Kan certs-only-bericht niet lezen"
 
 msgid "LDAP not configured"
 msgstr "LDAP niet geconfigureerd"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "Ongeldige LDAP-configuratie"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Ontbrekend publiek certificaat voor de volgende ontvangers: "
@@ -8451,7 +8451,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "Certificaat is ingetrokken, maar werd geïmporteerd."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "De intrekkingsstatus van het certificaat kon niet worden geverifieerd. Het certificaat is geïmporteerd."
 
 msgid "Unable to read public certificate"
 msgstr "Kan publiek certificaat niet lezen"
@@ -8496,7 +8496,7 @@ msgid "Cannot store the category list in this mailbox."
 msgstr "De categorielijst kan niet in dit postvak worden opgeslagen."
 
 msgid "Cannot scan this mailbox for categories."
-msgstr ""
+msgstr "Kan dit postvak niet doorzoeken op categorieën."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -8524,16 +8524,16 @@ msgid "%1$s of %2$s"
 msgstr "%1$s van %2$s"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "OpenPGP is momenteel uitgeschakeld of niet beschikbaar. Uw bericht is niet verzonden. Schakel OpenPGP in voordat u het opnieuw probeert, of schakel ondertekening en versleuteling uitdrukkelijk uit."
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
-msgstr ""
+msgstr "Er zijn in korte tijd te veel berichten verzonden. Wacht even en verzend het bericht opnieuw."
 
 msgid "Message was not sent"
-msgstr ""
+msgstr "Bericht is niet verzonden"
 
 msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "Dit concept vraagt om OpenPGP-beveiliging, maar deze is niet toegepast. Het bericht is niet verzonden. Schakel OpenPGP in voordat u het opnieuw probeert, of schakel ondertekening en versleuteling uitdrukkelijk uit."
 
 msgid "Error retrieving existing settings"
 msgstr "Fout bij ophalen bestaande instellingen"
@@ -8901,7 +8901,7 @@ msgid "Could not decline Task Request."
 msgstr "Kon Taakverzoek niet afwijzen."
 
 msgid "Could not open the attachment."
-msgstr ""
+msgstr "Kon de bijlage niet openen."
 
 msgid "Conflicts with another appointment."
 msgstr "Conflicteert met een andere afspraak."
@@ -8919,7 +8919,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "De volgende geadresseerde(n) kon(den) niet worden bereikt"
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
+msgstr "Het verwijderen van bijlagen is uitgeschakeld door de beheerder."
 
 msgid "l, F j, Y g:i A"
 msgstr "l j F Y G:i"

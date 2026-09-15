@@ -1707,7 +1707,7 @@ msgid "jS F Y"
 msgstr "jS F Y"
 
 msgid "Online meeting"
-msgstr ""
+msgstr "جلسهٔ آنلاین"
 
 msgid "Attendees"
 msgstr "شرکت کنندگان"
@@ -1881,8 +1881,8 @@ msgstr "شما امتیاز کافی برای حذف موارد در این پو
 
 msgid "You have insufficient privileges to delete one of the selected items."
 msgid_plural "You have insufficient privileges to delete {0} of the selected items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "شما دسترسی کافی برای حذف یکی از موارد انتخاب‌شده را ندارید."
+msgstr[1] "شما دسترسی کافی برای حذف {0} مورد از موارد انتخاب‌شده را ندارید."
 
 msgid "Notify recipients"
 msgstr "به گیرندگان اطلاع دهید"
@@ -1921,10 +1921,10 @@ msgid "Recipient already exists."
 msgstr "گیرنده از قبل وجود دارد."
 
 msgid "Remove attachment"
-msgstr ""
+msgstr "حذف پیوست"
 
 msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
-msgstr ""
+msgstr "«{0}» از این پیام حذف شود؟ پس از آن، پیوست قابل بازیابی نخواهد بود."
 
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "ارسال‌کنندهٔ این ایمیل درخواست رسید خواندن کرده است. آیا می‌خواهید به ارسال‌کننده اطلاع دهید؟"
@@ -1954,20 +1954,20 @@ msgid "Untitled"
 msgstr "بدون عنوان"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "پیوست‌ها ذخیره نشدند."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "این پیوست ذخیره نشد: {0}"
+msgstr[1] "این پیوست‌ها ذخیره نشدند: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} پیوست ذخیره شد."
+msgstr[1] "{0} پیوست ذخیره شد."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "ذخیرهٔ پیوست‌ها"
 
 msgid "Insert item"
 msgstr "درج مورد"
@@ -2015,7 +2015,7 @@ msgid "Preview"
 msgstr "پیش‌نمایش"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "پیش‌نمایش در کادر گفتگو"
 
 msgid "Download"
 msgstr "دانلود کنید"
@@ -2024,7 +2024,7 @@ msgid "Download all as ZIP"
 msgstr "همه را به صورت ZIP دانلود کنید"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "ذخیرهٔ موارد انتخابی در پوشه‌ای روی رایانه"
 
 msgid "Import to folder"
 msgstr "وارد کردن به پوشه"
@@ -2036,10 +2036,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "برای استفاده از قابلیت وارد کردن ICS/VCS، Gromox خود را به نسخه ۰ یا بالاتر ارتقا دهید."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "پیش‌نمایش در برگهٔ grommunio Web"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "پیش‌نمایش در پنجرهٔ مرورگر"
 
 msgid "Attachment error"
 msgstr "خطای پیوست"
@@ -2236,7 +2236,7 @@ msgid "Folder '{0}' selected."
 msgstr "پوشه \"{0}\" انتخاب شد."
 
 msgid "Suggested folders"
-msgstr ""
+msgstr "پوشه‌های پیشنهادی"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "موارد انتخاب‌شده را نمی‌توان به این پوشه منتقل کرد، زیرا نوع محتوای این پوشه متفاوت است."
@@ -2434,7 +2434,7 @@ msgid "Redo the last undone action"
 msgstr "انجام دوباره آخرین اقدام واگرد شده"
 
 msgid "Jump to the search box, press again for the browser search"
-msgstr ""
+msgstr "رفتن به کادر جستجو، فشردن دوباره برای جستجوی مرورگر"
 
 msgid "Open the command palette"
 msgstr "باز کردن پالت فرمان"
@@ -2494,28 +2494,28 @@ msgid "Presentation"
 msgstr "ارائه"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "تمام‌صفحه"
 
 msgid "Previous page"
-msgstr ""
+msgstr "صفحه قبلی"
 
 msgid "Next page"
-msgstr ""
+msgstr "صفحه بعدی"
 
 msgid "Page:"
-msgstr ""
+msgstr "صفحه:"
 
 msgid "of {0}"
-msgstr ""
+msgstr "از {0}"
 
 msgid "Zoom out"
-msgstr ""
+msgstr "کوچک‌نمایی"
 
 msgid "Zoom in"
-msgstr ""
+msgstr "بزرگ‌نمایی"
 
 msgid "Zoom"
-msgstr ""
+msgstr "میزان بزرگ‌نمایی"
 
 msgid "Automatic"
 msgstr "خودکار"
@@ -2527,37 +2527,37 @@ msgid "Page width"
 msgstr "عرض صفحه"
 
 msgid "Rotate left"
-msgstr ""
+msgstr "چرخش به چپ"
 
 msgid "Rotate right"
-msgstr ""
+msgstr "چرخش به راست"
 
 msgid "This document could not be previewed."
-msgstr ""
+msgstr "پیش‌نمایش این سند ممکن نشد."
 
 msgid "This file cannot be previewed."
-msgstr ""
+msgstr "این فایل قابل پیش‌نمایش نیست."
 
 msgid "Download the file to open it with a program that can read it."
-msgstr ""
+msgstr "فایل را دانلود کنید تا با برنامه‌ای که می‌تواند آن را بخواند باز شود."
 
 msgid "The document is empty."
-msgstr ""
+msgstr "این سند خالی است."
 
 msgid "This sheet is empty."
-msgstr ""
+msgstr "این کاربرگ خالی است."
 
 msgid "Showing the first {0} rows and {1} columns."
-msgstr ""
+msgstr "فقط {0} ردیف و {1} ستون نخست نمایش داده می‌شود."
 
 msgid "Wrap lines"
-msgstr ""
+msgstr "شکستن خطوط"
 
 msgid "Line numbers"
-msgstr ""
+msgstr "شماره خطوط"
 
 msgid "This message has no content."
-msgstr ""
+msgstr "این پیام محتوایی ندارد."
 
 msgid "grommunio Web print"
 msgstr "چاپ وب grommunio"
@@ -3426,19 +3426,19 @@ msgid "in"
 msgstr "در"
 
 msgid "Digitally sign this message"
-msgstr ""
+msgstr "امضای دیجیتال این پیام"
 
 msgid "Encrypt this message"
-msgstr ""
+msgstr "رمزگذاری این پیام"
 
 msgid "Autosave is paused while encryption is selected."
-msgstr ""
+msgstr "تا زمانی که رمزگذاری انتخاب شده باشد، ذخیره خودکار متوقف است."
 
 msgid "Turn off {0} signing and encryption first."
-msgstr ""
+msgstr "ابتدا امضا و رمزگذاری {0} را خاموش کنید."
 
 msgid "options"
-msgstr ""
+msgstr "گزینه‌ها"
 
 msgid "Sign"
 msgstr "امضا کنید"
@@ -4784,13 +4784,13 @@ msgid "You have insufficient privileges to move this folder. Would you like to c
 msgstr "شما دسترسی کافی برای جابه‌جایی این پوشه را ندارید. آیا می‌خواهید به جای آن آن را کپی کنید؟"
 
 msgid "Enable OpenPGP before replying to this protected message."
-msgstr ""
+msgstr "برای پاسخ یا فوروارد این پیام محافظت‌شده، ابتدا OpenPGP را فعال کنید."
 
 msgid "The protected message could not be opened. No reply or forward was created."
-msgstr ""
+msgstr "پیام محافظت‌شده باز نشد. هیچ پاسخ یا فورواردی ایجاد نشد."
 
 msgid "Unable to open response"
-msgstr ""
+msgstr "باز کردن پاسخ ممکن نشد"
 
 msgid "CC"
 msgstr "CC"
@@ -4959,13 +4959,13 @@ msgid "Filter"
 msgstr "فیلتر کنید"
 
 msgid "This browser cannot attach the decrypted file. Download it before forwarding."
-msgstr ""
+msgstr "این مرورگر نمی‌تواند فایل رمزگشایی‌شده را پیوست کند. پیش از فوروارد، آن را دانلود کنید."
 
 msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
-msgstr ""
+msgstr "یکی از پیوست‌های رمزگشایی‌شده از محدودیت‌های بارگذاری فراتر می‌رود. هیچ پاسخ ناتمامی ایجاد نشد."
 
 msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
-msgstr ""
+msgstr "یکی از پیوست‌های رمزگشایی‌شده بارگذاری نشد. هیچ پاسخ ناتمامی ایجاد نشد."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -5046,7 +5046,7 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}ذخیره خودکار نامه‌های ارسال نشده هر {B} دقیقه"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
-msgstr ""
+msgstr "ذخیره خودکار حتی هنگام انتخاب رمزگذاری (پیش‌نویس‌ها رمزگذاری‌نشده ذخیره می‌شوند)"
 
 msgid "Conversation view settings"
 msgstr "تنظیمات نمای مکالمه"
@@ -5500,7 +5500,7 @@ msgid "Auto"
 msgstr "خودکار"
 
 msgid "Preview documents and files in grommunio Web"
-msgstr ""
+msgstr "پیش‌نمایش اسناد و فایل‌ها در grommunio Web"
 
 msgid "Document default zoom"
 msgstr "بزرگنمایی پیش‌فرض سند"
@@ -5509,10 +5509,10 @@ msgid "PDF zoom"
 msgstr "زوم PDF"
 
 msgid "Dialog"
-msgstr ""
+msgstr "کادر گفتگو"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "باز کردن پیش‌نمایش در"
 
 msgid "File previewing"
 msgstr "پیش نمایش فایل"
@@ -5679,22 +5679,22 @@ msgid "Reset all settings to defaults"
 msgstr "همه تنظیمات را به حالت پیش فرض بازنشانی کنید"
 
 msgid "Migrate legacy categories"
-msgstr ""
+msgstr "انتقال دسته‌بندی‌های قدیمی"
 
 msgid "This will scan all folders and migrate the categories assigned to items."
-msgstr ""
+msgstr "این کار همهٔ پوشه‌ها را پویش می‌کند و دسته‌بندی‌های اختصاص‌یافته به موارد را منتقل می‌کند."
 
 msgid "The legacy category settings will remain unchanged."
-msgstr ""
+msgstr "تنظیمات دسته‌بندی قدیمی بدون تغییر باقی می‌ماند."
 
 msgid "Migrate"
-msgstr ""
+msgstr "انتقال"
 
 msgid "Legacy categories migrated successfully."
-msgstr ""
+msgstr "دسته‌بندی‌های قدیمی با موفقیت منتقل شدند."
 
 msgid "Could not migrate legacy categories."
-msgstr ""
+msgstr "انتقال دسته‌بندی‌های قدیمی ممکن نشد."
 
 msgid "Changes to assigned task"
 msgstr "تغییرات در وظایف محول شده"
@@ -6229,7 +6229,7 @@ msgid "The response was interrupted and may be incomplete."
 msgstr "پاسخ قطع شد و ممکن است ناقص باشد."
 
 msgid "The answer reached the output limit configured for this model and stops here."
-msgstr ""
+msgstr "پاسخ به حد خروجی تعیین‌شده برای این مدل رسید و همین‌جا متوقف می‌شود."
 
 msgid "Insert at cursor"
 msgstr "درج در محل مکان‌نما"
@@ -6658,7 +6658,7 @@ msgid "Create office document"
 msgstr "سند اداری ایجاد کنید"
 
 msgid "Preview file"
-msgstr ""
+msgstr "پیش‌نمایش فایل"
 
 msgid "Download files"
 msgstr "دانلود فایل ها"
@@ -6827,10 +6827,10 @@ msgid "Mobile Device Manager"
 msgstr "مدیر دستگاه موبایل"
 
 msgid "Device removed"
-msgstr ""
+msgstr "دستگاه حذف شد"
 
 msgid "The device was not removed. Check your password and try again."
-msgstr ""
+msgstr "دستگاه حذف نشد. رمز عبور خود را بررسی کنید و دوباره تلاش کنید."
 
 msgid "Wiping device"
 msgstr "در حال پاک کردن دستگاه"
@@ -7134,463 +7134,463 @@ msgid "Password is weak. Password should contain capital, non-capital letters an
 msgstr "رمز عبور ضعیف است. رمز عبور باید شامل حروف بزرگ، حروف کوچک و اعداد باشد. رمز عبور باید بین ۸ تا ۲۰ کاراکتر باشد."
 
 msgid "The OpenPGP request failed. Please try again."
-msgstr ""
+msgstr "درخواست OpenPGP ناموفق بود. لطفاً دوباره تلاش کنید."
 
 msgid "Working…"
-msgstr ""
+msgstr "در حال انجام…"
 
 msgid "The operation failed. Please try again."
-msgstr ""
+msgstr "عملیات شکست خورد. لطفاً دوباره تلاش کنید."
 
 msgid "Passphrase"
-msgstr ""
+msgstr "عبارت عبور"
 
 msgid "Unlock OpenPGP private key"
-msgstr ""
+msgstr "باز کردن قفل کلید خصوصی OpenPGP"
 
 msgid "Unlock"
-msgstr ""
+msgstr "باز کردن قفل"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr ""
+msgstr "عبارت عبور و کلید قفل‌گشودهٔ شما فقط در همین زبانهٔ مرورگر می‌مانند. کلید پس از مدت محدودی یا با بسته شدن زبانه، به‌طور خودکار قفل می‌شود. اثر انگشت: "
 
 msgid "Set up OpenPGP"
-msgstr ""
+msgstr "راه‌اندازی OpenPGP"
 
 msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
-msgstr ""
+msgstr "برای امضای پیام‌ها یا خوانا ماندن نسخهٔ رمزگذاری‌شدهٔ ارسال‌شده، کلید خصوصی‌ای متناسب با آدرس فرستنده اضافه کنید. می‌توانید کلیدی موجود را وارد کنید یا در تنظیمات OpenPGP کلید جدیدی بسازید."
 
 msgid "Open key settings"
-msgstr ""
+msgstr "باز کردن تنظیمات کلیدها"
 
 msgid "Choose OpenPGP key"
-msgstr ""
+msgstr "انتخاب کلید OpenPGP"
 
 msgid "Private key"
-msgstr ""
+msgstr "کلید خصوصی"
 
 msgid "Use key"
-msgstr ""
+msgstr "استفاده از کلید"
 
 msgid "Private-key unlocking was cancelled."
-msgstr ""
+msgstr "باز کردن قفل کلید خصوصی لغو شد."
 
 msgid "Key selection was cancelled."
-msgstr ""
+msgstr "انتخاب کلید لغو شد."
 
 msgid "Choose private key…"
-msgstr ""
+msgstr "انتخاب کلید خصوصی…"
 
 msgid "Manage OpenPGP keys…"
-msgstr ""
+msgstr "مدیریت کلیدهای OpenPGP…"
 
 msgid "Lock private keys"
-msgstr ""
+msgstr "قفل کردن کلیدهای خصوصی"
 
 msgid "Signing key: "
-msgstr ""
+msgstr "کلید امضا: "
 
 msgid "Decryption alone does not authenticate the sender."
-msgstr ""
+msgstr "رمزگشایی به‌تنهایی هویت فرستنده را احراز نمی‌کند."
 
 msgid "OpenPGP security information"
-msgstr ""
+msgstr "اطلاعات امنیتی OpenPGP"
 
 msgid "OpenPGP"
-msgstr ""
+msgstr "OpenPGP"
 
 msgid "OpenPGP signed or encrypted message"
-msgstr ""
+msgstr "پیام امضاشده یا رمزگذاری‌شده با OpenPGP"
 
 msgid "OpenPGP Plugin"
-msgstr ""
+msgstr "افزونهٔ OpenPGP"
 
 msgid "The OpenPGP operation was cancelled."
-msgstr ""
+msgstr "عملیات OpenPGP لغو شد."
 
 msgid "S/MIME and OpenPGP cannot protect the same message."
-msgstr ""
+msgstr "S/MIME و OpenPGP نمی‌توانند از یک پیام واحد محافظت کنند."
 
 msgid "Saving the OpenPGP draft timed out. Please retry."
-msgstr ""
+msgstr "ذخیرهٔ پیش‌نویس OpenPGP بیش از حد طول کشید. لطفاً دوباره تلاش کنید."
 
 msgid "The draft could not be saved. Nothing was sent."
-msgstr ""
+msgstr "پیش‌نویس ذخیره نشد. هیچ چیزی ارسال نشد."
 
 msgid "The sender or message protection changed. Please send again."
-msgstr ""
+msgstr "فرستنده یا محافظت پیام تغییر کرد. لطفاً دوباره ارسال کنید."
 
 msgid "The selected private key is not valid for this sender and protection mode."
-msgstr ""
+msgstr "کلید خصوصی انتخاب‌شده برای این فرستنده و حالت محافظت معتبر نیست."
 
 msgid "A matching, passphrase-protected private key is required."
-msgstr ""
+msgstr "یک کلید خصوصی منطبق و محافظت‌شده با عبارت عبور لازم است."
 
 msgid "A recipient key is invalid, expired or does not match its email address."
-msgstr ""
+msgstr "کلید یکی از گیرندگان نامعتبر یا منقضی است، یا با آدرس ایمیل او مطابقت ندارد."
 
 msgid "No verified recipient keys are available."
-msgstr ""
+msgstr "هیچ کلید گیرندهٔ بررسی‌شده‌ای در دسترس نیست."
 
 msgid "This message is too large for browser OpenPGP processing."
-msgstr ""
+msgstr "این پیام برای پردازش OpenPGP در مرورگر بسیار بزرگ است."
 
 msgid "Message protection changed while preparing the message. Please send again."
-msgstr ""
+msgstr "هنگام آماده‌سازی پیام، محافظت پیام تغییر کرد. لطفاً دوباره ارسال کنید."
 
 msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
-msgstr ""
+msgstr "پیام محافظت‌شده {0} MB است، بیشتر از آنچه این سرور در یک درخواست می‌پذیرد ({1} MB). پیوست‌ها را حذف کنید یا از مدیر بخواهید محدودیت بارگذاری را افزایش دهد."
 
 msgid "The attachment archive is too large."
-msgstr ""
+msgstr "فایل فشردهٔ پیوست‌ها بسیار بزرگ است."
 
 msgid "Unlock the message again to download this attachment."
-msgstr ""
+msgstr "برای دانلود این پیوست، دوباره قفل پیام را باز کنید."
 
 msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
-msgstr ""
+msgstr "این پیام حاوی محافظت تودرتوی S/MIME است که OpenPGP نمی‌تواند آن را باز کند."
 
 msgid "Too many nested OpenPGP envelopes."
-msgstr ""
+msgstr "تعداد پاکت‌های تودرتوی OpenPGP بیش از حد است."
 
 msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
-msgstr ""
+msgstr "امضا نامعتبر است یا کلید عمومی آن در دسترس نیست. به این هویت فرستنده اتکا نکنید."
 
 msgid "The private key was locked while opening this message."
-msgstr ""
+msgstr "هنگام باز کردن این پیام، کلید خصوصی قفل شد."
 
 msgid "This message contains too many attachments."
-msgstr ""
+msgstr "این پیام پیوست‌های بیش از حد زیادی دارد."
 
 msgid "The decoded attachments are too large."
-msgstr ""
+msgstr "پیوست‌های کدگشایی‌شده بسیار بزرگ هستند."
 
 msgid "The OpenPGP operation failed."
-msgstr ""
+msgstr "عملیات OpenPGP ناموفق بود."
 
 msgid "OpenPGP: checking message security…"
-msgstr ""
+msgstr "OpenPGP: در حال بررسی امنیت پیام…"
 
 msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
-msgstr ""
+msgstr "پیام رمزگذاری‌شده بدون پاکت MIME خود ذخیره شده است — پیوست را ذخیره کنید و آن را با یک ابزار OpenPGP رمزگشایی کنید"
 
 msgid "Signed message stored without its original MIME — the signature cannot be verified"
-msgstr ""
+msgstr "پیام امضاشده بدون MIME اصلی خود ذخیره شده است — امضا قابل تأیید نیست"
 
 msgid "Message decrypted"
-msgstr ""
+msgstr "پیام رمزگشایی شد"
 
 msgid "Message could not be decrypted — click for details or retry"
-msgstr ""
+msgstr "پیام رمزگشایی نشد — برای جزئیات یا تلاش دوباره کلیک کنید"
 
 msgid "Encrypted message — unlock your private key to read"
-msgstr ""
+msgstr "پیام رمزگذاری‌شده — برای خواندن، قفل کلید خصوصی خود را باز کنید"
 
 msgid "Signature could not be verified"
 msgstr "امضا تأیید نشد"
 
 msgid "Valid signature, but the signing key does not match the sender"
-msgstr ""
+msgstr "امضای معتبر، اما کلید امضا با فرستنده مطابقت ندارد"
 
 msgid "Valid signature — sender fingerprint has not been verified"
-msgstr ""
+msgstr "امضای معتبر — اثر انگشت فرستنده تأیید نشده است"
 
 msgid "Valid signature from a verified sender"
-msgstr ""
+msgstr "امضای معتبر از فرستنده‌ای تأییدشده"
 
 msgid "The signing key has since expired"
-msgstr ""
+msgstr "کلید امضا پس از آن منقضی شده است"
 
 msgid "Message is not signed"
-msgstr ""
+msgstr "پیام امضا نشده است"
 
 msgid "Inline OpenPGP protects the body only; attachments are not covered"
-msgstr ""
+msgstr "OpenPGP درون‌خطی فقط از متن پیام محافظت می‌کند؛ پیوست‌ها پوشش داده نمی‌شوند"
 
 msgid "Unprotected text after the OpenPGP block is not shown"
-msgstr ""
+msgstr "متن محافظت‌نشدهٔ بعد از بلوک OpenPGP نمایش داده نمی‌شود"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr ""
+msgstr "کلیدهای عمومی شما بارگیری نشد، بنابراین امضاها بررسی نشدند"
 
 msgid "Security information"
-msgstr ""
+msgstr "اطلاعات امنیتی"
 
 msgid "Choose when composing"
-msgstr ""
+msgstr "انتخاب هنگام نوشتن پیام"
 
 msgid "Personal and public keys"
-msgstr ""
+msgstr "کلیدهای شخصی و عمومی"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr ""
+msgstr "کلیدهای شما در صندوق پستی‌تان ذخیره می‌شوند. کلیدهای خصوصی با عبارت عبور محافظت‌شده باقی می‌مانند؛ امضا، رمزگذاری و باز کردن قفل در همین مرورگر انجام می‌شود. اثر انگشت مخاطبانتان را از طریق یک کانال مطمئن جداگانه تأیید کنید. تغییرات کلیدها بی‌درنگ اعمال می‌شوند."
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
-msgstr ""
+msgstr "هیچ کلید OpenPGP وجود ندارد. برای شروع، کلیدی را وارد یا تولید کنید."
 
 msgid "Identity"
-msgstr ""
+msgstr "هویت"
 
 msgid "Fingerprint"
-msgstr ""
+msgstr "اثر انگشت"
 
 msgid "Public key"
-msgstr ""
+msgstr "کلید عمومی"
 
 msgid "Revoked"
-msgstr ""
+msgstr "باطل‌شده"
 
 msgid "Expired"
-msgstr ""
+msgstr "منقضی‌شده"
 
 msgid "Fingerprint verified"
-msgstr ""
+msgstr "اثر انگشت تأییدشده"
 
 msgid "Not verified"
-msgstr ""
+msgstr "تأیید نشده"
 
 msgid "Unlocked"
-msgstr ""
+msgstr "قفل‌گشوده"
 
 msgid "Locked"
-msgstr ""
+msgstr "قفل‌شده"
 
 msgid "Expires"
 msgstr "منقضی می شود"
 
 msgid "No expiry"
-msgstr ""
+msgstr "بدون انقضا"
 
 msgid "Generate key"
-msgstr ""
+msgstr "تولید کلید"
 
 msgid "Import key"
-msgstr ""
+msgstr "وارد کردن کلید"
 
 msgid "Find public key"
-msgstr ""
+msgstr "یافتن کلید عمومی"
 
 msgid "Details / verify"
-msgstr ""
+msgstr "جزئیات / تأیید"
 
 msgid "Export public key"
-msgstr ""
+msgstr "صادر کردن کلید عمومی"
 
 msgid "Back up private key"
-msgstr ""
+msgstr "پشتیبان‌گیری از کلید خصوصی"
 
 msgid "Unlock in this browser"
-msgstr ""
+msgstr "باز کردن قفل در این مرورگر"
 
 msgid "Change passphrase"
 msgstr "رمز عبور را تغییر دهید"
 
 msgid "Lock all"
-msgstr ""
+msgstr "قفل کردن همه"
 
 msgid "Default private key"
-msgstr ""
+msgstr "کلید خصوصی پیش‌فرض"
 
 msgid "Sign new messages by default"
-msgstr ""
+msgstr "امضای پیام‌های جدید به‌طور پیش‌فرض"
 
 msgid "Encrypt new messages by default"
-msgstr ""
+msgstr "رمزگذاری پیام‌های جدید به‌طور پیش‌فرض"
 
 msgid "Manage keyservers"
-msgstr ""
+msgstr "مدیریت سرورهای کلید"
 
 msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
-msgstr ""
+msgstr "پیش‌فرض‌های نوشتن فقط برای پیام‌های جدید OpenPGP اعمال می‌شوند. S/MIME و OpenPGP را نمی‌توان روی یک پیام واحد ترکیب کرد."
 
 msgid "Generate OpenPGP key"
-msgstr ""
+msgstr "تولید کلید OpenPGP"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "الگوریتم"
 
 msgid "Expires in"
-msgstr ""
+msgstr "انقضا پس از"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 سال"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 سال"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 سال"
 
 msgid "Repeat passphrase"
-msgstr ""
+msgstr "تکرار عبارت عبور"
 
 msgid "Passphrases do not match."
-msgstr ""
+msgstr "عبارات عبور مطابقت ندارند."
 
 msgid "Generate"
-msgstr ""
+msgstr "تولید"
 
 msgid "Key created. Back up the private key and store its passphrase separately."
-msgstr ""
+msgstr "کلید تولید شد. از کلید خصوصی پشتیبان بگیرید و عبارت عبور آن را جداگانه نگه دارید."
 
 msgid "Revocation certificate — keep secure"
-msgstr ""
+msgstr "گواهی ابطال — آن را ایمن نگه دارید"
 
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
-msgstr ""
+msgstr "عبارت عبوری قوی با حداقل 12 کاراکتر انتخاب کنید. تولید کلید به‌صورت محلی در همین مرورگر انجام می‌شود و ممکن است کمی طول بکشد. گواهی ابطال و یک پشتیبان از کلید خصوصی را در جای امنی نگه دارید."
 
 msgid "Import OpenPGP key"
-msgstr ""
+msgstr "وارد کردن کلید OpenPGP"
 
 msgid "Choose armored OpenPGP key file"
-msgstr ""
+msgstr "انتخاب فایل کلید OpenPGP با قالب ASCII-armored"
 
 msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr ""
+msgstr "فایل کلید بسیار بزرگ است. حداکثر اندازه: 1 MiB."
 
 msgid "The key file could not be read."
-msgstr ""
+msgstr "فایل کلید خوانده نشد."
 
 msgid "Armored key"
-msgstr ""
+msgstr "کلید ASCII-armored"
 
 msgid "Protect unencrypted key"
-msgstr ""
+msgstr "محافظت از کلید رمزگذاری‌نشده"
 
 msgid "Optional: new passphrase for an unprotected private key"
-msgstr ""
+msgstr "اختیاری: عبارت عبور جدید برای کلید خصوصی محافظت‌نشده"
 
 msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr ""
+msgstr "کلید وارد شد. پیش از رمزگذاری برای گیرندگان، اثر انگشت آن‌ها را تأیید کنید."
 
 msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr ""
+msgstr "یک فایل انتخاب کنید یا فقط یک کلید ASCII-armored را همراه با خطوط BEGIN و END آن جای‌گذاری کنید. برای کلید خصوصی محافظت‌نشده، عبارت عبور جدیدی وارد کنید تا پیش از ذخیره‌سازی، به‌صورت محلی محافظت شود. کلیدهای واردشدهٔ گیرندگان به‌طور خودکار مورد اعتماد قرار نمی‌گیرند."
 
 msgid "Public OpenPGP key"
-msgstr ""
+msgstr "کلید عمومی OpenPGP"
 
 msgid "Back up private OpenPGP key"
-msgstr ""
+msgstr "پشتیبان‌گیری از کلید خصوصی OpenPGP"
 
 msgid "Create backup"
-msgstr ""
+msgstr "ایجاد پشتیبان"
 
 msgid "Private key backup — keep secure"
-msgstr ""
+msgstr "پشتیبان کلید خصوصی — آن را ایمن نگه دارید"
 
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
-msgstr ""
+msgstr "پیش از دانلود این پشتیبان رمزگذاری‌شدهٔ کلید خصوصی، عبارت عبور خود را به‌صورت محلی تأیید کنید. آن را ایمن نگه دارید و هرگز آن را برای گیرندگان یا سرورهای کلید ارسال نکنید."
 
 msgid "Current passphrase"
-msgstr ""
+msgstr "عبارت عبور فعلی"
 
 msgid "New passphrase"
 msgstr "عبارت عبور جدید"
 
 msgid "Change OpenPGP passphrase"
-msgstr ""
+msgstr "تغییر عبارت عبور OpenPGP"
 
 msgid "Repeat new passphrase"
-msgstr ""
+msgstr "تکرار عبارت عبور جدید"
 
 msgid "Passphrase changed. Make a new private-key backup."
-msgstr ""
+msgstr "عبارت عبور تغییر کرد. یک پشتیبان جدید از کلید خصوصی بگیرید."
 
 msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
-msgstr ""
+msgstr "کلید خصوصی به‌صورت محلی دوباره رمزگذاری می‌شود. پشتیبان‌های موجود همچنان به عبارت عبور اصلی خود نیاز دارند."
 
 msgid "Verify OpenPGP fingerprint"
-msgstr ""
+msgstr "تأیید اثر انگشت OpenPGP"
 
 msgid "Verified identities"
-msgstr ""
+msgstr "هویت‌های تأییدشده"
 
 msgid "Email identity"
-msgstr ""
+msgstr "هویت ایمیلی"
 
 msgid "Confirm fingerprint"
-msgstr ""
+msgstr "تأیید اثر انگشت"
 
 msgid "Enter the full fingerprint shown above."
-msgstr ""
+msgstr "اثر انگشت کامل نمایش‌داده‌شده در بالا را وارد کنید."
 
 msgid "I verified this fingerprint"
-msgstr ""
+msgstr "این اثر انگشت را تأیید کردم"
 
 msgid "Save verification"
-msgstr ""
+msgstr "ذخیرهٔ تأیید"
 
 msgid "Fingerprint verification updated."
-msgstr ""
+msgstr "وضعیت تأیید اثر انگشت به‌روزرسانی شد."
 
 msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
-msgstr ""
+msgstr "اثر انگشت کامل را از طریق یک کانال مطمئن جداگانه با مخاطب خود مقایسه کنید. علامت زدن این گزینه، این کلید را برای آدرس انتخاب‌شده تثبیت می‌کند؛ بدون علامت گذاشتن آن، این تأیید حذف می‌شود."
 
 msgid "All private keys in this browser tab are locked."
-msgstr ""
+msgstr "همهٔ کلیدهای خصوصی در این زبانهٔ مرورگر اکنون قفل شده‌اند."
 
 msgid "Delete OpenPGP key"
-msgstr ""
+msgstr "حذف کلید OpenPGP"
 
 msgid "Type the full fingerprint to confirm deletion."
-msgstr ""
+msgstr "برای تأیید حذف، اثر انگشت کامل را تایپ کنید."
 
 msgid "Delete key"
-msgstr ""
+msgstr "حذف کلید"
 
 msgid "Key removed from your mailbox."
-msgstr ""
+msgstr "کلید از صندوق پستی شما حذف شد."
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
-msgstr ""
+msgstr "حذف این کلید خصوصی باعث می‌شود نتوانید پیام‌هایی را که برای آن رمزگذاری شده‌اند بخوانید، مگر اینکه پشتیبانی داشته باشید. پیش از ادامه، از کلید خصوصی پشتیبان بگیرید."
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr ""
+msgstr "با این کار، کلید عمومی و اثر انگشت‌های تأییدشدهٔ آن از مجموعه کلیدهای شما حذف می‌شود."
 
 msgid "Manage OpenPGP keyservers"
-msgstr ""
+msgstr "مدیریت سرورهای کلید OpenPGP"
 
 msgid "HTTPS keyservers"
-msgstr ""
+msgstr "سرورهای کلید HTTPS"
 
 msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
-msgstr ""
+msgstr "در هر خط یک مبدأ سرور HTTPS وارد کنید، بدون مسیر، نام کاربری و رمز عبور، یا رشتهٔ پرس‌وجو."
 
 msgid "Save keyservers"
-msgstr ""
+msgstr "ذخیرهٔ سرورهای کلید"
 
 msgid "Keyservers updated."
-msgstr ""
+msgstr "سرورهای کلید به‌روزرسانی شدند."
 
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
-msgstr ""
+msgstr "فقط سرورهای کلید HTTPS مورد تأیید مدیر قابل استفاده هستند. جستجوها به اثر انگشت کامل نیاز دارند. کلیدها هرگز به‌طور خودکار بارگذاری نمی‌شوند."
 
 msgid "Approved servers: "
-msgstr ""
+msgstr "سرورهای مورد تأیید: "
 
 msgid "Find OpenPGP public key"
-msgstr ""
+msgstr "یافتن کلید عمومی OpenPGP"
 
 msgid "Keyserver"
-msgstr ""
+msgstr "سرور کلید"
 
 msgid "Full fingerprint"
-msgstr ""
+msgstr "اثر انگشت کامل"
 
 msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
-msgstr ""
+msgstr "یک اثر انگشت هگزادسیمال کامل با 40 یا 64 کاراکتر وارد کنید."
 
 msgid "Find and import"
-msgstr ""
+msgstr "یافتن و وارد کردن"
 
 msgid "The keyserver did not return the requested public key."
-msgstr ""
+msgstr "سرور کلید، کلید عمومی درخواست‌شده را برنگرداند."
 
 msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr ""
+msgstr "کلید عمومی وارد شد. پیش از رمزگذاری برای مالک آن، اثر انگشتش را تأیید کنید."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
-msgstr ""
+msgstr "سرور، اثر انگشتی را که جستجو می‌کنید دریافت خواهد کرد. کلید دانلودشده همچنان پیش از رمزگذاری برای مالکش به تأیید اثر انگشت نیاز دارد."
 
 msgid "Old passphrase"
 msgstr "عبارت عبور قدیمی"
@@ -8298,7 +8298,7 @@ msgid "PHP-CURL not installed"
 msgstr "PHP-CURL نصب نشده است"
 
 msgid "Unknown backend"
-msgstr ""
+msgstr "Backend ناشناخته"
 
 msgid "Account is ready to use."
 msgstr "حساب آماده استفاده است."
@@ -8313,10 +8313,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "این فایل دیگر در دسترس نیست. لطفاً پوشه را دوباره بارگیری کنید."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "این Backend از جستجوی گیرنده پشتیبانی نمی‌کند"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "یافتن گیرندگان ممکن نشد"
 
 msgid "Kendox certificate path is not configured."
 msgstr "مسیر گواهی Kendox پیکربندی نشده است."
@@ -8338,7 +8338,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "یک خطای غیرمنتظره رخ داد. لطفاً با مدیر سیستم خود تماس بگیرید. کد خطا: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "این سرور از مدیریت پوشه‌های مشترک پشتیبانی نمی‌کند."
 
 msgid "No data received."
 msgstr "هیچ داده ای دریافت نشد."
@@ -8359,13 +8359,13 @@ msgid "Password has been changed successfully."
 msgstr "رمز عبور با موفقیت تغییر کرده است."
 
 msgid "The OpenPGP operation could not be completed."
-msgstr ""
+msgstr "عملیات OpenPGP کامل نشد."
 
 msgid "OpenPGP: message was not sent"
-msgstr ""
+msgstr "OpenPGP: پیام ارسال نشد"
 
 msgid "The OpenPGP message could not be read."
-msgstr ""
+msgstr "پیام OpenPGP قابل کدگشایی نبود."
 
 msgid "No certificate available"
 msgstr "گواهی در دسترس نیست"
@@ -8392,13 +8392,13 @@ msgid "Unable to generate certs-only message"
 msgstr "امکان ایجاد پیام فقط گواهینامه وجود ندارد"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "امکان خواندن پیام certs-only وجود ندارد"
 
 msgid "LDAP not configured"
 msgstr "LDAP پیکربندی نشده است"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "پیکربندی LDAP نامعتبر"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "مفقود شدن گواهینامه های عمومی برای گیرندگان زیر:"
@@ -8444,7 +8444,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "گواهی باطل شد، اما وارد شد."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "وضعیت لغو گواهی قابل تأیید نبود. گواهی وارد شد."
 
 msgid "Unable to read public certificate"
 msgstr "قادر به خواندن گواهی عمومی نیست"
@@ -8489,7 +8489,7 @@ msgid "Cannot store the category list in this mailbox."
 msgstr "فهرست دسته‌بندی‌ها را نمی‌توان در این صندوق پستی ذخیره کرد."
 
 msgid "Cannot scan this mailbox for categories."
-msgstr ""
+msgstr "پویش این صندوق پستی برای یافتن دسته‌بندی‌ها ممکن نیست."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -8517,16 +8517,16 @@ msgid "%1$s of %2$s"
 msgstr "%1$sاز%2$s"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "OpenPGP در حال حاضر غیرفعال است یا در دسترس نیست. پیام شما ارسال نشد. پیش از تلاش دوباره OpenPGP را فعال کنید، یا امضا و رمزگذاری را صراحتاً خاموش کنید."
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
-msgstr ""
+msgstr "پیام‌های بسیار زیادی در مدت کوتاهی ارسال شده است. لطفاً کمی صبر کنید و دوباره ارسال کنید."
 
 msgid "Message was not sent"
-msgstr ""
+msgstr "پیام ارسال نشد"
 
 msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "این پیش‌نویس درخواست محافظت OpenPGP دارد، اما این محافظت اعمال نشد. پیام ارسال نشد. پیش از تلاش دوباره OpenPGP را فعال کنید، یا امضا و رمزگذاری را صراحتاً خاموش کنید."
 
 msgid "Error retrieving existing settings"
 msgstr "خطا در بازیابی تنظیمات موجود"
@@ -8894,7 +8894,7 @@ msgid "Could not decline Task Request."
 msgstr "درخواست وظیفه رد نشد."
 
 msgid "Could not open the attachment."
-msgstr ""
+msgstr "پیوست باز نشد."
 
 msgid "Conflicts with another appointment."
 msgstr "با قرار دیگری در تعارض است."
@@ -8912,7 +8912,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "گیرنده(های) زیر قابل دسترسی نیست"
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
+msgstr "حذف پیوست‌ها توسط مدیر غیرفعال شده است."
 
 msgid "l, F j, Y g:i A"
 msgstr "l, j F, Y g:i A"

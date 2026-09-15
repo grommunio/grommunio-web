@@ -1723,7 +1723,7 @@ msgid "jS F Y"
 msgstr "j. F Y."
 
 msgid "Online meeting"
-msgstr ""
+msgstr "Mrežni sastanak"
 
 msgid "Attendees"
 msgstr "Sudionici"
@@ -1897,9 +1897,9 @@ msgstr "Nemate dovoljno ovlasti za brisanje stavki u ovoj mapi."
 
 msgid "You have insufficient privileges to delete one of the selected items."
 msgid_plural "You have insufficient privileges to delete {0} of the selected items."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Nemate dovoljno ovlasti za brisanje {0} odabrane stavke."
+msgstr[1] "Nemate dovoljno ovlasti za brisanje {0} odabrane stavke."
+msgstr[2] "Nemate dovoljno ovlasti za brisanje {0} odabranih stavki."
 
 msgid "Notify recipients"
 msgstr "Obavijesti primatelje"
@@ -1938,10 +1938,10 @@ msgid "Recipient already exists."
 msgstr "Primatelj već postoji."
 
 msgid "Remove attachment"
-msgstr ""
+msgstr "Ukloni privitak"
 
 msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
-msgstr ""
+msgstr "Želite li ukloniti „{0}” iz ove poruke? Privitak se nakon toga ne može vratiti."
 
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "Pošiljatelj ove e-pošte zatražio je potvrdu o čitanju. Želite li obavijestiti pošiljatelja?"
@@ -1971,22 +1971,22 @@ msgid "Untitled"
 msgstr "Bez naslova"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "Privitke nije bilo moguće spremiti."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Ovaj privitak nije bilo moguće spremiti: {0}"
+msgstr[1] "Ove privitke nije bilo moguće spremiti: {0}"
+msgstr[2] "Ove privitke nije bilo moguće spremiti: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Spremljen je {0} privitak."
+msgstr[1] "Spremljena su {0} privitka."
+msgstr[2] "Spremljeno je {0} privitaka."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "Spremanje privitaka"
 
 msgid "Insert item"
 msgstr "Umetni stavku"
@@ -2034,7 +2034,7 @@ msgid "Preview"
 msgstr "Pregled"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "Pregledaj u dijaloškom okviru"
 
 msgid "Download"
 msgstr "preuzimanje"
@@ -2043,7 +2043,7 @@ msgid "Download all as ZIP"
 msgstr "Preuzmite sve kao ZIP"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "Spremi odabrano u mapu na disku"
 
 msgid "Import to folder"
 msgstr "Uvezi u mapu"
@@ -2055,10 +2055,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "Kako biste koristili značajku uvoza ICS/VCS, nadogradite svoj Gromox na verziju 0 ili noviju."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "Pregledaj u kartici grommunio Web"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "Pregledaj u prozoru preglednika"
 
 msgid "Attachment error"
 msgstr "Greška u privitku"
@@ -2256,7 +2256,7 @@ msgid "Folder '{0}' selected."
 msgstr "Odabrana je mapa '{0}'."
 
 msgid "Suggested folders"
-msgstr ""
+msgstr "Predložene mape"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "Odabrane stavke nije moguće premjestiti u ovu mapu jer je namijenjena drugoj vrsti sadržaja."
@@ -2454,7 +2454,7 @@ msgid "Redo the last undone action"
 msgstr "Ponovi zadnju poništenu radnju"
 
 msgid "Jump to the search box, press again for the browser search"
-msgstr ""
+msgstr "Skoči u okvir za pretraživanje, pritisni ponovno za pretragu preglednika"
 
 msgid "Open the command palette"
 msgstr "Otvori paletu naredbi"
@@ -2514,28 +2514,28 @@ msgid "Presentation"
 msgstr "Prezentacija"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Cijeli zaslon"
 
 msgid "Previous page"
-msgstr ""
+msgstr "Prethodna stranica"
 
 msgid "Next page"
-msgstr ""
+msgstr "Sljedeća stranica"
 
 msgid "Page:"
-msgstr ""
+msgstr "Stranica:"
 
 msgid "of {0}"
-msgstr ""
+msgstr "od {0}"
 
 msgid "Zoom out"
-msgstr ""
+msgstr "Umanji"
 
 msgid "Zoom in"
-msgstr ""
+msgstr "Uvećaj"
 
 msgid "Zoom"
-msgstr ""
+msgstr "Zumiranje"
 
 msgid "Automatic"
 msgstr "Automatski"
@@ -2547,37 +2547,37 @@ msgid "Page width"
 msgstr "Širina stranice"
 
 msgid "Rotate left"
-msgstr ""
+msgstr "Rotiraj ulijevo"
 
 msgid "Rotate right"
-msgstr ""
+msgstr "Rotiraj udesno"
 
 msgid "This document could not be previewed."
-msgstr ""
+msgstr "Ovaj dokument nije bilo moguće pregledati."
 
 msgid "This file cannot be previewed."
-msgstr ""
+msgstr "Ovu datoteku nije moguće pregledati."
 
 msgid "Download the file to open it with a program that can read it."
-msgstr ""
+msgstr "Preuzmite datoteku kako biste je otvorili programom koji je može pročitati."
 
 msgid "The document is empty."
-msgstr ""
+msgstr "Dokument je prazan."
 
 msgid "This sheet is empty."
-msgstr ""
+msgstr "Ovaj je list prazan."
 
 msgid "Showing the first {0} rows and {1} columns."
-msgstr ""
+msgstr "Prikazuje se prvih {0} redaka i {1} stupaca."
 
 msgid "Wrap lines"
-msgstr ""
+msgstr "Prelomi retke"
 
 msgid "Line numbers"
-msgstr ""
+msgstr "Brojevi redaka"
 
 msgid "This message has no content."
-msgstr ""
+msgstr "Ova poruka nema sadržaja."
 
 msgid "grommunio Web print"
 msgstr "grommunio Web ispis"
@@ -3450,19 +3450,19 @@ msgid "in"
 msgstr "u"
 
 msgid "Digitally sign this message"
-msgstr ""
+msgstr "Digitalno potpiši ovu poruku"
 
 msgid "Encrypt this message"
-msgstr ""
+msgstr "Šifriraj ovu poruku"
 
 msgid "Autosave is paused while encryption is selected."
-msgstr ""
+msgstr "Automatsko spremanje pauzirano je dok je odabrano šifriranje."
 
 msgid "Turn off {0} signing and encryption first."
-msgstr ""
+msgstr "Najprije isključite {0} potpisivanje i šifriranje."
 
 msgid "options"
-msgstr ""
+msgstr "mogućnosti"
 
 msgid "Sign"
 msgstr "Znak"
@@ -4813,13 +4813,13 @@ msgid "You have insufficient privileges to move this folder. Would you like to c
 msgstr "Nemate dovoljno ovlasti za premještanje ove mape. Želite li umjesto toga kopirati?"
 
 msgid "Enable OpenPGP before replying to this protected message."
-msgstr ""
+msgstr "Omogućite OpenPGP prije odgovaranja na ovu zaštićenu poruku."
 
 msgid "The protected message could not be opened. No reply or forward was created."
-msgstr ""
+msgstr "Zaštićenu poruku nije bilo moguće otvoriti. Nije stvoren ni odgovor ni proslijeđena poruka."
 
 msgid "Unable to open response"
-msgstr ""
+msgstr "Nije moguće otvoriti odgovor"
 
 msgid "CC"
 msgstr "CC"
@@ -4988,13 +4988,13 @@ msgid "Filter"
 msgstr "Filter"
 
 msgid "This browser cannot attach the decrypted file. Download it before forwarding."
-msgstr ""
+msgstr "Ovaj preglednik ne može priložiti dešifriranu datoteku. Preuzmite je prije prosljeđivanja."
 
 msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
-msgstr ""
+msgstr "Dešifrirani privitak premašuje ograničenja prijenosa. Nije stvoren nepotpun odgovor."
 
 msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
-msgstr ""
+msgstr "Dešifrirani privitak nije bilo moguće prenijeti. Nije stvoren nepotpun odgovor."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -5075,7 +5075,7 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}Automatsko spremanje neposlane pošte svake {B} minute(e)"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
-msgstr ""
+msgstr "Automatsko spremanje i dok je odabrano šifriranje (nacrti se pohranjuju nešifrirani)"
 
 msgid "Conversation view settings"
 msgstr "Postavke prikaza razgovora"
@@ -5529,7 +5529,7 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Preview documents and files in grommunio Web"
-msgstr ""
+msgstr "Pregledavanje dokumenata i datoteka u aplikaciji grommunio Web"
 
 msgid "Document default zoom"
 msgstr "Zadano zumiranje dokumenta"
@@ -5538,10 +5538,10 @@ msgid "PDF zoom"
 msgstr "PDF zumiranje"
 
 msgid "Dialog"
-msgstr ""
+msgstr "Dijaloški okvir"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "Mjesto otvaranja pregleda"
 
 msgid "File previewing"
 msgstr "Pregled datoteke"
@@ -5709,22 +5709,22 @@ msgid "Reset all settings to defaults"
 msgstr "Vratite sve postavke na zadane"
 
 msgid "Migrate legacy categories"
-msgstr ""
+msgstr "Migriraj naslijeđene kategorije"
 
 msgid "This will scan all folders and migrate the categories assigned to items."
-msgstr ""
+msgstr "Ovime će se pretražiti sve mape i migrirati kategorije dodijeljene stavkama."
 
 msgid "The legacy category settings will remain unchanged."
-msgstr ""
+msgstr "Postavke naslijeđenih kategorija ostat će nepromijenjene."
 
 msgid "Migrate"
-msgstr ""
+msgstr "Migriraj"
 
 msgid "Legacy categories migrated successfully."
-msgstr ""
+msgstr "Naslijeđene kategorije uspješno su migrirane."
 
 msgid "Could not migrate legacy categories."
-msgstr ""
+msgstr "Nije moguće migrirati naslijeđene kategorije."
 
 msgid "Changes to assigned task"
 msgstr "Promjene dodijeljenog zadatka"
@@ -6259,7 +6259,7 @@ msgid "The response was interrupted and may be incomplete."
 msgstr "Odgovor je prekinut i možda je nepotpun."
 
 msgid "The answer reached the output limit configured for this model and stops here."
-msgstr ""
+msgstr "Odgovor je dosegnuo ograničenje duljine postavljeno za ovaj model i ovdje prestaje."
 
 msgid "Insert at cursor"
 msgstr "Umetni na mjesto kursora"
@@ -6688,7 +6688,7 @@ msgid "Create office document"
 msgstr "Stvorite uredski dokument"
 
 msgid "Preview file"
-msgstr ""
+msgstr "Pregledaj datoteku"
 
 msgid "Download files"
 msgstr "Preuzimanje datoteka"
@@ -6857,10 +6857,10 @@ msgid "Mobile Device Manager"
 msgstr "Upravljač mobilnim uređajima"
 
 msgid "Device removed"
-msgstr ""
+msgstr "Uređaj uklonjen"
 
 msgid "The device was not removed. Check your password and try again."
-msgstr ""
+msgstr "Uređaj nije uklonjen. Provjerite lozinku i pokušajte ponovno."
 
 msgid "Wiping device"
 msgstr "Brisanje uređaja"
@@ -7164,463 +7164,463 @@ msgid "Password is weak. Password should contain capital, non-capital letters an
 msgstr "Lozinka je slaba. Lozinka treba sadržavati velika slova, mala slova i brojeve. Lozinka treba imati od 8 do 20 znakova."
 
 msgid "The OpenPGP request failed. Please try again."
-msgstr ""
+msgstr "OpenPGP zahtjev nije uspio. Pokušajte ponovno."
 
 msgid "Working…"
-msgstr ""
+msgstr "Obrada…"
 
 msgid "The operation failed. Please try again."
-msgstr ""
+msgstr "Operacija nije uspjela. Pokušajte ponovno."
 
 msgid "Passphrase"
-msgstr ""
+msgstr "Zaporka"
 
 msgid "Unlock OpenPGP private key"
-msgstr ""
+msgstr "Otključavanje privatnog OpenPGP ključa"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Otključaj"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr ""
+msgstr "Vaša zaporka i otključani ključ ostaju u ovoj kartici preglednika. Ključ se automatski zaključava nakon ograničenog vremena ili kad se kartica zatvori. Otisak prsta: "
 
 msgid "Set up OpenPGP"
-msgstr ""
+msgstr "Postavljanje OpenPGP zaštite"
 
 msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
-msgstr ""
+msgstr "Dodajte privatni ključ koji odgovara adresi pošiljatelja kako biste potpisivali poruke ili sačuvali čitljivu kopiju poslane šifrirane poruke. Postojeći ključ možete uvesti ili novi stvoriti u OpenPGP postavkama."
 
 msgid "Open key settings"
-msgstr ""
+msgstr "Otvori postavke ključeva"
 
 msgid "Choose OpenPGP key"
-msgstr ""
+msgstr "Odabir OpenPGP ključa"
 
 msgid "Private key"
-msgstr ""
+msgstr "Privatni ključ"
 
 msgid "Use key"
-msgstr ""
+msgstr "Upotrijebi ključ"
 
 msgid "Private-key unlocking was cancelled."
-msgstr ""
+msgstr "Otključavanje privatnog ključa je otkazano."
 
 msgid "Key selection was cancelled."
-msgstr ""
+msgstr "Odabir ključa je otkazan."
 
 msgid "Choose private key…"
-msgstr ""
+msgstr "Odaberi privatni ključ…"
 
 msgid "Manage OpenPGP keys…"
-msgstr ""
+msgstr "Upravljanje OpenPGP ključevima…"
 
 msgid "Lock private keys"
-msgstr ""
+msgstr "Zaključaj privatne ključeve"
 
 msgid "Signing key: "
-msgstr ""
+msgstr "Ključ za potpisivanje: "
 
 msgid "Decryption alone does not authenticate the sender."
-msgstr ""
+msgstr "Dešifriranje samo po sebi ne potvrđuje identitet pošiljatelja."
 
 msgid "OpenPGP security information"
-msgstr ""
+msgstr "OpenPGP sigurnosne informacije"
 
 msgid "OpenPGP"
-msgstr ""
+msgstr "OpenPGP"
 
 msgid "OpenPGP signed or encrypted message"
-msgstr ""
+msgstr "Poruka s OpenPGP potpisom ili šifriranjem"
 
 msgid "OpenPGP Plugin"
-msgstr ""
+msgstr "OpenPGP dodatak"
 
 msgid "The OpenPGP operation was cancelled."
-msgstr ""
+msgstr "OpenPGP operacija je otkazana."
 
 msgid "S/MIME and OpenPGP cannot protect the same message."
-msgstr ""
+msgstr "S/MIME i OpenPGP ne mogu istodobno zaštititi istu poruku."
 
 msgid "Saving the OpenPGP draft timed out. Please retry."
-msgstr ""
+msgstr "Isteklo je vrijeme za spremanje OpenPGP nacrta. Pokušajte ponovno."
 
 msgid "The draft could not be saved. Nothing was sent."
-msgstr ""
+msgstr "Nacrt nije bilo moguće spremiti. Ništa nije poslano."
 
 msgid "The sender or message protection changed. Please send again."
-msgstr ""
+msgstr "Promijenio se pošiljatelj ili zaštita poruke. Pošaljite ponovno."
 
 msgid "The selected private key is not valid for this sender and protection mode."
-msgstr ""
+msgstr "Odabrani privatni ključ nije valjan za ovog pošiljatelja i način zaštite."
 
 msgid "A matching, passphrase-protected private key is required."
-msgstr ""
+msgstr "Potreban je odgovarajući privatni ključ zaštićen zaporkom."
 
 msgid "A recipient key is invalid, expired or does not match its email address."
-msgstr ""
+msgstr "Ključ primatelja nije valjan, istekao je ili ne odgovara svojoj adresi e-pošte."
 
 msgid "No verified recipient keys are available."
-msgstr ""
+msgstr "Nema dostupnih valjanih ključeva primatelja."
 
 msgid "This message is too large for browser OpenPGP processing."
-msgstr ""
+msgstr "Ova je poruka prevelika za OpenPGP obradu u pregledniku."
 
 msgid "Message protection changed while preparing the message. Please send again."
-msgstr ""
+msgstr "Zaštita poruke promijenila se tijekom njezine pripreme. Pošaljite ponovno."
 
 msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
-msgstr ""
+msgstr "Zaštićena poruka ima {0} MB, više nego što ovaj poslužitelj prihvaća u jednom zahtjevu ({1} MB). Uklonite privitke ili zamolite administratora da poveća ograničenje prijenosa."
 
 msgid "The attachment archive is too large."
-msgstr ""
+msgstr "Arhiva privitaka je prevelika."
 
 msgid "Unlock the message again to download this attachment."
-msgstr ""
+msgstr "Ponovno otključajte poruku kako biste preuzeli ovaj privitak."
 
 msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
-msgstr ""
+msgstr "Ova poruka sadrži ugniježđenu S/MIME zaštitu koju OpenPGP ne može otvoriti."
 
 msgid "Too many nested OpenPGP envelopes."
-msgstr ""
+msgstr "Previše ugniježđenih OpenPGP omotnica."
 
 msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
-msgstr ""
+msgstr "Potpis nije valjan ili njegov javni ključ nije dostupan. Nemojte se pouzdati u ovaj identitet pošiljatelja."
 
 msgid "The private key was locked while opening this message."
-msgstr ""
+msgstr "Privatni ključ je zaključan tijekom otvaranja ove poruke."
 
 msgid "This message contains too many attachments."
-msgstr ""
+msgstr "Ova poruka sadrži previše privitaka."
 
 msgid "The decoded attachments are too large."
-msgstr ""
+msgstr "Dekodirani privici su preveliki."
 
 msgid "The OpenPGP operation failed."
-msgstr ""
+msgstr "OpenPGP operacija nije uspjela."
 
 msgid "OpenPGP: checking message security…"
-msgstr ""
+msgstr "OpenPGP: provjera sigurnosti poruke…"
 
 msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
-msgstr ""
+msgstr "Šifrirana poruka pohranjena je bez MIME omotnice — spremite privitak i dešifrirajte ga OpenPGP alatom"
 
 msgid "Signed message stored without its original MIME — the signature cannot be verified"
-msgstr ""
+msgstr "Potpisana poruka pohranjena je bez izvornog MIME zapisa — potpis nije moguće provjeriti"
 
 msgid "Message decrypted"
-msgstr ""
+msgstr "Poruka dešifrirana"
 
 msgid "Message could not be decrypted — click for details or retry"
-msgstr ""
+msgstr "Poruku nije bilo moguće dešifrirati — kliknite za pojedinosti ili ponovni pokušaj"
 
 msgid "Encrypted message — unlock your private key to read"
-msgstr ""
+msgstr "Šifrirana poruka — otključajte svoj privatni ključ za čitanje"
 
 msgid "Signature could not be verified"
 msgstr "Potpis nije moguće provjeriti"
 
 msgid "Valid signature, but the signing key does not match the sender"
-msgstr ""
+msgstr "Valjan potpis, ali ključ za potpisivanje ne odgovara pošiljatelju"
 
 msgid "Valid signature — sender fingerprint has not been verified"
-msgstr ""
+msgstr "Valjan potpis — otisak prsta pošiljatelja nije provjeren"
 
 msgid "Valid signature from a verified sender"
-msgstr ""
+msgstr "Valjan potpis provjerenog pošiljatelja"
 
 msgid "The signing key has since expired"
-msgstr ""
+msgstr "Ključ za potpisivanje je u međuvremenu istekao"
 
 msgid "Message is not signed"
-msgstr ""
+msgstr "Poruka nije potpisana"
 
 msgid "Inline OpenPGP protects the body only; attachments are not covered"
-msgstr ""
+msgstr "Inline OpenPGP štiti samo tijelo poruke; privici nisu obuhvaćeni"
 
 msgid "Unprotected text after the OpenPGP block is not shown"
-msgstr ""
+msgstr "Nezaštićeni tekst nakon OpenPGP bloka ne prikazuje se"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr ""
+msgstr "Vaše javne ključeve nije bilo moguće učitati pa potpisi nisu provjereni"
 
 msgid "Security information"
-msgstr ""
+msgstr "Sigurnosne informacije"
 
 msgid "Choose when composing"
-msgstr ""
+msgstr "Odaberi pri pisanju poruke"
 
 msgid "Personal and public keys"
-msgstr ""
+msgstr "Osobni i javni ključevi"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr ""
+msgstr "Vaši se ključevi pohranjuju u vašem poštanskom sandučiću. Privatni ključevi ostaju zaštićeni zaporkom; potpisivanje, šifriranje i otključavanje odvijaju se u ovom pregledniku. Otiske prstiju svojih kontakata provjerite putem zasebnog pouzdanog kanala. Promjene ključeva stupaju na snagu odmah."
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
-msgstr ""
+msgstr "Nema OpenPGP ključeva. Uvezite ili generirajte ključ za početak."
 
 msgid "Identity"
-msgstr ""
+msgstr "Identitet"
 
 msgid "Fingerprint"
-msgstr ""
+msgstr "Otisak prsta"
 
 msgid "Public key"
-msgstr ""
+msgstr "Javni ključ"
 
 msgid "Revoked"
-msgstr ""
+msgstr "Opozvan"
 
 msgid "Expired"
-msgstr ""
+msgstr "Istekao"
 
 msgid "Fingerprint verified"
-msgstr ""
+msgstr "Otisak prsta provjeren"
 
 msgid "Not verified"
-msgstr ""
+msgstr "Nije provjeren"
 
 msgid "Unlocked"
-msgstr ""
+msgstr "Otključan"
 
 msgid "Locked"
-msgstr ""
+msgstr "Zaključan"
 
 msgid "Expires"
 msgstr "Ističe"
 
 msgid "No expiry"
-msgstr ""
+msgstr "Bez isteka"
 
 msgid "Generate key"
-msgstr ""
+msgstr "Generiraj ključ"
 
 msgid "Import key"
-msgstr ""
+msgstr "Uvezi ključ"
 
 msgid "Find public key"
-msgstr ""
+msgstr "Pronađi javni ključ"
 
 msgid "Details / verify"
-msgstr ""
+msgstr "Pojedinosti / provjera"
 
 msgid "Export public key"
-msgstr ""
+msgstr "Izvezi javni ključ"
 
 msgid "Back up private key"
-msgstr ""
+msgstr "Sigurnosno kopiraj privatni ključ"
 
 msgid "Unlock in this browser"
-msgstr ""
+msgstr "Otključaj u ovom pregledniku"
 
 msgid "Change passphrase"
 msgstr "Promjena zaporke"
 
 msgid "Lock all"
-msgstr ""
+msgstr "Zaključaj sve"
 
 msgid "Default private key"
-msgstr ""
+msgstr "Zadani privatni ključ"
 
 msgid "Sign new messages by default"
-msgstr ""
+msgstr "Zadano potpisivanje novih poruka"
 
 msgid "Encrypt new messages by default"
-msgstr ""
+msgstr "Zadano šifriranje novih poruka"
 
 msgid "Manage keyservers"
-msgstr ""
+msgstr "Upravljanje poslužiteljima ključeva"
 
 msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
-msgstr ""
+msgstr "Zadane postavke pisanja primjenjuju se samo na nove OpenPGP poruke. S/MIME i OpenPGP ne mogu se kombinirati u istoj poruci."
 
 msgid "Generate OpenPGP key"
-msgstr ""
+msgstr "Generiranje OpenPGP ključa"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "Algoritam"
 
 msgid "Expires in"
-msgstr ""
+msgstr "Rok valjanosti"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 godina"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 godine"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 godina"
 
 msgid "Repeat passphrase"
-msgstr ""
+msgstr "Ponovite zaporku"
 
 msgid "Passphrases do not match."
-msgstr ""
+msgstr "Zaporke se ne podudaraju."
 
 msgid "Generate"
-msgstr ""
+msgstr "Generiraj"
 
 msgid "Key created. Back up the private key and store its passphrase separately."
-msgstr ""
+msgstr "Ključ je stvoren. Sigurnosno kopirajte privatni ključ, a zaporku pohranite odvojeno."
 
 msgid "Revocation certificate — keep secure"
-msgstr ""
+msgstr "Certifikat za opoziv — čuvajte na sigurnom"
 
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
-msgstr ""
+msgstr "Odaberite jaku zaporku od najmanje 12 znakova. Generiranje se odvija lokalno u ovom pregledniku i može potrajati. Certifikat za opoziv i sigurnosnu kopiju privatnog ključa čuvajte na sigurnom mjestu."
 
 msgid "Import OpenPGP key"
-msgstr ""
+msgstr "Uvoz OpenPGP ključa"
 
 msgid "Choose armored OpenPGP key file"
-msgstr ""
+msgstr "Odaberite datoteku s OpenPGP ključem u ASCII formatu"
 
 msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr ""
+msgstr "Datoteka ključa je prevelika. Najveća veličina: 1 MiB."
 
 msgid "The key file could not be read."
-msgstr ""
+msgstr "Datoteku ključa nije bilo moguće pročitati."
 
 msgid "Armored key"
-msgstr ""
+msgstr "ASCII ključ"
 
 msgid "Protect unencrypted key"
-msgstr ""
+msgstr "Zaštita nešifriranog ključa"
 
 msgid "Optional: new passphrase for an unprotected private key"
-msgstr ""
+msgstr "Neobavezno: nova zaporka za nezaštićeni privatni ključ"
 
 msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr ""
+msgstr "Ključ je uvezen. Provjerite otiske prstiju primatelja prije nego što im šifrirate poruke."
 
 msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr ""
+msgstr "Odaberite datoteku ili zalijepite jedan ključ u ASCII formatu, uključujući njegove retke BEGIN i END. Za nezaštićeni privatni ključ unesite novu zaporku kako biste ga lokalno zaštitili prije pohrane. Uvezeni ključevi primatelja ne smatraju se automatski pouzdanima."
 
 msgid "Public OpenPGP key"
-msgstr ""
+msgstr "Javni OpenPGP ključ"
 
 msgid "Back up private OpenPGP key"
-msgstr ""
+msgstr "Sigurnosno kopiranje privatnog OpenPGP ključa"
 
 msgid "Create backup"
-msgstr ""
+msgstr "Izradi sigurnosnu kopiju"
 
 msgid "Private key backup — keep secure"
-msgstr ""
+msgstr "Sigurnosna kopija privatnog ključa — čuvajte na sigurnom"
 
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
-msgstr ""
+msgstr "Potvrdite svoju zaporku lokalno prije preuzimanja ove šifrirane sigurnosne kopije privatnog ključa. Čuvajte je na sigurnom i nikada je ne šaljite primatelju ni poslužitelju ključeva."
 
 msgid "Current passphrase"
-msgstr ""
+msgstr "Trenutačna zaporka"
 
 msgid "New passphrase"
 msgstr "Nova šifra"
 
 msgid "Change OpenPGP passphrase"
-msgstr ""
+msgstr "Promjena OpenPGP zaporke"
 
 msgid "Repeat new passphrase"
-msgstr ""
+msgstr "Ponovite novu zaporku"
 
 msgid "Passphrase changed. Make a new private-key backup."
-msgstr ""
+msgstr "Zaporka je promijenjena. Izradite novu sigurnosnu kopiju privatnog ključa."
 
 msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
-msgstr ""
+msgstr "Privatni ključ ponovno se šifrira lokalno. Postojeće sigurnosne kopije i dalje zahtijevaju svoju izvornu zaporku."
 
 msgid "Verify OpenPGP fingerprint"
-msgstr ""
+msgstr "Provjera OpenPGP otiska prsta"
 
 msgid "Verified identities"
-msgstr ""
+msgstr "Provjereni identiteti"
 
 msgid "Email identity"
-msgstr ""
+msgstr "E-mail identitet"
 
 msgid "Confirm fingerprint"
-msgstr ""
+msgstr "Potvrda otiska prsta"
 
 msgid "Enter the full fingerprint shown above."
-msgstr ""
+msgstr "Unesite cijeli otisak prsta prikazan iznad."
 
 msgid "I verified this fingerprint"
-msgstr ""
+msgstr "Provjerio sam ovaj otisak prsta"
 
 msgid "Save verification"
-msgstr ""
+msgstr "Spremi provjeru"
 
 msgid "Fingerprint verification updated."
-msgstr ""
+msgstr "Provjera otiska prsta je ažurirana."
 
 msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
-msgstr ""
+msgstr "Usporedite cijeli otisak prsta sa svojim kontaktom putem zasebnog pouzdanog kanala. Označavanjem okvira ovaj se ključ veže uz odabranu adresu; ako okvir ostane neoznačen, ta se provjera uklanja."
 
 msgid "All private keys in this browser tab are locked."
-msgstr ""
+msgstr "Svi privatni ključevi u ovoj kartici preglednika sada su zaključani."
 
 msgid "Delete OpenPGP key"
-msgstr ""
+msgstr "Brisanje OpenPGP ključa"
 
 msgid "Type the full fingerprint to confirm deletion."
-msgstr ""
+msgstr "Upišite cijeli otisak prsta za potvrdu brisanja."
 
 msgid "Delete key"
-msgstr ""
+msgstr "Izbriši ključ"
 
 msgid "Key removed from your mailbox."
-msgstr ""
+msgstr "Ključ je uklonjen iz vašeg poštanskog sandučića."
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
-msgstr ""
+msgstr "Brisanjem ovog privatnog ključa nećete moći čitati poruke šifrirane za njega, osim ako imate sigurnosnu kopiju. Izradite sigurnosnu kopiju privatnog ključa prije nastavka."
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr ""
+msgstr "Time se iz vašeg skupa ključeva uklanjaju javni ključ i njegovi provjereni otisci prstiju."
 
 msgid "Manage OpenPGP keyservers"
-msgstr ""
+msgstr "Upravljanje OpenPGP poslužiteljima ključeva"
 
 msgid "HTTPS keyservers"
-msgstr ""
+msgstr "HTTPS poslužitelji ključeva"
 
 msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
-msgstr ""
+msgstr "U svaki redak unesite jedno HTTPS ishodište poslužitelja, bez putanje, vjerodajnica ili upita."
 
 msgid "Save keyservers"
-msgstr ""
+msgstr "Spremi poslužitelje ključeva"
 
 msgid "Keyservers updated."
-msgstr ""
+msgstr "Poslužitelji ključeva su ažurirani."
 
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
-msgstr ""
+msgstr "Mogu se koristiti samo HTTPS poslužitelji ključeva koje je odobrio administrator. Pretraživanje zahtijeva cijeli otisak prsta. Ključevi se nikada ne prenose automatski."
 
 msgid "Approved servers: "
-msgstr ""
+msgstr "Odobreni poslužitelji: "
 
 msgid "Find OpenPGP public key"
-msgstr ""
+msgstr "Pronalaženje javnog OpenPGP ključa"
 
 msgid "Keyserver"
-msgstr ""
+msgstr "Poslužitelj ključeva"
 
 msgid "Full fingerprint"
-msgstr ""
+msgstr "Cijeli otisak prsta"
 
 msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
-msgstr ""
+msgstr "Unesite cjeloviti heksadecimalni otisak prsta od 40 ili 64 znaka."
 
 msgid "Find and import"
-msgstr ""
+msgstr "Pronađi i uvezi"
 
 msgid "The keyserver did not return the requested public key."
-msgstr ""
+msgstr "Poslužitelj ključeva nije vratio traženi javni ključ."
 
 msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr ""
+msgstr "Javni ključ je uvezen. Provjerite njegov otisak prsta prije nego što vlasniku šifrirate poruke."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
-msgstr ""
+msgstr "Poslužitelj će primiti otisak prsta koji tražite. Preuzeti ključ i dalje zahtijeva provjeru otiska prsta prije nego što vlasniku šifrirate poruke."
 
 msgid "Old passphrase"
 msgstr "Stara šifra"
@@ -8328,7 +8328,7 @@ msgid "PHP-CURL not installed"
 msgstr "PHP-CURL nije instaliran"
 
 msgid "Unknown backend"
-msgstr ""
+msgstr "Nepoznat backend"
 
 msgid "Account is ready to use."
 msgstr "Račun je spreman za korištenje."
@@ -8343,10 +8343,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Ova datoteka više nije dostupna. Molimo ponovno učitajte mapu."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "Ovaj backend ne podržava pretraživanje primatelja"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "Nije moguće pretražiti primatelje"
 
 msgid "Kendox certificate path is not configured."
 msgstr "Putanja Kendox certifikata nije konfigurirana."
@@ -8368,7 +8368,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "Dogodila se neočekivana pogreška. Molimo kontaktirajte svog sistemskog administratora. Kod pogreške: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "Ovaj poslužitelj ne podržava upravljanje dijeljenim mapama."
 
 msgid "No data received."
 msgstr "Nema primljenih podataka."
@@ -8389,13 +8389,13 @@ msgid "Password has been changed successfully."
 msgstr "Lozinka je uspješno promijenjena."
 
 msgid "The OpenPGP operation could not be completed."
-msgstr ""
+msgstr "OpenPGP operaciju nije bilo moguće dovršiti."
 
 msgid "OpenPGP: message was not sent"
-msgstr ""
+msgstr "OpenPGP: poruka nije poslana"
 
 msgid "The OpenPGP message could not be read."
-msgstr ""
+msgstr "OpenPGP poruku nije bilo moguće pročitati."
 
 msgid "No certificate available"
 msgstr "Certifikat nije dostupan"
@@ -8422,13 +8422,13 @@ msgid "Unable to generate certs-only message"
 msgstr "Nije moguće generirati poruku samo s certifikatima"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "Nije moguće pročitati certs-only poruku"
 
 msgid "LDAP not configured"
 msgstr "LDAP nije konfiguriran"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "Nevažeća LDAP konfiguracija"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Nedostaju javni certifikati za sljedeće primatelje:"
@@ -8474,7 +8474,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "Certifikat je opozvan, ali je uvezen."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "Status opoziva certifikata nije mogao biti provjeren. Certifikat je uvezen."
 
 msgid "Unable to read public certificate"
 msgstr "Nije moguće pročitati javni certifikat"
@@ -8519,7 +8519,7 @@ msgid "Cannot store the category list in this mailbox."
 msgstr "Nije moguće spremiti popis kategorija u ovaj poštanski sandučić."
 
 msgid "Cannot scan this mailbox for categories."
-msgstr ""
+msgstr "Nije moguće pretražiti ovaj poštanski sandučić radi kategorija."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -8547,16 +8547,16 @@ msgid "%1$s of %2$s"
 msgstr "%1$sod%2$s"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "OpenPGP je trenutačno onemogućen ili nedostupan. Vaša poruka nije poslana. Omogućite OpenPGP prije ponovnog pokušaja ili izričito isključite potpisivanje i šifriranje."
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
-msgstr ""
+msgstr "U kratkom vremenu poslano je previše poruka. Pričekajte trenutak i pošaljite ponovno."
 
 msgid "Message was not sent"
-msgstr ""
+msgstr "Poruka nije poslana"
 
 msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "Ovaj nacrt traži OpenPGP zaštitu, ali ona nije primijenjena. Poruka nije poslana. Omogućite OpenPGP prije ponovnog pokušaja ili izričito isključite potpisivanje i šifriranje."
 
 msgid "Error retrieving existing settings"
 msgstr "Pogreška pri dohvaćanju postojećih postavki"
@@ -8924,7 +8924,7 @@ msgid "Could not decline Task Request."
 msgstr "Nije moguće odbiti zahtjev za zadatkom."
 
 msgid "Could not open the attachment."
-msgstr ""
+msgstr "Nije moguće otvoriti privitak."
 
 msgid "Conflicts with another appointment."
 msgstr "Sukob s drugim imenovanjem."
@@ -8943,7 +8943,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "Sljedeći primatelji nisu bili dostupni"
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
+msgstr "Administrator je onemogućio uklanjanje privitaka."
 
 msgid "l, F j, Y g:i A"
 msgstr "l, j. F Y G:i"

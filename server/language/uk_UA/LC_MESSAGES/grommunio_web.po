@@ -1724,7 +1724,7 @@ msgid "jS F Y"
 msgstr "jS F Y"
 
 msgid "Online meeting"
-msgstr ""
+msgstr "Онлайн-зустріч"
 
 msgid "Attendees"
 msgstr "Присутні"
@@ -1898,9 +1898,9 @@ msgstr "У вас недостатньо прав для видалення ск
 
 msgid "You have insufficient privileges to delete one of the selected items."
 msgid_plural "You have insufficient privileges to delete {0} of the selected items."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "У вас недостатньо прав для видалення {0} з вибраних елементів."
+msgstr[1] "У вас недостатньо прав для видалення {0} з вибраних елементів."
+msgstr[2] "У вас недостатньо прав для видалення {0} з вибраних елементів."
 
 msgid "Notify recipients"
 msgstr "Сповістити одержувачів"
@@ -1939,10 +1939,10 @@ msgid "Recipient already exists."
 msgstr "Одержувач вже існує."
 
 msgid "Remove attachment"
-msgstr ""
+msgstr "Видалити вкладення"
 
 msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
-msgstr ""
+msgstr "Видалити «{0}» з цього повідомлення? Відновити вкладення після цього буде неможливо."
 
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "Відправник цього листа надіслав запит на підтвердження прочитання. Ви бажаєте повідомити відправника?"
@@ -1972,22 +1972,22 @@ msgid "Untitled"
 msgstr "Без назви"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "Не вдалося зберегти вкладення."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Не вдалося зберегти таке вкладення: {0}"
+msgstr[1] "Не вдалося зберегти такі вкладення: {0}"
+msgstr[2] "Не вдалося зберегти такі вкладення: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Збережено {0} вкладення."
+msgstr[1] "Збережено {0} вкладення."
+msgstr[2] "Збережено {0} вкладень."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "Збереження вкладень"
 
 msgid "Insert item"
 msgstr "Вставити елемент"
@@ -2035,7 +2035,7 @@ msgid "Preview"
 msgstr "Попередній перегляд"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "Попередній перегляд у діалоговому вікні"
 
 msgid "Download"
 msgstr "Завантажити"
@@ -2044,7 +2044,7 @@ msgid "Download all as ZIP"
 msgstr "Завантажити все у форматі ZIP"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "Зберегти вибране в теку"
 
 msgid "Import to folder"
 msgstr "Імпорт до папки"
@@ -2056,10 +2056,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "Щоб використовувати функцію імпорту ICS / VCS, оновіть Gromox до версії 0 або вище."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "Попередній перегляд у вкладці grommunio Web"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "Попередній перегляд у вікні браузера"
 
 msgid "Attachment error"
 msgstr "Помилка вкладення"
@@ -2257,7 +2257,7 @@ msgid "Folder '{0}' selected."
 msgstr "Вибрано папку '{0}'."
 
 msgid "Suggested folders"
-msgstr ""
+msgstr "Пропоновані теки"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "Вибрані елементи не можна перемістити до цієї папки, оскільки вона призначена для вмісту іншого типу."
@@ -2455,7 +2455,7 @@ msgid "Redo the last undone action"
 msgstr "Повернути останню скасовану дію"
 
 msgid "Jump to the search box, press again for the browser search"
-msgstr ""
+msgstr "Перейти до поля пошуку, повторне натискання — пошук у браузері"
 
 msgid "Open the command palette"
 msgstr "Відкрити палітру команд"
@@ -2515,28 +2515,28 @@ msgid "Presentation"
 msgstr "Презентація"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "На весь екран"
 
 msgid "Previous page"
-msgstr ""
+msgstr "Попередня сторінка"
 
 msgid "Next page"
-msgstr ""
+msgstr "Наступна сторінка"
 
 msgid "Page:"
-msgstr ""
+msgstr "Стор.:"
 
 msgid "of {0}"
-msgstr ""
+msgstr "з {0}"
 
 msgid "Zoom out"
-msgstr ""
+msgstr "Зменшити"
 
 msgid "Zoom in"
-msgstr ""
+msgstr "Збільшити"
 
 msgid "Zoom"
-msgstr ""
+msgstr "Масштаб"
 
 msgid "Automatic"
 msgstr "Автоматично"
@@ -2548,37 +2548,37 @@ msgid "Page width"
 msgstr "Ширина сторінки"
 
 msgid "Rotate left"
-msgstr ""
+msgstr "Обернути ліворуч"
 
 msgid "Rotate right"
-msgstr ""
+msgstr "Обернути праворуч"
 
 msgid "This document could not be previewed."
-msgstr ""
+msgstr "Не вдалося показати попередній перегляд цього документа."
 
 msgid "This file cannot be previewed."
-msgstr ""
+msgstr "Попередній перегляд цього файлу неможливий."
 
 msgid "Download the file to open it with a program that can read it."
-msgstr ""
+msgstr "Завантажте файл, щоб відкрити його програмою, яка підтримує цей формат."
 
 msgid "The document is empty."
-msgstr ""
+msgstr "Документ порожній."
 
 msgid "This sheet is empty."
-msgstr ""
+msgstr "Цей аркуш порожній."
 
 msgid "Showing the first {0} rows and {1} columns."
-msgstr ""
+msgstr "Показано лише початок таблиці — рядків: {0}, стовпців: {1}."
 
 msgid "Wrap lines"
-msgstr ""
+msgstr "Переносити рядки"
 
 msgid "Line numbers"
-msgstr ""
+msgstr "Номери рядків"
 
 msgid "This message has no content."
-msgstr ""
+msgstr "Це повідомлення не має вмісту."
 
 msgid "grommunio Web print"
 msgstr "grommunio Веб-друк"
@@ -3451,19 +3451,19 @@ msgid "in"
 msgstr "в"
 
 msgid "Digitally sign this message"
-msgstr ""
+msgstr "Підписати це повідомлення цифровим підписом"
 
 msgid "Encrypt this message"
-msgstr ""
+msgstr "Зашифрувати це повідомлення"
 
 msgid "Autosave is paused while encryption is selected."
-msgstr ""
+msgstr "Автозбереження призупинено, поки вибрано шифрування."
 
 msgid "Turn off {0} signing and encryption first."
-msgstr ""
+msgstr "Спочатку вимкніть підписання та шифрування {0}."
 
 msgid "options"
-msgstr ""
+msgstr "параметри"
 
 msgid "Sign"
 msgstr "Знак"
@@ -4814,13 +4814,13 @@ msgid "You have insufficient privileges to move this folder. Would you like to c
 msgstr "У вас недостатньо привілеїв для переміщення цієї теки. Бажаєте скопіювати?"
 
 msgid "Enable OpenPGP before replying to this protected message."
-msgstr ""
+msgstr "Увімкніть OpenPGP, перш ніж відповідати на це захищене повідомлення або пересилати його."
 
 msgid "The protected message could not be opened. No reply or forward was created."
-msgstr ""
+msgstr "Не вдалося відкрити захищене повідомлення. Чернетку відповіді або пересилання не створено."
 
 msgid "Unable to open response"
-msgstr ""
+msgstr "Не вдалося створити відповідь"
 
 msgid "CC"
 msgstr "CC"
@@ -4989,13 +4989,13 @@ msgid "Filter"
 msgstr "Фільтр"
 
 msgid "This browser cannot attach the decrypted file. Download it before forwarding."
-msgstr ""
+msgstr "Цей браузер не може долучити розшифрований файл. Завантажте його перед пересиланням."
 
 msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
-msgstr ""
+msgstr "Розшифроване вкладення перевищує обмеження на завантаження. Незавершену відповідь не створено."
 
 msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
-msgstr ""
+msgstr "Не вдалося завантажити розшифроване вкладення. Незавершену відповідь не створено."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -5076,7 +5076,7 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}Автозберігати невідправлену пошту кожні {B} хвилину(и)"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
-msgstr ""
+msgstr "Автозберігати також, коли вибрано шифрування (чернетки зберігаються незашифрованими)"
 
 msgid "Conversation view settings"
 msgstr "Налаштування перегляду розмови"
@@ -5530,7 +5530,7 @@ msgid "Auto"
 msgstr "Авто"
 
 msgid "Preview documents and files in grommunio Web"
-msgstr ""
+msgstr "Переглядати документи та файли в grommunio Web"
 
 msgid "Document default zoom"
 msgstr "Масштаб документа за замовчуванням"
@@ -5539,10 +5539,10 @@ msgid "PDF zoom"
 msgstr "Масштаб PDF"
 
 msgid "Dialog"
-msgstr ""
+msgstr "Діалогове вікно"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "Відкривати попередній перегляд"
 
 msgid "File previewing"
 msgstr "Попередній перегляд файлів"
@@ -5710,22 +5710,22 @@ msgid "Reset all settings to defaults"
 msgstr "Скидання всіх налаштувань до значень за замовчуванням"
 
 msgid "Migrate legacy categories"
-msgstr ""
+msgstr "Перенести застарілі категорії"
 
 msgid "This will scan all folders and migrate the categories assigned to items."
-msgstr ""
+msgstr "Буде просканувано всі папки та перенесено категорії, призначені елементам."
 
 msgid "The legacy category settings will remain unchanged."
-msgstr ""
+msgstr "Застарілі налаштування категорій залишаться без змін."
 
 msgid "Migrate"
-msgstr ""
+msgstr "Перенести"
 
 msgid "Legacy categories migrated successfully."
-msgstr ""
+msgstr "Застарілі категорії успішно перенесено."
 
 msgid "Could not migrate legacy categories."
-msgstr ""
+msgstr "Не вдалося перенести застарілі категорії."
 
 msgid "Changes to assigned task"
 msgstr "Зміни в призначеному завданні"
@@ -6260,7 +6260,7 @@ msgid "The response was interrupted and may be incomplete."
 msgstr "Відповідь було перервано, і вона може бути неповною."
 
 msgid "The answer reached the output limit configured for this model and stops here."
-msgstr ""
+msgstr "Відповідь досягла обмеження на довжину, налаштованого для цієї моделі, і на цьому уривається."
 
 msgid "Insert at cursor"
 msgstr "Вставити в позицію курсора"
@@ -6689,7 +6689,7 @@ msgid "Create office document"
 msgstr "Створення офісного документа"
 
 msgid "Preview file"
-msgstr ""
+msgstr "Попередній перегляд файлу"
 
 msgid "Download files"
 msgstr "Завантажити файли"
@@ -6858,10 +6858,10 @@ msgid "Mobile Device Manager"
 msgstr "Диспетчер мобільних пристроїв"
 
 msgid "Device removed"
-msgstr ""
+msgstr "Пристрій видалено"
 
 msgid "The device was not removed. Check your password and try again."
-msgstr ""
+msgstr "Пристрій не видалено. Перевірте пароль і спробуйте ще раз."
 
 msgid "Wiping device"
 msgstr "Очищення пристрою"
@@ -7165,463 +7165,463 @@ msgid "Password is weak. Password should contain capital, non-capital letters an
 msgstr "Пароль слабкий. Пароль повинен містити великі та малі літери та цифри. Пароль повинен містити від 8 до 20 символів."
 
 msgid "The OpenPGP request failed. Please try again."
-msgstr ""
+msgstr "Запит OpenPGP не вдався. Спробуйте ще раз."
 
 msgid "Working…"
-msgstr ""
+msgstr "Виконується…"
 
 msgid "The operation failed. Please try again."
-msgstr ""
+msgstr "Не вдалося виконати операцію. Спробуйте ще раз."
 
 msgid "Passphrase"
-msgstr ""
+msgstr "Парольна фраза"
 
 msgid "Unlock OpenPGP private key"
-msgstr ""
+msgstr "Розблокування приватного ключа OpenPGP"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Розблокувати"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr ""
+msgstr "Ваша парольна фраза та розблокований ключ залишаються в цій вкладці браузера. Ключ блокується автоматично через обмежений час або після закриття вкладки. Відбиток: "
 
 msgid "Set up OpenPGP"
-msgstr ""
+msgstr "Налаштування OpenPGP"
 
 msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
-msgstr ""
+msgstr "Додайте приватний ключ, який відповідає адресі відправника, щоб підписувати повідомлення або щоб копія зашифрованого листа в теці «Відправлені елементи» залишалася доступною для читання. Ви можете імпортувати наявний ключ або створити новий у налаштуваннях OpenPGP."
 
 msgid "Open key settings"
-msgstr ""
+msgstr "Відкрити налаштування ключів"
 
 msgid "Choose OpenPGP key"
-msgstr ""
+msgstr "Вибір ключа OpenPGP"
 
 msgid "Private key"
-msgstr ""
+msgstr "Приватний ключ"
 
 msgid "Use key"
-msgstr ""
+msgstr "Використати ключ"
 
 msgid "Private-key unlocking was cancelled."
-msgstr ""
+msgstr "Розблокування приватного ключа скасовано."
 
 msgid "Key selection was cancelled."
-msgstr ""
+msgstr "Вибір ключа скасовано."
 
 msgid "Choose private key…"
-msgstr ""
+msgstr "Вибрати приватний ключ…"
 
 msgid "Manage OpenPGP keys…"
-msgstr ""
+msgstr "Керування ключами OpenPGP…"
 
 msgid "Lock private keys"
-msgstr ""
+msgstr "Заблокувати приватні ключі"
 
 msgid "Signing key: "
-msgstr ""
+msgstr "Ключ підпису: "
 
 msgid "Decryption alone does not authenticate the sender."
-msgstr ""
+msgstr "Саме по собі розшифрування не підтверджує особу відправника."
 
 msgid "OpenPGP security information"
-msgstr ""
+msgstr "Інформація про захист OpenPGP"
 
 msgid "OpenPGP"
-msgstr ""
+msgstr "OpenPGP"
 
 msgid "OpenPGP signed or encrypted message"
-msgstr ""
+msgstr "Підписане або зашифроване повідомлення OpenPGP"
 
 msgid "OpenPGP Plugin"
-msgstr ""
+msgstr "Плагін OpenPGP"
 
 msgid "The OpenPGP operation was cancelled."
-msgstr ""
+msgstr "Операцію OpenPGP скасовано."
 
 msgid "S/MIME and OpenPGP cannot protect the same message."
-msgstr ""
+msgstr "S/MIME і OpenPGP не можуть захищати одне й те саме повідомлення."
 
 msgid "Saving the OpenPGP draft timed out. Please retry."
-msgstr ""
+msgstr "Час збереження чернетки OpenPGP вичерпано. Повторіть спробу."
 
 msgid "The draft could not be saved. Nothing was sent."
-msgstr ""
+msgstr "Не вдалося зберегти чернетку. Нічого не надіслано."
 
 msgid "The sender or message protection changed. Please send again."
-msgstr ""
+msgstr "Відправника або захист повідомлення було змінено. Надішліть ще раз."
 
 msgid "The selected private key is not valid for this sender and protection mode."
-msgstr ""
+msgstr "Вибраний приватний ключ недійсний для цього відправника та режиму захисту."
 
 msgid "A matching, passphrase-protected private key is required."
-msgstr ""
+msgstr "Потрібен відповідний приватний ключ, захищений парольною фразою."
 
 msgid "A recipient key is invalid, expired or does not match its email address."
-msgstr ""
+msgstr "Ключ одержувача недійсний, його термін дії минув або він не відповідає своїй адресі електронної пошти."
 
 msgid "No verified recipient keys are available."
-msgstr ""
+msgstr "Немає жодного перевіреного ключа одержувача."
 
 msgid "This message is too large for browser OpenPGP processing."
-msgstr ""
+msgstr "Це повідомлення завелике для обробки OpenPGP у браузері."
 
 msgid "Message protection changed while preparing the message. Please send again."
-msgstr ""
+msgstr "Захист повідомлення змінився під час його підготовки. Надішліть ще раз."
 
 msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
-msgstr ""
+msgstr "Захищене повідомлення має розмір {0} MB, що більше за обсяг, який цей сервер приймає в одному запиті ({1} MB). Видаліть вкладення або попросіть адміністратора збільшити обмеження на завантаження."
 
 msgid "The attachment archive is too large."
-msgstr ""
+msgstr "Архів вкладень завеликий."
 
 msgid "Unlock the message again to download this attachment."
-msgstr ""
+msgstr "Розблокуйте повідомлення ще раз, щоб завантажити це вкладення."
 
 msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
-msgstr ""
+msgstr "Це повідомлення містить вкладений захист S/MIME, який OpenPGP не може відкрити."
 
 msgid "Too many nested OpenPGP envelopes."
-msgstr ""
+msgstr "Забагато вкладених оболонок OpenPGP."
 
 msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
-msgstr ""
+msgstr "Підпис недійсний або його публічний ключ недоступний. Не покладайтеся на особу цього відправника."
 
 msgid "The private key was locked while opening this message."
-msgstr ""
+msgstr "Приватний ключ було заблоковано під час відкривання цього повідомлення."
 
 msgid "This message contains too many attachments."
-msgstr ""
+msgstr "Це повідомлення містить забагато вкладень."
 
 msgid "The decoded attachments are too large."
-msgstr ""
+msgstr "Декодовані вкладення завеликі."
 
 msgid "The OpenPGP operation failed."
-msgstr ""
+msgstr "Не вдалося виконати операцію OpenPGP."
 
 msgid "OpenPGP: checking message security…"
-msgstr ""
+msgstr "OpenPGP: перевірка захисту повідомлення…"
 
 msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
-msgstr ""
+msgstr "Зашифроване повідомлення збережено без MIME-оболонки — збережіть вкладення та розшифруйте його програмою OpenPGP"
 
 msgid "Signed message stored without its original MIME — the signature cannot be verified"
-msgstr ""
+msgstr "Підписане повідомлення збережено без початкового MIME — перевірити підпис неможливо"
 
 msgid "Message decrypted"
-msgstr ""
+msgstr "Повідомлення розшифровано"
 
 msgid "Message could not be decrypted — click for details or retry"
-msgstr ""
+msgstr "Не вдалося розшифрувати повідомлення — натисніть для подробиць або повторної спроби"
 
 msgid "Encrypted message — unlock your private key to read"
-msgstr ""
+msgstr "Зашифроване повідомлення — розблокуйте свій приватний ключ, щоб його прочитати"
 
 msgid "Signature could not be verified"
 msgstr "Підпис не вдалося перевірити"
 
 msgid "Valid signature, but the signing key does not match the sender"
-msgstr ""
+msgstr "Дійсний підпис, але ключ підпису не відповідає відправнику"
 
 msgid "Valid signature — sender fingerprint has not been verified"
-msgstr ""
+msgstr "Дійсний підпис — відбиток відправника не підтверджено"
 
 msgid "Valid signature from a verified sender"
-msgstr ""
+msgstr "Дійсний підпис від підтвердженого відправника"
 
 msgid "The signing key has since expired"
-msgstr ""
+msgstr "Відтоді термін дії ключа підпису минув"
 
 msgid "Message is not signed"
-msgstr ""
+msgstr "Повідомлення не підписане"
 
 msgid "Inline OpenPGP protects the body only; attachments are not covered"
-msgstr ""
+msgstr "Вбудований OpenPGP захищає лише текст повідомлення; вкладення не захищені"
 
 msgid "Unprotected text after the OpenPGP block is not shown"
-msgstr ""
+msgstr "Незахищений текст після блоку OpenPGP не показано"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr ""
+msgstr "Не вдалося завантажити ваші публічні ключі, тому підписи не перевірено"
 
 msgid "Security information"
-msgstr ""
+msgstr "Інформація про захист"
 
 msgid "Choose when composing"
-msgstr ""
+msgstr "Вибирати під час створення листа"
 
 msgid "Personal and public keys"
-msgstr ""
+msgstr "Особисті та публічні ключі"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr ""
+msgstr "Ваші ключі зберігаються у вашій поштовій скриньці. Приватні ключі залишаються захищеними парольною фразою; підписання, шифрування та розблокування відбуваються в цьому браузері. Звіряйте відбитки своїх контактів окремим довіреним каналом. Зміни ключів набувають чинності негайно."
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
-msgstr ""
+msgstr "Ключів OpenPGP немає. Щоб почати, імпортуйте або створіть ключ."
 
 msgid "Identity"
-msgstr ""
+msgstr "Ідентифікатор"
 
 msgid "Fingerprint"
-msgstr ""
+msgstr "Відбиток"
 
 msgid "Public key"
-msgstr ""
+msgstr "Публічний ключ"
 
 msgid "Revoked"
-msgstr ""
+msgstr "Відкликано"
 
 msgid "Expired"
-msgstr ""
+msgstr "Термін дії минув"
 
 msgid "Fingerprint verified"
-msgstr ""
+msgstr "Відбиток підтверджено"
 
 msgid "Not verified"
-msgstr ""
+msgstr "Не підтверджено"
 
 msgid "Unlocked"
-msgstr ""
+msgstr "Розблоковано"
 
 msgid "Locked"
-msgstr ""
+msgstr "Заблоковано"
 
 msgid "Expires"
 msgstr "Закінчується"
 
 msgid "No expiry"
-msgstr ""
+msgstr "Безстроково"
 
 msgid "Generate key"
-msgstr ""
+msgstr "Створити ключ"
 
 msgid "Import key"
-msgstr ""
+msgstr "Імпортувати ключ"
 
 msgid "Find public key"
-msgstr ""
+msgstr "Знайти публічний ключ"
 
 msgid "Details / verify"
-msgstr ""
+msgstr "Деталі / підтвердити"
 
 msgid "Export public key"
-msgstr ""
+msgstr "Експортувати публічний ключ"
 
 msgid "Back up private key"
-msgstr ""
+msgstr "Створити резервну копію приватного ключа"
 
 msgid "Unlock in this browser"
-msgstr ""
+msgstr "Розблокувати в цьому браузері"
 
 msgid "Change passphrase"
 msgstr "Змінити парольну фразу"
 
 msgid "Lock all"
-msgstr ""
+msgstr "Заблокувати всі ключі"
 
 msgid "Default private key"
-msgstr ""
+msgstr "Приватний ключ за замовчуванням"
 
 msgid "Sign new messages by default"
-msgstr ""
+msgstr "Підписувати нові повідомлення за замовчуванням"
 
 msgid "Encrypt new messages by default"
-msgstr ""
+msgstr "Шифрувати нові повідомлення за замовчуванням"
 
 msgid "Manage keyservers"
-msgstr ""
+msgstr "Керування серверами ключів"
 
 msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
-msgstr ""
+msgstr "Налаштування за замовчуванням для створення листів застосовуються лише до нових повідомлень OpenPGP. S/MIME і OpenPGP не можна поєднувати в одному повідомленні."
 
 msgid "Generate OpenPGP key"
-msgstr ""
+msgstr "Створення ключа OpenPGP"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "Алгоритм"
 
 msgid "Expires in"
-msgstr ""
+msgstr "Термін дії"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 рік"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 роки"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 років"
 
 msgid "Repeat passphrase"
-msgstr ""
+msgstr "Повторіть парольну фразу"
 
 msgid "Passphrases do not match."
-msgstr ""
+msgstr "Парольні фрази не збігаються."
 
 msgid "Generate"
-msgstr ""
+msgstr "Створити"
 
 msgid "Key created. Back up the private key and store its passphrase separately."
-msgstr ""
+msgstr "Ключ створено. Створіть резервну копію приватного ключа та зберігайте його парольну фразу окремо."
 
 msgid "Revocation certificate — keep secure"
-msgstr ""
+msgstr "Сертифікат відкликання — зберігайте надійно"
 
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
-msgstr ""
+msgstr "Виберіть надійну парольну фразу щонайменше з 12 символів. Створення ключа відбувається локально в цьому браузері й може тривати деякий час. Зберігайте сертифікат відкликання та резервну копію приватного ключа в безпечному місці."
 
 msgid "Import OpenPGP key"
-msgstr ""
+msgstr "Імпорт ключа OpenPGP"
 
 msgid "Choose armored OpenPGP key file"
-msgstr ""
+msgstr "Виберіть файл ключа OpenPGP у форматі ASCII"
 
 msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr ""
+msgstr "Файл ключа завеликий. Максимальний розмір: 1 MiB."
 
 msgid "The key file could not be read."
-msgstr ""
+msgstr "Не вдалося прочитати файл ключа."
 
 msgid "Armored key"
-msgstr ""
+msgstr "Ключ у форматі ASCII"
 
 msgid "Protect unencrypted key"
-msgstr ""
+msgstr "Захист незашифрованого ключа"
 
 msgid "Optional: new passphrase for an unprotected private key"
-msgstr ""
+msgstr "Необов'язково: нова парольна фраза для незахищеного приватного ключа"
 
 msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr ""
+msgstr "Ключ імпортовано. Підтверджуйте відбитки одержувачів, перш ніж шифрувати повідомлення для них."
 
 msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr ""
+msgstr "Виберіть файл або вставте один ключ у форматі ASCII разом із рядками BEGIN і END. Для незахищеного приватного ключа введіть нову парольну фразу, щоб захистити його локально перед збереженням. Імпортовані ключі одержувачів не стають довіреними автоматично."
 
 msgid "Public OpenPGP key"
-msgstr ""
+msgstr "Публічний ключ OpenPGP"
 
 msgid "Back up private OpenPGP key"
-msgstr ""
+msgstr "Резервна копія приватного ключа OpenPGP"
 
 msgid "Create backup"
-msgstr ""
+msgstr "Створити резервну копію"
 
 msgid "Private key backup — keep secure"
-msgstr ""
+msgstr "Резервна копія приватного ключа — зберігайте надійно"
 
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
-msgstr ""
+msgstr "Підтвердьте свою парольну фразу локально, перш ніж завантажувати цю зашифровану резервну копію приватного ключа. Зберігайте її надійно й ніколи не надсилайте одержувачам або на сервер ключів."
 
 msgid "Current passphrase"
-msgstr ""
+msgstr "Поточна парольна фраза"
 
 msgid "New passphrase"
 msgstr "Нова парольна фраза"
 
 msgid "Change OpenPGP passphrase"
-msgstr ""
+msgstr "Зміна парольної фрази OpenPGP"
 
 msgid "Repeat new passphrase"
-msgstr ""
+msgstr "Повторіть нову парольну фразу"
 
 msgid "Passphrase changed. Make a new private-key backup."
-msgstr ""
+msgstr "Парольну фразу змінено. Створіть нову резервну копію приватного ключа."
 
 msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
-msgstr ""
+msgstr "Приватний ключ повторно шифрується локально. Наявні резервні копії й надалі потребують своєї початкової парольної фрази."
 
 msgid "Verify OpenPGP fingerprint"
-msgstr ""
+msgstr "Підтвердження відбитка OpenPGP"
 
 msgid "Verified identities"
-msgstr ""
+msgstr "Підтверджені ідентифікатори"
 
 msgid "Email identity"
-msgstr ""
+msgstr "Ідентифікатор ел. пошти"
 
 msgid "Confirm fingerprint"
-msgstr ""
+msgstr "Підтвердьте відбиток"
 
 msgid "Enter the full fingerprint shown above."
-msgstr ""
+msgstr "Введіть повний відбиток, показаний вище."
 
 msgid "I verified this fingerprint"
-msgstr ""
+msgstr "Я підтверджую цей відбиток"
 
 msgid "Save verification"
-msgstr ""
+msgstr "Зберегти підтвердження"
 
 msgid "Fingerprint verification updated."
-msgstr ""
+msgstr "Підтвердження відбитка оновлено."
 
 msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
-msgstr ""
+msgstr "Звірте повний відбиток зі своїм контактом окремим довіреним каналом. Якщо встановити прапорець, ключ буде закріплено за вибраною адресою; якщо залишити прапорець знятим, це підтвердження буде скасовано."
 
 msgid "All private keys in this browser tab are locked."
-msgstr ""
+msgstr "Усі приватні ключі в цій вкладці браузера заблоковано."
 
 msgid "Delete OpenPGP key"
-msgstr ""
+msgstr "Видалення ключа OpenPGP"
 
 msgid "Type the full fingerprint to confirm deletion."
-msgstr ""
+msgstr "Щоб підтвердити видалення, введіть повний відбиток."
 
 msgid "Delete key"
-msgstr ""
+msgstr "Видалити ключ"
 
 msgid "Key removed from your mailbox."
-msgstr ""
+msgstr "Ключ видалено з вашої поштової скриньки."
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
-msgstr ""
+msgstr "Видаливши цей приватний ключ, ви не зможете читати повідомлення, зашифровані для нього, якщо не маєте резервної копії. Перш ніж продовжити, створіть резервну копію приватного ключа."
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr ""
+msgstr "Це видалить публічний ключ і його підтверджені відбитки з вашого сховища ключів."
 
 msgid "Manage OpenPGP keyservers"
-msgstr ""
+msgstr "Керування серверами ключів OpenPGP"
 
 msgid "HTTPS keyservers"
-msgstr ""
+msgstr "Сервери ключів HTTPS"
 
 msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
-msgstr ""
+msgstr "Вводьте по одному джерелу HTTPS-сервера в кожному рядку, без шляху, облікових даних і параметрів запиту."
 
 msgid "Save keyservers"
-msgstr ""
+msgstr "Зберегти сервери ключів"
 
 msgid "Keyservers updated."
-msgstr ""
+msgstr "Сервери ключів оновлено."
 
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
-msgstr ""
+msgstr "Дозволено використовувати лише схвалені адміністратором сервери ключів HTTPS. Для пошуку потрібен повний відбиток. Ключі ніколи не вивантажуються автоматично."
 
 msgid "Approved servers: "
-msgstr ""
+msgstr "Схвалені сервери: "
 
 msgid "Find OpenPGP public key"
-msgstr ""
+msgstr "Пошук публічного ключа OpenPGP"
 
 msgid "Keyserver"
-msgstr ""
+msgstr "Сервер ключів"
 
 msgid "Full fingerprint"
-msgstr ""
+msgstr "Повний відбиток"
 
 msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
-msgstr ""
+msgstr "Введіть повний шістнадцятковий відбиток із 40 або 64 символів."
 
 msgid "Find and import"
-msgstr ""
+msgstr "Знайти й імпортувати"
 
 msgid "The keyserver did not return the requested public key."
-msgstr ""
+msgstr "Сервер ключів не повернув запитаного публічного ключа."
 
 msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr ""
+msgstr "Публічний ключ імпортовано. Підтвердьте його відбиток, перш ніж шифрувати повідомлення для його власника."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
-msgstr ""
+msgstr "Сервер отримає відбиток, який ви шукаєте. Завантажений ключ усе одно потребує підтвердження відбитка, перш ніж шифрувати повідомлення для його власника."
 
 msgid "Old passphrase"
 msgstr "Стара парольна фраза"
@@ -8329,7 +8329,7 @@ msgid "PHP-CURL not installed"
 msgstr "PHP-CURL не встановлено"
 
 msgid "Unknown backend"
-msgstr ""
+msgstr "Невідомий бекенд"
 
 msgid "Account is ready to use."
 msgstr "Обліковий запис готовий до використання."
@@ -8344,10 +8344,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Цей файл більше не доступний. Будь ласка, перезавантажте папку."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "Цей бекенд не підтримує пошук одержувачів"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "Не вдається виконати пошук одержувачів"
 
 msgid "Kendox certificate path is not configured."
 msgstr "Шлях до сертифіката Kendox не налаштовано."
@@ -8369,7 +8369,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "Виникла непередбачувана помилка. Зверніться до системного адміністратора. Код помилки: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "Цей сервер не підтримує керування спільними папками."
 
 msgid "No data received."
 msgstr "Не отримано жодних даних."
@@ -8390,13 +8390,13 @@ msgid "Password has been changed successfully."
 msgstr "Пароль успішно змінено."
 
 msgid "The OpenPGP operation could not be completed."
-msgstr ""
+msgstr "Операцію OpenPGP не вдалося завершити."
 
 msgid "OpenPGP: message was not sent"
-msgstr ""
+msgstr "OpenPGP: повідомлення не надіслано"
 
 msgid "The OpenPGP message could not be read."
-msgstr ""
+msgstr "Не вдалося опрацювати повідомлення OpenPGP."
 
 msgid "No certificate available"
 msgstr "Сертифікат відсутній"
@@ -8423,13 +8423,13 @@ msgid "Unable to generate certs-only message"
 msgstr "Не вдається згенерувати повідомлення лише для сертифікатів"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "Не вдається прочитати повідомлення лише для сертифікатів"
 
 msgid "LDAP not configured"
 msgstr "LDAP не налаштовано"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "Неправильна конфігурація LDAP"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Відсутні відкриті сертифікати для наступних одержувачів:"
@@ -8475,7 +8475,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "Сертифікат анульовано, але товар був імпортований."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "Не вдалося перевірити статус відкликання сертифіката. Сертифікат був імпортований."
 
 msgid "Unable to read public certificate"
 msgstr "Не вдається прочитати відкритий сертифікат"
@@ -8520,7 +8520,7 @@ msgid "Cannot store the category list in this mailbox."
 msgstr "Неможливо зберегти список категорій у цій поштовій скриньці."
 
 msgid "Cannot scan this mailbox for categories."
-msgstr ""
+msgstr "Не вдається просканувати цю поштову скриньку на наявність категорій."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -8548,16 +8548,16 @@ msgid "%1$s of %2$s"
 msgstr "%1$s від %2$s"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "Наразі OpenPGP вимкнено або він недоступний. Ваше повідомлення не надіслано. Увімкніть OpenPGP, перш ніж повторювати спробу, або явно вимкніть підписання та шифрування."
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
-msgstr ""
+msgstr "За короткий час надіслано забагато повідомлень. Зачекайте трохи й повторіть надсилання."
 
 msgid "Message was not sent"
-msgstr ""
+msgstr "Повідомлення не надіслано"
 
 msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "Ця чернетка потребує захисту OpenPGP, але його не було застосовано. Повідомлення не надіслано. Увімкніть OpenPGP, перш ніж повторювати спробу, або явно вимкніть підписання та шифрування."
 
 msgid "Error retrieving existing settings"
 msgstr "Помилка при отриманні існуючих налаштувань"
@@ -8925,7 +8925,7 @@ msgid "Could not decline Task Request."
 msgstr "Неможливо відхилити запит на виконання завдання."
 
 msgid "Could not open the attachment."
-msgstr ""
+msgstr "Не вдалося відкрити вкладення."
 
 msgid "Conflicts with another appointment."
 msgstr "Конфліктує з іншою зустріччю."
@@ -8944,7 +8944,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "Не вдалося додзвонитися до наступних адресатів"
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
+msgstr "Видалення вкладень вимкнено адміністратором."
 
 msgid "l, F j, Y g:i A"
 msgstr "l, j F Y G:i"

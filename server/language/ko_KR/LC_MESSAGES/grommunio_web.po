@@ -1693,7 +1693,7 @@ msgid "jS F Y"
 msgstr "jS F Y"
 
 msgid "Online meeting"
-msgstr ""
+msgstr "온라인 회의"
 
 msgid "Attendees"
 msgstr "참석자"
@@ -1867,7 +1867,7 @@ msgstr "이 폴더의 항목을 삭제할 수 있는 권한이 부족합니다."
 
 msgid "You have insufficient privileges to delete one of the selected items."
 msgid_plural "You have insufficient privileges to delete {0} of the selected items."
-msgstr[0] ""
+msgstr[0] "선택한 항목 중 {0}개를 삭제할 수 있는 권한이 부족합니다."
 
 msgid "Notify recipients"
 msgstr "수신자에게 알림"
@@ -1906,10 +1906,10 @@ msgid "Recipient already exists."
 msgstr "수신자가 이미 존재합니다."
 
 msgid "Remove attachment"
-msgstr ""
+msgstr "첨부 파일 제거"
 
 msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
-msgstr ""
+msgstr "이 메시지에서 '{0}'을(를) 제거하시겠습니까? 제거한 첨부 파일은 복원할 수 없습니다."
 
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "이 이메일의 발신자가 읽음 영수증을 요청했습니다. 발신자에게 알림을 보내시겠습니까?"
@@ -1939,18 +1939,18 @@ msgid "Untitled"
 msgstr "제목 없음"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "첨부 파일을 저장할 수 없습니다."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
+msgstr[0] "다음 첨부 파일을 저장하지 못했습니다: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
+msgstr[0] "첨부 파일 {0}개를 저장했습니다."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "첨부 파일 저장"
 
 msgid "Insert item"
 msgstr "항목 삽입"
@@ -1998,7 +1998,7 @@ msgid "Preview"
 msgstr "미리 보기"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "대화 상자에서 미리 보기"
 
 msgid "Download"
 msgstr "다운로드"
@@ -2007,7 +2007,7 @@ msgid "Download all as ZIP"
 msgstr "모두 ZIP으로 다운로드"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "선택 항목을 폴더에 저장"
 
 msgid "Import to folder"
 msgstr "폴더로 가져오기"
@@ -2019,10 +2019,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "ICS/VCS 가져오기 기능을 사용하려면 Gromox를 버전 0 이상으로 업그레이드하세요."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "grommunio Web 탭에서 미리 보기"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "브라우저 창에서 미리 보기"
 
 msgid "Attachment error"
 msgstr "첨부 파일 오류"
@@ -2218,7 +2218,7 @@ msgid "Folder '{0}' selected."
 msgstr "폴더 '{0}'이 선택되었습니다."
 
 msgid "Suggested folders"
-msgstr ""
+msgstr "제안된 폴더"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "선택한 항목은 다른 유형의 콘텐츠를 저장하는 이 폴더로 이동할 수 없습니다."
@@ -2416,7 +2416,7 @@ msgid "Redo the last undone action"
 msgstr "마지막으로 실행 취소한 작업 다시 실행"
 
 msgid "Jump to the search box, press again for the browser search"
-msgstr ""
+msgstr "검색 상자로 이동, 다시 누르면 브라우저 검색"
 
 msgid "Open the command palette"
 msgstr "명령 팔레트 열기"
@@ -2476,28 +2476,28 @@ msgid "Presentation"
 msgstr "프레젠테이션"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "전체 화면"
 
 msgid "Previous page"
-msgstr ""
+msgstr "이전 페이지"
 
 msgid "Next page"
-msgstr ""
+msgstr "다음 페이지"
 
 msgid "Page:"
-msgstr ""
+msgstr "페이지:"
 
 msgid "of {0}"
-msgstr ""
+msgstr "/ {0}"
 
 msgid "Zoom out"
-msgstr ""
+msgstr "축소"
 
 msgid "Zoom in"
-msgstr ""
+msgstr "확대"
 
 msgid "Zoom"
-msgstr ""
+msgstr "확대/축소"
 
 msgid "Automatic"
 msgstr "자동"
@@ -2509,37 +2509,37 @@ msgid "Page width"
 msgstr "페이지 너비"
 
 msgid "Rotate left"
-msgstr ""
+msgstr "왼쪽으로 회전"
 
 msgid "Rotate right"
-msgstr ""
+msgstr "오른쪽으로 회전"
 
 msgid "This document could not be previewed."
-msgstr ""
+msgstr "이 문서를 미리 볼 수 없습니다."
 
 msgid "This file cannot be previewed."
-msgstr ""
+msgstr "이 파일은 미리 보기를 지원하지 않습니다."
 
 msgid "Download the file to open it with a program that can read it."
-msgstr ""
+msgstr "파일을 다운로드하여 이 파일을 읽을 수 있는 프로그램에서 여세요."
 
 msgid "The document is empty."
-msgstr ""
+msgstr "문서가 비어 있습니다."
 
 msgid "This sheet is empty."
-msgstr ""
+msgstr "이 시트가 비어 있습니다."
 
 msgid "Showing the first {0} rows and {1} columns."
-msgstr ""
+msgstr "처음 {0}개 행과 {1}개 열만 표시합니다."
 
 msgid "Wrap lines"
-msgstr ""
+msgstr "자동 줄 바꿈"
 
 msgid "Line numbers"
-msgstr ""
+msgstr "줄 번호"
 
 msgid "This message has no content."
-msgstr ""
+msgstr "이 메시지에는 내용이 없습니다."
 
 msgid "grommunio Web print"
 msgstr "그로뮤니오 웹 인쇄"
@@ -3404,19 +3404,19 @@ msgid "in"
 msgstr "in"
 
 msgid "Digitally sign this message"
-msgstr ""
+msgstr "이 메시지에 디지털 서명"
 
 msgid "Encrypt this message"
-msgstr ""
+msgstr "이 메시지 암호화"
 
 msgid "Autosave is paused while encryption is selected."
-msgstr ""
+msgstr "암호화를 선택하면 자동 저장이 일시 중지됩니다."
 
 msgid "Turn off {0} signing and encryption first."
-msgstr ""
+msgstr "먼저 {0} 서명 및 암호화를 해제하세요."
 
 msgid "options"
-msgstr ""
+msgstr "옵션"
 
 msgid "Sign"
 msgstr "서명"
@@ -4757,13 +4757,13 @@ msgid "You have insufficient privileges to move this folder. Would you like to c
 msgstr "이 폴더를 이동할 수 있는 권한이 부족합니다. 대신 복사하시겠습니까?"
 
 msgid "Enable OpenPGP before replying to this protected message."
-msgstr ""
+msgstr "보호된 이 메시지에 응답하려면 먼저 OpenPGP를 사용 설정하세요."
 
 msgid "The protected message could not be opened. No reply or forward was created."
-msgstr ""
+msgstr "보호된 메시지를 열 수 없습니다. 답장이나 전달 메시지가 생성되지 않았습니다."
 
 msgid "Unable to open response"
-msgstr ""
+msgstr "응답 메시지를 열 수 없음"
 
 msgid "CC"
 msgstr "CC"
@@ -4932,13 +4932,13 @@ msgid "Filter"
 msgstr "필터"
 
 msgid "This browser cannot attach the decrypted file. Download it before forwarding."
-msgstr ""
+msgstr "이 브라우저에서는 해독된 파일을 첨부할 수 없습니다. 전달하기 전에 파일을 다운로드하세요."
 
 msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
-msgstr ""
+msgstr "해독된 첨부 파일이 업로드 한도를 초과합니다. 불완전한 응답 메시지는 생성되지 않았습니다."
 
 msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
-msgstr ""
+msgstr "해독된 첨부 파일을 업로드할 수 없습니다. 불완전한 응답 메시지는 생성되지 않았습니다."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -5019,7 +5019,7 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}발송되지 않은 메일을 {B}분마다 자동 저장합니다."
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
-msgstr ""
+msgstr "암호화를 선택한 경우에도 자동 저장(초안은 암호화되지 않은 상태로 저장됨)"
 
 msgid "Conversation view settings"
 msgstr "대화 보기 설정"
@@ -5473,7 +5473,7 @@ msgid "Auto"
 msgstr "자동"
 
 msgid "Preview documents and files in grommunio Web"
-msgstr ""
+msgstr "grommunio Web에서 문서 및 파일 미리 보기"
 
 msgid "Document default zoom"
 msgstr "문서 기본 확대/축소"
@@ -5482,10 +5482,10 @@ msgid "PDF zoom"
 msgstr "PDF 확대/축소"
 
 msgid "Dialog"
-msgstr ""
+msgstr "대화 상자"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "미리 보기를 열 위치"
 
 msgid "File previewing"
 msgstr "파일 미리 보기"
@@ -5651,22 +5651,22 @@ msgid "Reset all settings to defaults"
 msgstr "모든 설정을 기본값으로 초기화"
 
 msgid "Migrate legacy categories"
-msgstr ""
+msgstr "레거시 카테고리 마이그레이션"
 
 msgid "This will scan all folders and migrate the categories assigned to items."
-msgstr ""
+msgstr "모든 폴더를 검사하여 항목에 할당된 카테고리를 마이그레이션합니다."
 
 msgid "The legacy category settings will remain unchanged."
-msgstr ""
+msgstr "레거시 카테고리 설정은 변경되지 않습니다."
 
 msgid "Migrate"
-msgstr ""
+msgstr "마이그레이션"
 
 msgid "Legacy categories migrated successfully."
-msgstr ""
+msgstr "레거시 카테고리를 성공적으로 마이그레이션했습니다."
 
 msgid "Could not migrate legacy categories."
-msgstr ""
+msgstr "레거시 카테고리를 마이그레이션할 수 없습니다."
 
 msgid "Changes to assigned task"
 msgstr "할당된 작업의 변경 사항"
@@ -6201,7 +6201,7 @@ msgid "The response was interrupted and may be incomplete."
 msgstr "응답이 중단되어 불완전할 수 있습니다."
 
 msgid "The answer reached the output limit configured for this model and stops here."
-msgstr ""
+msgstr "이 모델에 구성된 출력 한도에 도달하여 답변이 여기서 중단됩니다."
 
 msgid "Insert at cursor"
 msgstr "커서 위치에 삽입"
@@ -6630,7 +6630,7 @@ msgid "Create office document"
 msgstr "오피스 문서 만들기"
 
 msgid "Preview file"
-msgstr ""
+msgstr "파일 미리 보기"
 
 msgid "Download files"
 msgstr "파일 다운로드"
@@ -6799,10 +6799,10 @@ msgid "Mobile Device Manager"
 msgstr "모바일 장치 관리자"
 
 msgid "Device removed"
-msgstr ""
+msgstr "장치 제거됨"
 
 msgid "The device was not removed. Check your password and try again."
-msgstr ""
+msgstr "장치가 제거되지 않았습니다. 비밀번호를 확인한 후 다시 시도하세요."
 
 msgid "Wiping device"
 msgstr "장치 초기화 중"
@@ -7106,463 +7106,463 @@ msgid "Password is weak. Password should contain capital, non-capital letters an
 msgstr "비밀번호가 약합니다. 비밀번호는 대문자, 대문자가 아닌 문자 및 숫자를 포함해야 합니다. 비밀번호는 8~20자로 구성되어야 합니다."
 
 msgid "The OpenPGP request failed. Please try again."
-msgstr ""
+msgstr "OpenPGP 요청에 실패했습니다. 다시 시도해 주세요."
 
 msgid "Working…"
-msgstr ""
+msgstr "처리 중…"
 
 msgid "The operation failed. Please try again."
-msgstr ""
+msgstr "작업에 실패했습니다. 다시 시도해 주세요."
 
 msgid "Passphrase"
-msgstr ""
+msgstr "암호 문구"
 
 msgid "Unlock OpenPGP private key"
-msgstr ""
+msgstr "OpenPGP 개인 키 잠금 해제"
 
 msgid "Unlock"
-msgstr ""
+msgstr "잠금 해제"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr ""
+msgstr "암호 문구와 잠금 해제된 키는 이 브라우저 탭에만 남아 있습니다. 키는 일정 시간이 지나거나 탭을 닫으면 자동으로 잠깁니다. 지문: "
 
 msgid "Set up OpenPGP"
-msgstr ""
+msgstr "OpenPGP 설정"
 
 msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
-msgstr ""
+msgstr "메시지에 서명하거나 보낸 항목의 암호화된 사본을 읽을 수 있도록 하려면 발신자 주소와 일치하는 개인 키를 추가하세요. OpenPGP 설정 페이지에서 기존 키를 가져오거나 새 키를 만들 수 있습니다."
 
 msgid "Open key settings"
-msgstr ""
+msgstr "키 설정 열기"
 
 msgid "Choose OpenPGP key"
-msgstr ""
+msgstr "OpenPGP 키 선택"
 
 msgid "Private key"
-msgstr ""
+msgstr "개인 키"
 
 msgid "Use key"
-msgstr ""
+msgstr "키 사용"
 
 msgid "Private-key unlocking was cancelled."
-msgstr ""
+msgstr "개인 키 잠금 해제가 취소되었습니다."
 
 msgid "Key selection was cancelled."
-msgstr ""
+msgstr "키 선택이 취소되었습니다."
 
 msgid "Choose private key…"
-msgstr ""
+msgstr "개인 키 선택…"
 
 msgid "Manage OpenPGP keys…"
-msgstr ""
+msgstr "OpenPGP 키 관리…"
 
 msgid "Lock private keys"
-msgstr ""
+msgstr "개인 키 잠금"
 
 msgid "Signing key: "
-msgstr ""
+msgstr "서명 키: "
 
 msgid "Decryption alone does not authenticate the sender."
-msgstr ""
+msgstr "암호 해독만으로는 발신자의 신원이 인증되지 않습니다."
 
 msgid "OpenPGP security information"
-msgstr ""
+msgstr "OpenPGP 보안 정보"
 
 msgid "OpenPGP"
-msgstr ""
+msgstr "OpenPGP"
 
 msgid "OpenPGP signed or encrypted message"
-msgstr ""
+msgstr "OpenPGP로 서명되었거나 암호화된 메시지"
 
 msgid "OpenPGP Plugin"
-msgstr ""
+msgstr "OpenPGP 플러그인"
 
 msgid "The OpenPGP operation was cancelled."
-msgstr ""
+msgstr "OpenPGP 작업이 취소되었습니다."
 
 msgid "S/MIME and OpenPGP cannot protect the same message."
-msgstr ""
+msgstr "S/MIME과 OpenPGP로 같은 메시지를 동시에 보호할 수 없습니다."
 
 msgid "Saving the OpenPGP draft timed out. Please retry."
-msgstr ""
+msgstr "OpenPGP 초안을 저장하는 중 시간이 초과되었습니다. 다시 시도해 주세요."
 
 msgid "The draft could not be saved. Nothing was sent."
-msgstr ""
+msgstr "초안을 저장할 수 없습니다. 아무것도 전송되지 않았습니다."
 
 msgid "The sender or message protection changed. Please send again."
-msgstr ""
+msgstr "발신자 또는 메시지 보호 설정이 변경되었습니다. 다시 보내 주세요."
 
 msgid "The selected private key is not valid for this sender and protection mode."
-msgstr ""
+msgstr "선택한 개인 키는 이 발신자 및 보호 모드에 유효하지 않습니다."
 
 msgid "A matching, passphrase-protected private key is required."
-msgstr ""
+msgstr "일치하고 암호 문구로 보호된 개인 키가 필요합니다."
 
 msgid "A recipient key is invalid, expired or does not match its email address."
-msgstr ""
+msgstr "수신자 키가 유효하지 않거나 만료되었거나 해당 이메일 주소와 일치하지 않습니다."
 
 msgid "No verified recipient keys are available."
-msgstr ""
+msgstr "사용할 수 있는 검증된 수신자 키가 없습니다."
 
 msgid "This message is too large for browser OpenPGP processing."
-msgstr ""
+msgstr "이 메시지는 브라우저에서 OpenPGP로 처리하기에 너무 큽니다."
 
 msgid "Message protection changed while preparing the message. Please send again."
-msgstr ""
+msgstr "메시지를 준비하는 동안 메시지 보호 설정이 변경되었습니다. 다시 보내 주세요."
 
 msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
-msgstr ""
+msgstr "보호된 메시지의 크기는 {0} MB로, 이 서버가 한 번의 요청에서 허용하는 크기({1} MB)를 초과합니다. 첨부 파일을 제거하거나 관리자에게 업로드 한도를 늘려 달라고 요청하세요."
 
 msgid "The attachment archive is too large."
-msgstr ""
+msgstr "첨부 파일의 압축 파일이 너무 큽니다."
 
 msgid "Unlock the message again to download this attachment."
-msgstr ""
+msgstr "이 첨부 파일을 다운로드하려면 메시지를 다시 잠금 해제하세요."
 
 msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
-msgstr ""
+msgstr "이 메시지에는 OpenPGP가 열 수 없는 중첩된 S/MIME 보호가 포함되어 있습니다."
 
 msgid "Too many nested OpenPGP envelopes."
-msgstr ""
+msgstr "중첩된 OpenPGP 봉투가 너무 많습니다."
 
 msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
-msgstr ""
+msgstr "서명이 유효하지 않거나 해당 공개 키를 사용할 수 없습니다. 이 발신자 신원을 신뢰하지 마세요."
 
 msgid "The private key was locked while opening this message."
-msgstr ""
+msgstr "이 메시지를 여는 동안 개인 키가 잠겼습니다."
 
 msgid "This message contains too many attachments."
-msgstr ""
+msgstr "이 메시지에는 첨부 파일이 너무 많습니다."
 
 msgid "The decoded attachments are too large."
-msgstr ""
+msgstr "디코딩된 첨부 파일이 너무 큽니다."
 
 msgid "The OpenPGP operation failed."
-msgstr ""
+msgstr "OpenPGP 작업에 실패했습니다."
 
 msgid "OpenPGP: checking message security…"
-msgstr ""
+msgstr "OpenPGP: 메시지 보안 확인 중…"
 
 msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
-msgstr ""
+msgstr "MIME 봉투 없이 저장된 암호화 메시지 — 첨부 파일을 저장한 후 OpenPGP 도구로 해독하세요"
 
 msgid "Signed message stored without its original MIME — the signature cannot be verified"
-msgstr ""
+msgstr "원본 MIME 없이 저장된 서명 메시지 — 서명을 검증할 수 없음"
 
 msgid "Message decrypted"
-msgstr ""
+msgstr "메시지 해독됨"
 
 msgid "Message could not be decrypted — click for details or retry"
-msgstr ""
+msgstr "메시지를 해독할 수 없음 — 자세한 내용을 보거나 다시 시도하려면 클릭하세요"
 
 msgid "Encrypted message — unlock your private key to read"
-msgstr ""
+msgstr "암호화된 메시지 — 읽으려면 개인 키를 잠금 해제하세요"
 
 msgid "Signature could not be verified"
 msgstr "서명을 확인할 수 없습니다."
 
 msgid "Valid signature, but the signing key does not match the sender"
-msgstr ""
+msgstr "유효한 서명이지만 서명 키가 발신자와 일치하지 않음"
 
 msgid "Valid signature — sender fingerprint has not been verified"
-msgstr ""
+msgstr "유효한 서명 — 발신자 지문이 확인되지 않음"
 
 msgid "Valid signature from a verified sender"
-msgstr ""
+msgstr "확인된 발신자의 유효한 서명"
 
 msgid "The signing key has since expired"
-msgstr ""
+msgstr "그 이후 서명 키가 만료됨"
 
 msgid "Message is not signed"
-msgstr ""
+msgstr "메시지에 서명이 없음"
 
 msgid "Inline OpenPGP protects the body only; attachments are not covered"
-msgstr ""
+msgstr "인라인 OpenPGP는 본문만 보호하며 첨부 파일은 보호되지 않음"
 
 msgid "Unprotected text after the OpenPGP block is not shown"
-msgstr ""
+msgstr "OpenPGP 블록 뒤의 보호되지 않은 텍스트는 표시되지 않음"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr ""
+msgstr "공개 키를 불러올 수 없어 서명을 검증하지 못함"
 
 msgid "Security information"
-msgstr ""
+msgstr "보안 정보"
 
 msgid "Choose when composing"
-msgstr ""
+msgstr "작성할 때 선택"
 
 msgid "Personal and public keys"
-msgstr ""
+msgstr "개인 및 공개 키"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr ""
+msgstr "키는 사용자의 사서함에 저장됩니다. 개인 키는 암호 문구로 보호된 상태로 유지되며 서명, 암호화, 잠금 해제는 이 브라우저에서 이루어집니다. 상대방의 지문은 별도의 신뢰할 수 있는 경로를 통해 확인하세요. 키 변경 사항은 즉시 적용됩니다."
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
-msgstr ""
+msgstr "OpenPGP 키가 없습니다. 시작하려면 키를 가져오거나 생성하세요."
 
 msgid "Identity"
-msgstr ""
+msgstr "사용자 ID"
 
 msgid "Fingerprint"
-msgstr ""
+msgstr "지문"
 
 msgid "Public key"
-msgstr ""
+msgstr "공개 키"
 
 msgid "Revoked"
-msgstr ""
+msgstr "해지됨"
 
 msgid "Expired"
-msgstr ""
+msgstr "만료됨"
 
 msgid "Fingerprint verified"
-msgstr ""
+msgstr "지문 확인됨"
 
 msgid "Not verified"
-msgstr ""
+msgstr "확인되지 않음"
 
 msgid "Unlocked"
-msgstr ""
+msgstr "잠금 해제됨"
 
 msgid "Locked"
-msgstr ""
+msgstr "잠김"
 
 msgid "Expires"
 msgstr "만료"
 
 msgid "No expiry"
-msgstr ""
+msgstr "만료 없음"
 
 msgid "Generate key"
-msgstr ""
+msgstr "키 생성"
 
 msgid "Import key"
-msgstr ""
+msgstr "키 가져오기"
 
 msgid "Find public key"
-msgstr ""
+msgstr "공개 키 찾기"
 
 msgid "Details / verify"
-msgstr ""
+msgstr "세부 정보 / 지문 확인"
 
 msgid "Export public key"
-msgstr ""
+msgstr "공개 키 내보내기"
 
 msgid "Back up private key"
-msgstr ""
+msgstr "개인 키 백업"
 
 msgid "Unlock in this browser"
-msgstr ""
+msgstr "이 브라우저에서 잠금 해제"
 
 msgid "Change passphrase"
 msgstr "암호 문구 변경"
 
 msgid "Lock all"
-msgstr ""
+msgstr "모두 잠금"
 
 msgid "Default private key"
-msgstr ""
+msgstr "기본 개인 키"
 
 msgid "Sign new messages by default"
-msgstr ""
+msgstr "새 메시지에 기본적으로 서명"
 
 msgid "Encrypt new messages by default"
-msgstr ""
+msgstr "새 메시지를 기본적으로 암호화"
 
 msgid "Manage keyservers"
-msgstr ""
+msgstr "키 서버 관리"
 
 msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
-msgstr ""
+msgstr "작성 기본값은 새 OpenPGP 메시지에만 적용됩니다. S/MIME과 OpenPGP는 같은 메시지에 함께 사용할 수 없습니다."
 
 msgid "Generate OpenPGP key"
-msgstr ""
+msgstr "OpenPGP 키 생성"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "알고리즘"
 
 msgid "Expires in"
-msgstr ""
+msgstr "유효 기간"
 
 msgid "1 year"
-msgstr ""
+msgstr "1년"
 
 msgid "2 years"
-msgstr ""
+msgstr "2년"
 
 msgid "5 years"
-msgstr ""
+msgstr "5년"
 
 msgid "Repeat passphrase"
-msgstr ""
+msgstr "암호 문구 확인"
 
 msgid "Passphrases do not match."
-msgstr ""
+msgstr "암호 문구가 일치하지 않습니다."
 
 msgid "Generate"
-msgstr ""
+msgstr "생성"
 
 msgid "Key created. Back up the private key and store its passphrase separately."
-msgstr ""
+msgstr "키가 생성되었습니다. 개인 키를 백업하고 암호 문구는 따로 보관하세요."
 
 msgid "Revocation certificate — keep secure"
-msgstr ""
+msgstr "해지 인증서 — 안전하게 보관하세요"
 
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
-msgstr ""
+msgstr "12자 이상의 강력한 암호 문구를 선택하세요. 키 생성은 이 브라우저에서 로컬로 실행되며 시간이 다소 걸릴 수 있습니다. 해지 인증서와 개인 키 백업은 안전한 곳에 보관하세요."
 
 msgid "Import OpenPGP key"
-msgstr ""
+msgstr "OpenPGP 키 가져오기"
 
 msgid "Choose armored OpenPGP key file"
-msgstr ""
+msgstr "ASCII 아머 OpenPGP 키 파일 선택"
 
 msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr ""
+msgstr "키 파일이 너무 큽니다. 최대 크기: 1 MiB."
 
 msgid "The key file could not be read."
-msgstr ""
+msgstr "키 파일을 읽을 수 없습니다."
 
 msgid "Armored key"
-msgstr ""
+msgstr "ASCII 아머 키"
 
 msgid "Protect unencrypted key"
-msgstr ""
+msgstr "암호화되지 않은 키 보호"
 
 msgid "Optional: new passphrase for an unprotected private key"
-msgstr ""
+msgstr "선택 사항: 보호되지 않은 개인 키의 새 암호 문구"
 
 msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr ""
+msgstr "키를 가져왔습니다. 수신자에게 암호화하여 보내기 전에 수신자의 지문을 확인하세요."
 
 msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr ""
+msgstr "파일을 선택하거나 BEGIN 및 END 줄을 포함한 ASCII 아머 키 하나를 붙여 넣으세요. 보호되지 않은 개인 키라면 저장하기 전에 새 암호 문구를 입력하여 로컬에서 보호하세요. 가져온 수신자 키는 자동으로 신뢰되지 않습니다."
 
 msgid "Public OpenPGP key"
-msgstr ""
+msgstr "OpenPGP 공개 키"
 
 msgid "Back up private OpenPGP key"
-msgstr ""
+msgstr "OpenPGP 개인 키 백업"
 
 msgid "Create backup"
-msgstr ""
+msgstr "백업 만들기"
 
 msgid "Private key backup — keep secure"
-msgstr ""
+msgstr "개인 키 백업 — 안전하게 보관하세요"
 
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
-msgstr ""
+msgstr "이 암호화된 개인 키 백업을 다운로드하기 전에 로컬에서 암호 문구를 확인하세요. 백업은 안전하게 보관하고 수신자나 키 서버에 절대 보내지 마세요."
 
 msgid "Current passphrase"
-msgstr ""
+msgstr "현재 암호 문구"
 
 msgid "New passphrase"
 msgstr "새 암호 문구"
 
 msgid "Change OpenPGP passphrase"
-msgstr ""
+msgstr "OpenPGP 암호 문구 변경"
 
 msgid "Repeat new passphrase"
-msgstr ""
+msgstr "새 암호 문구 확인"
 
 msgid "Passphrase changed. Make a new private-key backup."
-msgstr ""
+msgstr "암호 문구가 변경되었습니다. 개인 키 백업을 새로 만드세요."
 
 msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
-msgstr ""
+msgstr "개인 키는 로컬에서 다시 암호화됩니다. 기존 백업에는 여전히 원래 암호 문구가 필요합니다."
 
 msgid "Verify OpenPGP fingerprint"
-msgstr ""
+msgstr "OpenPGP 지문 확인"
 
 msgid "Verified identities"
-msgstr ""
+msgstr "확인된 ID"
 
 msgid "Email identity"
-msgstr ""
+msgstr "이메일 ID"
 
 msgid "Confirm fingerprint"
-msgstr ""
+msgstr "지문 확인"
 
 msgid "Enter the full fingerprint shown above."
-msgstr ""
+msgstr "위에 표시된 전체 지문을 입력하세요."
 
 msgid "I verified this fingerprint"
-msgstr ""
+msgstr "이 지문을 확인했습니다"
 
 msgid "Save verification"
-msgstr ""
+msgstr "확인 상태 저장"
 
 msgid "Fingerprint verification updated."
-msgstr ""
+msgstr "지문 확인 상태가 업데이트되었습니다."
 
 msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
-msgstr ""
+msgstr "별도의 신뢰할 수 있는 경로로 상대방과 전체 지문을 비교하세요. 확인란을 선택하면 선택한 주소에 이 키가 고정되고, 선택을 해제하면 해당 확인이 제거됩니다."
 
 msgid "All private keys in this browser tab are locked."
-msgstr ""
+msgstr "이 브라우저 탭의 모든 개인 키가 잠겼습니다."
 
 msgid "Delete OpenPGP key"
-msgstr ""
+msgstr "OpenPGP 키 삭제"
 
 msgid "Type the full fingerprint to confirm deletion."
-msgstr ""
+msgstr "삭제를 확인하려면 전체 지문을 입력하세요."
 
 msgid "Delete key"
-msgstr ""
+msgstr "키 삭제"
 
 msgid "Key removed from your mailbox."
-msgstr ""
+msgstr "사서함에서 키가 제거되었습니다."
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
-msgstr ""
+msgstr "이 개인 키를 삭제하면 백업이 없는 한 이 키로 암호화된 메시지를 읽을 수 없습니다. 계속하기 전에 개인 키를 백업하세요."
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr ""
+msgstr "이 작업은 키링에서 공개 키와 확인된 지문을 제거합니다."
 
 msgid "Manage OpenPGP keyservers"
-msgstr ""
+msgstr "OpenPGP 키 서버 관리"
 
 msgid "HTTPS keyservers"
-msgstr ""
+msgstr "HTTPS 키 서버"
 
 msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
-msgstr ""
+msgstr "경로, 자격 증명, 쿼리 없이 HTTPS 서버 출처를 한 줄에 하나씩 입력하세요."
 
 msgid "Save keyservers"
-msgstr ""
+msgstr "키 서버 저장"
 
 msgid "Keyservers updated."
-msgstr ""
+msgstr "키 서버 목록이 업데이트되었습니다."
 
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
-msgstr ""
+msgstr "관리자가 승인한 HTTPS 키 서버만 사용할 수 있습니다. 검색하려면 전체 지문이 필요합니다. 키는 자동으로 업로드되지 않습니다."
 
 msgid "Approved servers: "
-msgstr ""
+msgstr "승인된 서버: "
 
 msgid "Find OpenPGP public key"
-msgstr ""
+msgstr "OpenPGP 공개 키 찾기"
 
 msgid "Keyserver"
-msgstr ""
+msgstr "키 서버"
 
 msgid "Full fingerprint"
-msgstr ""
+msgstr "전체 지문"
 
 msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
-msgstr ""
+msgstr "40자리 또는 64자리 16진수 지문 전체를 입력하세요."
 
 msgid "Find and import"
-msgstr ""
+msgstr "찾아서 가져오기"
 
 msgid "The keyserver did not return the requested public key."
-msgstr ""
+msgstr "요청한 공개 키를 키 서버가 반환하지 않았습니다."
 
 msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr ""
+msgstr "공개 키를 가져왔습니다. 키 소유자에게 암호화하여 보내기 전에 지문을 확인하세요."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
-msgstr ""
+msgstr "검색하는 지문은 해당 키 서버로 전송됩니다. 다운로드한 키도 소유자에게 암호화하여 보내기 전에 지문 확인이 필요합니다."
 
 msgid "Old passphrase"
 msgstr "이전 암호 문구"
@@ -8270,7 +8270,7 @@ msgid "PHP-CURL not installed"
 msgstr "PHP-CURL이 설치되지 않았습니다."
 
 msgid "Unknown backend"
-msgstr ""
+msgstr "알 수 없는 백엔드"
 
 msgid "Account is ready to use."
 msgstr "계정을 사용할 준비가 되었습니다."
@@ -8285,10 +8285,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "이 파일은 더 이상 사용할 수 없습니다. 폴더를 다시 로드하세요."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "이 백엔드에서는 수신자 검색이 지원되지 않습니다"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "수신자를 조회할 수 없습니다"
 
 msgid "Kendox certificate path is not configured."
 msgstr "Kendox 인증서 경로가 구성되지 않았습니다."
@@ -8310,7 +8310,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "예기치 않은 오류가 발생했습니다. 시스템 관리자에게 문의하세요. 오류 코드: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "이 서버에서는 공유 폴더 관리가 지원되지 않습니다."
 
 msgid "No data received."
 msgstr "수신된 데이터가 없습니다."
@@ -8331,13 +8331,13 @@ msgid "Password has been changed successfully."
 msgstr "비밀번호가 성공적으로 변경되었습니다."
 
 msgid "The OpenPGP operation could not be completed."
-msgstr ""
+msgstr "OpenPGP 작업을 완료할 수 없습니다."
 
 msgid "OpenPGP: message was not sent"
-msgstr ""
+msgstr "OpenPGP: 메시지가 전송되지 않음"
 
 msgid "The OpenPGP message could not be read."
-msgstr ""
+msgstr "OpenPGP 메시지를 읽을 수 없습니다."
 
 msgid "No certificate available"
 msgstr "사용 가능한 인증서 없음"
@@ -8364,13 +8364,13 @@ msgid "Unable to generate certs-only message"
 msgstr "인증서 전용 메시지를 생성할 수 없습니다"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "certs-only 메시지를 읽을 수 없습니다"
 
 msgid "LDAP not configured"
 msgstr "LDAP가 구성되지 않음"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "잘못된 LDAP 구성"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "다음 수신자에 대한 누락된 공인 인증서가 있습니다:"
@@ -8416,7 +8416,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "인증서가 해지되었지만 가져온 인증서입니다."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "인증서 해지 상태를 확인할 수 없습니다. 인증서를 가져왔습니다."
 
 msgid "Unable to read public certificate"
 msgstr "공인 인증서를 읽을 수 없습니다."
@@ -8461,7 +8461,7 @@ msgid "Cannot store the category list in this mailbox."
 msgstr "이 사서함에 카테고리 목록을 저장할 수 없습니다."
 
 msgid "Cannot scan this mailbox for categories."
-msgstr ""
+msgstr "이 사서함에서 카테고리를 검사할 수 없습니다."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -8489,16 +8489,16 @@ msgid "%1$s of %2$s"
 msgstr "%2$s의 %1$s"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "OpenPGP가 현재 비활성화되어 있거나 사용할 수 없습니다. 메시지가 전송되지 않았습니다. 다시 시도하기 전에 OpenPGP를 사용 설정하거나, 서명과 암호화를 명시적으로 해제하세요."
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
-msgstr ""
+msgstr "짧은 시간에 너무 많은 메시지가 전송되었습니다. 잠시 기다린 후 다시 보내 주세요."
 
 msgid "Message was not sent"
-msgstr ""
+msgstr "메시지가 전송되지 않음"
 
 msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "이 초안은 OpenPGP 보호를 요청했지만 적용되지 않았습니다. 메시지가 전송되지 않았습니다. 다시 시도하기 전에 OpenPGP를 사용 설정하거나, 서명과 암호화를 명시적으로 해제하세요."
 
 msgid "Error retrieving existing settings"
 msgstr "기존 설정을 검색하는 동안 오류가 발생했습니다."
@@ -8866,7 +8866,7 @@ msgid "Could not decline Task Request."
 msgstr "작업 요청을 거절할 수 없습니다."
 
 msgid "Could not open the attachment."
-msgstr ""
+msgstr "첨부 파일을 열 수 없습니다."
 
 msgid "Conflicts with another appointment."
 msgstr "다른 약속과 충돌합니다."
@@ -8883,7 +8883,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "다음 수신자에게 연결할 수 없습니다."
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
+msgstr "첨부 파일 제거 기능이 관리자에 의해 비활성화되었습니다."
 
 msgid "l, F j, Y g:i A"
 msgstr "Y년 n월 j일 (l) A g:i"

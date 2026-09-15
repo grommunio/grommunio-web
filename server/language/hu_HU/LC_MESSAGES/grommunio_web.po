@@ -486,9 +486,8 @@ msgstr "Kapcsolattartók másolása"
 msgid "Address book"
 msgstr "Címjegyzék"
 
-#, fuzzy
 msgid "Showing only the first {0} names. Use search to find more specific results."
-msgstr "Csak az első {0} nevek megjelenítése. Használja a keresést a pontosabb eredmények megtalálásához."
+msgstr "Csak az első {0} név jelenik meg. Használja a keresést a pontosabb eredmények megtalálásához."
 
 msgid "Use the search bar to get results"
 msgstr "Használja a keresőt, hogy találatokat kapjon"
@@ -761,9 +760,8 @@ msgstr "Keresési eredmények betöltése"
 msgid "Sorting tip"
 msgstr "Rendezési tipp"
 
-#, fuzzy
 msgid "You can sort by date if you narrow down your search results. Enable filters or adjust your input."
-msgstr "Ha szűkíti a keresési eredményeket, dátum szerint is rendezheti. Engedélyezze a szűrőket, vagy állítsa be a bevitelt."
+msgstr "Ha szűkíti a keresési eredményeket, dátum szerint is rendezheti. Engedélyezze a szűrőket, vagy módosítsa a keresőkifejezést."
 
 msgid "Did you mean"
 msgstr "Arra gondolt, hogy"
@@ -1026,7 +1024,6 @@ msgstr "Foglalás létrehozása"
 msgid "Create in other calendar"
 msgstr "Más naptárban létrehozni"
 
-#, fuzzy
 msgid "The selected calendar has \"read-only\" permissions. Instead you can create an item in your own calendar."
 msgstr "A kiválasztott naptár \"csak olvasási\" jogosultságokkal rendelkezik. Ehelyett létrehozhat egy elemet a saját naptárában."
 
@@ -1078,7 +1075,6 @@ msgstr "Nincs jogosultsága az elem törléséhez."
 msgid "Send update to attendees"
 msgstr "Frissítés küldése a résztvevőknek"
 
-#, fuzzy
 msgid "You have made changes to the list of attendees. What would you like to do?"
 msgstr "Módosította a résztvevők listáját. Mit szeretne tenni?"
 
@@ -1325,17 +1321,14 @@ msgstr "Törlési üzenet küldése most."
 msgid "Send Meeting Request Confirmation"
 msgstr "Értekezlet meghívó megerősítésének elküldése"
 
-#, fuzzy
 msgid "This meeting will be accepted and moved to your calendar. Do you want to include comments with your response?"
-msgstr "Ez az értekezlet elfogadásra került és a naptárába lett helyezve. Kíván megjegyzést fűzni a válaszához?"
+msgstr "Ez az értekezlet elfogadásra kerül, és átkerül a naptárába. Kíván megjegyzést fűzni a válaszához?"
 
-#, fuzzy
 msgid "This meeting will be tentatively accepted and moved to your calendar. Do you want to include comments with your response?"
-msgstr "Ez az értekezlet esetleges módban elfogadásra került és a naptárába lett helyezve. Kíván megjegyzést fűzni a válaszához?"
+msgstr "Ez az értekezlet feltételesen elfogadásra kerül, és átkerül a naptárába. Kíván megjegyzést fűzni a válaszához?"
 
-#, fuzzy
 msgid "This meeting will be declined and moved to your Deleted Items folder. Do you want to include comments with your response?"
-msgstr "Ezt az értekezletet elutasította, és a Törölt mappába helyezte. Kíván megjegyzést fűzni a válaszához?"
+msgstr "Ez az értekezlet elutasításra kerül, és átkerül a Törölt elemek mappájába. Kíván megjegyzést fűzni a válaszához?"
 
 msgid "Edit the response before sending"
 msgstr "Válasz szerkesztése elküldés előtt"
@@ -1648,17 +1641,14 @@ msgstr "Találkozók listája"
 msgid "Loading appointments"
 msgstr "Találkozók betöltése"
 
-#, fuzzy
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
-msgstr "Nincs elegendő jogosultsága az elem mozgatásához és másolásához. Kérje meg a mappa tulajdonosát, hogy adjon engedélyeket, vagy forduljon a rendszergazdához."
+msgstr "Nincs elegendő jogosultsága az elem áthelyezéséhez és másolásához. Kérje meg a mappa tulajdonosát, hogy adjon engedélyeket, vagy forduljon a rendszergazdához."
 
-#, fuzzy
 msgid "You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Nincs elegendő jogosultsága az elem másolásához. Kérje meg a mappa tulajdonosát, hogy adjon engedélyeket, vagy forduljon a rendszergazdához."
 
-#, fuzzy
 msgid "Copying this appointment will unset it as private. Are you sure you want to continue?"
-msgstr "A kinevezés másolásával a kinevezés nem lesz magánjellegű. Biztos, hogy folytatni szeretné?"
+msgstr "A találkozó másolásakor megszűnik a magánjellegű jelölése. Biztos, hogy folytatni szeretné?"
 
 msgid "Private item"
 msgstr "Magántétel"
@@ -1666,9 +1656,8 @@ msgstr "Magántétel"
 msgid "Copy"
 msgstr "Másolás"
 
-#, fuzzy
 msgid "Moving this appointment will unset it as private. Are you sure you want to continue?"
-msgstr "A kinevezés áthelyezésével ez a kinevezés nem lesz magánjellegű. Biztos, hogy folytatni szeretné?"
+msgstr "A találkozó áthelyezésekor megszűnik a magánjellegű jelölése. Biztos, hogy folytatni szeretné?"
 
 msgid "Move"
 msgstr "Áthelyezés"
@@ -1738,7 +1727,7 @@ msgid "jS F Y"
 msgstr "Y. F j"
 
 msgid "Online meeting"
-msgstr ""
+msgstr "Online értekezlet"
 
 msgid "Attendees"
 msgstr "Résztvevők"
@@ -1853,9 +1842,8 @@ msgstr "Sorozat megnyitása"
 msgid "Paste Recurring {0}"
 msgstr "Beillesztés ismétlődő {0}"
 
-#, fuzzy
 msgid "This is a recurring {0}. Do you want to paste only this occurrence or the series?"
-msgstr "Ez egy visszatérő {0}. Csak ezt az eseményt vagy az egész sorozatot szeretné beilleszteni?"
+msgstr "Ez egy ismétlődő {0}. Csak ezt az egy ismétlődést szeretné beilleszteni, vagy az egész sorozatot?"
 
 msgid "message"
 msgstr "üzenet"
@@ -1913,8 +1901,8 @@ msgstr "Nem rendelkezik elegendő jogosultsággal az ebben a mappában lévő el
 
 msgid "You have insufficient privileges to delete one of the selected items."
 msgid_plural "You have insufficient privileges to delete {0} of the selected items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Nincs elegendő jogosultsága a kijelölt elemek egyikének törléséhez."
+msgstr[1] "Nincs elegendő jogosultsága a kijelölt elemek közül {0} elem törléséhez."
 
 msgid "Notify recipients"
 msgstr "A címzettek értesítése"
@@ -1953,14 +1941,13 @@ msgid "Recipient already exists."
 msgstr "A felhasználó már létezik."
 
 msgid "Remove attachment"
-msgstr ""
+msgstr "Melléklet eltávolítása"
 
 msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
-msgstr ""
+msgstr "Eltávolítja a \"{0}\" mellékletet ebből az üzenetből? A melléklet utólag nem állítható vissza."
 
-#, fuzzy
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
-msgstr "A küldő ebben az üzenetben olvasási visszaigazolást kért. Kíván visszaigazolást küldeni?"
+msgstr "Az e-mail feladója olvasási visszaigazolást kért. Kíván visszaigazolást küldeni a feladónak?"
 
 msgid "Import"
 msgstr "Importálás"
@@ -1977,32 +1964,30 @@ msgstr "Importálási hiba"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "Nem sikerült importálni a \"{0}\". A fájl nem érvényes"
 
-#, fuzzy
 msgid "You have insufficient privileges to move these items. Would you like to copy instead?"
 msgstr "Nem rendelkezik elegendő jogosultsággal ahhoz, hogy ezeket az elemeket áthelyezze. Szeretne inkább másolni?"
 
-#, fuzzy
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
-msgstr "Nincs elegendő jogosultsága az elem mozgatásához. Szeretne inkább másolni?"
+msgstr "Nincs elegendő jogosultsága az elem áthelyezéséhez. Szeretne inkább másolni?"
 
 msgid "Untitled"
 msgstr "Névtelen"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "A mellékleteket nem sikerült menteni."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ezt a mellékletet nem sikerült menteni: {0}"
+msgstr[1] "Ezeket a mellékleteket nem sikerült menteni: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} melléklet mentése sikerült."
+msgstr[1] "{0} melléklet mentése sikerült."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "Mellékletek mentése"
 
 msgid "Insert item"
 msgstr "Elem beszúrása"
@@ -2050,7 +2035,7 @@ msgid "Preview"
 msgstr "Előnézet"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "Előnézet párbeszédablakban"
 
 msgid "Download"
 msgstr "Letöltés"
@@ -2059,24 +2044,22 @@ msgid "Download all as ZIP"
 msgstr "Összes letöltése ZIP-ként"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "Kijelöltek mentése helyi mappába"
 
 msgid "Import to folder"
 msgstr "Importálás mappába"
 
-#, fuzzy
 msgid "In order to use the vCard import feature, upgrade your Gromox to version 0 or higher."
-msgstr "A vCard importálási funkció használatához frissítse a Gromoxot a 0. vagy magasabb verzióra."
+msgstr "A vCard importálási funkció használatához frissítse a Gromoxot a 0 vagy magasabb verzióra."
 
-#, fuzzy
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "Az ICS / VCS importálási funkció használatához frissítse a Gromoxot a 0 vagy magasabb verzióra."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "Előnézet grommunio Web fülön"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "Előnézet böngészőablakban"
 
 msgid "Attachment error"
 msgstr "Csatolmány hiba"
@@ -2120,7 +2103,6 @@ msgstr "Gyors hozzáférés"
 msgid "Delete Category"
 msgstr "Kategória törlése"
 
-#, fuzzy
 msgid "Are you sure you want to delete the category \"{0}\"? Other items keep this category, but lose the assigned color."
 msgstr "Biztos, hogy törölni szeretné a \"{0}\" kategóriát? A többi elem megtartja ezt a kategóriát, de elveszíti a hozzárendelt színt."
 
@@ -2142,14 +2124,12 @@ msgstr "Pin a gyors hozzáféréshez"
 msgid "Create"
 msgstr "Létrehoz"
 
-#, fuzzy
 msgid "You must apply the changes you have made to the categories before you can create this category."
 msgstr "A kategória létrehozása előtt alkalmaznia kell a kategóriákon elvégzett módosításokat."
 
 msgid "You already have a category named '{0}'. Please use another name."
 msgstr "Már van egy '{0}' nevű kategóriája. Kérjük, használjon másik nevet."
 
-#, fuzzy
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
 msgstr "Már van egy '{0}' nevű kategória a függőben lévő módosítások között. Kérjük, használjon másik nevet."
 
@@ -2162,7 +2142,6 @@ msgstr "Ez az első alkalom, hogy a \"{0}\" kategóriát használja."
 msgid "Do you want to rename it?"
 msgstr "Biztosan át akarja nevezni?"
 
-#, fuzzy
 msgid "The category \"{0}\" already exists. Do you want to merge the \"{1}\" and \"{2}\" categories?"
 msgstr "A \"{0}\" kategória már létezik. Össze szeretné vonni a \"{1}\" és \"{2}\" kategóriákat?"
 
@@ -2247,9 +2226,8 @@ msgstr "Kérem válasszon meghatalmazottat."
 msgid "Delegates can send items on your behalf."
 msgstr "A küldöttek az Ön nevében is küldhetnek tárgyakat."
 
-#, fuzzy
 msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
-msgstr "Ha csak a mappaengedélyeket szeretné beállítani, kattintson a jobb gombbal a mappára a kontextusmenü megnyitásához, és kattintson a \"Mappa megosztása…\" gombra"
+msgstr "Ha csak a mappaengedélyeket szeretné beállítani, kattintson a jobb gombbal a mappára a kontextusmenü megnyitásához, és kattintson a \"Mappa megosztása…\" menüpontra"
 
 msgid "Permission"
 msgstr "Hozzáférés"
@@ -2278,7 +2256,7 @@ msgid "Folder '{0}' selected."
 msgstr "'{0}' mappa kiválasztva."
 
 msgid "Suggested folders"
-msgstr ""
+msgstr "Javasolt mappák"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "A kijelölt elemek nem helyezhetők át ebbe a mappába, mert az más típusú tartalmat tárol."
@@ -2295,11 +2273,9 @@ msgstr "A művelet nem hajtható végre"
 msgid "The selected items are no longer available."
 msgstr "A kiválasztott elemek már nem érhetők el."
 
-#, fuzzy
 msgid "You have insufficient privileges to move this folder. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Nincs elegendő jogosultsága a mappa áthelyezéséhez. Kérje meg a mappa tulajdonosát, hogy adjon engedélyeket, vagy forduljon a rendszergazdához."
 
-#, fuzzy
 msgid "You have insufficient privileges to copy this folder. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Nincs elegendő jogosultsága a mappa másolásához. Kérje meg a mappa tulajdonosát, hogy adjon engedélyeket, vagy forduljon a rendszergazdához."
 
@@ -2478,7 +2454,7 @@ msgid "Redo the last undone action"
 msgstr "Az utoljára visszavont művelet megismétlése"
 
 msgid "Jump to the search box, press again for the browser search"
-msgstr ""
+msgstr "Ugrás a keresőmezőre, újabb lenyomásra a böngésző keresője"
 
 msgid "Open the command palette"
 msgstr "A parancspaletta megnyitása"
@@ -2538,28 +2514,28 @@ msgid "Presentation"
 msgstr "Megjelenés"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Teljes képernyő"
 
 msgid "Previous page"
-msgstr ""
+msgstr "Előző oldal"
 
 msgid "Next page"
-msgstr ""
+msgstr "Következő oldal"
 
 msgid "Page:"
-msgstr ""
+msgstr "Oldal:"
 
 msgid "of {0}"
-msgstr ""
+msgstr "/ {0}"
 
 msgid "Zoom out"
-msgstr ""
+msgstr "Kicsinyítés"
 
 msgid "Zoom in"
-msgstr ""
+msgstr "Nagyítás"
 
 msgid "Zoom"
-msgstr ""
+msgstr "Nagyítás mértéke"
 
 msgid "Automatic"
 msgstr "Automatikus"
@@ -2571,37 +2547,37 @@ msgid "Page width"
 msgstr "Oldal szélessége"
 
 msgid "Rotate left"
-msgstr ""
+msgstr "Forgatás balra"
 
 msgid "Rotate right"
-msgstr ""
+msgstr "Forgatás jobbra"
 
 msgid "This document could not be previewed."
-msgstr ""
+msgstr "A dokumentum előnézetét nem sikerült elkészíteni."
 
 msgid "This file cannot be previewed."
-msgstr ""
+msgstr "Ehhez a fájlhoz nem érhető el előnézet."
 
 msgid "Download the file to open it with a program that can read it."
-msgstr ""
+msgstr "Töltse le a fájlt, és nyissa meg egy olyan programmal, amely olvasni tudja."
 
 msgid "The document is empty."
-msgstr ""
+msgstr "A dokumentum üres."
 
 msgid "This sheet is empty."
-msgstr ""
+msgstr "Ez a munkalap üres."
 
 msgid "Showing the first {0} rows and {1} columns."
-msgstr ""
+msgstr "Csak az első {0} sor és {1} oszlop látható."
 
 msgid "Wrap lines"
-msgstr ""
+msgstr "Sortörés"
 
 msgid "Line numbers"
-msgstr ""
+msgstr "Sorszámok"
 
 msgid "This message has no content."
-msgstr ""
+msgstr "Ennek az üzenetnek nincs tartalma."
 
 msgid "grommunio Web print"
 msgstr "grommunio Web print"
@@ -3107,9 +3083,8 @@ msgstr "Kattintson a váltáshoz: ÉS → VAGY → NEM"
 msgid "Folder does not exist"
 msgstr "A mappa nem létezik"
 
-#, fuzzy
 msgid "The folder you are searching through no longer exists. Please select another folder"
-msgstr "A keresett mappa már nem létezik. Kérjük, válasszon másik mappát"
+msgstr "Az a mappa, amelyben keres, már nem létezik. Kérjük, válasszon másik mappát"
 
 msgid "Add/Edit sender"
 msgstr "Küldő hozzáadása/módosítása"
@@ -3291,7 +3266,6 @@ msgctxt "mail.previewpanel"
 msgid "Please treat this as {0}."
 msgstr "Kérem kezelje ezt, mint {0}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
 msgstr "Kattintson ide a képek letöltéséhez. A magánélet védelme érdekében a grommunio Web megakadályozta néhány kép automatikus letöltését ebben az üzenetben."
@@ -3474,19 +3448,19 @@ msgid "in"
 msgstr "ban/ben"
 
 msgid "Digitally sign this message"
-msgstr ""
+msgstr "Az üzenet digitális aláírása"
 
 msgid "Encrypt this message"
-msgstr ""
+msgstr "Az üzenet titkosítása"
 
 msgid "Autosave is paused while encryption is selected."
-msgstr ""
+msgstr "Az automata mentés szünetel, amíg a titkosítás be van kapcsolva."
 
 msgid "Turn off {0} signing and encryption first."
-msgstr ""
+msgstr "Előbb kapcsolja ki az {0} aláírást és titkosítást."
 
 msgid "options"
-msgstr ""
+msgstr "beállításai"
 
 msgid "Sign"
 msgstr "Aláír"
@@ -3779,9 +3753,8 @@ msgstr "Email 3 Megjelenítés mint"
 msgid "Loading contacts"
 msgstr "Kapcsolatok betöltése"
 
-#, fuzzy
 msgid "There are no items to show in this list. Update the filter for more results."
-msgstr "Ebben a listában nincsenek megjelenítendő elemek. Frissítse a szűrőt a további eredményekért."
+msgstr "Ebben a listában nincsenek megjeleníthető elemek. Módosítsa a szűrőt a további eredményekért."
 
 msgid "[Group]"
 msgstr "[Csoport]"
@@ -4292,9 +4265,8 @@ msgstr "Mentett"
 msgid "Saved successfully"
 msgstr "Sikeresen elmentve"
 
-#, fuzzy
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
-msgstr "Minden nem mentett változás el fog veszni. Biztosan be akarja csukni ezt az ablakot?"
+msgstr "Minden nem mentett változás el fog veszni. Biztosan be szeretné zárni ezt az ablakot?"
 
 msgid "grommunio Content Panel"
 msgstr "grommunio Content Panel"
@@ -4481,7 +4453,6 @@ msgctxt "hierarchy.foldername"
 msgid "Tasks"
 msgstr "Feladatok"
 
-#, fuzzy
 msgctxt "hierarchy.foldername"
 msgid "Junk Email"
 msgstr "Levélszemét"
@@ -4838,18 +4809,17 @@ msgstr "Összes mutatása"
 msgid "Filter folders"
 msgstr "Mappák szűrése"
 
-#, fuzzy
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Nincs elegendő jogosultsága a mappa áthelyezéséhez. Szeretne inkább másolni?"
 
 msgid "Enable OpenPGP before replying to this protected message."
-msgstr ""
+msgstr "A védett üzenet megválaszolásához vagy továbbításához előbb engedélyezze az OpenPGP-t."
 
 msgid "The protected message could not be opened. No reply or forward was created."
-msgstr ""
+msgstr "A védett üzenetet nem sikerült megnyitni. Nem jött létre válasz vagy továbbított üzenet."
 
 msgid "Unable to open response"
-msgstr ""
+msgstr "A válasz nem nyitható meg"
 
 msgid "CC"
 msgstr "CC"
@@ -5018,13 +4988,13 @@ msgid "Filter"
 msgstr "Szűrő"
 
 msgid "This browser cannot attach the decrypted file. Download it before forwarding."
-msgstr ""
+msgstr "Ez a böngésző nem tudja csatolni a visszafejtett fájlt. Továbbítás előtt töltse le."
 
 msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
-msgstr ""
+msgstr "Egy visszafejtett melléklet meghaladja a feltöltési korlátokat. Nem jött létre hiányos válasz."
 
 msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
-msgstr ""
+msgstr "Egy visszafejtett mellékletet nem sikerült feltölteni. Nem jött létre hiányos válasz."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -5105,7 +5075,7 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}Automata Mentés a nem elküldött leveleknél minden {B} percben"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
-msgstr ""
+msgstr "Automata mentés akkor is, ha a titkosítás be van kapcsolva (a piszkozatok titkosítás nélkül tárolódnak)"
 
 msgid "Conversation view settings"
 msgstr "Beszélgetés nézet beállításai"
@@ -5244,9 +5214,8 @@ msgstr "Feladólisták"
 msgid "Safe Senders"
 msgstr "Biztonságos feladó"
 
-#, fuzzy
 msgid "To protect your privacy email addresses or domains can only be added via the \"Add to safe sender list\" functionality in an opened email."
-msgstr "A magánélet védelme érdekében e-mail címeket vagy domaineket csak a \"Hozzáadás a biztonságos feladói listához\" funkcióval lehet hozzáadni egy megnyitott e-mailben."
+msgstr "A magánélet védelme érdekében e-mail címeket vagy domaineket csak a \"Hozzáadás a megbízható feladók listájához\" funkcióval lehet hozzáadni egy megnyitott e-mailben."
 
 msgid "Safe Senders list is empty"
 msgstr "A Biztonságos feladó lista üres"
@@ -5436,9 +5405,8 @@ msgstr "Jegyzetek betöltése"
 msgid "Quick Note"
 msgstr "Gyors jegyzet"
 
-#, fuzzy
 msgid "You must reload grommunio Web for the changes to take effect. Unsaved changes will be lost."
-msgstr "A beállítások frissítéséhez a grommunio Webot újra kell indítania."
+msgstr "A módosítások érvénybe lépéséhez újra kell töltenie a grommunio Webet. A nem mentett módosítások elvesznek."
 
 msgid "Reload grommunio Web"
 msgstr "Újratöltés grommunio Web"
@@ -5561,7 +5529,7 @@ msgid "Auto"
 msgstr "Automatikus"
 
 msgid "Preview documents and files in grommunio Web"
-msgstr ""
+msgstr "Dokumentumok és fájlok előnézete a grommunio Webben"
 
 msgid "Document default zoom"
 msgstr "Dokumentum alapértelmezett nagyítása"
@@ -5570,10 +5538,10 @@ msgid "PDF zoom"
 msgstr "PDF zoom"
 
 msgid "Dialog"
-msgstr ""
+msgstr "Párbeszédablak"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "Előnézet megnyitása itt"
 
 msgid "File previewing"
 msgstr "Fájl előnézet"
@@ -5656,9 +5624,8 @@ msgstr "Túllépte a kemény kvótát, nem tud leveleket küldeni vagy fogadni."
 msgid "At {0} you won't be able to send mails."
 msgstr "{0}-kor nem fog tudni leveleket küldeni."
 
-#, fuzzy
 msgid "You can not send mails as you have exceeded soft quota, at {0} you won't be able to receive mails."
-msgstr "Nem tudsz leveleket küldeni, mivel túllépted a lágy kvótát, {0}-nél nem fogsz tudni leveleket fogadni."
+msgstr "Nem tud leveleket küldeni, mert túllépte a lágy kvótát; {0} elérésekor már leveleket sem tud majd fogadni."
 
 msgid "At {0} you won't be able to send or receive mails."
 msgstr "A {0} címen nem fogsz tudni leveleket küldeni vagy fogadni."
@@ -5672,13 +5639,11 @@ msgstr "Alapértelmezett beállítások visszaállítása"
 msgid "Reset settings to their original defaults."
 msgstr "A grommunio Web beállításokat alaphelyzetbe állítja."
 
-#, fuzzy
 msgid "This will close all opened shared stores and resets all settings to the default value."
 msgstr "Ez bezárja az összes megnyitott megosztott tárolót, és visszaállítja az összes beállítást az alapértelmezett értékre."
 
-#, fuzzy
 msgid "grommunio Web will automatically reload in order for these changes to take effect"
-msgstr "A beállítások érvénybe lépéséhez a grommunio Web automatikusan újra fog indulni"
+msgstr "A módosítások érvénybe lépéséhez a grommunio Web automatikusan újratöltődik"
 
 msgid "Reset"
 msgstr "Visszaállítás"
@@ -5743,22 +5708,22 @@ msgid "Reset all settings to defaults"
 msgstr "Minden beállítás alapértelmezettre visszaállítása"
 
 msgid "Migrate legacy categories"
-msgstr ""
+msgstr "Örökölt kategóriák migrálása"
 
 msgid "This will scan all folders and migrate the categories assigned to items."
-msgstr ""
+msgstr "Ez a művelet átvizsgálja az összes mappát, és migrálja az elemekhez rendelt kategóriákat."
 
 msgid "The legacy category settings will remain unchanged."
-msgstr ""
+msgstr "Az örökölt kategóriabeállítások változatlanok maradnak."
 
 msgid "Migrate"
-msgstr ""
+msgstr "Migrálás"
 
 msgid "Legacy categories migrated successfully."
-msgstr ""
+msgstr "Az örökölt kategóriák migrálása sikeresen megtörtént."
 
 msgid "Could not migrate legacy categories."
-msgstr ""
+msgstr "Az örökölt kategóriákat nem sikerült migrálni."
 
 msgid "Changes to assigned task"
 msgstr "A kijelölt feladat módosításai"
@@ -5823,9 +5788,8 @@ msgstr "Feladatok elfogadása"
 msgid "Declining Task"
 msgstr "Feladatok elutasítása"
 
-#, fuzzy
 msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
-msgstr "Ez az értekezlet elfogadásra került és a naptárába lett helyezve. Kíván megjegyzést fűzni a válaszához?"
+msgstr "Ez a feladat elfogadásra kerül, és átkerül a feladatok mappájába. Kíván megjegyzést fűzni a válaszához?"
 
 msgid "This task will be declined and moved into the Deleted Items folder. Do you want to edit the response before sending it?"
 msgstr "Ezt az értekezletet elutasította, és a Törölt mappába helyezte. Kívánja szerkeszteni a válasz üzenetet küldés előtt?"
@@ -6294,7 +6258,7 @@ msgid "The response was interrupted and may be incomplete."
 msgstr "A válasz megszakadt, és hiányos lehet."
 
 msgid "The answer reached the output limit configured for this model and stops here."
-msgstr ""
+msgstr "A válasz elérte az ehhez a modellhez beállított kimeneti korlátot, és itt megszakad."
 
 msgid "Insert at cursor"
 msgstr "Beszúrás a kurzorhoz"
@@ -6443,7 +6407,6 @@ msgstr "Biztos, hogy törölni szeretné a {0} fájlokat?"
 msgid "Are you sure want to delete {0} folders and all of their contents?"
 msgstr "Biztos, hogy törölni szeretné a {0} mappákat és azok teljes tartalmát?"
 
-#, fuzzy
 msgid "Are you sure want to delete the selected items and all of their contents?"
 msgstr "Biztos, hogy törölni szeretné a kijelölt elemeket és azok összes tartalmát?"
 
@@ -6525,13 +6488,11 @@ msgstr "Fájlok beállításainak alaphelyzetbe állítása"
 msgid "Are you sure to remove all settings and accounts?"
 msgstr "Biztos, hogy minden beállítást és fiókot eltávolított?"
 
-#, fuzzy
 msgid "Accounts marked by your administrator as \"cannot be changed\" will not be removed."
 msgstr "A rendszergazda által \"nem módosítható\"-ként megjelölt fiókok nem kerülnek eltávolításra."
 
-#, fuzzy
 msgid "grommunio Web will automatically restart in order for these changes to take effect."
-msgstr "a grommunio Web automatikusan újraindul, hogy a módosítások hatályba lépjenek."
+msgstr "A módosítások érvénybe lépéséhez a grommunio Web automatikusan újraindul."
 
 msgid "grommunio Web is reloading, Please wait."
 msgstr "grommunio A web újratöltődik, várjon."
@@ -6726,7 +6687,7 @@ msgid "Create office document"
 msgstr "Irodai dokumentum létrehozása"
 
 msgid "Preview file"
-msgstr ""
+msgstr "Fájl előnézete"
 
 msgid "Download files"
 msgstr "Fájlok letöltése"
@@ -6895,10 +6856,10 @@ msgid "Mobile Device Manager"
 msgstr "Mobil eszköz kezelő"
 
 msgid "Device removed"
-msgstr ""
+msgstr "Eszköz eltávolítva"
 
 msgid "The device was not removed. Check your password and try again."
-msgstr ""
+msgstr "Az eszközt nem sikerült eltávolítani. Ellenőrizze a jelszavát, és próbálja meg újra."
 
 msgid "Wiping device"
 msgstr "Eszköz törlése folyamatban"
@@ -6984,7 +6945,6 @@ msgstr "Megosztott mappák"
 msgid "Manage Shared Folders"
 msgstr "Megosztott mappák kezelése"
 
-#, fuzzy
 msgid "Select folders to sync to your device from the list below. To add additional mailboxes to the list, open them in grommunio Web first."
 msgstr "Válassza ki a készülékkel szinkronizálandó mappákat az alábbi listából. Ha további postafiókokat szeretne hozzáadni a listához, először nyissa meg őket a grommunio Webben."
 
@@ -6997,9 +6957,8 @@ msgstr "Mobil eszköz kezelő"
 msgid "Mobile Devices"
 msgstr "Mobil eszközök"
 
-#, fuzzy
 msgid "Unable to connect to the grommunio-sync server. Click {0} to enter your credentials"
-msgstr "Nem sikerült csatlakozni a grommunio-sync szerverhez. Kattintson a {0} gombra a hitelesítő adatok megadásához"
+msgstr "Nem sikerült csatlakozni a grommunio-sync szerverhez. A hitelesítő adatok megadásához kattintson ide: {0}"
 
 msgid "Devices"
 msgstr "Eszközök"
@@ -7085,7 +7044,6 @@ msgstr ""
 "Tényleg eltávolítja a készüléket?\n"
 "Írja be a REMOVE parancsot a megerősítéshez."
 
-#, fuzzy
 msgid ""
 "Do you really want to remove your device?\n"
 " Enter your password to confirm."
@@ -7141,9 +7099,8 @@ msgstr "A szervező nevének hozzáadása a szoba nevéhez"
 msgid "Add the URL to the meeting location rather than overwriting it"
 msgstr "Az URL hozzáadása a találkozó helyéhez ahelyett, hogy felülírná azt"
 
-#, fuzzy
 msgid "Prevent the URL in the meeting location from being overridden automatically (ex: when adding a meetingroom)"
-msgstr "Megakadályozhatja, hogy az értekezlet helyszínének URL-címe automatikusan felülíródjon (pl.: tárgyalóterem hozzáadásakor)"
+msgstr "A találkozó helyén szereplő URL automatikus felülírásának megakadályozása (pl.: tárgyalóterem hozzáadásakor)"
 
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr "Ha problémák merülnek fel a találkozók létrehozásakor, próbálja meg letiltani ezt a beállítást"
@@ -7202,468 +7159,467 @@ msgstr "Az új jelszó üres."
 msgid "One or more fields does contain errors."
 msgstr "Egy vagy több mező hibát tartalmaz."
 
-#, fuzzy
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
-msgstr "A jelszó gyenge. A jelszónak nagybetűket, nem nagybetűket és számokat kell tartalmaznia. A jelszónak 8-20 karakterből kell állnia."
+msgstr "A jelszó gyenge. A jelszónak nagybetűket, kisbetűket és számokat kell tartalmaznia. A jelszónak 8-20 karakterből kell állnia."
 
 msgid "The OpenPGP request failed. Please try again."
-msgstr ""
+msgstr "Az OpenPGP-kérés sikertelen. Kérjük, próbálja meg újra."
 
 msgid "Working…"
-msgstr ""
+msgstr "Feldolgozás…"
 
 msgid "The operation failed. Please try again."
-msgstr ""
+msgstr "A művelet sikertelen. Kérjük, próbálja meg újra."
 
 msgid "Passphrase"
-msgstr ""
+msgstr "Jelszó"
 
 msgid "Unlock OpenPGP private key"
-msgstr ""
+msgstr "OpenPGP privát kulcs feloldása"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Feloldás"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr ""
+msgstr "A jelszava és a feloldott kulcs ebben a böngészőlapon marad. A kulcs korlátozott idő elteltével vagy a lap bezárásakor automatikusan zárolódik. Ujjlenyomat: "
 
 msgid "Set up OpenPGP"
-msgstr ""
+msgstr "OpenPGP beállítása"
 
 msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
-msgstr ""
+msgstr "Adjon hozzá a feladó címére szóló privát kulcsot, hogy aláírhassa az üzeneteket, vagy hogy az elküldött titkosított másolat olvasható maradjon. Meglévő kulcsot importálhat, vagy létrehozhat egy újat az OpenPGP beállításaiban."
 
 msgid "Open key settings"
-msgstr ""
+msgstr "Kulcsbeállítások megnyitása"
 
 msgid "Choose OpenPGP key"
-msgstr ""
+msgstr "OpenPGP-kulcs kiválasztása"
 
 msgid "Private key"
-msgstr ""
+msgstr "Privát kulcs"
 
 msgid "Use key"
-msgstr ""
+msgstr "Kulcs használata"
 
 msgid "Private-key unlocking was cancelled."
-msgstr ""
+msgstr "A privát kulcs feloldása megszakadt."
 
 msgid "Key selection was cancelled."
-msgstr ""
+msgstr "A kulcs kiválasztása megszakadt."
 
 msgid "Choose private key…"
-msgstr ""
+msgstr "Privát kulcs kiválasztása…"
 
 msgid "Manage OpenPGP keys…"
-msgstr ""
+msgstr "OpenPGP-kulcsok kezelése…"
 
 msgid "Lock private keys"
-msgstr ""
+msgstr "Privát kulcsok zárolása"
 
 msgid "Signing key: "
-msgstr ""
+msgstr "Aláíró kulcs: "
 
 msgid "Decryption alone does not authenticate the sender."
-msgstr ""
+msgstr "A visszafejtés önmagában nem igazolja a feladó személyazonosságát."
 
 msgid "OpenPGP security information"
-msgstr ""
+msgstr "OpenPGP biztonsági információk"
 
 msgid "OpenPGP"
-msgstr ""
+msgstr "OpenPGP"
 
 msgid "OpenPGP signed or encrypted message"
-msgstr ""
+msgstr "OpenPGP-vel aláírt vagy titkosított üzenet"
 
 msgid "OpenPGP Plugin"
-msgstr ""
+msgstr "OpenPGP bővítmény"
 
 msgid "The OpenPGP operation was cancelled."
-msgstr ""
+msgstr "Az OpenPGP-művelet megszakadt."
 
 msgid "S/MIME and OpenPGP cannot protect the same message."
-msgstr ""
+msgstr "Az S/MIME és az OpenPGP nem védheti ugyanazt az üzenetet."
 
 msgid "Saving the OpenPGP draft timed out. Please retry."
-msgstr ""
+msgstr "Az OpenPGP-piszkozat mentése időtúllépés miatt megszakadt. Kérjük, próbálja meg újra."
 
 msgid "The draft could not be saved. Nothing was sent."
-msgstr ""
+msgstr "A piszkozatot nem sikerült menteni. Semmi sem lett elküldve."
 
 msgid "The sender or message protection changed. Please send again."
-msgstr ""
+msgstr "A feladó vagy az üzenet védelme megváltozott. Kérjük, küldje el újra."
 
 msgid "The selected private key is not valid for this sender and protection mode."
-msgstr ""
+msgstr "A kiválasztott privát kulcs nem érvényes ehhez a feladóhoz és védelmi módhoz."
 
 msgid "A matching, passphrase-protected private key is required."
-msgstr ""
+msgstr "Jelszóval védett, megfelelő privát kulcs szükséges."
 
 msgid "A recipient key is invalid, expired or does not match its email address."
-msgstr ""
+msgstr "Az egyik címzett kulcsa érvénytelen vagy lejárt, vagy nem egyezik az e-mail-címével."
 
 msgid "No verified recipient keys are available."
-msgstr ""
+msgstr "Nem áll rendelkezésre érvényes címzetti kulcs."
 
 msgid "This message is too large for browser OpenPGP processing."
-msgstr ""
+msgstr "Ez az üzenet túl nagy a böngészőben végzett OpenPGP-feldolgozáshoz."
 
 msgid "Message protection changed while preparing the message. Please send again."
-msgstr ""
+msgstr "Az üzenet védelme megváltozott az előkészítés közben. Kérjük, küldje el újra."
 
 msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
-msgstr ""
+msgstr "A védett üzenet mérete {0} MB, ami több, mint amennyit a kiszolgáló egyetlen kérésben elfogad ({1} MB). Távolítson el mellékleteket, vagy kérje meg a rendszergazdát a feltöltési korlát megemelésére."
 
 msgid "The attachment archive is too large."
-msgstr ""
+msgstr "A mellékleteket tartalmazó archívum túl nagy."
 
 msgid "Unlock the message again to download this attachment."
-msgstr ""
+msgstr "A melléklet letöltéséhez oldja fel újra az üzenetet."
 
 msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
-msgstr ""
+msgstr "Ez az üzenet olyan beágyazott S/MIME-védelmet tartalmaz, amelyet az OpenPGP nem tud megnyitni."
 
 msgid "Too many nested OpenPGP envelopes."
-msgstr ""
+msgstr "Túl sok egymásba ágyazott OpenPGP-boríték."
 
 msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
-msgstr ""
+msgstr "Az aláírás érvénytelen, vagy a hozzá tartozó nyilvános kulcs nem áll rendelkezésre. Ne hagyatkozzon a feladó személyazonosságára."
 
 msgid "The private key was locked while opening this message."
-msgstr ""
+msgstr "A privát kulcs zárolódott az üzenet megnyitása közben."
 
 msgid "This message contains too many attachments."
-msgstr ""
+msgstr "Ez az üzenet túl sok mellékletet tartalmaz."
 
 msgid "The decoded attachments are too large."
-msgstr ""
+msgstr "A visszafejtett mellékletek túl nagyok."
 
 msgid "The OpenPGP operation failed."
-msgstr ""
+msgstr "Az OpenPGP-művelet sikertelen."
 
 msgid "OpenPGP: checking message security…"
-msgstr ""
+msgstr "OpenPGP: üzenetbiztonság ellenőrzése…"
 
 msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
-msgstr ""
+msgstr "A titkosított üzenet a MIME-boríték nélkül lett eltárolva — mentse el a mellékletet, és fejtse vissza egy OpenPGP-eszközzel"
 
 msgid "Signed message stored without its original MIME — the signature cannot be verified"
-msgstr ""
+msgstr "Az aláírt üzenet az eredeti MIME nélkül lett eltárolva — az aláírás nem ellenőrizhető"
 
 msgid "Message decrypted"
-msgstr ""
+msgstr "Az üzenet visszafejtve"
 
 msgid "Message could not be decrypted — click for details or retry"
-msgstr ""
+msgstr "Az üzenetet nem sikerült visszafejteni — kattintson a részletekért vagy az újrapróbálkozáshoz"
 
 msgid "Encrypted message — unlock your private key to read"
-msgstr ""
+msgstr "Titkosított üzenet — az olvasáshoz oldja fel a privát kulcsát"
 
 msgid "Signature could not be verified"
 msgstr "Aláírás érvényessége nem ellenőrizhető"
 
 msgid "Valid signature, but the signing key does not match the sender"
-msgstr ""
+msgstr "Érvényes aláírás, de az aláíró kulcs nem egyezik a feladóval"
 
 msgid "Valid signature — sender fingerprint has not been verified"
-msgstr ""
+msgstr "Érvényes aláírás — a feladó ujjlenyomata nincs ellenőrizve"
 
 msgid "Valid signature from a verified sender"
-msgstr ""
+msgstr "Érvényes aláírás ellenőrzött feladótól"
 
 msgid "The signing key has since expired"
-msgstr ""
+msgstr "Az aláíró kulcs azóta lejárt"
 
 msgid "Message is not signed"
-msgstr ""
+msgstr "Az üzenet nincs aláírva"
 
 msgid "Inline OpenPGP protects the body only; attachments are not covered"
-msgstr ""
+msgstr "Az inline OpenPGP csak az üzenet szövegét védi; a mellékletekre nem terjed ki"
 
 msgid "Unprotected text after the OpenPGP block is not shown"
-msgstr ""
+msgstr "Az OpenPGP-blokk után álló, védelem nélküli szöveg nem jelenik meg"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr ""
+msgstr "A nyilvános kulcsai nem tölthetők be, így az aláírások érvényessége nem ellenőrizhető"
 
 msgid "Security information"
-msgstr ""
+msgstr "Biztonsági információk"
 
 msgid "Choose when composing"
-msgstr ""
+msgstr "Kiválasztás levélíráskor"
 
 msgid "Personal and public keys"
-msgstr ""
+msgstr "Személyes és nyilvános kulcsok"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr ""
+msgstr "A kulcsai a postafiókjában tárolódnak. A privát kulcsok jelszóval védettek maradnak; az aláírás, a titkosítás és a feloldás ebben a böngészőben történik. A partnerei ujjlenyomatát külön, megbízható csatornán keresztül ellenőrizze. A kulcsok módosításai azonnal életbe lépnek."
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
-msgstr ""
+msgstr "Nincsenek OpenPGP-kulcsok. A kezdéshez importáljon vagy hozzon létre egy kulcsot."
 
 msgid "Identity"
-msgstr ""
+msgstr "Identitás"
 
 msgid "Fingerprint"
-msgstr ""
+msgstr "Ujjlenyomat"
 
 msgid "Public key"
-msgstr ""
+msgstr "Nyilvános kulcs"
 
 msgid "Revoked"
-msgstr ""
+msgstr "Visszavont"
 
 msgid "Expired"
-msgstr ""
+msgstr "Lejárt"
 
 msgid "Fingerprint verified"
-msgstr ""
+msgstr "Ujjlenyomat ellenőrizve"
 
 msgid "Not verified"
-msgstr ""
+msgstr "Nincs ellenőrizve"
 
 msgid "Unlocked"
-msgstr ""
+msgstr "Feloldva"
 
 msgid "Locked"
-msgstr ""
+msgstr "Zárolva"
 
 msgid "Expires"
 msgstr "Lejárat"
 
 msgid "No expiry"
-msgstr ""
+msgstr "Nincs lejárat"
 
 msgid "Generate key"
-msgstr ""
+msgstr "Kulcs létrehozása"
 
 msgid "Import key"
-msgstr ""
+msgstr "Kulcs importálása"
 
 msgid "Find public key"
-msgstr ""
+msgstr "Nyilvános kulcs keresése"
 
 msgid "Details / verify"
-msgstr ""
+msgstr "Részletek / ellenőrzés"
 
 msgid "Export public key"
-msgstr ""
+msgstr "Nyilvános kulcs exportálása"
 
 msgid "Back up private key"
-msgstr ""
+msgstr "Privát kulcs biztonsági mentése"
 
 msgid "Unlock in this browser"
-msgstr ""
+msgstr "Feloldás ebben a böngészőben"
 
 msgid "Change passphrase"
 msgstr "Jelszó módosítása"
 
 msgid "Lock all"
-msgstr ""
+msgstr "Összes zárolása"
 
 msgid "Default private key"
-msgstr ""
+msgstr "Alapértelmezett privát kulcs"
 
 msgid "Sign new messages by default"
-msgstr ""
+msgstr "Új üzenetek aláírása alapértelmezés szerint"
 
 msgid "Encrypt new messages by default"
-msgstr ""
+msgstr "Új üzenetek titkosítása alapértelmezés szerint"
 
 msgid "Manage keyservers"
-msgstr ""
+msgstr "Kulcsszerverek kezelése"
 
 msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
-msgstr ""
+msgstr "A levélírási alapértelmezések csak az új OpenPGP-üzenetekre vonatkoznak. Az S/MIME és az OpenPGP nem kombinálható ugyanabban az üzenetben."
 
 msgid "Generate OpenPGP key"
-msgstr ""
+msgstr "OpenPGP-kulcs létrehozása"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "Algoritmus"
 
 msgid "Expires in"
-msgstr ""
+msgstr "Érvényesség"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 év"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 év"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 év"
 
 msgid "Repeat passphrase"
-msgstr ""
+msgstr "Jelszó megismétlése"
 
 msgid "Passphrases do not match."
-msgstr ""
+msgstr "A jelszavak nem egyeznek."
 
 msgid "Generate"
-msgstr ""
+msgstr "Létrehozás"
 
 msgid "Key created. Back up the private key and store its passphrase separately."
-msgstr ""
+msgstr "A kulcs létrejött. Készítsen biztonsági mentést a privát kulcsról, és a jelszavát külön helyen tárolja."
 
 msgid "Revocation certificate — keep secure"
-msgstr ""
+msgstr "Visszavonási tanúsítvány — tartsa biztonságban"
 
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
-msgstr ""
+msgstr "Válasszon legalább 12 karakterből álló, erős jelszót. A létrehozás helyben, ebben a böngészőben fut, és eltarthat egy ideig. A visszavonási tanúsítványt és a privát kulcs biztonsági mentését tartsa biztonságos helyen."
 
 msgid "Import OpenPGP key"
-msgstr ""
+msgstr "OpenPGP-kulcs importálása"
 
 msgid "Choose armored OpenPGP key file"
-msgstr ""
+msgstr "ASCII-páncélozott OpenPGP-kulcsfájl kiválasztása"
 
 msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr ""
+msgstr "A kulcsfájl túl nagy. Maximális méret: 1 MiB."
 
 msgid "The key file could not be read."
-msgstr ""
+msgstr "A kulcsfájlt nem sikerült beolvasni."
 
 msgid "Armored key"
-msgstr ""
+msgstr "Páncélozott kulcs"
 
 msgid "Protect unencrypted key"
-msgstr ""
+msgstr "Titkosítatlan kulcs védelme"
 
 msgid "Optional: new passphrase for an unprotected private key"
-msgstr ""
+msgstr "Opcionális: új jelszó a védelem nélküli privát kulcshoz"
 
 msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr ""
+msgstr "A kulcs importálása megtörtént. Mielőtt titkosított üzenetet küldene a címzetteknek, ellenőrizze az ujjlenyomatukat."
 
 msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr ""
+msgstr "Válasszon fájlt, vagy illesszen be egyetlen ASCII-páncélozott kulcsot a BEGIN és END sorokkal együtt. Védelem nélküli privát kulcs esetén adjon meg egy új jelszót, amellyel a tárolás előtt helyben védetté teheti. Az importált címzetti kulcsok nem válnak automatikusan megbízhatóvá."
 
 msgid "Public OpenPGP key"
-msgstr ""
+msgstr "Nyilvános OpenPGP-kulcs"
 
 msgid "Back up private OpenPGP key"
-msgstr ""
+msgstr "Privát OpenPGP-kulcs biztonsági mentése"
 
 msgid "Create backup"
-msgstr ""
+msgstr "Biztonsági mentés létrehozása"
 
 msgid "Private key backup — keep secure"
-msgstr ""
+msgstr "Privát kulcs biztonsági mentése — tartsa biztonságban"
 
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
-msgstr ""
+msgstr "A titkosított privát kulcs biztonsági mentésének letöltése előtt erősítse meg helyben a jelszavát. A mentést őrizze biztonságban, és soha ne küldje el címzettnek vagy kulcsszervernek."
 
 msgid "Current passphrase"
-msgstr ""
+msgstr "Jelenlegi jelszó"
 
 msgid "New passphrase"
 msgstr "Új jelszó"
 
 msgid "Change OpenPGP passphrase"
-msgstr ""
+msgstr "OpenPGP-jelszó módosítása"
 
 msgid "Repeat new passphrase"
-msgstr ""
+msgstr "Új jelszó megismétlése"
 
 msgid "Passphrase changed. Make a new private-key backup."
-msgstr ""
+msgstr "A jelszó megváltozott. Készítsen új biztonsági mentést a privát kulcsról."
 
 msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
-msgstr ""
+msgstr "A privát kulcs újratitkosítása helyben történik. A meglévő biztonsági mentésekhez továbbra is az eredeti jelszó szükséges."
 
 msgid "Verify OpenPGP fingerprint"
-msgstr ""
+msgstr "OpenPGP-ujjlenyomat ellenőrzése"
 
 msgid "Verified identities"
-msgstr ""
+msgstr "Ellenőrzött identitások"
 
 msgid "Email identity"
-msgstr ""
+msgstr "E-mail identitás"
 
 msgid "Confirm fingerprint"
-msgstr ""
+msgstr "Ujjlenyomat megerősítése"
 
 msgid "Enter the full fingerprint shown above."
-msgstr ""
+msgstr "Adja meg a fent látható teljes ujjlenyomatot."
 
 msgid "I verified this fingerprint"
-msgstr ""
+msgstr "Ellenőriztem ezt az ujjlenyomatot"
 
 msgid "Save verification"
-msgstr ""
+msgstr "Ellenőrzés mentése"
 
 msgid "Fingerprint verification updated."
-msgstr ""
+msgstr "Az ujjlenyomat-ellenőrzés frissítve."
 
 msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
-msgstr ""
+msgstr "Hasonlítsa össze a teljes ujjlenyomatot a partnerével egy külön, megbízható csatornán keresztül. A jelölőnégyzet bejelölésével a kiválasztott címhez rögzíti ezt a kulcsot; ha nem jelöli be, a meglévő ellenőrzés törlődik."
 
 msgid "All private keys in this browser tab are locked."
-msgstr ""
+msgstr "Ebben a böngészőlapon minden privát kulcs zárolva van."
 
 msgid "Delete OpenPGP key"
-msgstr ""
+msgstr "OpenPGP-kulcs törlése"
 
 msgid "Type the full fingerprint to confirm deletion."
-msgstr ""
+msgstr "A törlés megerősítéséhez írja be a teljes ujjlenyomatot."
 
 msgid "Delete key"
-msgstr ""
+msgstr "Kulcs törlése"
 
 msgid "Key removed from your mailbox."
-msgstr ""
+msgstr "A kulcs eltávolítva a postafiókjából."
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
-msgstr ""
+msgstr "Ha törli ezt a privát kulcsot, biztonsági mentés nélkül többé nem tudja elolvasni az erre a kulcsra titkosított üzeneteket. Folytatás előtt készítsen biztonsági mentést a privát kulcsról."
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr ""
+msgstr "Ezzel eltávolítja a nyilvános kulcsot és a hozzá tartozó ellenőrzött ujjlenyomatokat a kulcstartójáról."
 
 msgid "Manage OpenPGP keyservers"
-msgstr ""
+msgstr "OpenPGP-kulcsszerverek kezelése"
 
 msgid "HTTPS keyservers"
-msgstr ""
+msgstr "HTTPS kulcsszerverek"
 
 msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
-msgstr ""
+msgstr "Soronként egy HTTPS-szervercímet adjon meg, útvonal, hitelesítési adatok és lekérdezés nélkül."
 
 msgid "Save keyservers"
-msgstr ""
+msgstr "Kulcsszerverek mentése"
 
 msgid "Keyservers updated."
-msgstr ""
+msgstr "A kulcsszerverek frissítve."
 
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
-msgstr ""
+msgstr "Csak a rendszergazda által jóváhagyott HTTPS-kulcsszerverek használhatók. A kereséshez teljes ujjlenyomat szükséges. A kulcsok feltöltése soha nem történik automatikusan."
 
 msgid "Approved servers: "
-msgstr ""
+msgstr "Jóváhagyott szerverek: "
 
 msgid "Find OpenPGP public key"
-msgstr ""
+msgstr "Nyilvános OpenPGP-kulcs keresése"
 
 msgid "Keyserver"
-msgstr ""
+msgstr "Kulcsszerver"
 
 msgid "Full fingerprint"
-msgstr ""
+msgstr "Teljes ujjlenyomat"
 
 msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
-msgstr ""
+msgstr "Adjon meg egy teljes, 40 vagy 64 jegyű hexadecimális ujjlenyomatot."
 
 msgid "Find and import"
-msgstr ""
+msgstr "Keresés és importálás"
 
 msgid "The keyserver did not return the requested public key."
-msgstr ""
+msgstr "A kulcsszerver nem adta vissza a kért nyilvános kulcsot."
 
 msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr ""
+msgstr "A nyilvános kulcs importálása megtörtént. Mielőtt titkosított üzenetet küldene a tulajdonosának, ellenőrizze az ujjlenyomatát."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
-msgstr ""
+msgstr "A kulcsszerver megkapja a keresett ujjlenyomatot. A letöltött kulcs ujjlenyomatát még ellenőriznie kell, mielőtt titkosított üzenetet küld a tulajdonosának."
 
 msgid "Old passphrase"
 msgstr "Régi jelszó"
@@ -7788,9 +7744,8 @@ msgstr "Rendelkezik érvényes tanúsítvánnyal ehhez a fiókhoz"
 msgid "Upload your certificate"
 msgstr "Tanúsítvány feltöltése"
 
-#, fuzzy
 msgid "Below you can upload your private certificate in PKCS#12 format. grommunio Web only accepts certificates which are valid and only stores one private certificate on the server."
-msgstr "Az alábbiakban feltöltheti a privát tanúsítványát PKCS#12 formátumban.A grommunio Web csak érvényes tanúsítványokat fogad el, és csak egy privát tanúsítványt tárol a szerveren."
+msgstr "Az alábbiakban feltöltheti a privát tanúsítványát PKCS#12 formátumban. A grommunio Web csak érvényes tanúsítványokat fogad el, és csak egy privát tanúsítványt tárol a szerveren."
 
 msgid "Private certificate"
 msgstr "Privát tanúsítvány"
@@ -7834,13 +7789,11 @@ msgstr "Mi történik a levelemmel?"
 msgid "CBC mode"
 msgstr "CBC üzemmód"
 
-#, fuzzy
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
-msgstr "a grommunio Web képes ellenőrizni az e-mailek digitális aláírását. A sikeres ellenőrzés megnyugtatja Önt, hogy az üzenetet nem manipulálták, és igazolja a feladó személyazonosságát."
+msgstr "A grommunio Web képes ellenőrizni az e-mailek digitális aláírását. A sikeres ellenőrzés megnyugtatja Önt, hogy az üzenetet nem manipulálták, és igazolja a feladó személyazonosságát."
 
-#, fuzzy
 msgid "You are seeing this message because the verification of the digital signature"
-msgstr "Azért látja ezt az üzenetet, mert a digitális aláírás hitelesítése"
+msgstr "Azért látja ezt az üzenetet, mert a digitális aláírás ellenőrzése"
 
 msgid " has failed"
 msgstr " kudarcot vallott"
@@ -7854,48 +7807,39 @@ msgstr "Mi okozta ezt a problémát?"
 msgid "What should I do?"
 msgstr "Mit tegyek?"
 
-#, fuzzy
 msgid "You can continue to work. However, you should keep in mind that the identity and the authenticity of the message content could not be verified."
-msgstr "Folytathatja a munkát. Ne feledje azonban, hogy az üzenet tartalmának személyazonosságát és hitelességét nem lehetett ellenőrizni."
+msgstr "Folytathatja a munkát. Ne feledje azonban, hogy a feladó személyazonosságát és az üzenet tartalmának hitelességét nem lehetett ellenőrizni."
 
-#, fuzzy
 msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
 msgstr "Ha nem tudja, hogy mi a következő lépés, forduljon a helpdeskhez vagy a rendszergazdához."
 
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
 msgstr "A grommunio Web képes ellenőrizni az e-mailek digitális aláírását. A sikeres ellenőrzés megnyugtatja Önt"
 
-#, fuzzy
 msgid "that the message has not been tampered with and validates the identity of the sender."
-msgstr "hogy az üzenetet nem manipulálták, és érvényesíti a feladó személyazonosságát."
+msgstr ", hogy az üzenetet nem manipulálták, és igazolja a feladó személyazonosságát."
 
-#, fuzzy
 msgid "The verification of the digital signature was successful for this email message."
 msgstr "A digitális aláírás ellenőrzése sikeres volt ennél az e-mail üzenetnél."
 
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr "a grommunio Web nem talált nyilvános tanúsítványt a címzett számára."
 
-#, fuzzy
 msgid "The identity of the sender and authenticity of the message content have been verified, but the certificate used to sign the message expired on [d-m-Y]."
-msgstr "A feladó személyazonosságát és az üzenet tartalmának hitelességét ellenőrizték, de az üzenet aláírásához használt tanúsítvány [d-m-Y] lejárt."
+msgstr "A feladó személyazonosságát és az üzenet tartalmának hitelességét ellenőrizték, de az üzenet aláírásához használt tanúsítvány lejárt ekkor: [d-m-Y]."
 
 msgid "The digital signature could not be verified for unknown reasons."
 msgstr "A digitális aláírást ismeretlen okokból nem lehetett ellenőrizni."
 
-#, fuzzy
 msgid "The digital certificate used to sign this message has been revoked (i.e. the sender has marked it as compromised)"
-msgstr "Az üzenet aláírásához használt digitális tanúsítványt visszavonták (azaz a feladó veszélyeztetettnek jelölte meg)"
+msgstr "Az üzenet aláírásához használt digitális tanúsítványt visszavonták (azaz a feladó kompromittáltnak jelölte meg)"
 
-#, fuzzy
 msgid "The verification service of the certificate authority that signed the sender's certificate is not available. The validity of the certificate could not be verified."
-msgstr "A feladó tanúsítványát aláíró tanúsítványkiadó hitelesítési szolgáltatása nem elérhető. A tanúsítvány érvényességét nem sikerült ellenőrizni."
+msgstr "A feladó tanúsítványát aláíró hitelesítésszolgáltató ellenőrző szolgáltatása nem érhető el. A tanúsítvány érvényességét nem sikerült ellenőrizni."
 
-#, fuzzy
 msgid "The revocation status of the digital certificate used to sign this email is unknown (Server is unavailable or certificate does not support OCSP). The validity of the certificate could not be verified."
 msgstr "Az e-mail aláírásához használt digitális tanúsítvány visszavonási státusza ismeretlen (a kiszolgáló nem elérhető, vagy a tanúsítvány nem támogatja az OCSP-t). A tanúsítvány érvényessége nem volt ellenőrizhető."
 
-#, fuzzy
 msgid "The revocation status of the digital certificate used to sign this email is disabled (OCSP). The validity of the certificate could not be verified."
 msgstr "Az e-mail aláírásához használt digitális tanúsítvány visszavonási státusza letiltott (OCSP). A tanúsítvány érvényessége nem volt ellenőrizhető."
 
@@ -8139,7 +8083,6 @@ msgstr "Várakozás"
 msgid "You have been automatically logged out"
 msgstr "Automatikusan ki lett jelentkeztetve"
 
-#, fuzzy
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "Sajnáljuk, a grommunio Web nem érhető el ezzel a felhasználói fiókkal. Kérjük, lépjen kapcsolatba a rendszergazdával."
 
@@ -8384,7 +8327,7 @@ msgid "PHP-CURL not installed"
 msgstr "PHP-CURL nincs telepítve"
 
 msgid "Unknown backend"
-msgstr ""
+msgstr "Ismeretlen háttértár"
 
 msgid "Account is ready to use."
 msgstr "A fiók már használatban van."
@@ -8399,10 +8342,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Ez a fájl már nem elérhető. Frissítse a mappát."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "A címzettkeresést ez a háttértár nem támogatja"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "A címzettek lekérdezése nem lehetséges"
 
 msgid "Kendox certificate path is not configured."
 msgstr "A Kendox tanúsítvány elérési útja nincs beállítva."
@@ -8419,12 +8362,12 @@ msgstr "A Kendox tanúsítvány nem olvasható."
 msgid "Mobile device management plugin"
 msgstr "Mobileszköz-kezelő plugin"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Váratlan hiba történt. Kérjük, lépjen kapcsolatba a rendszergazdával. Hibakód: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "A megosztott mappák kezelését ez a kiszolgáló nem támogatja."
 
 msgid "No data received."
 msgstr "Nem érkezett adat."
@@ -8432,7 +8375,6 @@ msgstr "Nem érkezett adat."
 msgid "Account is empty."
 msgstr "A fiók üres."
 
-#, fuzzy
 msgid "Your password is wrong or you have insufficient permission to change password"
 msgstr "A jelszava rossz, vagy nincs elegendő jogosultsága a jelszó megváltoztatásához"
 
@@ -8446,13 +8388,13 @@ msgid "Password has been changed successfully."
 msgstr "A jelszó módosítása sikeresen megtörtént."
 
 msgid "The OpenPGP operation could not be completed."
-msgstr ""
+msgstr "Az OpenPGP-műveletet nem sikerült befejezni."
 
 msgid "OpenPGP: message was not sent"
-msgstr ""
+msgstr "OpenPGP: az üzenet nem lett elküldve"
 
 msgid "The OpenPGP message could not be read."
-msgstr ""
+msgstr "Az OpenPGP-üzenetet nem sikerült feldolgozni."
 
 msgid "No certificate available"
 msgstr "Nem áll rendelkezésre tanúsítvány"
@@ -8479,13 +8421,13 @@ msgid "Unable to generate certs-only message"
 msgstr "Csak tanúsítványokat tartalmazó üzenet generálása nem lehetséges"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "A certs-only üzenet nem olvasható"
 
 msgid "LDAP not configured"
 msgstr "LDAP nincs konfigurálva"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "Érvénytelen LDAP-konfiguráció"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Hiányzó nyilvános tanúsítványok a következő címzettek esetében: "
@@ -8493,9 +8435,8 @@ msgstr "Hiányzó nyilvános tanúsítványok a következő címzettek esetében
 msgid ". Please contact your system administrator for details"
 msgstr "Kérem, vegye fel a kapcsolatot a rendszergazdával a részletekért"
 
-#, fuzzy
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
-msgstr "A nyilvános tanúsítvány nincs telepítve. E tanúsítvány nélkül nem tudja elolvasni a másoknak küldött titkosított üzeneteket."
+msgstr "Az Ön nyilvános tanúsítványa nincs telepítve. E tanúsítvány nélkül nem tudja elolvasni a másoknak küldött titkosított üzeneteket."
 
 msgid "Certificate is already stored on the server"
 msgstr "A tanúsítvány már tárolva van a kiszolgálón"
@@ -8532,7 +8473,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "A tanúsítványt visszavonták, de importálták."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "A tanúsítvány visszavonási állapotát nem sikerült ellenőrizni. A tanúsítványt importálták."
 
 msgid "Unable to read public certificate"
 msgstr "Nem lehet nyilvános tanúsítványt olvasni"
@@ -8577,13 +8518,12 @@ msgid "Cannot store the category list in this mailbox."
 msgstr "A kategórialista nem tárolható ebben a postafiókban."
 
 msgid "Cannot scan this mailbox for categories."
-msgstr ""
+msgstr "Ebben a postafiókban nem lehet kategóriákat keresni."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "Ismeretlen modul '%s' azonosítóval '%s'"
 
-#, fuzzy
 msgid "Server encountered some problem, so it was not able to handle the request."
 msgstr "A kiszolgáló valamilyen problémába ütközött, ezért nem tudta kezelni a kérést."
 
@@ -8606,16 +8546,16 @@ msgid "%1$s of %2$s"
 msgstr "%1$s / %2$s"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "Az OpenPGP jelenleg le van tiltva vagy nem érhető el. Az üzenet nem lett elküldve. Az újrapróbálkozás előtt engedélyezze az OpenPGP-t, vagy kifejezetten kapcsolja ki az aláírást és a titkosítást."
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
-msgstr ""
+msgstr "Rövid idő alatt túl sok üzenet lett elküldve. Kérjük, várjon egy kicsit, és küldje el újra."
 
 msgid "Message was not sent"
-msgstr ""
+msgstr "Az üzenet nem lett elküldve"
 
 msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "Ez a piszkozat OpenPGP-védelmet kér, de az nem lett alkalmazva. Az üzenet nem lett elküldve. Az újrapróbálkozás előtt engedélyezze az OpenPGP-t, vagy kifejezetten kapcsolja ki az aláírást és a titkosítást."
 
 msgid "Error retrieving existing settings"
 msgstr "Hiba a meglévő beállítások lekérdezésében"
@@ -8629,9 +8569,8 @@ msgstr "Sikertelen bejelentkezés. Kérem, ellenőrizze felhasználónevét/jels
 msgid "Cannot connect to Gromox."
 msgstr "Nem sikerült csatlakozni a grommunio szerverhez."
 
-#, fuzzy
 msgid "Login did not work due to a duplicate session. The issue was automatically resolved, please log in again."
-msgstr "A bejelentkezés nem működött egy duplikált munkamenet miatt. A probléma automatikusan megoldódott, kérjük, jelentkezzen be újra."
+msgstr "A bejelentkezés nem sikerült egy duplikált munkamenet miatt. A probléma automatikusan megoldódott, kérjük, jelentkezzen be újra."
 
 msgid "Unknown MAPI Error"
 msgstr "Ismeretlen MAPI hiba: %s"
@@ -8743,26 +8682,25 @@ msgstr "egy találkozó"
 msgid "You have insufficient privileges to move "
 msgstr "Nincs elegendő jogosultsága a mozgáshoz "
 
-#, fuzzy
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
-msgstr "Nem lehet beállítani, hogy az emlékeztető az előző esemény előtt jelenjen meg. Emlékeztető visszaállítása a módosítás mentéséhez"
+msgstr "Nem lehet beállítani, hogy az emlékeztető az előző előfordulás előtt jelenjen meg. Állítsa vissza az emlékeztetőt a módosítás mentéséhez"
 
 msgid "Two occurrences cannot occur on the same day"
 msgstr "Két esemény nem történhet ugyanazon a napon"
 
-#, fuzzy, php-format
+#, php-format
 msgid "You marked '%s' as a resource. You cannot schedule a meeting with '%s' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule '%s'."
-msgstr "Ön a '%s'-t jelölte meg erőforrásként. Nem tud megbeszélést szervezni a '%s'-vel, mert nem rendelkezik a megfelelő jogosultságokkal a fiókhoz. Vagy adja meg a nevet kötelező vagy választható résztvevőként, vagy beszéljen a rendszergazdával, hogy engedélyt kapjon a '%s' időpontjának megadására."
+msgstr "Ön a '%s'-t jelölte meg erőforrásként. Nem tud találkozót szervezni a '%s'-vel, mert nincs megfelelő jogosultsága ahhoz a fiókhoz. Adja meg a nevet kötelező vagy opcionális résztvevőként, vagy beszéljen a rendszergazdával, hogy engedélyt kapjon a '%s' lefoglalására."
 
-#, fuzzy, php-format
+#, php-format
 msgid "'%s' has declined your meeting because '%s' does not automatically accept meeting requests."
 msgstr "'%s' elutasította a találkozót, mivel '%s' nem fogadja el automatikusan a találkozóra vonatkozó kéréseket."
 
-#, fuzzy, php-format
+#, php-format
 msgid "'%s' has declined your meeting because it is recurring. You must book each meeting separately with this resource."
 msgstr "'%s' visszautasította a találkozót, mert az ismétlődő. Minden egyes találkozót külön kell lefoglalnia ezzel az erőforrással."
 
-#, fuzzy, php-format
+#, php-format
 msgid "'%s' is already booked for this specified time. You must use another time or find another resource."
 msgstr "'%s' már foglalt erre a megadott időpontra. Más időpontot kell használnia, vagy másik erőforrást kell találnia."
 
@@ -8869,7 +8807,6 @@ msgstr "Nem sikerült kiüríteni a mappát."
 msgid "Could not perform action correctly."
 msgstr "Nem tudta megfelelően végrehajtani a műveletet."
 
-#, fuzzy
 msgid "A favorite folder with this name already exists, please use another name."
 msgstr "Egy ilyen nevű kedvenc mappa már létezik, kérjük, használjon más nevet."
 
@@ -8903,9 +8840,9 @@ msgstr "Nem sikerült bezárni a megosztott mappát."
 msgid "User could not be resolved."
 msgstr "A felhasználó nem volt megoldható."
 
-#, fuzzy, php-format
+#, php-format
 msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "Nincs elegendő jogosultsága a %1$s mappa megnyitásához. A mappa tulajdonosa ezeket a mappa tulajdonságainak \"engedélyek\" lapján állíthatja be (jobb klikk a %1$s mappára > tulajdonságok > engedélyek)."
+msgstr "Nincs elegendő jogosultsága a %1$s mappa megnyitásához. A mappa tulajdonosa ezeket a mappa tulajdonságainak \"Jogok\" lapján állíthatja be (kattintson a jobb gombbal a %1$s mappára > Tulajdonságok > Jogok)."
 
 msgid "default"
 msgstr "alapértelmezett"
@@ -8925,9 +8862,8 @@ msgstr "Nem sikerült mappát másolni"
 msgid "You have insufficient privileges to open this message."
 msgstr "Nincs elegendő jogosultsága az üzenet megnyitásához."
 
-#, fuzzy
 msgid "Could not find message, either it has been moved or deleted or you don't have access to open this message."
-msgstr "Nem találta az üzenetet, vagy áthelyezték vagy törölték, vagy nincs hozzáférése az üzenet megnyitásához."
+msgstr "Az üzenet nem található: vagy áthelyezték, vagy törölték, vagy nincs hozzáférése az üzenet megnyitásához."
 
 msgid "Could not open message."
 msgstr "Az üzenetet nem lehet megnyitni."
@@ -8987,7 +8923,7 @@ msgid "Could not decline Task Request."
 msgstr "Nem tudja elutasítani a feladatot."
 
 msgid "Could not open the attachment."
-msgstr ""
+msgstr "A mellékletet nem sikerült megnyitni."
 
 msgid "Conflicts with another appointment."
 msgstr "Ütközés egy másik találkozóval."
@@ -9005,7 +8941,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "Az alábbi címzet(tek) nem érhető(ek) el"
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
+msgstr "A mellékletek eltávolítását a rendszergazda letiltotta."
 
 msgid "l, F j, Y g:i A"
 msgstr "l, Y. F j. G:i"
@@ -9025,7 +8961,6 @@ msgstr "Nem rendelkezik elegendő jogosultsággal ahhoz, hogy megnézze a mappa 
 msgid "Could not load the contents of this folder."
 msgstr "Nem sikerült betölteni a mappa tartalmát."
 
-#, fuzzy
 msgid "You have insufficient privileges to perform search operation in this folder."
 msgstr "Nincs elegendő jogosultsága a keresési művelet végrehajtásához ebben a mappában."
 
@@ -9083,9 +9018,8 @@ msgstr "Hiba az elosztási lista bővítésében."
 msgid "The message store has exceeded its hard quota limit."
 msgstr "Az üzenettároló túllépte a kemény kvótakorlátot."
 
-#, fuzzy
 msgid "To reduce the amount of data in this message store, select some items that you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr "Az üzenettároló adatmennyiségének csökkentéséhez válasszon ki néhány olyan elemet, amelyre már nincs szüksége, törölje őket, és tisztítsa meg a Törölt elemek mappát."
+msgstr "Az üzenettároló adatmennyiségének csökkentéséhez válasszon ki néhány olyan elemet, amelyre már nincs szüksége, törölje őket, és ürítse ki a Törölt elemek mappát."
 
 msgid "The message store has exceeded its soft quota limit."
 msgstr "Az üzenettároló túllépte a puha kvótakorlátot."
@@ -9154,13 +9088,11 @@ msgstr "Egy PHP-bővítmény megállította a fájlfeltöltést. A PHP nem ad m�
 msgid "There is no contact found in this file."
 msgstr "Ebben a fájlban nem található kapcsolat."
 
-#, fuzzy
 msgid "grommunio Web does not support importing multiple VCF with this version."
-msgstr "a grommunio Web ebben a verzióban nem támogatja több VCF importálását."
+msgstr "A grommunio Web ebben a verzióban nem támogatja több VCF fájl importálását."
 
-#, fuzzy
 msgid "grommunio Web does not support importing multiple ICS with this version."
-msgstr "a grommunio Web ebben a verzióban nem támogatja több ICS importálását."
+msgstr "A grommunio Web ebben a verzióban nem támogatja több ICS fájl importálását."
 
 msgid "GB"
 msgstr "GB"

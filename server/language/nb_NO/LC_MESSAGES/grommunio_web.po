@@ -1709,7 +1709,7 @@ msgid "jS F Y"
 msgstr "j. F Y"
 
 msgid "Online meeting"
-msgstr ""
+msgstr "Nettmøte"
 
 msgid "Attendees"
 msgstr "Deltakere"
@@ -1883,8 +1883,8 @@ msgstr "Du har ikke tilstrekkelige rettigheter til å slette elementer i denne m
 
 msgid "You have insufficient privileges to delete one of the selected items."
 msgid_plural "You have insufficient privileges to delete {0} of the selected items."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Du har ikke tilstrekkelige rettigheter til å slette ett av de valgte elementene."
+msgstr[1] "Du har ikke tilstrekkelige rettigheter til å slette {0} av de valgte elementene."
 
 msgid "Notify recipients"
 msgstr "Informer mottakere"
@@ -1923,10 +1923,10 @@ msgid "Recipient already exists."
 msgstr "Mottaker finnes allerede."
 
 msgid "Remove attachment"
-msgstr ""
+msgstr "Fjern vedlegg"
 
 msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
-msgstr ""
+msgstr "Vil du fjerne «{0}» fra denne meldingen? Vedlegget kan ikke gjenopprettes etterpå."
 
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "Senderen av denne meldingen har bedt om å bli varslet når du har lest meldingen. Vil du sende et slikt varsel til senderen?"
@@ -1956,20 +1956,20 @@ msgid "Untitled"
 msgstr "Uten navn"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "Vedleggene kunne ikke lagres."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Dette vedlegget kunne ikke lagres: {0}"
+msgstr[1] "Disse vedleggene kunne ikke lagres: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} vedlegg ble lagret."
+msgstr[1] "{0} vedlegg ble lagret."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "Lagre vedlegg"
 
 msgid "Insert item"
 msgstr "Sett inn element"
@@ -2017,7 +2017,7 @@ msgid "Preview"
 msgstr "Forhåndsvisning"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "Forhåndsvis i dialogvindu"
 
 msgid "Download"
 msgstr "Last ned"
@@ -2026,7 +2026,7 @@ msgid "Download all as ZIP"
 msgstr "Last ned som ZIP"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "Lagre utvalget i lokal mappe"
 
 msgid "Import to folder"
 msgstr "Importer til mappe"
@@ -2038,10 +2038,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "For å kunne bruke ICS/VCS-importfunksjonen må du oppgradere Gromox til versjon 0 eller høyere."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "Forhåndsvis i grommunio Web-fane"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "Forhåndsvis i nettleservindu"
 
 msgid "Attachment error"
 msgstr "Feil med vedlegg"
@@ -2238,7 +2238,7 @@ msgid "Folder '{0}' selected."
 msgstr "Mappe «{0}» valgt."
 
 msgid "Suggested folders"
-msgstr ""
+msgstr "Foreslåtte mapper"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "De valgte elementene kan ikke flyttes til denne mappen fordi den inneholder en annen type innhold."
@@ -2436,7 +2436,7 @@ msgid "Redo the last undone action"
 msgstr "Gjør om den sist angrede handlingen"
 
 msgid "Jump to the search box, press again for the browser search"
-msgstr ""
+msgstr "Hopp til søkefeltet, trykk en gang til for nettleserens søk"
 
 msgid "Open the command palette"
 msgstr "Åpne kommandopaletten"
@@ -2496,28 +2496,28 @@ msgid "Presentation"
 msgstr "Presentasjon"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Fullskjerm"
 
 msgid "Previous page"
-msgstr ""
+msgstr "Forrige side"
 
 msgid "Next page"
-msgstr ""
+msgstr "Neste side"
 
 msgid "Page:"
-msgstr ""
+msgstr "Side:"
 
 msgid "of {0}"
-msgstr ""
+msgstr "av {0}"
 
 msgid "Zoom out"
-msgstr ""
+msgstr "Zoom ut"
 
 msgid "Zoom in"
-msgstr ""
+msgstr "Zoom inn"
 
 msgid "Zoom"
-msgstr ""
+msgstr "Zoomnivå"
 
 msgid "Automatic"
 msgstr "Automatisk"
@@ -2529,37 +2529,37 @@ msgid "Page width"
 msgstr "Sidebredde"
 
 msgid "Rotate left"
-msgstr ""
+msgstr "Roter mot venstre"
 
 msgid "Rotate right"
-msgstr ""
+msgstr "Roter mot høyre"
 
 msgid "This document could not be previewed."
-msgstr ""
+msgstr "Dette dokumentet kunne ikke forhåndsvises."
 
 msgid "This file cannot be previewed."
-msgstr ""
+msgstr "Denne filen kan ikke forhåndsvises."
 
 msgid "Download the file to open it with a program that can read it."
-msgstr ""
+msgstr "Last ned filen for å åpne den med et program som kan lese den."
 
 msgid "The document is empty."
-msgstr ""
+msgstr "Dokumentet er tomt."
 
 msgid "This sheet is empty."
-msgstr ""
+msgstr "Dette arket er tomt."
 
 msgid "Showing the first {0} rows and {1} columns."
-msgstr ""
+msgstr "Viser de første {0} radene og {1} kolonnene."
 
 msgid "Wrap lines"
-msgstr ""
+msgstr "Bryt linjer"
 
 msgid "Line numbers"
-msgstr ""
+msgstr "Linjenumre"
 
 msgid "This message has no content."
-msgstr ""
+msgstr "Denne meldingen har ikke noe innhold."
 
 msgid "grommunio Web print"
 msgstr "grommunio Web print"
@@ -3428,19 +3428,19 @@ msgid "in"
 msgstr "om"
 
 msgid "Digitally sign this message"
-msgstr ""
+msgstr "Signer denne meldingen digitalt"
 
 msgid "Encrypt this message"
-msgstr ""
+msgstr "Krypter denne meldingen"
 
 msgid "Autosave is paused while encryption is selected."
-msgstr ""
+msgstr "Autolagring er satt på pause når kryptering er valgt."
 
 msgid "Turn off {0} signing and encryption first."
-msgstr ""
+msgstr "Slå av signering og kryptering med {0} først."
 
 msgid "options"
-msgstr ""
+msgstr "alternativer"
 
 msgid "Sign"
 msgstr "Skilt"
@@ -4786,13 +4786,13 @@ msgid "You have insufficient privileges to move this folder. Would you like to c
 msgstr "Du har ikke tilstrekkelige rettigheter til å flytte denne mappen. Vil du kopiere i stedet?"
 
 msgid "Enable OpenPGP before replying to this protected message."
-msgstr ""
+msgstr "Slå på OpenPGP før du besvarer eller videresender denne beskyttede meldingen."
 
 msgid "The protected message could not be opened. No reply or forward was created."
-msgstr ""
+msgstr "Den beskyttede meldingen kunne ikke åpnes. Det ble ikke opprettet noe svar eller noen videresending."
 
 msgid "Unable to open response"
-msgstr ""
+msgstr "Kunne ikke åpne svaret"
 
 msgid "CC"
 msgstr "kopi"
@@ -4961,13 +4961,13 @@ msgid "Filter"
 msgstr "Filter"
 
 msgid "This browser cannot attach the decrypted file. Download it before forwarding."
-msgstr ""
+msgstr "Denne nettleseren kan ikke legge ved den dekrypterte filen. Last den ned før du videresender."
 
 msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
-msgstr ""
+msgstr "Et dekryptert vedlegg overskrider opplastingsgrensene. Det ble ikke opprettet noe ufullstendig svar."
 
 msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
-msgstr ""
+msgstr "Et dekryptert vedlegg kunne ikke lastes opp. Det ble ikke opprettet noe ufullstendig svar."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -5048,7 +5048,7 @@ msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}Autolagre usendt mail hvert {B} minutt(er)"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
-msgstr ""
+msgstr "Autolagre også når kryptering er valgt (utkast lagres ukryptert)"
 
 msgid "Conversation view settings"
 msgstr "Innstillinger for samtalevisning"
@@ -5502,7 +5502,7 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Preview documents and files in grommunio Web"
-msgstr ""
+msgstr "Forhåndsvis dokumenter og filer i grommunio Web"
 
 msgid "Document default zoom"
 msgstr "Dokumentets standard zoom"
@@ -5511,10 +5511,10 @@ msgid "PDF zoom"
 msgstr "PDF-zoom"
 
 msgid "Dialog"
-msgstr ""
+msgstr "Dialogvindu"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "Åpne forhåndsvisning i"
 
 msgid "File previewing"
 msgstr "Forhåndsvisning av fil"
@@ -5681,22 +5681,22 @@ msgid "Reset all settings to defaults"
 msgstr "Tilbakestill alle innstillinger til standardinnstillingene"
 
 msgid "Migrate legacy categories"
-msgstr ""
+msgstr "Migrer eldre kategorier"
 
 msgid "This will scan all folders and migrate the categories assigned to items."
-msgstr ""
+msgstr "Dette vil gjennomsøke alle mapper og migrere kategoriene som er tildelt elementene."
 
 msgid "The legacy category settings will remain unchanged."
-msgstr ""
+msgstr "De eldre kategoriinnstillingene forblir uendret."
 
 msgid "Migrate"
-msgstr ""
+msgstr "Migrer"
 
 msgid "Legacy categories migrated successfully."
-msgstr ""
+msgstr "Eldre kategorier ble migrert."
 
 msgid "Could not migrate legacy categories."
-msgstr ""
+msgstr "Kunne ikke migrere eldre kategorier."
 
 msgid "Changes to assigned task"
 msgstr "Endringer på tilordnet oppgave"
@@ -6231,7 +6231,7 @@ msgid "The response was interrupted and may be incomplete."
 msgstr "Svaret ble avbrutt og er kanskje ufullstendig."
 
 msgid "The answer reached the output limit configured for this model and stops here."
-msgstr ""
+msgstr "Svaret nådde grensen for utdata som er konfigurert for denne modellen, og stopper her."
 
 msgid "Insert at cursor"
 msgstr "Sett inn ved markøren"
@@ -6660,7 +6660,7 @@ msgid "Create office document"
 msgstr "Opprett kontordokument"
 
 msgid "Preview file"
-msgstr ""
+msgstr "Forhåndsvis fil"
 
 msgid "Download files"
 msgstr "Last ned filer"
@@ -6829,10 +6829,10 @@ msgid "Mobile Device Manager"
 msgstr "Mobile Device Manager"
 
 msgid "Device removed"
-msgstr ""
+msgstr "Enheten er fjernet"
 
 msgid "The device was not removed. Check your password and try again."
-msgstr ""
+msgstr "Enheten ble ikke fjernet. Kontroller passordet ditt og prøv igjen."
 
 msgid "Wiping device"
 msgstr "Slett innhold på enhet"
@@ -7136,463 +7136,463 @@ msgid "Password is weak. Password should contain capital, non-capital letters an
 msgstr "Passordet er svakt. Passordet bør inneholde store og små bokstaver og tall. Passordet bør bestå av 8 til 20 tegn."
 
 msgid "The OpenPGP request failed. Please try again."
-msgstr ""
+msgstr "OpenPGP-forespørselen mislyktes. Vennligst prøv igjen."
 
 msgid "Working…"
-msgstr ""
+msgstr "Arbeider…"
 
 msgid "The operation failed. Please try again."
-msgstr ""
+msgstr "Operasjonen mislyktes. Vennligst prøv igjen."
 
 msgid "Passphrase"
-msgstr ""
+msgstr "Passordfrase"
 
 msgid "Unlock OpenPGP private key"
-msgstr ""
+msgstr "Lås opp privat OpenPGP-nøkkel"
 
 msgid "Unlock"
-msgstr ""
+msgstr "Lås opp"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr ""
+msgstr "Passordfrasen din og den opplåste nøkkelen blir værende i denne nettleserfanen. Nøkkelen låses automatisk etter en begrenset tid eller når fanen lukkes. Fingeravtrykk: "
 
 msgid "Set up OpenPGP"
-msgstr ""
+msgstr "Sett opp OpenPGP"
 
 msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
-msgstr ""
+msgstr "Legg til en privat nøkkel som samsvarer med avsenderadressen, for å kunne signere meldinger eller beholde en lesbar kryptert kopi i Sendte elementer. Du kan importere en eksisterende nøkkel eller opprette en ny under OpenPGP-innstillingene."
 
 msgid "Open key settings"
-msgstr ""
+msgstr "Åpne nøkkelinnstillingene"
 
 msgid "Choose OpenPGP key"
-msgstr ""
+msgstr "Velg OpenPGP-nøkkel"
 
 msgid "Private key"
-msgstr ""
+msgstr "Privat nøkkel"
 
 msgid "Use key"
-msgstr ""
+msgstr "Bruk nøkkel"
 
 msgid "Private-key unlocking was cancelled."
-msgstr ""
+msgstr "Opplåsingen av den private nøkkelen ble avbrutt."
 
 msgid "Key selection was cancelled."
-msgstr ""
+msgstr "Nøkkelvalget ble avbrutt."
 
 msgid "Choose private key…"
-msgstr ""
+msgstr "Velg privat nøkkel…"
 
 msgid "Manage OpenPGP keys…"
-msgstr ""
+msgstr "Behandle OpenPGP-nøkler…"
 
 msgid "Lock private keys"
-msgstr ""
+msgstr "Lås private nøkler"
 
 msgid "Signing key: "
-msgstr ""
+msgstr "Signeringsnøkkel: "
 
 msgid "Decryption alone does not authenticate the sender."
-msgstr ""
+msgstr "Dekryptering alene autentiserer ikke avsenderen."
 
 msgid "OpenPGP security information"
-msgstr ""
+msgstr "OpenPGP-sikkerhetsinformasjon"
 
 msgid "OpenPGP"
-msgstr ""
+msgstr "OpenPGP"
 
 msgid "OpenPGP signed or encrypted message"
-msgstr ""
+msgstr "Melding signert eller kryptert med OpenPGP"
 
 msgid "OpenPGP Plugin"
-msgstr ""
+msgstr "OpenPGP-plugin"
 
 msgid "The OpenPGP operation was cancelled."
-msgstr ""
+msgstr "OpenPGP-operasjonen ble avbrutt."
 
 msgid "S/MIME and OpenPGP cannot protect the same message."
-msgstr ""
+msgstr "S/MIME og OpenPGP kan ikke beskytte den samme meldingen."
 
 msgid "Saving the OpenPGP draft timed out. Please retry."
-msgstr ""
+msgstr "Tidsavbrudd ved lagring av OpenPGP-utkastet. Vennligst prøv igjen."
 
 msgid "The draft could not be saved. Nothing was sent."
-msgstr ""
+msgstr "Utkastet kunne ikke lagres. Ingenting ble sendt."
 
 msgid "The sender or message protection changed. Please send again."
-msgstr ""
+msgstr "Avsenderen eller meldingsbeskyttelsen har endret seg. Vennligst send på nytt."
 
 msgid "The selected private key is not valid for this sender and protection mode."
-msgstr ""
+msgstr "Den valgte private nøkkelen er ikke gyldig for denne avsenderen og beskyttelsesmodusen."
 
 msgid "A matching, passphrase-protected private key is required."
-msgstr ""
+msgstr "Det kreves en privat nøkkel som samsvarer, og som er beskyttet med en passordfrase."
 
 msgid "A recipient key is invalid, expired or does not match its email address."
-msgstr ""
+msgstr "En mottakernøkkel er ugyldig, utløpt eller samsvarer ikke med e-postadressen sin."
 
 msgid "No verified recipient keys are available."
-msgstr ""
+msgstr "Ingen kontrollerte mottakernøkler er tilgjengelige."
 
 msgid "This message is too large for browser OpenPGP processing."
-msgstr ""
+msgstr "Denne meldingen er for stor til OpenPGP-behandling i nettleseren."
 
 msgid "Message protection changed while preparing the message. Please send again."
-msgstr ""
+msgstr "Meldingsbeskyttelsen endret seg mens meldingen ble klargjort. Vennligst send på nytt."
 
 msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
-msgstr ""
+msgstr "Den beskyttede meldingen er {0} MB, mer enn det denne serveren godtar i én forespørsel ({1} MB). Fjern vedlegg eller be administratoren om å heve opplastingsgrensen."
 
 msgid "The attachment archive is too large."
-msgstr ""
+msgstr "Vedleggsarkivet er for stort."
 
 msgid "Unlock the message again to download this attachment."
-msgstr ""
+msgstr "Lås opp meldingen på nytt for å laste ned dette vedlegget."
 
 msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
-msgstr ""
+msgstr "Denne meldingen inneholder en nøstet S/MIME-beskyttelse som OpenPGP ikke kan åpne."
 
 msgid "Too many nested OpenPGP envelopes."
-msgstr ""
+msgstr "For mange nøstede OpenPGP-konvolutter."
 
 msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
-msgstr ""
+msgstr "Signaturen er ugyldig, eller den offentlige nøkkelen til signaturen er ikke tilgjengelig. Ikke stol på denne avsenderidentiteten."
 
 msgid "The private key was locked while opening this message."
-msgstr ""
+msgstr "Den private nøkkelen ble låst mens denne meldingen ble åpnet."
 
 msgid "This message contains too many attachments."
-msgstr ""
+msgstr "Denne meldingen inneholder for mange vedlegg."
 
 msgid "The decoded attachments are too large."
-msgstr ""
+msgstr "De dekodede vedleggene er for store."
 
 msgid "The OpenPGP operation failed."
-msgstr ""
+msgstr "OpenPGP-operasjonen mislyktes."
 
 msgid "OpenPGP: checking message security…"
-msgstr ""
+msgstr "OpenPGP: kontrollerer meldingssikkerheten…"
 
 msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
-msgstr ""
+msgstr "Kryptert melding lagret uten MIME-konvolutt — lagre vedlegget og dekrypter det med et OpenPGP-verktøy"
 
 msgid "Signed message stored without its original MIME — the signature cannot be verified"
-msgstr ""
+msgstr "Signert melding lagret uten opprinnelig MIME — signaturen kan ikke verifiseres"
 
 msgid "Message decrypted"
-msgstr ""
+msgstr "Melding dekryptert"
 
 msgid "Message could not be decrypted — click for details or retry"
-msgstr ""
+msgstr "Meldingen kunne ikke dekrypteres — klikk for detaljer eller nytt forsøk"
 
 msgid "Encrypted message — unlock your private key to read"
-msgstr ""
+msgstr "Kryptert melding — lås opp den private nøkkelen din for å lese den"
 
 msgid "Signature could not be verified"
 msgstr "Signaturen kunne ikke verifiseres"
 
 msgid "Valid signature, but the signing key does not match the sender"
-msgstr ""
+msgstr "Gyldig signatur, men signeringsnøkkelen samsvarer ikke med avsenderen"
 
 msgid "Valid signature — sender fingerprint has not been verified"
-msgstr ""
+msgstr "Gyldig signatur — avsenderens fingeravtrykk er ikke verifisert"
 
 msgid "Valid signature from a verified sender"
-msgstr ""
+msgstr "Gyldig signatur fra en verifisert avsender"
 
 msgid "The signing key has since expired"
-msgstr ""
+msgstr "Signeringsnøkkelen har senere utløpt"
 
 msgid "Message is not signed"
-msgstr ""
+msgstr "Meldingen er ikke signert"
 
 msgid "Inline OpenPGP protects the body only; attachments are not covered"
-msgstr ""
+msgstr "Inline OpenPGP beskytter bare meldingsteksten; vedlegg er ikke omfattet"
 
 msgid "Unprotected text after the OpenPGP block is not shown"
-msgstr ""
+msgstr "Ubeskyttet tekst etter OpenPGP-blokken vises ikke"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr ""
+msgstr "De offentlige nøklene dine kunne ikke lastes inn, så signaturer kunne ikke kontrolleres"
 
 msgid "Security information"
-msgstr ""
+msgstr "Sikkerhetsinformasjon"
 
 msgid "Choose when composing"
-msgstr ""
+msgstr "Velg ved skriving av melding"
 
 msgid "Personal and public keys"
-msgstr ""
+msgstr "Personlige og offentlige nøkler"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr ""
+msgstr "Nøklene dine lagres i e-postboksen din. Private nøkler forblir beskyttet med passordfrase; signering, kryptering og opplåsing skjer i denne nettleseren. Verifiser fingeravtrykkene til kontaktene dine gjennom en separat, klarert kanal. Endringer i nøkler trer i kraft umiddelbart."
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
-msgstr ""
+msgstr "Ingen OpenPGP-nøkler. Importer eller generer en nøkkel for å komme i gang."
 
 msgid "Identity"
-msgstr ""
+msgstr "Identitet"
 
 msgid "Fingerprint"
-msgstr ""
+msgstr "Fingeravtrykk"
 
 msgid "Public key"
-msgstr ""
+msgstr "Offentlig nøkkel"
 
 msgid "Revoked"
-msgstr ""
+msgstr "Tilbakekalt"
 
 msgid "Expired"
-msgstr ""
+msgstr "Utløpt"
 
 msgid "Fingerprint verified"
-msgstr ""
+msgstr "Fingeravtrykk verifisert"
 
 msgid "Not verified"
-msgstr ""
+msgstr "Ikke verifisert"
 
 msgid "Unlocked"
-msgstr ""
+msgstr "Låst opp"
 
 msgid "Locked"
-msgstr ""
+msgstr "Låst"
 
 msgid "Expires"
 msgstr "Utløper"
 
 msgid "No expiry"
-msgstr ""
+msgstr "Aldri"
 
 msgid "Generate key"
-msgstr ""
+msgstr "Generer nøkkel"
 
 msgid "Import key"
-msgstr ""
+msgstr "Importer nøkkel"
 
 msgid "Find public key"
-msgstr ""
+msgstr "Finn offentlig nøkkel"
 
 msgid "Details / verify"
-msgstr ""
+msgstr "Detaljer / verifiser"
 
 msgid "Export public key"
-msgstr ""
+msgstr "Eksporter offentlig nøkkel"
 
 msgid "Back up private key"
-msgstr ""
+msgstr "Sikkerhetskopier privat nøkkel"
 
 msgid "Unlock in this browser"
-msgstr ""
+msgstr "Lås opp i denne nettleseren"
 
 msgid "Change passphrase"
 msgstr "Endre passordfrasen"
 
 msgid "Lock all"
-msgstr ""
+msgstr "Lås alle"
 
 msgid "Default private key"
-msgstr ""
+msgstr "Standard privat nøkkel"
 
 msgid "Sign new messages by default"
-msgstr ""
+msgstr "Signer nye meldinger som standard"
 
 msgid "Encrypt new messages by default"
-msgstr ""
+msgstr "Krypter nye meldinger som standard"
 
 msgid "Manage keyservers"
-msgstr ""
+msgstr "Behandle nøkkelservere"
 
 msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
-msgstr ""
+msgstr "Standardvalgene for skriving gjelder bare nye OpenPGP-meldinger. S/MIME og OpenPGP kan ikke kombineres i én og samme melding."
 
 msgid "Generate OpenPGP key"
-msgstr ""
+msgstr "Generer OpenPGP-nøkkel"
 
 msgid "Algorithm"
-msgstr ""
+msgstr "Algoritme"
 
 msgid "Expires in"
-msgstr ""
+msgstr "Utløper om"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 år"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 år"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 år"
 
 msgid "Repeat passphrase"
-msgstr ""
+msgstr "Gjenta passordfrase"
 
 msgid "Passphrases do not match."
-msgstr ""
+msgstr "Passordfrasene stemmer ikke overens."
 
 msgid "Generate"
-msgstr ""
+msgstr "Generer"
 
 msgid "Key created. Back up the private key and store its passphrase separately."
-msgstr ""
+msgstr "Nøkkelen er opprettet. Sikkerhetskopier den private nøkkelen, og oppbevar passordfrasen et annet sted."
 
 msgid "Revocation certificate — keep secure"
-msgstr ""
+msgstr "Tilbakekallingssertifikat — oppbevar sikkert"
 
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
-msgstr ""
+msgstr "Velg en sterk passordfrase på minst 12 tegn. Genereringen skjer lokalt i denne nettleseren og kan ta litt tid. Oppbevar tilbakekallingssertifikatet og en sikkerhetskopi av den private nøkkelen på et trygt sted."
 
 msgid "Import OpenPGP key"
-msgstr ""
+msgstr "Importer OpenPGP-nøkkel"
 
 msgid "Choose armored OpenPGP key file"
-msgstr ""
+msgstr "Velg fil med ASCII-armert OpenPGP-nøkkel"
 
 msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr ""
+msgstr "Nøkkelfilen er for stor. Maksimal størrelse: 1 MiB."
 
 msgid "The key file could not be read."
-msgstr ""
+msgstr "Nøkkelfilen kunne ikke leses."
 
 msgid "Armored key"
-msgstr ""
+msgstr "ASCII-armert nøkkel"
 
 msgid "Protect unencrypted key"
-msgstr ""
+msgstr "Beskytt ukryptert nøkkel"
 
 msgid "Optional: new passphrase for an unprotected private key"
-msgstr ""
+msgstr "Valgfritt: ny passordfrase for en ubeskyttet privat nøkkel"
 
 msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr ""
+msgstr "Nøkkelen er importert. Verifiser fingeravtrykkene til mottakerne før du krypterer meldinger til dem."
 
 msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr ""
+msgstr "Velg en fil eller lim inn én ASCII-armert nøkkel, inkludert BEGIN- og END-linjene. For en ubeskyttet privat nøkkel må du oppgi en ny passordfrase for å beskytte den lokalt før lagring. Importerte mottakernøkler blir ikke automatisk klarert."
 
 msgid "Public OpenPGP key"
-msgstr ""
+msgstr "Offentlig OpenPGP-nøkkel"
 
 msgid "Back up private OpenPGP key"
-msgstr ""
+msgstr "Sikkerhetskopier privat OpenPGP-nøkkel"
 
 msgid "Create backup"
-msgstr ""
+msgstr "Opprett sikkerhetskopi"
 
 msgid "Private key backup — keep secure"
-msgstr ""
+msgstr "Sikkerhetskopi av privat nøkkel — oppbevar sikkert"
 
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
-msgstr ""
+msgstr "Bekreft passordfrasen din lokalt før du laster ned denne krypterte sikkerhetskopien av den private nøkkelen. Oppbevar den sikkert, og send den aldri til en mottaker eller en nøkkelserver."
 
 msgid "Current passphrase"
-msgstr ""
+msgstr "Nåværende passordfrase"
 
 msgid "New passphrase"
 msgstr "Ny passordfrase"
 
 msgid "Change OpenPGP passphrase"
-msgstr ""
+msgstr "Endre OpenPGP-passordfrase"
 
 msgid "Repeat new passphrase"
-msgstr ""
+msgstr "Gjenta ny passordfrase"
 
 msgid "Passphrase changed. Make a new private-key backup."
-msgstr ""
+msgstr "Passordfrasen er endret. Lag en ny sikkerhetskopi av den private nøkkelen."
 
 msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
-msgstr ""
+msgstr "Den private nøkkelen krypteres på nytt lokalt. Eksisterende sikkerhetskopier krever fortsatt den opprinnelige passordfrasen."
 
 msgid "Verify OpenPGP fingerprint"
-msgstr ""
+msgstr "Verifiser OpenPGP-fingeravtrykk"
 
 msgid "Verified identities"
-msgstr ""
+msgstr "Verifiserte identiteter"
 
 msgid "Email identity"
-msgstr ""
+msgstr "E-postidentitet"
 
 msgid "Confirm fingerprint"
-msgstr ""
+msgstr "Bekreft fingeravtrykk"
 
 msgid "Enter the full fingerprint shown above."
-msgstr ""
+msgstr "Skriv inn hele fingeravtrykket som vises ovenfor."
 
 msgid "I verified this fingerprint"
-msgstr ""
+msgstr "Jeg har verifisert dette fingeravtrykket"
 
 msgid "Save verification"
-msgstr ""
+msgstr "Lagre verifisering"
 
 msgid "Fingerprint verification updated."
-msgstr ""
+msgstr "Verifiseringen av fingeravtrykket er oppdatert."
 
 msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
-msgstr ""
+msgstr "Sammenlign hele fingeravtrykket med kontakten din gjennom en separat, klarert kanal. Når du krysser av i boksen, knyttes denne nøkkelen til den valgte adressen; lar du være å krysse av, fjernes verifiseringen."
 
 msgid "All private keys in this browser tab are locked."
-msgstr ""
+msgstr "Alle private nøkler i denne nettleserfanen er nå låst."
 
 msgid "Delete OpenPGP key"
-msgstr ""
+msgstr "Slett OpenPGP-nøkkel"
 
 msgid "Type the full fingerprint to confirm deletion."
-msgstr ""
+msgstr "Skriv inn hele fingeravtrykket for å bekrefte slettingen."
 
 msgid "Delete key"
-msgstr ""
+msgstr "Slett nøkkel"
 
 msgid "Key removed from your mailbox."
-msgstr ""
+msgstr "Nøkkelen er fjernet fra e-postboksen din."
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
-msgstr ""
+msgstr "Hvis du sletter denne private nøkkelen, kan du ikke lenger lese meldinger som er kryptert til den, med mindre du har en sikkerhetskopi. Lag en sikkerhetskopi av den private nøkkelen før du fortsetter."
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr ""
+msgstr "Dette fjerner den offentlige nøkkelen og dens verifiserte fingeravtrykk fra nøkkelknippet ditt."
 
 msgid "Manage OpenPGP keyservers"
-msgstr ""
+msgstr "Behandle OpenPGP-nøkkelservere"
 
 msgid "HTTPS keyservers"
-msgstr ""
+msgstr "HTTPS-nøkkelservere"
 
 msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
-msgstr ""
+msgstr "Skriv inn én HTTPS-serveradresse per linje, uten sti, påloggingsinformasjon eller spørrestreng."
 
 msgid "Save keyservers"
-msgstr ""
+msgstr "Lagre nøkkelservere"
 
 msgid "Keyservers updated."
-msgstr ""
+msgstr "Nøkkelserverne er oppdatert."
 
 msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
-msgstr ""
+msgstr "Bare HTTPS-nøkkelservere som administratoren har godkjent, kan brukes. Søk krever et fullstendig fingeravtrykk. Nøkler lastes aldri opp automatisk."
 
 msgid "Approved servers: "
-msgstr ""
+msgstr "Godkjente servere: "
 
 msgid "Find OpenPGP public key"
-msgstr ""
+msgstr "Finn offentlig OpenPGP-nøkkel"
 
 msgid "Keyserver"
-msgstr ""
+msgstr "Nøkkelserver"
 
 msgid "Full fingerprint"
-msgstr ""
+msgstr "Fullstendig fingeravtrykk"
 
 msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
-msgstr ""
+msgstr "Skriv inn et fullstendig heksadesimalt fingeravtrykk på 40 eller 64 tegn."
 
 msgid "Find and import"
-msgstr ""
+msgstr "Finn og importer"
 
 msgid "The keyserver did not return the requested public key."
-msgstr ""
+msgstr "Nøkkelserveren returnerte ikke den forespurte offentlige nøkkelen."
 
 msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr ""
+msgstr "Den offentlige nøkkelen er importert. Verifiser fingeravtrykket før du krypterer meldinger til eieren av nøkkelen."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
-msgstr ""
+msgstr "Serveren mottar fingeravtrykket du søker etter. En nedlastet nøkkel krever fortsatt verifisering av fingeravtrykket før du krypterer meldinger til eieren av nøkkelen."
 
 msgid "Old passphrase"
 msgstr "Gammel passordfrase"
@@ -8300,7 +8300,7 @@ msgid "PHP-CURL not installed"
 msgstr "PHP-CURL ikke installert"
 
 msgid "Unknown backend"
-msgstr ""
+msgstr "Ukjent backend"
 
 msgid "Account is ready to use."
 msgstr "Kontoen er klar til bruk."
@@ -8315,10 +8315,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Denne filen er ikke lenger tilgjengelig. Vennligst last inn mappa på nytt."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "Denne backenden støtter ikke søk etter mottakere"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "Kunne ikke slå opp mottakere"
 
 msgid "Kendox certificate path is not configured."
 msgstr "Stien til Kendox-sertifikatet er ikke konfigurert."
@@ -8340,7 +8340,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "Det oppstod en uventet feil. Vennligst kontakt systemadministratoren din. Feilkode: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "Denne serveren støtter ikke behandling av delte mapper."
 
 msgid "No data received."
 msgstr "Ingen data mottatt."
@@ -8361,13 +8361,13 @@ msgid "Password has been changed successfully."
 msgstr "Passordet har blitt endret."
 
 msgid "The OpenPGP operation could not be completed."
-msgstr ""
+msgstr "OpenPGP-operasjonen kunne ikke fullføres."
 
 msgid "OpenPGP: message was not sent"
-msgstr ""
+msgstr "OpenPGP: meldingen ble ikke sendt"
 
 msgid "The OpenPGP message could not be read."
-msgstr ""
+msgstr "OpenPGP-meldingen kunne ikke tolkes."
 
 msgid "No certificate available"
 msgstr "Ingen sertifikat tilgjengelig"
@@ -8394,13 +8394,13 @@ msgid "Unable to generate certs-only message"
 msgstr "Kunne ikke generere melding om kun sertifikater"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "Kunne ikke lese certs-only-melding"
 
 msgid "LDAP not configured"
 msgstr "LDAP er ikke konfigurert"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "Ugyldig LDAP-konfigurasjon"
 
 msgid "Missing public certificates for the following recipients: "
 msgstr "Mangler offentlige sertifikater for følgende mottakere:"
@@ -8446,7 +8446,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "Sertifikatet er tilbakekalt, men ble importert."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "Sertifikatets tilbakekallingsstatus kunne ikke verifiseres. Sertifikatet ble importert."
 
 msgid "Unable to read public certificate"
 msgstr "Kan ikke lese offentlig sertifikat"
@@ -8491,7 +8491,7 @@ msgid "Cannot store the category list in this mailbox."
 msgstr "Kan ikke lagre kategorilisten i denne e-postboksen."
 
 msgid "Cannot scan this mailbox for categories."
-msgstr ""
+msgstr "Kan ikke gjennomsøke denne e-postboksen etter kategorier."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
@@ -8519,16 +8519,16 @@ msgid "%1$s of %2$s"
 msgstr "%1$s av %2$s"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "OpenPGP er for øyeblikket deaktivert eller utilgjengelig. Meldingen din ble ikke sendt. Slå på OpenPGP før du prøver på nytt, eller slå uttrykkelig av signering og kryptering."
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
-msgstr ""
+msgstr "Det ble sendt for mange meldinger på kort tid. Vennligst vent et øyeblikk og send på nytt."
 
 msgid "Message was not sent"
-msgstr ""
+msgstr "Meldingen ble ikke sendt"
 
 msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr ""
+msgstr "Dette utkastet ber om OpenPGP-beskyttelse, men beskyttelsen ble ikke brukt. Meldingen ble ikke sendt. Slå på OpenPGP før du prøver på nytt, eller slå uttrykkelig av signering og kryptering."
 
 msgid "Error retrieving existing settings"
 msgstr "Feil ved henting av eksisterende innstillinger"
@@ -8896,7 +8896,7 @@ msgid "Could not decline Task Request."
 msgstr "Kunne ikke avslå oppgaveforespørsel."
 
 msgid "Could not open the attachment."
-msgstr ""
+msgstr "Kunne ikke åpne vedlegget."
 
 msgid "Conflicts with another appointment."
 msgstr "Er i konflikt med en annen avtale."
@@ -8914,7 +8914,7 @@ msgid "The following recipient(s) could not be reached"
 msgstr "De følgende mottakere kunne ikke nåes"
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
+msgstr "Fjerning av vedlegg er deaktivert av administratoren."
 
 msgid "l, F j, Y g:i A"
 msgstr "l j. F Y G:i"
