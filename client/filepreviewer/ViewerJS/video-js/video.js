@@ -1,7 +1,7 @@
 /**
  * @license
- * Video.js 8.23.4 <http://videojs.com/>
- * Copyright Brightcove, Inc. <https://www.brightcove.com/>
+ * Video.js 8.24.0 <http://videojs.com/>
+ * Copyright 2010-present Video.js contributors
  * Available under Apache License Version 2.0
  * <https://github.com/videojs/video.js/blob/main/LICENSE>
  *
@@ -16,7 +16,7 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.videojs = factory());
 })(this, (function () { 'use strict';
 
-  var version$5 = "8.23.4";
+  var version$5 = "8.24.0";
 
   /**
    * An Object that contains lifecycle hooks as keys which point to an array
@@ -6565,21 +6565,18 @@
     constructor(tracks = []) {
       super();
       this.tracks_ = [];
-
-      /**
-       * @memberof TrackList
-       * @member {number} length
-       *         The current number of `Track`s in the this Trackist.
-       * @instance
-       */
-      Object.defineProperty(this, 'length', {
-        get() {
-          return this.tracks_.length;
-        }
-      });
       for (let i = 0; i < tracks.length; i++) {
         this.addTrack(tracks[i]);
       }
+    }
+
+    /**
+     * The current number of `Track`s in this TrackList.
+     *
+     * @type {number}
+     */
+    get length() {
+      return this.tracks_.length;
     }
 
     /**
@@ -6621,10 +6618,10 @@
       /**
        * Triggered when a track label is changed.
        *
-       * @event TrackList#addtrack
+       * @event TrackList#labelchange
        * @type {Event}
        * @property {Track} track
-       *           A reference to track that was added.
+       *           A reference to track whose label was changed.
        */
       track.labelchange_ = () => {
         this.trigger({
@@ -7485,13 +7482,13 @@
 
   var _extends_1 = createCommonjsModule(function (module) {
     function _extends() {
-      return (module.exports = _extends = Object.assign ? Object.assign.bind() : function (n) {
+      return module.exports = _extends = Object.assign ? Object.assign.bind() : function (n) {
         for (var e = 1; e < arguments.length; e++) {
           var t = arguments[e];
           for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
         }
         return n;
-      }, module.exports.__esModule = true, module.exports["default"] = module.exports), _extends.apply(null, arguments);
+      }, module.exports.__esModule = true, module.exports["default"] = module.exports, _extends.apply(null, arguments);
     }
     module.exports = _extends, module.exports.__esModule = true, module.exports["default"] = module.exports;
   });
@@ -13295,6 +13292,10 @@
      */
     constructor(player, options) {
       super(player, options);
+      const {
+        mainContent
+      } = options && options.playerOptions || {};
+      this.isMainContent = mainContent;
       this.update();
       this.update_ = e => this.update(e);
       player.on('posterchange', this.update_);
@@ -13397,7 +13398,8 @@
           // Don't want poster to be tabbable.
           tabIndex: -1
         }, {}, createEl('img', {
-          loading: 'lazy',
+          loading: this.isMainContent ? 'eager' : 'lazy',
+          fetchPriority: this.isMainContent ? 'high' : 'auto',
           crossOrigin: this.crossOrigin()
         }, {
           alt: ''
@@ -13422,7 +13424,17 @@
       if (!this.player_.controls()) {
         return;
       }
-      if (this.player_.tech(true)) {
+
+      // On Microsoft Edge, moving focus to the <video> (tech) element as playback
+      // starts prevents a protected (DRM/EME) video surface from being presented:
+      // audio plays but the frame stays black until a later repaint or focus change.
+      // Focus the control-bar play toggle instead of the tech on Edge. See
+      // https://github.com/videojs/video.js/issues/6270.
+      const cb = this.player_.getChild('controlBar');
+      const playToggle = cb && cb.getChild('playToggle');
+      if (IS_EDGE) {
+        (playToggle || this.player_).focus();
+      } else if (this.player_.tech(true)) {
         this.player_.tech(true).focus();
       }
       if (this.player_.paused()) {
@@ -13745,7 +13757,7 @@
         }
         this.updateForTrack(descriptionsTrack);
       }
-      if (!window.CSS.supports('inset', '10px')) {
+      if (!(window.CSS !== undefined && window.CSS.supports('inset', '10px'))) {
         const textTrackDisplay = this.el_;
         const vjsTextTrackCues = textTrackDisplay.querySelectorAll('.vjs-text-track-cue');
         const controlBarHeight = this.player_.controlBar.el_.getBoundingClientRect().height;
@@ -13793,7 +13805,7 @@
     updateDisplayOverlay() {
       // inset-inline and inset-block are not supprted on old chrome, but these are
       // only likely to be used on TV devices
-      if (!this.player_.videoHeight() || !window.CSS.supports('inset-inline: 10px')) {
+      if (!this.player_.videoHeight() || !(window.CSS !== undefined && window.CSS.supports('inset-inline: 10px'))) {
         return;
       }
       const playerWidth = this.player_.currentWidth();
@@ -14119,17 +14131,28 @@
      */
     handleClick(event) {
       const playPromise = this.player_.play();
+      const cb = this.player_.getChild('controlBar');
+      const playToggle = cb && cb.getChild('playToggle');
 
       // exit early if tapped or clicked via the mouse
       if (event.type === 'tap' || this.mouseused_ && 'clientX' in event && 'clientY' in event) {
         silencePromise(playPromise);
-        if (this.player_.tech(true)) {
+
+        // On Microsoft Edge, moving focus to the <video> (tech) element as playback
+        // starts prevents a protected (DRM/EME) video surface from being presented:
+        // audio plays but the frame stays black until a later repaint or focus change.
+        // Focus the control-bar play toggle instead of the tech on Edge, mirroring the
+        // keyboard branch below. This is the pointer-path counterpart to the fix for
+        // https://github.com/videojs/video.js/issues/6270 (#6318/#6508 redirected only
+        // the keyboard path; the mouse/tap tech.focus() survived and regressed on
+        // Chromium Edge with hardware-accelerated DRM).
+        if (IS_EDGE) {
+          (playToggle || this.player_).focus();
+        } else if (this.player_.tech(true)) {
           this.player_.tech(true).focus();
         }
         return;
       }
-      const cb = this.player_.getChild('controlBar');
-      const playToggle = cb && cb.getChild('playToggle');
       if (!playToggle) {
         this.player_.tech(true).focus();
         return;
@@ -14274,7 +14297,7 @@
    * @file play-toggle.js
    */
 
-  /** @import Player from './player' */
+  /** @import Player from '../player' */
 
   /**
    * Button to toggle between play and pause.
@@ -14586,7 +14609,7 @@
       let time;
       if (this.player_.ended()) {
         time = this.player_.duration();
-      } else if (event && event.target && typeof event.target.pendingSeekTime === 'function') {
+      } else if (event && event.target && typeof event.target.pendingSeekTime === 'function' && event.target.pendingSeekTime() !== null) {
         time = event.target.pendingSeekTime();
       } else {
         time = this.player_.scrubbing() ? this.player_.getCache().currentTime : this.player_.currentTime();
@@ -14841,7 +14864,7 @@
    * @file live-display.js
    */
 
-  /** @import Player from './player' */
+  /** @import Player from '../player' */
 
   // TODO - Future make it click to snap to live
 
@@ -14917,7 +14940,7 @@
    * @file seek-to-live.js
    */
 
-  /** @import Player from './player' */
+  /** @import Player from '../player' */
 
   /**
    * Displays the live indicator when duration is Infinity.
@@ -16574,7 +16597,7 @@
    * @file picture-in-picture-toggle.js
    */
 
-  /** @import Player from './player' */
+  /** @import Player from '../player' */
 
   /**
    * Toggle Picture-in-Picture mode
@@ -16716,7 +16739,7 @@
    * @file fullscreen-toggle.js
    */
 
-  /** @import Player from './player' */
+  /** @import Player from '../player' */
 
   /**
    * Toggle fullscreen video
@@ -17408,7 +17431,7 @@
    * @file mute-toggle.js
    */
 
-  /** @import Player from './player' */
+  /** @import Player from '../player' */
 
   /**
    * A button component for muting the audio.
@@ -18257,9 +18280,12 @@
      *
      * @param {string} name
      *         The icon name to be added.
+     *
+     * @return {Element}
+     *         The element that gets created.
      */
     setIcon(name) {
-      super.setIcon(name, this.menuButton_.el_);
+      return super.setIcon(name, this.menuButton_.el_);
     }
 
     /**
@@ -18513,7 +18539,7 @@
    * @file track-button.js
    */
 
-  /** @import Player from './player' */
+  /** @import Player from '../player' */
 
   /**
    * The base class for buttons that toggle specific  track types (e.g. subtitles).
@@ -18539,16 +18565,47 @@
       if (!tracks) {
         return;
       }
-      const updateHandler = bind_(this, this.update);
-      tracks.addEventListener('removetrack', updateHandler);
-      tracks.addEventListener('addtrack', updateHandler);
-      tracks.addEventListener('labelchange', updateHandler);
-      this.player_.on('ready', updateHandler);
-      this.player_.on('dispose', function () {
-        tracks.removeEventListener('removetrack', updateHandler);
-        tracks.removeEventListener('addtrack', updateHandler);
-        tracks.removeEventListener('labelchange', updateHandler);
-      });
+      this.updateHandler_ = bind_(this, this.update);
+      this.cleanupHandler_ = bind_(this, this.cleanupTrackListeners_);
+      tracks.addEventListener('removetrack', this.updateHandler_);
+      tracks.addEventListener('addtrack', this.updateHandler_);
+      tracks.addEventListener('labelchange', this.updateHandler_);
+      this.player_.on('ready', this.updateHandler_);
+      this.player_.on('dispose', this.cleanupHandler_);
+    }
+
+    /**
+     * Remove all track list event listeners without triggering a full dispose.
+     * Used as the player 'dispose' handler and called by dispose() before super.
+     *
+     * @private
+     */
+    cleanupTrackListeners_() {
+      if (!this.updateHandler_) {
+        return;
+      }
+      const tracks = this.options_.tracks;
+      if (tracks) {
+        tracks.removeEventListener('removetrack', this.updateHandler_);
+        tracks.removeEventListener('addtrack', this.updateHandler_);
+        tracks.removeEventListener('labelchange', this.updateHandler_);
+      }
+      if (this.player_) {
+        this.player_.off('ready', this.updateHandler_);
+        this.player_.off('dispose', this.cleanupHandler_);
+      }
+      this.updateHandler_ = null;
+      this.cleanupHandler_ = null;
+    }
+
+    /**
+     * Dispose of the Component and remove all event listeners.
+     *
+     * @override
+     */
+    dispose() {
+      this.cleanupTrackListeners_();
+      super.dispose();
     }
   }
   Component$1.registerComponent('TrackButton', TrackButton);
@@ -19738,7 +19795,7 @@
     createEl(type, props, attrs) {
       const el = super.createEl(type, props, attrs);
       const parentSpan = el.querySelector('.vjs-menu-item-text');
-      if (['main-desc', 'descriptions'].indexOf(this.options_.track.kind) >= 0) {
+      if (['main-desc', 'descriptions', 'description'].indexOf(this.options_.track.kind) >= 0) {
         parentSpan.appendChild(createEl('span', {
           className: 'vjs-icon-placeholder'
         }, {
@@ -20275,7 +20332,7 @@
   });
   Component$1.registerComponent('ErrorDisplay', ErrorDisplay);
 
-  /** @import Player from './player' */
+  /** @import Player from '../player' */
   /** @import { ContentDescriptor } from  '../utils/dom' */
 
   /**
@@ -20341,7 +20398,7 @@
   }
   Component$1.registerComponent('TextTrackSelect', TextTrackSelect);
 
-  /** @import Player from './player' */
+  /** @import Player from '../player' */
   /** @import { ContentDescriptor } from '../utils/dom' */
 
   /**
@@ -20459,7 +20516,7 @@
   }
   Component$1.registerComponent('TextTrackFieldset', TextTrackFieldset);
 
-  /** @import Player from './player' */
+  /** @import Player from '../player' */
   /** @import { ContentDescriptor } from  '../utils/dom' */
 
   /**
@@ -20546,7 +20603,7 @@
   }
   Component$1.registerComponent('TextTrackSettingsColors', TextTrackSettingsColors);
 
-  /** @import Player from './player' */
+  /** @import Player from '../player' */
   /** @import { ContentDescriptor } from  '../utils/dom' */
 
   /**
@@ -27882,13 +27939,13 @@
     }
 
     /**
-     * Set or get the current MediaError
+     * Set, clear, or get the current MediaError
      *
      * @fires Player#error
      *
-     * @param  {MediaError|string|number} [err]
+     * @param  {MediaError|string|number|null} [err]
      *         A MediaError or a string/number to be turned
-     *         into a MediaError
+     *         into a MediaError. Pass `null` to clear the current error state.
      *
      * @return {MediaError|null|undefined}
      *         - The current MediaError when getting (or null)
@@ -28623,7 +28680,7 @@
       if (breakpoints === undefined) {
         return Object.assign(this.breakpoints_);
       }
-      this.breakpoint_ = '';
+      this.removeCurrentBreakpoint_();
       this.breakpoints_ = Object.assign({}, DEFAULT_BREAKPOINTS, breakpoints);
 
       // When breakpoint definitions change, we need to update the currently
@@ -33044,14 +33101,14 @@
   ExceptionCode.DOMSTRING_SIZE_ERR = (ExceptionMessage[2] = "DOMString size error", 2);
   var HIERARCHY_REQUEST_ERR = ExceptionCode.HIERARCHY_REQUEST_ERR = (ExceptionMessage[3] = "Hierarchy request error", 3);
   ExceptionCode.WRONG_DOCUMENT_ERR = (ExceptionMessage[4] = "Wrong document", 4);
-  ExceptionCode.INVALID_CHARACTER_ERR = (ExceptionMessage[5] = "Invalid character", 5);
+  var INVALID_CHARACTER_ERR = ExceptionCode.INVALID_CHARACTER_ERR = (ExceptionMessage[5] = "Invalid character", 5);
   ExceptionCode.NO_DATA_ALLOWED_ERR = (ExceptionMessage[6] = "No data allowed", 6);
   ExceptionCode.NO_MODIFICATION_ALLOWED_ERR = (ExceptionMessage[7] = "No modification allowed", 7);
   var NOT_FOUND_ERR = ExceptionCode.NOT_FOUND_ERR = (ExceptionMessage[8] = "Not found", 8);
   ExceptionCode.NOT_SUPPORTED_ERR = (ExceptionMessage[9] = "Not supported", 9);
   var INUSE_ATTRIBUTE_ERR = ExceptionCode.INUSE_ATTRIBUTE_ERR = (ExceptionMessage[10] = "Attribute in use", 10);
   //level2
-  ExceptionCode.INVALID_STATE_ERR = (ExceptionMessage[11] = "Invalid state", 11);
+  var INVALID_STATE_ERR = ExceptionCode.INVALID_STATE_ERR = (ExceptionMessage[11] = "Invalid state", 11);
   ExceptionCode.SYNTAX_ERR = (ExceptionMessage[12] = "Syntax error", 12);
   ExceptionCode.INVALID_MODIFICATION_ERR = (ExceptionMessage[13] = "Invalid modification", 13);
   ExceptionCode.NAMESPACE_ERR = (ExceptionMessage[14] = "Invalid namespace", 14);
@@ -33102,9 +33159,10 @@
     item: function (index) {
       return index >= 0 && index < this.length ? this[index] : null;
     },
-    toString: function (isHTML, nodeFilter) {
+    toString: function (isHTML, nodeFilter, options) {
+      var requireWellFormed = !!options && !!options.requireWellFormed;
       for (var buf = [], i = 0; i < this.length; i++) {
-        serializeToString(this[i], buf, isHTML, nodeFilter);
+        serializeToString(this[i], buf, isHTML, nodeFilter, null, requireWellFormed);
       }
       return buf.join('');
     },
@@ -33345,13 +33403,28 @@
     /**
      * Returns a doctype, with the given `qualifiedName`, `publicId`, and `systemId`.
      *
-     * __This behavior is slightly different from the in the specs__:
+     * __This implementation differs from the specification:__
      * - this implementation is not validating names or qualified names
      *   (when parsing XML strings, the SAX parser takes care of that)
      *
+     * Note: `internalSubset` can only be introduced via a direct property write to `node.internalSubset` after creation.
+     * Creation-time validation of `publicId`, `systemId` is not enforced.
+     * The serializer-level check covers all mutation vectors, including direct property writes.
+     * `internalSubset` is only serialized as `[ ... ]` when both `publicId` and `systemId` are
+     * absent (empty or `'.'`) — if either external identifier is present, `internalSubset` is
+     * silently omitted from the serialized output.
+     *
      * @param {string} qualifiedName
      * @param {string} [publicId]
+     * The external subset public identifier. Stored verbatim including surrounding quotes.
+     * When serialized with `requireWellFormed: true` (via the 4th-parameter options object),
+     * throws `DOMException` with code `INVALID_STATE_ERR` if the value is non-empty and does
+     * not match the XML `PubidLiteral` production (W3C DOM Parsing §3.2.1.3; XML 1.0 [12]).
      * @param {string} [systemId]
+     * The external subset system identifier. Stored verbatim including surrounding quotes.
+     * When serialized with `requireWellFormed: true`, throws `DOMException` with code
+     * `INVALID_STATE_ERR` if the value is non-empty and does not match the XML `SystemLiteral`
+     * production (W3C DOM Parsing §3.2.1.3; XML 1.0 [11]).
      * @returns {DocumentType} which can either be used with `DOMImplementation.createDocument` upon document creation
      * 				  or can be put into the document via methods like `Node.insertBefore()` or `Node.replaceChild()`
      *
@@ -33416,18 +33489,44 @@
       return cloneNode(this.ownerDocument || this, this, deep);
     },
     // Modified in DOM Level 2:
+    /**
+     * Puts the specified node and all of its subtree into a "normalized" form. In a normalized
+     * subtree, no text nodes in the subtree are empty and there are no adjacent text nodes.
+     *
+     * Specifically, this method merges any adjacent text nodes (i.e., nodes for which `nodeType`
+     * is `TEXT_NODE`) into a single node with the combined data. It also removes any empty text
+     * nodes.
+     *
+     * This method iteratively traverses all child nodes to normalize all descendant nodes within
+     * the subtree.
+     *
+     * @throws {DOMException}
+     * May throw a DOMException if operations within removeChild or appendData (which are
+     * potentially invoked in this method) do not meet their specific constraints.
+     * @see {@link Node.removeChild}
+     * @see {@link CharacterData.appendData}
+     * @see ../docs/walk-dom.md.
+     */
     normalize: function () {
-      var child = this.firstChild;
-      while (child) {
-        var next = child.nextSibling;
-        if (next && next.nodeType == TEXT_NODE && child.nodeType == TEXT_NODE) {
-          this.removeChild(next);
-          child.appendData(next.data);
-        } else {
-          child.normalize();
-          child = next;
+      walkDOM(this, null, {
+        enter: function (node) {
+          // Merge adjacent text children of node before walkDOM schedules them.
+          // walkDOM reads lastChild/previousSibling after enter returns, so the
+          // surviving post-merge children are what it descends into.
+          var child = node.firstChild;
+          while (child) {
+            var next = child.nextSibling;
+            if (next !== null && next.nodeType === TEXT_NODE && child.nodeType === TEXT_NODE) {
+              node.removeChild(next);
+              child.appendData(next.data);
+              // Do not advance child: re-check new nextSibling for another text run
+            } else {
+              child = next;
+            }
+          }
+          return true; // descend into surviving children
         }
-      }
+      });
     },
     // Introduced in DOM Level 2:
     isSupported: function (feature, version) {
@@ -33495,21 +33594,119 @@
   copy(NodeType, Node.prototype);
 
   /**
-   * @param callback return true for continue,false for break
-   * @return boolean true: break visit;
+   * @param {Node} node
+   * Root of the subtree to visit.
+   * @param {function(Node): boolean} callback
+   * Called for each node in depth-first pre-order. Return a truthy value to stop traversal early.
+   * @return {boolean} `true` if traversal was aborted by the callback, `false` otherwise.
    */
   function _visitNode(node, callback) {
-    if (callback(node)) {
-      return true;
-    }
-    if (node = node.firstChild) {
-      do {
-        if (_visitNode(node, callback)) {
-          return true;
+    return walkDOM(node, null, {
+      enter: function (n) {
+        return callback(n) ? walkDOM.STOP : true;
+      }
+    }) === walkDOM.STOP;
+  }
+
+  /**
+   * Depth-first pre/post-order DOM tree walker.
+   *
+   * Visits every node in the subtree rooted at `node`. For each node:
+   *
+   * 1. Calls `callbacks.enter(node, context)` before descending into the node's children. The
+   * return value becomes the `context` passed to each child's `enter` call and to the matching
+   * `exit` call.
+   * 2. If `enter` returns `null` or `undefined`, the node's children are skipped;
+   * sibling traversal continues normally.
+   * 3. If `enter` returns `walkDOM.STOP`, the entire traversal is aborted immediately — no
+   * further `enter` or `exit` calls are made.
+   * 4. `lastChild` and `previousSibling` are read **after** `enter` returns, so `enter` may
+   * safely modify the node's own child list before the walker descends. Modifying siblings of
+   * the current node or any other part of the tree produces unpredictable results: nodes already
+   * queued on the stack are visited regardless of DOM changes, and newly inserted nodes outside
+   * the current child list are never visited.
+   * 5. Calls `callbacks.exit(node, context)` (if provided) after all of a node's children have
+   * been visited, passing the same `context` that `enter`
+   * returned for that node.
+   *
+   * This implementation uses an explicit stack and does not recurse — it is safe on arbitrarily
+   * deep trees.
+   *
+   * @param {Node} node
+   * Root of the subtree to walk.
+   * @param {*} context
+   * Initial context value passed to the root node's `enter`.
+   * @param {{ enter: function(Node, *): *, exit?: function(Node, *): void }} callbacks
+   * @returns {void | walkDOM.STOP}
+   * @see ../docs/walk-dom.md.
+   */
+  function walkDOM(node, context, callbacks) {
+    // Each stack frame is {node, context, phase}:
+    //   walkDOM.ENTER — call enter, then push children
+    //   walkDOM.EXIT  — call exit
+    var stack = [{
+      node: node,
+      context: context,
+      phase: walkDOM.ENTER
+    }];
+    while (stack.length > 0) {
+      var frame = stack.pop();
+      if (frame.phase === walkDOM.ENTER) {
+        var childContext = callbacks.enter(frame.node, frame.context);
+        if (childContext === walkDOM.STOP) {
+          return walkDOM.STOP;
         }
-      } while (node = node.nextSibling);
+        // Push exit frame before children so it fires after all children are processed (Last In First Out)
+        stack.push({
+          node: frame.node,
+          context: childContext,
+          phase: walkDOM.EXIT
+        });
+        if (childContext === null || childContext === undefined) {
+          continue; // skip children
+        }
+        // lastChild is read after enter returns, so enter may modify the child list.
+        var child = frame.node.lastChild;
+        // Traverse from lastChild backwards so that pushing onto the stack
+        // naturally yields firstChild on top (processed first).
+        while (child) {
+          stack.push({
+            node: child,
+            context: childContext,
+            phase: walkDOM.ENTER
+          });
+          child = child.previousSibling;
+        }
+      } else {
+        // frame.phase === walkDOM.EXIT
+        if (callbacks.exit) {
+          callbacks.exit(frame.node, frame.context);
+        }
+      }
     }
   }
+
+  /**
+   * Sentinel value returned from a `walkDOM` `enter` callback to abort the entire traversal
+   * immediately.
+   *
+   * @type {symbol}
+   */
+  walkDOM.STOP = Symbol('walkDOM.STOP');
+  /**
+   * Phase constant for a stack frame that has not yet been visited.
+   * The `enter` callback is called and children are scheduled.
+   *
+   * @type {number}
+   */
+  walkDOM.ENTER = 0;
+  /**
+   * Phase constant for a stack frame whose subtree has been fully visited.
+   * The `exit` callback is called.
+   *
+   * @type {number}
+   */
+  walkDOM.EXIT = 1;
   function Document() {
     this.ownerDocument = this;
   }
@@ -33872,6 +34069,9 @@
     }
     do {
       newFirst.parentNode = parent;
+      // Update ownerDocument for each node being inserted
+      var targetDoc = parent.ownerDocument || parent;
+      _updateOwnerDocument(newFirst, targetDoc);
     } while (newFirst !== newLast && (newFirst = newFirst.nextSibling));
     _onUpdateChild(parent.ownerDocument || parent, parent);
     //console.log(parent.lastChild.nextSibling == null)
@@ -33879,6 +34079,36 @@
       node.firstChild = node.lastChild = null;
     }
     return node;
+  }
+
+  /**
+   * Recursively updates the ownerDocument property for a node and all its descendants
+   * @param {Node} node
+   * @param {Document} newOwnerDocument
+   * @private
+   */
+  function _updateOwnerDocument(node, newOwnerDocument) {
+    if (node.ownerDocument === newOwnerDocument) {
+      return;
+    }
+    node.ownerDocument = newOwnerDocument;
+
+    // Update attributes if this is an element
+    if (node.nodeType === ELEMENT_NODE && node.attributes) {
+      for (var i = 0; i < node.attributes.length; i++) {
+        var attr = node.attributes.item(i);
+        if (attr) {
+          attr.ownerDocument = newOwnerDocument;
+        }
+      }
+    }
+
+    // Recursively update child nodes
+    var child = node.firstChild;
+    while (child) {
+      _updateOwnerDocument(child, newOwnerDocument);
+      child = child.nextSibling;
+    }
   }
 
   /**
@@ -33906,6 +34136,10 @@
     }
     parentNode.lastChild = newChild;
     _onUpdateChild(parentNode.ownerDocument, parentNode, newChild);
+
+    // Update ownerDocument for the new child and all its descendants
+    var targetDoc = parentNode.ownerDocument || parentNode;
+    _updateOwnerDocument(newChild, targetDoc);
     return newChild;
   }
   Document.prototype = {
@@ -33933,7 +34167,7 @@
         return newChild;
       }
       _insertBefore(this, newChild, refChild);
-      newChild.ownerDocument = this;
+      _updateOwnerDocument(newChild, this);
       if (this.documentElement === null && newChild.nodeType === ELEMENT_NODE) {
         this.documentElement = newChild;
       }
@@ -33948,7 +34182,7 @@
     replaceChild: function (newChild, oldChild) {
       //raises
       _insertBefore(this, newChild, oldChild, assertPreReplacementValidityInDocument);
-      newChild.ownerDocument = this;
+      _updateOwnerDocument(newChild, this);
       if (oldChild) {
         this.removeChild(oldChild);
       }
@@ -34046,12 +34280,44 @@
       node.appendData(data);
       return node;
     },
+    /**
+     * Returns a new CDATASection node whose data is `data`.
+     *
+     * __This implementation differs from the specification:__
+     * - calling this method on an HTML document does not throw `NotSupportedError`.
+     *
+     * @param {string} data
+     * @returns {CDATASection}
+     * @throws DOMException with code `INVALID_CHARACTER_ERR` if `data` contains `"]]>"`.
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/createCDATASection
+     * @see https://dom.spec.whatwg.org/#dom-document-createcdatasection
+     */
     createCDATASection: function (data) {
+      if (data.indexOf(']]>') !== -1) {
+        throw new DOMException(INVALID_CHARACTER_ERR, 'data contains "]]>"');
+      }
       var node = new CDATASection();
       node.ownerDocument = this;
       node.appendData(data);
       return node;
     },
+    /**
+     * Returns a ProcessingInstruction node whose target is target and data is data.
+     *
+     * __This implementation differs from the specification:__
+     * - it does not do any input validation on the arguments and doesn't throw "InvalidCharacterError".
+     *
+     * Note: When the resulting document is serialized with `requireWellFormed: true`, the
+     * serializer throws with code `INVALID_STATE_ERR` if `.data` contains `?>` (W3C DOM Parsing
+     * §3.2.1.7). Without that option the data is emitted verbatim.
+     *
+     * @param {string} target
+     * @param {string} data
+     * @returns {ProcessingInstruction}
+     * @see https://developer.mozilla.org/docs/Web/API/Document/createProcessingInstruction
+     * @see https://dom.spec.whatwg.org/#dom-document-createprocessinginstruction
+     * @see https://www.w3.org/TR/DOM-Parsing/#dfn-concept-serialize-xml §3.2.1.7
+     */
     createProcessingInstruction: function (target, data) {
       var node = new ProcessingInstruction();
       node.ownerDocument = this;
@@ -34264,6 +34530,20 @@
     nodeType: CDATA_SECTION_NODE
   };
   _extends(CDATASection, CharacterData);
+
+  /**
+   * Represents a DocumentType node (the `<!DOCTYPE ...>` declaration).
+   *
+   * `publicId`, `systemId`, and `internalSubset` are plain own-property assignments.
+   * xmldom does not enforce the `readonly` constraint declared by the WHATWG DOM spec —
+   * direct property writes succeed silently. Values are serialized verbatim when
+   * `requireWellFormed` is false (the default). When the serializer is invoked with
+   * `requireWellFormed: true` (via the 4th-parameter options object), it validates each
+   * field and throws `DOMException` with code `INVALID_STATE_ERR` on invalid values.
+   *
+   * @class
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/DocumentType MDN
+   */
   function DocumentType() {}
   DocumentType.prototype.nodeType = DOCUMENT_TYPE_NODE;
   _extends(DocumentType, Node);
@@ -34284,11 +34564,48 @@
   ProcessingInstruction.prototype.nodeType = PROCESSING_INSTRUCTION_NODE;
   _extends(ProcessingInstruction, Node);
   function XMLSerializer() {}
-  XMLSerializer.prototype.serializeToString = function (node, isHtml, nodeFilter) {
-    return nodeSerializeToString.call(node, isHtml, nodeFilter);
+  /**
+   * Returns the result of serializing `node` to XML.
+   *
+   * When `options.requireWellFormed` is `true`, the serializer throws for content that would
+   * produce ill-formed XML.
+   *
+   * __This implementation differs from the specification:__
+   * - CDATASection nodes whose data contains `]]>` are serialized by splitting the section
+   *   at each `]]>` occurrence (following W3C DOM Level 3 Core `split-cdata-sections`
+   *   default behaviour) unless `requireWellFormed` is `true`.
+   * - when `requireWellFormed` is `true`, `DOMException` with code `INVALID_STATE_ERR`
+   *   is only thrown to prevent injection vectors, not for all the spec mandated checks.
+   *
+   * @param {Node} node
+   * @param {boolean} [isHtml]
+   * @param {function} [nodeFilter]
+   * @param {Object} [options]
+   * @param {boolean} [options.requireWellFormed=false]
+   * When `true`, throws for content that would produce ill-formed XML.
+   * @returns {string}
+   * @throws {DOMException}
+   * With code `INVALID_STATE_ERR` when `requireWellFormed` is `true` and:
+   * - a CDATASection node's data contains `"]]>"`,
+   * - a Comment node's data contains `"-->"` (bare `"--"` does not throw on this branch),
+   * - a ProcessingInstruction's data contains `"?>"`,
+   * - a DocumentType's `publicId` is non-empty and does not match the XML `PubidLiteral`
+   *   production,
+   * - a DocumentType's `systemId` is non-empty and does not match the XML `SystemLiteral`
+   *   production, or
+   * - a DocumentType's `internalSubset` contains `"]>"`.
+   * Note: xmldom does not enforce `readonly` on DocumentType fields — direct property
+   * writes succeed and are covered by the serializer-level checks above.
+   * @see https://html.spec.whatwg.org/#dom-xmlserializer-serializetostring
+   * @see https://w3c.github.io/DOM-Parsing/#xml-serialization
+   * @see https://github.com/w3c/DOM-Parsing/issues/84
+   */
+  XMLSerializer.prototype.serializeToString = function (node, isHtml, nodeFilter, options) {
+    return nodeSerializeToString.call(node, isHtml, nodeFilter, options);
   };
   Node.prototype.toString = nodeSerializeToString;
-  function nodeSerializeToString(isHtml, nodeFilter) {
+  function nodeSerializeToString(isHtml, nodeFilter, options) {
+    var requireWellFormed = !!options && !!options.requireWellFormed;
     var buf = [];
     var refNode = this.nodeType == 9 && this.documentElement || this;
     var prefix = refNode.prefix;
@@ -34306,7 +34623,7 @@
         ];
       }
     }
-    serializeToString(this, buf, isHtml, nodeFilter, visibleNamespaces);
+    serializeToString(this, buf, isHtml, nodeFilter, visibleNamespaces, requireWellFormed);
     //console.log('###',this.nodeType,uri,prefix,buf.join(''))
     return buf.join('');
   }
@@ -34352,273 +34669,331 @@
   function addSerializedAttribute(buf, qualifiedName, value) {
     buf.push(' ', qualifiedName, '="', value.replace(/[<>&"\t\n\r]/g, _xmlEncoder), '"');
   }
-  function serializeToString(node, buf, isHTML, nodeFilter, visibleNamespaces) {
+  function serializeToString(node, buf, isHTML, nodeFilter, visibleNamespaces, requireWellFormed) {
     if (!visibleNamespaces) {
       visibleNamespaces = [];
     }
-    if (nodeFilter) {
-      node = nodeFilter(node);
-      if (node) {
-        if (typeof node == 'string') {
-          buf.push(node);
-          return;
-        }
-      } else {
-        return;
-      }
-      //buf.sort.apply(attrs, attributeSorter);
-    }
-    switch (node.nodeType) {
-      case ELEMENT_NODE:
-        var attrs = node.attributes;
-        var len = attrs.length;
-        var child = node.firstChild;
-        var nodeName = node.tagName;
-        isHTML = NAMESPACE$2.isHTML(node.namespaceURI) || isHTML;
-        var prefixedNodeName = nodeName;
-        if (!isHTML && !node.prefix && node.namespaceURI) {
-          var defaultNS;
-          // lookup current default ns from `xmlns` attribute
-          for (var ai = 0; ai < attrs.length; ai++) {
-            if (attrs.item(ai).name === 'xmlns') {
-              defaultNS = attrs.item(ai).value;
-              break;
-            }
-          }
-          if (!defaultNS) {
-            // lookup current default ns in visibleNamespaces
-            for (var nsi = visibleNamespaces.length - 1; nsi >= 0; nsi--) {
-              var namespace = visibleNamespaces[nsi];
-              if (namespace.prefix === '' && namespace.namespace === node.namespaceURI) {
-                defaultNS = namespace.namespace;
-                break;
-              }
-            }
-          }
-          if (defaultNS !== node.namespaceURI) {
-            for (var nsi = visibleNamespaces.length - 1; nsi >= 0; nsi--) {
-              var namespace = visibleNamespaces[nsi];
-              if (namespace.namespace === node.namespaceURI) {
-                if (namespace.prefix) {
-                  prefixedNodeName = namespace.prefix + ':' + nodeName;
-                }
-                break;
-              }
-            }
-          }
-        }
-        buf.push('<', prefixedNodeName);
-        for (var i = 0; i < len; i++) {
-          // add namespaces for attributes
-          var attr = attrs.item(i);
-          if (attr.prefix == 'xmlns') {
-            visibleNamespaces.push({
-              prefix: attr.localName,
-              namespace: attr.value
-            });
-          } else if (attr.nodeName == 'xmlns') {
-            visibleNamespaces.push({
-              prefix: '',
-              namespace: attr.value
-            });
-          }
-        }
-        for (var i = 0; i < len; i++) {
-          var attr = attrs.item(i);
-          if (needNamespaceDefine(attr, isHTML, visibleNamespaces)) {
-            var prefix = attr.prefix || '';
-            var uri = attr.namespaceURI;
-            addSerializedAttribute(buf, prefix ? 'xmlns:' + prefix : "xmlns", uri);
-            visibleNamespaces.push({
-              prefix: prefix,
-              namespace: uri
-            });
-          }
-          serializeToString(attr, buf, isHTML, nodeFilter, visibleNamespaces);
-        }
-
-        // add namespace for current node
-        if (nodeName === prefixedNodeName && needNamespaceDefine(node, isHTML, visibleNamespaces)) {
-          var prefix = node.prefix || '';
-          var uri = node.namespaceURI;
-          addSerializedAttribute(buf, prefix ? 'xmlns:' + prefix : "xmlns", uri);
-          visibleNamespaces.push({
-            prefix: prefix,
-            namespace: uri
-          });
-        }
-        if (child || isHTML && !/^(?:meta|link|img|br|hr|input)$/i.test(nodeName)) {
-          buf.push('>');
-          //if is cdata child node
-          if (isHTML && /^script$/i.test(nodeName)) {
-            while (child) {
-              if (child.data) {
-                buf.push(child.data);
-              } else {
-                serializeToString(child, buf, isHTML, nodeFilter, visibleNamespaces.slice());
-              }
-              child = child.nextSibling;
+    walkDOM(node, {
+      ns: visibleNamespaces,
+      isHTML: isHTML
+    }, {
+      enter: function (n, ctx) {
+        var ns = ctx.ns;
+        var html = ctx.isHTML;
+        if (nodeFilter) {
+          n = nodeFilter(n);
+          if (n) {
+            if (typeof n == 'string') {
+              buf.push(n);
+              return null;
             }
           } else {
-            while (child) {
-              serializeToString(child, buf, isHTML, nodeFilter, visibleNamespaces.slice());
-              child = child.nextSibling;
+            return null;
+          }
+        }
+        switch (n.nodeType) {
+          case ELEMENT_NODE:
+            var attrs = n.attributes;
+            var len = attrs.length;
+            var nodeName = n.tagName;
+            html = NAMESPACE$2.isHTML(n.namespaceURI) || html;
+            var prefixedNodeName = nodeName;
+            if (!html && !n.prefix && n.namespaceURI) {
+              var defaultNS;
+              // lookup current default ns from `xmlns` attribute
+              for (var ai = 0; ai < attrs.length; ai++) {
+                if (attrs.item(ai).name === 'xmlns') {
+                  defaultNS = attrs.item(ai).value;
+                  break;
+                }
+              }
+              if (!defaultNS) {
+                // lookup current default ns in visibleNamespaces
+                for (var nsi = ns.length - 1; nsi >= 0; nsi--) {
+                  var nsEntry = ns[nsi];
+                  if (nsEntry.prefix === '' && nsEntry.namespace === n.namespaceURI) {
+                    defaultNS = nsEntry.namespace;
+                    break;
+                  }
+                }
+              }
+              if (defaultNS !== n.namespaceURI) {
+                for (var nsi = ns.length - 1; nsi >= 0; nsi--) {
+                  var nsEntry = ns[nsi];
+                  if (nsEntry.namespace === n.namespaceURI) {
+                    if (nsEntry.prefix) {
+                      prefixedNodeName = nsEntry.prefix + ':' + nodeName;
+                    }
+                    break;
+                  }
+                }
+              }
             }
-          }
-          buf.push('</', prefixedNodeName, '>');
-        } else {
-          buf.push('/>');
+            buf.push('<', prefixedNodeName);
+
+            // Build a fresh namespace snapshot for this element's children.
+            // The slice prevents sibling elements from inheriting each other's declarations.
+            var childNs = ns.slice();
+            for (var i = 0; i < len; i++) {
+              var attr = attrs.item(i);
+              if (attr.prefix == 'xmlns') {
+                childNs.push({
+                  prefix: attr.localName,
+                  namespace: attr.value
+                });
+              } else if (attr.nodeName == 'xmlns') {
+                childNs.push({
+                  prefix: '',
+                  namespace: attr.value
+                });
+              }
+            }
+            for (var i = 0; i < len; i++) {
+              var attr = attrs.item(i);
+              if (needNamespaceDefine(attr, html, childNs)) {
+                var attrPrefix = attr.prefix || '';
+                var uri = attr.namespaceURI;
+                addSerializedAttribute(buf, attrPrefix ? 'xmlns:' + attrPrefix : 'xmlns', uri);
+                childNs.push({
+                  prefix: attrPrefix,
+                  namespace: uri
+                });
+              }
+              // Apply nodeFilter and serialize the attribute.
+              var filteredAttr = nodeFilter ? nodeFilter(attr) : attr;
+              if (filteredAttr) {
+                if (typeof filteredAttr === 'string') {
+                  buf.push(filteredAttr);
+                } else {
+                  addSerializedAttribute(buf, filteredAttr.name, filteredAttr.value);
+                }
+              }
+            }
+
+            // add namespace for current node
+            if (nodeName === prefixedNodeName && needNamespaceDefine(n, html, childNs)) {
+              var nodePrefix = n.prefix || '';
+              var uri = n.namespaceURI;
+              addSerializedAttribute(buf, nodePrefix ? 'xmlns:' + nodePrefix : 'xmlns', uri);
+              childNs.push({
+                prefix: nodePrefix,
+                namespace: uri
+              });
+            }
+            var child = n.firstChild;
+            if (child || html && !/^(?:meta|link|img|br|hr|input)$/i.test(nodeName)) {
+              buf.push('>');
+              if (html && /^script$/i.test(nodeName)) {
+                // Inline serialization for <script> children; return null to skip walkDOM descent.
+                while (child) {
+                  if (child.data) {
+                    buf.push(child.data);
+                  } else {
+                    serializeToString(child, buf, html, nodeFilter, childNs.slice(), requireWellFormed);
+                  }
+                  child = child.nextSibling;
+                }
+                buf.push('</', nodeName, '>');
+                return null;
+              }
+              // Return child context; walkDOM descends and exit emits the closing tag.
+              return {
+                ns: childNs,
+                isHTML: html,
+                tag: prefixedNodeName
+              };
+            } else {
+              buf.push('/>');
+              return null;
+            }
+          case DOCUMENT_NODE:
+          case DOCUMENT_FRAGMENT_NODE:
+            // Descend into children; exit is a no-op (tag is null).
+            return {
+              ns: ns.slice(),
+              isHTML: html,
+              tag: null
+            };
+          case ATTRIBUTE_NODE:
+            addSerializedAttribute(buf, n.name, n.value);
+            return null;
+          case TEXT_NODE:
+            /**
+             * The ampersand character (&) and the left angle bracket (<) must not appear in their literal form,
+             * except when used as markup delimiters, or within a comment, a processing instruction, or a CDATA section.
+             * If they are needed elsewhere, they must be escaped using either numeric character references or the strings
+             * `&amp;` and `&lt;` respectively.
+             * The right angle bracket (>) may be represented using the string " &gt; ", and must, for compatibility,
+             * be escaped using either `&gt;` or a character reference when it appears in the string `]]>` in content,
+             * when that string is not marking the end of a CDATA section.
+             *
+             * In the content of elements, character data is any string of characters
+             * which does not contain the start-delimiter of any markup
+             * and does not include the CDATA-section-close delimiter, `]]>`.
+             *
+             * @see https://www.w3.org/TR/xml/#NT-CharData
+             * @see https://w3c.github.io/DOM-Parsing/#xml-serializing-a-text-node
+             */
+            buf.push(n.data.replace(/[<&>]/g, _xmlEncoder));
+            return null;
+          case CDATA_SECTION_NODE:
+            if (requireWellFormed && n.data.indexOf(']]>') !== -1) {
+              throw new DOMException(INVALID_STATE_ERR, 'The CDATASection data contains "]]>"');
+            }
+            buf.push('<![CDATA[', n.data.replace(/]]>/g, ']]]]><![CDATA[>'), ']]>');
+            return null;
+          case COMMENT_NODE:
+            if (requireWellFormed && n.data.indexOf('-->') !== -1) {
+              throw new DOMException(INVALID_STATE_ERR, 'The comment node data contains "-->"');
+            }
+            buf.push('<!--', n.data, '-->');
+            return null;
+          case DOCUMENT_TYPE_NODE:
+            if (requireWellFormed) {
+              if (n.publicId && !/^("[\x20\r\na-zA-Z0-9\-()+,.\/:=?;!*#@$_%']*"|'[\x20\r\na-zA-Z0-9\-()+,.\/:=?;!*#@$_%'"]*')$/.test(n.publicId)) {
+                throw new DOMException(INVALID_STATE_ERR, 'DocumentType publicId is not a valid PubidLiteral');
+              }
+              if (n.systemId && !/^("[^"]*"|'[^']*')$/.test(n.systemId)) {
+                throw new DOMException(INVALID_STATE_ERR, 'DocumentType systemId is not a valid SystemLiteral');
+              }
+              if (n.internalSubset && n.internalSubset.indexOf(']>') !== -1) {
+                throw new DOMException(INVALID_STATE_ERR, 'DocumentType internalSubset contains "]>"');
+              }
+            }
+            var pubid = n.publicId;
+            var sysid = n.systemId;
+            buf.push('<!DOCTYPE ', n.name);
+            if (pubid) {
+              buf.push(' PUBLIC ', pubid);
+              if (sysid && sysid != '.') {
+                buf.push(' ', sysid);
+              }
+              buf.push('>');
+            } else if (sysid && sysid != '.') {
+              buf.push(' SYSTEM ', sysid, '>');
+            } else {
+              var sub = n.internalSubset;
+              if (sub) {
+                buf.push(' [', sub, ']');
+              }
+              buf.push('>');
+            }
+            return null;
+          case PROCESSING_INSTRUCTION_NODE:
+            if (requireWellFormed && n.data.indexOf('?>') !== -1) {
+              throw new DOMException(INVALID_STATE_ERR, 'The ProcessingInstruction data contains "?>"');
+            }
+            buf.push('<?', n.target, ' ', n.data, '?>');
+            return null;
+          case ENTITY_REFERENCE_NODE:
+            buf.push('&', n.nodeName, ';');
+            return null;
+
+          //case ENTITY_NODE:
+          //case NOTATION_NODE:
+          default:
+            buf.push('??', n.nodeName);
+            return null;
         }
-        // remove added visible namespaces
-        //visibleNamespaces.length = startVisibleNamespaces;
-        return;
-      case DOCUMENT_NODE:
-      case DOCUMENT_FRAGMENT_NODE:
-        var child = node.firstChild;
-        while (child) {
-          serializeToString(child, buf, isHTML, nodeFilter, visibleNamespaces.slice());
-          child = child.nextSibling;
+      },
+      exit: function (n, childCtx) {
+        if (childCtx && childCtx.tag) {
+          buf.push('</', childCtx.tag, '>');
         }
-        return;
-      case ATTRIBUTE_NODE:
-        return addSerializedAttribute(buf, node.name, node.value);
-      case TEXT_NODE:
-        /**
-         * The ampersand character (&) and the left angle bracket (<) must not appear in their literal form,
-         * except when used as markup delimiters, or within a comment, a processing instruction, or a CDATA section.
-         * If they are needed elsewhere, they must be escaped using either numeric character references or the strings
-         * `&amp;` and `&lt;` respectively.
-         * The right angle bracket (>) may be represented using the string " &gt; ", and must, for compatibility,
-         * be escaped using either `&gt;` or a character reference when it appears in the string `]]>` in content,
-         * when that string is not marking the end of a CDATA section.
-         *
-         * In the content of elements, character data is any string of characters
-         * which does not contain the start-delimiter of any markup
-         * and does not include the CDATA-section-close delimiter, `]]>`.
-         *
-         * @see https://www.w3.org/TR/xml/#NT-CharData
-         * @see https://w3c.github.io/DOM-Parsing/#xml-serializing-a-text-node
-         */
-        return buf.push(node.data.replace(/[<&>]/g, _xmlEncoder));
-      case CDATA_SECTION_NODE:
-        return buf.push('<![CDATA[', node.data, ']]>');
-      case COMMENT_NODE:
-        return buf.push("<!--", node.data, "-->");
-      case DOCUMENT_TYPE_NODE:
-        var pubid = node.publicId;
-        var sysid = node.systemId;
-        buf.push('<!DOCTYPE ', node.name);
-        if (pubid) {
-          buf.push(' PUBLIC ', pubid);
-          if (sysid && sysid != '.') {
-            buf.push(' ', sysid);
-          }
-          buf.push('>');
-        } else if (sysid && sysid != '.') {
-          buf.push(' SYSTEM ', sysid, '>');
-        } else {
-          var sub = node.internalSubset;
-          if (sub) {
-            buf.push(" [", sub, "]");
-          }
-          buf.push(">");
-        }
-        return;
-      case PROCESSING_INSTRUCTION_NODE:
-        return buf.push("<?", node.target, " ", node.data, "?>");
-      case ENTITY_REFERENCE_NODE:
-        return buf.push('&', node.nodeName, ';');
-      //case ENTITY_NODE:
-      //case NOTATION_NODE:
-      default:
-        buf.push('??', node.nodeName);
-    }
-  }
-  function importNode(doc, node, deep) {
-    var node2;
-    switch (node.nodeType) {
-      case ELEMENT_NODE:
-        node2 = node.cloneNode(false);
-        node2.ownerDocument = doc;
-      //var attrs = node2.attributes;
-      //var len = attrs.length;
-      //for(var i=0;i<len;i++){
-      //node2.setAttributeNodeNS(importNode(doc,attrs.item(i),deep));
-      //}
-      case DOCUMENT_FRAGMENT_NODE:
-        break;
-      case ATTRIBUTE_NODE:
-        deep = true;
-        break;
-      //case ENTITY_REFERENCE_NODE:
-      //case PROCESSING_INSTRUCTION_NODE:
-      ////case TEXT_NODE:
-      //case CDATA_SECTION_NODE:
-      //case COMMENT_NODE:
-      //	deep = false;
-      //	break;
-      //case DOCUMENT_NODE:
-      //case DOCUMENT_TYPE_NODE:
-      //cannot be imported.
-      //case ENTITY_NODE:
-      //case NOTATION_NODE：
-      //can not hit in level3
-      //default:throw e;
-    }
-    if (!node2) {
-      node2 = node.cloneNode(false); //false
-    }
-    node2.ownerDocument = doc;
-    node2.parentNode = null;
-    if (deep) {
-      var child = node.firstChild;
-      while (child) {
-        node2.appendChild(importNode(doc, child, deep));
-        child = child.nextSibling;
       }
-    }
-    return node2;
+    });
+  }
+  /**
+   * Imports a node from a different document into `doc`, creating a new copy.
+   * Delegates to {@link walkDOM} for traversal. Each node in the subtree is shallow-cloned,
+   * stamped with `doc` as its `ownerDocument`, and detached (`parentNode` set to `null`).
+   * Children are imported recursively when `deep` is `true`; for {@link Attr} nodes `deep` is
+   * always forced to `true`
+   * because an attribute's value lives in a child text node.
+   *
+   * @param {Document} doc
+   * The document that will own the imported node.
+   * @param {Node} node
+   * The node to import.
+   * @param {boolean} deep
+   * If `true`, descendants are imported recursively.
+   * @returns {Node}
+   * The newly imported node, now owned by `doc`.
+   */
+  function importNode(doc, node, deep) {
+    var destRoot;
+    walkDOM(node, null, {
+      enter: function (srcNode, destParent) {
+        // Shallow-clone the node and stamp it into the target document.
+        var destNode = srcNode.cloneNode(false);
+        destNode.ownerDocument = doc;
+        destNode.parentNode = null;
+        // capture as the root of the imported subtree or attach to parent.
+        if (destParent === null) {
+          destRoot = destNode;
+        } else {
+          destParent.appendChild(destNode);
+        }
+        // ATTRIBUTE_NODE must always be imported deeply: its value lives in a child text node.
+        var shouldDeep = srcNode.nodeType === ATTRIBUTE_NODE || deep;
+        return shouldDeep ? destNode : null;
+      }
+    });
+    return destRoot;
   }
   //
   //var _relationMap = {firstChild:1,lastChild:1,previousSibling:1,nextSibling:1,
   //					attributes:1,childNodes:1,parentNode:1,documentElement:1,doctype,};
   function cloneNode(doc, node, deep) {
-    var node2 = new node.constructor();
-    for (var n in node) {
-      if (Object.prototype.hasOwnProperty.call(node, n)) {
-        var v = node[n];
-        if (typeof v != "object") {
-          if (v != node2[n]) {
-            node2[n] = v;
+    var destRoot;
+    walkDOM(node, null, {
+      enter: function (srcNode, destParent) {
+        // 1. Create a blank node of the same type and copy all scalar own properties.
+        var destNode = new srcNode.constructor();
+        for (var n in srcNode) {
+          if (Object.prototype.hasOwnProperty.call(srcNode, n)) {
+            var v = srcNode[n];
+            if (typeof v != 'object') {
+              if (v != destNode[n]) {
+                destNode[n] = v;
+              }
+            }
           }
         }
-      }
-    }
-    if (node.childNodes) {
-      node2.childNodes = new NodeList();
-    }
-    node2.ownerDocument = doc;
-    switch (node2.nodeType) {
-      case ELEMENT_NODE:
-        var attrs = node.attributes;
-        var attrs2 = node2.attributes = new NamedNodeMap();
-        var len = attrs.length;
-        attrs2._ownerElement = node2;
-        for (var i = 0; i < len; i++) {
-          node2.setAttributeNode(cloneNode(doc, attrs.item(i), true));
+        if (srcNode.childNodes) {
+          destNode.childNodes = new NodeList();
         }
-        break;
-      case ATTRIBUTE_NODE:
-        deep = true;
-    }
-    if (deep) {
-      var child = node.firstChild;
-      while (child) {
-        node2.appendChild(cloneNode(doc, child, deep));
-        child = child.nextSibling;
+        destNode.ownerDocument = doc;
+        // 2. Handle node-type-specific setup.
+        //    Attributes are not DOM children, so they are cloned inline here
+        //    rather than by walkDOM descent.
+        //    ATTRIBUTE_NODE forces deep=true so its own children are walked.
+        var shouldDeep = deep;
+        switch (destNode.nodeType) {
+          case ELEMENT_NODE:
+            var attrs = srcNode.attributes;
+            var attrs2 = destNode.attributes = new NamedNodeMap();
+            var len = attrs.length;
+            attrs2._ownerElement = destNode;
+            for (var i = 0; i < len; i++) {
+              destNode.setAttributeNode(cloneNode(doc, attrs.item(i), true));
+            }
+            break;
+          case ATTRIBUTE_NODE:
+            shouldDeep = true;
+        }
+        // 3. Attach to parent, or capture as the root of the cloned subtree.
+        if (destParent !== null) {
+          destParent.appendChild(destNode);
+        } else {
+          destRoot = destNode;
+        }
+        // 4. Return destNode as the context for children (causes walkDOM to descend),
+        //    or null to skip children (shallow clone).
+        return shouldDeep ? destNode : null;
       }
-    }
-    return node2;
+    });
+    return destRoot;
   }
   function __set__(object, key, value) {
     object[key] = value;
@@ -34632,9 +35007,34 @@
           return this.$$length;
         }
       });
+
+      /**
+       * The text content of this node and its descendants.
+       *
+       * Setting `textContent` on an element or document fragment replaces all child nodes with a
+       * single text node; on other nodes it sets `data`, `value`, and `nodeValue` directly.
+       *
+       * @type {string | null}
+       * @see {@link https://dom.spec.whatwg.org/#dom-node-textcontent}
+       */
       Object.defineProperty(Node.prototype, 'textContent', {
         get: function () {
-          return getTextContent(this);
+          if (this.nodeType === ELEMENT_NODE || this.nodeType === DOCUMENT_FRAGMENT_NODE) {
+            var buf = [];
+            walkDOM(this, null, {
+              enter: function (n) {
+                if (n.nodeType === ELEMENT_NODE || n.nodeType === DOCUMENT_FRAGMENT_NODE) {
+                  return true; // enter children
+                }
+                if (n.nodeType === PROCESSING_INSTRUCTION_NODE || n.nodeType === COMMENT_NODE) {
+                  return null; // excluded from text content
+                }
+                buf.push(n.nodeValue);
+              }
+            });
+            return buf.join('');
+          }
+          return this.nodeValue;
         },
         set: function (data) {
           switch (this.nodeType) {
@@ -34654,23 +35054,6 @@
           }
         }
       });
-      function getTextContent(node) {
-        switch (node.nodeType) {
-          case ELEMENT_NODE:
-          case DOCUMENT_FRAGMENT_NODE:
-            var buf = [];
-            node = node.firstChild;
-            while (node) {
-              if (node.nodeType !== 7 && node.nodeType !== 8) {
-                buf.push(getTextContent(node));
-              }
-              node = node.nextSibling;
-            }
-            return buf.join('');
-          default:
-            return node.nodeValue;
-        }
-      }
       __set__ = function (object, key, value) {
         //console.log(value)
         object['$$' + key] = value;
@@ -34686,6 +35069,7 @@
   var Element_1 = Element;
   var Node_1 = Node;
   var NodeList_1 = NodeList;
+  var walkDOM_1 = walkDOM;
   var XMLSerializer_1 = XMLSerializer;
   //}
 
@@ -34696,6 +35080,7 @@
     Element: Element_1,
     Node: Node_1,
     NodeList: NodeList_1,
+    walkDOM: walkDOM_1,
     XMLSerializer: XMLSerializer_1
   };
 
@@ -37463,7 +37848,7 @@
   function parseInstruction(source, start, domBuilder) {
     var end = source.indexOf('?>', start);
     if (end) {
-      var match = source.substring(start, end).match(/^<\?(\S*)\s*([\s\S]*?)\s*$/);
+      var match = source.substring(start, end).match(/^<\?(\S*)\s*([\s\S]*?)$/);
       if (match) {
         match[0].length;
         domBuilder.processingInstruction(match[1], match[2]);
@@ -37857,7 +38242,7 @@
 
   var DOMParser = domParser.DOMParser;
 
-  /*! @name mpd-parser @version 1.3.1 @license Apache-2.0 */
+  /*! @name mpd-parser @version 1.4.0 @license Apache-2.0 */
   const isObject = obj => {
     return !!obj && typeof obj === 'object';
   };
@@ -38809,6 +39194,12 @@
     };
     if (attributes.frameRate) {
       playlist.attributes['FRAME-RATE'] = attributes.frameRate;
+    } // qualityRanking is inversely related to quality (higher value = lower quality)
+    // so SCORE is calculated as 1/(qualityRanking+1) (higher SCORE = higher quality)
+    // The +1 ensures we avoid division by zero when qualityRanking is 0
+
+    if (attributes.qualityRanking !== undefined) {
+      playlist.attributes.SCORE = 1 / (attributes.qualityRanking + 1);
     }
     if (attributes.contentProtection) {
       playlist.contentProtection = attributes.contentProtection;
@@ -39668,6 +40059,32 @@
       return parseInt(value, 10);
     },
     /**
+     * Specifies the quality ranking of the representation relative to others in the same
+     * adaptation set. This is inversely related to quality - higher values represent
+     * lower quality content (e.g., 1 = highest quality, 10 = lowest quality).
+     *
+     * @param {string} value
+     *        value of the attribute as a string
+     *
+     * @return {number}
+     *         The parsed qualityRanking
+     */
+    qualityRanking(value) {
+      return parseInt(value, 10);
+    },
+    /**
+     * Alias for qualityRanking to handle lowercase attribute names from HTML DOM.
+     *
+     * @param {string} value
+     *        value of the attribute as a string
+     *
+     * @return {number}
+     *         The parsed qualityRanking
+     */
+    qualityranking(value) {
+      return parseInt(value, 10);
+    },
+    /**
      * Default parser for all other attributes. Acts as a no-op and just returns the value
      * as a string
      *
@@ -39679,6 +40096,16 @@
     DEFAULT(value) {
       return value;
     }
+  };
+  /**
+   * Maps lowercase attribute names to their camelCase equivalents for internal use.
+   * HTML DOM converts attributes to lowercase, but we want to maintain camelCase
+   * naming conventions in the parsed output. XML parsers like xmldom preserve
+   * the original casing.
+   */
+
+  const attributeNameMap = {
+    qualityranking: 'qualityRanking'
   };
   /**
    * Gets all the attributes and values of the provided node, parses attributes with known
@@ -39696,7 +40123,8 @@
     }
     return from(el.attributes).reduce((a, e) => {
       const parseFn = parsers[e.name] || parsers.DEFAULT;
-      a[e.name] = parseFn(e.value);
+      const attributeName = attributeNameMap[e.name] || e.name;
+      a[attributeName] = parseFn(e.value);
       return a;
     }, {});
   };
@@ -40831,7 +41259,9 @@
     // moov string literal in hex
     'moov': toUint8([0x6D, 0x6F, 0x6F, 0x76]),
     // moof string literal in hex
-    'moof': toUint8([0x6D, 0x6F, 0x6F, 0x66])
+    'moof': toUint8([0x6D, 0x6F, 0x6F, 0x66]),
+    // "WEBVTT" string literal in hex
+    'vtt': toUint8([0x57, 0x45, 0x42, 0x56, 0x54, 0x54])
   };
   var _isLikely = {
     aac: function aac(bytes) {
@@ -40895,6 +41325,10 @@
       return bytesMatch(bytes, CONSTANTS.ac3, {
         offset: offset
       });
+    },
+    // Must be checked before ts. The sorting of isLikelyTypes ensures this.
+    vtt: function vtt(bytes) {
+      return bytesMatch(bytes, CONSTANTS.vtt);
     },
     ts: function ts(bytes) {
       if (bytes.length < 189 && bytes.length >= 1) {
@@ -41025,7 +41459,7 @@
   };
   var clock_1 = clock.ONE_SECOND_IN_TS;
 
-  /*! @name @videojs/http-streaming @version 3.17.2 @license Apache-2.0 */
+  /*! @name @videojs/http-streaming @version 3.17.5 @license Apache-2.0 */
 
   /**
    * @file resolve-url.js - Handling how URLs are resolved and manipulated
@@ -45444,7 +45878,7 @@
     return fn.toString().replace(/^function.+?{/, '').slice(0, -1);
   };
 
-  /* rollup-plugin-worker-factory start for worker!/home/runner/work/http-streaming/http-streaming/src/transmuxer-worker.js */
+  /* rollup-plugin-worker-factory start for worker!/Users/srimron-soutter/repos/github/vjs/http-streaming/src/transmuxer-worker.js */
   const workerCode$1 = transform(getWorkerString(function () {
     var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
     /**
@@ -47054,6 +47488,7 @@
      * @see https://www.gpo.gov/fdsys/pkg/CFR-2007-title47-vol1/pdf/CFR-2007-title47-vol1-sec15-119.pdf
      */
     // Link To Transport
+    // -----------------
 
     var Stream$7 = stream;
     var cea708Parser = captionPacketParser;
@@ -47236,6 +47671,7 @@
       }
     }; // ----------------------
     // Session to Application
+    // ----------------------
     // This hash maps special and extended character codes to their
     // proper Unicode equivalent. The first one-byte key is just a
     // non-standard character code. The two-byte keys that follow are
@@ -54892,7 +55328,7 @@
     };
   }));
   var TransmuxWorker = factory(workerCode$1);
-  /* rollup-plugin-worker-factory end for worker!/home/runner/work/http-streaming/http-streaming/src/transmuxer-worker.js */
+  /* rollup-plugin-worker-factory end for worker!/Users/srimron-soutter/repos/github/vjs/http-streaming/src/transmuxer-worker.js */
 
   const handleData_ = (event, transmuxedData, callback) => {
     const {
@@ -62704,7 +63140,7 @@ ${segmentInfoString(segmentInfo)}`); // If there's an init segment associated wi
     }
   }
 
-  /* rollup-plugin-worker-factory start for worker!/home/runner/work/http-streaming/http-streaming/src/decrypter-worker.js */
+  /* rollup-plugin-worker-factory start for worker!/Users/srimron-soutter/repos/github/vjs/http-streaming/src/decrypter-worker.js */
   const workerCode = transform(getWorkerString(function () {
     /**
      * @file stream.js
@@ -63296,7 +63732,7 @@ ${segmentInfoString(segmentInfo)}`); // If there's an init segment associated wi
     };
   }));
   var Decrypter = factory(workerCode);
-  /* rollup-plugin-worker-factory end for worker!/home/runner/work/http-streaming/http-streaming/src/decrypter-worker.js */
+  /* rollup-plugin-worker-factory end for worker!/Users/srimron-soutter/repos/github/vjs/http-streaming/src/decrypter-worker.js */
 
   /**
    * Convert the properties of an HLS track into an audioTrackKind.
@@ -65620,7 +66056,14 @@ ${segmentInfoString(segmentInfo)}`); // If there's an init segment associated wi
         if (media.start) {
           const offset = media.start.timeOffset;
           if (offset < 0) {
-            startPoint = Math.max(seekableEnd + offset, seekable.start(0));
+            // Per HLS spec, negative TIME-OFFSET is from the end of the last Media Segment.
+            // For live streams, seekableEnd already has liveEdgeDelay subtracted,
+            // so we need to add it back to get the actual playlist end.
+            // Clamp to seekableEnd to avoid seeking into the unsafe live edge zone.
+            const main = this.mainPlaylistLoader_.main;
+            const liveEdgeDelay = Vhs$1.Playlist.liveEdgeDelay(main, media);
+            const actualPlaylistEnd = seekableEnd + liveEdgeDelay;
+            startPoint = Math.max(Math.min(actualPlaylistEnd + offset, seekableEnd), seekable.start(0));
           } else {
             startPoint = Math.min(seekableEnd, offset);
           }
@@ -67618,9 +68061,9 @@ ${segmentInfoString(segmentInfo)}`); // If there's an init segment associated wi
   const reloadSourceOnError = function (options) {
     initPlugin(this, options);
   };
-  var version$4 = "3.17.2";
+  var version$4 = "3.17.5";
   var version$3 = "7.1.0";
-  var version$2 = "1.3.1";
+  var version$2 = "1.4.0";
   var version$1 = "7.2.0";
   var version = "4.0.2";
   const Vhs = {
