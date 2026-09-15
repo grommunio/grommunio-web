@@ -2653,6 +2653,16 @@ Note: Does not work in IE11 */
 .x-dd-drag-ghost .x-tree-node-el.zarafa-hierarchy-node {
   display: block; }
 
+/* extjs paints the ghost white and the drop target light grey, from before there
+   was a dark mode; the text follows --ui-text and vanished on both */
+.x-dd-drag-ghost {
+  background-color: var(--ui-surface-2);
+  border-color: var(--ui-border); }
+
+.x-tree-node .x-tree-drag-append a span {
+  background-color: var(--ui-accent-soft);
+  border-color: var(--ui-accent-ring); }
+
 .x-tree-node a span, .x-dd-drag-ghost a span {
   padding-left: 0; }
 
