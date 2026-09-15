@@ -1853,7 +1853,9 @@ class Operations {
 				}
 			}
 
-			$props['props']['isHTML'] = false;
+			// isHTML belongs to the body. Claiming plain text for a caller that asks for
+			// no body tells the client an opened record is plain text while its html body
+			// stays behind, and the client then shows the plain body it still holds.
 			if ($loadBody) {
 				$body = $this->getMessageBody($message, $html2text);
 				$props['props'] = array_merge($props['props'], $body);
