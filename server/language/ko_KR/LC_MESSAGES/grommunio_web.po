@@ -167,7 +167,7 @@ msgid "Page {A} of {0}"
 msgstr "페이지 {0}의 {A} 페이지"
 
 msgid "Displaying messages {0} - {1} of {2}"
-msgstr "2}의 {0} - {1} 메시지 표시"
+msgstr "{2}개 중 {0} - {1} 메시지 표시"
 
 msgid "No messages to display"
 msgstr "표시할 메시지가 없습니다."
@@ -808,7 +808,7 @@ msgid "weeks"
 msgstr "주"
 
 msgid " on "
-msgstr " on"
+msgstr " "
 
 msgid "month"
 msgstr "월"
@@ -823,44 +823,44 @@ msgid "years"
 msgstr "년"
 
 msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "2}에서 {3}까지 {0} 유효 {1}마다 발생합니다."
+msgstr "{1}부터 {0}마다 {2}~{3}에 발생합니다."
 
 msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "3}에서 {4}까지 {0} {1} 유효 {2}마다 발생합니다."
+msgstr "{2}부터 {0} {1}마다 {3}~{4}에 발생합니다."
 
 msgid "Occurs every {0} effective {1}."
 msgstr "유효 {1}마다 {0}번 발생합니다."
 
 msgid "Occurs every {0} {1} effective {2}."
-msgstr "0} {1} 유효 {2}마다 발생합니다."
+msgstr "{2}부터 {0} {1}마다 발생합니다."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "3}에서 {4}까지 {2}번 발생할 때마다 {0}번 유효하게 {1}번 발생합니다."
+msgstr[0] "{1}부터 {0}마다 {3}~{4}에 {2}회 발생합니다."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "4}에서 {5}까지 {3}번 발생할 때마다 {0} {1} 유효 {2}번 발생합니다."
+msgstr[0] "{2}부터 {0} {1}마다 {4}~{5}에 {3}회 발생합니다."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "2} 발생 시 {0} 유효 {1}마다 발생합니다."
+msgstr[0] "{1}부터 {0}마다 {2}회 발생합니다."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "3} 발생 시 {0} {1} 유효 {2}마다 발생합니다."
+msgstr[0] "{2}부터 {0} {1}마다 {3}회 발생합니다."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "0}부터 {1}까지 {2}까지 {3}에서 {4}까지 매 {1}마다 발생합니다."
+msgstr "{1}부터 {2}까지 {0}마다 {3}~{4}에 발생합니다."
 
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "4}부터 {5}까지 {3}까지 {0} {1} 유효 {2}마다 발생합니다."
+msgstr "{2}부터 {3}까지 {0} {1}마다 {4}~{5}에 발생합니다."
 
 msgid "Occurs every {0} effective {1} until {2}."
-msgstr "1}부터 {2}까지 {0}마다 발생합니다."
+msgstr "{1}부터 {2}까지 {0}마다 발생합니다."
 
 msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "3}까지 {0} {1} 유효 {2}마다 발생합니다."
+msgstr "{2}부터 {3}까지 {0} {1}마다 발생합니다."
 
 msgid "New Meeting Time Proposed"
 msgstr "새로운 회의 시간 제안"
@@ -873,7 +873,7 @@ msgid "Fwd"
 msgstr "전달"
 
 msgid "and "
-msgstr "그리고"
+msgstr "그리고 "
 
 msgid "Sort by: Attachment"
 msgstr "정렬 기준: 첨부 파일"
@@ -1091,15 +1091,15 @@ msgstr "{0}이(가) {1}에 이 회의의 새 시간을 제안했습니다."
 
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
-msgstr "0}에 수락됨"
+msgstr "{0}에 수락함"
 
 msgctxt "calendar.dialog"
 msgid "Accepted by {0} on {1}"
-msgstr "1}에서 {0}이 수락했습니다."
+msgstr "{1}에 {0}이(가) 수락함"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
-msgstr "0}에서 잠정 수락됨"
+msgstr "{0}에 잠정적으로 수락함"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
@@ -1362,7 +1362,7 @@ msgid "of"
 msgstr "의"
 
 msgid "Location: "
-msgstr "위치:"
+msgstr "위치: "
 
 msgid "j M {0}"
 msgstr "j M {0}"
@@ -1371,7 +1371,7 @@ msgid "l jS M Y {0}"
 msgstr "l jS M Y {0}"
 
 msgid "All day: "
-msgstr "하루 종일:"
+msgstr "하루 종일: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1647,7 +1647,7 @@ msgid "Next"
 msgstr "다음"
 
 msgid "grommunio Web"
-msgstr "그로뮤니오 웹"
+msgstr "grommunio Web"
 
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
 msgstr "주최자가 이 미팅 요청을 업데이트할 때 변경 사항을 덮어쓰게 된다는 점에 유의하세요. 이 미팅을 옮기시겠습니까?"
@@ -1720,10 +1720,10 @@ msgid "Upcoming Appointments"
 msgstr "예정된 약속"
 
 msgid "Appointments of {0}"
-msgstr "0}의 약속"
+msgstr "{0}의 약속"
 
 msgid "Appointments of {0} - {1}"
-msgstr "0} - {1}의 약속"
+msgstr "{0} - {1}의 약속"
 
 msgid "No appointments"
 msgstr "약속 없음"
@@ -1770,7 +1770,7 @@ msgid "Printing of this item is not yet available"
 msgstr "이 항목의 인쇄는 아직 사용할 수 없습니다."
 
 msgid "Item type: "
-msgstr "항목 유형:"
+msgstr "항목 유형: "
 
 msgid "Printing of this view is not yet available"
 msgstr "이 보기의 인쇄는 아직 사용할 수 없습니다."
@@ -2037,7 +2037,7 @@ msgid "Drop files here to attach them"
 msgstr "첨부할 파일을 여기에 끌어다 놓으세요"
 
 msgid "Picture format is not supported. "
-msgstr "사진 형식은 지원되지 않습니다."
+msgstr "사진 형식은 지원되지 않습니다. "
 
 msgid "Supported format for contact pictures are"
 msgstr "연락처 사진에 지원되는 형식은 다음과 같습니다."
@@ -2212,7 +2212,7 @@ msgstr "대상 폴더"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
-msgstr[0] "0} 메시지가 선택되었습니다."
+msgstr[0] "{0}개의 메시지가 선택되었습니다."
 
 msgid "Folder '{0}' selected."
 msgstr "폴더 '{0}'이 선택되었습니다."
@@ -2542,7 +2542,7 @@ msgid "This message has no content."
 msgstr "이 메시지에는 내용이 없습니다."
 
 msgid "grommunio Web print"
-msgstr "그로뮤니오 웹 인쇄"
+msgstr "grommunio Web 인쇄"
 
 msgid "Display name"
 msgstr "표시 이름"
@@ -2596,7 +2596,7 @@ msgid "last"
 msgstr "마지막"
 
 msgid "Every {A} day(s)"
-msgstr "A}일마다"
+msgstr "{A}일마다"
 
 msgid "Every weekday"
 msgstr "매주 평일"
@@ -2608,7 +2608,7 @@ msgid "Day {A} of every {B} month(s)"
 msgstr "매월 {B}월의 {A}일"
 
 msgid "The {A} {B} of every {C} month(s)"
-msgstr "A} {C} 개월마다 {B} 개월"
+msgstr "{C}개월마다 {A} {B}"
 
 msgid "Regenerate new task {A} month(s) after each task is completed"
 msgstr "각 작업이 완료된 후 {A}월에 새 작업 재생성"
@@ -2647,7 +2647,7 @@ msgid "No end date"
 msgstr "종료 날짜 없음"
 
 msgid "End after {A} occurrences"
-msgstr "A} 발생 후 종료"
+msgstr "{A}회 발생 후 종료"
 
 msgid "End by {A}"
 msgstr "끝 {A}로 끝"
@@ -2670,7 +2670,7 @@ msgid "{A} {B}"
 msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
-msgstr "A} {C}의 {B}"
+msgstr "{C}의 {A} {B}"
 
 msgid "Regenerate new task {A} year(s) after each task is completed"
 msgstr "각 작업이 완료된 후 {A} 연도에 새 작업 재생성"
@@ -2683,7 +2683,7 @@ msgstr "현재 지원되지 않습니다."
 
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] "0} 알림이 있습니다."
+msgstr[0] "{0}개의 미리 알림이 있습니다."
 
 msgid "Reminders"
 msgstr "리마인더"
@@ -3224,7 +3224,7 @@ msgstr "이를 {0}으로 처리해 주세요."
 
 msgctxt "mail.previewpanel"
 msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "사진을 다운로드하려면 여기를 클릭하세요. 개인정보 보호를 위해 그로뮤니오 웹에서는 이 메시지에 포함된 일부 사진의 자동 다운로드를 차단했습니다."
+msgstr "사진을 다운로드하려면 여기를 클릭하세요. 개인정보 보호를 위해 grommunio Web에서는 이 메시지에 포함된 일부 사진의 자동 다운로드를 차단했습니다."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3300,7 +3300,7 @@ msgstr "이전에 보낸 미팅 요청을 업데이트한 것입니다."
 
 msgctxt "mail.previewpanel"
 msgid "Received for {0}."
-msgstr "0}에 대해 수신했습니다."
+msgstr "{0}을(를) 대신하여 수신했습니다."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
@@ -3312,32 +3312,32 @@ msgstr "이 메시지를 전달했습니다."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr "0}에서 이 메시지에 답장했습니다."
+msgstr "{0}에 이 메시지에 답장했습니다."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
 msgstr "이 메시지를 {0}에서 전달했습니다."
 
 msgid "Assigned by {0} on {1}."
-msgstr "0}이 {1}에 할당했습니다."
+msgstr "{0}이(가) {1}에 할당했습니다."
 
 msgid "Waiting for response from recipient"
 msgstr "수신자의 응답을 기다리는 중"
 
 msgid "Accepted by {0} on {1}."
-msgstr "1}에서 {0}이 수락했습니다."
+msgstr "{0}이(가) {1}에 수락했습니다."
 
 msgid "{0} has accepted on behalf of {1} {2}."
 msgstr "{0}이(가) {1}을(를) 대신하여 수락했습니다. {2}."
 
 msgid "Declined by {0} on {1}."
-msgstr "1}에서 {0}이 거부했습니다."
+msgstr "{0}이(가) {1}에 거부했습니다."
 
 msgid "{0} has declined on behalf of {1} {2}."
 msgstr "{0}이(가) {1}을(를) 대신하여 거부했습니다. {2}."
 
 msgid "Last update sent on {0}."
-msgstr "0}에서 보낸 마지막 업데이트입니다."
+msgstr "{0}에 마지막 업데이트를 보냈습니다."
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0}이(가) {1}을(를) 대신하여 업데이트했습니다. {2}."
@@ -3868,7 +3868,7 @@ msgid "Open in new browser window"
 msgstr "새 브라우저 창에서 열기"
 
 msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
-msgstr "브라우저가 하나 이상의 팝업을 차단한 것 같습니다. 브라우저 설정을 변경하여 그로뮤니오 웹의 팝업을 항상 허용하세요."
+msgstr "브라우저가 하나 이상의 팝업을 차단한 것 같습니다. 브라우저 설정을 변경하여 grommunio Web의 팝업을 항상 허용하세요."
 
 msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "첨부 파일을 업로드할 수 없습니다. 메시지에 {0}개의 첨부 파일만 추가할 수 있습니다."
@@ -4197,7 +4197,7 @@ msgid "Folders List"
 msgstr "폴더 목록"
 
 msgid "Loaded {0} of {1}"
-msgstr "1}의 {0}을 로드했습니다."
+msgstr "{1}개 중 {0}개 로드됨"
 
 msgid "Copy Details"
 msgstr "세부 정보 복사"
@@ -4233,7 +4233,7 @@ msgid "Unsaved changes"
 msgstr "저장되지 않은 변경 사항"
 
 msgid "Welcome to grommunio Web"
-msgstr "그로뮤니오 웹에 오신 것을 환영합니다."
+msgstr "grommunio Web에 오신 것을 환영합니다."
 
 msgid "Set up your preferences to get started."
 msgstr "시작하려면 환경설정을 설정하세요."
@@ -4360,7 +4360,7 @@ msgid "The default store is missing from the hierarchy."
 msgstr "기본 스토어가 계층 구조에서 누락되었습니다."
 
 msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "이로 인해 그로뮤니오 웹의 모든 기능이 제대로 작동하지 않을 수 있습니다."
+msgstr "이로 인해 grommunio Web의 모든 기능이 제대로 작동하지 않을 수 있습니다."
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
@@ -4445,7 +4445,7 @@ msgstr "비우기 {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] "2}의 {1} 폴더에 {0} 읽지 않은 메시지가 있습니다."
+msgstr[0] "{2}의 폴더 {1}에 읽지 않은 메시지가 {0}개 있습니다."
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
@@ -4541,7 +4541,7 @@ msgid "Folder size"
 msgstr "폴더 크기"
 
 msgid "Folder containing {0} Items"
-msgstr "0} 항목이 들어 있는 폴더"
+msgstr "{0} 항목이 들어 있는 폴더"
 
 msgid "Permissions"
 msgstr "권한"
@@ -4727,13 +4727,13 @@ msgid "Import contacts"
 msgstr "연락처 가져오기"
 
 msgid "Properties of {0}"
-msgstr "0}의 속성"
+msgstr "{0}의 속성"
 
 msgid "Share {0} with…"
-msgstr "0} 공유 대상…"
+msgstr "{0} 공유 대상…"
 
 msgid "Properties of {0} - {1}"
-msgstr "0} - {1}의 속성"
+msgstr "{0} - {1}의 속성"
 
 msgid "Are you sure you want to permanently delete all the items and subfolders in the \"{0}\" folder?"
 msgstr "\"{0}\" 폴더의 모든 항목과 하위 폴더를 영구적으로 삭제하시겠습니까?"
@@ -4745,7 +4745,7 @@ msgid "Delete folder"
 msgstr "폴더 삭제"
 
 msgid "Are you sure you want to empty {0}?"
-msgstr "0}을 비우시겠습니까?"
+msgstr "{0}을(를) 비우시겠습니까?"
 
 msgid "Show All"
 msgstr "모두 보기"
@@ -4794,7 +4794,7 @@ msgid "Scheduled Items"
 msgstr "예약된 항목"
 
 msgid "Your message will be sent at "
-msgstr "메시지는 다음 주소로 전송됩니다."
+msgstr "메시지가 다음 시간에 전송됩니다: "
 
 msgid "Go to your Outbox to edit your email."
 msgstr "받은 편지함으로 이동하여 이메일을 수정합니다."
@@ -4812,13 +4812,13 @@ msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "입력하신 시간이 지났습니다. 메일 일정을 다시 잡으세요."
 
 msgid "today  at "
-msgstr "오늘"
+msgstr "오늘 "
 
 msgid "tomorrow  at "
-msgstr "내일"
+msgstr "내일 "
 
 msgid "{0} at "
-msgstr "{0}에서"
+msgstr "{0}"
 
 msgid "at {0}"
 msgstr "at {0}"
@@ -5093,7 +5093,7 @@ msgid "Open or compose a mail item in a"
 msgstr "에서 메일 항목을 열거나 작성합니다."
 
 msgid "grommunio Web tab"
-msgstr "그로뮤니오 웹 탭"
+msgstr "grommunio Web 탭"
 
 msgid "Browser window"
 msgstr "브라우저 창"
@@ -5201,7 +5201,7 @@ msgid "ZIP file"
 msgstr "ZIP 파일"
 
 msgid "max. "
-msgstr "최대."
+msgstr "최대 "
 
 msgid "Sort by: Sent"
 msgstr "정렬 기준: 보낸"
@@ -5350,10 +5350,10 @@ msgid "Quick Note"
 msgstr "빠른 참고 사항"
 
 msgid "You must reload grommunio Web for the changes to take effect. Unsaved changes will be lost."
-msgstr "변경 사항을 적용하려면 그로뮤니오 웹을 다시 로드해야 합니다. 저장하지 않은 변경 사항은 손실됩니다."
+msgstr "변경 사항을 적용하려면 grommunio Web을 다시 로드해야 합니다. 저장하지 않은 변경 사항은 손실됩니다."
 
 msgid "Reload grommunio Web"
-msgstr "웹 그로밋 로드"
+msgstr "grommunio Web 다시 로드"
 
 msgid "Basic"
 msgstr "기본"
@@ -5395,7 +5395,7 @@ msgid "Developer tools"
 msgstr "개발자 도구"
 
 msgid "Show insertion points in grommunio Web"
-msgstr "그로뮤니오 웹에서 삽입 지점 보기"
+msgstr "grommunio Web에서 삽입 지점 보기"
 
 msgid "Show \"item data\" button in context menu (mail only)"
 msgstr "컨텍스트 메뉴에 '항목 데이터' 버튼 표시(메일 전용)"
@@ -5503,13 +5503,13 @@ msgid "Infinite Scroll"
 msgstr "무한 스크롤"
 
 msgid "grommunio Web automatically loads additional items when you scroll down"
-msgstr "아래로 스크롤하면 그로뮤니오 웹이 자동으로 추가 항목을 로드합니다."
+msgstr "아래로 스크롤하면 grommunio Web이 자동으로 추가 항목을 로드합니다."
 
 msgid "grommunio Web displays items on pages and you can use navigation controls to navigate"
-msgstr "그로뮤니오 웹은 페이지에 항목을 표시하고 탐색 컨트롤을 사용하여 탐색할 수 있습니다."
+msgstr "grommunio Web은 페이지에 항목을 표시하고 탐색 컨트롤을 사용하여 탐색할 수 있습니다."
 
 msgid "Load items in blocks of {A}"
-msgstr "A} 블록으로 항목을 로드합니다."
+msgstr "항목을 {A}개 단위로 로드합니다."
 
 msgid "Load {A} items per page."
 msgstr "페이지당 {A}개 항목을 로드합니다."
@@ -5533,7 +5533,7 @@ msgid "Extended shortcuts on"
 msgstr "확장된 바로 가기"
 
 msgid "This change requires a reload of grommunio Web"
-msgstr "이 변경 사항을 적용하려면 그로뮤니오 웹을 다시 로드해야 합니다."
+msgstr "이 변경 사항을 적용하려면 grommunio Web을 다시 로드해야 합니다."
 
 msgid "Plugins"
 msgstr "플러그인"
@@ -5566,13 +5566,13 @@ msgid "You have exceeded hard quota, you can not send or receive mails."
 msgstr "하드 할당량을 초과하여 메일을 보내거나 받을 수 없습니다."
 
 msgid "At {0} you won't be able to send mails."
-msgstr "0}에서는 메일을 보낼 수 없습니다."
+msgstr "{0}에 도달하면 메일을 보낼 수 없습니다."
 
 msgid "You can not send mails as you have exceeded soft quota, at {0} you won't be able to receive mails."
 msgstr "소프트 할당량을 초과했으므로 {0}에서 메일을 받을 수 없으므로 메일을 보낼 수 없습니다."
 
 msgid "At {0} you won't be able to send or receive mails."
-msgstr "0}에서는 메일을 보내거나 받을 수 없습니다."
+msgstr "{0}에 도달하면 메일을 보내거나 받을 수 없습니다."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "소프트 할당량을 초과했으므로 메일을 보낼 수 없습니다."
@@ -5587,7 +5587,7 @@ msgid "This will close all opened shared stores and resets all settings to the d
 msgstr "이렇게 하면 열려 있는 모든 공유 스토어가 닫히고 모든 설정이 기본값으로 재설정됩니다."
 
 msgid "grommunio Web will automatically reload in order for these changes to take effect"
-msgstr "이러한 변경 사항을 적용하려면 그로뮤니오 웹이 자동으로 다시 로드됩니다."
+msgstr "이러한 변경 사항을 적용하기 위해 grommunio Web이 자동으로 다시 로드됩니다."
 
 msgid "Reset"
 msgstr "초기화"
@@ -5819,11 +5819,11 @@ msgid "Completed"
 msgstr "완료"
 
 msgid "Printed by: "
-msgstr "인쇄자"
+msgstr "인쇄자: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
-msgstr "인쇄됨:"
+msgstr "인쇄일: "
 
 msgid "Percent complete"
 msgstr "완료 비율"
@@ -6333,22 +6333,22 @@ msgid "Loading..."
 msgstr "로드 중..."
 
 msgid "Add attachment from {0}"
-msgstr "0}에서 첨부 파일 추가"
+msgstr "{0}에서 첨부 파일 추가"
 
 msgid "Confirm deletion"
 msgstr "삭제 확인"
 
 msgid "Are you sure you want to delete {0}?"
-msgstr "0}을 삭제하시겠습니까?"
+msgstr "{0}을(를) 삭제하시겠습니까?"
 
 msgid "Are you sure you want to delete {0} and all of its contents?"
-msgstr "0} 및 모든 콘텐츠를 삭제하시겠습니까?"
+msgstr "{0} 및 해당 폴더의 모든 콘텐츠를 삭제하시겠습니까?"
 
 msgid "Are you sure you want to delete {0} files?"
-msgstr "0} 파일을 삭제하시겠습니까?"
+msgstr "{0}개 파일을 삭제하시겠습니까?"
 
 msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr "0} 폴더와 해당 폴더의 모든 콘텐츠를 삭제하시겠습니까?"
+msgstr "{0}개 폴더와 해당 폴더의 모든 콘텐츠를 삭제하시겠습니까?"
 
 msgid "Are you sure want to delete the selected items and all of their contents?"
 msgstr "선택한 항목과 해당 콘텐츠를 모두 삭제하시겠습니까?"
@@ -6435,10 +6435,10 @@ msgid "Accounts marked by your administrator as \"cannot be changed\" will not b
 msgstr "관리자가 '변경할 수 없음'으로 표시한 계정은 삭제되지 않습니다."
 
 msgid "grommunio Web will automatically restart in order for these changes to take effect."
-msgstr "변경 사항을 적용하기 위해 grommunio 웹이 자동으로 다시 시작됩니다."
+msgstr "변경 사항을 적용하기 위해 grommunio Web이 자동으로 다시 시작됩니다."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "그로뮤니오 웹이 로드 중입니다 잠시만 기다려주세요."
+msgstr "grommunio Web을 다시 로드하는 중입니다. 잠시만 기다려 주세요."
 
 msgid "Edit Account"
 msgstr "계정 수정"
@@ -6528,7 +6528,7 @@ msgid "You have to choose at least one file!"
 msgstr "파일을 하나 이상 선택해야 합니다!"
 
 msgid "Create New "
-msgstr "새로 만들기"
+msgstr "새 "
 
 msgid "Incorrect filename"
 msgstr "잘못된 파일 이름"
@@ -6576,13 +6576,13 @@ msgid "Upload Failed"
 msgstr "업로드 실패"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr "첨부 파일을 파일에 저장할 수 없습니다! 오류가 발생했습니다:"
+msgstr "첨부 파일을 파일에 저장할 수 없습니다! 오류: "
 
 msgid "Share Files"
 msgstr "파일 공유"
 
 msgid "Uploading files to "
-msgstr "다음 주소로 파일 업로드"
+msgstr "다음 위치로 파일 업로드 중: "
 
 msgid "Starting upload"
 msgstr "업로드 시작"
@@ -6600,7 +6600,7 @@ msgid " minutes left"
 msgstr " 남은 시간"
 
 msgid "Uploading: "
-msgstr "업로드 중입니다:"
+msgstr "업로드 중: "
 
 msgid "Upload status unavailable... please wait."
 msgstr "업로드할 수 없는 상태입니다... 잠시만 기다려주세요."
@@ -6889,7 +6889,7 @@ msgid "Manage Shared Folders"
 msgstr "공유 폴더 관리"
 
 msgid "Select folders to sync to your device from the list below. To add additional mailboxes to the list, open them in grommunio Web first."
-msgstr "아래 목록에서 장치에 동기화할 폴더를 선택합니다. 목록에 사서함을 추가하려면 먼저 그로뮤니오 웹에서 해당 사서함을 엽니다."
+msgstr "아래 목록에서 장치에 동기화할 폴더를 선택합니다. 목록에 사서함을 추가하려면 먼저 grommunio Web에서 해당 사서함을 엽니다."
 
 msgid "grommunio-sync"
 msgstr "그로뮤니오 동기화"
@@ -7733,7 +7733,7 @@ msgid "CBC mode"
 msgstr "CBC 모드"
 
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
-msgstr "그로뮤니오 웹은 이메일의 디지털 서명을 확인할 수 있습니다. 확인에 성공하면 메시지가 변조되지 않았음을 확신할 수 있으며 발신자의 신원을 확인할 수 있습니다."
+msgstr "grommunio Web은 이메일의 디지털 서명을 확인할 수 있습니다. 확인에 성공하면 메시지가 변조되지 않았음을 확신할 수 있으며 발신자의 신원을 확인할 수 있습니다."
 
 msgid "You are seeing this message because the verification of the digital signature"
 msgstr "디지털 서명 확인이 완료되지 않아 이 메시지가 표시되고 있습니다."
@@ -7757,7 +7757,7 @@ msgid "You can contact your helpdesk or system administrator if you are not sure
 msgstr "다음에 수행할 작업이 확실하지 않은 경우 헬프데스크 또는 시스템 관리자에게 문의할 수 있습니다."
 
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "그로뮤니오 웹은 이메일의 디지털 서명을 확인할 수 있습니다. 확인에 성공하면 안심할 수 있습니다."
+msgstr "grommunio Web은 이메일의 디지털 서명을 확인할 수 있습니다. 확인에 성공하면 "
 
 msgid "that the message has not been tampered with and validates the identity of the sender."
 msgstr "메시지가 변조되지 않았음을 확인하고 발신자의 신원을 확인합니다."
@@ -7766,7 +7766,7 @@ msgid "The verification of the digital signature was successful for this email m
 msgstr "이 이메일 메시지에 대한 디지털 서명 확인이 성공했습니다."
 
 msgid "grommunio Web could not find a public certificate for the recipient."
-msgstr "그로뮤니오 웹에서 수신자의 공인 인증서를 찾을 수 없습니다."
+msgstr "grommunio Web에서 수신자의 공인 인증서를 찾을 수 없습니다."
 
 msgid "The identity of the sender and authenticity of the message content have been verified, but the certificate used to sign the message expired on [d-m-Y]."
 msgstr "보낸 사람의 신원과 메시지 내용의 진위가 확인되었지만 메시지에 서명하는 데 사용된 인증서가 [d-m-Y]에 만료되었습니다."
@@ -8027,7 +8027,7 @@ msgid "You have been automatically logged out"
 msgstr "자동으로 로그아웃되었습니다."
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
-msgstr "죄송합니다. 이 사용자 계정으로는 그로뮤니오 웹에 액세스할 수 없습니다. 시스템 관리자에게 문의하세요."
+msgstr "죄송합니다. 이 사용자 계정으로는 grommunio Web에 액세스할 수 없습니다. 시스템 관리자에게 문의하세요."
 
 msgid "The AI request failed unexpectedly."
 msgstr "AI 요청이 예기치 않게 실패했습니다."
@@ -8234,7 +8234,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "이 백엔드를 사용하면 모든 WebDAV 서버에 연결할 수 있습니다."
 
 msgid "Files WebDAV Backend: "
-msgstr "파일 WebDAV 백엔드:"
+msgstr "파일 WebDAV 백엔드: "
 
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL이 설치되지 않았습니다."
@@ -8373,7 +8373,7 @@ msgid "Invalid LDAP configuration"
 msgstr "잘못된 LDAP 구성"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr "다음 수신자에 대한 누락된 공인 인증서가 있습니다:"
+msgstr "다음 수신자의 공인 인증서가 없습니다: "
 
 msgid ". Please contact your system administrator for details"
 msgstr ". 자세한 내용은 시스템 관리자에게 문의하세요."
@@ -8391,7 +8391,7 @@ msgid "Private key can't be used to sign email"
 msgstr "개인 키를 사용하여 이메일에 서명할 수 없습니다."
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "인증서 이메일 주소가 그로뮤니오 웹 계정과 일치하지 않습니다."
+msgstr "인증서 이메일 주소가 grommunio Web 계정과 일치하지 않습니다: "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8401,13 +8401,13 @@ msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully suppor
 msgstr "EdDSA(Ed25519) 인증서는 PHP 8.4 이상이 필요하며, 일부 기능이 제대로 지원되지 않을 수 있습니다. 인증서가 가져왔습니다."
 
 msgid "Certificate was expired on "
-msgstr "인증서가 다음 날짜에 만료되었습니다."
+msgstr "인증서가 다음 날짜에 만료되었습니다: "
 
 msgid "Certificate was imported."
 msgstr "인증서를 가져왔습니다."
 
 msgid "Certificate is not yet valid "
-msgstr "인증서가 아직 유효하지 않습니다."
+msgstr "인증서가 아직 유효하지 않습니다. 유효 시작일: "
 
 msgid "Certificate has not been imported"
 msgstr "인증서를 가져오지 않았습니다."
@@ -8535,7 +8535,7 @@ msgstr "VCF 첨부 파일을 성공적으로 가져오지 못했습니다."
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "'%s'를 '%s'로 가져올 수 없습니다."
+msgstr "'%s'를 '%s'로 가져올 수 없습니다. "
 
 msgid "There is no appointment found in this file."
 msgstr "이 파일에 약속이 없습니다."
@@ -8548,7 +8548,7 @@ msgstr "파일이 유효하지 않습니다."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr "'%s'를 가져올 수 없습니다."
+msgstr "'%s'를 가져올 수 없습니다. "
 
 msgid "Attachment is not imported successfully"
 msgstr "첨부 파일을 성공적으로 가져오지 못했습니다."
@@ -8623,7 +8623,7 @@ msgid "an appointment"
 msgstr "약속"
 
 msgid "You have insufficient privileges to move "
-msgstr "이동할 수 있는 권한이 충분하지 않습니다."
+msgstr "이동할 수 있는 권한이 충분하지 않습니다 "
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "이전 발생 전에 미리 알림이 표시되도록 설정할 수 없습니다. 미리 알림을 재설정하여 변경 내용을 저장합니다."
@@ -9031,10 +9031,10 @@ msgid "There is no contact found in this file."
 msgstr "이 파일에 연락처가 없습니다."
 
 msgid "grommunio Web does not support importing multiple VCF with this version."
-msgstr "이 버전에서는 그로뮤니오 웹이 여러 개의 VCF 가져오기를 지원하지 않습니다."
+msgstr "이 버전에서는 grommunio Web이 여러 개의 VCF 가져오기를 지원하지 않습니다."
 
 msgid "grommunio Web does not support importing multiple ICS with this version."
-msgstr "그로뮤니오 웹은 이 버전에서 여러 ICS 가져오기를 지원하지 않습니다."
+msgstr "grommunio Web은 이 버전에서 여러 ICS 가져오기를 지원하지 않습니다."
 
 msgid "GB"
 msgstr "GB"

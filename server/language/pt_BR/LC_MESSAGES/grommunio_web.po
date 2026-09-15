@@ -818,7 +818,7 @@ msgid "weeks"
 msgstr "semanas"
 
 msgid " on "
-msgstr " em"
+msgstr " em "
 
 msgid "month"
 msgstr "mês"
@@ -1386,11 +1386,11 @@ msgid "l jS M Y {0}"
 msgstr "l jS M Y {0}"
 
 msgid "All day: "
-msgstr "O dia todo:"
+msgstr "O dia todo: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
-msgstr "l, j &#100;e F &#100;e Y"
+msgstr "l, j \\d\\e F \\d\\e Y"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
@@ -1786,7 +1786,7 @@ msgid "Printing of this item is not yet available"
 msgstr "Impressão deste item ainda não está disponível"
 
 msgid "Item type: "
-msgstr "Item tipo:"
+msgstr "Tipo de item: "
 
 msgid "Printing of this view is not yet available"
 msgstr "Impressão deste modo de exibição ainda não está disponível"
@@ -2056,7 +2056,7 @@ msgid "Drop files here to attach them"
 msgstr "Solte os arquivos aqui para anexá-los"
 
 msgid "Picture format is not supported. "
-msgstr "O formato da imagem não é compatível."
+msgstr "O formato da imagem não é compatível. "
 
 msgid "Supported format for contact pictures are"
 msgstr "Os formatos suportados para imagens de contato são"
@@ -2562,7 +2562,7 @@ msgid "This message has no content."
 msgstr "Esta mensagem não tem conteúdo."
 
 msgid "grommunio Web print"
-msgstr "grommunio Impressão na Web"
+msgstr "Impressão do grommunio Web"
 
 msgid "Display name"
 msgstr "Nome para exibição"
@@ -2696,14 +2696,14 @@ msgid "Regenerate new task {A} year(s) after each task is completed"
 msgstr "Gerar novamente a nova tarefa cada {A} ano(s) depois que a tarefa foi concluída"
 
 msgid "Info"
-msgstr "Informação "
+msgstr "Informação"
 
 msgid "Not supported at the moment."
 msgstr "Não suportado no momento."
 
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] "Há um lembrete no site {0} "
+msgstr[0] "Há {0} lembrete"
 msgstr[1] "Há {0} lembretes"
 
 msgid "Reminders"
@@ -3482,7 +3482,7 @@ msgid "Assistant Phone"
 msgstr "Telefone do Assistente"
 
 msgid "Company Main Phone"
-msgstr "Telefone Empresarial Padrão "
+msgstr "Telefone Principal da Empresa"
 
 msgid "Home 2 Phone"
 msgstr "Telefone residencial 2"
@@ -5122,7 +5122,7 @@ msgid "Open or compose a mail item in a"
 msgstr "Abra ou escreva um item de correio em um"
 
 msgid "grommunio Web tab"
-msgstr "guia da Web do grommunio"
+msgstr "Guia do grommunio Web"
 
 msgid "Browser window"
 msgstr "Janela do navegador"
@@ -5230,7 +5230,7 @@ msgid "ZIP file"
 msgstr "Arquivo ZIP"
 
 msgid "max. "
-msgstr "máximo."
+msgstr "máx. "
 
 msgid "Sort by: Sent"
 msgstr "Ordenar por: Enviado"
@@ -6468,7 +6468,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "O grommunio Web será reiniciado automaticamente para que essas alterações tenham efeito."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio O site está sendo recarregado, aguarde."
+msgstr "O grommunio Web está sendo recarregado, aguarde."
 
 msgid "Edit Account"
 msgstr "Editar Conta"
@@ -6558,7 +6558,7 @@ msgid "You have to choose at least one file!"
 msgstr "Você tem que escolher pelo menos um arquivo!"
 
 msgid "Create New "
-msgstr "Criar novo"
+msgstr "Criar novo "
 
 msgid "Incorrect filename"
 msgstr "Nome de arquivo incorreto"
@@ -7787,7 +7787,7 @@ msgid "You can contact your helpdesk or system administrator if you are not sure
 msgstr "Você pode entrar em contato com o helpdesk ou o administrador do sistema se não souber o que fazer em seguida."
 
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "O grommunio Web pode verificar assinaturas digitais de e-mails. Uma verificação bem-sucedida garante que você"
+msgstr "O grommunio Web pode verificar assinaturas digitais de e-mails. Uma verificação bem-sucedida garante a você "
 
 msgid "that the message has not been tampered with and validates the identity of the sender."
 msgstr "que a mensagem não foi adulterada e valida a identidade do remetente."
@@ -8264,7 +8264,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "Com esse backend, você pode se conectar a qualquer servidor WebDAV."
 
 msgid "Files WebDAV Backend: "
-msgstr "Backend WebDAV de arquivos:"
+msgstr "Backend WebDAV de arquivos: "
 
 msgid "PHP-CURL is not installed"
 msgstr "O PHP-CURL não está instalado"
@@ -8403,7 +8403,7 @@ msgid "Invalid LDAP configuration"
 msgstr "Configuração LDAP inválida"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr "Falta de certificados públicos para os seguintes destinatários:"
+msgstr "Falta de certificados públicos para os seguintes destinatários: "
 
 msgid ". Please contact your system administrator for details"
 msgstr ". Entre em contato com o administrador do sistema para obter detalhes"
@@ -8421,7 +8421,7 @@ msgid "Private key can't be used to sign email"
 msgstr "A chave privada não pode ser usada para assinar e-mails"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "O endereço de e-mail do certificado não corresponde à conta da Web do grommunio"
+msgstr "O endereço de e-mail do certificado não corresponde à conta do grommunio Web "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8431,13 +8431,13 @@ msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully suppor
 msgstr "Os certificados EdDSA (Ed25519) exigem PHP 8.4+ e podem não ser totalmente compatíveis. O certificado foi importado."
 
 msgid "Certificate was expired on "
-msgstr "O certificado expirou em"
+msgstr "O certificado expirou em "
 
 msgid "Certificate was imported."
 msgstr "O certificado foi importado."
 
 msgid "Certificate is not yet valid "
-msgstr "O certificado ainda não é válido"
+msgstr "O certificado ainda não é válido "
 
 msgid "Certificate has not been imported"
 msgstr "O certificado não foi importado"
@@ -8565,7 +8565,7 @@ msgstr "O anexo vcf não foi importado com êxito"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "Não foi possível importar '%s' para '%s'."
+msgstr "Não foi possível importar '%s' para '%s'. "
 
 msgid "There is no appointment found in this file."
 msgstr "Não foi encontrado nenhum compromisso nesse arquivo."
@@ -8578,7 +8578,7 @@ msgstr "O arquivo é inválido."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr "Não foi possível importar '%s'."
+msgstr "Não foi possível importar '%s'. "
 
 msgid "Attachment is not imported successfully"
 msgstr "O anexo não foi importado com êxito"
@@ -8653,7 +8653,7 @@ msgid "an appointment"
 msgstr "um compromisso"
 
 msgid "You have insufficient privileges to move "
-msgstr "Você não tem privilégios suficientes para mover"
+msgstr "Você não tem privilégios suficientes para mover "
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "Não é possível definir um lembrete para aparecer antes da ocorrência anterior. Redefinir o lembrete para salvar a alteração"

@@ -1663,7 +1663,7 @@ msgid "Next"
 msgstr "Järgmine"
 
 msgid "grommunio Web"
-msgstr "grommunio veebirakendus"
+msgstr "grommunio Web"
 
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
 msgstr "Pane tähele, et kõik sinu tehtud muudatused kirjutatakse üle, kui korraldaja seda koosolekukutset uuendab. Kas soovid seda koosolekut edasi lükata?"
@@ -4384,7 +4384,7 @@ msgid "The default store is missing from the hierarchy."
 msgstr "Vaikimisi pood puudub hierarhiast."
 
 msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "Kogu veebirakenduse funktsionaalsus ei pruugi selle pärast töötada."
+msgstr "Kogu grommunio Webi funktsionaalsus ei pruugi seetõttu korralikult töötada."
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
@@ -5122,7 +5122,7 @@ msgid "Open or compose a mail item in a"
 msgstr "Avage või koostage postisaadetis"
 
 msgid "grommunio Web tab"
-msgstr "grommunio Veebileht"
+msgstr "grommunio Webi vahekaart"
 
 msgid "Browser window"
 msgstr "Brauseri aken"
@@ -6973,7 +6973,7 @@ msgid "Type {0} to confirm"
 msgstr "Kirjutage {0}, et kinnitada"
 
 msgid "Please type {0} to confirm"
-msgstr "Kinnitamiseks kirjutage {0} "
+msgstr "Kinnitamiseks kirjutage {0}"
 
 msgid "Impersonated device: only account-only remote wipe is available."
 msgstr "Kehastatud seade: saadaval on ainult konto kaugkustutamine."
@@ -8421,7 +8421,7 @@ msgid "Private key can't be used to sign email"
 msgstr "Privaatvõtit ei saa kasutada e-kirjade allkirjastamiseks"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "Sertifikaadi e-posti aadress ei vasta grommunio veebikontole "
+msgstr "Sertifikaadi e-posti aadress ei vasta grommunio Webi kontole "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."

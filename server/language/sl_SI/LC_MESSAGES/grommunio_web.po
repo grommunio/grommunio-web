@@ -2600,7 +2600,7 @@ msgid "This message has no content."
 msgstr "To sporočilo nima vsebine."
 
 msgid "grommunio Web print"
-msgstr "grommunio Spletni tisk"
+msgstr "Tiskanje grommunio Web"
 
 msgid "Display name"
 msgstr "Prikazovalno ime"
@@ -2666,7 +2666,7 @@ msgid "Day {A} of every {B} month(s)"
 msgstr "Dan {A} od vsakih {B} mesec(mesecev)"
 
 msgid "The {A} {B} of every {C} month(s)"
-msgstr "{A} od vsakih {B} mesec(mesecev)"
+msgstr "{A} {B} od vsakih {C} mesec(mesecev)"
 
 msgid "Regenerate new task {A} month(s) after each task is completed"
 msgstr "Obnovi novo nalogo {A} mesec (mesecev) po tem, ko je vsaka naloga končana"
@@ -4430,7 +4430,7 @@ msgid "The default store is missing from the hierarchy."
 msgstr "Privzeto shranjevanje manjka v hierarhiji."
 
 msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "Možnost je, da ne delujejo funkcije spletne aplikacije ne delujejo pravilno zaradi tega."
+msgstr "Zaradi tega morda ne bodo pravilno delovale vse funkcije programa grommunio Web."
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
@@ -4525,10 +4525,10 @@ msgstr[3] "V mapi {1} je {0} neprebranih sporočil {2}"
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
-msgstr[0] "Imate {0} neprebranih sporočil v mapi {0}"
-msgstr[1] "Imate {0} neprebranih sporočil v mapi {0}"
-msgstr[2] "Imate {0} neprebranih sporočil v mapi {0}"
-msgstr[3] "Imate {0} neprebranih sporočil v mapi {0}"
+msgstr[0] "V mapi {1} je {0} neprebrano sporočilo"
+msgstr[1] "V mapi {1} sta {0} neprebrani sporočili"
+msgstr[2] "V mapi {1} so {0} neprebrana sporočila"
+msgstr[3] "V mapi {1} je {0} neprebranih sporočil"
 
 msgid "New mail from {0}"
 msgstr "Novo sporočilo od {0}"
@@ -5101,7 +5101,7 @@ msgstr "Aktiviraj opomnik za prilogo"
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
-msgstr "{A}AutoSave unsent mail every {B} minute(s)"
+msgstr "{A}Samodejno shranjuj neposlano pošto vsakih {B} minut"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
 msgstr "Samodejno shranjuj tudi, kadar je izbrano šifriranje (osnutki se shranijo nešifrirani)"
@@ -5178,7 +5178,7 @@ msgid "Open or compose a mail item in a"
 msgstr "Odprite ali sestavite poštno sporočilo v"
 
 msgid "grommunio Web tab"
-msgstr "grommunio Spletni zavihek"
+msgstr "Zavihek grommunio Web"
 
 msgid "Browser window"
 msgstr "Okno brskalnika"
@@ -6346,7 +6346,7 @@ msgid "Add users or groups to share files."
 msgstr "Dodajte uporabnike ali skupine za skupno rabo datotek."
 
 msgid "Sort by: Type"
-msgstr "Razvrsti po: "
+msgstr "Razvrsti po: Tip"
 
 msgid "Re-share"
 msgstr "Ponovna souporaba"
@@ -6526,7 +6526,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "grommunio Web se bo samodejno ponovno zagnal, da bodo te spremembe začele veljati."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio Splet se ponovno nalaga, počakajte."
+msgstr "grommunio Web se ponovno nalaga, počakajte."
 
 msgid "Edit Account"
 msgstr "Uredi račun"
@@ -6553,7 +6553,7 @@ msgid "Sort by: ID"
 msgstr "Razvrsti po: ID"
 
 msgid "Sort by: Backend"
-msgstr "Razvrsti po: "
+msgstr "Razvrsti po: Zaledje"
 
 msgid "Shows all available features of the backend."
 msgstr "Prikaže vse razpoložljive funkcije zaledja."
@@ -7028,10 +7028,10 @@ msgid "Please enter your username and password"
 msgstr "Prosim, vnesite vaše uporabniško ime in geslo"
 
 msgid "Type {0} to confirm"
-msgstr "Za potrditev vnesite {0} "
+msgstr "Za potrditev vnesite {0}"
 
 msgid "Please type {0} to confirm"
-msgstr "Za potrditev vnesite {0} "
+msgstr "Za potrditev vnesite {0}"
 
 msgid "Impersonated device: only account-only remote wipe is available."
 msgstr "Naprava s prevzeto identiteto: na voljo je samo brisanje računa na daljavo."
@@ -7854,7 +7854,7 @@ msgid "The verification of the digital signature was successful for this email m
 msgstr "Preverjanje digitalnega podpisa za to e-poštno sporočilo je bilo uspešno."
 
 msgid "grommunio Web could not find a public certificate for the recipient."
-msgstr "grommunio Splet ni našel javnega potrdila za prejemnika."
+msgstr "grommunio Web ni našel javnega potrdila za prejemnika."
 
 msgid "The identity of the sender and authenticity of the message content have been verified, but the certificate used to sign the message expired on [d-m-Y]."
 msgstr "Identiteta pošiljatelja in pristnost vsebine sporočila sta bili preverjeni, vendar je veljavnost potrdila, uporabljenega za podpis sporočila, potekla [d-m-Y]."
@@ -8479,7 +8479,7 @@ msgid "Private key can't be used to sign email"
 msgstr "Zasebnega ključa ni mogoče uporabiti za podpisovanje e-pošte"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "E-poštni naslov certifikata se ne ujema s spletnim računom grommunio "
+msgstr "E-poštni naslov certifikata se ne ujema z računom grommunio Web "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."

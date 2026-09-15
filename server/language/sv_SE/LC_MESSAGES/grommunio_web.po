@@ -818,7 +818,7 @@ msgid "weeks"
 msgstr "veckor"
 
 msgid " on "
-msgstr "på"
+msgstr " på "
 
 msgid "month"
 msgstr "månad"
@@ -887,7 +887,7 @@ msgid "Fwd"
 msgstr "Fwd"
 
 msgid "and "
-msgstr "och"
+msgstr "och "
 
 msgid "Sort by: Attachment"
 msgstr "Sortera efter: Bilaga"
@@ -1377,7 +1377,7 @@ msgid "of"
 msgstr "av"
 
 msgid "Location: "
-msgstr "Plats:"
+msgstr "Plats: "
 
 msgid "j M {0}"
 msgstr "j M {0}"
@@ -1386,7 +1386,7 @@ msgid "l jS M Y {0}"
 msgstr "l j M Y {0}"
 
 msgid "All day: "
-msgstr "Hela dagen:"
+msgstr "Hela dagen: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1663,7 +1663,7 @@ msgid "Next"
 msgstr "Nästa"
 
 msgid "grommunio Web"
-msgstr "grommunio webben"
+msgstr "grommunio Web"
 
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
 msgstr "Observera att alla ändringar du gör kommer att skrivas över när denna mötesförfrågan uppdateras av arrangören. Vill du flytta detta möte?"
@@ -1786,7 +1786,7 @@ msgid "Printing of this item is not yet available"
 msgstr "Utskrift av denna artikel är ännu inte tillgänglig"
 
 msgid "Item type: "
-msgstr "Artikeltyp:"
+msgstr "Artikeltyp: "
 
 msgid "Printing of this view is not yet available"
 msgstr "Utskrift av denna vy är ännu inte tillgänglig"
@@ -2056,7 +2056,7 @@ msgid "Drop files here to attach them"
 msgstr "Släpp filer här för att bifoga dem"
 
 msgid "Picture format is not supported. "
-msgstr "Bildformat stöds inte."
+msgstr "Bildformat stöds inte. "
 
 msgid "Supported format for contact pictures are"
 msgstr "Format som stöds för kontaktbilder är"
@@ -2562,7 +2562,7 @@ msgid "This message has no content."
 msgstr "Det här meddelandet har inget innehåll."
 
 msgid "grommunio Web print"
-msgstr "grommunio webbtryck"
+msgstr "grommunio Web-utskrift"
 
 msgid "Display name"
 msgstr "Visningsnamn"
@@ -4823,7 +4823,7 @@ msgid "Scheduled Items"
 msgstr "Schemalagda objekt"
 
 msgid "Your message will be sent at "
-msgstr "Ditt meddelande kommer att skickas kl"
+msgstr "Ditt meddelande kommer att skickas "
 
 msgid "Go to your Outbox to edit your email."
 msgstr "Gå till din utkorg för att redigera din e-post."
@@ -4841,13 +4841,13 @@ msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "Tiden du angav är i det förflutna. Vänligen boka om din e-post."
 
 msgid "today  at "
-msgstr "idag kl"
+msgstr "idag kl. "
 
 msgid "tomorrow  at "
-msgstr "imorgon kl"
+msgstr "imorgon kl. "
 
 msgid "{0} at "
-msgstr "{0} kl"
+msgstr "{0} kl. "
 
 msgid "at {0}"
 msgstr "på {0}"
@@ -5122,7 +5122,7 @@ msgid "Open or compose a mail item in a"
 msgstr "Öppna eller komponera ett försändelse i en"
 
 msgid "grommunio Web tab"
-msgstr "grommunio webbfliken"
+msgstr "grommunio Web-flik"
 
 msgid "Browser window"
 msgstr "Webbläsarfönster"
@@ -5230,7 +5230,7 @@ msgid "ZIP file"
 msgstr "ZIP-fil"
 
 msgid "max. "
-msgstr "max."
+msgstr "max. "
 
 msgid "Sort by: Sent"
 msgstr "Sortera efter: Skickat"
@@ -5849,11 +5849,11 @@ msgid "Completed"
 msgstr "Avslutad"
 
 msgid "Printed by: "
-msgstr "Tryckt av:"
+msgstr "Utskriven av: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
-msgstr "Tryckt på:"
+msgstr "Utskriven: "
 
 msgid "Percent complete"
 msgstr "Procent klar"
@@ -6468,7 +6468,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "grommunio Web kommer automatiskt att starta om för att dessa ändringar ska träda i kraft."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio webben laddas om. Vänta."
+msgstr "grommunio Web laddas om, vänligen vänta."
 
 msgid "Edit Account"
 msgstr "Redigera konto"
@@ -6558,7 +6558,7 @@ msgid "You have to choose at least one file!"
 msgstr "Du måste välja minst en fil!"
 
 msgid "Create New "
-msgstr "Skapa nytt"
+msgstr "Skapa nytt "
 
 msgid "Incorrect filename"
 msgstr "Felaktigt filnamn"
@@ -6606,13 +6606,13 @@ msgid "Upload Failed"
 msgstr "Uppladdningen misslyckades"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr "Bilaga kunde inte lagras i filer! Fel:"
+msgstr "Bilagan kunde inte lagras i filer! Fel: "
 
 msgid "Share Files"
 msgstr "Dela filer"
 
 msgid "Uploading files to "
-msgstr "Laddar upp filer till"
+msgstr "Laddar upp filer till "
 
 msgid "Starting upload"
 msgstr "Startar uppladdning"
@@ -6624,13 +6624,13 @@ msgid "- seconds left"
 msgstr "- sekunder kvar"
 
 msgid " seconds left"
-msgstr "sekunder kvar"
+msgstr " sekunder kvar"
 
 msgid " minutes left"
-msgstr "minuter kvar"
+msgstr " minuter kvar"
 
 msgid "Uploading: "
-msgstr "Laddar upp:"
+msgstr "Laddar upp: "
 
 msgid "Upload status unavailable... please wait."
 msgstr "Uppladdningsstatus är inte tillgänglig... vänta."
@@ -7769,10 +7769,10 @@ msgid "You are seeing this message because the verification of the digital signa
 msgstr "Du ser det här meddelandet på grund av verifieringen av den digitala signaturen"
 
 msgid " has failed"
-msgstr "har misslyckats"
+msgstr " har misslyckats"
 
 msgid " for this message."
-msgstr "för detta meddelande."
+msgstr " för detta meddelande."
 
 msgid "What caused this issue?"
 msgstr "Vad orsakade detta problem?"
@@ -7787,7 +7787,7 @@ msgid "You can contact your helpdesk or system administrator if you are not sure
 msgstr "Du kan kontakta din helpdesk eller systemadministratör om du inte är säker på vad du ska göra härnäst."
 
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "grommunio Web kan verifiera digitala signaturer av e-postmeddelanden. En lyckad verifiering lugnar dig"
+msgstr "grommunio Web kan verifiera digitala signaturer av e-postmeddelanden. En lyckad verifiering försäkrar dig om "
 
 msgid "that the message has not been tampered with and validates the identity of the sender."
 msgstr "att meddelandet inte har manipulerats och validerar avsändarens identitet."
@@ -8117,7 +8117,7 @@ msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Denna backend tillhandahåller standard WebDAV-integration för filer."
 
 msgid "Files Default Backend: "
-msgstr "Files Standard Backend:"
+msgstr "Filer Standard Backend: "
 
 msgid "Server address"
 msgstr "Serveradress"
@@ -8186,7 +8186,7 @@ msgid "With this backend, you can connect to any Seafile server."
 msgstr "Med denna backend kan du ansluta till vilken Seafile-server som helst."
 
 msgid "Files "
-msgstr "Filer"
+msgstr "Filer "
 
 msgid "Use SSL"
 msgstr "Använd SSL"
@@ -8264,7 +8264,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "Med denna backend kan du ansluta till vilken WebDAV-server som helst."
 
 msgid "Files WebDAV Backend: "
-msgstr "Filer WebDAV Backend:"
+msgstr "Filer WebDAV Backend: "
 
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL är inte installerat"
@@ -8403,7 +8403,7 @@ msgid "Invalid LDAP configuration"
 msgstr "Ogiltig LDAP-konfiguration"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr "Offentliga certifikat saknas för följande mottagare:"
+msgstr "Offentliga certifikat saknas för följande mottagare: "
 
 msgid ". Please contact your system administrator for details"
 msgstr ". Kontakta din systemadministratör för mer information"
@@ -8421,7 +8421,7 @@ msgid "Private key can't be used to sign email"
 msgstr "Privat nyckel kan inte användas för att signera e-post"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "Certifikatets e-postadress matchar inte grommunio webbkonto"
+msgstr "Certifikatets e-postadress matchar inte grommunio Web-kontot "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8431,13 +8431,13 @@ msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully suppor
 msgstr "EdDSA-certifikat (Ed25519) kräver PHP 8.4+ och stöds kanske inte fullt ut. Certifikatet har importerats."
 
 msgid "Certificate was expired on "
-msgstr "Certifikatet gick ut den"
+msgstr "Certifikatet gick ut den "
 
 msgid "Certificate was imported."
 msgstr "Certifikatet importerades."
 
 msgid "Certificate is not yet valid "
-msgstr "Certifikatet är inte giltigt ännu"
+msgstr "Certifikatet är inte giltigt förrän "
 
 msgid "Certificate has not been imported"
 msgstr "Certifikatet har inte importerats"
@@ -8565,7 +8565,7 @@ msgstr "VCF-bilagan har inte importerats"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "Det går inte att importera '%s' till '%s'."
+msgstr "Det går inte att importera '%s' till '%s'. "
 
 msgid "There is no appointment found in this file."
 msgstr "Det finns inget möte i den här filen."
@@ -8578,7 +8578,7 @@ msgstr "Filen är ogiltig."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr "Det gick inte att importera '%s'."
+msgstr "Det går inte att importera '%s'. "
 
 msgid "Attachment is not imported successfully"
 msgstr "Bilagan har inte importerats"
@@ -8653,7 +8653,7 @@ msgid "an appointment"
 msgstr "ett möte"
 
 msgid "You have insufficient privileges to move "
-msgstr "Du har otillräckliga rättigheter att flytta"
+msgstr "Du har otillräckliga rättigheter att flytta "
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "Det går inte att ställa in en påminnelse så att den ska visas före föregående förekomst. Återställ påminnelsen för att spara ändringen"

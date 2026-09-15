@@ -6468,7 +6468,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "grommunio Web vil automatisk starte på nytt for at disse endringene skal tre i kraft."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio Nettet lastes inn på nytt, vennligst vent."
+msgstr "grommunio Web lastes inn på nytt, vennligst vent."
 
 msgid "Edit Account"
 msgstr "Rediger konto"
@@ -6558,7 +6558,7 @@ msgid "You have to choose at least one file!"
 msgstr "Du må velge minst en fil!"
 
 msgid "Create New "
-msgstr "Opprett ny"
+msgstr "Opprett ny "
 
 msgid "Incorrect filename"
 msgstr "Feil filnavn"
@@ -6606,13 +6606,13 @@ msgid "Upload Failed"
 msgstr "Opplasting mislyktes"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr "Vedlegg kunne ikke lagres i Files! Feil!"
+msgstr "Vedlegg kunne ikke lagres i Files! Feil: "
 
 msgid "Share Files"
 msgstr "Del filer"
 
 msgid "Uploading files to "
-msgstr "Laste opp filer til"
+msgstr "Laster opp filer til "
 
 msgid "Starting upload"
 msgstr "Starter opplasting"
@@ -6630,7 +6630,7 @@ msgid " minutes left"
 msgstr " minutter igjen"
 
 msgid "Uploading: "
-msgstr "Opplasting:"
+msgstr "Opplasting: "
 
 msgid "Upload status unavailable... please wait."
 msgstr "Opplastingsstatus utilgjengelig... vennligst vent."
@@ -6886,7 +6886,7 @@ msgid "Active Sync Version"
 msgstr "Active Sync Version"
 
 msgid "grommunio-sync Version"
-msgstr "grommunio-sync Version"
+msgstr "grommunio-sync-versjon"
 
 msgid "Policy name"
 msgstr "Navn på policy"
@@ -7787,7 +7787,7 @@ msgid "You can contact your helpdesk or system administrator if you are not sure
 msgstr "Du kan kontakte brukerstøtten eller systemadministratoren hvis du er usikker på hva du skal gjøre videre."
 
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "grommunio Web kan verifisere digitale signaturer av e-post. En vellykket verifisering gir deg trygghet"
+msgstr "grommunio Web kan verifisere digitale signaturer på e-postmeldinger. En vellykket verifisering forsikrer deg om "
 
 msgid "that the message has not been tampered with and validates the identity of the sender."
 msgstr "at meldingen ikke har blitt tuklet med, og validerer avsenderens identitet."
@@ -8264,7 +8264,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "Med denne backend kan du koble deg til en hvilken som helst WebDAV-server."
 
 msgid "Files WebDAV Backend: "
-msgstr "Filer WebDAV Backend:"
+msgstr "Filer WebDAV Backend: "
 
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL er ikke installert"
@@ -8403,7 +8403,7 @@ msgid "Invalid LDAP configuration"
 msgstr "Ugyldig LDAP-konfigurasjon"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr "Mangler offentlige sertifikater for følgende mottakere:"
+msgstr "Mangler offentlige sertifikater for følgende mottakere: "
 
 msgid ". Please contact your system administrator for details"
 msgstr ". Kontakt systemadministratoren din for mer informasjon"
@@ -8421,7 +8421,7 @@ msgid "Private key can't be used to sign email"
 msgstr "Privat nøkkel kan ikke brukes til å signere e-post"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "E-postadressen til sertifikatet stemmer ikke overens med grommunio Web-konto"
+msgstr "E-postadressen til sertifikatet stemmer ikke overens med grommunio Web-konto "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8431,13 +8431,13 @@ msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully suppor
 msgstr "EdDSA (Ed25519)-sertifikater krever PHP 8.4+ og støttes kanskje ikke fullt ut. Sertifikatet ble importert."
 
 msgid "Certificate was expired on "
-msgstr "Sertifikatet ble utløpt den"
+msgstr "Sertifikatet utløp den "
 
 msgid "Certificate was imported."
 msgstr "Sertifikatet ble importert."
 
 msgid "Certificate is not yet valid "
-msgstr "Sertifikatet er ikke gyldig ennå"
+msgstr "Sertifikatet er ikke gyldig ennå "
 
 msgid "Certificate has not been imported"
 msgstr "Sertifikatet har ikke blitt importert"
@@ -8653,7 +8653,7 @@ msgid "an appointment"
 msgstr "en avtale"
 
 msgid "You have insufficient privileges to move "
-msgstr "Du har ikke tilstrekkelige rettigheter til å flytte"
+msgstr "Du har ikke tilstrekkelige rettigheter til å flytte "
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "Det er ikke mulig å angi at en påminnelse skal vises før forrige hendelse. Tilbakestill påminnelse for å lagre endringen"

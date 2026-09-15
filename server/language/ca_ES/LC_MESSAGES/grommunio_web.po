@@ -817,7 +817,7 @@ msgid "weeks"
 msgstr "Semanas"
 
 msgid " on "
-msgstr "activat"
+msgstr " el "
 
 msgid "month"
 msgstr "Mes"
@@ -850,8 +850,8 @@ msgstr[1] "Es produeix cada{1}efectiu de{0}per a les ocurrències de{2}de{3}a{4}
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "Es produeix cada{0}{1}efectiu per a l'aparició de{3}de{4}a{5}."
-msgstr[1] "Es produeix cada{0}{1}{2}efectiu per a les ocurrències de{3}{4}a{5}."
+msgstr[0] "Es produeix cada {0} {1} a partir del {2} durant {3} aparició, de {4} a {5}."
+msgstr[1] "Es produeix cada {0} {1} a partir del {2} durant {3} aparicions, de {4} a {5}."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
@@ -886,7 +886,7 @@ msgid "Fwd"
 msgstr "RV"
 
 msgid "and "
-msgstr "i"
+msgstr "i "
 
 msgid "Sort by: Attachment"
 msgstr "Ordenar por. Adjunto"
@@ -1377,7 +1377,7 @@ msgid "of"
 msgstr "de"
 
 msgid "Location: "
-msgstr "Ubicació:"
+msgstr "Ubicació: "
 
 msgid "j M {0}"
 msgstr "j M{0}"
@@ -1386,7 +1386,7 @@ msgid "l jS M Y {0}"
 msgstr "l jS M Y{0}"
 
 msgid "All day: "
-msgstr "Tot el dia:"
+msgstr "Tot el dia: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -2056,7 +2056,7 @@ msgid "Drop files here to attach them"
 msgstr "Deixeu anar els fitxers aquí per adjuntar-los"
 
 msgid "Picture format is not supported. "
-msgstr "El format d'imatge no és compatible."
+msgstr "El format d'imatge no és compatible. "
 
 msgid "Supported format for contact pictures are"
 msgstr "El format compatible per a les imatges de contacte és"
@@ -2343,7 +2343,7 @@ msgid "Set as resource"
 msgstr "Estableix com a recurs"
 
 msgid "Select attendees"
-msgstr "Seleccionar asistentes "
+msgstr "Seleccioneu els assistents"
 
 msgid "Suggested Times"
 msgstr "Trasncurso de tiempo sugerido"
@@ -2562,7 +2562,7 @@ msgid "This message has no content."
 msgstr "Aquest missatge no té contingut."
 
 msgid "grommunio Web print"
-msgstr "grommunio impressió web"
+msgstr "Impressió de grommunio Web"
 
 msgid "Display name"
 msgstr "Mostrar nombre"
@@ -4359,7 +4359,7 @@ msgid "Click to retry now"
 msgstr "Por favor reintentar nuevamente ."
 
 msgid "Connection restored"
-msgstr "Conexión establecida "
+msgstr "Connexió restablerta"
 
 msgid "Connection with server has been restored"
 msgstr "La conexión con el servidor fue restablecida"
@@ -4823,7 +4823,7 @@ msgid "Scheduled Items"
 msgstr "Elements programats"
 
 msgid "Your message will be sent at "
-msgstr "El teu missatge s'enviarà a"
+msgstr "El vostre missatge s'enviarà el "
 
 msgid "Go to your Outbox to edit your email."
 msgstr "Aneu a la vostra bústia de sortida per editar el vostre correu electrònic."
@@ -4841,13 +4841,13 @@ msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "L'hora que heu introduït és del passat. Si us plau, reprograma el teu correu."
 
 msgid "today  at "
-msgstr "avui a les"
+msgstr "avui a les "
 
 msgid "tomorrow  at "
-msgstr "demà a les"
+msgstr "demà a les "
 
 msgid "{0} at "
-msgstr "{0}a"
+msgstr "{0} a les "
 
 msgid "at {0}"
 msgstr "a{0}"
@@ -5122,7 +5122,7 @@ msgid "Open or compose a mail item in a"
 msgstr "Obre o redacta un element de correu en a"
 
 msgid "grommunio Web tab"
-msgstr "pestanya web de grommunio"
+msgstr "Pestanya de grommunio Web"
 
 msgid "Browser window"
 msgstr "Finestra del navegador"
@@ -5230,7 +5230,7 @@ msgid "ZIP file"
 msgstr "Fitxer ZIP"
 
 msgid "max. "
-msgstr "màx."
+msgstr "màx. "
 
 msgid "Sort by: Sent"
 msgstr "Ordenar por: Enviado"
@@ -5595,7 +5595,7 @@ msgid "You have exceeded hard quota, you can not send or receive mails."
 msgstr "Heu superat la quota fixa, no podeu enviar ni rebre correus."
 
 msgid "At {0} you won't be able to send mails."
-msgstr "A [0] no está autorizado para enviar correos electrónicos"
+msgstr "A {0} no podreu enviar correus."
 
 msgid "You can not send mails as you have exceeded soft quota, at {0} you won't be able to receive mails."
 msgstr "No podeu enviar correus electrònics perquè heu superat la quota suau; a {0} no podreu rebre correus electrònics."
@@ -5849,11 +5849,11 @@ msgid "Completed"
 msgstr "Completat"
 
 msgid "Printed by: "
-msgstr "Imprès per:"
+msgstr "Imprès per: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
-msgstr "Imprès a:"
+msgstr "Imprès el: "
 
 msgid "Percent complete"
 msgstr "Porcentaje completado"
@@ -6558,7 +6558,7 @@ msgid "You have to choose at least one file!"
 msgstr "Has de triar almenys un fitxer!"
 
 msgid "Create New "
-msgstr "Crea nou"
+msgstr "Crea nou "
 
 msgid "Incorrect filename"
 msgstr "Nom de fitxer incorrecte"
@@ -6606,13 +6606,13 @@ msgid "Upload Failed"
 msgstr "La càrrega ha fallat"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr "El fitxer adjunt no s'ha pogut desar a Fitxers! Error:"
+msgstr "El fitxer adjunt no s'ha pogut desar a Fitxers! Error: "
 
 msgid "Share Files"
 msgstr "Compartir fitxers"
 
 msgid "Uploading files to "
-msgstr "Penjant fitxers a"
+msgstr "S'estan penjant fitxers a "
 
 msgid "Starting upload"
 msgstr "S'està iniciant la càrrega"
@@ -6624,13 +6624,13 @@ msgid "- seconds left"
 msgstr "- Queden segons"
 
 msgid " seconds left"
-msgstr "queden segons"
+msgstr " segons restants"
 
 msgid " minutes left"
-msgstr "minuts queden"
+msgstr " minuts restants"
 
 msgid "Uploading: "
-msgstr "Càrrega:"
+msgstr "S'està penjant: "
 
 msgid "Upload status unavailable... please wait."
 msgstr "L'estat de càrrega no està disponible... espereu."
@@ -7769,10 +7769,10 @@ msgid "You are seeing this message because the verification of the digital signa
 msgstr "Veieu aquest missatge perquè la verificació de la signatura digital"
 
 msgid " has failed"
-msgstr "ha fracassat"
+msgstr " ha fallat"
 
 msgid " for this message."
-msgstr "per aquest missatge."
+msgstr " per a aquest missatge."
 
 msgid "What caused this issue?"
 msgstr "Què va causar aquest problema?"
@@ -8117,7 +8117,7 @@ msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Aquest backend proporciona la integració WebDAV predeterminada per a fitxers."
 
 msgid "Files Default Backend: "
-msgstr "Backend predeterminat dels fitxers:"
+msgstr "Backend predeterminat de Fitxers: "
 
 msgid "Server address"
 msgstr "Adreça del servidor"
@@ -8186,7 +8186,7 @@ msgid "With this backend, you can connect to any Seafile server."
 msgstr "Amb aquest backend, podeu connectar-vos a qualsevol servidor de Seafile."
 
 msgid "Files "
-msgstr "Fitxers"
+msgstr "Fitxers "
 
 msgid "Use SSL"
 msgstr "Utilitzeu SSL"
@@ -8264,7 +8264,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "Amb aquest backend, podeu connectar-vos a qualsevol servidor WebDAV."
 
 msgid "Files WebDAV Backend: "
-msgstr "Fitxers WebDAV Backend:"
+msgstr "Backend WebDAV de Fitxers: "
 
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL no està instal·lat"
@@ -8403,7 +8403,7 @@ msgid "Invalid LDAP configuration"
 msgstr "Configuració LDAP no vàlida"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr "Falten certificats públics per als següents destinataris:"
+msgstr "Falten certificats públics per als següents destinataris: "
 
 msgid ". Please contact your system administrator for details"
 msgstr ". Si us plau, poseu-vos en contacte amb el vostre administrador del sistema per obtenir més informació"
@@ -8421,7 +8421,7 @@ msgid "Private key can't be used to sign email"
 msgstr "La clau privada no es pot utilitzar per signar el correu electrònic"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "L'adreça electrònica del certificat no coincideix amb el compte web de grommunio"
+msgstr "L'adreça electrònica del certificat no coincideix amb el compte de grommunio Web "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8431,13 +8431,13 @@ msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully suppor
 msgstr "Els certificats EdDSA (Ed25519) requereixen PHP 8.4+ i pot ser que no estiguin totalment suportats. El certificat s'ha importat."
 
 msgid "Certificate was expired on "
-msgstr "El certificat va caducar el"
+msgstr "El certificat va caducar el "
 
 msgid "Certificate was imported."
 msgstr "S'ha importat el certificat."
 
 msgid "Certificate is not yet valid "
-msgstr "El certificat encara no és vàlid"
+msgstr "El certificat encara no és vàlid "
 
 msgid "Certificate has not been imported"
 msgstr "El certificat no s'ha importat"
@@ -8565,7 +8565,7 @@ msgstr "El fitxer adjunt vcf no s'ha importat correctament"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "No es pot importar \"%s\" a \"%s\"."
+msgstr "No es pot importar \"%s\" a \"%s\". "
 
 msgid "There is no appointment found in this file."
 msgstr "No s'ha trobat cap cita en aquest fitxer."
@@ -8578,7 +8578,7 @@ msgstr "El fitxer no és vàlid."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr "No es pot importar \"%s\"."
+msgstr "No es pot importar \"%s\". "
 
 msgid "Attachment is not imported successfully"
 msgstr "El fitxer adjunt no s'ha importat correctament"
@@ -8653,7 +8653,7 @@ msgid "an appointment"
 msgstr "una cita"
 
 msgid "You have insufficient privileges to move "
-msgstr "No tens privilegis suficients per moure't"
+msgstr "No teniu privilegis suficients per moure "
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "No es pot establir un recordatori perquè aparegui abans de l'esdeveniment anterior. Restabliu el recordatori per desar el canvi."

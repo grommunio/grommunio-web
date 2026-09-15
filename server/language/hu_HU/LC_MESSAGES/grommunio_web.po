@@ -5266,7 +5266,7 @@ msgid "Scheduled"
 msgstr "Tervezett"
 
 msgid "Sort by: Scheduled"
-msgstr "Rendezés: "
+msgstr "Rendezés: Tervezett"
 
 msgid "Modified"
 msgstr "Módosítva"
@@ -6495,7 +6495,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "A módosítások érvénybe lépéséhez a grommunio Web automatikusan újraindul."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio A web újratöltődik, várjon."
+msgstr "A grommunio Web újratöltődik, kérem várjon."
 
 msgid "Edit Account"
 msgstr "Fiók szerkesztése"

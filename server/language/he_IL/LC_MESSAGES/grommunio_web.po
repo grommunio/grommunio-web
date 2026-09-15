@@ -399,7 +399,7 @@ msgid "State"
 msgstr "מדינה"
 
 msgid "Zip Code"
-msgstr "מיקוד "
+msgstr "מיקוד"
 
 msgid "Country"
 msgstr "מדינה"
@@ -816,7 +816,7 @@ msgid "weeks"
 msgstr "שבועות"
 
 msgid " on "
-msgstr "עַל"
+msgstr " ב"
 
 msgid "month"
 msgstr "חודש"
@@ -1375,7 +1375,7 @@ msgid "of"
 msgstr "שֶׁל"
 
 msgid "Location: "
-msgstr "מִקוּם:"
+msgstr "מיקום: "
 
 msgid "j M {0}"
 msgstr "j M{0}"
@@ -1384,7 +1384,7 @@ msgid "l jS M Y {0}"
 msgstr "l jS M Y{0}"
 
 msgid "All day: "
-msgstr "כל היום:"
+msgstr "כל היום: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1485,8 +1485,8 @@ msgstr "jS"
 
 msgid "{0} selected item"
 msgid_plural "{0} selected items"
-msgstr[0] "נבחר פריט {0}"
-msgstr[1] "נבחר פריט {1}"
+msgstr[0] "{0} פריט נבחר"
+msgstr[1] "{0} פריטים נבחרו"
 
 msgid "New Appointment"
 msgstr "פגישה חדשה"
@@ -1661,7 +1661,7 @@ msgid "Next"
 msgstr "הבא"
 
 msgid "grommunio Web"
-msgstr "הווב אפ של זראפה"
+msgstr "grommunio Web"
 
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
 msgstr "שימו לב: כל שינוי שתבצעו יוחלף כאשר מארגן הפגישה יעדכן את בקשת הפגישה. האם ברצונכם להעביר את הפגישה?"
@@ -1784,7 +1784,7 @@ msgid "Printing of this item is not yet available"
 msgstr "הדפסת פריט זה אינה זמינה עדיין"
 
 msgid "Item type: "
-msgstr "סוג פריט:"
+msgstr "סוג פריט: "
 
 msgid "Printing of this view is not yet available"
 msgstr "הדפסת תצוגה זו אינה זמינה עדיין"
@@ -2054,7 +2054,7 @@ msgid "Drop files here to attach them"
 msgstr "גרור קבצים לכאן כדי לצרף אותם"
 
 msgid "Picture format is not supported. "
-msgstr "פורמט תמונה אינו נתמך."
+msgstr "פורמט תמונה אינו נתמך. "
 
 msgid "Supported format for contact pictures are"
 msgstr "פורמט נתמך עבור תמונות אנשי קשר הם"
@@ -2560,7 +2560,7 @@ msgid "This message has no content."
 msgstr "להודעה זו אין תוכן."
 
 msgid "grommunio Web print"
-msgstr "הדפסת אינטרנט של grommunio"
+msgstr "הדפסת grommunio Web"
 
 msgid "Display name"
 msgstr "שם תצוגה"
@@ -2665,7 +2665,7 @@ msgid "No end date"
 msgstr "אין תאריך סיום"
 
 msgid "End after {A} occurrences"
-msgstr "סיים לאחר {A} מופעים "
+msgstr "סיים לאחר {A} מופעים"
 
 msgid "End by {A}"
 msgstr "סיים על ידי {A}"
@@ -3982,7 +3982,7 @@ msgid "Work"
 msgstr "עבודה"
 
 msgid "Personal"
-msgstr "אישי "
+msgstr "אישי"
 
 msgid "Holiday"
 msgstr "חג"
@@ -4003,7 +4003,7 @@ msgid "Free"
 msgstr "חופשי"
 
 msgid "Low"
-msgstr "נמוך "
+msgstr "נמוך"
 
 msgid "Normal"
 msgstr "רגיל"
@@ -4839,13 +4839,13 @@ msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "השעה שהזנת היא בעבר. נא לתזמן מחדש את הדואר שלך."
 
 msgid "today  at "
-msgstr "היום בשעה"
+msgstr "היום בשעה "
 
 msgid "tomorrow  at "
-msgstr "מחר בשעה"
+msgstr "מחר בשעה "
 
 msgid "{0} at "
-msgstr "{0}בשעה"
+msgstr "{0}בשעה "
 
 msgid "at {0}"
 msgstr "ב-{0}"
@@ -5228,7 +5228,7 @@ msgid "ZIP file"
 msgstr "קובץ ZIP"
 
 msgid "max. "
-msgstr "מקסימום"
+msgstr "מקסימום "
 
 msgid "Sort by: Sent"
 msgstr "מיין לפי: נשלחו"
@@ -5847,11 +5847,11 @@ msgid "Completed"
 msgstr "הושלם"
 
 msgid "Printed by: "
-msgstr "נדפס על ידי:"
+msgstr "נדפס על ידי: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
-msgstr "מודפס על:"
+msgstr "נדפס בתאריך: "
 
 msgid "Percent complete"
 msgstr "אחוז הושלמה"
@@ -6556,7 +6556,7 @@ msgid "You have to choose at least one file!"
 msgstr "אתה צריך לבחור לפחות קובץ אחד!"
 
 msgid "Create New "
-msgstr "צור חדש"
+msgstr "צור חדש "
 
 msgid "Incorrect filename"
 msgstr "שם קובץ שגוי"
@@ -6604,13 +6604,13 @@ msgid "Upload Failed"
 msgstr "ההעלאה נכשלה"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr "לא ניתן לאחסן קובץ מצורף בקבצים! שְׁגִיאָה:"
+msgstr "לא ניתן לאחסן קובץ מצורף בקבצים! שגיאה: "
 
 msgid "Share Files"
 msgstr "שתף קבצים"
 
 msgid "Uploading files to "
-msgstr "העלאת קבצים ל"
+msgstr "העלאת קבצים אל "
 
 msgid "Starting upload"
 msgstr "מתחיל להעלות"
@@ -6622,13 +6622,13 @@ msgid "- seconds left"
 msgstr "- נותרו שניות"
 
 msgid " seconds left"
-msgstr "נותרו שניות"
+msgstr " שניות נותרו"
 
 msgid " minutes left"
-msgstr "דקות נותרו"
+msgstr " דקות נותרו"
 
 msgid "Uploading: "
-msgstr "מעלה:"
+msgstr "מעלה: "
 
 msgid "Upload status unavailable... please wait."
 msgstr "סטטוס ההעלאה אינו זמין... אנא המתן."
@@ -7767,10 +7767,10 @@ msgid "You are seeing this message because the verification of the digital signa
 msgstr "הודעה זו מוצגת מכיוון שאימות החתימה הדיגיטלית"
 
 msgid " has failed"
-msgstr "נכשל"
+msgstr " נכשל"
 
 msgid " for this message."
-msgstr "להודעה זו."
+msgstr " להודעה זו."
 
 msgid "What caused this issue?"
 msgstr "מה גרם לבעיה זו?"
@@ -8115,7 +8115,7 @@ msgid "This backend provides the default WebDAV integration for Files."
 msgstr "קצה עורפי זה מספק את שילוב ברירת המחדל של WebDAV עבור קבצים."
 
 msgid "Files Default Backend: "
-msgstr "Backend ברירת מחדל לקבצים:"
+msgstr "Backend ברירת מחדל לקבצים: "
 
 msgid "Server address"
 msgstr "כתובת השרת"
@@ -8184,7 +8184,7 @@ msgid "With this backend, you can connect to any Seafile server."
 msgstr "עם הקצה האחורי הזה, אתה יכול להתחבר לכל שרת Seafile."
 
 msgid "Files "
-msgstr "קבצים"
+msgstr "קבצים "
 
 msgid "Use SSL"
 msgstr "השתמש ב-SSL"
@@ -8262,7 +8262,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "עם הקצה האחורי הזה, אתה יכול להתחבר לכל שרת WebDAV."
 
 msgid "Files WebDAV Backend: "
-msgstr "קבצים WebDAV Backend:"
+msgstr "קבצים WebDAV Backend: "
 
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL אינו מותקן"
@@ -8401,7 +8401,7 @@ msgid "Invalid LDAP configuration"
 msgstr "תצורת LDAP לא חוקית"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr "חסרות תעודות ציבוריות עבור הנמענים הבאים:"
+msgstr "חסרות תעודות ציבוריות עבור הנמענים הבאים: "
 
 msgid ". Please contact your system administrator for details"
 msgstr ". אנא פנה למנהל המערכת שלך לקבלת פרטים"
@@ -8419,7 +8419,7 @@ msgid "Private key can't be used to sign email"
 msgstr "לא ניתן להשתמש במפתח פרטי כדי לחתום על דוא\"ל"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "כתובת הדוא\"ל של האישור אינה תואמת לחשבון האינטרנט של grommunio"
+msgstr "כתובת הדוא\"ל של האישור אינה תואמת לחשבון grommunio Web "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8429,13 +8429,13 @@ msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully suppor
 msgstr "תעודות EdDSA (Ed25519) דורשות PHP 8.4+ וייתכן שלא יתמכו באופן מלא. התעודה יובאה."
 
 msgid "Certificate was expired on "
-msgstr "תוקף האישור פג בתאריך"
+msgstr "תוקף האישור פג בתאריך "
 
 msgid "Certificate was imported."
 msgstr "האישור יובא."
 
 msgid "Certificate is not yet valid "
-msgstr "האישור עדיין לא בתוקף"
+msgstr "האישור עדיין לא בתוקף "
 
 msgid "Certificate has not been imported"
 msgstr "האישור לא יובא"
@@ -8563,7 +8563,7 @@ msgstr "קובץ ה-vcf המצורף לא מיובא בהצלחה"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "לא ניתן לייבא את '%s' אל '%s'."
+msgstr "לא ניתן לייבא את '%s' אל '%s'. "
 
 msgid "There is no appointment found in this file."
 msgstr "לא נמצאה פגישה בקובץ זה."
@@ -8576,7 +8576,7 @@ msgstr "הקובץ לא חוקי."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr "לא ניתן לייבא את '%s'."
+msgstr "לא ניתן לייבא את '%s'. "
 
 msgid "Attachment is not imported successfully"
 msgstr "הקובץ המצורף לא מיובא בהצלחה"
@@ -8651,7 +8651,7 @@ msgid "an appointment"
 msgstr "פגישה"
 
 msgid "You have insufficient privileges to move "
-msgstr "אין לך מספיק הרשאות לעבור"
+msgstr "אין לך מספיק הרשאות להעביר "
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "לא ניתן להגדיר תזכורת שתופיע לפני האירוע הקודם. אפס את התזכורת כדי לשמור את השינוי"

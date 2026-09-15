@@ -2563,7 +2563,7 @@ msgid "This message has no content."
 msgstr "Diese Nachricht hat keinen Inhalt."
 
 msgid "grommunio Web print"
-msgstr "grommunio-Web-Druck"
+msgstr "grommunio Web-Druck"
 
 msgid "Display name"
 msgstr "Anzeigename"
@@ -3895,7 +3895,7 @@ msgid "Open in new browser window"
 msgstr "In einem eigenen Fenster öffnen"
 
 msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
-msgstr "Ihr Browser scheint ein oder mehrere Pop-Up-Fenster blockiert zu haben. Bitte überprüfen Sie die Einstellungen Ihres Browsers."
+msgstr "Ihr Browser scheint ein oder mehrere Pop-Up-Fenster blockiert zu haben. Bitte ändern Sie die Einstellungen Ihres Browsers so, dass Pop-Ups von grommunio Web immer zugelassen werden."
 
 msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "Der Anhang konnte nicht hochgeladen werden. Es sind nur {0} Anhänge erlaubt"
@@ -8907,7 +8907,7 @@ msgstr "Kollidiert mit einem weiteren Termin."
 #, php-format
 msgid "%s occurrence of this recurring appointment conflicts with other appointment."
 msgid_plural "%s occurrences of this recurring appointment conflicts with other appointments."
-msgstr[0] "%s Termin dieser Serie kollidiert mit einem anderen "
+msgstr[0] "%s Termin dieser Serie kollidiert mit einem anderen Termin."
 msgstr[1] "%s Termine dieser Serie kollidieren mit anderen Terminen."
 
 msgid "Your message did not reach some or all of the intended recipients"

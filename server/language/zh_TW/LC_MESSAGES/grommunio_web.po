@@ -808,7 +808,7 @@ msgid "weeks"
 msgstr "週"
 
 msgid " on "
-msgstr "關於 "
+msgstr "於"
 
 msgid "month"
 msgstr "月"
@@ -823,16 +823,16 @@ msgid "years"
 msgstr "年"
 
 msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "Occurs every %s effective %s for %s occurrences."
+msgstr "每{0}發生一次，自 {1} 起生效，時間為 {2} 至 {3}。"
 
 msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "Occurs every %s %s effective %s for %s occurrences"
+msgstr "每 {0} {1}發生一次，自 {2} 起生效，時間為 {3} 至 {4}。"
 
 msgid "Occurs every {0} effective {1}."
-msgstr "Occurs every %s effective %s."
+msgstr "每{0}發生一次，自 {1} 起生效。"
 
 msgid "Occurs every {0} {1} effective {2}."
-msgstr "Occurs every %s effective %s."
+msgstr "每 {0} {1}發生一次，自 {2} 起生效。"
 
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
@@ -851,16 +851,16 @@ msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
 msgstr[0] "每{0} {1} 發生一次，{2} 有效，{3} 發生一次。"
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "Occurs every %s effective %s for %s occurrences from %s to %s."
+msgstr "每{0}發生一次，自 {1} 起生效，至 {2} 結束，時間為 {3} 至 {4}。"
 
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "Occurs every %s effective %s for %s occurrences from %s to %s."
+msgstr "每 {0} {1}發生一次，自 {2} 起生效，至 {3} 結束，時間為 {4} 至 {5}。"
 
 msgid "Occurs every {0} effective {1} until {2}."
-msgstr "Occurs every %s effective %s until %s"
+msgstr "每{0}發生一次，自 {1} 起生效，至 {2} 結束。"
 
 msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "Occurs every %s effective %s until %s"
+msgstr "每 {0} {1}發生一次，自 {2} 起生效，至 {3} 結束。"
 
 msgid "New Meeting Time Proposed"
 msgstr "建議新的會議時間"
@@ -1770,7 +1770,7 @@ msgid "Printing of this item is not yet available"
 msgstr "尚未完成的項目"
 
 msgid "Item type: "
-msgstr "項目種類"
+msgstr "項目類型："
 
 msgid "Printing of this view is not yet available"
 msgstr "尚未完成的畫面"
@@ -1851,7 +1851,7 @@ msgid "This \"{0}\" meeting was already accepted."
 msgstr "已接受 \"{0}\" 會議"
 
 msgid "You have not responded to the meeting request \"{0}\"."
-msgstr "您尚未回復會議的請求 \"{0}\" "
+msgstr "您尚未回覆會議邀請「{0}」。"
 
 msgid "Delete and send a response to the meeting organizer"
 msgstr "刪除並回復給會議組織人員"
@@ -2245,7 +2245,7 @@ msgid "You have insufficient privileges to move following items."
 msgstr "您的權限不足以移動下列項目。"
 
 msgid "Subject:"
-msgstr "主題"
+msgstr "主旨："
 
 msgid "Would you like to copy instead?"
 msgstr "您要複製嗎？"
@@ -2542,7 +2542,7 @@ msgid "This message has no content."
 msgstr "此郵件沒有內容。"
 
 msgid "grommunio Web print"
-msgstr "grommunio 網頁列印"
+msgstr "grommunio Web 列印"
 
 msgid "Display name"
 msgstr "顯示名稱"
@@ -2602,7 +2602,7 @@ msgid "Every weekday"
 msgstr "每個平日"
 
 msgid "Regenerate new task {A} day(s) after each task is completed"
-msgstr "Regenerate new task {A} day(s) after each task is completed"
+msgstr "每個任務完成後 {A} 天重新產生新任務"
 
 msgid "Day {A} of every {B} month(s)"
 msgstr "每個{B}月(s)，第{A}天"
@@ -2611,7 +2611,7 @@ msgid "The {A} {B} of every {C} month(s)"
 msgstr "每個{C}月(s)的{A} {B}"
 
 msgid "Regenerate new task {A} month(s) after each task is completed"
-msgstr "Regenerate new task {A} month(s) after each task is completed"
+msgstr "每個任務完成後 {A} 個月重新產生新任務"
 
 msgid "Appointment Recurrence"
 msgstr "約會循環"
@@ -2658,10 +2658,10 @@ msgid "Occurrence duration: {D} {H} {M}"
 msgstr "發生時間:{D} {H} {M}"
 
 msgid "Every {A} week(s) on"
-msgstr "每個 {A} 第(s)週 "
+msgstr "每 {A} 週的"
 
 msgid "Regenerate new task {A} week(s) after each task is completed"
-msgstr "Regenerate new task {A} week(s) after each task is completed"
+msgstr "每個任務完成後 {A} 週重新產生新任務"
 
 msgid "Every {A} years(s) on"
 msgstr "每 {A} 年的"
@@ -2673,7 +2673,7 @@ msgid "The {A} {B} of {C}"
 msgstr "The {A} {B} of {C}"
 
 msgid "Regenerate new task {A} year(s) after each task is completed"
-msgstr "Regenerate new task {A} year(s) after each task is completed"
+msgstr "每個任務完成後 {A} 年重新產生新任務"
 
 msgid "Info"
 msgstr "資訊"
@@ -3887,7 +3887,7 @@ msgstr "無法上傳附件，附件總數為 {0} 個檔案，而單次請求最�
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
-msgstr "{0} 代表 {1} "
+msgstr "{0} 代表 {1}"
 
 msgid "This search is performed without using a content index"
 msgstr "此次搜尋未使用內容索引"
@@ -6438,7 +6438,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "grommunio Web 將自動重新啟動，以便這些變更生效。"
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio 網頁正在重新載入，請稍候。"
+msgstr "grommunio Web 正在重新載入，請稍候。"
 
 msgid "Edit Account"
 msgstr "編輯帳戶"
@@ -6594,10 +6594,10 @@ msgid "- seconds left"
 msgstr "- 剩餘秒數"
 
 msgid " seconds left"
-msgstr "剩餘秒數"
+msgstr " 秒後完成"
 
 msgid " minutes left"
-msgstr "剩餘時間"
+msgstr " 分鐘後完成"
 
 msgid "Uploading: "
 msgstr "上傳： "
@@ -7742,7 +7742,7 @@ msgid " has failed"
 msgstr "已失敗"
 
 msgid " for this message."
-msgstr "為此訊息。"
+msgstr "。"
 
 msgid "What caused this issue?"
 msgstr "是什麼造成這個問題？"
@@ -8449,7 +8449,7 @@ msgid "Template deleted successfully."
 msgstr "範本已成功刪除。"
 
 msgid "Could not attach item as an attachment."
-msgstr "Could not attach item as an attachment."
+msgstr "無法將項目新增為附件。"
 
 msgid "Can't add data to bus, same action type is present in bus"
 msgstr "無法新增資料至匯流排，相同的動作類型已存在於匯流排中"
@@ -8851,25 +8851,25 @@ msgid "You have insufficient privileges to reclaim the ownership for the Task Re
 msgstr "You have insufficient privileges to reclaim the ownership for the TaskRequest."
 
 msgid "Could not reclaim the ownership for the Task Request."
-msgstr "Could not reclaim the ownership for the Task Request."
+msgstr "無法取回此任務要求的擁有權。"
 
 msgid "You have insufficient privileges to accept this Task Request."
-msgstr "You have insufficient privileges to accept this Task Request."
+msgstr "您的權限不足以接受此任務要求。"
 
 msgid "Could not accept Task Request."
-msgstr "Could not accept Task Request."
+msgstr "無法接受任務要求。"
 
 msgid "You have insufficient privileges to decline this Task Request."
-msgstr "You have insufficient privileges to decline this Task Request."
+msgstr "您的權限不足以拒絕此任務要求。"
 
 msgid "Could not decline Task Request."
-msgstr "Could not decline Task Request."
+msgstr "無法拒絕任務要求。"
 
 msgid "Could not open the attachment."
 msgstr "無法開啟此附件。"
 
 msgid "Conflicts with another appointment."
-msgstr "Conflicts with another appointment."
+msgstr "與另一個約會衝突。"
 
 #, php-format
 msgid "%s occurrence of this recurring appointment conflicts with other appointment."
@@ -8880,7 +8880,7 @@ msgid "Your message did not reach some or all of the intended recipients"
 msgstr "Your message did not reach some or all of the intended recipients"
 
 msgid "The following recipient(s) could not be reached"
-msgstr "The following recipient(s) could not be reached"
+msgstr "無法送達下列收件者"
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "系統管理員已停用移除附件功能。"

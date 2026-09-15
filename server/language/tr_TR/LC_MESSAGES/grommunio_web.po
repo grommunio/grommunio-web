@@ -4257,7 +4257,7 @@ msgid "Unsaved changes"
 msgstr "Kaydedilmeyen değişiklikler"
 
 msgid "Welcome to grommunio Web"
-msgstr "Grommunio Web'e hoş geldiniz"
+msgstr "grommunio Web'e hoş geldiniz"
 
 msgid "Set up your preferences to get started."
 msgstr "Başlamak için tercihlerinizi ayarlayın."
@@ -5134,13 +5134,13 @@ msgid "I am currently in the office"
 msgstr "Şu anda ofisteyim"
 
 msgid "I am out of the office from"
-msgstr "...itibariyle ofis dışındayım"
+msgstr "Şu tarihten itibaren ofis dışındayım"
 
 msgid "Out of office from"
 msgstr "Ofis dışında"
 
 msgid "I will be back on"
-msgstr "...geri döneceğim"
+msgstr "Şu tarihte geri döneceğim"
 
 msgid "Back on"
 msgstr "Geri dön"
@@ -5382,7 +5382,7 @@ msgid "You must reload grommunio Web for the changes to take effect. Unsaved cha
 msgstr "Değişikliklerin etkili olması için lütfen grommunio Web'i tekrar yenileyiniz."
 
 msgid "Reload grommunio Web"
-msgstr "Grommunio Web'i yeniden yükle"
+msgstr "grommunio Web'i yeniden yükle"
 
 msgid "Basic"
 msgstr "Temel"
@@ -5424,7 +5424,7 @@ msgid "Developer tools"
 msgstr "Geliştirici araçları"
 
 msgid "Show insertion points in grommunio Web"
-msgstr "Grommunio Web'de ekleme noktalarını göster"
+msgstr "grommunio Web'de ekleme noktalarını göster"
 
 msgid "Show \"item data\" button in context menu (mail only)"
 msgstr "İçerik menüsünde \"öğe verileri\" düğmesini göster (yalnızca posta)"
@@ -5523,7 +5523,7 @@ msgid "Inbox navigation"
 msgstr "Gelen kutusunda gezinme"
 
 msgid "I want to navigate through my items by using:"
-msgstr "...kullanarak öğelerim arasında gezinmek istiyorum:"
+msgstr "Şunu kullanarak öğelerim arasında gezinmek istiyorum:"
 
 msgid "Navigation method"
 msgstr "Gezinme yöntemi"

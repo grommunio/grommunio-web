@@ -174,7 +174,7 @@ msgid "December"
 msgstr "Δεκέμβριος"
 
 msgid "Page {A} of {0}"
-msgstr "Σελίδα {Α} του {0}"
+msgstr "Σελίδα {A} από {0}"
 
 msgid "Displaying messages {0} - {1} of {2}"
 msgstr "Εμφάνιση μηνυμάτων {0} - {1} of {2}"
@@ -1609,7 +1609,7 @@ msgid "Sort by: Recurring Pattern"
 msgstr "Ταξινόμηση κατά: Μοτίβο: Επαναλαμβανόμενο μοτίβο"
 
 msgid "Sort by: Reminder"
-msgstr "Ταξινόμηση κατά: "
+msgstr "Ταξινόμηση κατά: Υπενθύμιση"
 
 msgid "Sort by: Sensitivity"
 msgstr "Ταξινόμηση κατά: Ευαισθησία"
@@ -2562,7 +2562,7 @@ msgid "This message has no content."
 msgstr "Αυτό το μήνυμα δεν έχει περιεχόμενο."
 
 msgid "grommunio Web print"
-msgstr "grommunio Εκτύπωση στο διαδίκτυο"
+msgstr "Εκτύπωση grommunio Web"
 
 msgid "Display name"
 msgstr "Εμφανιζόμενο όνομα"
@@ -2616,7 +2616,7 @@ msgid "last"
 msgstr "τελευταίο"
 
 msgid "Every {A} day(s)"
-msgstr "Κάθε {Α} ημέρα(ες)"
+msgstr "Κάθε {A} ημέρα(ες)"
 
 msgid "Every weekday"
 msgstr "Κάθε εργάσιμη ημέρα"
@@ -2625,7 +2625,7 @@ msgid "Regenerate new task {A} day(s) after each task is completed"
 msgstr "Αναδημιουργία νέας εργασίας {A} ημέρα(ες) μετά την ολοκλήρωση κάθε εργασίας"
 
 msgid "Day {A} of every {B} month(s)"
-msgstr "Ημέρα {Α} κάθε {Β} μήνα(ων)"
+msgstr "Ημέρα {A} κάθε {B} μήνα(ων)"
 
 msgid "The {A} {B} of every {C} month(s)"
 msgstr "Το {A} {B} κάθε {C} μήνα(ων)"
@@ -2678,7 +2678,7 @@ msgid "Occurrence duration: {D} {H} {M}"
 msgstr "Διάρκεια εμφάνισης: {D} {H} {M}"
 
 msgid "Every {A} week(s) on"
-msgstr "Κάθε {Α} εβδομάδα(ες) στις"
+msgstr "Κάθε {A} εβδομάδα(ες) στις"
 
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Αναδημιουργία νέας εργασίας {A} εβδομάδα(ες) μετά την ολοκλήρωση κάθε εργασίας"
@@ -2704,7 +2704,7 @@ msgstr "Δεν υποστηρίζεται προς το παρόν."
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
 msgstr[0] "Υπάρχει {0} υπενθύμιση"
-msgstr[1] "Υπάρχουν υπενθυμίσεις {0} "
+msgstr[1] "Υπάρχουν {0} υπενθυμίσεις"
 
 msgid "Reminders"
 msgstr "Υπενθυμίσεις"
@@ -2800,7 +2800,7 @@ msgid "Received"
 msgstr "Ελήφθη"
 
 msgid "Sort by: Received"
-msgstr "Ταξινόμηση κατά: "
+msgstr "Ταξινόμηση κατά: Ελήφθη"
 
 msgid "Size"
 msgstr "Μέγεθος"
@@ -4570,7 +4570,7 @@ msgid "Folder size"
 msgstr "Μέγεθος φακέλου"
 
 msgid "Folder containing {0} Items"
-msgstr "Φάκελος που περιέχει στοιχεία {0} "
+msgstr "Φάκελος που περιέχει στοιχεία τύπου {0}"
 
 msgid "Permissions"
 msgstr "Εξουσιοδοτήσεις"
@@ -5122,7 +5122,7 @@ msgid "Open or compose a mail item in a"
 msgstr "Ανοίξτε ή συνθέστε ένα αντικείμενο αλληλογραφίας σε ένα"
 
 msgid "grommunio Web tab"
-msgstr "grommunio Καρτέλα Web"
+msgstr "Καρτέλα grommunio Web"
 
 msgid "Browser window"
 msgstr "Παράθυρο προγράμματος περιήγησης"
@@ -5541,7 +5541,7 @@ msgid "Load items in blocks of {A}"
 msgstr "Φορτώστε στοιχεία σε μπλοκ {A}"
 
 msgid "Load {A} items per page."
-msgstr "Φορτώστε {Α} στοιχεία ανά σελίδα."
+msgstr "Φορτώστε {A} στοιχεία ανά σελίδα."
 
 msgid "Keyboard Shortcuts"
 msgstr "Συντομεύσεις πληκτρολογίου"
@@ -6375,7 +6375,7 @@ msgid "Are you sure you want to delete {0} and all of its contents?"
 msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε το {0} και όλα τα περιεχόμενά του"
 
 msgid "Are you sure you want to delete {0} files?"
-msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε τα αρχεία {0} "
+msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε {0} αρχεία;"
 
 msgid "Are you sure want to delete {0} folders and all of their contents?"
 msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε τους φακέλους {0} και όλα τα περιεχόμενά τους"
@@ -6468,7 +6468,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "το grommunio Web θα επανεκκινήσει αυτόματα για να τεθούν σε ισχύ αυτές οι αλλαγές."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio Ο ιστός φορτώνεται εκ νέου, παρακαλώ περιμένετε."
+msgstr "Το grommunio Web επαναφορτώνεται, παρακαλώ περιμένετε."
 
 msgid "Edit Account"
 msgstr "Επεξεργασία λογαριασμού"
@@ -6708,7 +6708,7 @@ msgid "Sort by: Last modified"
 msgstr "Ταξινόμηση κατά: Τελευταία τροποποίηση"
 
 msgid "Sort by: Shared"
-msgstr "Ταξινόμηση κατά: "
+msgstr "Ταξινόμηση κατά: Κοινή χρήση"
 
 msgid "There are no items to show in this view"
 msgstr "Δεν υπάρχουν στοιχεία προς εμφάνιση σε αυτή την προβολή"

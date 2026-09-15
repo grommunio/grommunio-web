@@ -2704,7 +2704,7 @@ msgstr "Pas encore implémenté."
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
 msgstr[0] "Il y a {0} rappel"
-msgstr[1] "Il y a des rappels sur {0} "
+msgstr[1] "Il y a {0} rappels"
 
 msgid "Reminders"
 msgstr "Rappels"
@@ -4257,7 +4257,7 @@ msgid "Unsaved changes"
 msgstr "Modifications non enregistrées"
 
 msgid "Welcome to grommunio Web"
-msgstr "Bienvenue sur le site de grommunio"
+msgstr "Bienvenue dans grommunio Web"
 
 msgid "Set up your preferences to get started."
 msgstr "Définissez vos préférences pour commencer."
@@ -6468,7 +6468,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "grommunio Web redémarrera automatiquement afin que ces modifications puissent prendre effet."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio Le site est en cours de chargement, veuillez patienter."
+msgstr "grommunio Web est en cours de rechargement, veuillez patienter."
 
 msgid "Edit Account"
 msgstr "Modifier le compte"
@@ -6886,7 +6886,7 @@ msgid "Active Sync Version"
 msgstr "Version Active Sync"
 
 msgid "grommunio-sync Version"
-msgstr "grommunio-sync Version"
+msgstr "Version grommunio-sync"
 
 msgid "Policy name"
 msgstr "Nom de la politique"
@@ -8421,7 +8421,7 @@ msgid "Private key can't be used to sign email"
 msgstr "La clé privée ne peut pas être utilisé pour signer le courriel"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "L'adresse e-mail du certificat ne correspond pas au compte Web de grommunio "
+msgstr "L'adresse e-mail du certificat ne correspond pas au compte grommunio Web "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8688,7 +8688,7 @@ msgstr "La réunion n'a pas pu être sauvée."
 
 #, php-format
 msgid "There were %d skipped appointment(s):"
-msgstr "Rendez-vous ignorés : %d"
+msgstr "%d rendez-vous ignoré(s) :"
 
 msgid "More skipped appointments are not shown."
 msgstr "Les autres rendez-vous ignorés ne sont pas affichés."

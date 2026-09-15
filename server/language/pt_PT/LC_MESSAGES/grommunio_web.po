@@ -2562,7 +2562,7 @@ msgid "This message has no content."
 msgstr "Esta mensagem não tem conteúdo."
 
 msgid "grommunio Web print"
-msgstr "grommunio Impressão na Web"
+msgstr "Impressão do grommunio Web"
 
 msgid "Display name"
 msgstr "Nome a mostrar"
@@ -5622,7 +5622,7 @@ msgid "Reset"
 msgstr "Reset"
 
 msgid "Reloading, Please wait."
-msgstr "A reiniciar... Por favor aguarde."
+msgstr "A recarregar. Por favor aguarde."
 
 msgid "Search settings"
 msgstr "Pesquisar definições"
@@ -6468,7 +6468,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "O grommunio Web será reiniciado automaticamente para aplicar estas alterações."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio O Web está a ser recarregado, aguarde."
+msgstr "O grommunio Web está a ser recarregado. Por favor aguarde."
 
 msgid "Edit Account"
 msgstr "Editar conta"
@@ -8057,7 +8057,7 @@ msgid "You have been automatically logged out"
 msgstr "A sessão foi automaticamente terminada"
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
-msgstr "Infelizmente o acesso à Webapp não está disponível para a conta deste utilizador. Por favor contacte o seu administrador de sistema."
+msgstr "Infelizmente, o acesso ao grommunio Web não está disponível com esta conta de utilizador. Por favor contacte o seu administrador de sistema."
 
 msgid "The AI request failed unexpectedly."
 msgstr "O pedido de IA falhou inesperadamente."
@@ -8421,7 +8421,7 @@ msgid "Private key can't be used to sign email"
 msgstr "A chave privada não pode ser usada para assinar mensagens"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "Endereço de e-mail certificado não corresponde à conta Web grommunio "
+msgstr "O endereço de e-mail do certificado não corresponde à conta grommunio Web "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."

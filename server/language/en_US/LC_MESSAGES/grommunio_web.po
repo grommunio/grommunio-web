@@ -6605,7 +6605,7 @@ msgid "Upload Failed"
 msgstr "Upload Failed"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr "Attachment could not be stored in Files! Error:"
+msgstr "Attachment could not be stored in Files. Error: "
 
 msgid "Share Files"
 msgstr "Share Files"

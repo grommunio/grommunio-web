@@ -48,12 +48,12 @@ msgstr "الإدخال"
 
 msgid "{0} byte"
 msgid_plural "{0} bytes"
-msgstr[0] "صفر"
-msgstr[1] "واحد"
-msgstr[2] "اثنان"
-msgstr[3] "قليل"
-msgstr[4] "كثير"
-msgstr[5] "آخر"
+msgstr[0] "{0} بايت"
+msgstr[1] "{0} بايت"
+msgstr[2] "{0} بايت"
+msgstr[3] "{0} بايتات"
+msgstr[4] "{0} بايتًا"
+msgstr[5] "{0} بايت"
 
 msgid "{0} KB"
 msgid_plural "{0} KB"
@@ -209,7 +209,7 @@ msgid "December"
 msgstr "ديسمبر"
 
 msgid "Page {A} of {0}"
-msgstr "الصفحة {أ} من{0}"
+msgstr "الصفحة {A} من {0}"
 
 msgid "Displaying messages {0} - {1} of {2}"
 msgstr "عرض الرسائل{0}-{1}من{2}"
@@ -853,7 +853,7 @@ msgid "weeks"
 msgstr "أسابيع"
 
 msgid " on "
-msgstr "على"
+msgstr " يوم "
 
 msgid "month"
 msgstr "شهر"
@@ -1432,7 +1432,7 @@ msgid "of"
 msgstr "ل"
 
 msgid "Location: "
-msgstr "موقع:"
+msgstr "الموقع: "
 
 msgid "j M {0}"
 msgstr "ي م{0}"
@@ -1441,7 +1441,7 @@ msgid "l jS M Y {0}"
 msgstr "ل ش ش م ي{0}"
 
 msgid "All day: "
-msgstr "طوال اليوم:"
+msgstr "طوال اليوم: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1722,7 +1722,7 @@ msgid "Next"
 msgstr "التالي"
 
 msgid "grommunio Web"
-msgstr "ويب غرومونيو"
+msgstr "grommunio Web"
 
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
 msgstr "يرجى ملاحظة أن أي تغييرات تجريها سيتم استبدالها عند تحديث منظم الاجتماع لطلب الاجتماع هذا. هل ترغب في نقل هذا الاجتماع؟"
@@ -1845,7 +1845,7 @@ msgid "Printing of this item is not yet available"
 msgstr "طباعة هذا البند ليست متاحة بعد"
 
 msgid "Item type: "
-msgstr "نوع العنصر:"
+msgstr "نوع العنصر: "
 
 msgid "Printing of this view is not yet available"
 msgstr "طباعة هذا الرأي ليست متاحة بعد"
@@ -2127,7 +2127,7 @@ msgid "Drop files here to attach them"
 msgstr "أفلت الملفات هنا لإرفاقها"
 
 msgid "Picture format is not supported. "
-msgstr "تنسيق الصورة غير مدعوم."
+msgstr "تنسيق الصورة غير مدعوم. "
 
 msgid "Supported format for contact pictures are"
 msgstr "التنسيق المعتمد لصور جهة الاتصال هو"
@@ -2637,7 +2637,7 @@ msgid "This message has no content."
 msgstr "هذه الرسالة خالية من المحتوى."
 
 msgid "grommunio Web print"
-msgstr "طباعة ويب غرمونيو"
+msgstr "طباعة grommunio Web"
 
 msgid "Display name"
 msgstr "اسم العرض"
@@ -2745,7 +2745,7 @@ msgid "End after {A} occurrences"
 msgstr "تنتهي بعد حدوث {A}."
 
 msgid "End by {A}"
-msgstr "نهاية بـ {أ}"
+msgstr "تنتهي بحلول {A}"
 
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
 #. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
@@ -2765,7 +2765,7 @@ msgid "{A} {B}"
 msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
-msgstr "{أ} {ب} من {ج}"
+msgstr "{A} {B} من {C}"
 
 msgid "Regenerate new task {A} year(s) after each task is completed"
 msgstr "قم بإعادة إنشاء مهمة جديدة {A} سنة (سنوات) بعد اكتمال كل مهمة"
@@ -4348,7 +4348,7 @@ msgid "Unsaved changes"
 msgstr "التغييرات غير المحفوظة"
 
 msgid "Welcome to grommunio Web"
-msgstr "مرحبا بكم في ويب غرمونيو"
+msgstr "مرحبًا بك في grommunio Web"
 
 msgid "Set up your preferences to get started."
 msgstr "قم بإعداد تفضيلاتك للبدء."
@@ -4475,7 +4475,7 @@ msgid "The default store is missing from the hierarchy."
 msgstr "المتجر الافتراضي مفقود من التسلسل الهرمي."
 
 msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "قد لا تعمل جميع وظائف موقع Grommunio الإلكتروني بشكل صحيح بسبب هذا الأمر."
+msgstr "قد لا تعمل جميع وظائف grommunio Web بشكل صحيح بسبب هذا الأمر."
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
@@ -4934,7 +4934,7 @@ msgid "Scheduled Items"
 msgstr "العناصر المجدولة"
 
 msgid "Your message will be sent at "
-msgstr "سيتم إرسال رسالتك على"
+msgstr "سيتم إرسال رسالتك في "
 
 msgid "Go to your Outbox to edit your email."
 msgstr "انتقل إلى صندوق الصادر الخاص بك لتحرير البريد الإلكتروني الخاص بك."
@@ -4952,13 +4952,13 @@ msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "الوقت الذي أدخلته في الماضي. يرجى إعادة جدولة البريد الخاص بك."
 
 msgid "today  at "
-msgstr "اليوم في"
+msgstr "اليوم في "
 
 msgid "tomorrow  at "
-msgstr "غدا في"
+msgstr "غدًا في "
 
 msgid "{0} at "
-msgstr "{0}في"
+msgstr "{0} في "
 
 msgid "at {0}"
 msgstr "في{0}"
@@ -5233,7 +5233,7 @@ msgid "Open or compose a mail item in a"
 msgstr "فتح أو إنشاء عنصر بريد في ملف"
 
 msgid "grommunio Web tab"
-msgstr "علامة التبويب ويب جرومنيو"
+msgstr "علامة تبويب grommunio Web"
 
 msgid "Browser window"
 msgstr "نافذة المتصفح"
@@ -5341,7 +5341,7 @@ msgid "ZIP file"
 msgstr "ملف مضغوط"
 
 msgid "max. "
-msgstr "الأعلى."
+msgstr "بحد أقصى "
 
 msgid "Sort by: Sent"
 msgstr "الترتيب حسب: مرسل"
@@ -5535,7 +5535,7 @@ msgid "Developer tools"
 msgstr "أدوات المطور"
 
 msgid "Show insertion points in grommunio Web"
-msgstr "إظهار نقاط الإدراج في ويب grommunio"
+msgstr "إظهار نقاط الإدراج في grommunio Web"
 
 msgid "Show \"item data\" button in context menu (mail only)"
 msgstr "إظهار زر \"بيانات العنصر\" في قائمة السياق (البريد فقط)"
@@ -5964,11 +5964,11 @@ msgid "Completed"
 msgstr "مكتمل"
 
 msgid "Printed by: "
-msgstr "طبع بواسطة:"
+msgstr "طبع بواسطة: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
-msgstr "طبع على:"
+msgstr "طبع بتاريخ: "
 
 msgid "Percent complete"
 msgstr "نسبة الاكتمال"
@@ -6583,7 +6583,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "سيتم إعادة تشغيل grommunio Web تلقائيًا حتى تصبح هذه التغييرات سارية المفعول."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "جاري إعادة تحميل ويب grommunio، يرجى الانتظار."
+msgstr "جارٍ إعادة تحميل grommunio Web، يرجى الانتظار."
 
 msgid "Edit Account"
 msgstr "تحرير الحساب"
@@ -6673,7 +6673,7 @@ msgid "You have to choose at least one file!"
 msgstr "يجب عليك اختيار ملف واحد على الأقل!"
 
 msgid "Create New "
-msgstr "إنشاء جديد"
+msgstr "إنشاء جديد "
 
 msgid "Incorrect filename"
 msgstr "اسم ملف غير صحيح"
@@ -6721,13 +6721,13 @@ msgid "Upload Failed"
 msgstr "فشل التحميل"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr "لا يمكن تخزين المرفقات في الملفات! خطأ:"
+msgstr "لا يمكن تخزين المرفق في الملفات! خطأ: "
 
 msgid "Share Files"
 msgstr "مشاركة الملفات"
 
 msgid "Uploading files to "
-msgstr "رفع الملفات الى"
+msgstr "جارٍ رفع الملفات إلى "
 
 msgid "Starting upload"
 msgstr "جارٍ بدء التحميل"
@@ -6739,13 +6739,13 @@ msgid "- seconds left"
 msgstr "- ثواني متبقية"
 
 msgid " seconds left"
-msgstr "ثواني متبقية"
+msgstr " ثانية متبقية"
 
 msgid " minutes left"
-msgstr "دقائق متبقية"
+msgstr " دقيقة متبقية"
 
 msgid "Uploading: "
-msgstr "التحميل:"
+msgstr "جارٍ الرفع: "
 
 msgid "Upload status unavailable... please wait."
 msgstr "حالة التحميل غير متاحة... الرجاء الانتظار."
@@ -7884,10 +7884,10 @@ msgid "You are seeing this message because the verification of the digital signa
 msgstr "تظهر لك هذه الرسالة لأن التحقق من التوقيع الرقمي"
 
 msgid " has failed"
-msgstr "لقد فشل"
+msgstr " قد فشل"
 
 msgid " for this message."
-msgstr "لهذه الرسالة."
+msgstr " لهذه الرسالة."
 
 msgid "What caused this issue?"
 msgstr "ما سبب هذه المشكلة؟"
@@ -8232,7 +8232,7 @@ msgid "This backend provides the default WebDAV integration for Files."
 msgstr "توفر هذه الواجهة الخلفية تكامل WebDAV الافتراضي للملفات."
 
 msgid "Files Default Backend: "
-msgstr "الواجهة الخلفية الافتراضية للملفات:"
+msgstr "الواجهة الخلفية الافتراضية للملفات: "
 
 msgid "Server address"
 msgstr "عنوان الخادم"
@@ -8301,7 +8301,7 @@ msgid "With this backend, you can connect to any Seafile server."
 msgstr "باستخدام هذه الواجهة الخلفية، يمكنك الاتصال بأي خادم Seafile."
 
 msgid "Files "
-msgstr "ملفات"
+msgstr "ملفات "
 
 msgid "Use SSL"
 msgstr "استخدم طبقة المقابس الآمنة"
@@ -8379,7 +8379,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "باستخدام هذه الواجهة الخلفية، يمكنك الاتصال بأي خادم WebDAV."
 
 msgid "Files WebDAV Backend: "
-msgstr "ملفات WebDAV الخلفية:"
+msgstr "الواجهة الخلفية WebDAV للملفات: "
 
 msgid "PHP-CURL is not installed"
 msgstr "لم يتم تثبيت PHP-CURL"
@@ -8518,7 +8518,7 @@ msgid "Invalid LDAP configuration"
 msgstr "تكوين LDAP غير صالح"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr "الشهادات العامة المفقودة للمستلمين التاليين:"
+msgstr "الشهادات العامة مفقودة للمستلمين التاليين: "
 
 msgid ". Please contact your system administrator for details"
 msgstr ". يرجى الاتصال بمسؤول النظام للحصول على التفاصيل"
@@ -8536,7 +8536,7 @@ msgid "Private key can't be used to sign email"
 msgstr "لا يمكن استخدام المفتاح الخاص لتوقيع البريد الإلكتروني"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "عنوان البريد الإلكتروني للشهادة لا يتطابق مع حساب ويب grommunio"
+msgstr "عنوان البريد الإلكتروني للشهادة لا يتطابق مع حساب grommunio Web "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8546,13 +8546,13 @@ msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully suppor
 msgstr "تتطلب شهادات EdDSA (Ed25519) PHP 8.4+ وقد لا تكون مدعومة بالكامل. تم استيراد الشهادة."
 
 msgid "Certificate was expired on "
-msgstr "انتهت صلاحية الشهادة بتاريخ"
+msgstr "انتهت صلاحية الشهادة بتاريخ "
 
 msgid "Certificate was imported."
 msgstr "تم استيراد الشهادة."
 
 msgid "Certificate is not yet valid "
-msgstr "الشهادة ليست صالحة بعد"
+msgstr "الشهادة غير صالحة قبل "
 
 msgid "Certificate has not been imported"
 msgstr "لم يتم استيراد الشهادة"
@@ -8680,7 +8680,7 @@ msgstr "لم يتم استيراد مرفق vcf بنجاح"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "غير قادر على استيراد \"%s\" إلى \"%s\"."
+msgstr "غير قادر على استيراد \"%s\" إلى \"%s\". "
 
 msgid "There is no appointment found in this file."
 msgstr "لا يوجد موعد موجود في هذا الملف."
@@ -8693,7 +8693,7 @@ msgstr "الملف غير صالح."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr "غير قادر على استيراد '%s'."
+msgstr "غير قادر على استيراد \"%s\". "
 
 msgid "Attachment is not imported successfully"
 msgstr "لم يتم استيراد المرفق بنجاح"
@@ -8768,7 +8768,7 @@ msgid "an appointment"
 msgstr "موعد"
 
 msgid "You have insufficient privileges to move "
-msgstr "ليس لديك امتيازات كافية للتحرك"
+msgstr "ليس لديك امتيازات كافية لنقل "
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "لا يمكن تعيين تذكير ليظهر قبل الحدث السابق. أعد تعيين التذكير لحفظ التغيير"

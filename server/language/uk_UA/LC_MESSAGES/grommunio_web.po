@@ -1400,7 +1400,7 @@ msgid "l jS M Y {0}"
 msgstr "l jS F Y {0}"
 
 msgid "All day: "
-msgstr "Цілий день:"
+msgstr "Весь день: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -2581,7 +2581,7 @@ msgid "This message has no content."
 msgstr "Це повідомлення не має вмісту."
 
 msgid "grommunio Web print"
-msgstr "grommunio Веб-друк"
+msgstr "Друк grommunio Web"
 
 msgid "Display name"
 msgstr "Відображуване ім'я"
@@ -4851,7 +4851,7 @@ msgid "Scheduled Items"
 msgstr "Заплановані пункти"
 
 msgid "Your message will be sent at "
-msgstr "Ваше повідомлення буде надіслано на адресу"
+msgstr "Ваше повідомлення буде надіслано "
 
 msgid "Go to your Outbox to edit your email."
 msgstr "Перейдіть до папки \"Вхідні\", щоб відредагувати імейл."
@@ -4869,13 +4869,13 @@ msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "Час, який ви ввели, минув. Будь ласка, перенесіть свою пошту на інший час."
 
 msgid "today  at "
-msgstr "сьогодні в"
+msgstr "сьогодні в "
 
 msgid "tomorrow  at "
-msgstr "завтра в"
+msgstr "завтра в "
 
 msgid "{0} at "
-msgstr "{0} в"
+msgstr "{0} в "
 
 msgid "at {0}"
 msgstr "в {0}"
@@ -5150,7 +5150,7 @@ msgid "Open or compose a mail item in a"
 msgstr "Відкрийте або створіть поштове повідомлення в"
 
 msgid "grommunio Web tab"
-msgstr "Веб-вкладка grommunio"
+msgstr "Вкладка grommunio Web"
 
 msgid "Browser window"
 msgstr "Вікно браузера"
@@ -5258,7 +5258,7 @@ msgid "ZIP file"
 msgstr "ZIP-файл"
 
 msgid "max. "
-msgstr "максимум."
+msgstr "макс. "
 
 msgid "Sort by: Sent"
 msgstr "Сортувати по: Відправлено"
@@ -5878,7 +5878,7 @@ msgid "Completed"
 msgstr "Завершено"
 
 msgid "Printed by: "
-msgstr "Надруковано на:"
+msgstr "Ким надруковано: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
@@ -6587,7 +6587,7 @@ msgid "You have to choose at least one file!"
 msgstr "Ви повинні вибрати хоча б один файл!"
 
 msgid "Create New "
-msgstr "Створити новий"
+msgstr "Створити новий "
 
 msgid "Incorrect filename"
 msgstr "Неправильне ім'я файлу"
@@ -6635,13 +6635,13 @@ msgid "Upload Failed"
 msgstr "Не вдалося завантажити"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr "Вкладення не вдалося зберегти у папці \"Файли\"! Помилка:"
+msgstr "Вкладення не вдалося зберегти у папці \"Файли\"! Помилка: "
 
 msgid "Share Files"
 msgstr "Поділіться файлами"
 
 msgid "Uploading files to "
-msgstr "Завантаження файлів на"
+msgstr "Завантаження файлів до "
 
 msgid "Starting upload"
 msgstr "Початок завантаження"
@@ -6659,7 +6659,7 @@ msgid " minutes left"
 msgstr " залишилося кілька хвилин"
 
 msgid "Uploading: "
-msgstr "Завантажую:"
+msgstr "Завантаження: "
 
 msgid "Upload status unavailable... please wait."
 msgstr "Статус завантаження недоступний... будь ласка, зачекайте."
@@ -7816,7 +7816,7 @@ msgid "You can contact your helpdesk or system administrator if you are not sure
 msgstr "Якщо ви не знаєте, що робити далі, зверніться до служби підтримки або системного адміністратора."
 
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "grommunio Web може перевіряти цифрові підписи електронних листів. Успішна перевірка заспокоює вас"
+msgstr "grommunio Web може перевіряти цифрові підписи електронних листів. Успішна перевірка гарантує, "
 
 msgid "that the message has not been tampered with and validates the identity of the sender."
 msgstr "що повідомлення не було підроблене і підтверджує особу відправника."
@@ -8293,7 +8293,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "За допомогою цього бекенду ви можете підключитися до будь-якого WebDAV-сервера."
 
 msgid "Files WebDAV Backend: "
-msgstr "Файли WebDAV Backend:"
+msgstr "Файли WebDAV Backend: "
 
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL не встановлено"
@@ -8432,7 +8432,7 @@ msgid "Invalid LDAP configuration"
 msgstr "Неправильна конфігурація LDAP"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr "Відсутні відкриті сертифікати для наступних одержувачів:"
+msgstr "Відсутні відкриті сертифікати для наступних одержувачів: "
 
 msgid ". Please contact your system administrator for details"
 msgstr ". Будь ласка, зверніться до вашого системного адміністратора для отримання детальної інформації"
@@ -8450,7 +8450,7 @@ msgid "Private key can't be used to sign email"
 msgstr "Приватний ключ не можна використовувати для підпису електронної пошти"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "Адреса електронної пошти сертифіката не відповідає веб-акаунту grommunio"
+msgstr "Адреса електронної пошти сертифіката не відповідає обліковому запису grommunio Web "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8460,13 +8460,13 @@ msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully suppor
 msgstr "Сертифікати EdDSA (Ed25519) вимагають PHP 8.4+ і можуть не підтримуватися повністю. Сертифікат було імпортовано."
 
 msgid "Certificate was expired on "
-msgstr "Термін дії сертифікату закінчився"
+msgstr "Термін дії сертифіката закінчився "
 
 msgid "Certificate was imported."
 msgstr "Сертифікат був імпортований."
 
 msgid "Certificate is not yet valid "
-msgstr "Сертифікат ще не дійсний"
+msgstr "Сертифікат ще не дійсний "
 
 msgid "Certificate has not been imported"
 msgstr "Сертифікат не був імпортований"
@@ -8594,7 +8594,7 @@ msgstr "Вкладення vcf не вдалося успішно імпорту
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "Не вдалося імпортувати '%s' до '%s'."
+msgstr "Не вдалося імпортувати '%s' до '%s'. "
 
 msgid "There is no appointment found in this file."
 msgstr "У цьому файлі не знайдено жодної зустрічі."
@@ -8607,7 +8607,7 @@ msgstr "Файл є недійсним."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr "Не вдалося імпортувати '%s'."
+msgstr "Не вдалося імпортувати '%s'. "
 
 msgid "Attachment is not imported successfully"
 msgstr "Вкладення не вдається успішно імпортувати"
@@ -8682,7 +8682,7 @@ msgid "an appointment"
 msgstr "зустріч"
 
 msgid "You have insufficient privileges to move "
-msgstr "У вас недостатньо привілеїв для переїзду"
+msgstr "У вас недостатньо привілеїв для переміщення "
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "Не вдається встановити нагадування, щоб воно з'являлося перед попередньою подією. Скинути нагадування, щоб зберегти зміни"

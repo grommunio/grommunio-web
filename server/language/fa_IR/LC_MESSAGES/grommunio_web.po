@@ -816,7 +816,7 @@ msgid "weeks"
 msgstr "هفته ها"
 
 msgid " on "
-msgstr "در"
+msgstr " در "
 
 msgid "month"
 msgstr "ماه"
@@ -885,7 +885,7 @@ msgid "Fwd"
 msgstr "Fwd"
 
 msgid "and "
-msgstr "و"
+msgstr "و "
 
 msgid "Sort by: Attachment"
 msgstr "مرتب سازی بر اساس: پیوست"
@@ -1375,7 +1375,7 @@ msgid "of"
 msgstr "از"
 
 msgid "Location: "
-msgstr "مکان:"
+msgstr "مکان: "
 
 msgid "j M {0}"
 msgstr "j M{0}"
@@ -1384,7 +1384,7 @@ msgid "l jS M Y {0}"
 msgstr "l jS M Y{0}"
 
 msgid "All day: "
-msgstr "تمام روز:"
+msgstr "تمام روز: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1661,7 +1661,7 @@ msgid "Next"
 msgstr "بعدی"
 
 msgid "grommunio Web"
-msgstr "grommunio وب"
+msgstr "grommunio Web"
 
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
 msgstr "لطفاً توجه داشته باشید که هر تغییری که انجام دهید هنگام به‌روزرسانی این درخواست جلسه توسط برگزارکننده، بازنویسی خواهد شد. آیا می‌خواهید این جلسه را جابجا کنید؟"
@@ -1784,7 +1784,7 @@ msgid "Printing of this item is not yet available"
 msgstr "چاپ این مورد هنوز در دسترس نیست"
 
 msgid "Item type: "
-msgstr "نوع مورد:"
+msgstr "نوع مورد: "
 
 msgid "Printing of this view is not yet available"
 msgstr "چاپ این نما هنوز در دسترس نیست"
@@ -2054,7 +2054,7 @@ msgid "Drop files here to attach them"
 msgstr "برای پیوست کردن فایل‌ها، آن‌ها را اینجا رها کنید"
 
 msgid "Picture format is not supported. "
-msgstr "فرمت تصویر پشتیبانی نمی شود."
+msgstr "فرمت تصویر پشتیبانی نمی شود. "
 
 msgid "Supported format for contact pictures are"
 msgstr "فرمت های پشتیبانی شده برای تصاویر تماس می باشد"
@@ -2560,7 +2560,7 @@ msgid "This message has no content."
 msgstr "این پیام محتوایی ندارد."
 
 msgid "grommunio Web print"
-msgstr "چاپ وب grommunio"
+msgstr "چاپ grommunio Web"
 
 msgid "Display name"
 msgstr "نام نمایشی"
@@ -3246,7 +3246,7 @@ msgstr "لطفاً این را به عنوان{0}در نظر بگیرید."
 
 msgctxt "mail.previewpanel"
 msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "برای دانلود تصاویر اینجا کلیک کنید. برای کمک به حفظ حریم خصوصی شما، وب‌سایت grommunio از دانلود خودکار برخی تصاویر در این پیام جلوگیری کرده است."
+msgstr "برای دانلود تصاویر اینجا کلیک کنید. برای کمک به حفظ حریم خصوصی شما، grommunio Web از دانلود خودکار برخی تصاویر در این پیام جلوگیری کرده است."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3890,7 +3890,7 @@ msgid "Open in new browser window"
 msgstr "در پنجره مرورگر جدید باز کنید"
 
 msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
-msgstr "به نظر می‌رسد مرورگر شما یک یا چند پنجرهٔ پاپ‌آپ را مسدود کرده است. لطفاً تنظیمات مرورگر خود را طوری تغییر دهید که همیشه اجازهٔ پاپ‌آپ‌ها از وب‌سایت grommunio را بدهد."
+msgstr "به نظر می‌رسد مرورگر شما یک یا چند پنجرهٔ پاپ‌آپ را مسدود کرده است. لطفاً تنظیمات مرورگر خود را طوری تغییر دهید که همیشه اجازهٔ پاپ‌آپ‌ها از grommunio Web را بدهد."
 
 msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "نمی‌توان پیوست را بارگذاری کرد، فقط {0} پیوست به پیام اضافه می‌شود"
@@ -4382,7 +4382,7 @@ msgid "The default store is missing from the hierarchy."
 msgstr "فروشگاه پیش فرض در سلسله مراتب وجود ندارد."
 
 msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "ممکن است همهٔ قابلیت‌های وب‌سایت grommunio به‌خوبی کار نکنند."
+msgstr "ممکن است همهٔ قابلیت‌های grommunio Web به‌خوبی کار نکنند."
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
@@ -4821,7 +4821,7 @@ msgid "Scheduled Items"
 msgstr "موارد برنامه ریزی شده"
 
 msgid "Your message will be sent at "
-msgstr "پیام شما به آدرس ارسال خواهد شد"
+msgstr "پیام شما در این زمان ارسال خواهد شد: "
 
 msgid "Go to your Outbox to edit your email."
 msgstr "برای ویرایش ایمیل خود به صندوق خروجی خود بروید."
@@ -4839,13 +4839,13 @@ msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "زمانی که وارد کردید در گذشته است. لطفا ایمیل خود را دوباره برنامه ریزی کنید."
 
 msgid "today  at "
-msgstr "امروز در"
+msgstr "امروز ساعت "
 
 msgid "tomorrow  at "
-msgstr "فردا در"
+msgstr "فردا ساعت "
 
 msgid "{0} at "
-msgstr "{0}در"
+msgstr "{0}ساعت "
 
 msgid "at {0}"
 msgstr "در{0}"
@@ -5120,7 +5120,7 @@ msgid "Open or compose a mail item in a"
 msgstr "باز کردن یا نوشتن یک مورد ایمیل در یک"
 
 msgid "grommunio Web tab"
-msgstr "برگه وب grommunio"
+msgstr "برگهٔ grommunio Web"
 
 msgid "Browser window"
 msgstr "پنجره مرورگر"
@@ -5228,7 +5228,7 @@ msgid "ZIP file"
 msgstr "فایل ZIP"
 
 msgid "max. "
-msgstr "حداکثر"
+msgstr "حداکثر "
 
 msgid "Sort by: Sent"
 msgstr "مرتب سازی بر اساس: ارسال شده"
@@ -5377,7 +5377,7 @@ msgid "Quick Note"
 msgstr "یادداشت سریع"
 
 msgid "You must reload grommunio Web for the changes to take effect. Unsaved changes will be lost."
-msgstr "برای اعمال تغییرات باید وب‌سایت Grommunio را دوباره بارگذاری کنید. تغییرات ذخیره نشده از دست خواهند رفت."
+msgstr "برای اعمال تغییرات باید grommunio Web را دوباره بارگذاری کنید. تغییرات ذخیره نشده از دست خواهند رفت."
 
 msgid "Reload grommunio Web"
 msgstr "بارگیری مجدد grommunio Web"
@@ -5533,7 +5533,7 @@ msgid "grommunio Web automatically loads additional items when you scroll down"
 msgstr "grommunio Web به طور خودکار موارد اضافی را هنگامی که به پایین اسکرول می کنید بارگیری می کند"
 
 msgid "grommunio Web displays items on pages and you can use navigation controls to navigate"
-msgstr "وب‌سایت grommunio آیتم‌ها را روی صفحات نمایش می‌دهد و می‌توانید از کنترل‌های ناوبری برای پیمایش استفاده کنید."
+msgstr "grommunio Web موارد را روی صفحات نمایش می‌دهد و می‌توانید از کنترل‌های ناوبری برای پیمایش استفاده کنید"
 
 msgid "Load items in blocks of {A}"
 msgstr "بارگیری موارد در بلوک‌های {A}"
@@ -5614,7 +5614,7 @@ msgid "This will close all opened shared stores and resets all settings to the d
 msgstr "این کار تمام فروشگاه‌های مشترک بازشده را می‌بندد و همهٔ تنظیمات را به مقدار پیش‌فرض بازمی‌گرداند."
 
 msgid "grommunio Web will automatically reload in order for these changes to take effect"
-msgstr "وب‌سایت grommunio به‌طور خودکار دوباره بارگذاری می‌شود تا این تغییرات اعمال شوند."
+msgstr "grommunio Web به‌طور خودکار دوباره بارگذاری می‌شود تا این تغییرات اعمال شوند."
 
 msgid "Reset"
 msgstr "بازنشانی کنید"
@@ -5847,11 +5847,11 @@ msgid "Completed"
 msgstr "تکمیل شد"
 
 msgid "Printed by: "
-msgstr "چاپ شده توسط:"
+msgstr "چاپ شده توسط: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Printed on: "
-msgstr "چاپ شده در:"
+msgstr "چاپ شده در: "
 
 msgid "Percent complete"
 msgstr "درصد کامل شده است"
@@ -6466,7 +6466,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "grommunio Web به‌طور خودکار مجدداً راه‌اندازی می‌شود تا این تغییرات اعمال شوند."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio وب در حال بارگیری مجدد است، لطفاً صبر کنید."
+msgstr "grommunio Web در حال بارگیری مجدد است، لطفاً صبر کنید."
 
 msgid "Edit Account"
 msgstr "ویرایش حساب"
@@ -6556,7 +6556,7 @@ msgid "You have to choose at least one file!"
 msgstr "شما باید حداقل یک فایل را انتخاب کنید!"
 
 msgid "Create New "
-msgstr "ایجاد جدید"
+msgstr "ایجاد جدید "
 
 msgid "Incorrect filename"
 msgstr "نام فایل نادرست"
@@ -6604,13 +6604,13 @@ msgid "Upload Failed"
 msgstr "آپلود انجام نشد"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr "پیوست در فایل‌ها ذخیره نمی‌شود! خطا:"
+msgstr "پیوست در فایل‌ها ذخیره نشد! خطا: "
 
 msgid "Share Files"
 msgstr "اشتراک گذاری فایل ها"
 
 msgid "Uploading files to "
-msgstr "آپلود فایل ها به"
+msgstr "آپلود فایل ها به "
 
 msgid "Starting upload"
 msgstr "شروع آپلود"
@@ -6622,13 +6622,13 @@ msgid "- seconds left"
 msgstr "- ثانیه باقی مانده است"
 
 msgid " seconds left"
-msgstr "ثانیه باقی مانده است"
+msgstr " ثانیه باقی مانده است"
 
 msgid " minutes left"
-msgstr "دقیقه باقی مانده است"
+msgstr " دقیقه باقی مانده است"
 
 msgid "Uploading: "
-msgstr "بارگذاری:"
+msgstr "بارگذاری: "
 
 msgid "Upload status unavailable... please wait."
 msgstr "وضعیت آپلود در دسترس نیست... لطفاً صبر کنید."
@@ -6805,7 +6805,7 @@ msgid "attachments selected"
 msgstr "پیوست انتخاب شده است"
 
 msgid "With the selection of separate attachments the total size of all attachments may not exceed"
-msgstr "با انتخاب ضمیمه‌های جداگانه، مجموع اندازهٔ همهٔ ضمیمه‌ها نباید از ... تجاوز کند"
+msgstr "با انتخاب پیوست‌های جداگانه، مجموع اندازهٔ همهٔ پیوست‌ها نباید بیشتر از"
 
 msgid "MB. There have been"
 msgstr "مگابایت وجود داشته است"
@@ -7716,7 +7716,7 @@ msgid "Upload your certificate"
 msgstr "گواهی خود را آپلود کنید"
 
 msgid "Below you can upload your private certificate in PKCS#12 format. grommunio Web only accepts certificates which are valid and only stores one private certificate on the server."
-msgstr "در زیر می‌توانید گواهی خصوصی خود را در قالب PKCS#12 بارگذاری کنید. وب‌سایت grommunio تنها گواهی‌های معتبر را می‌پذیرد و فقط یک گواهی خصوصی را روی سرور ذخیره می‌کند."
+msgstr "در زیر می‌توانید گواهی خصوصی خود را در قالب PKCS#12 بارگذاری کنید. grommunio Web تنها گواهی‌های معتبر را می‌پذیرد و فقط یک گواهی خصوصی را روی سرور ذخیره می‌کند."
 
 msgid "Private certificate"
 msgstr "گواهی خصوصی"
@@ -7761,16 +7761,16 @@ msgid "CBC mode"
 msgstr "حالت CBC"
 
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
-msgstr "وب‌سایت grommunio می‌تواند امضاهای دیجیتال ایمیل‌ها را تأیید کند. یک تأیید موفق به شما اطمینان می‌دهد که پیام دستکاری نشده و هویت فرستنده را تصدیق می‌کند."
+msgstr "grommunio Web می‌تواند امضاهای دیجیتال ایمیل‌ها را تأیید کند. یک تأیید موفق به شما اطمینان می‌دهد که پیام دستکاری نشده و هویت فرستنده را تصدیق می‌کند."
 
 msgid "You are seeing this message because the verification of the digital signature"
 msgstr "شما این پیام را می‌بینید زیرا تأیید امضای دیجیتال"
 
 msgid " has failed"
-msgstr "شکست خورده است"
+msgstr " شکست خورده است"
 
 msgid " for this message."
-msgstr "برای این پیام"
+msgstr " برای این پیام."
 
 msgid "What caused this issue?"
 msgstr "چه چیزی باعث این موضوع شد؟"
@@ -7785,7 +7785,7 @@ msgid "You can contact your helpdesk or system administrator if you are not sure
 msgstr "اگر مطمئن نیستید که در ادامه چه کاری باید انجام دهید، می‌توانید با میز راهنمای خود یا مدیر سیستم تماس بگیرید."
 
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "وب‌سایت grommunio می‌تواند امضاهای دیجیتال ایمیل‌ها را تأیید کند. تأیید موفقیت‌آمیز به شما اطمینان می‌دهد "
+msgstr "grommunio Web می‌تواند امضاهای دیجیتال ایمیل‌ها را تأیید کند. تأیید موفقیت‌آمیز به شما اطمینان می‌دهد "
 
 msgid "that the message has not been tampered with and validates the identity of the sender."
 msgstr "که پیام دستکاری نشده و هویت فرستنده را تأیید می‌کند."
@@ -8055,7 +8055,7 @@ msgid "You have been automatically logged out"
 msgstr "شما به طور خودکار از سیستم خارج شده اید"
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
-msgstr "متأسفانه دسترسی به وب‌سایت grommunio با این حساب کاربری امکان‌پذیر نیست. لطفاً با مدیر سیستم خود تماس بگیرید."
+msgstr "متأسفانه دسترسی به grommunio Web با این حساب کاربری امکان‌پذیر نیست. لطفاً با مدیر سیستم خود تماس بگیرید."
 
 msgid "The AI request failed unexpectedly."
 msgstr "درخواست هوش مصنوعی به‌طور غیرمنتظره ناموفق بود."
@@ -8115,7 +8115,7 @@ msgid "This backend provides the default WebDAV integration for Files."
 msgstr "این باطن یکپارچه سازی پیش فرض WebDAV را برای فایل ها فراهم می کند."
 
 msgid "Files Default Backend: "
-msgstr "Backend پیش فرض فایل ها:"
+msgstr "Backend پیش فرض فایل ها: "
 
 msgid "Server address"
 msgstr "آدرس سرور"
@@ -8184,7 +8184,7 @@ msgid "With this backend, you can connect to any Seafile server."
 msgstr "با این بک‌اند، می‌توانید به هر سرور Seafile متصل شوید."
 
 msgid "Files "
-msgstr "فایل ها"
+msgstr "فایل ها "
 
 msgid "Use SSL"
 msgstr "از SSL استفاده کنید"
@@ -8262,7 +8262,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "با این بک اند، می توانید به هر سرور WebDAV متصل شوید."
 
 msgid "Files WebDAV Backend: "
-msgstr "فایل های WebDAV Backend:"
+msgstr "Backend WebDAV فایل ها: "
 
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL نصب نشده است"
@@ -8401,7 +8401,7 @@ msgid "Invalid LDAP configuration"
 msgstr "پیکربندی LDAP نامعتبر"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr "مفقود شدن گواهینامه های عمومی برای گیرندگان زیر:"
+msgstr "گواهی عمومی برای گیرندگان زیر وجود ندارد: "
 
 msgid ". Please contact your system administrator for details"
 msgstr ". لطفاً برای جزئیات بیشتر با مدیر سیستم خود تماس بگیرید"
@@ -8419,7 +8419,7 @@ msgid "Private key can't be used to sign email"
 msgstr "برای امضای ایمیل نمی توان از کلید خصوصی استفاده کرد"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "آدرس ایمیل گواهی با حساب وب grommunio مطابقت ندارد"
+msgstr "آدرس ایمیل گواهی با حساب grommunio Web مطابقت ندارد "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8429,13 +8429,13 @@ msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully suppor
 msgstr "گواهی‌های EdDSA (Ed25519) به PHP نسخهٔ 8.4+ نیاز دارند و ممکن است به‌طور کامل پشتیبانی نشوند. گواهی وارد شد."
 
 msgid "Certificate was expired on "
-msgstr "گواهی منقضی شده بود"
+msgstr "گواهی در این تاریخ منقضی شده است: "
 
 msgid "Certificate was imported."
 msgstr "گواهی وارد شد"
 
 msgid "Certificate is not yet valid "
-msgstr "گواهی هنوز معتبر نیست"
+msgstr "گواهی هنوز معتبر نیست؛ آغاز اعتبار: "
 
 msgid "Certificate has not been imported"
 msgstr "گواهی وارد نشده است"
@@ -8563,7 +8563,7 @@ msgstr "پیوست vcf با موفقیت وارد نشد"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "وارد کردن \"%s\" به \"%s\" ممکن نیست."
+msgstr "وارد کردن \"%s\" به \"%s\" ممکن نیست. "
 
 msgid "There is no appointment found in this file."
 msgstr "هیچ قرار ملاقاتی در این فایل یافت نشد."
@@ -8576,7 +8576,7 @@ msgstr "فایل نامعتبر است"
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr "وارد کردن \"%s\" ممکن نیست."
+msgstr "وارد کردن \"%s\" ممکن نیست. "
 
 msgid "Attachment is not imported successfully"
 msgstr "پیوست با موفقیت وارد نشد"
@@ -8651,7 +8651,7 @@ msgid "an appointment"
 msgstr "یک قرار ملاقات"
 
 msgid "You have insufficient privileges to move "
-msgstr "شما امتیازات کافی برای جابجایی ندارید"
+msgstr "شما دسترسی کافی ندارید برای جابه‌جایی "
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "نمی‌توان یادآور را طوری تنظیم کرد که قبل از وقوع قبلی ظاهر شود. برای ذخیره تغییر، یادآور را ریست کنید."

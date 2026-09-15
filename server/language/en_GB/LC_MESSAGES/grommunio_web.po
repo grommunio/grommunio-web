@@ -6606,7 +6606,7 @@ msgid "Upload Failed"
 msgstr "Upload Failed"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr "Attachment could not be stored in Files! Error:"
+msgstr "Attachment could not be stored in Files! Error: "
 
 msgid "Share Files"
 msgstr "Share Files"
@@ -8688,7 +8688,7 @@ msgstr "Meeting could not be saved."
 
 #, php-format
 msgid "There were %d skipped appointment(s):"
-msgstr "Appointments skipped: %d"
+msgstr "%d appointment(s) were skipped:"
 
 msgid "More skipped appointments are not shown."
 msgstr "Additional skipped appointments are not shown."

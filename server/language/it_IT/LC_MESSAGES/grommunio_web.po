@@ -2564,7 +2564,7 @@ msgid "This message has no content."
 msgstr "Questo messaggio non ha contenuto."
 
 msgid "grommunio Web print"
-msgstr "grommunio Stampa web"
+msgstr "Stampa grommunio Web"
 
 msgid "Display name"
 msgstr "Nome visualizzato"
@@ -6470,7 +6470,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "grommunio Web si riavvierà automaticamente per rendere effettive le modifiche."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio Il web si sta ricaricando, attendere."
+msgstr "grommunio Web si sta ricaricando. Attendere prego."
 
 msgid "Edit Account"
 msgstr "Modifica account"
@@ -8423,7 +8423,7 @@ msgid "Private key can't be used to sign email"
 msgstr "La chiave privata non può essere usata per firmare l'e-mail"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "L'indirizzo e-mail del certificato non corrisponde all'account Web di grommunio "
+msgstr "L'indirizzo e-mail del certificato non corrisponde all'account grommunio Web "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."

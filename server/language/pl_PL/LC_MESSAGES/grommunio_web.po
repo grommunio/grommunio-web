@@ -3362,7 +3362,7 @@ msgstr "Przekazali tę wiadomość."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr "Dnia odpowiedziałeś na tę wiadomość."
+msgstr "Odpowiedziałeś na tę wiadomość dnia {0}."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
@@ -3918,7 +3918,7 @@ msgid "Open in new browser window"
 msgstr "Otwórz w nowym oknie przglądarki"
 
 msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
-msgstr "Twoja przeglądarka prawdopodobnie zablokowała jedno bądź kilka okien wyskakujących. Sprawdź ustawienia swojej przeglądarki."
+msgstr "Twoja przeglądarka prawdopodobnie zablokowała jedno bądź kilka okien wyskakujących. Zmień ustawienia przeglądarki tak, aby zawsze zezwalać na wyskakujące okna z grommunio Web."
 
 msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "Załącznik nie został dodany, dopuszczalne jest {0} załączników"
@@ -4410,7 +4410,7 @@ msgid "The default store is missing from the hierarchy."
 msgstr "Brak poczty domyślnej w hierarchii."
 
 msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "Aplikacja sieci Web może przez to funkcjonować nie w pełni prawidłowo."
+msgstr "Nie wszystkie funkcje grommunio Web mogą przez to działać prawidłowo."
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
@@ -8685,7 +8685,7 @@ msgid "an appointment"
 msgstr "spotkanie"
 
 msgid "You have insufficient privileges to move "
-msgstr "Nie masz wystarczających uprawnień, aby przenieść się"
+msgstr "Nie masz wystarczających uprawnień, aby przenieść "
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "Nie można ustawić przypomnienia tak, aby pojawiło się przed poprzednim wystąpieniem. Zmień czas przypomnienia, aby zapisać zmianę"

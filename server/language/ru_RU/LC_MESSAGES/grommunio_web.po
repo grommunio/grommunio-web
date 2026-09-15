@@ -842,16 +842,16 @@ msgid "years"
 msgstr "года/лет"
 
 msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "Occurs every {0} effective {1} from {2} to {3}."
+msgstr "Повторяется каждый {0} с {2} до {3}, начиная с {1}."
 
 msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "Occurs every {0} {1} effective {2} from {3} to {4}."
+msgstr "Повторяется каждые {0} {1} с {3} до {4}, начиная с {2}."
 
 msgid "Occurs every {0} effective {1}."
-msgstr "Occurs every {0} effective {1}."
+msgstr "Повторяется каждый {0}, начиная с {1}."
 
 msgid "Occurs every {0} {1} effective {2}."
-msgstr "Occurs every {0} {1} effective {2}."
+msgstr "Повторяется каждые {0} {1}, начиная с {2}."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
@@ -878,16 +878,16 @@ msgstr[1] "Происходит каждый {0} {1} эффективный {2} 
 msgstr[2] "Происходит каждый {0} {1} эффективный {2} для {3} случаев."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "Occurs every {0} effective {1} until {2} from {3} to {4}."
+msgstr "Повторяется каждый {0} с {3} до {4}, в период с {1} по {2}."
 
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
+msgstr "Повторяется каждые {0} {1} с {4} до {5}, в период с {2} по {3}."
 
 msgid "Occurs every {0} effective {1} until {2}."
-msgstr "Occurs every {0} effective {1} until {2}."
+msgstr "Повторяется каждый {0} в период с {1} по {2}."
 
 msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "Occurs every {0} {1} effective {2} until {3}."
+msgstr "Повторяется каждые {0} {1} в период с {2} по {3}."
 
 msgid "New Meeting Time Proposed"
 msgstr "Предложено новое время собрания"
@@ -2581,7 +2581,7 @@ msgid "This message has no content."
 msgstr "Сообщение не содержит текста."
 
 msgid "grommunio Web print"
-msgstr "веб-принт grommunio"
+msgstr "Печать grommunio Web"
 
 msgid "Display name"
 msgstr "Отображаемое имя"
@@ -4494,9 +4494,9 @@ msgstr "Опустошение {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] "{0} непрочитанное сообщение в папке {1}"
-msgstr[1] "{0} непрочитанных сообщения в папке {1}"
-msgstr[2] "{0} непрочитанных сообщений в папке {1}"
+msgstr[0] "{0} непрочитанное сообщение в папке {1} пользователя {2}"
+msgstr[1] "{0} непрочитанных сообщения в папке {1} пользователя {2}"
+msgstr[2] "{0} непрочитанных сообщений в папке {1} пользователя {2}"
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
@@ -5150,7 +5150,7 @@ msgid "Open or compose a mail item in a"
 msgstr "Открывать или создавать письма в"
 
 msgid "grommunio Web tab"
-msgstr "веб-вкладка grommunio"
+msgstr "Вкладка grommunio Web"
 
 msgid "Browser window"
 msgstr "Окно браузера"
@@ -6497,7 +6497,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "grommunio Web автоматически перезапустится, чтобы эти изменения вступили в силу."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio Веб-сайт перезагружается, пожалуйста, подождите."
+msgstr "grommunio Web перезагружается, пожалуйста, подождите."
 
 msgid "Edit Account"
 msgstr "Редактирование аккаунта"
@@ -8933,9 +8933,9 @@ msgstr "Конфликт с другой встречей."
 #, php-format
 msgid "%s occurrence of this recurring appointment conflicts with other appointment."
 msgid_plural "%s occurrences of this recurring appointment conflicts with other appointments."
-msgstr[0] "%s occurrence of this recurring appointment conflicts with other appointment."
-msgstr[1] "%s occurrences of this recurring appointment conflicts with other appointments."
-msgstr[2] "%s occurrences of this recurring appointment conflicts with other appointments."
+msgstr[0] "%s повторение этой серии встреч конфликтует с другой встречей."
+msgstr[1] "%s повторения этой серии встреч конфликтуют с другими встречами."
+msgstr[2] "%s повторений этой серии встреч конфликтуют с другими встречами."
 
 msgid "Your message did not reach some or all of the intended recipients"
 msgstr "Ваше сообщение не дошло до некоторых или всех предназначенных получателей"

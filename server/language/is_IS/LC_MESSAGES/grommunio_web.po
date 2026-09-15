@@ -1384,7 +1384,7 @@ msgid "l jS M Y {0}"
 msgstr "l jS M Y{0}"
 
 msgid "All day: "
-msgstr "Allan daginn:"
+msgstr "Allan daginn: "
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1661,7 +1661,7 @@ msgid "Next"
 msgstr "Næst"
 
 msgid "grommunio Web"
-msgstr "grommunio vefviðmót"
+msgstr "grommunio Web"
 
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
 msgstr "Vinsamlegast athugið að breytingar sem þú gerir verða yfirskrifaðar þegar fundarboðið er uppfært af skipuleggjanda. Viltu færa þennan fund?"
@@ -2560,7 +2560,7 @@ msgid "This message has no content."
 msgstr "Þessi skilaboð innihalda ekkert efni."
 
 msgid "grommunio Web print"
-msgstr "grommunio vefprentun"
+msgstr "grommunio Web-prentun"
 
 msgid "Display name"
 msgstr "Þekkjanlegt nafn"
@@ -3890,7 +3890,7 @@ msgid "Open in new browser window"
 msgstr "Opna í nýjum vafraglugga"
 
 msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
-msgstr "Vafrinn þinn virðist loka á sprettiglugga. Vinsamlegast breyttu vafrastillingum til að leyfa sprettiglugga frá grommunio vefviðmótinu."
+msgstr "Vafrinn þinn virðist loka á sprettiglugga. Vinsamlegast breyttu vafrastillingum til að leyfa sprettiglugga frá grommunio Web."
 
 msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "Gat ekki halað upp viðhengi, aðeins má hengja {0} viðhengi við skilaboðin"
@@ -4255,7 +4255,7 @@ msgid "Unsaved changes"
 msgstr "Óvistaðar breytingar"
 
 msgid "Welcome to grommunio Web"
-msgstr "Velkomin á grommunio vefinn"
+msgstr "Velkomin í grommunio Web"
 
 msgid "Set up your preferences to get started."
 msgstr "Settu upp stillingar þínar til að byrja."
@@ -4382,7 +4382,7 @@ msgid "The default store is missing from the hierarchy."
 msgstr "Sjálfvirku geymsluna vantar í stigveldið."
 
 msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "Það er óvíst hvort öll virkni í grommunio vefviðmótinu er eins og hún á að vera vegna þessa."
+msgstr "Það er óvíst hvort öll virkni í grommunio Web er eins og hún á að vera vegna þessa."
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
@@ -5120,7 +5120,7 @@ msgid "Open or compose a mail item in a"
 msgstr "Opna eða semja póst atriði í"
 
 msgid "grommunio Web tab"
-msgstr "Vefviðmótsflipi grommunio"
+msgstr "grommunio Web-flipi"
 
 msgid "Browser window"
 msgstr "Vafragluggi"
@@ -5377,10 +5377,10 @@ msgid "Quick Note"
 msgstr "Skyndiminnisatriði"
 
 msgid "You must reload grommunio Web for the changes to take effect. Unsaved changes will be lost."
-msgstr "Þú verður að endurhlaða grommunio vefviðmótinu til þess að virkja breytingarnar. Óvistuðar breytingar munu glatast."
+msgstr "Þú verður að endurhlaða grommunio Web til þess að breytingarnar taki gildi. Óvistaðar breytingar munu glatast."
 
 msgid "Reload grommunio Web"
-msgstr "Endurhlaða grommunio vefviðmóti"
+msgstr "Endurhlaða grommunio Web"
 
 msgid "Basic"
 msgstr "Grunnur"
@@ -5422,7 +5422,7 @@ msgid "Developer tools"
 msgstr "Verkfæri fyrir þróunaraðila"
 
 msgid "Show insertion points in grommunio Web"
-msgstr "Sýna innsetningarpunkta í grommunio vefnum"
+msgstr "Sýna innsetningarpunkta í grommunio Web"
 
 msgid "Show \"item data\" button in context menu (mail only)"
 msgstr "Sýna \"vörugögn\" hnappinn í samhengisvalmynd (aðeins póstur)"
@@ -5530,10 +5530,10 @@ msgid "Infinite Scroll"
 msgstr "Óendanlegt skrun"
 
 msgid "grommunio Web automatically loads additional items when you scroll down"
-msgstr "grommunio vefviðmótið hlður sjálfkrafa viðbótaratriðum þegar þú skrunar niður"
+msgstr "grommunio Web hleður sjálfkrafa inn fleiri atriðum þegar þú skrunar niður"
 
 msgid "grommunio Web displays items on pages and you can use navigation controls to navigate"
-msgstr "grommunio vefviðmótið sýnir atriði á síðum og þú getur notað stjórnborð til að flakka á milli"
+msgstr "grommunio Web sýnir atriði á síðum og þú getur notað stjórnborð til að flakka á milli"
 
 msgid "Load items in blocks of {A}"
 msgstr "Hlaða atriðum í hópum af {A}"
@@ -5560,7 +5560,7 @@ msgid "Extended shortcuts on"
 msgstr "Framlengdir flýtileiðir á"
 
 msgid "This change requires a reload of grommunio Web"
-msgstr "Þessi breyting krefst endurhleðslu á grommunio vefnum"
+msgstr "Þessi breyting krefst endurhleðslu á grommunio Web"
 
 msgid "Plugins"
 msgstr "Íbætur"
@@ -5614,7 +5614,7 @@ msgid "This will close all opened shared stores and resets all settings to the d
 msgstr "Þetta mun loka öllum opnum sameiginlegum geymslum og endursetja allar stillingar í sjálfgefin gildi."
 
 msgid "grommunio Web will automatically reload in order for these changes to take effect"
-msgstr "grommunio vefviðmótið mun sjálfvirkt endurhlaða sig til að virkja þessar breytingar"
+msgstr "grommunio Web mun endurhlaða sig sjálfkrafa svo að þessar breytingar taki gildi"
 
 msgid "Reset"
 msgstr "Endursetja"
@@ -6466,7 +6466,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "grommunio Web mun endurræsa sjálfkrafa til að þessar breytingar taki gildi."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio vefurinn er að endurhlaða, vinsamlegast bíðið."
+msgstr "grommunio Web er að endurhlaða, vinsamlegast bíðið."
 
 msgid "Edit Account"
 msgstr "Breyta reikningi"
@@ -6556,7 +6556,7 @@ msgid "You have to choose at least one file!"
 msgstr "Þú verður að velja að minnsta kosti eina skrá!"
 
 msgid "Create New "
-msgstr "Búa til nýtt"
+msgstr "Búa til nýtt "
 
 msgid "Incorrect filename"
 msgstr "Rangt skráarnafn"
@@ -6604,13 +6604,13 @@ msgid "Upload Failed"
 msgstr "Upphleðsla mistókst"
 
 msgid "Attachment could not be stored in Files! Error: "
-msgstr "Ekki var hægt að geyma viðhengi í Files! Villa:"
+msgstr "Ekki var hægt að geyma viðhengi í Files! Villa: "
 
 msgid "Share Files"
 msgstr "Deila skrám"
 
 msgid "Uploading files to "
-msgstr "Að hlaða upp skrám til"
+msgstr "Hleður upp skrám í "
 
 msgid "Starting upload"
 msgstr "Er að hefja upphleðslu"
@@ -6622,13 +6622,13 @@ msgid "- seconds left"
 msgstr "- sekúndur eftir"
 
 msgid " seconds left"
-msgstr "sekúndur eftir"
+msgstr " sekúndur eftir"
 
 msgid " minutes left"
-msgstr "mínútur eftir"
+msgstr " mínútur eftir"
 
 msgid "Uploading: "
-msgstr "Hleður upp:"
+msgstr "Hleður upp: "
 
 msgid "Upload status unavailable... please wait."
 msgstr "Upphleðslustaða ekki tiltæk... vinsamlegast bíðið."
@@ -7767,10 +7767,10 @@ msgid "You are seeing this message because the verification of the digital signa
 msgstr "Þú sérð þessa tilkynningu vegna þess að staðfesting stafrænna undirskriftar"
 
 msgid " has failed"
-msgstr "hefur mistekist"
+msgstr " hefur mistekist"
 
 msgid " for this message."
-msgstr "fyrir þessi skilaboð."
+msgstr " fyrir þessi skilaboð."
 
 msgid "What caused this issue?"
 msgstr "Hvað olli þessu vandamáli?"
@@ -8055,7 +8055,7 @@ msgid "You have been automatically logged out"
 msgstr "Þú lentir í sjálfvirkri útskráningu"
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
-msgstr "Því miður er aðgangur að grommunio vefviðmóti ekki til fyrir þennan notandaaðgang. Vinsamlegast ræddu við kerfisstjórn."
+msgstr "Því miður er aðgangur að grommunio Web ekki í boði fyrir þennan notandaaðgang. Vinsamlegast hafðu samband við kerfisstjóra."
 
 msgid "The AI request failed unexpectedly."
 msgstr "Gervigreindarbeiðnin mistókst óvænt."
@@ -8115,7 +8115,7 @@ msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Þessi bakendi veitir sjálfgefna WebDAV samþættingu fyrir skrár."
 
 msgid "Files Default Backend: "
-msgstr "Skrár Sjálfgefinn bakendi:"
+msgstr "Skrár sjálfgefinn bakendi: "
 
 msgid "Server address"
 msgstr "Netfang netþjóns"
@@ -8184,7 +8184,7 @@ msgid "With this backend, you can connect to any Seafile server."
 msgstr "Með þessum bakenda geturðu tengst hvaða Seafile netþjóni sem er."
 
 msgid "Files "
-msgstr "Skrár"
+msgstr "Skrár "
 
 msgid "Use SSL"
 msgstr "Notaðu SSL"
@@ -8262,7 +8262,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "Með þessum bakenda geturðu tengst hvaða WebDAV netþjóni sem er."
 
 msgid "Files WebDAV Backend: "
-msgstr "Skrár WebDAV bakendi:"
+msgstr "Skrár WebDAV-bakendi: "
 
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL er ekki uppsett"
@@ -8401,7 +8401,7 @@ msgid "Invalid LDAP configuration"
 msgstr "Ógildar LDAP-stillingar"
 
 msgid "Missing public certificates for the following recipients: "
-msgstr "Vantar opinber vottorð fyrir eftirfarandi viðtakendur:"
+msgstr "Vantar opinber vottorð fyrir eftirfarandi viðtakendur: "
 
 msgid ". Please contact your system administrator for details"
 msgstr ". Vinsamlegast hafðu samband við kerfisstjórann þinn til að fá upplýsingar"
@@ -8419,7 +8419,7 @@ msgid "Private key can't be used to sign email"
 msgstr "Ekki er hægt að nota einkalykil til að undirrita tölvupóst"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "Netfang vottorðs passar ekki við grommunio vefreikning"
+msgstr "Netfang vottorðs passar ekki við grommunio Web-reikninginn "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8429,13 +8429,13 @@ msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully suppor
 msgstr "EdDSA (Ed25519) vottorð krefjast PHP 8.4+ og kunna að vera ekki fullkomlega studd. Vottorðið var flutt inn."
 
 msgid "Certificate was expired on "
-msgstr "Skírteini rann út þann"
+msgstr "Skírteini rann út þann "
 
 msgid "Certificate was imported."
 msgstr "Vottorð var flutt inn."
 
 msgid "Certificate is not yet valid "
-msgstr "Vottorð er ekki enn gilt"
+msgstr "Vottorð er ekki enn gilt "
 
 msgid "Certificate has not been imported"
 msgstr "Vottorð hefur ekki verið flutt inn"
@@ -8651,7 +8651,7 @@ msgid "an appointment"
 msgstr "stefnumót"
 
 msgid "You have insufficient privileges to move "
-msgstr "Þú hefur ófullnægjandi forréttindi til að flytja"
+msgstr "Þú hefur ekki nægar heimildir til að færa "
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "Ekki er hægt að stilla áminningu til að birtast á undan síðasta atburði. Endurstilltu áminninguna til að vista breytinguna."

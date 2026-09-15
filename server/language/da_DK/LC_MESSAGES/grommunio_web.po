@@ -4384,7 +4384,7 @@ msgid "The default store is missing from the hierarchy."
 msgstr "Standard postkassen mangler i hierarkiet."
 
 msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "På grund af dette er det ikke sikkert at alle dele af webbrugerfladen fungerer."
+msgstr "På grund af dette er det ikke sikkert, at alle funktioner i grommunio Web fungerer korrekt."
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
@@ -6886,7 +6886,7 @@ msgid "Active Sync Version"
 msgstr "Active Sync-version"
 
 msgid "grommunio-sync Version"
-msgstr "grommunio-sync Version"
+msgstr "grommunio-sync-version"
 
 msgid "Policy name"
 msgstr "Navn på politik"
@@ -8421,7 +8421,7 @@ msgid "Private key can't be used to sign email"
 msgstr "Privat nøgle kan ikke bruges til at underskrive e-mail"
 
 msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "Certifikatets e-mailadresse passer ikke til grommunio-webkontoen "
+msgstr "Certifikatets e-mailadresse passer ikke til grommunio Web-kontoen "
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -8565,7 +8565,7 @@ msgstr "Den vedhæftede vcf-fil er ikke importeret korrekt"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "Det er ikke muligt at importere '%s' til '%s'."
+msgstr "Det er ikke muligt at importere '%s' til '%s'. "
 
 msgid "There is no appointment found in this file."
 msgstr "Der findes ingen aftale i denne fil."
@@ -8578,7 +8578,7 @@ msgstr "Filen er ugyldig."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr "Det er ikke muligt at importere '%s'."
+msgstr "Det er ikke muligt at importere '%s'. "
 
 msgid "Attachment is not imported successfully"
 msgstr "Vedhæftet fil er ikke importeret korrekt"

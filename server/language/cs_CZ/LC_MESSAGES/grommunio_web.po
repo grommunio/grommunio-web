@@ -647,7 +647,7 @@ msgid "Apply"
 msgstr "Použít"
 
 msgid "All folders are selected"
-msgstr "Vybrána složka '{0}'"
+msgstr "Jsou vybrány všechny složky"
 
 msgid "Reply"
 msgstr "Odpovědět"
@@ -1391,7 +1391,7 @@ msgid "of"
 msgstr "ze"
 
 msgid "Location: "
-msgstr "Místo:"
+msgstr "Místo: "
 
 msgid "j M {0}"
 msgstr "j M {0}"
@@ -1678,7 +1678,7 @@ msgid "Next"
 msgstr "Další"
 
 msgid "grommunio Web"
-msgstr "webové stránky"
+msgstr "grommunio Web"
 
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
 msgstr "Vezměte prosím na vědomí, že veškeré změny, které provedete, budou přepsány organizatorem v případě aktualizace této žádosti o schůzku?"
@@ -4287,7 +4287,7 @@ msgid "Unsaved changes"
 msgstr "Neuložené změny"
 
 msgid "Welcome to grommunio Web"
-msgstr "Vítejte na webu grommunio"
+msgstr "Vítejte v aplikaci grommunio Web"
 
 msgid "Set up your preferences to get started."
 msgstr "Nastavte si předvolby a začněte."
@@ -5157,7 +5157,7 @@ msgid "Open or compose a mail item in a"
 msgstr "Otevření nebo sestavení poštovní položky v"
 
 msgid "grommunio Web tab"
-msgstr "webová karta grommunio"
+msgstr "Karta grommunio Web"
 
 msgid "Browser window"
 msgstr "Okno prohlížeče"
@@ -7006,10 +7006,10 @@ msgid "Please enter your username and password"
 msgstr "Zadejte své uživatelské jméno a heslo"
 
 msgid "Type {0} to confirm"
-msgstr "Pro potvrzení zadejte {0} "
+msgstr "Pro potvrzení zadejte {0}"
 
 msgid "Please type {0} to confirm"
-msgstr "Pro potvrzení zadejte {0} "
+msgstr "Pro potvrzení zadejte prosím {0}"
 
 msgid "Impersonated device: only account-only remote wipe is available."
 msgstr "Zosobněné zařízení: k dispozici je pouze vzdálené vymazání samotného účtu."
@@ -8610,7 +8610,7 @@ msgid "The file is corrupt."
 msgstr "Soubor je poškozený."
 
 msgid "The file is invalid."
-msgstr "{0} není platný čas."
+msgstr "Soubor je neplatný."
 
 #, php-format
 msgid "Unable to import '%s'. "
