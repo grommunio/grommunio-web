@@ -5341,7 +5341,7 @@ body.zarafa-webclient > .ext-el-mask {
 /* Search loading indicator on the token container —
    magnifier stays at 12px, spinner added on the right */
 .k-search-token-input.zarafa-tbar-loading {
-  background-image: url(../images/spinner.svg);
+  background-image: var(--theme-spinner-image);
   background-repeat: no-repeat;
   background-position: 12px 8px;
   background-size: 16px 16px; }
@@ -5676,7 +5676,7 @@ body.zarafa-webclient > .ext-el-mask {
 
 /* Input field loading mask (legacy) */
 .zarafa-searchfield.zarafa-tbar-loading {
-  background-image: url(../images/spinner.svg);
+  background-image: var(--theme-spinner-image);
   background-repeat: no-repeat;
   background-position: right; }
 
@@ -6958,7 +6958,7 @@ body .k-category-block {
 
 .x-mask-loading div{
   background-color: transparent;
-  background-image: url(../images/spinner.svg);
+  background-image: var(--theme-spinner-image);
   background-size: 48px 48px;
   width: 48px;
   height: 48px;
@@ -6974,13 +6974,13 @@ body .k-category-block {
   -webkit-mask-image: none !important;
   mask-image: none !important;
   background-color: transparent !important;
-  background-image: url(../images/spinner.svg) !important;
+  background-image: var(--theme-spinner-image) !important;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 16px 16px; }
 
 .loading-indicator {
-  background-image: url(../images/spinner.svg);
+  background-image: var(--theme-spinner-image);
   background-repeat: no-repeat;
   background-position: 0 center;
   background-size: 16px 16px;
@@ -7362,6 +7362,8 @@ body {
   --theme-panel-bg: color-mix(in srgb, var(--theme-primary-color) 6%, #ffffff);
   --theme-gradient-start: #009FFD;
   --theme-gradient-end: #2a2a72;
+  /* A theme may replace the spinner; the url resolves against this file */
+  --theme-spinner-image: url(../images/spinner.svg);
 
   /* Semantic colors */
   --color-error: #e30022;

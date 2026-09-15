@@ -109,6 +109,7 @@
 	// General grommunio Web theme. This will be loaded by default for every user
 	// (if the theme is installed as a plugin)
 	// Users can override the 'logged-in' theme in the settings.
+	// See doc/theming.rst for how to write one.
 	//define("THEME", 'grommunioLighttheme');
 
 	// The title that will be shown in the title bar of the browser

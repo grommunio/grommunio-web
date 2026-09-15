@@ -106,6 +106,12 @@ Run ``php-cs-fixer fix --dry-run --diff`` to check the PHP sources, or
 ``php-cs-fixer fix`` to format them. JavaScript can be checked with
 ``npm run lint``.
 
+Theming
+-------
+
+grommunio Web can be rebranded with a theme plugin. The format of ``theme.json``
+and the keys it accepts are described in `doc/theming.rst <doc/theming.rst>`_.
+
 API documentation
 -----------------
 
