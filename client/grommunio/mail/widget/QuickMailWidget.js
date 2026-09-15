@@ -56,7 +56,7 @@ Grommunio.mail.widgets.QuickMailWidget = Ext.extend(Grommunio.core.ui.widget.Abs
 							xtype: 'label',
 							width: 20,
 							autoHeight: true,
-							text: _('To') + ':'
+							text: Grommunio.util.Translations.Label(_('To'))
 						},{
 							xtype: 'grommunio.recipientfield',
 							ref: '../toRecipientField',
@@ -74,7 +74,7 @@ Grommunio.mail.widgets.QuickMailWidget = Ext.extend(Grommunio.core.ui.widget.Abs
 							xtype: 'textfield',
 							flex: 1,
 							name: 'subject',
-							emptyText: _('Subject') + ':',
+							emptyText: Grommunio.util.Translations.Label(_('Subject')),
 							listeners: {
 								change: this.onChange,
 								scope: this

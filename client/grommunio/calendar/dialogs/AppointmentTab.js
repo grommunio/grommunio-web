@@ -230,7 +230,7 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				xtype: 'button',
 				ref: '../toButton',
 				autoHeight: true,
-				text: _('To') + ':',
+				text: Grommunio.util.Translations.Label(_('To')),
 				handler: this.showRecipientContent,
 				scope: this
 			},{
@@ -425,7 +425,7 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			border: false,
 			items: [{
 				xtype: 'label',
-				text: _('Show as') + ':',
+				text: Grommunio.util.Translations.Label(_('Show as')),
 				forId: busyComboId,
 				cls: 'k-options-label k-options-label-first'
 			},{
@@ -448,7 +448,7 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				}
 			},{
 				xtype: 'label',
-				text: _('Reminder') + ':',
+				text: Grommunio.util.Translations.Label(_('Reminder')),
 				forId: reminderCheckId,
 				cls: 'k-options-label k-options-label-gap'
 			},{
@@ -524,7 +524,7 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			border: false,
 			items: [{
 				xtype: 'label',
-				text: _('Create in') + ':',
+				text: Grommunio.util.Translations.Label(_('Create in')),
 				forId: createInComboId,
 				cls: 'k-options-label k-options-label-gap'
 			},{
@@ -660,7 +660,7 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				// FIXME: Remove after WA-4880 is implemented
 				xtype: 'button',
 				ref: '../occurrenceAttachmentsButton',
-				text: _('Attachments') + ':',
+				text: Grommunio.util.Translations.Label(_('Attachments')),
 				width: 100,
 				handler: function() {
 					Ext.MessageBox.show({
@@ -674,7 +674,7 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				xtype: 'grommunio.attachmentbutton',
 				ref: '../normalAttachmentsButton', // FIXME: Remove after WA-4880 is implemented
 				plugins: [ 'grommunio.recordcomponentupdaterplugin' ],
-				text: _('Attachments') + ':',
+				text: Grommunio.util.Translations.Label(_('Attachments')),
 				autoHeight: true,
 				width: 100
 			},{

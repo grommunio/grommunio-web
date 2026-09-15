@@ -156,7 +156,7 @@ Grommunio.mail.settings.SettingsOofWidget = Ext.extend(Grommunio.settings.ui.Set
 					xtype: 'radio',
 					name: 'set',
 					hideLabel: true,
-					boxLabel: _('I am out of the office from') + ':',
+					boxLabel: Grommunio.util.Translations.Label(_('I am out of the office from')),
 					ref: '../../outOfOfficeRadio',
 					// ExtJs demands inputValue to be a string
 					inputValue: 'true',
@@ -194,7 +194,7 @@ Grommunio.mail.settings.SettingsOofWidget = Ext.extend(Grommunio.settings.ui.Set
 					disabled: true,
 					name: 'grommunio/v1/contexts/mail/autosave_enable',
 					ref: '../../willBeBackCheckBox',
-					boxLabel: _('I will be back on') + ':',
+					boxLabel: Grommunio.util.Translations.Label(_('I will be back on')),
 					hideLabel: true,
 					listeners: {
 						render: this.onWillBeBackCheckRender,
@@ -255,7 +255,7 @@ Grommunio.mail.settings.SettingsOofWidget = Ext.extend(Grommunio.settings.ui.Set
 					items: [{
 						xtype: 'displayfield',
 						cls: 'label-subject',
-						value: _('Subject') + ':',
+						value: Grommunio.util.Translations.Label(_('Subject')),
 						autoWidth: true
 					},{
 						xtype: 'textfield',
@@ -349,7 +349,7 @@ Grommunio.mail.settings.SettingsOofWidget = Ext.extend(Grommunio.settings.ui.Set
 					items: [{
 						xtype: 'displayfield',
 						cls: 'label-subject',
-						value: _('Subject') + ':',
+						value: Grommunio.util.Translations.Label(_('Subject')),
 						autoWidth: true
 					},{
 						xtype: 'textfield',

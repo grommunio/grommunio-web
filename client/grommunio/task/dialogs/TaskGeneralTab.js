@@ -132,7 +132,7 @@ Grommunio.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			items: [{
 				xtype: 'button',
 				autoHeight: true,
-				text: _('To') + ':',
+				text: Grommunio.util.Translations.Label(_('To')),
 				handler: function() {
 					Grommunio.task.Actions.openRecipientSelectionContent(this.record, {
 						defaultRecipientType: Grommunio.core.mapi.RecipientType.MAPI_TO
@@ -375,7 +375,7 @@ Grommunio.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				autoHeight: true,
 				items: [{
 					xtype: 'label',
-					text: _('Reminder') + ':',
+					text: Grommunio.util.Translations.Label(_('Reminder')),
 					width: 84,
 					cls: 'k-reminder-label'
 				},{
@@ -468,7 +468,7 @@ Grommunio.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				xtype: 'grommunio.attachmentbutton',
 				plugins: [ 'grommunio.recordcomponentupdaterplugin' ],
 				width: 100,
-				text: _('Attachments') + ':',
+				text: Grommunio.util.Translations.Label(_('Attachments')),
 				autoHeight: true
 			},{
 				xtype: 'grommunio.attachmentfield',

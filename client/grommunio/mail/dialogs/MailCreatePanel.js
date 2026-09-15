@@ -120,7 +120,7 @@ Grommunio.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 			items: [{
 				xtype: hasEmptySendAsList ? 'button' : 'splitbutton',
 				autoHeight: true,
-				text: _('From') + ':',
+				text: Grommunio.util.Translations.Label(_('From')),
 				handler: this.onSelectUser,
 				menu: hasEmptySendAsList ? false : new Ext.menu.Menu({
 					showSeparator: false,
@@ -233,7 +233,7 @@ Grommunio.mail.dialogs.MailCreatePanel = Ext.extend(Ext.form.FormPanel, {
 			enableKeyEvents: true,
 			value: undefined,
 			height: 36,
-			emptyText: _('Subject') + ':',
+			emptyText: Grommunio.util.Translations.Label(_('Subject')),
 			listeners: {
 				change: this.onChange,
 				scope: this

@@ -66,7 +66,7 @@ Grommunio.hierarchy.dialogs.SharedFolderPanel = Ext.extend(Ext.Panel, {
 			items: [{
 				xtype: 'button',
 				anchor: '100%',
-				text: _('Name') + ':',
+				text: Grommunio.util.Translations.Label(_('Name')),
 				handler: this.onSelectUser,
 				scope: this
 			},{

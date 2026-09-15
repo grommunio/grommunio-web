@@ -50,7 +50,7 @@ Grommunio.calendar.widget.QuickAppointmentWidget = Ext.extend(Grommunio.core.ui.
 							xtype: 'textfield',
 							flex: 1,
 							name: 'subject',
-							emptyText: _('Subject') + ':',
+							emptyText: Grommunio.util.Translations.Label(_('Subject')),
 							listeners: {
 								change: this.onChange,
 								scope: this

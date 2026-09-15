@@ -101,7 +101,7 @@ Grommunio.common.flags.dialogs.CustomFlagPanel = Ext.extend(Ext.form.FormPanel, 
 					name: 'reminder',
 					ref:'../../reminderCheckbox',
 					width: 100,
-					boxLabel: _('Reminder') + ':',
+					boxLabel: Grommunio.util.Translations.Label(_('Reminder')),
 					handler: this.onToggleReminder,
 					scope: this
 				},{
