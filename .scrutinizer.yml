@@ -29,6 +29,7 @@ build:
       tests:
         override:
           - php-scrutinizer-run --enable-security-analysis
+          - 'make bom-check'
           # Override the vulnerable PHPCS 3.6.0 default used by phpcs-run.
           - command: 'SCRUTINIZER_TOOLCONFIG_PHPCS_VERSION=3.13.6 phpcs-run'
             use_website_config: true
