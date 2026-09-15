@@ -243,8 +243,16 @@ class IndexSqlite extends SQLite3 {
 		return $linked;
 	}
 
+	/**
+	 * Runs the query and links every hit into the given search folder.
+	 * Only usable for stores that can host a search folder, i.e. private ones.
+	 *
+	 * @param mixed $search_entryid
+	 * @param mixed $descriptor
+	 * @param mixed $folder_entryid
+	 * @param mixed $recursive
+	 */
 	public function search($search_entryid, $descriptor, $folder_entryid, $recursive) {
-		$startTime = microtime(true);
 		$this->logDebug('Search invoked', [
 			'user' => $this->username,
 			'search_entryid' => self::formatEntryIdForLog($search_entryid),
@@ -252,6 +260,57 @@ class IndexSqlite extends SQLite3 {
 			'recursive' => (bool) $recursive,
 			'descriptor' => $descriptor,
 		]);
+		$entryids = $this->collectEntryIds($descriptor, $folder_entryid, $recursive);
+		if ($entryids === false) {
+			return false;
+		}
+		$linkStart = microtime(true);
+		$this->count = $this->link_entryids($search_entryid, $entryids);
+		$this->logDebug('Search results linked', [
+			'selected_messages' => count($entryids),
+			'linked_messages' => $this->count,
+			'batch_link' => function_exists('mapi_linkmessages'),
+			'duration_ms' => (int) round((microtime(true) - $linkStart) * 1000),
+		]);
+
+		return true;
+	}
+
+	/**
+	 * Runs the query and returns the matching message entryids, most recent
+	 * first. Public stores cannot host a search folder - gromox rejects
+	 * creating one and refuses to link public messages into a private one - so
+	 * for those the caller builds the result list straight from these ids.
+	 *
+	 * @param mixed $descriptor
+	 * @param mixed $folder_entryid
+	 * @param mixed $recursive
+	 *
+	 * @return array|false
+	 */
+	public function searchEntryIds($descriptor, $folder_entryid, $recursive) {
+		$this->logDebug('Search (entryid list) invoked', [
+			'user' => $this->username,
+			'folder_entryid' => self::formatEntryIdForLog($folder_entryid),
+			'recursive' => (bool) $recursive,
+			'descriptor' => $descriptor,
+		]);
+
+		return $this->collectEntryIds($descriptor, $folder_entryid, $recursive);
+	}
+
+	/**
+	 * Shared query path: resolves the folder scope, runs the FTS query and
+	 * applies the filters, returning the surviving entryids in date order.
+	 *
+	 * @param mixed $descriptor
+	 * @param mixed $folder_entryid
+	 * @param mixed $recursive
+	 *
+	 * @return array|false
+	 */
+	private function collectEntryIds($descriptor, $folder_entryid, $recursive) {
+		$startTime = microtime(true);
 		if ($this->openResult) {
 			error_log('Search aborted: index database unavailable');
 
@@ -462,21 +521,18 @@ class IndexSqlite extends SQLite3 {
 			// Always restore the original time limit, even after an error.
 			set_time_limit($prevTimeLimit);
 		}
-		$this->count = $this->link_entryids($search_entryid, $entryids);
 		$durationMs = (int) round((microtime(true) - $startTime) * 1000);
 		$this->logDebug('Search completed', [
 			'fts_query' => $ftsQuery,
 			'matched_rows' => $matchedRows,
 			'selected_messages' => count($entryids),
-			'linked_messages' => $this->count,
-			'batch_link' => function_exists('mapi_linkmessages'),
 			'limit_reached' => count($entryids) >= MAX_FTS_RESULT_ITEMS,
 			'folder_ids' => $whereFolderids !== [] ? $whereFolderids : null,
 			'sample_messages' => $sampleRows,
 			'duration_ms' => $durationMs,
 		]);
 
-		return true;
+		return $entryids;
 	}
 
 	private function compileFtsExpression($ast) {
