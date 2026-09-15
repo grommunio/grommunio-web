@@ -198,7 +198,7 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			cls: 'k-organizer-panel',
 			ref: 'meetingOrganizerPanel',
 			layout: 'form',
-			labelWidth: 85,
+			labelWidth: 125,
 			labelAlign: 'left',
 			autoHeight: true,
 			border: false,
@@ -255,7 +255,7 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			xtype: 'panel',
 			cls: 'k-subject-panel',
 			layout: 'form',
-			labelWidth: 85,
+			labelWidth: 125,
 			labelAlign: 'left',
 			autoHeight: true,
 			border: false,
@@ -285,7 +285,7 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			xtype: 'panel',
 			cls: 'k-location-panel',
 			layout: 'form',
-			labelWidth: 85,
+			labelWidth: 125,
 			labelAlign: 'left',
 			autoHeight: true,
 			border: false,
@@ -590,7 +590,7 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				},
 				startFieldConfig: {
 					fieldLabel: _('Time'),
-					labelWidth: 85,
+					labelWidth: 125,
 					cls: 'from-field',
 					timeFieldConfig: {
 						width: 95
@@ -631,7 +631,7 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			cls: 'k-recurrence-panel',
 			ref: '../recurrencePanel',
 			layout: 'form',
-			labelWidth: 85,
+			labelWidth: 125,
 			autoHeight: true,
 			border: false,
 			items: [{
