@@ -38,7 +38,7 @@ Grommunio.calendar.dialogs.TrackingTab = Ext.extend(Ext.Panel, {
 			items: [{
 				xtype: 'displayfield',
 				height: 36,
-				value: _('The following responses for this meeting have been received') + ':',
+				value: Grommunio.util.Translations.Label(_('The following responses for this meeting have been received')),
 				hideLabel: true
 			},{
 				xtype: 'grid',

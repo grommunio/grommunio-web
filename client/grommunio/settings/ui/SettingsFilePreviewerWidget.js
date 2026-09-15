@@ -88,7 +88,7 @@ Grommunio.settings.ui.SettingsFilePreviewerWidget = Ext.extend(Grommunio.setting
 	    items.push({
 	        xtype: 'displayfield',
 	        hideLabel: true,
-	        value: _('Open a preview in a') + ':'
+	        value: Grommunio.util.Translations.Label(_('Open a preview in a'))
 	    },{
 	        xtype: 'radiogroup',
 	        name: 'grommunio/v1/main/file_previewer/target',

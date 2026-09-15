@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Germany)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 20:54+0200\n"
+"POT-Creation-Date: 2026-09-15 22:48+0200\n"
 "PO-Revision-Date: 2025-03-30 04:00+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/grommunio/grommunio-web/de/>\n"
@@ -806,80 +806,79 @@ msgstr "Das Postfach konnte nicht geöffnet werden."
 msgid "Could not open default calendar folder."
 msgstr "Der Standardkalender konnte nicht geöffnet werden."
 
-msgid "workday"
-msgstr "Arbeitstag"
+msgctxt "recurrence"
+msgid "every workday"
+msgstr "jeden Arbeitstag"
 
-msgid "day"
-msgstr "Tag"
+msgctxt "recurrence"
+msgid "every day"
+msgstr "jeden Tag"
 
-msgid "days"
-msgstr "Tage"
+#. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} day"
+msgid_plural "every {0} days"
+msgstr[0] "jeden Tag"
+msgstr[1] "alle {0} Tage"
 
-msgid "week"
-msgstr "Woche"
+msgctxt "recurrence"
+msgid "every week"
+msgstr "jede Woche"
 
-msgid "weeks"
-msgstr "Wochen"
+#. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} week"
+msgid_plural "every {0} weeks"
+msgstr[0] "jede Woche"
+msgstr[1] "alle {0} Wochen"
 
-#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+#. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
 msgstr "{0} am {1}"
 
-msgid "month"
-msgstr "Monat"
+msgctxt "recurrence"
+msgid "every month"
+msgstr "jeden Monat"
 
-msgid "months"
-msgstr "Monate"
+#. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} month"
+msgid_plural "every {0} months"
+msgstr[0] "jeden Monat"
+msgstr[1] "alle {0} Monate"
 
-msgid "year"
-msgstr "Jahr"
+msgctxt "recurrence"
+msgid "every year"
+msgstr "jedes Jahr"
 
-msgid "years"
-msgstr "Jahre"
+#. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} year"
+msgid_plural "every {0} years"
+msgstr[0] "jedes Jahr"
+msgstr[1] "alle {0} Jahre"
 
-msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "Findet jeden {0} von {2} bis {3} statt, beginnend am {1}."
+msgid "Occurs {0} effective {1} from {2} to {3}."
+msgstr "Findet {0} von {2} bis {3} statt, beginnend am {1}."
 
-msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "Findet jeden {0} {1} von {3} bis {4} statt, beginnend am {2}."
+msgid "Occurs {0} effective {1}."
+msgstr "Findet {0} statt, beginnend am {1}."
 
-msgid "Occurs every {0} effective {1}."
-msgstr "Findet jeden {0} statt, beginnend am {1}."
+msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] "Findet {0} von {3} bis {4} statt, beginnend am {1}, für {2} Termin."
+msgstr[1] "Findet {0} von {3} bis {4} statt, beginnend am {1}, für {2} Termine."
 
-msgid "Occurs every {0} {1} effective {2}."
-msgstr "Findet jeden {0} {1} statt, beginnend am {2}."
+msgid "Occurs {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences."
+msgstr[0] "Findet {0} statt, beginnend am {1}, für {2} Termin."
+msgstr[1] "Findet {0} statt, beginnend am {1}, für {2} Termine."
 
-msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "Findet jeden {0} von {3} bis {4} statt, beginnend am {1} für {2} Termin."
-msgstr[1] "Findet jeden {0} von {3} bis {4} statt, beginnend am {1} für {2} Termine."
+msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
+msgstr "Findet im Zeitraum vom {1} bis {2} {0} von {3} bis {4} statt."
 
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "Findet jeden {0} {1} von {4} bis {5} statt, beginnend am {2} für {3} Termin."
-msgstr[1] "Findet jeden {0} {1} von {4} bis {5} statt, beginnend am {2} für {3} Termine."
-
-msgid "Occurs every {0} effective {1} for {2} occurrence."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "Findet jeden {0} statt, beginnend am {1} für {2} Termin."
-msgstr[1] "Findet jeden {0} statt, beginnend am {1} für {2} Termine."
-
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "Findet jeden {0} {1} statt, beginnend am {2} für {3} Termin."
-msgstr[1] "Findet jeden {0} {1} statt, beginnend am {2} für {3} Termine."
-
-msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "Findet im Zeitraum vom {1} bis {2} jeden {0} von {3} bis {4} statt."
-
-msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "Findet im Zeitraum vom {2} bis {3} jeden {0} {1} von {4} bis {5} statt."
-
-msgid "Occurs every {0} effective {1} until {2}."
-msgstr "Findet im Zeitraum vom {1} bis einschließlich {2} jeden {0} statt."
-
-msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "Findet im Zeitraum vom {2} bis einschließlich {3} jeden {0} {1} statt."
+msgid "Occurs {0} effective {1} until {2}."
+msgstr "Findet im Zeitraum vom {1} bis einschließlich {2} {0} statt."
 
 msgid "New Meeting Time Proposed"
 msgstr "Neue Besprechungszeit vorgeschlagen"
@@ -891,8 +890,13 @@ msgstr "l j. F Y {0}"
 msgid "Fwd"
 msgstr "WG"
 
-msgid "and "
-msgstr "und "
+#. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
+msgid "{0}, {1}"
+msgstr "{0}, {1}"
+
+#. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
+msgid "{0} and {1}"
+msgstr "{0} und {1}"
 
 msgid "Sort by: Attachment"
 msgstr "Sortieren nach: Anhang"
@@ -4008,7 +4012,7 @@ msgid "High"
 msgstr "Hoch"
 
 msgid "Canceled"
-msgstr "Abgebrochen"
+msgstr "Abgesagt"
 
 msgid "Blue"
 msgstr "Blau"
@@ -8643,6 +8647,48 @@ msgstr "Konnte Nachricht nicht finden; entweder wurde sie verschoben oder gelös
 
 msgid "Action is not performed correctly."
 msgstr "Aktion wurde nicht korrekt ausgeführt."
+
+msgid "Tentatively accepted"
+msgstr "Mit Vorbehalt angenommen"
+
+msgid "New Time Proposed"
+msgstr "Neue Zeit vorgeschlagen"
+
+msgid "Task Accepted:"
+msgstr "Aufgabe angenommen:"
+
+msgid "Task Declined:"
+msgstr "Aufgabe abgelehnt:"
+
+msgid "Task Updated:"
+msgstr "Aufgabe aktualisiert:"
+
+msgid "Task Completed:"
+msgstr "Aufgabe abgeschlossen:"
+
+msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
+msgstr "Aufgaben können in öffentlichen Ordnern nicht zugewiesen werden. Öffentliche Ordner sind nicht E-Mail-fähig und können keine Aufgabenzuweisungen versenden."
+
+msgid "Can not connect to Gromox."
+msgstr "Keine Verbindung zu Gromox möglich."
+
+msgid "Can not find object."
+msgstr "Objekt nicht gefunden."
+
+msgid "Can not open object with provided id."
+msgstr "Objekt mit der angegebenen ID kann nicht geöffnet werden."
+
+msgid "Logon Failed. Please check your name/password."
+msgstr "Anmeldung fehlgeschlagen. Bitte prüfen Sie Benutzername und Passwort."
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr "Vorgang fehlgeschlagen: Der Server hat nicht genügend Arbeitsspeicher."
+
+msgid "There are no recipients in the message."
+msgstr "Die Nachricht enthält keine Empfänger."
+
+msgid "You have insufficient privileges to open this object."
+msgstr "Sie haben nicht die erforderlichen Rechte, um dieses Objekt zu öffnen."
 
 msgid "Could not handle this type of object."
 msgstr "Konnte diese Objektart nicht verarbeiten."

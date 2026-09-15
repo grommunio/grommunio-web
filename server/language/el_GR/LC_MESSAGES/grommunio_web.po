@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 20:54+0200\n"
+"POT-Creation-Date: 2026-09-15 22:48+0200\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -806,80 +806,79 @@ msgstr "Δεν μπόρεσε να ανοίξει το κατάστημα."
 msgid "Could not open default calendar folder."
 msgstr "Δεν μπόρεσε να ανοίξει τον προεπιλεγμένο φάκελο ημερολογίου."
 
-msgid "workday"
-msgstr "εργάσιμη ημέρα"
+msgctxt "recurrence"
+msgid "every workday"
+msgstr "κάθε εργάσιμη ημέρα"
 
-msgid "day"
-msgstr "ημέρα"
+msgctxt "recurrence"
+msgid "every day"
+msgstr "κάθε ημέρα"
 
-msgid "days"
-msgstr "ημέρες"
+#. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} day"
+msgid_plural "every {0} days"
+msgstr[0] "κάθε ημέρα"
+msgstr[1] "κάθε {0} ημέρες"
 
-msgid "week"
-msgstr "εβδομάδα"
+msgctxt "recurrence"
+msgid "every week"
+msgstr "κάθε εβδομάδα"
 
-msgid "weeks"
-msgstr "εβδομάδες"
+#. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} week"
+msgid_plural "every {0} weeks"
+msgstr[0] "κάθε εβδομάδα"
+msgstr[1] "κάθε {0} εβδομάδες"
 
-#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+#. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
 msgstr "{0} σε {1}"
 
-msgid "month"
-msgstr "μήνας"
+msgctxt "recurrence"
+msgid "every month"
+msgstr "κάθε μήνα"
 
-msgid "months"
-msgstr "μήνες"
+#. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} month"
+msgid_plural "every {0} months"
+msgstr[0] "κάθε μήνα"
+msgstr[1] "κάθε {0} μήνες"
 
-msgid "year"
-msgstr "έτος"
+msgctxt "recurrence"
+msgid "every year"
+msgstr "κάθε χρόνο"
 
-msgid "years"
-msgstr "έτη"
+#. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} year"
+msgid_plural "every {0} years"
+msgstr[0] "κάθε χρόνο"
+msgstr[1] "κάθε {0} χρόνια"
 
-msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "Εμφανίζεται κάθε {0} αποτελεσματική {1} από {2} έως {3}."
+msgid "Occurs {0} effective {1} from {2} to {3}."
+msgstr "Πραγματοποιείται {0} από {2} έως {3}, με έναρξη στις {1}."
 
-msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "Συμβαίνει κάθε {0} {1} αποτελεσματική {2} από {3} έως {4}."
+msgid "Occurs {0} effective {1}."
+msgstr "Πραγματοποιείται {0} από τις {1}."
 
-msgid "Occurs every {0} effective {1}."
-msgstr "Πραγματοποιείται κάθε {0} με ισχύ {1}."
+msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] "Πραγματοποιείται {0} από {3} έως {4}, με έναρξη στις {1}, για {2} εμφάνιση."
+msgstr[1] "Πραγματοποιείται {0} από {3} έως {4}, με έναρξη στις {1}, για {2} εμφανίσεις."
 
-msgid "Occurs every {0} {1} effective {2}."
-msgstr "Συμβαίνει κάθε {0} {1} αποτελεσματική {2}."
+msgid "Occurs {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences."
+msgstr[0] "Πραγματοποιείται {0} από τις {1}, για {2} εμφάνιση."
+msgstr[1] "Πραγματοποιείται {0} από τις {1}, για {2} εμφανίσεις."
 
-msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "Εμφανίζεται κάθε {0} αποτελεσματική {1} για {2} εμφάνιση από {3} έως {4}."
-msgstr[1] "Εμφανίζεται κάθε {0} αποτελεσματική {1} για {2} εμφανίσεις από {3} έως {4}."
+msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
+msgstr "Πραγματοποιείται {0} από τις {1} έως τις {2}, από {3} έως {4}."
 
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "Εμφανίζεται κάθε {0} {1} αποτελεσματική {2} για {3} εμφάνιση από {4} έως {5}."
-msgstr[1] "Εμφανίζεται κάθε {0} {1} αποτελεσματική {2} για {3} εμφανίσεις {4} έως {5}."
-
-msgid "Occurs every {0} effective {1} for {2} occurrence."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "Συμβαίνει κάθε {0} αποτελεσματική {1} για {2} εμφάνιση."
-msgstr[1] "Συμβαίνει κάθε {0} αποτελεσματική {1} για {2} περιστατικά."
-
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "Εμφανίζεται κάθε {0} {1} αποτελεσματική {2} για {3} εμφάνιση."
-msgstr[1] "Εμφανίζεται κάθε {0} {1} αποτελεσματική {2} για {3} περιστατικά."
-
-msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "Πραγματοποιείται κάθε {0} από το {1} μέχρι το {2} από το {3} μέχρι το {4}."
-
-msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "Συμβαίνει κάθε {0} {1} αποτελεσματική {2} μέχρι {3} από {4} έως {5}."
-
-msgid "Occurs every {0} effective {1} until {2}."
-msgstr "Πραγματοποιείται κάθε {0} από το {1} μέχρι το {2}."
-
-msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "Συμβαίνει κάθε {0} {1} αποτελεσματική {2} μέχρι {3}."
+msgid "Occurs {0} effective {1} until {2}."
+msgstr "Πραγματοποιείται {0} από τις {1} έως τις {2}."
 
 msgid "New Meeting Time Proposed"
 msgstr "Προτεινόμενη νέα ώρα συνάντησης"
@@ -891,8 +890,13 @@ msgstr "l jS F Y {0}"
 msgid "Fwd"
 msgstr "Fwd"
 
-msgid "and "
-msgstr "και "
+#. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
+msgid "{0}, {1}"
+msgstr "{0}, {1}"
+
+#. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
+msgid "{0} and {1}"
+msgstr "{0} και {1}"
 
 msgid "Sort by: Attachment"
 msgstr "Ταξινόμηση κατά: Συνημμένο"
@@ -1031,7 +1035,7 @@ msgstr "Μ Ε"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l"
-msgstr "λίτρο"
+msgstr "l"
 
 msgid "All text fields"
 msgstr "Όλα τα πεδία κειμένου"
@@ -8640,6 +8644,48 @@ msgstr "Δεν μπόρεσα να βρω το μήνυμα, είτε έχει �
 
 msgid "Action is not performed correctly."
 msgstr "Η ενέργεια δεν εκτελείται σωστά."
+
+msgid "Tentatively accepted"
+msgstr "Προσωρινή αποδοχή"
+
+msgid "New Time Proposed"
+msgstr "Προτάθηκε νέα ώρα"
+
+msgid "Task Accepted:"
+msgstr "Η εργασία έγινε αποδεκτή:"
+
+msgid "Task Declined:"
+msgstr "Η εργασία απορρίφθηκε:"
+
+msgid "Task Updated:"
+msgstr "Η εργασία ενημερώθηκε:"
+
+msgid "Task Completed:"
+msgstr "Η εργασία ολοκληρώθηκε:"
+
+msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
+msgstr "Δεν είναι δυνατή η ανάθεση εργασιών σε δημόσιους φακέλους. Οι δημόσιοι φάκελοι δεν έχουν ενεργοποιημένο ηλεκτρονικό ταχυδρομείο και δεν μπορούν να στείλουν ειδοποιήσεις ανάθεσης εργασιών."
+
+msgid "Can not connect to Gromox."
+msgstr "Δεν είναι δυνατή η σύνδεση με το Gromox."
+
+msgid "Can not find object."
+msgstr "Το αντικείμενο δεν βρέθηκε."
+
+msgid "Can not open object with provided id."
+msgstr "Δεν είναι δυνατό το άνοιγμα του αντικειμένου με το αναγνωριστικό που δόθηκε."
+
+msgid "Logon Failed. Please check your name/password."
+msgstr "Η σύνδεση απέτυχε. Ελέγξτε το όνομα χρήστη και τον κωδικό σας."
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr "Η λειτουργία απέτυχε: ο διακομιστής δεν έχει αρκετή μνήμη."
+
+msgid "There are no recipients in the message."
+msgstr "Το μήνυμα δεν έχει παραλήπτες."
+
+msgid "You have insufficient privileges to open this object."
+msgstr "Δεν έχετε επαρκή δικαιώματα για να ανοίξετε αυτό το αντικείμενο."
 
 msgid "Could not handle this type of object."
 msgstr "Δεν μπορούσε να χειριστεί αυτόν τον τύπο αντικειμένου."

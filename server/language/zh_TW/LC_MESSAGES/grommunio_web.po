@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 20:54+0200\n"
+"POT-Creation-Date: 2026-09-15 22:48+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/grommunio/grommunio-web/zh_Hant/>\n"
@@ -796,76 +796,73 @@ msgstr "無法開啟儲存庫"
 msgid "Could not open default calendar folder."
 msgstr "無法開啟預設行事曆資料夾"
 
-msgid "workday"
-msgstr "工作日"
+msgctxt "recurrence"
+msgid "every workday"
+msgstr "每個工作日"
 
-msgid "day"
-msgstr "天"
+msgctxt "recurrence"
+msgid "every day"
+msgstr "每天"
 
-msgid "days"
-msgstr "天"
+#. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} day"
+msgid_plural "every {0} days"
+msgstr[0] "每 {0} 天"
 
-msgid "week"
-msgstr "週"
+msgctxt "recurrence"
+msgid "every week"
+msgstr "每週"
 
-msgid "weeks"
-msgstr "週"
+#. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} week"
+msgid_plural "every {0} weeks"
+msgstr[0] "每 {0} 週"
 
-#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+#. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
 msgstr "{0}於{1}"
 
-msgid "month"
-msgstr "月"
+msgctxt "recurrence"
+msgid "every month"
+msgstr "每月"
 
-msgid "months"
-msgstr "月"
+#. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} month"
+msgid_plural "every {0} months"
+msgstr[0] "每 {0} 個月"
 
-msgid "year"
-msgstr "年"
+msgctxt "recurrence"
+msgid "every year"
+msgstr "每年"
 
-msgid "years"
-msgstr "年"
+#. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} year"
+msgid_plural "every {0} years"
+msgstr[0] "每 {0} 年"
 
-msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "每{0}發生一次，自 {1} 起生效，時間為 {2} 至 {3}。"
+msgid "Occurs {0} effective {1} from {2} to {3}."
+msgstr "自 {1} 起{0}發生一次，時間為 {2} 至 {3}。"
 
-msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "每 {0} {1}發生一次，自 {2} 起生效，時間為 {3} 至 {4}。"
+msgid "Occurs {0} effective {1}."
+msgstr "自 {1} 起{0}發生一次。"
 
-msgid "Occurs every {0} effective {1}."
-msgstr "每{0}發生一次，自 {1} 起生效。"
+msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] "自 {1} 起{0}發生一次，時間為 {3} 至 {4}，共 {2} 次。"
 
-msgid "Occurs every {0} {1} effective {2}."
-msgstr "每 {0} {1}發生一次，自 {2} 起生效。"
+msgid "Occurs {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences."
+msgstr[0] "自 {1} 起{0}發生一次，共 {2} 次。"
 
-msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "從{3} 到{4} ，每{0} 有效{1} 發生{2} 。"
+msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
+msgstr "自 {1} 起至 {2} 止，{0}發生一次，時間為 {3} 至 {4}。"
 
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "發生於每{0} {1} 有效{2} 為{3} 發生於{4} 至{5} 。"
-
-msgid "Occurs every {0} effective {1} for {2} occurrence."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "每{0} 發生一次，有效期為{1} ，{2} 發生一次。"
-
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "每{0} {1} 發生一次，{2} 有效，{3} 發生一次。"
-
-msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "每{0}發生一次，自 {1} 起生效，至 {2} 結束，時間為 {3} 至 {4}。"
-
-msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "每 {0} {1}發生一次，自 {2} 起生效，至 {3} 結束，時間為 {4} 至 {5}。"
-
-msgid "Occurs every {0} effective {1} until {2}."
-msgstr "每{0}發生一次，自 {1} 起生效，至 {2} 結束。"
-
-msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "每 {0} {1}發生一次，自 {2} 起生效，至 {3} 結束。"
+msgid "Occurs {0} effective {1} until {2}."
+msgstr "自 {1} 起至 {2} 止，{0}發生一次。"
 
 msgid "New Meeting Time Proposed"
 msgstr "建議新的會議時間"
@@ -877,8 +874,13 @@ msgstr "l jS F Y{0}"
 msgid "Fwd"
 msgstr "轉寄"
 
-msgid "and "
-msgstr "和 "
+#. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
+msgid "{0}, {1}"
+msgstr "{0}、{1}"
+
+#. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
+msgid "{0} and {1}"
+msgstr "{0}和{1}"
 
 msgid "Sort by: Attachment"
 msgstr "依附件排序"
@@ -8606,6 +8608,48 @@ msgstr "找不到訊息，可能已被移動或刪除。"
 
 msgid "Action is not performed correctly."
 msgstr "動作未正確執行。"
+
+msgid "Tentatively accepted"
+msgstr "暫定接受"
+
+msgid "New Time Proposed"
+msgstr "已建議新的時間"
+
+msgid "Task Accepted:"
+msgstr "任務已接受："
+
+msgid "Task Declined:"
+msgstr "任務已拒絕："
+
+msgid "Task Updated:"
+msgstr "任務已更新："
+
+msgid "Task Completed:"
+msgstr "任務已完成："
+
+msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
+msgstr "無法在公用資料夾中指派任務。公用資料夾未啟用郵件功能，無法傳送任務指派通知。"
+
+msgid "Can not connect to Gromox."
+msgstr "無法連線至 Gromox。"
+
+msgid "Can not find object."
+msgstr "找不到物件。"
+
+msgid "Can not open object with provided id."
+msgstr "無法開啟具有所提供識別碼的物件。"
+
+msgid "Logon Failed. Please check your name/password."
+msgstr "登入失敗。請檢查您的使用者名稱和密碼。"
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr "操作失敗：伺服器記憶體不足。"
+
+msgid "There are no recipients in the message."
+msgstr "郵件中沒有收件人。"
+
+msgid "You have insufficient privileges to open this object."
+msgstr "您沒有足夠的權限開啟此物件。"
 
 msgid "Could not handle this type of object."
 msgstr "無法處理此類型的物件。"

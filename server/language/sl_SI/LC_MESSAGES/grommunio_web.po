@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 20:54+0200\n"
+"POT-Creation-Date: 2026-09-15 22:48+0200\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -824,88 +824,91 @@ msgstr "Ne morem odpreti hrambe."
 msgid "Could not open default calendar folder."
 msgstr "Ne morem odpreti privzete mape koledarja."
 
-msgid "workday"
-msgstr "delovni dan"
+msgctxt "recurrence"
+msgid "every workday"
+msgstr "vsak delovni dan"
 
-msgid "day"
-msgstr "dan"
+msgctxt "recurrence"
+msgid "every day"
+msgstr "vsak dan"
 
-msgid "days"
-msgstr "dni"
+#. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} day"
+msgid_plural "every {0} days"
+msgstr[0] "vsak dan"
+msgstr[1] "vsaka {0} dneva"
+msgstr[2] "vsake {0} dni"
+msgstr[3] "vsakih {0} dni"
 
-msgid "week"
-msgstr "teden"
+msgctxt "recurrence"
+msgid "every week"
+msgstr "vsak teden"
 
-msgid "weeks"
-msgstr "tedni"
+#. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} week"
+msgid_plural "every {0} weeks"
+msgstr[0] "vsak teden"
+msgstr[1] "vsaka {0} tedna"
+msgstr[2] "vsake {0} tedne"
+msgstr[3] "vsakih {0} tednov"
 
-#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+#. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
 msgstr "{0} na {1}"
 
-msgid "month"
-msgstr "mesec"
+msgctxt "recurrence"
+msgid "every month"
+msgstr "vsak mesec"
 
-msgid "months"
-msgstr "mesecev"
+#. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} month"
+msgid_plural "every {0} months"
+msgstr[0] "vsak mesec"
+msgstr[1] "vsaka {0} meseca"
+msgstr[2] "vsake {0} mesece"
+msgstr[3] "vsakih {0} mesecev"
 
-msgid "year"
-msgstr "leto"
+msgctxt "recurrence"
+msgid "every year"
+msgstr "vsako leto"
 
-msgid "years"
-msgstr "let"
+#. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} year"
+msgid_plural "every {0} years"
+msgstr[0] "vsako leto"
+msgstr[1] "vsaki {0} leti"
+msgstr[2] "vsaka {0} leta"
+msgstr[3] "vsakih {0} let"
 
-msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "Pojavi se vsakih {0} efektivno {1} od {2} do {3}."
+msgid "Occurs {0} effective {1} from {2} to {3}."
+msgstr "Ponovi se {0} od {2} do {3}, z začetkom {1}."
 
-msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "Pojavi se vsakih {0} {1} efektivno {2} od {3} to {4}."
+msgid "Occurs {0} effective {1}."
+msgstr "Ponovi se {0} z začetkom {1}."
 
-msgid "Occurs every {0} effective {1}."
-msgstr "Pojavi se vsakih {0} efektivno {1}."
+msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] "Ponovi se {0} od {3} do {4}, z začetkom {1}, {2} krat."
+msgstr[1] "Ponovi se {0} od {3} do {4}, z začetkom {1}, {2} krat."
+msgstr[2] "Ponovi se {0} od {3} do {4}, z začetkom {1}, {2} krat."
+msgstr[3] "Ponovi se {0} od {3} do {4}, z začetkom {1}, {2} krat."
 
-msgid "Occurs every {0} {1} effective {2}."
-msgstr "Pojavi se vsakih {0} {1} efektivno {2}."
+msgid "Occurs {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences."
+msgstr[0] "Ponovi se {0} z začetkom {1}, {2} krat."
+msgstr[1] "Ponovi se {0} z začetkom {1}, {2} krat."
+msgstr[2] "Ponovi se {0} z začetkom {1}, {2} krat."
+msgstr[3] "Ponovi se {0} z začetkom {1}, {2} krat."
 
-msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "Pojavi se vsakič, ko {0} učinkuje {1} za {2} pojavljanje od {3} do {4}."
-msgstr[1] "Pojavi se vsakič, ko {0} učinkuje {1} za {2} pojavitve od {3} do {4}."
-msgstr[2] "Pojavi se vsakič, ko {0} učinkuje {1} za {2} pojavitve od {3} do {4}."
-msgstr[3] "Pojavi se vsakič, ko {0} učinkuje {1} za {2} pojavitve od {3} do {4}."
+msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
+msgstr "Ponovi se {0} od {1} do {2}, od {3} do {4}."
 
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "Pojavi se vsako {0} {1} učinkovito {2} za {3} pojavljanje od {4} do {5}."
-msgstr[1] "Pojavi se vsako {0} {1} učinkovito {2} za {3} pojavljanje {4} do {5}."
-msgstr[2] "Pojavi se vsako {0} {1} učinkovito {2} za {3} pojavljanje {4} do {5}."
-msgstr[3] "Pojavi se vsako {0} {1} učinkovito {2} za {3} pojavljanje {4} do {5}."
-
-msgid "Occurs every {0} effective {1} for {2} occurrence."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "Pojavi se vsako {0} učinkovito {1} za {2} pojavljanje."
-msgstr[1] "Pojavi se vsakič {0} z učinkom {1} za {2} dogodke."
-msgstr[2] "Pojavi se vsakič {0} z učinkom {1} za {2} dogodke."
-msgstr[3] "Pojavi se vsakič {0} z učinkom {1} za {2} dogodke."
-
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "Pojavi se vsako {0} {1} učinkovito {2} za {3} pojavljanje."
-msgstr[1] "Pojavi se vsakič {0} {1} učinkovito {2} za {3} dogodke."
-msgstr[2] "Pojavi se vsakič {0} {1} učinkovito {2} za {3} dogodke."
-msgstr[3] "Pojavi se vsakič {0} {1} učinkovito {2} za {3} dogodke."
-
-msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "Pojavi se vsakih {0} efektivno {1} dokler {2} od {3} do {4}."
-
-msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "Pojavi se vsakih {0} {1} efektivno {2} dokler {3} od {4} do {5}."
-
-msgid "Occurs every {0} effective {1} until {2}."
-msgstr "Pojavi se vsakih {0} efektivno {1} dokler {2}."
-
-msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "Pojavi se vsakih {0} {1} efektivno {2} dokler {3}."
+msgid "Occurs {0} effective {1} until {2}."
+msgstr "Ponovi se {0} od {1} do {2}."
 
 msgid "New Meeting Time Proposed"
 msgstr "Predlagan novi čas sestanka"
@@ -917,8 +920,13 @@ msgstr "l jS F Y {0}"
 msgid "Fwd"
 msgstr "Posreduj"
 
-msgid "and "
-msgstr "in "
+#. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
+msgid "{0}, {1}"
+msgstr "{0}, {1}"
+
+#. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
+msgid "{0} and {1}"
+msgstr "{0} in {1}"
 
 msgid "Sort by: Attachment"
 msgstr "Razvrsti po: Prilogi"
@@ -8706,6 +8714,48 @@ msgstr "Sporočila ni bilo mogoče najti, ker je bilo premaknjeno ali izbrisano.
 
 msgid "Action is not performed correctly."
 msgstr "Ukrep se ne izvede pravilno."
+
+msgid "Tentatively accepted"
+msgstr "Pogojno sprejeto"
+
+msgid "New Time Proposed"
+msgstr "Predlagan nov čas"
+
+msgid "Task Accepted:"
+msgstr "Naloga sprejeta:"
+
+msgid "Task Declined:"
+msgstr "Naloga zavrnjena:"
+
+msgid "Task Updated:"
+msgstr "Naloga posodobljena:"
+
+msgid "Task Completed:"
+msgstr "Naloga dokončana:"
+
+msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
+msgstr "V javnih mapah ni mogoče dodeljevati nalog. Javne mape nimajo omogočene pošte in ne morejo pošiljati obvestil o dodelitvi nalog."
+
+msgid "Can not connect to Gromox."
+msgstr "Povezava z Gromoxom ni mogoča."
+
+msgid "Can not find object."
+msgstr "Predmeta ni mogoče najti."
+
+msgid "Can not open object with provided id."
+msgstr "Predmeta z navedenim identifikatorjem ni mogoče odpreti."
+
+msgid "Logon Failed. Please check your name/password."
+msgstr "Prijava ni uspela. Preverite uporabniško ime in geslo."
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr "Operacija ni uspela: strežnik nima dovolj pomnilnika."
+
+msgid "There are no recipients in the message."
+msgstr "Sporočilo nima prejemnikov."
+
+msgid "You have insufficient privileges to open this object."
+msgstr "Nimate dovolj pravic za odpiranje tega predmeta."
 
 msgid "Could not handle this type of object."
 msgstr "Te vrste predmeta ni bilo mogoče obdelati."

@@ -44,8 +44,11 @@ if (!function_exists('pgettext')) {
 		$contextString = "{$msgctxt}\004{$msgid}";
 		$contextStringPlural = "{$msgctxt}\004{$msgid_plural}";
 		$translation = ngettext($contextString, $contextStringPlural, $num);
-		if ($translation == $contextString || $translation == $contextStringPlural) {
+		if ($translation == $contextString) {
 			return $msgid;
+		}
+		if ($translation == $contextStringPlural) {
+			return $msgid_plural;
 		}
 
 		return $translation;

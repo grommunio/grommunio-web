@@ -203,7 +203,7 @@ Grommunio.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 				ref: 'displayfieldContainer',
 				items: [{
 					xtype: 'displayfield',
-					value: _('Destination folder') + ':',
+					value: Grommunio.util.Translations.Label(_('Destination folder')),
 					hideLabel: true,
 					cls: 'tree-header',
 					ref: '../displayfield'
@@ -277,7 +277,7 @@ Grommunio.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 
 		this.suggestionBox.add({
 			xtype: 'displayfield',
-			value: _('Suggested folders') + ':',
+			value: Grommunio.util.Translations.Label(_('Suggested folders')),
 			hideLabel: true,
 			cls: 'tree-header'
 		});

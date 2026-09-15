@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web French (Canada)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 20:54+0200\n"
+"POT-Creation-Date: 2026-09-15 22:48+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: French (Canada) <https://hosted.weblate.org/projects/grommunio/grommunio-web/fr_CA/>\n"
@@ -806,80 +806,79 @@ msgstr "Impossible d'ouvrir la base."
 msgid "Could not open default calendar folder."
 msgstr "Impossible d'ouvrir le répertoire par défaut de l'agenda."
 
-msgid "workday"
-msgstr "journée de travail"
+msgctxt "recurrence"
+msgid "every workday"
+msgstr "chaque jour ouvrable"
 
-msgid "day"
-msgstr "jour"
+msgctxt "recurrence"
+msgid "every day"
+msgstr "chaque jour"
 
-msgid "days"
-msgstr "jours"
+#. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} day"
+msgid_plural "every {0} days"
+msgstr[0] "chaque jour"
+msgstr[1] "tous les {0} jours"
 
-msgid "week"
-msgstr "semaine"
+msgctxt "recurrence"
+msgid "every week"
+msgstr "chaque semaine"
 
-msgid "weeks"
-msgstr "semaines"
+#. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} week"
+msgid_plural "every {0} weeks"
+msgstr[0] "chaque semaine"
+msgstr[1] "toutes les {0} semaines"
 
-#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+#. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
 msgstr "{0} le {1}"
 
-msgid "month"
-msgstr "mois"
+msgctxt "recurrence"
+msgid "every month"
+msgstr "chaque mois"
 
-msgid "months"
-msgstr "mois"
+#. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} month"
+msgid_plural "every {0} months"
+msgstr[0] "chaque mois"
+msgstr[1] "tous les {0} mois"
 
-msgid "year"
-msgstr "année"
+msgctxt "recurrence"
+msgid "every year"
+msgstr "chaque année"
 
-msgid "years"
-msgstr "années"
+#. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} year"
+msgid_plural "every {0} years"
+msgstr[0] "chaque année"
+msgstr[1] "tous les {0} ans"
 
-msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "Se répète tous les {0} effectif le {1} de {2} à {3}."
+msgid "Occurs {0} effective {1} from {2} to {3}."
+msgstr "Se répète {0} à compter du {1}, de {2} à {3}."
 
-msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "Se répète tous les{0} {1} effectif le {2} de {3} à {4}."
+msgid "Occurs {0} effective {1}."
+msgstr "Se répète {0} à compter du {1}."
 
-msgid "Occurs every {0} effective {1}."
-msgstr "Se répète tous les {0} effectif le {1}."
+msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] "Se répète {0} à compter du {1}, pour {2} occurrence, de {3} à {4}."
+msgstr[1] "Se répète {0} à compter du {1}, pour {2} occurrences, de {3} à {4}."
 
-msgid "Occurs every {0} {1} effective {2}."
-msgstr "Se répète tous les {0} {1} effectif le {2}."
+msgid "Occurs {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences."
+msgstr[0] "Se répète {0} à compter du {1}, pour {2} occurrence."
+msgstr[1] "Se répète {0} à compter du {1}, pour {2} occurrences."
 
-msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "Se produit chaque {0} effective {1} pour {2} occurrence de {3} à {4}."
-msgstr[1] "Se produit chaque {0} effective {1} pour {2} occurrences de {3} à {4}."
+msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
+msgstr "Se répète {0} à compter du {1} jusqu'au {2}, de {3} à {4}."
 
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "Se produit chaque {0} {1} effective {2} pour {3} occurrence de {4} à {5}."
-msgstr[1] "Se produit chaque {0} {1} effective {2} pour {3} occurrences de {4} à {5}."
-
-msgid "Occurs every {0} effective {1} for {2} occurrence."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "Se produit chaque {0} effective {1} pour {2} occurrence."
-msgstr[1] "Se produit chaque {0} effective {1} pour {2} occurrences."
-
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "Se produit chaque {0} {1} effective {2} pour {3} occurrence."
-msgstr[1] "Se produit chaque {0} {1} effective {2} pour {3} occurrences."
-
-msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "Se répète tous les {0} effectif le {1} jusqu'au {2} de {3} à {4}."
-
-msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "Se répète tous les {0} {1} effectif le {2} jusqu'au {3} de {4} à {5}."
-
-msgid "Occurs every {0} effective {1} until {2}."
-msgstr "Se répète tous les {0} effectif le {1} jusqu'au {2}."
-
-msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "Se répète tous les {0} {1} effectif le {2} jusqu'au {3}."
+msgid "Occurs {0} effective {1} until {2}."
+msgstr "Se répète {0} à compter du {1} jusqu'au {2}."
 
 msgid "New Meeting Time Proposed"
 msgstr "Nouvelle horaire de réunion proposé"
@@ -891,8 +890,13 @@ msgstr "l jS F Y {0}"
 msgid "Fwd"
 msgstr "TR"
 
-msgid "and "
-msgstr "et "
+#. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
+msgid "{0}, {1}"
+msgstr "{0}, {1}"
+
+#. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
+msgid "{0} and {1}"
+msgstr "{0} et {1}"
 
 msgid "Sort by: Attachment"
 msgstr "Trier par : Pièce jointe"
@@ -8640,6 +8644,48 @@ msgstr "Impossible de trouver le message, soit il a été déplacé, soit il a �
 
 msgid "Action is not performed correctly."
 msgstr "L'action n'est pas exécutée correctement."
+
+msgid "Tentatively accepted"
+msgstr "Accepté provisoirement"
+
+msgid "New Time Proposed"
+msgstr "Nouvel horaire proposé"
+
+msgid "Task Accepted:"
+msgstr "Tâche acceptée :"
+
+msgid "Task Declined:"
+msgstr "Tâche refusée :"
+
+msgid "Task Updated:"
+msgstr "Tâche mise à jour :"
+
+msgid "Task Completed:"
+msgstr "Tâche terminée :"
+
+msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
+msgstr "Impossible d'attribuer des tâches dans les dossiers publics. Les dossiers publics ne sont pas compatibles avec la messagerie et ne peuvent pas envoyer de notifications d'attribution de tâche."
+
+msgid "Can not connect to Gromox."
+msgstr "Impossible de se connecter à Gromox."
+
+msgid "Can not find object."
+msgstr "Objet introuvable."
+
+msgid "Can not open object with provided id."
+msgstr "Impossible d'ouvrir l'objet avec l'identifiant fourni."
+
+msgid "Logon Failed. Please check your name/password."
+msgstr "Échec de la connexion. Veuillez vérifier votre nom d'utilisateur et votre mot de passe."
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr "Échec de l'opération : le serveur n'a pas assez de mémoire."
+
+msgid "There are no recipients in the message."
+msgstr "Le message ne comporte aucun destinataire."
+
+msgid "You have insufficient privileges to open this object."
+msgstr "Vous n'avez pas les droits suffisants pour ouvrir cet objet."
 
 msgid "Could not handle this type of object."
 msgstr "Impossible de traiter ce type d'objet."

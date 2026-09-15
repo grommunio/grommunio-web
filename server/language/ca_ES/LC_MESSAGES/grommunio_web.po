@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Catalan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 20:54+0200\n"
+"POT-Creation-Date: 2026-09-15 22:48+0200\n"
 "PO-Revision-Date: 2025-05-01 05:29+0000\n"
 "Last-Translator: Roger VC <rogervilarasau@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/grommunio/grommunio-web/ca/>\n"
@@ -223,7 +223,7 @@ msgstr "Aquesta data és després de la data màxima"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "d/m/Y"
-msgstr "d/m/aa"
+msgstr "d/m/Y"
 
 msgid "Disabled"
 msgstr "Deshabilitat"
@@ -805,80 +805,79 @@ msgstr "No se puede abrir el almacén"
 msgid "Could not open default calendar folder."
 msgstr "No se puede abrir la carpeta predeterminada del calendario."
 
-msgid "workday"
-msgstr "Día de Trabajo"
+msgctxt "recurrence"
+msgid "every workday"
+msgstr "cada dia laborable"
 
-msgid "day"
-msgstr "Día"
+msgctxt "recurrence"
+msgid "every day"
+msgstr "cada dia"
 
-msgid "days"
-msgstr "días"
+#. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} day"
+msgid_plural "every {0} days"
+msgstr[0] "cada dia"
+msgstr[1] "cada {0} dies"
 
-msgid "week"
-msgstr "Semana"
+msgctxt "recurrence"
+msgid "every week"
+msgstr "cada setmana"
 
-msgid "weeks"
-msgstr "Semanas"
+#. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} week"
+msgid_plural "every {0} weeks"
+msgstr[0] "cada setmana"
+msgstr[1] "cada {0} setmanes"
 
-#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+#. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
 msgstr "{0} el {1}"
 
-msgid "month"
-msgstr "Mes"
+msgctxt "recurrence"
+msgid "every month"
+msgstr "cada mes"
 
-msgid "months"
-msgstr "Meses"
+#. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} month"
+msgid_plural "every {0} months"
+msgstr[0] "cada mes"
+msgstr[1] "cada {0} mesos"
 
-msgid "year"
-msgstr "año"
+msgctxt "recurrence"
+msgid "every year"
+msgstr "cada any"
 
-msgid "years"
-msgstr "años"
+#. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} year"
+msgid_plural "every {0} years"
+msgstr[0] "cada any"
+msgstr[1] "cada {0} anys"
 
-msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "Ocurre cada {0} efectivo {1} de {2} a  {3}."
+msgid "Occurs {0} effective {1} from {2} to {3}."
+msgstr "Es repeteix {0} de {2} a {3}, a partir del {1}."
 
-msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "Ocurre cada {0} {1} efectivo {2} de {3} a {4}."
+msgid "Occurs {0} effective {1}."
+msgstr "Es repeteix {0} a partir del {1}."
 
-msgid "Occurs every {0} effective {1}."
-msgstr "Ocurre cada {0} efectivo {1}."
+msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] "Es repeteix {0} de {3} a {4}, a partir del {1}, {2} vegada."
+msgstr[1] "Es repeteix {0} de {3} a {4}, a partir del {1}, {2} vegades."
 
-msgid "Occurs every {0} {1} effective {2}."
-msgstr "Ocurre cada {0} {1} efectivo {2}."
+msgid "Occurs {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences."
+msgstr[0] "Es repeteix {0} a partir del {1}, {2} vegada."
+msgstr[1] "Es repeteix {0} a partir del {1}, {2} vegades."
 
-msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "Es produeix cada{0}efectiu{1}per a l'aparició de{2}de{3}a{4}."
-msgstr[1] "Es produeix cada{1}efectiu de{0}per a les ocurrències de{2}de{3}a{4}."
+msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
+msgstr "Es repeteix {0} des del {1} fins al {2}, de {3} a {4}."
 
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "Es produeix cada {0} {1} a partir del {2} durant {3} aparició, de {4} a {5}."
-msgstr[1] "Es produeix cada {0} {1} a partir del {2} durant {3} aparicions, de {4} a {5}."
-
-msgid "Occurs every {0} effective {1} for {2} occurrence."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "Es produeix cada{0}{1}efectiu per a l'aparició de{2}."
-msgstr[1] "Es produeix cada{0}{1}efectiu per a les ocurrències de{2}."
-
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "Es produeix cada{0}{1}{2}efectiu per a l'aparició de{3}."
-msgstr[1] "Es produeix cada{0}{1}{2}efectiu per a les ocurrències de{3}."
-
-msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "Ocurre cada {0} efectivo {1} mientras  {2} de {3} a {4}."
-
-msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "Ocurre cada {0} {1} efectivo {2} mientras {3} de {4} a {5}."
-
-msgid "Occurs every {0} effective {1} until {2}."
-msgstr "Ocurre cada {0} efectivo {1} mientras {2}."
-
-msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "Ocurre cada {0} {1} efectivo {2} mientras {3}."
+msgid "Occurs {0} effective {1} until {2}."
+msgstr "Es repeteix {0} des del {1} fins al {2}."
 
 msgid "New Meeting Time Proposed"
 msgstr "Nueva hora de reunión propuesta"
@@ -890,8 +889,13 @@ msgstr "l jS F Y{0}"
 msgid "Fwd"
 msgstr "RV"
 
-msgid "and "
-msgstr "i "
+#. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
+msgid "{0}, {1}"
+msgstr "{0}, {1}"
+
+#. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
+msgid "{0} and {1}"
+msgstr "{0} i {1}"
 
 msgid "Sort by: Attachment"
 msgstr "Ordenar por. Adjunto"
@@ -8640,6 +8644,48 @@ msgstr "No s'ha pogut trobar el missatge, ja s'ha mogut o s'ha suprimit."
 
 msgid "Action is not performed correctly."
 msgstr "L'acció no es realitza correctament."
+
+msgid "Tentatively accepted"
+msgstr "Acceptat provisionalment"
+
+msgid "New Time Proposed"
+msgstr "Nova hora proposada"
+
+msgid "Task Accepted:"
+msgstr "Tasca acceptada:"
+
+msgid "Task Declined:"
+msgstr "Tasca rebutjada:"
+
+msgid "Task Updated:"
+msgstr "Tasca actualitzada:"
+
+msgid "Task Completed:"
+msgstr "Tasca completada:"
+
+msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
+msgstr "No es poden assignar tasques a les carpetes públiques. Les carpetes públiques no admeten correu i no poden enviar notificacions d'assignació de tasques."
+
+msgid "Can not connect to Gromox."
+msgstr "No es pot connectar amb Gromox."
+
+msgid "Can not find object."
+msgstr "No es troba l'objecte."
+
+msgid "Can not open object with provided id."
+msgstr "No es pot obrir l'objecte amb l'identificador indicat."
+
+msgid "Logon Failed. Please check your name/password."
+msgstr "Ha fallat l'inici de sessió. Comproveu el vostre nom d'usuari i la contrasenya."
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr "L'operació ha fallat: el servidor no té prou memòria."
+
+msgid "There are no recipients in the message."
+msgstr "El missatge no té destinataris."
+
+msgid "You have insufficient privileges to open this object."
+msgstr "No teniu prou permisos per obrir aquest objecte."
 
 msgid "Could not handle this type of object."
 msgstr "No s'ha pogut gestionar aquest tipus d'objecte."

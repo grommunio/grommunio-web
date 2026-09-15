@@ -71,7 +71,7 @@ Grommunio.addressbook.dialogs.ABGroupGeneralTab = Ext.extend(Ext.form.FormPanel,
 				readOnly: true
 			},{
 				xtype: 'displayfield',
-				value: _('Notes') + ':',
+				value: Grommunio.util.Translations.Label(_('Notes')),
 				hideLabel: true
 			},{
 				xtype: 'textarea',

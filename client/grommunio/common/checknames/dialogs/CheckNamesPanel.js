@@ -53,7 +53,7 @@ Grommunio.common.checknames.dialogs.CheckNamesPanel = Ext.extend(Ext.Panel, {
 			header: true,
 			items: [{
 				xtype: 'displayfield',
-				value: _('Select an address to use') + ':',
+				value: Grommunio.util.Translations.Label(_('Select an address to use')),
 				hideLabel: true
 			},{
 				xtype: 'grid',

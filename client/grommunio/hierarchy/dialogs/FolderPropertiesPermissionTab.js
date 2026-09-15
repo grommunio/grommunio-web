@@ -142,7 +142,7 @@ Grommunio.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel
 						autoHeight: true,
 						forId: 'profile-combo',
 						hideLabel: false,
-						text: _('Profile') + ':',
+						text: Grommunio.util.Translations.Label(_('Profile')),
 						ref: '../../profileLabel'
 					},{
 						xtype: 'combo',

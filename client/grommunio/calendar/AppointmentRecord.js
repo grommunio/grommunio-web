@@ -184,7 +184,6 @@ Grommunio.calendar.AppointmentRecord = Ext.extend(Grommunio.core.data.MessageRec
 	{
 		// Start formatting the properties in such a way we can apply
 		// them directly into the recurrence pattern.
-		var type = this.get('recurrence_type');
 		var everyn = this.get('recurrence_everyn');
 		var start = this.get('recurrence_start').toUTC();
 		var end = this.get('recurrence_end').toUTC();
@@ -193,54 +192,51 @@ Grommunio.calendar.AppointmentRecord = Ext.extend(Grommunio.core.data.MessageRec
 		var startocc = this.get('recurrence_startocc');
 		var endocc = this.get('recurrence_endocc');
 		var pattern;
-		var occSingleDayRank = false;
+		var frequency;
 		var occTimeRange = (startocc !== 0 && endocc !== 0);
 
-		switch (type) {
+		// The frequency is one message rather than a number next to a noun: the
+		// determiner in front of it has to agree with that noun, which a translator
+		// cannot do when the code substitutes the noun ("jede Woche", "jedes Jahr").
+		switch (this.get('recurrence_type')) {
 			case Grommunio.common.recurrence.data.RecurrenceType.DAILY:
 				if (everyn == 1) {
-					type = _('workday');
-					occSingleDayRank = true;
+					frequency = pgettext('recurrence', 'every workday');
 				} else if (everyn == (24 * 60)) {
-					type = _('day');
-					occSingleDayRank = true;
+					frequency = pgettext('recurrence', 'every day');
 				} else {
 					everyn /= (24 * 60);
-					type = _('days');
-					occSingleDayRank = false;
+					// # TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
+					frequency = String.format(npgettext('recurrence', 'every {0} day', 'every {0} days', everyn), everyn);
 				}
 				break;
 			case Grommunio.common.recurrence.data.RecurrenceType.WEEKLY:
 				if (everyn == 1) {
-					type = _('week');
-					occSingleDayRank = true;
+					frequency = pgettext('recurrence', 'every week');
 				} else {
-					type = _('weeks');
-					occSingleDayRank = false;
+					// # TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
+					frequency = String.format(npgettext('recurrence', 'every {0} week', 'every {0} weeks', everyn), everyn);
 				}
 
 				// Append selected week days related information, if any
-				// # TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
-				type = String.format(_('{0} on {1}'), type, this.prepareWeekDaysString());
+				// # TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
+				frequency = String.format(_('{0} on {1}'), frequency, this.prepareWeekDaysString());
 				break;
 			case Grommunio.common.recurrence.data.RecurrenceType.MONTHLY:
 				if (everyn == 1) {
-					type = _('month');
-					occSingleDayRank = true;
+					frequency = pgettext('recurrence', 'every month');
 				} else {
-					type = _('months');
-					occSingleDayRank = false;
+					// # TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
+					frequency = String.format(npgettext('recurrence', 'every {0} month', 'every {0} months', everyn), everyn);
 				}
 				break;
 			case Grommunio.common.recurrence.data.RecurrenceType.YEARLY:
 				if (everyn <= 12) {
-					everyn = 1;
-					type = _('year');
-					occSingleDayRank = true;
+					frequency = pgettext('recurrence', 'every year');
 				} else {
 					everyn /= 12;
-					type = _('years');
-					occSingleDayRank = false;
+					// # TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
+					frequency = String.format(npgettext('recurrence', 'every {0} year', 'every {0} years', everyn), everyn);
 				}
 				break;
 		}
@@ -269,49 +265,23 @@ Grommunio.calendar.AppointmentRecord = Ext.extend(Grommunio.core.data.MessageRec
 		// based on the available properties.
 		if (term == Grommunio.common.recurrence.data.RecurrenceEnd.NEVER) {
 			if (occTimeRange) {
-				if (occSingleDayRank) {
-					pattern = String.format(_('Occurs every {0} effective {1} from {2} to {3}.'), type, start, startocc, endocc);
-				} else {
-					pattern = String.format(_('Occurs every {0} {1} effective {2} from {3} to {4}.'), everyn, type, start, startocc, endocc);
-				}
+				pattern = String.format(_('Occurs {0} effective {1} from {2} to {3}.'), frequency, start, startocc, endocc);
 			} else {
-				if (occSingleDayRank) {
-					pattern = String.format(_('Occurs every {0} effective {1}.'), type, start);
-				} else {
-					pattern = String.format(_('Occurs every {0} {1} effective {2}.'), everyn, type, start);
-				}
+				pattern = String.format(_('Occurs {0} effective {1}.'), frequency, start);
 			}
 		} else if (term == Grommunio.common.recurrence.data.RecurrenceEnd.N_OCCURRENCES) {
 			if (occTimeRange) {
-				if (occSingleDayRank) {
-					pattern = String.format(ngettext('Occurs every {0} effective {1} for {2} occurrence from {3} to {4}.', 'Occurs every {0} effective {1} for {2} occurrences from {3} to {4}.', numocc),
-								type, start, numocc, startocc, endocc);
-				} else {
-					pattern = String.format(ngettext('Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}.', 'Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}.', numocc),
-								everyn, type, start, numocc, startocc, endocc);
-				}
+				pattern = String.format(ngettext('Occurs {0} effective {1} for {2} occurrence from {3} to {4}.', 'Occurs {0} effective {1} for {2} occurrences from {3} to {4}.', numocc),
+							frequency, start, numocc, startocc, endocc);
 			} else {
-				if (occSingleDayRank) {
-					pattern = String.format(ngettext('Occurs every {0} effective {1} for {2} occurrence.', 'Occurs every {0} effective {1} for {2} occurrences.', numocc),
-								type, start, numocc);
-				} else {
-					pattern = String.format(ngettext('Occurs every {0} {1} effective {2} for {3} occurrence.', 'Occurs every {0} {1} effective {2} for {3} occurrences.', numocc),
-								everyn, type, start, numocc);
-				}
+				pattern = String.format(ngettext('Occurs {0} effective {1} for {2} occurrence.', 'Occurs {0} effective {1} for {2} occurrences.', numocc),
+							frequency, start, numocc);
 			}
 		} else if (term == Grommunio.common.recurrence.data.RecurrenceEnd.ON_DATE) {
 			if (occTimeRange) {
-				if (occSingleDayRank) {
-					pattern = String.format(_('Occurs every {0} effective {1} until {2} from {3} to {4}.'), type, start, end, startocc, endocc);
-				} else {
-					pattern = String.format(_('Occurs every {0} {1} effective {2} until {3} from {4} to {5}.'), everyn, type, start, end, startocc, endocc);
-				}
+				pattern = String.format(_('Occurs {0} effective {1} until {2} from {3} to {4}.'), frequency, start, end, startocc, endocc);
 			} else {
-				if (occSingleDayRank) {
-					pattern = String.format(_('Occurs every {0} effective {1} until {2}.'), type, start, end);
-				} else {
-					pattern = String.format(_('Occurs every {0} {1} effective {2} until {3}.'), everyn, type, start, end);
-				}
+				pattern = String.format(_('Occurs {0} effective {1} until {2}.'), frequency, start, end);
 			}
 		}
 
@@ -975,9 +945,9 @@ Grommunio.calendar.AppointmentRecord = Ext.extend(Grommunio.core.data.MessageRec
 
 	/**
 	 * Function is used to convert 'recurrence_weekdays' {@link Grommunio.common.recurrence.data.RecurrenceSubtype subtype}
-	 * property into a comma separated list which contains selected week days. To display weekday information
+	 * property into an enumeration of the selected week days. To display weekday information
 	 * as a part of recurring pattern.
-	 * @return {String} A string containing selected week days separated by comma.
+	 * @return {String} A string enumerating the selected week days.
 	 */
 	prepareWeekDaysString: function()
 	{
@@ -1001,13 +971,20 @@ Grommunio.calendar.AppointmentRecord = Ext.extend(Grommunio.core.data.MessageRec
 			}
 		});
 
-		// Check if there is more than one days are selected, to append 'and' word before last week day
-		if(checkedWeekDays.length > 1) {
-			var lastWeekDayIndex = checkedWeekDays.length - 1;
-			checkedWeekDays[lastWeekDayIndex] = _('and ') + checkedWeekDays[lastWeekDayIndex];
+		// Grow the enumeration one item at a time: the separator and the word before
+		// the last item are punctuation the translator owns, not something to append.
+		var list = checkedWeekDays.shift() || '';
+		var lastWeekDay = checkedWeekDays.pop();
+		checkedWeekDays.forEach(function(weekDay) {
+			// # TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
+			list = String.format(_('{0}, {1}'), list, weekDay);
+		});
+		if (lastWeekDay) {
+			// # TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
+			list = String.format(_('{0} and {1}'), list, lastWeekDay);
 		}
 
-		return (checkedWeekDays.length === 2) ? checkedWeekDays.join(" ") : checkedWeekDays.join(", ");
+		return list;
 	},
 
 	/**

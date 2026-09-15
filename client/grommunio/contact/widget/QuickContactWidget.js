@@ -65,7 +65,7 @@ Grommunio.contact.widget.QuickContactWidget = Ext.extend(Grommunio.core.ui.widge
 							xtype: 'textfield',
 							flex: 1,
 							name: 'display_name',
-							emptyText: _('Full Name') + ':',
+							emptyText: Grommunio.util.Translations.Label(_('Full Name')),
 							ref: '../../fullnameField',
 							listeners: {
 								scope: this,
@@ -80,7 +80,7 @@ Grommunio.contact.widget.QuickContactWidget = Ext.extend(Grommunio.core.ui.widge
 						items: [{
 							xtype: 'splitbutton',
 							width: 100,
-							text: _('Mobile') + ':',
+							text: Grommunio.util.Translations.Label(_('Mobile')),
 							handler: this.onPhoneButtonClick,
 							scope: this,
 							menu: this.initPhoneButtonMenu('cellular_telephone_number')
@@ -102,7 +102,7 @@ Grommunio.contact.widget.QuickContactWidget = Ext.extend(Grommunio.core.ui.widge
 						items: [{
 							xtype: 'textfield',
 							flex: 1,
-							emptyText: _('Email') + ':',
+							emptyText: Grommunio.util.Translations.Label(_('Email')),
 							ref: '../../mailAddressField',
 							name: 'email_address_1',
 							height: 30,

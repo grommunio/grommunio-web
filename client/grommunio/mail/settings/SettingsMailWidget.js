@@ -141,7 +141,7 @@ Grommunio.mail.settings.SettingsMailWidget = Ext.extend(Grommunio.settings.ui.Se
 			config.items.splice(1, 0, {
 				xtype: 'displayfield',
 				hideLabel: true,
-				value: _('Open or compose a mail item in a') + ':'
+				value: Grommunio.util.Translations.Label(_('Open or compose a mail item in a'))
 			},{
 				xtype: 'radiogroup',
 				name: 'grommunio/v1/main/base_content_layer',

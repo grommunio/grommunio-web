@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Swedish (Sweden)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 20:54+0200\n"
+"POT-Creation-Date: 2026-09-15 22:48+0200\n"
 "PO-Revision-Date: 2026-02-17 22:26+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/grommunio/grommunio-web/se/>\n"
@@ -806,80 +806,79 @@ msgstr "Kunde inte öppna butiken."
 msgid "Could not open default calendar folder."
 msgstr "Det gick inte att öppna standardkalendermappen."
 
-msgid "workday"
-msgstr "arbetsdag"
+msgctxt "recurrence"
+msgid "every workday"
+msgstr "varje arbetsdag"
 
-msgid "day"
-msgstr "dag"
+msgctxt "recurrence"
+msgid "every day"
+msgstr "varje dag"
 
-msgid "days"
-msgstr "dagar"
+#. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} day"
+msgid_plural "every {0} days"
+msgstr[0] "varje dag"
+msgstr[1] "var {0}:e dag"
 
-msgid "week"
-msgstr "vecka"
+msgctxt "recurrence"
+msgid "every week"
+msgstr "varje vecka"
 
-msgid "weeks"
-msgstr "veckor"
+#. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} week"
+msgid_plural "every {0} weeks"
+msgstr[0] "varje vecka"
+msgstr[1] "var {0}:e vecka"
 
-#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+#. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
 msgstr "{0} på {1}"
 
-msgid "month"
-msgstr "månad"
+msgctxt "recurrence"
+msgid "every month"
+msgstr "varje månad"
 
-msgid "months"
-msgstr "månader"
+#. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} month"
+msgid_plural "every {0} months"
+msgstr[0] "varje månad"
+msgstr[1] "var {0}:e månad"
 
-msgid "year"
-msgstr "år"
+msgctxt "recurrence"
+msgid "every year"
+msgstr "varje år"
 
-msgid "years"
-msgstr "år"
+#. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} year"
+msgid_plural "every {0} years"
+msgstr[0] "varje år"
+msgstr[1] "vart {0}:e år"
 
-msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "Förekommer varje {0} effektiv {1} från {2} till {3}."
+msgid "Occurs {0} effective {1} from {2} to {3}."
+msgstr "Återkommer {0} kl. {2}–{3}, från och med {1}."
 
-msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "Förekommer varje {0} {1} effektiv {2} från {3} till {4}."
+msgid "Occurs {0} effective {1}."
+msgstr "Återkommer {0} från och med {1}."
 
-msgid "Occurs every {0} effective {1}."
-msgstr "Förekommer varje {0} effektiv {1}."
+msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] "Återkommer {0} kl. {3}–{4}, från och med {1}, {2} gång."
+msgstr[1] "Återkommer {0} kl. {3}–{4}, från och med {1}, {2} gånger."
 
-msgid "Occurs every {0} {1} effective {2}."
-msgstr "Förekommer varje {0} {1} effektiv {2}."
+msgid "Occurs {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences."
+msgstr[0] "Återkommer {0} från och med {1}, {2} gång."
+msgstr[1] "Återkommer {0} från och med {1}, {2} gånger."
 
-msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "Förekommer varje {0} effektiv {1} för {2} förekomst från {3} till {4}."
-msgstr[1] "Förekommer varje {0} effektiv {1} för {2}-förekomster från {3} till {4}."
+msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
+msgstr "Återkommer {0} från {1} till och med {2}, kl. {3}–{4}."
 
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "Förekommer varje {0} {1} effektiv {2} för {3} förekomst från {4} till {5}."
-msgstr[1] "Förekommer varje {0} {1} effektiv {2} för {3} förekomster {4} till {5}."
-
-msgid "Occurs every {0} effective {1} for {2} occurrence."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "Förekommer varje {0} effektiv {1} för {2} förekomst."
-msgstr[1] "Förekommer varje {0} effektiv {1} för {2}-händelser."
-
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "Förekommer varje {0} {1} effektiv {2} för {3} förekomst."
-msgstr[1] "Förekommer varje {0} {1} effektiv {2} för {3}-händelser."
-
-msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "Förekommer varje {0} effektiv {1} till {2} från {3} till {4}."
-
-msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "Förekommer varje {0} {1} effektiv {2} till {3} från {4} till {5}."
-
-msgid "Occurs every {0} effective {1} until {2}."
-msgstr "Förekommer varje {0} effektiv {1} tills {2}."
-
-msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "Förekommer varje {0} {1} effektiv {2} tills {3}."
+msgid "Occurs {0} effective {1} until {2}."
+msgstr "Återkommer {0} från {1} till och med {2}."
 
 msgid "New Meeting Time Proposed"
 msgstr "Ny mötestid föreslagen"
@@ -891,8 +890,13 @@ msgstr "l j F Y {0}"
 msgid "Fwd"
 msgstr "Fwd"
 
-msgid "and "
-msgstr "och "
+#. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
+msgid "{0}, {1}"
+msgstr "{0}, {1}"
+
+#. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
+msgid "{0} and {1}"
+msgstr "{0} och {1}"
 
 msgid "Sort by: Attachment"
 msgstr "Sortera efter: Bilaga"
@@ -8640,6 +8644,48 @@ msgstr "Kunde inte hitta meddelandet, antingen har det flyttats eller tagits bor
 
 msgid "Action is not performed correctly."
 msgstr "Åtgärden utförs inte korrekt."
+
+msgid "Tentatively accepted"
+msgstr "Preliminärt accepterad"
+
+msgid "New Time Proposed"
+msgstr "Ny tid föreslagen"
+
+msgid "Task Accepted:"
+msgstr "Uppgift accepterad:"
+
+msgid "Task Declined:"
+msgstr "Uppgift avböjd:"
+
+msgid "Task Updated:"
+msgstr "Uppgift uppdaterad:"
+
+msgid "Task Completed:"
+msgstr "Uppgift slutförd:"
+
+msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
+msgstr "Det går inte att tilldela uppgifter i offentliga mappar. Offentliga mappar är inte e-postaktiverade och kan inte skicka aviseringar om uppgiftstilldelning."
+
+msgid "Can not connect to Gromox."
+msgstr "Det går inte att ansluta till Gromox."
+
+msgid "Can not find object."
+msgstr "Objektet hittades inte."
+
+msgid "Can not open object with provided id."
+msgstr "Det går inte att öppna objektet med angivet id."
+
+msgid "Logon Failed. Please check your name/password."
+msgstr "Inloggningen misslyckades. Kontrollera ditt användarnamn och lösenord."
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr "Åtgärden misslyckades: servern har inte tillräckligt med minne."
+
+msgid "There are no recipients in the message."
+msgstr "Meddelandet har inga mottagare."
+
+msgid "You have insufficient privileges to open this object."
+msgstr "Du har inte tillräcklig behörighet för att öppna det här objektet."
 
 msgid "Could not handle this type of object."
 msgstr "Kunde inte hantera den här typen av objekt."

@@ -89,7 +89,7 @@ Grommunio.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Grommuni
 		var model = filesContext.getModel();
 		return {
 			xtype : 'filesplugin.tree',
-			title : _('Select upload folder') + ':',
+			title : Grommunio.util.Translations.Label(_('Select upload folder')),
 			FilesFilter: Grommunio.plugins.files.data.FileTypes.FOLDER,
 			flex:1,
 			store : model.getHierarchyStore(),
