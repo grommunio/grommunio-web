@@ -1,0 +1,14 @@
+[Unit]
+Description=Remove expired grommunio-web sessions
+Documentation=https://github.com/grommunio/grommunio-web/issues/164
+
+[Service]
+Type=oneshot
+User=groweb
+Group=groweb
+ExecStart=/usr/libexec/grommunio-web/session-cleanup
+# /var stays writable, which is where the session directory lives. No PrivateTmp:
+# it would hide a session path under /tmp or /var/tmp and clean nothing, quietly.
+ProtectSystem=full
+ProtectHome=yes
+NoNewPrivileges=yes
