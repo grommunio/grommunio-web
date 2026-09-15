@@ -5,10 +5,13 @@
 
 # Tools
 
+SHELL := /bin/bash
+
 PHPMD ?= phpmd
 PHPDOC ?= phpdoc
 PHPDOC_CONFIG ?= phpdoc.dist.xml
 NPM ?= npm
+NODE ?= node
 MSGFMT ?= msgfmt
 PHP ?= php
 
@@ -269,6 +272,26 @@ phplintci:
 .PHONY: phpdoc
 phpdoc:
 	$(PHPDOC) run --config $(PHPDOC_CONFIG)
+
+# Bills of material
+
+BOMS = bom.json bom.spdx.json
+BOMSOURCES = tools/build-bom.mjs tools/bom-vendored.json package-lock.json package.json version \
+	$(wildcard plugins/*/php/vendor/composer/installed.json) \
+	plugins/files/php/Files/Backend/Webdav/sabredav/vendor/composer/installed.json
+
+.PHONY: bom
+bom: $(BOMS)
+
+$(BOMS) &: $(BOMSOURCES)
+	$(NODE) tools/build-bom.mjs
+
+# Fails when the committed BOMs no longer match their sources, so a
+# dependency bump cannot land without regenerating them. Run it in CI
+# next to the lint targets.
+.PHONY: bom-check
+bom-check:
+	$(NODE) tools/build-bom.mjs --check
 
 # NPM
 
