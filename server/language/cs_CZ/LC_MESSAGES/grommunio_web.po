@@ -817,31 +817,31 @@ msgstr "Nelze otevřít výchozí složku kalendáře."
 
 msgctxt "recurrence"
 msgid "every workday"
-msgstr ""
+msgstr "každý pracovní den"
 
 msgctxt "recurrence"
 msgid "every day"
-msgstr ""
+msgstr "každý den"
 
 #. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} day"
 msgid_plural "every {0} days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "každý den"
+msgstr[1] "každé {0} dny"
+msgstr[2] "každých {0} dní"
 
 msgctxt "recurrence"
 msgid "every week"
-msgstr ""
+msgstr "každý týden"
 
 #. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} week"
 msgid_plural "every {0} weeks"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "každý týden"
+msgstr[1] "každé {0} týdny"
+msgstr[2] "každých {0} týdnů"
 
 #. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
@@ -849,51 +849,51 @@ msgstr "{0} v {1}"
 
 msgctxt "recurrence"
 msgid "every month"
-msgstr ""
+msgstr "každý měsíc"
 
 #. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} month"
 msgid_plural "every {0} months"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "každý měsíc"
+msgstr[1] "každé {0} měsíce"
+msgstr[2] "každých {0} měsíců"
 
 msgctxt "recurrence"
 msgid "every year"
-msgstr ""
+msgstr "každý rok"
 
 #. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} year"
 msgid_plural "every {0} years"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "každý rok"
+msgstr[1] "každé {0} roky"
+msgstr[2] "každých {0} let"
 
 msgid "Occurs {0} effective {1} from {2} to {3}."
-msgstr ""
+msgstr "Opakuje se {0} od {2} do {3}, počínaje {1}."
 
 msgid "Occurs {0} effective {1}."
-msgstr ""
+msgstr "Opakuje se {0} počínaje {1}."
 
 msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Opakuje se {0} od {3} do {4}, počínaje {1}, {2} výskyt."
+msgstr[1] "Opakuje se {0} od {3} do {4}, počínaje {1}, {2} výskyty."
+msgstr[2] "Opakuje se {0} od {3} do {4}, počínaje {1}, {2} výskytů."
 
 msgid "Occurs {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Opakuje se {0} počínaje {1}, {2} výskyt."
+msgstr[1] "Opakuje se {0} počínaje {1}, {2} výskyty."
+msgstr[2] "Opakuje se {0} počínaje {1}, {2} výskytů."
 
 msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
-msgstr ""
+msgstr "Opakuje se {0} od {1} do {2}, od {3} do {4}."
 
 msgid "Occurs {0} effective {1} until {2}."
-msgstr ""
+msgstr "Opakuje se {0} od {1} do {2}."
 
 msgid "New Meeting Time Proposed"
 msgstr "Nově navrhovaný čas schůzky"
@@ -907,11 +907,11 @@ msgstr "Fwd"
 
 #. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
 msgid "{0}, {1}"
-msgstr ""
+msgstr "{0}, {1}"
 
 #. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
 msgid "{0} and {1}"
-msgstr ""
+msgstr "{0} a {1}"
 
 msgid "Sort by: Attachment"
 msgstr "Třídit podle: Příloha"
@@ -8688,46 +8688,46 @@ msgid "Action is not performed correctly."
 msgstr "Akce není provedena správně."
 
 msgid "Tentatively accepted"
-msgstr ""
+msgstr "Předběžně přijato"
 
 msgid "New Time Proposed"
-msgstr ""
+msgstr "Navržen nový čas"
 
 msgid "Task Accepted:"
-msgstr ""
+msgstr "Úkol přijat:"
 
 msgid "Task Declined:"
-msgstr ""
+msgstr "Úkol odmítnut:"
 
 msgid "Task Updated:"
-msgstr ""
+msgstr "Úkol aktualizován:"
 
 msgid "Task Completed:"
-msgstr ""
+msgstr "Úkol dokončen:"
 
 msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
-msgstr ""
+msgstr "Ve veřejných složkách nelze přidělovat úkoly. Veřejné složky nemají povolenou poštu a nemohou odesílat oznámení o přidělení úkolu."
 
 msgid "Can not connect to Gromox."
-msgstr ""
+msgstr "Nelze se připojit ke Gromoxu."
 
 msgid "Can not find object."
-msgstr ""
+msgstr "Objekt nebyl nalezen."
 
 msgid "Can not open object with provided id."
-msgstr ""
+msgstr "Objekt se zadaným identifikátorem nelze otevřít."
 
 msgid "Logon Failed. Please check your name/password."
-msgstr ""
+msgstr "Přihlášení se nezdařilo. Zkontrolujte jméno a heslo."
 
 msgid "Operation failed: Server does not have enough memory."
-msgstr ""
+msgstr "Operace se nezdařila: server nemá dostatek paměti."
 
 msgid "There are no recipients in the message."
-msgstr ""
+msgstr "Zpráva neobsahuje žádné příjemce."
 
 msgid "You have insufficient privileges to open this object."
-msgstr ""
+msgstr "Nemáte dostatečná oprávnění k otevření tohoto objektu."
 
 msgid "Could not handle this type of object."
 msgstr "Tento typ objektu se nepodařilo zpracovat."

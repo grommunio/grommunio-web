@@ -806,29 +806,29 @@ msgstr "Gat ekki opnað sjálfgefna dagatalsmöppu."
 
 msgctxt "recurrence"
 msgid "every workday"
-msgstr ""
+msgstr "alla virka daga"
 
 msgctxt "recurrence"
 msgid "every day"
-msgstr ""
+msgstr "alla daga"
 
 #. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} day"
 msgid_plural "every {0} days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "alla daga"
+msgstr[1] "á {0} daga fresti"
 
 msgctxt "recurrence"
 msgid "every week"
-msgstr ""
+msgstr "í hverri viku"
 
 #. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} week"
 msgid_plural "every {0} weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "í hverri viku"
+msgstr[1] "á {0} vikna fresti"
 
 #. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
@@ -836,47 +836,47 @@ msgstr "{0} á {1}"
 
 msgctxt "recurrence"
 msgid "every month"
-msgstr ""
+msgstr "í hverjum mánuði"
 
 #. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} month"
 msgid_plural "every {0} months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "í hverjum mánuði"
+msgstr[1] "á {0} mánaða fresti"
 
 msgctxt "recurrence"
 msgid "every year"
-msgstr ""
+msgstr "á hverju ári"
 
 #. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} year"
 msgid_plural "every {0} years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "á hverju ári"
+msgstr[1] "á {0} ára fresti"
 
 msgid "Occurs {0} effective {1} from {2} to {3}."
-msgstr ""
+msgstr "Endurtekið {0} frá {2} til {3}, frá og með {1}."
 
 msgid "Occurs {0} effective {1}."
-msgstr ""
+msgstr "Endurtekið {0} frá og með {1}."
 
 msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Endurtekið {0} frá {3} til {4}, frá og með {1}, {2} skipti."
+msgstr[1] "Endurtekið {0} frá {3} til {4}, frá og með {1}, {2} skipti."
 
 msgid "Occurs {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Endurtekið {0} frá og með {1}, {2} skipti."
+msgstr[1] "Endurtekið {0} frá og með {1}, {2} skipti."
 
 msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
-msgstr ""
+msgstr "Endurtekið {0} frá {1} til og með {2}, frá {3} til {4}."
 
 msgid "Occurs {0} effective {1} until {2}."
-msgstr ""
+msgstr "Endurtekið {0} frá {1} til og með {2}."
 
 msgid "New Meeting Time Proposed"
 msgstr "Nýr fundartími lagður til"
@@ -890,11 +890,11 @@ msgstr "FS"
 
 #. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
 msgid "{0}, {1}"
-msgstr ""
+msgstr "{0}, {1}"
 
 #. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
 msgid "{0} and {1}"
-msgstr ""
+msgstr "{0} og {1}"
 
 msgid "Sort by: Attachment"
 msgstr "Raða eftir viðhengi"
@@ -8644,46 +8644,46 @@ msgid "Action is not performed correctly."
 msgstr "Aðgerð er ekki framkvæmd á réttan hátt."
 
 msgid "Tentatively accepted"
-msgstr ""
+msgstr "Samþykkt með fyrirvara"
 
 msgid "New Time Proposed"
-msgstr ""
+msgstr "Nýr tími lagður til"
 
 msgid "Task Accepted:"
-msgstr ""
+msgstr "Verk samþykkt:"
 
 msgid "Task Declined:"
-msgstr ""
+msgstr "Verki hafnað:"
 
 msgid "Task Updated:"
-msgstr ""
+msgstr "Verk uppfært:"
 
 msgid "Task Completed:"
-msgstr ""
+msgstr "Verki lokið:"
 
 msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
-msgstr ""
+msgstr "Ekki er hægt að úthluta verkum í sameiginlegum möppum. Sameiginlegar möppur eru ekki tengdar tölvupósti og geta ekki sent tilkynningar um úthlutun verka."
 
 msgid "Can not connect to Gromox."
-msgstr ""
+msgstr "Ekki næst samband við Gromox."
 
 msgid "Can not find object."
-msgstr ""
+msgstr "Hluturinn fannst ekki."
 
 msgid "Can not open object with provided id."
-msgstr ""
+msgstr "Ekki er hægt að opna hlutinn með uppgefnu auðkenni."
 
 msgid "Logon Failed. Please check your name/password."
-msgstr ""
+msgstr "Innskráning mistókst. Athugaðu notandanafn og lykilorð."
 
 msgid "Operation failed: Server does not have enough memory."
-msgstr ""
+msgstr "Aðgerðin mistókst: þjónninn hefur ekki nægt minni."
 
 msgid "There are no recipients in the message."
-msgstr ""
+msgstr "Skeytið hefur enga viðtakendur."
 
 msgid "You have insufficient privileges to open this object."
-msgstr ""
+msgstr "Þú hefur ekki nægileg réttindi til að opna þennan hlut."
 
 msgid "Could not handle this type of object."
 msgstr "Ekki tókst að meðhöndla þessa tegund hlutar."

@@ -798,27 +798,27 @@ msgstr "기본 캘린더 폴더를 열 수 없습니다."
 
 msgctxt "recurrence"
 msgid "every workday"
-msgstr ""
+msgstr "근무일마다"
 
 msgctxt "recurrence"
 msgid "every day"
-msgstr ""
+msgstr "매일"
 
 #. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} day"
 msgid_plural "every {0} days"
-msgstr[0] ""
+msgstr[0] "{0}일마다"
 
 msgctxt "recurrence"
 msgid "every week"
-msgstr ""
+msgstr "매주"
 
 #. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} week"
 msgid_plural "every {0} weeks"
-msgstr[0] ""
+msgstr[0] "{0}주마다"
 
 #. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
@@ -826,43 +826,43 @@ msgstr "{0} {1}"
 
 msgctxt "recurrence"
 msgid "every month"
-msgstr ""
+msgstr "매월"
 
 #. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} month"
 msgid_plural "every {0} months"
-msgstr[0] ""
+msgstr[0] "{0}개월마다"
 
 msgctxt "recurrence"
 msgid "every year"
-msgstr ""
+msgstr "매년"
 
 #. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} year"
 msgid_plural "every {0} years"
-msgstr[0] ""
+msgstr[0] "{0}년마다"
 
 msgid "Occurs {0} effective {1} from {2} to {3}."
-msgstr ""
+msgstr "{1}부터 {0} {2}~{3}에 반복됩니다."
 
 msgid "Occurs {0} effective {1}."
-msgstr ""
+msgstr "{1}부터 {0} 반복됩니다."
 
 msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
+msgstr[0] "{1}부터 {0} {3}~{4}에 {2}회 반복됩니다."
 
 msgid "Occurs {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences."
-msgstr[0] ""
+msgstr[0] "{1}부터 {0} {2}회 반복됩니다."
 
 msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
-msgstr ""
+msgstr "{1}부터 {2}까지 {0} {3}~{4}에 반복됩니다."
 
 msgid "Occurs {0} effective {1} until {2}."
-msgstr ""
+msgstr "{1}부터 {2}까지 {0} 반복됩니다."
 
 msgid "New Meeting Time Proposed"
 msgstr "새로운 회의 시간 제안"
@@ -876,11 +876,11 @@ msgstr "전달"
 
 #. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
 msgid "{0}, {1}"
-msgstr ""
+msgstr "{0}, {1}"
 
 #. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
 msgid "{0} and {1}"
-msgstr ""
+msgstr "{0} 및 {1}"
 
 msgid "Sort by: Attachment"
 msgstr "정렬 기준: 첨부 파일"
@@ -8610,46 +8610,46 @@ msgid "Action is not performed correctly."
 msgstr "작업이 올바르게 수행되지 않습니다."
 
 msgid "Tentatively accepted"
-msgstr ""
+msgstr "임시 수락됨"
 
 msgid "New Time Proposed"
-msgstr ""
+msgstr "새 시간 제안됨"
 
 msgid "Task Accepted:"
-msgstr ""
+msgstr "작업 수락됨:"
 
 msgid "Task Declined:"
-msgstr ""
+msgstr "작업 거부됨:"
 
 msgid "Task Updated:"
-msgstr ""
+msgstr "작업 업데이트됨:"
 
 msgid "Task Completed:"
-msgstr ""
+msgstr "작업 완료됨:"
 
 msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
-msgstr ""
+msgstr "공용 폴더에서는 작업을 할당할 수 없습니다. 공용 폴더는 메일을 사용할 수 없으므로 작업 할당 알림을 보낼 수 없습니다."
 
 msgid "Can not connect to Gromox."
-msgstr ""
+msgstr "Gromox에 연결할 수 없습니다."
 
 msgid "Can not find object."
-msgstr ""
+msgstr "개체를 찾을 수 없습니다."
 
 msgid "Can not open object with provided id."
-msgstr ""
+msgstr "제공된 ID로 개체를 열 수 없습니다."
 
 msgid "Logon Failed. Please check your name/password."
-msgstr ""
+msgstr "로그온하지 못했습니다. 사용자 이름과 암호를 확인하세요."
 
 msgid "Operation failed: Server does not have enough memory."
-msgstr ""
+msgstr "작업을 완료하지 못했습니다. 서버 메모리가 부족합니다."
 
 msgid "There are no recipients in the message."
-msgstr ""
+msgstr "메시지에 수신자가 없습니다."
 
 msgid "You have insufficient privileges to open this object."
-msgstr ""
+msgstr "이 개체를 열 수 있는 권한이 없습니다."
 
 msgid "Could not handle this type of object."
 msgstr "이 유형의 개체를 처리할 수 없습니다."

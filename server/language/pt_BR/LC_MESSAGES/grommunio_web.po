@@ -808,29 +808,29 @@ msgstr "Não foi possível abrir a pasta padrão de calendário."
 
 msgctxt "recurrence"
 msgid "every workday"
-msgstr ""
+msgstr "todos os dias úteis"
 
 msgctxt "recurrence"
 msgid "every day"
-msgstr ""
+msgstr "todos os dias"
 
 #. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} day"
 msgid_plural "every {0} days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "todos os dias"
+msgstr[1] "a cada {0} dias"
 
 msgctxt "recurrence"
 msgid "every week"
-msgstr ""
+msgstr "todas as semanas"
 
 #. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} week"
 msgid_plural "every {0} weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "todas as semanas"
+msgstr[1] "a cada {0} semanas"
 
 #. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
@@ -838,47 +838,47 @@ msgstr "{0} em {1}"
 
 msgctxt "recurrence"
 msgid "every month"
-msgstr ""
+msgstr "todos os meses"
 
 #. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} month"
 msgid_plural "every {0} months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "todos os meses"
+msgstr[1] "a cada {0} meses"
 
 msgctxt "recurrence"
 msgid "every year"
-msgstr ""
+msgstr "todos os anos"
 
 #. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} year"
 msgid_plural "every {0} years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "todos os anos"
+msgstr[1] "a cada {0} anos"
 
 msgid "Occurs {0} effective {1} from {2} to {3}."
-msgstr ""
+msgstr "Repete-se {0} das {2} às {3}, a partir de {1}."
 
 msgid "Occurs {0} effective {1}."
-msgstr ""
+msgstr "Repete-se {0} a partir de {1}."
 
 msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Repete-se {0} das {3} às {4}, a partir de {1}, {2} vez."
+msgstr[1] "Repete-se {0} das {3} às {4}, a partir de {1}, {2} vezes."
 
 msgid "Occurs {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Repete-se {0} a partir de {1}, {2} vez."
+msgstr[1] "Repete-se {0} a partir de {1}, {2} vezes."
 
 msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
-msgstr ""
+msgstr "Repete-se {0} de {1} até {2}, das {3} às {4}."
 
 msgid "Occurs {0} effective {1} until {2}."
-msgstr ""
+msgstr "Repete-se {0} de {1} até {2}."
 
 msgid "New Meeting Time Proposed"
 msgstr "Novo horário para a reunião proposto"
@@ -892,11 +892,11 @@ msgstr "ENC"
 
 #. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
 msgid "{0}, {1}"
-msgstr ""
+msgstr "{0}, {1}"
 
 #. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
 msgid "{0} and {1}"
-msgstr ""
+msgstr "{0} e {1}"
 
 msgid "Sort by: Attachment"
 msgstr "Ordenar por: Anexos"
@@ -8646,46 +8646,46 @@ msgid "Action is not performed correctly."
 msgstr "A ação não foi executada corretamente."
 
 msgid "Tentatively accepted"
-msgstr ""
+msgstr "Aceito provisoriamente"
 
 msgid "New Time Proposed"
-msgstr ""
+msgstr "Novo horário proposto"
 
 msgid "Task Accepted:"
-msgstr ""
+msgstr "Tarefa aceita:"
 
 msgid "Task Declined:"
-msgstr ""
+msgstr "Tarefa recusada:"
 
 msgid "Task Updated:"
-msgstr ""
+msgstr "Tarefa atualizada:"
 
 msgid "Task Completed:"
-msgstr ""
+msgstr "Tarefa concluída:"
 
 msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
-msgstr ""
+msgstr "Não é possível atribuir tarefas em pastas públicas. As pastas públicas não têm e-mail habilitado e não podem enviar notificações de atribuição de tarefas."
 
 msgid "Can not connect to Gromox."
-msgstr ""
+msgstr "Não é possível conectar ao Gromox."
 
 msgid "Can not find object."
-msgstr ""
+msgstr "Objeto não encontrado."
 
 msgid "Can not open object with provided id."
-msgstr ""
+msgstr "Não é possível abrir o objeto com o ID informado."
 
 msgid "Logon Failed. Please check your name/password."
-msgstr ""
+msgstr "Falha no logon. Verifique seu nome de usuário e senha."
 
 msgid "Operation failed: Server does not have enough memory."
-msgstr ""
+msgstr "A operação falhou: o servidor não tem memória suficiente."
 
 msgid "There are no recipients in the message."
-msgstr ""
+msgstr "A mensagem não tem destinatários."
 
 msgid "You have insufficient privileges to open this object."
-msgstr ""
+msgstr "Você não tem privilégios suficientes para abrir este objeto."
 
 msgid "Could not handle this type of object."
 msgstr "Não foi possível lidar com esse tipo de objeto."

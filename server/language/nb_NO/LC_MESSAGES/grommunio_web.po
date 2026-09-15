@@ -808,29 +808,29 @@ msgstr "Kunne ikke åpne standard kalendermappe."
 
 msgctxt "recurrence"
 msgid "every workday"
-msgstr ""
+msgstr "hver arbeidsdag"
 
 msgctxt "recurrence"
 msgid "every day"
-msgstr ""
+msgstr "hver dag"
 
 #. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} day"
 msgid_plural "every {0} days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "hver dag"
+msgstr[1] "hver {0}. dag"
 
 msgctxt "recurrence"
 msgid "every week"
-msgstr ""
+msgstr "hver uke"
 
 #. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} week"
 msgid_plural "every {0} weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "hver uke"
+msgstr[1] "hver {0}. uke"
 
 #. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
@@ -838,47 +838,47 @@ msgstr "{0} på {1}"
 
 msgctxt "recurrence"
 msgid "every month"
-msgstr ""
+msgstr "hver måned"
 
 #. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} month"
 msgid_plural "every {0} months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "hver måned"
+msgstr[1] "hver {0}. måned"
 
 msgctxt "recurrence"
 msgid "every year"
-msgstr ""
+msgstr "hvert år"
 
 #. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} year"
 msgid_plural "every {0} years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "hvert år"
+msgstr[1] "hvert {0}. år"
 
 msgid "Occurs {0} effective {1} from {2} to {3}."
-msgstr ""
+msgstr "Gjentas {0} fra {2} til {3}, fra og med {1}."
 
 msgid "Occurs {0} effective {1}."
-msgstr ""
+msgstr "Gjentas {0} fra og med {1}."
 
 msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gjentas {0} fra {3} til {4}, fra og med {1}, {2} gang."
+msgstr[1] "Gjentas {0} fra {3} til {4}, fra og med {1}, {2} ganger."
 
 msgid "Occurs {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Gjentas {0} fra og med {1}, {2} gang."
+msgstr[1] "Gjentas {0} fra og med {1}, {2} ganger."
 
 msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
-msgstr ""
+msgstr "Gjentas {0} fra {1} til og med {2}, fra {3} til {4}."
 
 msgid "Occurs {0} effective {1} until {2}."
-msgstr ""
+msgstr "Gjentas {0} fra {1} til og med {2}."
 
 msgid "New Meeting Time Proposed"
 msgstr "Forslag til nytt møtetidspunkt"
@@ -892,11 +892,11 @@ msgstr "VS"
 
 #. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
 msgid "{0}, {1}"
-msgstr ""
+msgstr "{0}, {1}"
 
 #. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
 msgid "{0} and {1}"
-msgstr ""
+msgstr "{0} og {1}"
 
 msgid "Sort by: Attachment"
 msgstr "Sorter på: vedlegg"
@@ -8646,46 +8646,46 @@ msgid "Action is not performed correctly."
 msgstr "Handlingen er ikke utført korrekt."
 
 msgid "Tentatively accepted"
-msgstr ""
+msgstr "Foreløpig godtatt"
 
 msgid "New Time Proposed"
-msgstr ""
+msgstr "Ny tid foreslått"
 
 msgid "Task Accepted:"
-msgstr ""
+msgstr "Oppgave godtatt:"
 
 msgid "Task Declined:"
-msgstr ""
+msgstr "Oppgave avslått:"
 
 msgid "Task Updated:"
-msgstr ""
+msgstr "Oppgave oppdatert:"
 
 msgid "Task Completed:"
-msgstr ""
+msgstr "Oppgave fullført:"
 
 msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
-msgstr ""
+msgstr "Oppgaver kan ikke tildeles i offentlige mapper. Offentlige mapper er ikke e-postaktiverte og kan ikke sende varsler om oppgavetildeling."
 
 msgid "Can not connect to Gromox."
-msgstr ""
+msgstr "Kan ikke koble til Gromox."
 
 msgid "Can not find object."
-msgstr ""
+msgstr "Fant ikke objektet."
 
 msgid "Can not open object with provided id."
-msgstr ""
+msgstr "Kan ikke åpne objektet med oppgitt ID."
 
 msgid "Logon Failed. Please check your name/password."
-msgstr ""
+msgstr "Innloggingen mislyktes. Kontroller brukernavn og passord."
 
 msgid "Operation failed: Server does not have enough memory."
-msgstr ""
+msgstr "Operasjonen mislyktes: serveren har ikke nok minne."
 
 msgid "There are no recipients in the message."
-msgstr ""
+msgstr "Meldingen har ingen mottakere."
 
 msgid "You have insufficient privileges to open this object."
-msgstr ""
+msgstr "Du har ikke tilstrekkelige rettigheter til å åpne dette objektet."
 
 msgid "Could not handle this type of object."
 msgstr "Kunne ikke håndtere denne typen objekt."

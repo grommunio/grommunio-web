@@ -808,29 +808,29 @@ msgstr "Der Standardkalender konnte nicht geöffnet werden."
 
 msgctxt "recurrence"
 msgid "every workday"
-msgstr ""
+msgstr "jeden Arbeitstag"
 
 msgctxt "recurrence"
 msgid "every day"
-msgstr ""
+msgstr "jeden Tag"
 
 #. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} day"
 msgid_plural "every {0} days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "jeden Tag"
+msgstr[1] "alle {0} Tage"
 
 msgctxt "recurrence"
 msgid "every week"
-msgstr ""
+msgstr "jede Woche"
 
 #. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} week"
 msgid_plural "every {0} weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "jede Woche"
+msgstr[1] "alle {0} Wochen"
 
 #. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
@@ -838,47 +838,47 @@ msgstr "{0} am {1}"
 
 msgctxt "recurrence"
 msgid "every month"
-msgstr ""
+msgstr "jeden Monat"
 
 #. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} month"
 msgid_plural "every {0} months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "jeden Monat"
+msgstr[1] "alle {0} Monate"
 
 msgctxt "recurrence"
 msgid "every year"
-msgstr ""
+msgstr "jedes Jahr"
 
 #. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} year"
 msgid_plural "every {0} years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "jedes Jahr"
+msgstr[1] "alle {0} Jahre"
 
 msgid "Occurs {0} effective {1} from {2} to {3}."
-msgstr ""
+msgstr "Findet {0} von {2} bis {3} statt, beginnend am {1}."
 
 msgid "Occurs {0} effective {1}."
-msgstr ""
+msgstr "Findet {0} statt, beginnend am {1}."
 
 msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Findet {0} von {3} bis {4} statt, beginnend am {1}, für {2} Termin."
+msgstr[1] "Findet {0} von {3} bis {4} statt, beginnend am {1}, für {2} Termine."
 
 msgid "Occurs {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Findet {0} statt, beginnend am {1}, für {2} Termin."
+msgstr[1] "Findet {0} statt, beginnend am {1}, für {2} Termine."
 
 msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
-msgstr ""
+msgstr "Findet im Zeitraum vom {1} bis {2} {0} von {3} bis {4} statt."
 
 msgid "Occurs {0} effective {1} until {2}."
-msgstr ""
+msgstr "Findet im Zeitraum vom {1} bis einschließlich {2} {0} statt."
 
 msgid "New Meeting Time Proposed"
 msgstr "Neue Besprechungszeit vorgeschlagen"
@@ -892,11 +892,11 @@ msgstr "WG"
 
 #. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
 msgid "{0}, {1}"
-msgstr ""
+msgstr "{0}, {1}"
 
 #. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
 msgid "{0} and {1}"
-msgstr ""
+msgstr "{0} und {1}"
 
 msgid "Sort by: Attachment"
 msgstr "Sortieren nach: Anhang"
@@ -8649,46 +8649,46 @@ msgid "Action is not performed correctly."
 msgstr "Aktion wurde nicht korrekt ausgeführt."
 
 msgid "Tentatively accepted"
-msgstr ""
+msgstr "Mit Vorbehalt angenommen"
 
 msgid "New Time Proposed"
-msgstr ""
+msgstr "Neue Zeit vorgeschlagen"
 
 msgid "Task Accepted:"
-msgstr ""
+msgstr "Aufgabe angenommen:"
 
 msgid "Task Declined:"
-msgstr ""
+msgstr "Aufgabe abgelehnt:"
 
 msgid "Task Updated:"
-msgstr ""
+msgstr "Aufgabe aktualisiert:"
 
 msgid "Task Completed:"
-msgstr ""
+msgstr "Aufgabe abgeschlossen:"
 
 msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
-msgstr ""
+msgstr "Aufgaben können in öffentlichen Ordnern nicht zugewiesen werden. Öffentliche Ordner sind nicht E-Mail-fähig und können keine Aufgabenzuweisungen versenden."
 
 msgid "Can not connect to Gromox."
-msgstr ""
+msgstr "Keine Verbindung zu Gromox möglich."
 
 msgid "Can not find object."
-msgstr ""
+msgstr "Objekt nicht gefunden."
 
 msgid "Can not open object with provided id."
-msgstr ""
+msgstr "Objekt mit der angegebenen ID kann nicht geöffnet werden."
 
 msgid "Logon Failed. Please check your name/password."
-msgstr ""
+msgstr "Anmeldung fehlgeschlagen. Bitte prüfen Sie Benutzername und Passwort."
 
 msgid "Operation failed: Server does not have enough memory."
-msgstr ""
+msgstr "Vorgang fehlgeschlagen: Der Server hat nicht genügend Arbeitsspeicher."
 
 msgid "There are no recipients in the message."
-msgstr ""
+msgstr "Die Nachricht enthält keine Empfänger."
 
 msgid "You have insufficient privileges to open this object."
-msgstr ""
+msgstr "Sie haben nicht die erforderlichen Rechte, um dieses Objekt zu öffnen."
 
 msgid "Could not handle this type of object."
 msgstr "Konnte diese Objektart nicht verarbeiten."

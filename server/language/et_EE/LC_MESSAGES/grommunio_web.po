@@ -808,29 +808,29 @@ msgstr "Ei saanud avada vaikimisi kalendrikausta."
 
 msgctxt "recurrence"
 msgid "every workday"
-msgstr ""
+msgstr "igal tööpäeval"
 
 msgctxt "recurrence"
 msgid "every day"
-msgstr ""
+msgstr "iga päev"
 
 #. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} day"
 msgid_plural "every {0} days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "iga päev"
+msgstr[1] "iga {0} päeva järel"
 
 msgctxt "recurrence"
 msgid "every week"
-msgstr ""
+msgstr "iga nädal"
 
 #. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} week"
 msgid_plural "every {0} weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "iga nädal"
+msgstr[1] "iga {0} nädala järel"
 
 #. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
@@ -838,47 +838,47 @@ msgstr "{0} aadressil {1}"
 
 msgctxt "recurrence"
 msgid "every month"
-msgstr ""
+msgstr "iga kuu"
 
 #. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} month"
 msgid_plural "every {0} months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "iga kuu"
+msgstr[1] "iga {0} kuu järel"
 
 msgctxt "recurrence"
 msgid "every year"
-msgstr ""
+msgstr "iga aasta"
 
 #. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} year"
 msgid_plural "every {0} years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "iga aasta"
+msgstr[1] "iga {0} aasta järel"
 
 msgid "Occurs {0} effective {1} from {2} to {3}."
-msgstr ""
+msgstr "Kordub {0} kell {2}–{3}, alates {1}."
 
 msgid "Occurs {0} effective {1}."
-msgstr ""
+msgstr "Kordub {0} alates {1}."
 
 msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kordub {0} kell {3}–{4}, alates {1}, {2} kord."
+msgstr[1] "Kordub {0} kell {3}–{4}, alates {1}, {2} korda."
 
 msgid "Occurs {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kordub {0} alates {1}, {2} kord."
+msgstr[1] "Kordub {0} alates {1}, {2} korda."
 
 msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
-msgstr ""
+msgstr "Kordub {0} alates {1} kuni {2}, kell {3}–{4}."
 
 msgid "Occurs {0} effective {1} until {2}."
-msgstr ""
+msgstr "Kordub {0} alates {1} kuni {2}."
 
 msgid "New Meeting Time Proposed"
 msgstr "Kavandatud uus kohtumise aeg"
@@ -892,11 +892,11 @@ msgstr "Edasta"
 
 #. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
 msgid "{0}, {1}"
-msgstr ""
+msgstr "{0}, {1}"
 
 #. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
 msgid "{0} and {1}"
-msgstr ""
+msgstr "{0} ja {1}"
 
 msgid "Sort by: Attachment"
 msgstr "Järjesta: manuse alusel"
@@ -8646,46 +8646,46 @@ msgid "Action is not performed correctly."
 msgstr "Tegevus ei ole korrektselt sooritatud."
 
 msgid "Tentatively accepted"
-msgstr ""
+msgstr "Esialgselt aktsepteeritud"
 
 msgid "New Time Proposed"
-msgstr ""
+msgstr "Pakutud uus aeg"
 
 msgid "Task Accepted:"
-msgstr ""
+msgstr "Ülesanne aktsepteeritud:"
 
 msgid "Task Declined:"
-msgstr ""
+msgstr "Ülesandest keelduti:"
 
 msgid "Task Updated:"
-msgstr ""
+msgstr "Ülesanne uuendatud:"
 
 msgid "Task Completed:"
-msgstr ""
+msgstr "Ülesanne lõpetatud:"
 
 msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
-msgstr ""
+msgstr "Avalikes kaustades ei saa ülesandeid määrata. Avalikel kaustadel puudub e-posti tugi ja need ei saa saata ülesande määramise teateid."
 
 msgid "Can not connect to Gromox."
-msgstr ""
+msgstr "Gromoxiga ei saa ühendust."
 
 msgid "Can not find object."
-msgstr ""
+msgstr "Objekti ei leitud."
 
 msgid "Can not open object with provided id."
-msgstr ""
+msgstr "Antud identifikaatoriga objekti ei saa avada."
 
 msgid "Logon Failed. Please check your name/password."
-msgstr ""
+msgstr "Sisselogimine ebaõnnestus. Kontrollige kasutajanime ja salasõna."
 
 msgid "Operation failed: Server does not have enough memory."
-msgstr ""
+msgstr "Toiming ebaõnnestus: serveril pole piisavalt mälu."
 
 msgid "There are no recipients in the message."
-msgstr ""
+msgstr "Sõnumil pole adressaate."
 
 msgid "You have insufficient privileges to open this object."
-msgstr ""
+msgstr "Teil pole selle objekti avamiseks piisavalt õigusi."
 
 msgid "Could not handle this type of object."
 msgstr "Seda tüüpi objekti ei saanud käsitleda."

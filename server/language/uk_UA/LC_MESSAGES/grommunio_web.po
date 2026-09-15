@@ -817,31 +817,31 @@ msgstr "Не вдалося відкрити усталену теку кале�
 
 msgctxt "recurrence"
 msgid "every workday"
-msgstr ""
+msgstr "кожного робочого дня"
 
 msgctxt "recurrence"
 msgid "every day"
-msgstr ""
+msgstr "щодня"
 
 #. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} day"
 msgid_plural "every {0} days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "щодня"
+msgstr[1] "кожні {0} дні"
+msgstr[2] "кожні {0} днів"
 
 msgctxt "recurrence"
 msgid "every week"
-msgstr ""
+msgstr "щотижня"
 
 #. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} week"
 msgid_plural "every {0} weeks"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "щотижня"
+msgstr[1] "кожні {0} тижні"
+msgstr[2] "кожні {0} тижнів"
 
 #. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
@@ -849,51 +849,51 @@ msgstr "{0} на {1}"
 
 msgctxt "recurrence"
 msgid "every month"
-msgstr ""
+msgstr "щомісяця"
 
 #. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} month"
 msgid_plural "every {0} months"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "щомісяця"
+msgstr[1] "кожні {0} місяці"
+msgstr[2] "кожні {0} місяців"
 
 msgctxt "recurrence"
 msgid "every year"
-msgstr ""
+msgstr "щороку"
 
 #. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
 msgctxt "recurrence"
 msgid "every {0} year"
 msgid_plural "every {0} years"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "щороку"
+msgstr[1] "кожні {0} роки"
+msgstr[2] "кожні {0} років"
 
 msgid "Occurs {0} effective {1} from {2} to {3}."
-msgstr ""
+msgstr "Повторюється {0} з {2} до {3}, починаючи з {1}."
 
 msgid "Occurs {0} effective {1}."
-msgstr ""
+msgstr "Повторюється {0}, починаючи з {1}."
 
 msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Повторюється {0} з {3} до {4}, починаючи з {1}, {2} раз."
+msgstr[1] "Повторюється {0} з {3} до {4}, починаючи з {1}, {2} рази."
+msgstr[2] "Повторюється {0} з {3} до {4}, починаючи з {1}, {2} разів."
 
 msgid "Occurs {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs {0} effective {1} for {2} occurrences."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Повторюється {0}, починаючи з {1}, {2} раз."
+msgstr[1] "Повторюється {0}, починаючи з {1}, {2} рази."
+msgstr[2] "Повторюється {0}, починаючи з {1}, {2} разів."
 
 msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
-msgstr ""
+msgstr "Повторюється {0} у період з {1} по {2}, з {3} до {4}."
 
 msgid "Occurs {0} effective {1} until {2}."
-msgstr ""
+msgstr "Повторюється {0} у період з {1} по {2}."
 
 msgid "New Meeting Time Proposed"
 msgstr "Запропоновано новий час зустрічі"
@@ -907,11 +907,11 @@ msgstr "Вперед!"
 
 #. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
 msgid "{0}, {1}"
-msgstr ""
+msgstr "{0}, {1}"
 
 #. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
 msgid "{0} and {1}"
-msgstr ""
+msgstr "{0} і {1}"
 
 msgid "Sort by: Attachment"
 msgstr "Сортувати за: Вкладенням"
@@ -8681,46 +8681,46 @@ msgid "Action is not performed correctly."
 msgstr "Дія виконується некоректно."
 
 msgid "Tentatively accepted"
-msgstr ""
+msgstr "Попередньо прийнято"
 
 msgid "New Time Proposed"
-msgstr ""
+msgstr "Запропоновано новий час"
 
 msgid "Task Accepted:"
-msgstr ""
+msgstr "Завдання прийнято:"
 
 msgid "Task Declined:"
-msgstr ""
+msgstr "Завдання відхилено:"
 
 msgid "Task Updated:"
-msgstr ""
+msgstr "Завдання оновлено:"
 
 msgid "Task Completed:"
-msgstr ""
+msgstr "Завдання завершено:"
 
 msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
-msgstr ""
+msgstr "У загальнодоступних папках не можна призначати завдання. Загальнодоступні папки не підтримують пошту й не можуть надсилати сповіщення про призначення завдань."
 
 msgid "Can not connect to Gromox."
-msgstr ""
+msgstr "Не вдалося підключитися до Gromox."
 
 msgid "Can not find object."
-msgstr ""
+msgstr "Об'єкт не знайдено."
 
 msgid "Can not open object with provided id."
-msgstr ""
+msgstr "Не вдалося відкрити об'єкт із зазначеним ідентифікатором."
 
 msgid "Logon Failed. Please check your name/password."
-msgstr ""
+msgstr "Помилка входу. Перевірте ім'я користувача та пароль."
 
 msgid "Operation failed: Server does not have enough memory."
-msgstr ""
+msgstr "Операцію не виконано: на сервері недостатньо пам'яті."
 
 msgid "There are no recipients in the message."
-msgstr ""
+msgstr "У повідомленні немає одержувачів."
 
 msgid "You have insufficient privileges to open this object."
-msgstr ""
+msgstr "У вас недостатньо прав для відкриття цього об'єкта."
 
 msgid "Could not handle this type of object."
 msgstr "Не зміг впоратися з таким типом об'єктів."
