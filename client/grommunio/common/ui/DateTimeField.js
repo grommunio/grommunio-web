@@ -90,7 +90,7 @@ Grommunio.common.ui.DateTimeField = Ext.extend(Grommunio.common.ui.CompositeFiel
 			var labelConfig = config.labelConfig || {};
 			labelConfig = Ext.applyIf(labelConfig, {
 				xtype: 'label',
-				text: config.fieldLabel + (config.labelSeparator || ':') || ''
+				text: config.fieldLabel + (Ext.isDefined(config.labelSeparator) ? config.labelSeparator : Ext.layout.FormLayout.prototype.labelSeparator)
 			});
 			if ( config.labelWidth ){
 				labelConfig.width = config.labelWidth;

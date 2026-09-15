@@ -64,9 +64,11 @@ Grommunio.task.printer.TaskListViewRenderer = Ext.extend(Grommunio.common.printe
 		// Bottom table with username and date
 		html += '<table id="k-printlistbottom">' +
 		'<tr>' +
-		'<td>' + _('Printed by: ') +'{fullname:htmlEncode}</td>' +
-		// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-		'<td class="right">' + _('Printed on: ') + '{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}</td>' +
+		'<td>' + String.format(_('Printed by: {0}'), '{fullname:htmlEncode}') + '</td>' +
+		// TRANSLATORS: {0} is the date the list was printed on
+		'<td class="right">' + String.format(_('Printed on: {0}'),
+			// # TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+			'{currenttime:formatDefaultTimeString("' + _("l jS F Y {0}") + '")}') + '</td>' +
 		'</tr>' +
 		'</table>\n';
 		return html;

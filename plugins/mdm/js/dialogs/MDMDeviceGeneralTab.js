@@ -58,7 +58,7 @@ Grommunio.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPane
 			},
 			items: [{
 				cls: 'mdm-display-name',
-				value: _(config.record.get('devicetype')),
+				value: config.record.get('devicetype'),
 				htmlEncode: true,
 				disabled: false,
 				hideLabel: true

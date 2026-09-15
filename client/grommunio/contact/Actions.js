@@ -271,7 +271,7 @@ Grommunio.contact.Actions = {
 			store: store,
 			selectionCfg: [{
 				xtype: 'grommunio.memberboxfield',
-				fieldLabel: _('Members') + ':',
+				fieldLabel: Grommunio.util.Translations.Label(_('Members')),
 				height: 50,
 				boxStore: store,
 				flex: 1

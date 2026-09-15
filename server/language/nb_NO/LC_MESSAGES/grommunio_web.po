@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-06 21:29+0200\n"
+"POT-Creation-Date: 2026-09-15 20:54+0200\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/grommunio/grommunio-web/nb_NO/>\n"
@@ -40,6 +40,13 @@ msgstr "Verdien må være mellom 0% og 100%"
 
 msgid "Number must be higher than zero"
 msgstr "Tallet må være høyere enn null"
+
+#. TRANSLATORS: punctuation appended to every form label, {0} is the label
+#. itself. French puts a space before the colon, Chinese the full-width one.
+#. TRANSLATORS: punctuation appended to a field label, {0} is the label itself
+msgctxt "label separator"
+msgid "{0}:"
+msgstr "{0}:"
 
 msgid "More options"
 msgstr "Flere valg"
@@ -258,8 +265,8 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nei"
 
-msgid "Loading"
-msgstr "Laster inn"
+msgid "Loading…"
+msgstr "Laster inn…"
 
 msgid "The value in this field is invalid"
 msgstr "Verdien i dette feltet er ugyldig"
@@ -333,9 +340,6 @@ msgstr "Dette feltet kan kun inneholde bokstaver og _"
 
 msgid "This field should only contain letters, numbers and _"
 msgstr "Dette feltet kan kun inneholde bokstaver, tall og _"
-
-msgid "Email Addresses"
-msgstr "E-postadresser"
 
 msgid "Email addresses"
 msgstr "E-postadresser"
@@ -817,8 +821,9 @@ msgstr "uke"
 msgid "weeks"
 msgstr "uker"
 
-msgid " on "
-msgstr " på "
+#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+msgid "{0} on {1}"
+msgstr "{0} på {1}"
 
 msgid "month"
 msgstr "måned"
@@ -1366,18 +1371,18 @@ msgid "End"
 msgstr "Slutt"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-msgid "Printed by"
-msgstr "Skrevet ut av"
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+msgid "Printed by {0} at {1}"
+msgstr "Skrevet ut av {0} på {1}"
 
-msgid "at"
-msgstr "på"
+#. TRANSLATORS: {0} is a folder name, {1} the name of the mailbox it lives in
+msgid "{0} of {1}"
+msgstr "{0} av {1}"
 
-msgid "of"
-msgstr "av"
-
-msgid "Location: "
-msgstr "Sted: "
+msgid "Location: {0}"
+msgstr "Sted: {0}"
 
 msgid "j M {0}"
 msgstr "j M {0}"
@@ -1385,8 +1390,8 @@ msgstr "j M {0}"
 msgid "l jS M Y {0}"
 msgstr "l jS M Y {0}"
 
-msgid "All day: "
-msgstr "Heldag: "
+msgid "All day: {0}"
+msgstr "Heldag: {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1502,6 +1507,12 @@ msgstr "Åpne"
 msgid "Copy/Move"
 msgstr "Kopier/flytt"
 
+msgid "Mark Read"
+msgstr "Marker som lest"
+
+msgid "Mark Unread"
+msgstr "Marker som ulest"
+
 msgid "Send to…"
 msgstr "Send til…"
 
@@ -1519,10 +1530,6 @@ msgstr "Kunne ikke finne avtalen"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Denne avtalen har blitt flyttet eller slettet, vil du fortsette?"
-
-msgctxt "calendar.contextmenu"
-msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr "Bruk «Svar alle» for å svare alle deltakerne i møtet."
 
 msgid "Options"
 msgstr "Alternativer"
@@ -1614,22 +1621,8 @@ msgstr "Sorter på: viktighet"
 msgid "Appointments list"
 msgstr "Avtaleliste"
 
-msgid "Loading appointments"
-msgstr "Laster inn avtaler"
-
-msgid "Attendees"
-msgstr "Deltakere"
-
-msgid "Optional attendees"
-msgstr "Valgfrie deltakere"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F {0}"
-msgstr "j. F {0}"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F Y"
-msgstr "j. F Y"
+msgid "Loading appointments…"
+msgstr "Laster inn avtaler…"
 
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Du har ikke tilstrekkelige rettigheter til å kopiere og flytte denne mappen. Be om å få tildelt rettigheter fra eier, eller fra systemadministrator."
@@ -1712,8 +1705,18 @@ msgstr "Din kalender har blitt automatisk oppdatert. Denne møteinvitasjonen vil
 msgid "New appointment subject"
 msgstr "Emne for ny avtale"
 
-msgid "Loading appointments…"
-msgstr "Laster inn avtaler…"
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "j. F Y"
+
+msgid "Online meeting"
+msgstr "Nettmøte"
+
+msgid "Attendees"
+msgstr "Deltakere"
+
+msgid "Optional attendees"
+msgstr "Valgfrie deltakere"
 
 msgid "Please select a calendar via widget settings"
 msgstr "Vennligst velg ønsket kalender via Widget-innstillingene"
@@ -1780,8 +1783,8 @@ msgstr "Utskrift av flere elementer samtidig er ennå ikke implementert."
 msgid "Printing of this item is not yet available"
 msgstr "Utskrift av dette elementet er ikke mulig"
 
-msgid "Item type: "
-msgstr "Elementtype: "
+msgid "Item type: {0}"
+msgstr "Elementtype: {0}"
 
 msgid "Printing of this view is not yet available"
 msgstr "Utskrift av denne visningen er ennå ikke mulig"
@@ -1876,6 +1879,11 @@ msgstr "Ikke tilstrekkelige rettigheter"
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr "Du har ikke tilstrekkelige rettigheter til å slette elementer i denne mappen."
 
+msgid "You have insufficient privileges to delete one of the selected items."
+msgid_plural "You have insufficient privileges to delete {0} of the selected items."
+msgstr[0] "Du har ikke tilstrekkelige rettigheter til å slette ett av de valgte elementene."
+msgstr[1] "Du har ikke tilstrekkelige rettigheter til å slette {0} av de valgte elementene."
+
 msgid "Notify recipients"
 msgstr "Informer mottakere"
 
@@ -1912,6 +1920,12 @@ msgstr "Duplikat mottaker"
 msgid "Recipient already exists."
 msgstr "Mottaker finnes allerede."
 
+msgid "Remove attachment"
+msgstr "Fjern vedlegg"
+
+msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
+msgstr "Vil du fjerne «{0}» fra denne meldingen? Vedlegget kan ikke gjenopprettes etterpå."
+
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "Senderen av denne meldingen har bedt om å bli varslet når du har lest meldingen. Vil du sende et slikt varsel til senderen?"
 
@@ -1940,20 +1954,20 @@ msgid "Untitled"
 msgstr "Uten navn"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "Vedleggene kunne ikke lagres."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Dette vedlegget kunne ikke lagres: {0}"
+msgstr[1] "Disse vedleggene kunne ikke lagres: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{0} vedlegg ble lagret."
+msgstr[1] "{0} vedlegg ble lagret."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "Lagre vedlegg"
 
 msgid "Insert item"
 msgstr "Sett inn element"
@@ -2001,7 +2015,7 @@ msgid "Preview"
 msgstr "Forhåndsvisning"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "Forhåndsvis i dialogvindu"
 
 msgid "Download"
 msgstr "Last ned"
@@ -2010,7 +2024,7 @@ msgid "Download all as ZIP"
 msgstr "Last ned som ZIP"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "Lagre utvalget i lokal mappe"
 
 msgid "Import to folder"
 msgstr "Importer til mappe"
@@ -2022,10 +2036,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "For å kunne bruke ICS/VCS-importfunksjonen må du oppgradere Gromox til versjon 0 eller høyere."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "Forhåndsvis i grommunio Web-fane"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "Forhåndsvis i nettleservindu"
 
 msgid "Attachment error"
 msgstr "Feil med vedlegg"
@@ -2039,14 +2053,8 @@ msgstr "Kunne ikke laste ned"
 msgid "Drop files here to attach them"
 msgstr "Slipp filer her for å legge dem ved"
 
-msgid "Picture format is not supported. "
-msgstr "Bildeformatet er ikke støttet. "
-
-msgid "Supported format for contact pictures are"
-msgstr "Støttede filformater for kontaktfoto er"
-
-msgid "Attachment Error"
-msgstr "Feil med vedlegg"
+msgid "Picture format is not supported. Supported format for contact pictures are"
+msgstr "Bildeformatet er ikke støttet. Støttede filformater for kontaktfoto er"
 
 msgid "Could not save the category list."
 msgstr "Kunne ikke lagre kategorilisten."
@@ -2075,8 +2083,8 @@ msgstr "Er du sikker på at du vil slette kategorien \"{0}\"? Andre elementer be
 msgid "Rename Category"
 msgstr "Gi nytt navn til kategori"
 
-msgid "A category named \""
-msgstr "En kategori kalt \""
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "Du har allerede en kategori som heter «{0}». Bruk et annet navn."
 
 msgid "Create New Category"
 msgstr "Lag ny kategori"
@@ -2092,9 +2100,6 @@ msgstr "Lag"
 
 msgid "You must apply the changes you have made to the categories before you can create this category."
 msgstr "Du må først aktivere endringene i denne kategorien før du kan lagre den."
-
-msgid "You already have a category named '{0}'. Please use another name."
-msgstr "Du har allerede en kategori som heter «{0}». Bruk et annet navn."
 
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
 msgstr "Du har allerede en kategori som heter «{0}» i listen over ting som skal taes i bruk. Bruk et annet navn."
@@ -2220,6 +2225,9 @@ msgstr[1] "Det er {0} meldinger valgt."
 
 msgid "Folder '{0}' selected."
 msgstr "Mappe «{0}» valgt."
+
+msgid "Suggested folders"
+msgstr "Foreslåtte mapper"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "De valgte elementene kan ikke flyttes til denne mappen fordi den inneholder en annen type innhold."
@@ -2416,6 +2424,9 @@ msgstr "Angre den siste handlingen"
 msgid "Redo the last undone action"
 msgstr "Gjør om den sist angrede handlingen"
 
+msgid "Jump to the search box, press again for the browser search"
+msgstr "Hopp til søkefeltet, trykk en gang til for nettleserens søk"
+
 msgid "Open the command palette"
 msgstr "Åpne kommandopaletten"
 
@@ -2469,6 +2480,75 @@ msgstr "Sorter på: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
+
+msgid "Presentation"
+msgstr "Presentasjon"
+
+msgid "Fullscreen"
+msgstr "Fullskjerm"
+
+msgid "Previous page"
+msgstr "Forrige side"
+
+msgid "Next page"
+msgstr "Neste side"
+
+msgid "Page:"
+msgstr "Side:"
+
+msgid "of {0}"
+msgstr "av {0}"
+
+msgid "Zoom out"
+msgstr "Zoom ut"
+
+msgid "Zoom in"
+msgstr "Zoom inn"
+
+msgid "Zoom"
+msgstr "Zoomnivå"
+
+msgid "Automatic"
+msgstr "Automatisk"
+
+msgid "Actual size"
+msgstr "Faktisk størrelse"
+
+msgid "Page width"
+msgstr "Sidebredde"
+
+msgid "Rotate left"
+msgstr "Roter mot venstre"
+
+msgid "Rotate right"
+msgstr "Roter mot høyre"
+
+msgid "This document could not be previewed."
+msgstr "Dette dokumentet kunne ikke forhåndsvises."
+
+msgid "This file cannot be previewed."
+msgstr "Denne filen kan ikke forhåndsvises."
+
+msgid "Download the file to open it with a program that can read it."
+msgstr "Last ned filen for å åpne den med et program som kan lese den."
+
+msgid "The document is empty."
+msgstr "Dokumentet er tomt."
+
+msgid "This sheet is empty."
+msgstr "Dette arket er tomt."
+
+msgid "Showing the first {0} rows and {1} columns."
+msgstr "Viser de første {0} radene og {1} kolonnene."
+
+msgid "Wrap lines"
+msgstr "Bryt linjer"
+
+msgid "Line numbers"
+msgstr "Linjenumre"
+
+msgid "This message has no content."
+msgstr "Denne meldingen har ikke noe innhold."
 
 msgid "grommunio Web print"
 msgstr "grommunio Web print"
@@ -2592,7 +2672,7 @@ msgstr "Hver {A} uke på"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Generer ny oppgaven {A} uke(r) etter at hver oppgave er fullført"
 
-msgid "Every {A} years(s) on"
+msgid "Every {A} year(s) on"
 msgstr "Hvert {A}. år den"
 
 msgid "{A} {B}"
@@ -2921,6 +3001,12 @@ msgstr "Alltid flytt meldinger med dette emne"
 msgid "Create rule…"
 msgstr "Lag regel…"
 
+msgid "Saved"
+msgstr "Lagret"
+
+msgid "Saved successfully"
+msgstr "Vellykket lagring"
+
 msgid "myself"
 msgstr "meg selv"
 
@@ -3023,8 +3109,10 @@ msgstr "Aktiver skrivebordsvarsler for ny e-post"
 msgid "Enable desktop notifications for reminders"
 msgstr "Aktiver skrivebordsvarsler for påminnelser"
 
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A} Skjul skriverbordsvarsler automatisk etter sekunder {B}"
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Auto-hide desktop notification after {B} second(s)"
+msgstr "{A}Skjul skrivebordsvarsler automatisk etter {B} sekund(er)"
 
 msgid "Disable sound"
 msgstr "Skru av lyd"
@@ -3117,9 +3205,6 @@ msgstr "{0} forfall"
 
 msgid "Message body editor"
 msgstr "Redigeringsverktøy for meldingstekst"
-
-msgid "Loading…"
-msgstr "Laster inn…"
 
 msgid "Message could not be loaded"
 msgstr "Meldingen kunne ikke lastes inn"
@@ -3335,6 +3420,27 @@ msgstr "Marker som ulest"
 
 msgid "in"
 msgstr "om"
+
+msgid "Digitally sign this message"
+msgstr "Signer denne meldingen digitalt"
+
+msgid "Encrypt this message"
+msgstr "Krypter denne meldingen"
+
+msgid "Autosave is paused while encryption is selected."
+msgstr "Autolagring er satt på pause når kryptering er valgt."
+
+msgid "Turn off {0} signing and encryption first."
+msgstr "Slå av signering og kryptering med {0} først."
+
+msgid "options"
+msgstr "alternativer"
+
+msgid "Sign"
+msgstr "Skilt"
+
+msgid "Encrypt"
+msgstr "Krypter"
 
 msgid "Root"
 msgstr "Basismappe"
@@ -3574,9 +3680,6 @@ msgstr "Lokalt nummer"
 
 msgid "Extension"
 msgstr "Direktevalg"
-
-msgid "Add Attachment"
-msgstr "Legg til vedlegg"
 
 msgid "Add attachments to this contact"
 msgstr "Legg til et vedlegg til denne kontakten"
@@ -4027,9 +4130,6 @@ msgstr "Lys"
 msgid "Dark"
 msgstr "Mørk"
 
-msgid "Automatic"
-msgstr "Automatisk"
-
 msgid "Main toolbar"
 msgstr "Hovedverktøylinje"
 
@@ -4111,26 +4211,20 @@ msgstr "Utvid hierarki"
 msgid "Folders List"
 msgstr "Mappeliste"
 
+msgid "Loaded {0} of {1}"
+msgstr "Lastet inn {0} av {1}"
+
 msgid "Copy Details"
 msgstr "Kopier detaljer"
 
 msgid "Hide Details"
 msgstr "Skjul detaljer"
 
-msgid "Loaded {0} of {1}"
-msgstr "Lastet inn {0} av {1}"
-
 msgid "Copied!"
 msgstr "Oppfattet!"
 
-msgid "Saving"
-msgstr "Lagrer"
-
-msgid "Saved"
-msgstr "Lagret"
-
-msgid "Saved successfully"
-msgstr "Vellykket lagring"
+msgid "Saving…"
+msgstr "Lagre…"
 
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr "Du vil miste dine ulagrede endringer. Er du sikker på at du vil lukke dette vinduet?"
@@ -4216,14 +4310,132 @@ msgstr "D, d.m.Y"
 msgid "D d-m G:i"
 msgstr "D, d.m G:i"
 
+msgid "Click the link to open the URL in a new window."
+msgstr "Klikk på lenken for å åpne den i et nytt vindu."
+
+msgid "The server reported an unknown error on your request."
+msgstr "Serveren svarte med en ukjent feil på din henvendelse."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "Serveren svarte med en ikke spesifisert feil på din henvendelse."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "Sesjonen har gått ut på tid, du må logge inn på nytt."
+
+msgid "The session in the current browser window has been closed from another browser window or tab."
+msgstr "Sesjonen i dette nettleservinduet har blitt avsluttet fra et annet nettleservindu."
+
+msgid "Session expired"
+msgstr "Sesjonen har utløpt"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Ønsker du å bli videreført til pålogginssiden?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr "Ny godkjenning kreves, klikk her for å komme tilbake til påloggingssiden."
+
+msgid "Connection problem"
+msgstr "Problem med tilkobling"
+
+msgid "Could not connect to server, retrying in {0} second"
+msgid_plural "Could not connect to server, retrying in {0} seconds"
+msgstr[0] "Kunne ikke opprette forbindelse til server, forsøker igjen om {0} sekund(er)"
+msgstr[1] "Kunne ikke opprette forbindelse til server, forsøker igjen om {0} sekund(er)"
+
+msgid "Click to retry now"
+msgstr "Klikk for å forsøke igjen"
+
+msgid "Connection restored"
+msgstr "Forbindelse gjenopptatt"
+
+msgid "Connection with server has been restored"
+msgstr "Forbindelse til server har blitt gjenopptatt"
+
+msgid "grommunio Web was updated"
+msgstr "grommunio Web ble oppdatert"
+
+msgid "A new version is available, click here to reload."
+msgstr "En ny versjon er tilgjengelig. Klikk her for å laste inn på nytt."
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr "HTTP {0}"
+
+msgid "Invalid data received from the server"
+msgstr "Ugyldige data mottatt fra serveren"
+
+msgid "Missing store"
+msgstr "Mangler e-postboks"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "Standard e-postboks mangler fra hierarkiet."
+
+msgid "Not all functionality of grommunio Web might be working properly because of this."
+msgstr "På grunn av dette så kan det hende at ikke all funksjonalitet i grommunio Web virker."
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "Innboks"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "Utboks"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "Sendte elementer"
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "Slettede elementer"
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "Kalender"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "Kontakter"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "Kladd"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "Journal"
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "Notater"
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "Oppgaver"
+
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "Søppelpost"
+
+msgid "Missing folders"
+msgstr "Mangler mapper"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "Følgende nødvendig mappe mangler i hierarkiet: {0}"
+msgstr[1] "Følgende nødvendig mapper mangler i hierarkiet: {0}"
+
+msgid "Loading model from server failed"
+msgstr "Lasting av modulen fra server feilet"
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "Fraværendenotis er skrudd på. Vil du skru den av?"
+
 msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
 msgstr "Du har ikke tilstrekkelige tillatelse til å åpne denne e-postboksen, vil du fjerne den fra hierarkiet?"
 
 msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
 msgstr "Du har ikke tilstrekkelige tillatelse til å kunne åpne denne mappen, vil du fjerne den fra hierarkiet?"
-
-msgid "Insufficient Permissions"
-msgstr "Ikke tilstrekkelige rettigheter"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Du har ikke tilstrekkelige tillatelse til å kunne åpne denne mappen."
@@ -4232,13 +4444,13 @@ msgid "Empty folder"
 msgstr "Tøm mappen"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Tømming {0}... (0%)"
+msgstr "Tømming {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Tømte {0}({1} elementer fjernet)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Tømmer {0}... ({1}%)"
+msgstr "Tømmer {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4557,6 +4769,15 @@ msgstr "Filtermapper"
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Du har ikke tilstrekkelige rettigheter til å flytte denne mappen. Vil du kopiere i stedet?"
 
+msgid "Enable OpenPGP before replying to this protected message."
+msgstr "Slå på OpenPGP før du besvarer eller videresender denne beskyttede meldingen."
+
+msgid "The protected message could not be opened. No reply or forward was created."
+msgstr "Den beskyttede meldingen kunne ikke åpnes. Det ble ikke opprettet noe svar eller noen videresending."
+
+msgid "Unable to open response"
+msgstr "Kunne ikke åpne svaret"
+
 msgid "CC"
 msgstr "kopi"
 
@@ -4585,8 +4806,8 @@ msgstr "Planlegg å sende e-post"
 msgid "Scheduled Items"
 msgstr "Planlagte e-poster"
 
-msgid "Your message will be sent at "
-msgstr "Din melding vil bli sendt "
+msgid "Your message will be sent at {0}."
+msgstr "Din melding vil bli sendt {0}."
 
 msgid "Go to your Outbox to edit your email."
 msgstr "Gå til din Utboks for å redigerer din e-post."
@@ -4603,23 +4824,19 @@ msgstr "på oppgitt tidspunkt"
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "Starttidspunktet du angav, er i fortiden. Angi et nytt starttidspunkt."
 
-msgid "today  at "
-msgstr "i dag "
+msgid "Your email will be sent today at {0}"
+msgstr "Din e-post vil bli sendt i dag kl. {0}"
 
-msgid "tomorrow  at "
-msgstr "i morgen "
+msgid "Your email will be sent tomorrow at {0}"
+msgstr "Din e-post vil bli sendt i morgen kl. {0}"
 
-msgid "{0} at "
-msgstr "{0} om "
+#. TRANSLATORS: {0} is a weekday name, {1} a time of day
+msgid "Your email will be sent {0} at {1}"
+msgstr "Din e-post vil bli sendt {0} kl. {1}"
 
-msgid "at {0}"
-msgstr "om {0}"
-
-msgid "Your email will be sent {0}{1}"
-msgstr "Din e-post vil bli sendt {0}{1}"
-
-msgid "Saving…"
-msgstr "Lagre…"
+#. TRANSLATORS: {0} is a full date, {1} a time of day
+msgid "Your email will be sent at {0}, {1}"
+msgstr "Din e-post vil bli sendt {0} kl. {1}"
 
 msgid "Saved at {0}"
 msgstr "Melding lagret kl. {0}"
@@ -4629,6 +4846,10 @@ msgstr "Lagring feilet"
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Denne meldingen vil bli markert for oppfølging etter at den har blitt sendt."
+
+#. TRANSLATORS: {0} is the follow-up period, e.g. 'today' or 'next week'
+msgid "This message will be flagged for follow up {0} when it is sent."
+msgstr "Denne meldingen vil bli markert for oppfølging {0} når den sendes."
 
 msgid "Send Later"
 msgstr "Send senere"
@@ -4696,12 +4917,6 @@ msgstr "Sett kategori"
 msgid "Pop-Out"
 msgstr "Sprett-ut"
 
-msgid "Mark Read"
-msgstr "Marker som lest"
-
-msgid "Mark Unread"
-msgstr "Marker som ulest"
-
 msgid "New mail"
 msgstr "Ny e-post"
 
@@ -4728,6 +4943,15 @@ msgstr "Skriv ut valgt e-post"
 
 msgid "Filter"
 msgstr "Filter"
+
+msgid "This browser cannot attach the decrypted file. Download it before forwarding."
+msgstr "Denne nettleseren kan ikke legge ved den dekrypterte filen. Last den ned før du videresender."
+
+msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
+msgstr "Et dekryptert vedlegg overskrider opplastingsgrensene. Det ble ikke opprettet noe ufullstendig svar."
+
+msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
+msgstr "Et dekryptert vedlegg kunne ikke lastes opp. Det ble ikke opprettet noe ufullstendig svar."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -4806,6 +5030,9 @@ msgstr "Aktiver vedleggspåminnelse"
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}Autolagre usendt mail hvert {B} minutt(er)"
+
+msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
+msgstr "Autolagre også når kryptering er valgt (utkast lagres ukryptert)"
 
 msgid "Conversation view settings"
 msgstr "Innstillinger for samtalevisning"
@@ -5049,9 +5276,6 @@ msgstr "Flytt til Søppel E-post"
 msgid "Not Junk Email"
 msgstr "Ikke søppelpost"
 
-msgid "Send to"
-msgstr "Send til"
-
 msgid "Message list"
 msgstr "Meldingsliste"
 
@@ -5125,9 +5349,6 @@ msgstr "Sorter på: farge"
 
 msgid "Notes list"
 msgstr "Notatliste"
-
-msgid "Loading Notes"
-msgstr "Laster inn notater"
 
 msgid "Loading notes"
 msgstr "Laster inn notater"
@@ -5258,14 +5479,8 @@ msgstr "Skjul widgetpanelet"
 msgid "Auto"
 msgstr "Auto"
 
-msgid "Actual size"
-msgstr "Faktisk størrelse"
-
-msgid "Page width"
-msgstr "Sidebredde"
-
-msgid "Attachment preview (PDF and Open formats)"
-msgstr "Forhåndsvisning av vedlegg (PDF- og Open-format)"
+msgid "Preview documents and files in grommunio Web"
+msgstr "Forhåndsvis dokumenter og filer i grommunio Web"
 
 msgid "Document default zoom"
 msgstr "Dokumentets standard zoom"
@@ -5274,10 +5489,10 @@ msgid "PDF zoom"
 msgstr "PDF-zoom"
 
 msgid "Dialog"
-msgstr ""
+msgstr "Dialogvindu"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "Åpne forhåndsvisning i"
 
 msgid "File previewing"
 msgstr "Forhåndsvisning av fil"
@@ -5443,20 +5658,44 @@ msgstr "Vedlikehold"
 msgid "Reset all settings to defaults"
 msgstr "Tilbakestill alle innstillinger til standardinnstillingene"
 
+msgid "Migrate legacy categories"
+msgstr "Migrer eldre kategorier"
+
+msgid "This will scan all folders and migrate the categories assigned to items."
+msgstr "Dette vil gjennomsøke alle mapper og migrere kategoriene som er tildelt elementene."
+
+msgid "The legacy category settings will remain unchanged."
+msgstr "De eldre kategoriinnstillingene forblir uendret."
+
+msgid "Migrate"
+msgstr "Migrer"
+
+msgid "Legacy categories migrated successfully."
+msgstr "Eldre kategorier ble migrert."
+
+msgid "Could not migrate legacy categories."
+msgstr "Kunne ikke migrere eldre kategorier."
+
 msgid "Changes to assigned task"
 msgstr "Endringer på tilordnet oppgave"
 
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr "Vennligst merk at tilordnede oppgaver vil bli overskrevet når den som har fått oppgavene gjør endringer."
+msgid "Please note that the assigned task will be overwritten when the assignee makes changes."
+msgid_plural "Please note that the assigned tasks will be overwritten when the assignee makes changes."
+msgstr[0] "Vennligst merk at tilordnede oppgaver vil bli overskrevet når den som har fått oppgavene gjør endringer."
+msgstr[1] "Vennligst merk at tilordnede oppgaver vil bli overskrevet når den som har fått oppgavene gjør endringer."
 
 msgid "Delete confirmation"
 msgstr "Slett bekreftelse"
 
-msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr "Sletting av elementet(ene) vil også slette de opprinnelige elementet(ene)."
+msgid "Deleting the item will also delete the original item."
+msgid_plural "Deleting the items will also delete the original items."
+msgstr[0] "Sletting av elementet(ene) vil også slette de opprinnelige elementet(ene)."
+msgstr[1] "Sletting av elementet(ene) vil også slette de opprinnelige elementet(ene)."
 
-msgid "Do you want to delete the item(s)?"
-msgstr "Vil du slette elementet(ene)?"
+msgid "Do you want to delete the item?"
+msgid_plural "Do you want to delete the items?"
+msgstr[0] "Vil du slette elementet(ene)?"
+msgstr[1] "Vil du slette elementet(ene)?"
 
 msgid "Sort by: Priority"
 msgstr "Sorter på: prioritet"
@@ -5593,12 +5832,12 @@ msgstr "Ny oppgave"
 msgid "Completed"
 msgstr "ferdig"
 
-msgid "Printed by: "
-msgstr "Skrevet ut: "
+msgid "Printed by: {0}"
+msgstr "Skrevet ut: {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "Printed on: "
-msgstr "Skrevet ut: "
+#. TRANSLATORS: {0} is the date the list was printed on
+msgid "Printed on: {0}"
+msgstr "Skrevet ut: {0}"
 
 msgid "Percent complete"
 msgstr "Prosent utført"
@@ -5710,125 +5949,6 @@ msgstr "Ingen oppgave."
 
 msgid "Tasks / To-Do"
 msgstr "Oppgaver / To-Dos"
-
-msgid "Click the link to open the URL in a new window."
-msgstr "Klikk på lenken for å åpne den i et nytt vindu."
-
-msgid "The server reported an unknown error on your request."
-msgstr "Serveren svarte med en ukjent feil på din henvendelse."
-
-msgid "The server reported an unspecified error on your request."
-msgstr "Serveren svarte med en ikke spesifisert feil på din henvendelse."
-
-msgid "The session has expired, reauthentication is required."
-msgstr "Sesjonen har gått ut på tid, du må logge inn på nytt."
-
-msgid "The session in the current browser window has been closed from another browser window or tab."
-msgstr "Sesjonen i dette nettleservinduet har blitt avsluttet fra et annet nettleservindu."
-
-msgid "Session expired"
-msgstr "Sesjonen har utløpt"
-
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "Ønsker du å bli videreført til pålogginssiden?"
-
-msgid "Reauthentication required, click here to go to back to logon page."
-msgstr "Ny godkjenning kreves, klikk her for å komme tilbake til påloggingssiden."
-
-msgid "Connection problem"
-msgstr "Problem med tilkobling"
-
-msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr "Kunne ikke opprette forbindelse til server, forsøker igjen om {0} sekund(er)"
-
-msgid "Click to retry now"
-msgstr "Klikk for å forsøke igjen"
-
-msgid "Connection restored"
-msgstr "Forbindelse gjenopptatt"
-
-msgid "Connection with server has been restored"
-msgstr "Forbindelse til server har blitt gjenopptatt"
-
-msgid "grommunio Web was updated"
-msgstr "grommunio Web ble oppdatert"
-
-msgid "A new version is available, click here to reload."
-msgstr "En ny versjon er tilgjengelig. Klikk her for å laste inn på nytt."
-
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
-
-msgid "Invalid data received from the server"
-msgstr "Ugyldige data mottatt fra serveren"
-
-msgid "Missing store"
-msgstr "Mangler e-postboks"
-
-msgid "The default store is missing from the hierarchy."
-msgstr "Standard e-postboks mangler fra hierarkiet."
-
-msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "På grunn av dette så kan det hende at ikke all funksjonalitet i grommunio Web virker."
-
-msgctxt "hierarchy.foldername"
-msgid "Inbox"
-msgstr "Innboks"
-
-msgctxt "hierarchy.foldername"
-msgid "Outbox"
-msgstr "Utboks"
-
-msgctxt "hierarchy.foldername"
-msgid "Sent Items"
-msgstr "Sendte elementer"
-
-msgctxt "hierarchy.foldername"
-msgid "Deleted items"
-msgstr "Slettede elementer"
-
-msgctxt "hierarchy.foldername"
-msgid "Calendar"
-msgstr "Kalender"
-
-msgctxt "hierarchy.foldername"
-msgid "Contacts"
-msgstr "Kontakter"
-
-msgctxt "hierarchy.foldername"
-msgid "Drafts"
-msgstr "Kladd"
-
-msgctxt "hierarchy.foldername"
-msgid "Journal"
-msgstr "Journal"
-
-msgctxt "hierarchy.foldername"
-msgid "Notes"
-msgstr "Notater"
-
-msgctxt "hierarchy.foldername"
-msgid "Tasks"
-msgstr "Oppgaver"
-
-msgctxt "hierarchy.foldername"
-msgid "Junk Email"
-msgstr "Søppelpost"
-
-msgid "Missing folders"
-msgstr "Mangler mapper"
-
-msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] "Følgende nødvendig mappe mangler i hierarkiet: {0}"
-msgstr[1] "Følgende nødvendig mapper mangler i hierarkiet: {0}"
-
-msgid "Loading model from server failed"
-msgstr "Lasting av modulen fra server feilet"
-
-msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr "Fraværendenotis er skrudd på. Vil du skru den av?"
 
 msgid "AI Assistant"
 msgstr "AI-assistent"
@@ -6094,6 +6214,9 @@ msgstr "Tenker…"
 msgid "The response was interrupted and may be incomplete."
 msgstr "Svaret ble avbrutt og er kanskje ufullstendig."
 
+msgid "The answer reached the output limit configured for this model and stops here."
+msgstr "Svaret nådde grensen for utdata som er konfigurert for denne modellen, og stopper her."
+
 msgid "Insert at cursor"
 msgstr "Sett inn ved markøren"
 
@@ -6214,14 +6337,8 @@ msgstr "Utklippstavle"
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr "Kunne ikke kopiere lenken automatisk. Vennligst kopier den manuelt."
 
-msgid "Loading details..."
-msgstr "Laster inn detaljer..."
-
 msgid "Share"
 msgstr "Del"
-
-msgid "Loading..."
-msgstr "Laster..."
 
 msgid "Add attachment from {0}"
 msgstr "Legg til vedlegg fra {0}"
@@ -6329,7 +6446,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "grommunio Web vil automatisk starte på nytt for at disse endringene skal tre i kraft."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio Nettet lastes inn på nytt, vennligst vent."
+msgstr "grommunio Web lastes inn på nytt, vennligst vent."
 
 msgid "Edit Account"
 msgstr "Rediger konto"
@@ -6418,8 +6535,12 @@ msgstr "maks"
 msgid "You have to choose at least one file!"
 msgstr "Du må velge minst en fil!"
 
-msgid "Create New "
-msgstr "Opprett ny"
+msgid "Document"
+msgstr "Dokument"
+
+#. TRANSLATORS: {0} is a translated file type such as Document, Presentation or Spreadsheet
+msgid "Create New {0}"
+msgstr "Opprett ny {0}"
 
 msgid "Incorrect filename"
 msgstr "Feil filnavn"
@@ -6466,14 +6587,14 @@ msgstr "Vedlegget er vellykket lagret i Files"
 msgid "Upload Failed"
 msgstr "Opplasting mislyktes"
 
-msgid "Attachment could not be stored in Files! Error: "
-msgstr "Vedlegg kunne ikke lagres i Files! Feil!"
+msgid "Attachment could not be stored in Files!"
+msgstr "Vedlegg kunne ikke lagres i Files!"
 
 msgid "Share Files"
 msgstr "Del filer"
 
-msgid "Uploading files to "
-msgstr "Laste opp filer til"
+msgid "Uploading files to {0}"
+msgstr "Laster opp filer til {0}"
 
 msgid "Starting upload"
 msgstr "Starter opplasting"
@@ -6484,14 +6605,14 @@ msgstr "Avbryt opplasting"
 msgid "- seconds left"
 msgstr "- sekunder igjen"
 
-msgid " seconds left"
-msgstr " sekunder igjen"
+msgid "{0} seconds left"
+msgstr "{0} sekunder igjen"
 
-msgid " minutes left"
-msgstr " minutter igjen"
+msgid "{0} minutes left"
+msgstr "{0} minutter igjen"
 
-msgid "Uploading: "
-msgstr "Opplasting:"
+msgid "Uploading: {0}%"
+msgstr "Opplasting: {0}%"
 
 msgid "Upload status unavailable... please wait."
 msgstr "Opplastingsstatus utilgjengelig... vennligst vent."
@@ -6505,12 +6626,6 @@ msgstr "Opplasting avbrutt!"
 msgid "Upload failed!"
 msgstr "Opplasting mislyktes!"
 
-msgid "Document"
-msgstr "Dokument"
-
-msgid "Presentation"
-msgstr "Presentasjon"
-
 msgid "Spreadsheet"
 msgstr "Regneark"
 
@@ -6522,6 +6637,9 @@ msgstr "Opprett dokument"
 
 msgid "Create office document"
 msgstr "Opprett kontordokument"
+
+msgid "Preview file"
+msgstr "Forhåndsvis fil"
 
 msgid "Download files"
 msgstr "Last ned filer"
@@ -6556,20 +6674,14 @@ msgstr "Er delt"
 msgid "File preview"
 msgstr "Forhåndsvisning av fil"
 
-msgid "File content"
-msgstr "Filinnhold"
-
-msgid "Your browser does not support previewing of audio files!"
-msgstr "Nettleseren din støtter ikke forhåndsvisning av lydfiler!"
-
-msgid "Your browser does not support previewing of video files!"
-msgstr "Nettleseren din støtter ikke forhåndsvisning av videofiler!"
-
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
 msgid "File ({0})"
 msgstr "Fil ({0})"
+
+msgid "Path"
+msgstr "Sti"
 
 msgid "Sort by: Path"
 msgstr "Sorter etter: Sti"
@@ -6594,6 +6706,9 @@ msgstr "Intranett"
 
 msgid "Archive to InfoShare"
 msgstr "Arkiv til InfoShare"
+
+msgid "Kendox InfoShare plugin"
+msgstr "Kendox InfoShare plugin"
 
 msgid "Kendox InfoShare"
 msgstr "Kendox InfoShare"
@@ -6698,6 +6813,12 @@ msgstr "Kart"
 msgid "Mobile Device Manager"
 msgstr "Mobile Device Manager"
 
+msgid "Device removed"
+msgstr "Enheten er fjernet"
+
+msgid "The device was not removed. Check your password and try again."
+msgstr "Enheten ble ikke fjernet. Kontroller passordet ditt og prøv igjen."
+
 msgid "Wiping device"
 msgstr "Slett innhold på enhet"
 
@@ -6750,7 +6871,7 @@ msgid "Active Sync Version"
 msgstr "Active Sync Version"
 
 msgid "grommunio-sync Version"
-msgstr "grommunio-sync Version"
+msgstr "grommunio-sync-versjon"
 
 msgid "Policy name"
 msgstr "Navn på policy"
@@ -6999,17 +7120,530 @@ msgstr "Ett eller flere felt inneholder feil."
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
 msgstr "Passordet er svakt. Passordet bør inneholde store og små bokstaver og tall. Passordet bør bestå av 8 til 20 tegn."
 
+msgid "Invalid or oversized OpenPGP armor."
+msgstr "Ugyldig eller for stor OpenPGP-armering."
+
+msgid "Expected a single OpenPGP public key block."
+msgstr "Forventet nøyaktig én OpenPGP-blokk med offentlig nøkkel."
+
+msgid "Expected a single OpenPGP private key block."
+msgstr "Forventet nøyaktig én OpenPGP-blokk med privat nøkkel."
+
+msgid "Expected a single OpenPGP signature block."
+msgstr "Forventet nøyaktig én OpenPGP-signaturblokk."
+
+msgid "Expected a single OpenPGP message block."
+msgstr "Forventet nøyaktig én OpenPGP-meldingsblokk."
+
+msgid "Expected a single OpenPGP armor block."
+msgstr "Forventet nøyaktig én OpenPGP-armeringsblokk."
+
+msgid "Additional data outside the OpenPGP armor is not allowed."
+msgstr "Ytterligere data utenfor OpenPGP-armeringen er ikke tillatt."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Importer én fullstendig OpenPGP-nøkkel om gangen."
+
+msgid "This key exceeds the supported subkey or identity limit."
+msgstr "Denne nøkkelen overskrider grensen for antall undernøkler eller identiteter som støttes."
+
+msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
+msgstr "Private nøkler må være beskyttet med en passordfrase før opplasting. Beskytt denne nøkkelen lokalt først."
+
+msgid "The public certificate must match the private key fingerprint."
+msgstr "Det offentlige sertifikatet må samsvare med fingeravtrykket til den private nøkkelen."
+
+msgid "Unlock your OpenPGP private key in this browser tab first."
+msgstr "Lås opp den private OpenPGP-nøkkelen din i denne nettleserfanen først."
+
+msgid "The OpenPGP key was locked while the operation was running."
+msgstr "OpenPGP-nøkkelen ble låst mens operasjonen pågikk."
+
+msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
+msgstr "OpenPGP krever en moderne nettleser og en sikker HTTPS-tilkobling."
+
+msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
+msgstr "Beskytt-handlingen forventer en ubeskyttet privat nøkkel. Bruk Endre passordfrase for beskyttede nøkler."
+
+msgid "The passphrase could not unlock this private key."
+msgstr "Passordfrasen kunne ikke låse opp denne private nøkkelen."
+
+msgid "Every recipient needs a verified OpenPGP public key."
+msgstr "Hver mottaker må ha en verifisert offentlig OpenPGP-nøkkel."
+
+msgid "Encrypted message exceeds the size limit."
+msgstr "Den krypterte meldingen overskrider størrelsesgrensen."
+
+msgid "Expected one complete clear-signed OpenPGP message."
+msgstr "Forventet nøyaktig én fullstendig klartekstsignert OpenPGP-melding."
+
+msgid "Invalid clear-signed OpenPGP signature."
+msgstr "Ugyldig klartekstsignert OpenPGP-signatur."
+
+msgid "The OpenPGP request failed. Please try again."
+msgstr "OpenPGP-forespørselen mislyktes. Vennligst prøv igjen."
+
+msgid "Working…"
+msgstr "Arbeider…"
+
+msgid "The operation failed. Please try again."
+msgstr "Operasjonen mislyktes. Vennligst prøv igjen."
+
+msgid "Passphrase"
+msgstr "Passordfrase"
+
+msgid "Unlock OpenPGP private key"
+msgstr "Lås opp privat OpenPGP-nøkkel"
+
+msgid "Unlock"
+msgstr "Lås opp"
+
+msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
+msgstr "Passordfrasen din og den opplåste nøkkelen blir værende i denne nettleserfanen. Nøkkelen låses automatisk etter en begrenset tid eller når fanen lukkes. Fingeravtrykk: "
+
+msgid "Set up OpenPGP"
+msgstr "Sett opp OpenPGP"
+
+msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
+msgstr "Legg til en privat nøkkel som samsvarer med avsenderadressen, for å kunne signere meldinger eller beholde en lesbar kryptert kopi i Sendte elementer. Du kan importere en eksisterende nøkkel eller opprette en ny under OpenPGP-innstillingene."
+
+msgid "Open key settings"
+msgstr "Åpne nøkkelinnstillingene"
+
+msgid "Choose OpenPGP key"
+msgstr "Velg OpenPGP-nøkkel"
+
+msgid "Private key"
+msgstr "Privat nøkkel"
+
+msgid "Use key"
+msgstr "Bruk nøkkel"
+
+msgid "Private-key unlocking was cancelled."
+msgstr "Opplåsingen av den private nøkkelen ble avbrutt."
+
+msgid "Key selection was cancelled."
+msgstr "Nøkkelvalget ble avbrutt."
+
+msgid "Choose private key…"
+msgstr "Velg privat nøkkel…"
+
+msgid "Manage OpenPGP keys…"
+msgstr "Behandle OpenPGP-nøkler…"
+
+msgid "Lock private keys"
+msgstr "Lås private nøkler"
+
+msgid "Signing key: {0}"
+msgstr "Signeringsnøkkel: {0}"
+
+msgid "Decryption alone does not authenticate the sender."
+msgstr "Dekryptering alene autentiserer ikke avsenderen."
+
+msgid "OpenPGP security information"
+msgstr "OpenPGP-sikkerhetsinformasjon"
+
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+msgid "OpenPGP signed or encrypted message"
+msgstr "Melding signert eller kryptert med OpenPGP"
+
+msgid "OpenPGP Plugin"
+msgstr "OpenPGP-plugin"
+
+msgid "The OpenPGP operation was cancelled."
+msgstr "OpenPGP-operasjonen ble avbrutt."
+
+msgid "S/MIME and OpenPGP cannot protect the same message."
+msgstr "S/MIME og OpenPGP kan ikke beskytte den samme meldingen."
+
+msgid "Saving the OpenPGP draft timed out. Please retry."
+msgstr "Tidsavbrudd ved lagring av OpenPGP-utkastet. Vennligst prøv igjen."
+
+msgid "The draft could not be saved. Nothing was sent."
+msgstr "Utkastet kunne ikke lagres. Ingenting ble sendt."
+
+msgid "The sender or message protection changed. Please send again."
+msgstr "Avsenderen eller meldingsbeskyttelsen har endret seg. Vennligst send på nytt."
+
+msgid "The selected private key is not valid for this sender and protection mode."
+msgstr "Den valgte private nøkkelen er ikke gyldig for denne avsenderen og beskyttelsesmodusen."
+
+msgid "A matching, passphrase-protected private key is required."
+msgstr "Det kreves en privat nøkkel som samsvarer, og som er beskyttet med en passordfrase."
+
+msgid "A recipient key is invalid, expired or does not match its email address."
+msgstr "En mottakernøkkel er ugyldig, utløpt eller samsvarer ikke med e-postadressen sin."
+
+msgid "No verified recipient keys are available."
+msgstr "Ingen kontrollerte mottakernøkler er tilgjengelige."
+
+msgid "This message is too large for browser OpenPGP processing."
+msgstr "Denne meldingen er for stor til OpenPGP-behandling i nettleseren."
+
+msgid "Message protection changed while preparing the message. Please send again."
+msgstr "Meldingsbeskyttelsen endret seg mens meldingen ble klargjort. Vennligst send på nytt."
+
+msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
+msgstr "Den beskyttede meldingen er {0} MB, mer enn det denne serveren godtar i én forespørsel ({1} MB). Fjern vedlegg eller be administratoren om å heve opplastingsgrensen."
+
+msgid "The attachment archive is too large."
+msgstr "Vedleggsarkivet er for stort."
+
+msgid "Unlock the message again to download this attachment."
+msgstr "Lås opp meldingen på nytt for å laste ned dette vedlegget."
+
+msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
+msgstr "Denne meldingen inneholder en nøstet S/MIME-beskyttelse som OpenPGP ikke kan åpne."
+
+msgid "Too many nested OpenPGP envelopes."
+msgstr "For mange nøstede OpenPGP-konvolutter."
+
+msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
+msgstr "Signaturen er ugyldig, eller den offentlige nøkkelen til signaturen er ikke tilgjengelig. Ikke stol på denne avsenderidentiteten."
+
+msgid "The private key was locked while opening this message."
+msgstr "Den private nøkkelen ble låst mens denne meldingen ble åpnet."
+
+msgid "This message contains too many attachments."
+msgstr "Denne meldingen inneholder for mange vedlegg."
+
+msgid "The decoded attachments are too large."
+msgstr "De dekodede vedleggene er for store."
+
+msgid "The OpenPGP operation failed."
+msgstr "OpenPGP-operasjonen mislyktes."
+
+msgid "OpenPGP: checking message security…"
+msgstr "OpenPGP: kontrollerer meldingssikkerheten…"
+
+msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
+msgstr "Kryptert melding lagret uten MIME-konvolutt — lagre vedlegget og dekrypter det med et OpenPGP-verktøy"
+
+msgid "Signed message stored without its original MIME — the signature cannot be verified"
+msgstr "Signert melding lagret uten opprinnelig MIME — signaturen kan ikke verifiseres"
+
+msgid "Message decrypted"
+msgstr "Melding dekryptert"
+
+msgid "Message could not be decrypted — click for details or retry"
+msgstr "Meldingen kunne ikke dekrypteres — klikk for detaljer eller nytt forsøk"
+
+msgid "Encrypted message — unlock your private key to read"
+msgstr "Kryptert melding — lås opp den private nøkkelen din for å lese den"
+
+msgid "Signature could not be verified"
+msgstr "Signaturen kunne ikke verifiseres"
+
+msgid "Valid signature, but the signing key does not match the sender"
+msgstr "Gyldig signatur, men signeringsnøkkelen samsvarer ikke med avsenderen"
+
+msgid "Valid signature — sender fingerprint has not been verified"
+msgstr "Gyldig signatur — avsenderens fingeravtrykk er ikke verifisert"
+
+msgid "Valid signature from a verified sender"
+msgstr "Gyldig signatur fra en verifisert avsender"
+
+msgid "The signing key has since expired"
+msgstr "Signeringsnøkkelen har senere utløpt"
+
+msgid "Message is not signed"
+msgstr "Meldingen er ikke signert"
+
+msgid "Inline OpenPGP protects the body only; attachments are not covered"
+msgstr "Inline OpenPGP beskytter bare meldingsteksten; vedlegg er ikke omfattet"
+
+msgid "Unprotected text after the OpenPGP block is not shown"
+msgstr "Ubeskyttet tekst etter OpenPGP-blokken vises ikke"
+
+msgid "Your public keys could not be loaded, so signatures could not be checked"
+msgstr "De offentlige nøklene dine kunne ikke lastes inn, så signaturer kunne ikke kontrolleres"
+
+msgid "Security information"
+msgstr "Sikkerhetsinformasjon"
+
+msgid "Choose when composing"
+msgstr "Velg ved skriving av melding"
+
+msgid "Personal and public keys"
+msgstr "Personlige og offentlige nøkler"
+
+msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
+msgstr "Nøklene dine lagres i e-postboksen din. Private nøkler forblir beskyttet med passordfrase; signering, kryptering og opplåsing skjer i denne nettleseren. Verifiser fingeravtrykkene til kontaktene dine gjennom en separat, klarert kanal. Endringer i nøkler trer i kraft umiddelbart."
+
+msgid "No OpenPGP keys. Import or generate a key to get started."
+msgstr "Ingen OpenPGP-nøkler. Importer eller generer en nøkkel for å komme i gang."
+
+msgid "Identity"
+msgstr "Identitet"
+
+msgid "Fingerprint"
+msgstr "Fingeravtrykk"
+
+msgid "Public key"
+msgstr "Offentlig nøkkel"
+
+msgid "Revoked"
+msgstr "Tilbakekalt"
+
+msgid "Expired"
+msgstr "Utløpt"
+
+msgid "Fingerprint verified"
+msgstr "Fingeravtrykk verifisert"
+
+msgid "Not verified"
+msgstr "Ikke verifisert"
+
+msgid "Unlocked"
+msgstr "Låst opp"
+
+msgid "Locked"
+msgstr "Låst"
+
+msgid "Expires"
+msgstr "Utløper"
+
+msgid "No expiry"
+msgstr "Aldri"
+
+msgid "Generate key"
+msgstr "Generer nøkkel"
+
+msgid "Import key"
+msgstr "Importer nøkkel"
+
+msgid "Find public key"
+msgstr "Finn offentlig nøkkel"
+
+msgid "Details / verify"
+msgstr "Detaljer / verifiser"
+
+msgid "Export public key"
+msgstr "Eksporter offentlig nøkkel"
+
+msgid "Back up private key"
+msgstr "Sikkerhetskopier privat nøkkel"
+
+msgid "Unlock in this browser"
+msgstr "Lås opp i denne nettleseren"
+
 msgid "Change passphrase"
 msgstr "Endre passordfrasen"
+
+msgid "Lock all"
+msgstr "Lås alle"
+
+msgid "Default private key"
+msgstr "Standard privat nøkkel"
+
+msgid "Sign new messages by default"
+msgstr "Signer nye meldinger som standard"
+
+msgid "Encrypt new messages by default"
+msgstr "Krypter nye meldinger som standard"
+
+msgid "Manage keyservers"
+msgstr "Behandle nøkkelservere"
+
+msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
+msgstr "Standardvalgene for skriving gjelder bare nye OpenPGP-meldinger. S/MIME og OpenPGP kan ikke kombineres i én og samme melding."
+
+msgid "Generate OpenPGP key"
+msgstr "Generer OpenPGP-nøkkel"
+
+msgid "Algorithm"
+msgstr "Algoritme"
+
+msgid "Expires in"
+msgstr "Utløper om"
+
+msgid "1 year"
+msgstr "1 år"
+
+msgid "2 years"
+msgstr "2 år"
+
+msgid "5 years"
+msgstr "5 år"
+
+msgid "Repeat passphrase"
+msgstr "Gjenta passordfrase"
+
+msgid "Passphrases do not match."
+msgstr "Passordfrasene stemmer ikke overens."
+
+msgid "Generate"
+msgstr "Generer"
+
+msgid "Key created. Back up the private key and store its passphrase separately."
+msgstr "Nøkkelen er opprettet. Sikkerhetskopier den private nøkkelen, og oppbevar passordfrasen et annet sted."
+
+msgid "Revocation certificate — keep secure"
+msgstr "Tilbakekallingssertifikat — oppbevar sikkert"
+
+msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
+msgstr "Velg en sterk passordfrase på minst 12 tegn. Genereringen skjer lokalt i denne nettleseren og kan ta litt tid. Oppbevar tilbakekallingssertifikatet og en sikkerhetskopi av den private nøkkelen på et trygt sted."
+
+msgid "Import OpenPGP key"
+msgstr "Importer OpenPGP-nøkkel"
+
+msgid "Choose armored OpenPGP key file"
+msgstr "Velg fil med ASCII-armert OpenPGP-nøkkel"
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Nøkkelfilen er for stor. Maksimal størrelse: 1 MiB."
+
+msgid "The key file could not be read."
+msgstr "Nøkkelfilen kunne ikke leses."
+
+msgid "Armored key"
+msgstr "ASCII-armert nøkkel"
+
+msgid "Protect unencrypted key"
+msgstr "Beskytt ukryptert nøkkel"
+
+msgid "Optional: new passphrase for an unprotected private key"
+msgstr "Valgfritt: ny passordfrase for en ubeskyttet privat nøkkel"
+
+msgid "Key imported. Verify recipient fingerprints before encrypting to them."
+msgstr "Nøkkelen er importert. Verifiser fingeravtrykkene til mottakerne før du krypterer meldinger til dem."
+
+msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
+msgstr "Velg en fil eller lim inn én ASCII-armert nøkkel, inkludert BEGIN- og END-linjene. For en ubeskyttet privat nøkkel må du oppgi en ny passordfrase for å beskytte den lokalt før lagring. Importerte mottakernøkler blir ikke automatisk klarert."
+
+msgid "Public OpenPGP key"
+msgstr "Offentlig OpenPGP-nøkkel"
+
+msgid "Back up private OpenPGP key"
+msgstr "Sikkerhetskopier privat OpenPGP-nøkkel"
+
+msgid "Create backup"
+msgstr "Opprett sikkerhetskopi"
+
+msgid "Private key backup — keep secure"
+msgstr "Sikkerhetskopi av privat nøkkel — oppbevar sikkert"
+
+msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
+msgstr "Bekreft passordfrasen din lokalt før du laster ned denne krypterte sikkerhetskopien av den private nøkkelen. Oppbevar den sikkert, og send den aldri til en mottaker eller en nøkkelserver."
+
+msgid "Current passphrase"
+msgstr "Nåværende passordfrase"
+
+msgid "New passphrase"
+msgstr "Ny passordfrase"
+
+msgid "Change OpenPGP passphrase"
+msgstr "Endre OpenPGP-passordfrase"
+
+msgid "Repeat new passphrase"
+msgstr "Gjenta ny passordfrase"
+
+msgid "Passphrase changed. Make a new private-key backup."
+msgstr "Passordfrasen er endret. Lag en ny sikkerhetskopi av den private nøkkelen."
+
+msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
+msgstr "Den private nøkkelen krypteres på nytt lokalt. Eksisterende sikkerhetskopier krever fortsatt den opprinnelige passordfrasen."
+
+msgid "Verify OpenPGP fingerprint"
+msgstr "Verifiser OpenPGP-fingeravtrykk"
+
+msgid "Verified identities"
+msgstr "Verifiserte identiteter"
+
+msgid "Email identity"
+msgstr "E-postidentitet"
+
+msgid "Confirm fingerprint"
+msgstr "Bekreft fingeravtrykk"
+
+msgid "Enter the full fingerprint shown above."
+msgstr "Skriv inn hele fingeravtrykket som vises ovenfor."
+
+msgid "I verified this fingerprint"
+msgstr "Jeg har verifisert dette fingeravtrykket"
+
+msgid "Save verification"
+msgstr "Lagre verifisering"
+
+msgid "Fingerprint verification updated."
+msgstr "Verifiseringen av fingeravtrykket er oppdatert."
+
+msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
+msgstr "Sammenlign hele fingeravtrykket med kontakten din gjennom en separat, klarert kanal. Når du krysser av i boksen, knyttes denne nøkkelen til den valgte adressen; lar du være å krysse av, fjernes verifiseringen."
+
+msgid "All private keys in this browser tab are locked."
+msgstr "Alle private nøkler i denne nettleserfanen er nå låst."
+
+msgid "Delete OpenPGP key"
+msgstr "Slett OpenPGP-nøkkel"
+
+msgid "Type the full fingerprint to confirm deletion."
+msgstr "Skriv inn hele fingeravtrykket for å bekrefte slettingen."
+
+msgid "Delete key"
+msgstr "Slett nøkkel"
+
+msgid "Key removed from your mailbox."
+msgstr "Nøkkelen er fjernet fra e-postboksen din."
+
+msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
+msgstr "Hvis du sletter denne private nøkkelen, kan du ikke lenger lese meldinger som er kryptert til den, med mindre du har en sikkerhetskopi. Lag en sikkerhetskopi av den private nøkkelen før du fortsetter."
+
+msgid "This removes the public key and its verified fingerprints from your keyring."
+msgstr "Dette fjerner den offentlige nøkkelen og dens verifiserte fingeravtrykk fra nøkkelknippet ditt."
+
+msgid "Manage OpenPGP keyservers"
+msgstr "Behandle OpenPGP-nøkkelservere"
+
+msgid "HTTPS keyservers"
+msgstr "HTTPS-nøkkelservere"
+
+msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
+msgstr "Skriv inn én HTTPS-serveradresse per linje, uten sti, påloggingsinformasjon eller spørrestreng."
+
+msgid "Save keyservers"
+msgstr "Lagre nøkkelservere"
+
+msgid "Keyservers updated."
+msgstr "Nøkkelserverne er oppdatert."
+
+msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
+msgstr "Bare HTTPS-nøkkelservere som administratoren har godkjent, kan brukes. Søk krever et fullstendig fingeravtrykk. Nøkler lastes aldri opp automatisk."
+
+msgid "Approved servers: {0}"
+msgstr "Godkjente servere: {0}"
+
+msgid "Find OpenPGP public key"
+msgstr "Finn offentlig OpenPGP-nøkkel"
+
+msgid "Keyserver"
+msgstr "Nøkkelserver"
+
+msgid "Full fingerprint"
+msgstr "Fullstendig fingeravtrykk"
+
+msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
+msgstr "Skriv inn et fullstendig heksadesimalt fingeravtrykk på 40 eller 64 tegn."
+
+msgid "Find and import"
+msgstr "Finn og importer"
+
+msgid "The keyserver did not return the requested public key."
+msgstr "Nøkkelserveren returnerte ikke den forespurte offentlige nøkkelen."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Den offentlige nøkkelen er importert. Verifiser fingeravtrykket før du krypterer meldinger til eieren av nøkkelen."
+
+msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
+msgstr "Serveren mottar fingeravtrykket du søker etter. En nedlastet nøkkel krever fortsatt verifisering av fingeravtrykket før du krypterer meldinger til eieren av nøkkelen."
 
 msgid "Old passphrase"
 msgstr "Gammel passordfrase"
 
 msgid "Wrong passphrase. Please try again"
 msgstr "Feil passordfrase. Vennligst prøv igjen"
-
-msgid "New passphrase"
-msgstr "Ny passordfrase"
 
 msgid "Confirm new passphrase"
 msgstr "Bekreft ny passordfrase"
@@ -7041,20 +7675,11 @@ msgstr "Ingen sertifikater importert, vennligst last opp ditt private sertifikat
 msgid "Valid from"
 msgstr "Gyldig fra"
 
-msgid "Expires"
-msgstr "Utløper"
-
 msgid "Key Type"
 msgstr "Nøkkeltype"
 
 msgid "Purpose"
 msgstr "Formål"
-
-msgid "Sign"
-msgstr "Skilt"
-
-msgid "Encrypt"
-msgstr "Krypter"
 
 msgid "Sign & Encrypt"
 msgstr "Signer og krypter"
@@ -7185,14 +7810,12 @@ msgstr "CBC-modus"
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
 msgstr "grommunio Web kan verifisere digitale signaturer på e-postmeldinger. En vellykket verifisering forsikrer deg om at meldingen ikke har blitt tuklet med, og validerer avsenderens identitet."
 
-msgid "You are seeing this message because the verification of the digital signature"
-msgstr "Du ser denne meldingen fordi verifiseringen av den digitale signaturen"
+#. TRANSLATORS: {0} is the bolded phrase 'has failed'
+msgid "You are seeing this message because the verification of the digital signature {0} for this message."
+msgstr "Du ser denne meldingen fordi verifiseringen av den digitale signaturen {0} for denne meldingen."
 
-msgid " has failed"
-msgstr " har mislyktes"
-
-msgid " for this message."
-msgstr " for denne meldingen."
+msgid "has failed"
+msgstr "har mislyktes"
 
 msgid "What caused this issue?"
 msgstr "Hva forårsaket dette problemet?"
@@ -7205,12 +7828,6 @@ msgstr "Du kan fortsette å jobbe. Du bør imidlertid huske på at identiteten o
 
 msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
 msgstr "Du kan kontakte brukerstøtten eller systemadministratoren hvis du er usikker på hva du skal gjøre videre."
-
-msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "grommunio Web kan verifisere digitale signaturer av e-post. En vellykket verifisering gir deg trygghet"
-
-msgid "that the message has not been tampered with and validates the identity of the sender."
-msgstr "at meldingen ikke har blitt tuklet med, og validerer avsenderens identitet."
 
 msgid "The verification of the digital signature was successful for this email message."
 msgstr "Verifiseringen av den digitale signaturen var vellykket for denne e-postmeldingen."
@@ -7271,9 +7888,6 @@ msgstr "Kunne ikke verifisere signaturen, offentlig sertifikat mangler"
 
 msgid "Signature verification successful, but certificate is expired"
 msgstr "Signaturverifisering vellykket, men sertifikatet er utløpt"
-
-msgid "Signature could not be verified"
-msgstr "Signaturen kunne ikke verifiseres"
 
 msgid "Certificate has been revoked"
 msgstr "Sertifikatet har blitt tilbakekalt"
@@ -7608,8 +8222,11 @@ msgstr "PHP-Curl er ikke tilgjengelig."
 msgid "With this backend, you can connect to any Seafile server."
 msgstr "Med denne backend-løsningen kan du koble deg til en hvilken som helst Seafile-server."
 
-msgid "Files "
-msgstr "Filer "
+msgid "Files Seafile Backend: "
+msgstr "Filer Seafile Backend: "
+
+msgid "Moving failed"
+msgstr "Flytting mislyktes"
 
 msgid "Use SSL"
 msgstr "Bruk SSL"
@@ -7687,7 +8304,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "Med denne backend kan du koble deg til en hvilken som helst WebDAV-server."
 
 msgid "Files WebDAV Backend: "
-msgstr "Filer WebDAV Backend:"
+msgstr "Filer WebDAV Backend: "
 
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL er ikke installert"
@@ -7701,9 +8318,6 @@ msgstr "Opprettelse av katalog mislyktes"
 msgid "Deletion failed"
 msgstr "Sletting mislyktes"
 
-msgid "Moving failed"
-msgstr "Flytting mislyktes"
-
 msgid "Temporary directory problems"
 msgstr "Problemer med midlertidige kataloger"
 
@@ -7713,17 +8327,11 @@ msgstr "Fil eller mappe ble ikke funnet"
 msgid "Copying failed"
 msgstr "Kopieringen mislyktes"
 
-msgid "Please contact your system administrator"
-msgstr "Ta kontakt med systemadministratoren din"
-
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Filserveren kan ikke nås. Vennligst bekreft tilkoblingen."
 
-msgid "PHP-CURL not installed"
-msgstr "PHP-CURL ikke installert"
-
 msgid "Unknown backend"
-msgstr ""
+msgstr "Ukjent backend"
 
 msgid "Account is ready to use."
 msgstr "Kontoen er klar til bruk."
@@ -7738,10 +8346,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Denne filen er ikke lenger tilgjengelig. Vennligst last inn mappa på nytt."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "Denne backenden støtter ikke søk etter mottakere"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "Kunne ikke slå opp mottakere"
 
 msgid "Kendox certificate path is not configured."
 msgstr "Stien til Kendox-sertifikatet er ikke konfigurert."
@@ -7763,7 +8371,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "Det oppstod en uventet feil. Vennligst kontakt systemadministratoren din. Feilkode: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "Denne serveren støtter ikke behandling av delte mapper."
 
 msgid "No data received."
 msgstr "Ingen data mottatt."
@@ -7782,6 +8390,15 @@ msgstr "Feil ved endring av passord. Kontroller passordet ditt eller kontakt sys
 
 msgid "Password has been changed successfully."
 msgstr "Passordet har blitt endret."
+
+msgid "The OpenPGP operation could not be completed."
+msgstr "OpenPGP-operasjonen kunne ikke fullføres."
+
+msgid "OpenPGP: message was not sent"
+msgstr "OpenPGP: meldingen ble ikke sendt"
+
+msgid "The OpenPGP message could not be read."
+msgstr "OpenPGP-meldingen kunne ikke tolkes."
 
 msgid "No certificate available"
 msgstr "Ingen sertifikat tilgjengelig"
@@ -7808,19 +8425,18 @@ msgid "Unable to generate certs-only message"
 msgstr "Kunne ikke generere melding om kun sertifikater"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "Kunne ikke lese certs-only-melding"
 
 msgid "LDAP not configured"
 msgstr "LDAP er ikke konfigurert"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "Ugyldig LDAP-konfigurasjon"
 
-msgid "Missing public certificates for the following recipients: "
-msgstr "Mangler offentlige sertifikater for følgende mottakere:"
-
-msgid ". Please contact your system administrator for details"
-msgstr ". Kontakt systemadministratoren din for mer informasjon"
+#. TRANSLATORS: %s is a comma-separated list of email addresses
+#, php-format
+msgid "Missing public certificates for the following recipients: %s. Please contact your system administrator for details"
+msgstr "Mangler offentlige sertifikater for følgende mottakere: %s. Kontakt systemadministratoren din for mer informasjon"
 
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
 msgstr "Det offentlige sertifikatet ditt er ikke installert. Uten dette sertifikatet vil du ikke kunne lese krypterte meldinger du har sendt til andre."
@@ -7834,8 +8450,9 @@ msgstr "Kan ikke dekryptere sertifikatet"
 msgid "Private key can't be used to sign email"
 msgstr "Privat nøkkel kan ikke brukes til å signere e-post"
 
-msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "E-postadressen til sertifikatet stemmer ikke overens med grommunio Web-konto"
+#, php-format
+msgid "Certificate email address doesn't match grommunio Web account %s"
+msgstr "E-postadressen til sertifikatet stemmer ikke overens med grommunio Web-konto %s"
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -7844,14 +8461,17 @@ msgstr "RSA-nøkkelstørrelsen på %d bit er under det anbefalte minimumet på %
 msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
 msgstr "EdDSA (Ed25519)-sertifikater krever PHP 8.4+ og støttes kanskje ikke fullt ut. Sertifikatet ble importert."
 
-msgid "Certificate was expired on "
-msgstr "Sertifikatet ble utløpt den"
+#, php-format
+msgid "Certificate was expired on %s."
+msgstr "Sertifikatet utløp den %s."
 
 msgid "Certificate was imported."
 msgstr "Sertifikatet ble importert."
 
-msgid "Certificate is not yet valid "
-msgstr "Sertifikatet er ikke gyldig ennå"
+#. TRANSLATORS: %s is the date the certificate becomes valid
+#, php-format
+msgid "Certificate is not yet valid %s."
+msgstr "Sertifikatet er ikke gyldig ennå %s."
 
 msgid "Certificate has not been imported"
 msgstr "Sertifikatet har ikke blitt importert"
@@ -7860,7 +8480,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "Sertifikatet er tilbakekalt, men ble importert."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "Sertifikatets tilbakekallingsstatus kunne ikke verifiseres. Sertifikatet ble importert."
 
 msgid "Unable to read public certificate"
 msgstr "Kan ikke lese offentlig sertifikat"
@@ -7904,6 +8524,9 @@ msgstr "Svardata forespurt fra bussen, men den har ingen data."
 msgid "Cannot store the category list in this mailbox."
 msgstr "Kan ikke lagre kategorilisten i denne e-postboksen."
 
+msgid "Cannot scan this mailbox for categories."
+msgstr "Kan ikke gjennomsøke denne e-postboksen etter kategorier."
+
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "Ukjent modul '%s' med id '%s'"
@@ -7928,6 +8551,18 @@ msgstr "Oppgaveliste"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s av %2$s"
+
+msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
+msgstr "OpenPGP er for øyeblikket deaktivert eller utilgjengelig. Meldingen din ble ikke sendt. Slå på OpenPGP før du prøver på nytt, eller slå uttrykkelig av signering og kryptering."
+
+msgid "Too many messages were sent in a short time. Please wait a moment and send again."
+msgstr "Det ble sendt for mange meldinger på kort tid. Vennligst vent et øyeblikk og send på nytt."
+
+msgid "Message was not sent"
+msgstr "Meldingen ble ikke sendt"
+
+msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
+msgstr "Dette utkastet ber om OpenPGP-beskyttelse, men beskyttelsen ble ikke brukt. Meldingen ble ikke sendt. Slå på OpenPGP før du prøver på nytt, eller slå uttrykkelig av signering og kryptering."
 
 msgid "Error retrieving existing settings"
 msgstr "Feil ved henting av eksisterende innstillinger"
@@ -8024,8 +8659,8 @@ msgstr "Delte kontaktmapper"
 msgid "Public Contact Folders"
 msgstr "Offentlige kontaktmapper"
 
-msgid "Error in search, please try again"
-msgstr "Feil i søket, vennligst prøv igjen"
+msgid "Error in search, please try again."
+msgstr "Feil i søket, vennligst prøv igjen."
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr "Kan ikke utføre søk, ingen tillatelse til å opprette søkemappe."
@@ -8045,14 +8680,11 @@ msgstr "Kunne ikke åpne hendelsen."
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "Kunne ikke åpne forekomsten, den spesifikke forekomsten er sannsynligvis slettet."
 
-msgid "a meeting request"
-msgstr "en møteforespørsel"
+msgid "You have insufficient privileges to move a meeting request in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "Du har ikke tilstrekkelige rettigheter til å flytte en møteforespørsel i denne kalenderen. Kalenderens eier kan angi disse ved å bruke \"tillatelser\"-fanen i mappeegenskapene (høyreklikk på kalendermappen > egenskaper > tillatelser)"
 
-msgid "an appointment"
-msgstr "en avtale"
-
-msgid "You have insufficient privileges to move "
-msgstr "Du har ikke tilstrekkelige rettigheter til å flytte"
+msgid "You have insufficient privileges to move an appointment in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "Du har ikke tilstrekkelige rettigheter til å flytte en avtale i denne kalenderen. Kalenderens eier kan angi disse ved å bruke \"tillatelser\"-fanen i mappeegenskapene (høyreklikk på kalendermappen > egenskaper > tillatelser)"
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "Det er ikke mulig å angi at en påminnelse skal vises før forrige hendelse. Tilbakestill påminnelse for å lagre endringen"
@@ -8086,8 +8718,10 @@ msgid "Meeting could not be saved."
 msgstr "Møtet kunne ikke reddes."
 
 #, php-format
-msgid "There were %d skipped appointment(s):"
-msgstr "Avtaler som ble hoppet over (%d):"
+msgid "There was %d skipped appointment:"
+msgid_plural "There were %d skipped appointments:"
+msgstr[0] "Avtaler som ble hoppet over (%d):"
+msgstr[1] "Avtaler som ble hoppet over (%d):"
 
 msgid "More skipped appointments are not shown."
 msgstr "Flere avtaler som ble hoppet over, vises ikke."
@@ -8105,6 +8739,10 @@ msgstr "%s' bursdag"
 #, php-format
 msgid "%s's Anniversary"
 msgstr "%s' jubileumsdag"
+
+#, php-format
+msgid "Unable to add store: '%s'. Please check if you have the necessary permissions."
+msgstr "Kunne ikke legge til e-postboksen: \"%s\". Kontroller at du har de nødvendige rettighetene."
 
 msgid "You don't have the permission to complete this action"
 msgstr "Du har ikke tillatelse til å fullføre denne handlingen"
@@ -8240,26 +8878,26 @@ msgstr "Fant ikke meldingen, enten har den blitt flyttet eller slettet, eller s�
 msgid "Could not open message."
 msgstr "Kunne ikke åpne meldingen."
 
-msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "Du har ikke tilstrekkelige rettigheter til å kunne avslå denne møteinvitasjonen"
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "Du har ikke tilstrekkelige rettigheter til å avslå denne møteforespørselen."
 
-msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "Du har ikke tilstrekkelige rettigheter til å kunne godta denne møteinvitasjonen"
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "Du har ikke tilstrekkelige rettigheter til å godta denne møteforespørselen."
 
-msgid "Could not copy message"
-msgstr "Kunne ikke kopiere meldingen"
+msgid "Could not copy message."
+msgstr "Kunne ikke kopiere meldingen."
 
-msgid "Could not move message"
-msgstr "Kunne ikke flytte meldingen"
+msgid "Could not move message."
+msgstr "Kunne ikke flytte meldingen."
 
-msgid "Could not forward meeting request"
-msgstr "Kunne ikke videresende møteforespørsel"
+msgid "Could not forward meeting request."
+msgstr "Kunne ikke videresende møteforespørsel."
 
-msgid "You have insufficient privileges to save items in this folder"
-msgstr "Du har ikke tilstrekkelige rettigheter til å lagre elementer i denne mappen"
+msgid "You have insufficient privileges to save items in this folder."
+msgstr "Du har ikke tilstrekkelige rettigheter til å lagre elementer i denne mappen."
 
-msgid "Could not save message"
-msgstr "Kunne ikke lagre meldingen"
+msgid "Could not save message."
+msgstr "Kunne ikke lagre meldingen."
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Du har ikke tilstrekkelige rettigheter til å fjerne elementer fra kalenderen."
@@ -8269,9 +8907,6 @@ msgstr "Meldingen ligger ikke lenger i utgående-kø, sikkert fordi den har blit
 
 msgid "Message cannot be aborted"
 msgstr "Meldingen kan ikke avbrytes"
-
-msgid "You have insufficient privileges to delete items in this folder"
-msgstr "Du har ikke tilstrekkelige rettigheter til å slette elementer i denne mappen"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Du har ikke tilstrekkelige rettigheter til å legge ved elementet som et vedlegg."
@@ -8294,6 +8929,9 @@ msgstr "Du har ikke tilstrekkelige rettigheter til å kunne avslå denne oppgave
 msgid "Could not decline Task Request."
 msgstr "Kunne ikke avslå oppgaveforespørsel."
 
+msgid "Could not open the attachment."
+msgstr "Kunne ikke åpne vedlegget."
+
 msgid "Conflicts with another appointment."
 msgstr "Er i konflikt med en annen avtale."
 
@@ -8308,6 +8946,9 @@ msgstr "Din melding kom ikke frem til en eller alle mottakere"
 
 msgid "The following recipient(s) could not be reached"
 msgstr "De følgende mottakere kunne ikke nåes"
+
+msgid "Removing attachments has been disabled by the administrator."
+msgstr "Fjerning av vedlegg er deaktivert av administratoren."
 
 msgid "l, F j, Y g:i A"
 msgstr "l j. F Y G:i"
@@ -8339,9 +8980,6 @@ msgstr "Kunne ikke stoppe søkeoperasjonen."
 msgid "You have insufficient privileges to save this message."
 msgstr "Du har ikke tilstrekkelige rettigheter til å lagre denne meldingen."
 
-msgid "Could not save message."
-msgstr "Kunne ikke lagre meldingen."
-
 msgid "You have insufficient privileges to delete this message."
 msgstr "Du har ikke tilstrekkelige rettigheter til å slette denne meldingen."
 
@@ -8354,14 +8992,8 @@ msgstr "Du har ikke tilstrekkelige rettigheter til å kansellere denne møtefore
 msgid "Could not cancel Meeting Request."
 msgstr "Kunne ikke avbryte møteforespørselen."
 
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "Du har ikke tilstrekkelige rettigheter til å avslå denne møteforespørselen."
-
 msgid "Could not decline Meeting Request."
 msgstr "Kunne ikke avslå møteforespørsel."
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Du har ikke tilstrekkelige rettigheter til å godta denne møteforespørselen."
 
 msgid "Could not accept Meeting Request."
 msgstr "Kunne ikke godta møteforespørsel."
@@ -8374,9 +9006,6 @@ msgstr "Kunne ikke avbryte invitasjoner til møteforespørsler."
 
 msgid "You can not continue search operation on this folder."
 msgstr "Du kan ikke fortsette søket i denne mappen."
-
-msgid "Error in search, please try again."
-msgstr "Feil i søket, vennligst prøv igjen."
 
 msgid "Error in distribution list expansion."
 msgstr "Feil i utvidelsen av distribusjonslisten."
@@ -8427,6 +9056,9 @@ msgstr "Oppgaveforespørsel:"
 msgid "Sign in"
 msgstr "Logg inn"
 
+msgid "Loading"
+msgstr "Laster inn"
+
 msgid "File is not imported successfully"
 msgstr "Filen ble ikke importert"
 
@@ -8439,8 +9071,8 @@ msgstr "Den opplastede filen overskrider MAX_FILE_SIZE-direktivet som ble angitt
 msgid "The uploaded file was only partially uploaded."
 msgstr "Den opplastede filen ble bare delvis lastet opp."
 
-msgid "No file was uploaded. ."
-msgstr "Ingen fil ble lastet opp. ."
+msgid "No file was uploaded."
+msgstr "Ingen fil ble lastet opp."
 
 msgid "Missing a temporary folder."
 msgstr "Mangler en midlertidig mappe."

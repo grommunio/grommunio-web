@@ -49,7 +49,7 @@ Grommunio.common.reminder.dialogs.ReminderGrid = Ext.extend(Grommunio.common.ui.
 	initColumnModel: function()
 	{
 		return [{
-				header: '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
+				header: '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
 				headerCls: 'grommunio-icon-column',
 				dataIndex: 'icon_index',
 				width: 24,

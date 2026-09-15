@@ -407,7 +407,7 @@ Grommunio.plugins.kendox.UploadDialog = Ext.extend(Grommunio.core.ui.ContentPane
 			this.mainPanel.panelSelectAttachments.doLayout();
 			this.updateViewstate();
 		} else {
-			container.getNotifier().notify('error.kendox', _("Kendox InfoShare") + " plugin",
+			container.getNotifier().notify('error.kendox', _("Kendox InfoShare plugin"),
 				_("Reading attachment information failed") + ":\n" + Ext.util.Format.htmlEncode(response.errorMessage));
 		}
 	},
@@ -442,7 +442,7 @@ Grommunio.plugins.kendox.UploadDialog = Ext.extend(Grommunio.core.ui.ContentPane
 				});
 			if (selectedAttachments.length > this.maxAttachmentsNumber) {
 				this.loadingMask.hide();
-				container.getNotifier().notify('error.kendox', _("Kendox InfoShare") + " plugin",
+				container.getNotifier().notify('error.kendox', _("Kendox InfoShare plugin"),
 					_("With the selection of separate attachments a maximum of") + " " +
 					this.maxAttachmentsNumber.toLocaleString() + " " +
 					_("attachments can be selected. There have been") + " " +
@@ -452,7 +452,7 @@ Grommunio.plugins.kendox.UploadDialog = Ext.extend(Grommunio.core.ui.ContentPane
 			}
 			if (attachmentsTotalSize / 1024 / 1000 > this.maxAttachmentsSizeMb) {
 				this.loadingMask.hide();
-				container.getNotifier().notify('error.kendox', _("Kendox InfoShare") + " plugin",
+				container.getNotifier().notify('error.kendox', _("Kendox InfoShare plugin"),
 					_("With the selection of separate attachments the total size of all attachments may not exceed") + " " +
 					this.maxAttachmentsSizeMb.toLocaleString() + " " +
 					_("MB. There have been") + " " +
@@ -490,7 +490,7 @@ Grommunio.plugins.kendox.UploadDialog = Ext.extend(Grommunio.core.ui.ContentPane
 	onErrorCallback: function () {
 		this.loadingMask.hide();
 		this.close();
-		container.getNotifier().notify('error.kendox', _("Kendox InfoShare") + " plugin", _("Sending of mail failed"));
+		container.getNotifier().notify('error.kendox', _("Kendox InfoShare plugin"), _("Sending of mail failed"));
 	},
 
 	/**
@@ -505,7 +505,7 @@ Grommunio.plugins.kendox.UploadDialog = Ext.extend(Grommunio.core.ui.ContentPane
 		if (response.Successful === true) {
 			this.openWebDialog(response);
 		} else {
-			container.getNotifier().notify('error.kendox', _("Kendox InfoShare") + " plugin",
+			container.getNotifier().notify('error.kendox', _("Kendox InfoShare plugin"),
 				_("Sending of mail failed") + ":\n" + Ext.util.Format.htmlEncode(response.errorMessage));
 		}
 	},

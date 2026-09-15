@@ -274,7 +274,8 @@ class Pluginsmime extends Plugin {
 		};
 
 		if (array_filter($missingCerts, $missingMyself) === []) {
-			$errorMsg = _('Missing public certificates for the following recipients: ') . implode(', ', $missingCerts) . _('. Please contact your system administrator for details');
+			// TRANSLATORS: %s is a comma-separated list of email addresses
+			$errorMsg = sprintf(_('Missing public certificates for the following recipients: %s. Please contact your system administrator for details'), implode(', ', $missingCerts));
 		}
 		else {
 			$errorMsg = _("Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others.");

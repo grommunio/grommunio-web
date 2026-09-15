@@ -16,6 +16,8 @@ const PostalMime = require('postal-mime');
 const fflate = require('fflate');
 const pgp = require('openpgp');
 if (!globalThis.crypto) { globalThis.crypto = webcrypto; }
+// The page provides the gettext helper; the module under test is loaded bare here.
+if (!globalThis._) { globalThis._ = value => value; }
 let assertions = 0;
 function check(value, message) { assert.ok(value, message); assertions++; }
 function equal(actual, expected, message) { assert.deepEqual(actual, expected, message); assertions++; }

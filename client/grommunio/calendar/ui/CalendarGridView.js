@@ -82,7 +82,7 @@ Grommunio.calendar.ui.CalendarGridView = Ext.extend(Grommunio.common.ui.grid.Map
 	initLoadMask: function()
 	{
 		return {
-			msg: _('Loading appointments') + '...'
+			msg: _('Loading appointments…')
 		};
 	},
 

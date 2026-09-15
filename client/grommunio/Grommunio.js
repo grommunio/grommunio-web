@@ -523,7 +523,7 @@ Ext.apply(Grommunio, {
 		// if it already exists, this will be an update action, otherwise
 		// a new notification will be created.
 		this.connEl = container.getNotifier().notify('error.connection', _('Connection problem'),
-								 String.format(_('Could not connect to server, retrying in {0} second(s)'), timeout / 1000) + '\n' + _('Click to retry now'), {
+								 String.format(ngettext('Could not connect to server, retrying in {0} second', 'Could not connect to server, retrying in {0} seconds', timeout / 1000), timeout / 1000) + '\n' + _('Click to retry now'), {
 			persistent: true,
 			update: !!this.connEl,
 			reference: this.connEl,

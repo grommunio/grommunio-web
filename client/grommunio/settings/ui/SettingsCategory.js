@@ -195,7 +195,7 @@ Grommunio.settings.ui.SettingsCategory = Ext.extend(Ext.Container, {
 
 		// If we don't have the notifier yet, show it now.
 		if (!this.savingEl) {
-			this.savingEl = container.getNotifier().notify('info.saving', '', _('Saving') + '...', {
+			this.savingEl = container.getNotifier().notify('info.saving', '', _('Saving…'), {
 				container: container.getContentPanel().getEl(),
 				persistent: true
 			});

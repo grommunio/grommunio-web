@@ -529,10 +529,15 @@ class HierarchyModule extends Module {
 						$e->setDisplayMessage(_("User could not be resolved."));
 					}
 					else {
-						$folderType = $action["folder_type"];
-						if ($folderType == "all") {
-							$folderType = 'entire inbox';
-						}
+						$folderType = match ($action["folder_type"]) {
+							'calendar' => _('Calendar'),
+							'contact' => _('Contacts'),
+							'inbox' => _('Inbox'),
+							'note' => _('Notes'),
+							'task' => _('Tasks'),
+							'all' => _('Entire Inbox'),
+							default => $action["folder_type"],
+						};
 						$e->setDisplayMessage(sprintf(_('You have insufficient privileges to open this %1$s folder. The folder owner can set these using the \'permissions\'-tab of the folder properties (right click the %1$s folder > properties > permissions).'), $folderType));
 					}
 					break;

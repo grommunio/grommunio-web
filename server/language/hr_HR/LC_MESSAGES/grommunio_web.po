@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-06 21:29+0200\n"
+"POT-Creation-Date: 2026-09-15 20:54+0200\n"
 "PO-Revision-Date: 2025-02-25 15:04+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hr/>\n"
@@ -39,6 +39,13 @@ msgstr "Vrijednost mora biti između 0 % do 100 %"
 
 msgid "Number must be higher than zero"
 msgstr "Broj mora biti veći od nule"
+
+#. TRANSLATORS: punctuation appended to every form label, {0} is the label
+#. itself. French puts a space before the colon, Chinese the full-width one.
+#. TRANSLATORS: punctuation appended to a field label, {0} is the label itself
+msgctxt "label separator"
+msgid "{0}:"
+msgstr "{0}:"
 
 msgid "More options"
 msgstr "Daljnje opcije"
@@ -266,8 +273,8 @@ msgstr "Da"
 msgid "No"
 msgstr "Ne"
 
-msgid "Loading"
-msgstr "Učitavanje"
+msgid "Loading…"
+msgstr "učitavanje…"
 
 msgid "The value in this field is invalid"
 msgstr "Vrijednost u ovom polju je neispravna"
@@ -341,9 +348,6 @@ msgstr "Ovo polje treba sadržavati samo slova i _"
 
 msgid "This field should only contain letters, numbers and _"
 msgstr "Ovo polje treba sadržavati samo slova, brojke i _"
-
-msgid "Email Addresses"
-msgstr "E-mail adrese"
 
 msgid "Email addresses"
 msgstr "E-mail adrese"
@@ -825,8 +829,9 @@ msgstr "tjedan"
 msgid "weeks"
 msgstr "tjedana"
 
-msgid " on "
-msgstr "na"
+#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+msgid "{0} on {1}"
+msgstr "{0} na dane {1}"
 
 msgid "month"
 msgstr "mjesec"
@@ -1379,18 +1384,18 @@ msgid "End"
 msgstr "Kraj"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-msgid "Printed by"
-msgstr "Tiskao"
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+msgid "Printed by {0} at {1}"
+msgstr "Tiskao {0} na {1}"
 
-msgid "at"
-msgstr "na"
+#. TRANSLATORS: {0} is a folder name, {1} the name of the mailbox it lives in
+msgid "{0} of {1}"
+msgstr "{0} od {1}"
 
-msgid "of"
-msgstr "od"
-
-msgid "Location: "
-msgstr "Mjesto:"
+msgid "Location: {0}"
+msgstr "Mjesto: {0}"
 
 msgid "j M {0}"
 msgstr "j M{0}"
@@ -1398,8 +1403,8 @@ msgstr "j M{0}"
 msgid "l jS M Y {0}"
 msgstr "l jS M Y{0}"
 
-msgid "All day: "
-msgstr "Cijeli dan:"
+msgid "All day: {0}"
+msgstr "Cijeli dan: {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1516,6 +1521,12 @@ msgstr "Otvoriti"
 msgid "Copy/Move"
 msgstr "Kopiraj/Premjesti"
 
+msgid "Mark Read"
+msgstr "Mark Read"
+
+msgid "Mark Unread"
+msgstr "Označi kao nepročitano"
+
 msgid "Send to…"
 msgstr "Pošalji na…"
 
@@ -1533,10 +1544,6 @@ msgstr "Termin nije pronađen"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Ovaj termin je premješten ili izbrisan, želite li nastaviti?"
-
-msgctxt "calendar.contextmenu"
-msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr "Upotrijebite Odgovori svima da odgovorite svim sudionicima vašeg sastanka."
 
 msgid "Options"
 msgstr "Mogućnosti"
@@ -1628,22 +1635,8 @@ msgstr "Razvrstaj po: Važnost"
 msgid "Appointments list"
 msgstr "Popis sastanaka"
 
-msgid "Loading appointments"
-msgstr "Učitavanje termina"
-
-msgid "Attendees"
-msgstr "Sudionici"
-
-msgid "Optional attendees"
-msgstr "Opcionalni sudionici"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F {0}"
-msgstr "j. F {0}"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F Y"
-msgstr "j. F Y."
+msgid "Loading appointments…"
+msgstr "Učitavanje termina…"
 
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Nemate dovoljno ovlasti za premještanje i kopiranje ovog stavka. Zamolite vlasnika mape da vam odobri dozvole ili se obratite administratoru sustava."
@@ -1726,8 +1719,18 @@ msgstr "Vaš je kalendar automatski ažuriran. Ovaj će zahtjev za sastanak sada
 msgid "New appointment subject"
 msgstr "Predmet novog sastanka"
 
-msgid "Loading appointments…"
-msgstr "Učitavanje termina…"
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "j. F Y."
+
+msgid "Online meeting"
+msgstr "Mrežni sastanak"
+
+msgid "Attendees"
+msgstr "Sudionici"
+
+msgid "Optional attendees"
+msgstr "Opcionalni sudionici"
 
 msgid "Please select a calendar via widget settings"
 msgstr "Odaberite kalendar putem postavki widgeta"
@@ -1794,8 +1797,8 @@ msgstr "Ispis više stavki nije implementiran."
 msgid "Printing of this item is not yet available"
 msgstr "Ispis ove stavke još nije dostupan"
 
-msgid "Item type: "
-msgstr "Vrsta artikla:"
+msgid "Item type: {0}"
+msgstr "Vrsta stavke: {0}"
 
 msgid "Printing of this view is not yet available"
 msgstr "Ispis ovog prikaza još nije dostupan"
@@ -1890,6 +1893,12 @@ msgstr "Nedovoljna dopuštenja"
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr "Nemate dovoljno ovlasti za brisanje stavki u ovoj mapi."
 
+msgid "You have insufficient privileges to delete one of the selected items."
+msgid_plural "You have insufficient privileges to delete {0} of the selected items."
+msgstr[0] "Nemate dovoljno ovlasti za brisanje {0} odabrane stavke."
+msgstr[1] "Nemate dovoljno ovlasti za brisanje {0} odabrane stavke."
+msgstr[2] "Nemate dovoljno ovlasti za brisanje {0} odabranih stavki."
+
 msgid "Notify recipients"
 msgstr "Obavijesti primatelje"
 
@@ -1926,6 +1935,12 @@ msgstr "Dvostruki primatelj"
 msgid "Recipient already exists."
 msgstr "Primatelj već postoji."
 
+msgid "Remove attachment"
+msgstr "Ukloni privitak"
+
+msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
+msgstr "Želite li ukloniti „{0}” iz ove poruke? Privitak se nakon toga ne može vratiti."
+
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "Pošiljatelj ove e-pošte zatražio je potvrdu o čitanju. Želite li obavijestiti pošiljatelja?"
 
@@ -1954,22 +1969,22 @@ msgid "Untitled"
 msgstr "Bez naslova"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "Privitke nije bilo moguće spremiti."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Ovaj privitak nije bilo moguće spremiti: {0}"
+msgstr[1] "Ove privitke nije bilo moguće spremiti: {0}"
+msgstr[2] "Ove privitke nije bilo moguće spremiti: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Spremljen je {0} privitak."
+msgstr[1] "Spremljena su {0} privitka."
+msgstr[2] "Spremljeno je {0} privitaka."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "Spremanje privitaka"
 
 msgid "Insert item"
 msgstr "Umetni stavku"
@@ -2017,7 +2032,7 @@ msgid "Preview"
 msgstr "Pregled"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "Pregledaj u dijaloškom okviru"
 
 msgid "Download"
 msgstr "preuzimanje"
@@ -2026,7 +2041,7 @@ msgid "Download all as ZIP"
 msgstr "Preuzmite sve kao ZIP"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "Spremi odabrano u mapu na disku"
 
 msgid "Import to folder"
 msgstr "Uvezi u mapu"
@@ -2038,10 +2053,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "Kako biste koristili značajku uvoza ICS/VCS, nadogradite svoj Gromox na verziju 0 ili noviju."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "Pregledaj u kartici grommunio Web"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "Pregledaj u prozoru preglednika"
 
 msgid "Attachment error"
 msgstr "Greška u privitku"
@@ -2055,14 +2070,8 @@ msgstr "Nije moguće preuzeti"
 msgid "Drop files here to attach them"
 msgstr "Ispustite datoteke ovdje da biste ih priložili"
 
-msgid "Picture format is not supported. "
-msgstr "Format slike nije podržan."
-
-msgid "Supported format for contact pictures are"
-msgstr "Podržani formati za slike kontakata su"
-
-msgid "Attachment Error"
-msgstr "Greška u privitku"
+msgid "Picture format is not supported. Supported format for contact pictures are"
+msgstr "Format slike nije podržan. Podržani formati za slike kontakata su"
 
 msgid "Could not save the category list."
 msgstr "Nije bilo moguće spremiti popis kategorija."
@@ -2091,8 +2100,8 @@ msgstr "Jeste li sigurni da želite izbrisati kategoriju \"{0}\"? Ostali stavci 
 msgid "Rename Category"
 msgstr "Preimenuj kategoriju"
 
-msgid "A category named \""
-msgstr "Kategorija pod nazivom \""
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "Već imate kategoriju pod nazivom '{0}'. Molimo koristite drugo ime."
 
 msgid "Create New Category"
 msgstr "Stvori novu kategoriju"
@@ -2108,9 +2117,6 @@ msgstr "Stvoriti"
 
 msgid "You must apply the changes you have made to the categories before you can create this category."
 msgstr "Morate primijeniti promjene koje ste napravili na kategorije prije nego što možete stvoriti ovu kategoriju."
-
-msgid "You already have a category named '{0}'. Please use another name."
-msgstr "Već imate kategoriju pod nazivom '{0}'. Molimo koristite drugo ime."
 
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
 msgstr "Već imate kategoriju naziva '{0}' u svojim neodređenim promjenama. Molimo upotrijebite drugi naziv."
@@ -2237,6 +2243,9 @@ msgstr[2] "Odabrane su{0}poruke."
 
 msgid "Folder '{0}' selected."
 msgstr "Odabrana je mapa '{0}'."
+
+msgid "Suggested folders"
+msgstr "Predložene mape"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "Odabrane stavke nije moguće premjestiti u ovu mapu jer je namijenjena drugoj vrsti sadržaja."
@@ -2433,6 +2442,9 @@ msgstr "Poništi zadnju radnju"
 msgid "Redo the last undone action"
 msgstr "Ponovi zadnju poništenu radnju"
 
+msgid "Jump to the search box, press again for the browser search"
+msgstr "Skoči u okvir za pretraživanje, pritisni ponovno za pretragu preglednika"
+
 msgid "Open the command palette"
 msgstr "Otvori paletu naredbi"
 
@@ -2486,6 +2498,75 @@ msgstr "Razvrstaj po: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
+
+msgid "Presentation"
+msgstr "Prezentacija"
+
+msgid "Fullscreen"
+msgstr "Cijeli zaslon"
+
+msgid "Previous page"
+msgstr "Prethodna stranica"
+
+msgid "Next page"
+msgstr "Sljedeća stranica"
+
+msgid "Page:"
+msgstr "Stranica:"
+
+msgid "of {0}"
+msgstr "od {0}"
+
+msgid "Zoom out"
+msgstr "Umanji"
+
+msgid "Zoom in"
+msgstr "Uvećaj"
+
+msgid "Zoom"
+msgstr "Zumiranje"
+
+msgid "Automatic"
+msgstr "Automatski"
+
+msgid "Actual size"
+msgstr "Stvarna veličina"
+
+msgid "Page width"
+msgstr "Širina stranice"
+
+msgid "Rotate left"
+msgstr "Rotiraj ulijevo"
+
+msgid "Rotate right"
+msgstr "Rotiraj udesno"
+
+msgid "This document could not be previewed."
+msgstr "Ovaj dokument nije bilo moguće pregledati."
+
+msgid "This file cannot be previewed."
+msgstr "Ovu datoteku nije moguće pregledati."
+
+msgid "Download the file to open it with a program that can read it."
+msgstr "Preuzmite datoteku kako biste je otvorili programom koji je može pročitati."
+
+msgid "The document is empty."
+msgstr "Dokument je prazan."
+
+msgid "This sheet is empty."
+msgstr "Ovaj je list prazan."
+
+msgid "Showing the first {0} rows and {1} columns."
+msgstr "Prikazuje se prvih {0} redaka i {1} stupaca."
+
+msgid "Wrap lines"
+msgstr "Prelomi retke"
+
+msgid "Line numbers"
+msgstr "Brojevi redaka"
+
+msgid "This message has no content."
+msgstr "Ova poruka nema sadržaja."
 
 msgid "grommunio Web print"
 msgstr "grommunio Web ispis"
@@ -2609,7 +2690,7 @@ msgstr "Svakih {A} tjedan(a)."
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Ponovno generirajte novi zadatak {A} tjedan(a) nakon što je svaki zadatak dovršen"
 
-msgid "Every {A} years(s) on"
+msgid "Every {A} year(s) on"
 msgstr "Svakih {A} godina na"
 
 msgid "{A} {B}"
@@ -2738,7 +2819,7 @@ msgid "Sort by: Size"
 msgstr "Razvrstaj po: Veličina"
 
 msgid "Move the message to folder…"
-msgstr "Premjesti poruku u mapu..."
+msgstr "Premjesti poruku u mapu…"
 
 msgid "Copy the message to folder…"
 msgstr "Kopiraj poruku u mapu…"
@@ -2747,7 +2828,7 @@ msgid "Delete the message"
 msgstr "Izbriši poruku"
 
 msgid "Redirect the message to…"
-msgstr "Preusmjerite poruku na..."
+msgstr "Preusmjerite poruku na…"
 
 msgid "Forward the message to…"
 msgstr "Proslijedite poruku na…"
@@ -2762,19 +2843,19 @@ msgid "is received from…"
 msgstr "primljeno je od…"
 
 msgid "includes these words in the sender's address…"
-msgstr "uključuje ove riječi u adresu pošiljatelja..."
+msgstr "uključuje ove riječi u adresu pošiljatelja…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "uključuje ove riječi u adresu primatelja..."
+msgstr "uključuje ove riječi u adresu primatelja…"
 
 msgid "includes these words in the subject…"
-msgstr "uključuje ove riječi u temu..."
+msgstr "uključuje ove riječi u temu…"
 
 msgid "includes these words in the body…"
-msgstr "uključuje ove riječi u tijelo..."
+msgstr "uključuje ove riječi u tijelo…"
 
 msgid "includes these words in the transport headers…"
-msgstr "uključuje ove riječi u zaglavlja transporta..."
+msgstr "uključuje ove riječi u zaglavlja transporta…"
 
 msgid "has importance…"
 msgstr "ima važnost…"
@@ -2798,19 +2879,19 @@ msgid "has my name in the To or Cc field"
 msgstr "sadrži moje ime u polju „Prima” ili „Cc”"
 
 msgid "has sensitivity…"
-msgstr "ima osjetljivost..."
+msgstr "ima osjetljivost…"
 
 msgid "is received after…"
 msgstr "prima se nakon…"
 
 msgid "is received before…"
-msgstr "primljeno je prije..."
+msgstr "primljeno je prije…"
 
 msgid "size is at least…"
-msgstr "veličina je najmanje..."
+msgstr "veličina je najmanje…"
 
 msgid "size is at most…"
-msgstr "veličina je najviše..."
+msgstr "veličina je najviše…"
 
 msgid "has my name in the To field"
 msgstr "sadrži moje ime u polju „Prima”"
@@ -2941,6 +3022,12 @@ msgstr "Uvijek premjesti poruke s ovim predmetom"
 msgid "Create rule…"
 msgstr "Stvori pravilo…"
 
+msgid "Saved"
+msgstr "Spremljeno"
+
+msgid "Saved successfully"
+msgstr "Uspješno spremljeno"
+
 msgid "myself"
 msgstr "sebi"
 
@@ -3043,8 +3130,10 @@ msgstr "Omogući obavijesti na radnoj površini za novu poštu"
 msgid "Enable desktop notifications for reminders"
 msgstr "Omogućite obavijesti na radnoj površini za podsjetnike"
 
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A} Automatski sakrij obavijest na radnoj površini nakon sekunde {B}"
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Auto-hide desktop notification after {B} second(s)"
+msgstr "{A}Automatski sakrij obavijest na radnoj površini nakon {B} sekundi"
 
 msgid "Disable sound"
 msgstr "Onemogući zvuk"
@@ -3138,9 +3227,6 @@ msgstr "{0}kasni"
 
 msgid "Message body editor"
 msgstr "Uređivač tijela poruke"
-
-msgid "Loading…"
-msgstr "učitavanje..."
 
 msgid "Message could not be loaded"
 msgstr "Poruka se ne može učitati"
@@ -3356,6 +3442,27 @@ msgstr "Označi kao nepročitano"
 
 msgid "in"
 msgstr "u"
+
+msgid "Digitally sign this message"
+msgstr "Digitalno potpiši ovu poruku"
+
+msgid "Encrypt this message"
+msgstr "Šifriraj ovu poruku"
+
+msgid "Autosave is paused while encryption is selected."
+msgstr "Automatsko spremanje pauzirano je dok je odabrano šifriranje."
+
+msgid "Turn off {0} signing and encryption first."
+msgstr "Najprije isključite {0} potpisivanje i šifriranje."
+
+msgid "options"
+msgstr "mogućnosti"
+
+msgid "Sign"
+msgstr "Znak"
+
+msgid "Encrypt"
+msgstr "Šifriraj"
 
 msgid "Root"
 msgstr "Korijen"
@@ -3596,9 +3703,6 @@ msgstr "Lokalni broj"
 msgid "Extension"
 msgstr "Proširenje"
 
-msgid "Add Attachment"
-msgstr "Dodaj privitak"
-
 msgid "Add attachments to this contact"
 msgstr "Dodaj privitke ovom kontaktu"
 
@@ -3801,7 +3905,7 @@ msgid "Open in new browser window"
 msgstr "Otvori u novom prozoru preglednika"
 
 msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
-msgstr "Čini se da je vaš preglednik blokirao jedan ili više skočnih prozora. Molimo promijenite postavke preglednika kako biste uvijek dopustili skočne prozore s web-stranice grommunio."
+msgstr "Čini se da je vaš preglednik blokirao jedan ili više skočnih prozora. Molimo promijenite postavke preglednika kako biste uvijek dopustili skočne prozore s grommunio Weba."
 
 msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "Ne može se prenijeti privitak, poruci je dopušteno dodati samo {0} privitaka"
@@ -4048,9 +4152,6 @@ msgstr "Svijetla"
 msgid "Dark"
 msgstr "Tamna"
 
-msgid "Automatic"
-msgstr "Automatski"
-
 msgid "Main toolbar"
 msgstr "Glavna alatna traka"
 
@@ -4132,26 +4233,20 @@ msgstr "Rasklopi hijerarhiju"
 msgid "Folders List"
 msgstr "Popis mapa"
 
+msgid "Loaded {0} of {1}"
+msgstr "Učitano {0} od {1}"
+
 msgid "Copy Details"
 msgstr "Kopiraj detalje"
 
 msgid "Hide Details"
 msgstr "Sakrij detalje"
 
-msgid "Loaded {0} of {1}"
-msgstr "Učitano {0} od {1}"
-
 msgid "Copied!"
 msgstr "Kopirano!"
 
-msgid "Saving"
-msgstr "Spremanje"
-
-msgid "Saved"
-msgstr "Spremljeno"
-
-msgid "Saved successfully"
-msgstr "Uspješno spremljeno"
+msgid "Saving…"
+msgstr "Spremanje…"
 
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr "Izgubit ćete sav nespašeni rad. Jeste li sigurni da želite zatvoriti ovaj prozor?"
@@ -4237,14 +4332,134 @@ msgstr "D d-m"
 msgid "D d-m G:i"
 msgstr "D d-m G:i"
 
+msgid "Click the link to open the URL in a new window."
+msgstr "Kliknite vezu da biste otvorili URL u novom prozoru."
+
+msgid "The server reported an unknown error on your request."
+msgstr "Poslužitelj je prijavio nepoznatu pogrešku na vaš zahtjev."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "Poslužitelj je prijavio neodređenu pogrešku na vaš zahtjev."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "Sesija je istekla, potrebna je ponovna autentifikacija."
+
+msgid "The session in the current browser window has been closed from another browser window or tab."
+msgstr "Sesija u trenutnom prozoru preglednika zatvorena je iz drugog prozora preglednika ili kartice."
+
+msgid "Session expired"
+msgstr "Sesija je istekla"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Želite li biti preusmjereni na stranicu za prijavu?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr "Potrebna je ponovna autentifikacija, kliknite ovdje za povratak na stranicu za prijavu."
+
+msgid "Connection problem"
+msgstr "Problem s vezom"
+
+msgid "Could not connect to server, retrying in {0} second"
+msgid_plural "Could not connect to server, retrying in {0} seconds"
+msgstr[0] "Nije moguće povezati se s poslužiteljem, ponovni pokušaj za{0}sekundi"
+msgstr[1] "Nije moguće povezati se s poslužiteljem, ponovni pokušaj za{0}sekundi"
+msgstr[2] "Nije moguće povezati se s poslužiteljem, ponovni pokušaj za{0}sekundi"
+
+msgid "Click to retry now"
+msgstr "Kliknite za ponovni pokušaj"
+
+msgid "Connection restored"
+msgstr "Veza je uspostavljena"
+
+msgid "Connection with server has been restored"
+msgstr "Veza s poslužiteljem je ponovno uspostavljena"
+
+msgid "grommunio Web was updated"
+msgstr "Aplikacija grommunio Web ažurirana je"
+
+msgid "A new version is available, click here to reload."
+msgstr "Dostupna je nova verzija. Kliknite ovdje za ponovno učitavanje."
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr "HTTP{0}"
+
+msgid "Invalid data received from the server"
+msgstr "Nevažeći podaci primljeni s poslužitelja"
+
+msgid "Missing store"
+msgstr "Nedostaje trgovina"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "Zadana trgovina nedostaje u hijerarhiji."
+
+msgid "Not all functionality of grommunio Web might be working properly because of this."
+msgstr "Moguće je da zbog toga ne rade ispravno sve funkcionalnosti grommunio Weba."
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "Inbox"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "Odlazna pošta"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "Poslane stavke"
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "Izbrisane stavke"
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "Kalendar"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "Kontakti"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "Nacrti"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "Časopis"
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "Bilješke"
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "Zadaci"
+
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "Bezvrijedna e-pošta"
+
+msgid "Missing folders"
+msgstr "Nedostaju mape"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "Sljedeća potrebna mapa nedostaje u hijerarhiji:{0}"
+msgstr[1] "Sljedeće potrebne mape nedostaju u hijerarhiji:{0}"
+msgstr[2] "Sljedeće potrebne mape nedostaju u hijerarhiji:{0}"
+
+msgid "Loading model from server failed"
+msgstr "Učitavanje modela s poslužitelja nije uspjelo"
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "Izvan ureda je trenutno aktiviran. Želite li ga isključiti?"
+
 msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
 msgstr "Nedovoljno dozvola za otvaranje ove trgovine, želite li je ukloniti iz hijerarhije?"
 
 msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
 msgstr "Nedovoljno dozvola za otvaranje ovog mapa, želite li je ukloniti iz hijerarhije?"
-
-msgid "Insufficient Permissions"
-msgstr "Nedovoljne dozvole"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Nedovoljne dozvole za otvaranje ove mape."
@@ -4556,7 +4771,7 @@ msgid "Properties of {0}"
 msgstr "Svojstva{0}"
 
 msgid "Share {0} with…"
-msgstr "Podijelite{0}sa..."
+msgstr "Podijelite{0}sa…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Svojstva{0}-{1}"
@@ -4581,6 +4796,15 @@ msgstr "Filtriraj mape"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Nemate dovoljno ovlasti za premještanje ove mape. Želite li umjesto toga kopirati?"
+
+msgid "Enable OpenPGP before replying to this protected message."
+msgstr "Omogućite OpenPGP prije odgovaranja na ovu zaštićenu poruku."
+
+msgid "The protected message could not be opened. No reply or forward was created."
+msgstr "Zaštićenu poruku nije bilo moguće otvoriti. Nije stvoren ni odgovor ni proslijeđena poruka."
+
+msgid "Unable to open response"
+msgstr "Nije moguće otvoriti odgovor"
 
 msgid "CC"
 msgstr "CC"
@@ -4610,8 +4834,8 @@ msgstr "Zakažite slanje pošte"
 msgid "Scheduled Items"
 msgstr "Zakazane stavke"
 
-msgid "Your message will be sent at "
-msgstr "Vaša će poruka biti poslana na"
+msgid "Your message will be sent at {0}."
+msgstr "Vaša će poruka biti poslana {0}."
 
 msgid "Go to your Outbox to edit your email."
 msgstr "Idite u Outbox da biste uredili svoju e-poštu."
@@ -4628,23 +4852,19 @@ msgstr "u određeno vrijeme"
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "Vrijeme koje ste unijeli je u prošlosti. Molimo promijenite termin za svoju poštu."
 
-msgid "today  at "
-msgstr "danas u"
+msgid "Your email will be sent today at {0}"
+msgstr "Vaša e-pošta bit će poslana danas u {0}"
 
-msgid "tomorrow  at "
-msgstr "sutra u"
+msgid "Your email will be sent tomorrow at {0}"
+msgstr "Vaša e-pošta bit će poslana sutra u {0}"
 
-msgid "{0} at "
-msgstr "{0}na"
+#. TRANSLATORS: {0} is a weekday name, {1} a time of day
+msgid "Your email will be sent {0} at {1}"
+msgstr "Vaša e-pošta bit će poslana: {0} u {1}"
 
-msgid "at {0}"
-msgstr "u{0}"
-
-msgid "Your email will be sent {0}{1}"
-msgstr "Vaša e-pošta bit će poslana{0}{1}"
-
-msgid "Saving…"
-msgstr "Spremanje..."
+#. TRANSLATORS: {0} is a full date, {1} a time of day
+msgid "Your email will be sent at {0}, {1}"
+msgstr "Vaša e-pošta bit će poslana: {0} u {1}"
 
 msgid "Saved at {0}"
 msgstr "Spremljeno u {0}"
@@ -4654,6 +4874,10 @@ msgstr "Spremanje nije uspjelo"
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Ova će poruka biti označena za praćenje kada bude poslana."
+
+#. TRANSLATORS: {0} is the follow-up period, e.g. 'today' or 'next week'
+msgid "This message will be flagged for follow up {0} when it is sent."
+msgstr "Ova će poruka biti označena za praćenje {0} kada bude poslana."
 
 msgid "Send Later"
 msgstr "Pošalji kasnije"
@@ -4721,12 +4945,6 @@ msgstr "Postavite kategoriju"
 msgid "Pop-Out"
 msgstr "Pop-out"
 
-msgid "Mark Read"
-msgstr "Mark Read"
-
-msgid "Mark Unread"
-msgstr "Označi kao nepročitano"
-
 msgid "New mail"
 msgstr "Nova pošta"
 
@@ -4753,6 +4971,15 @@ msgstr "Ispis odabrane e-pošte"
 
 msgid "Filter"
 msgstr "Filter"
+
+msgid "This browser cannot attach the decrypted file. Download it before forwarding."
+msgstr "Ovaj preglednik ne može priložiti dešifriranu datoteku. Preuzmite je prije prosljeđivanja."
+
+msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
+msgstr "Dešifrirani privitak premašuje ograničenja prijenosa. Nije stvoren nepotpun odgovor."
+
+msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
+msgstr "Dešifrirani privitak nije bilo moguće prenijeti. Nije stvoren nepotpun odgovor."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -4831,6 +5058,9 @@ msgstr "Aktiviraj podsjetnik za privitak"
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}Automatsko spremanje neposlane pošte svake {B} minute(e)"
+
+msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
+msgstr "Automatsko spremanje i dok je odabrano šifriranje (nacrti se pohranjuju nešifrirani)"
 
 msgid "Conversation view settings"
 msgstr "Postavke prikaza razgovora"
@@ -5012,7 +5242,7 @@ msgid "ZIP file"
 msgstr "ZIP datoteka"
 
 msgid "max. "
-msgstr "max."
+msgstr "maks. "
 
 msgid "Sort by: Sent"
 msgstr "Razvrstaj po: Poslano"
@@ -5073,9 +5303,6 @@ msgstr "Premjesti u mapu smeća"
 
 msgid "Not Junk Email"
 msgstr "Nije neželjena pošta"
-
-msgid "Send to"
-msgstr "Pošalji na"
 
 msgid "Message list"
 msgstr "Popis poruka"
@@ -5150,9 +5377,6 @@ msgstr "Razvrstaj po: Boja"
 
 msgid "Notes list"
 msgstr "Popis bilješki"
-
-msgid "Loading Notes"
-msgstr "Učitavanje bilježaka"
 
 msgid "Loading notes"
 msgstr "Učitavanje bilježaka"
@@ -5283,14 +5507,8 @@ msgstr "Sakrij ploču widgeta"
 msgid "Auto"
 msgstr "Auto"
 
-msgid "Actual size"
-msgstr "Stvarna veličina"
-
-msgid "Page width"
-msgstr "Širina stranice"
-
-msgid "Attachment preview (PDF and Open formats)"
-msgstr "Pregled privitaka (PDF i „otvoreni” formati)"
+msgid "Preview documents and files in grommunio Web"
+msgstr "Pregledavanje dokumenata i datoteka u aplikaciji grommunio Web"
 
 msgid "Document default zoom"
 msgstr "Zadano zumiranje dokumenta"
@@ -5299,10 +5517,10 @@ msgid "PDF zoom"
 msgstr "PDF zumiranje"
 
 msgid "Dialog"
-msgstr ""
+msgstr "Dijaloški okvir"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "Mjesto otvaranja pregleda"
 
 msgid "File previewing"
 msgstr "Pregled datoteke"
@@ -5469,20 +5687,47 @@ msgstr "Održavanje"
 msgid "Reset all settings to defaults"
 msgstr "Vratite sve postavke na zadane"
 
+msgid "Migrate legacy categories"
+msgstr "Migriraj naslijeđene kategorije"
+
+msgid "This will scan all folders and migrate the categories assigned to items."
+msgstr "Ovime će se pretražiti sve mape i migrirati kategorije dodijeljene stavkama."
+
+msgid "The legacy category settings will remain unchanged."
+msgstr "Postavke naslijeđenih kategorija ostat će nepromijenjene."
+
+msgid "Migrate"
+msgstr "Migriraj"
+
+msgid "Legacy categories migrated successfully."
+msgstr "Naslijeđene kategorije uspješno su migrirane."
+
+msgid "Could not migrate legacy categories."
+msgstr "Nije moguće migrirati naslijeđene kategorije."
+
 msgid "Changes to assigned task"
 msgstr "Promjene dodijeljenog zadatka"
 
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr "Imajte na umu da će dodijeljeni zadaci biti prebrisani kada primatelj izvrši promjene."
+msgid "Please note that the assigned task will be overwritten when the assignee makes changes."
+msgid_plural "Please note that the assigned tasks will be overwritten when the assignee makes changes."
+msgstr[0] "Imajte na umu da će dodijeljeni zadaci biti prebrisani kada primatelj izvrši promjene."
+msgstr[1] "Imajte na umu da će dodijeljeni zadaci biti prebrisani kada primatelj izvrši promjene."
+msgstr[2] "Imajte na umu da će dodijeljeni zadaci biti prebrisani kada primatelj izvrši promjene."
 
 msgid "Delete confirmation"
 msgstr "Izbriši potvrdu"
 
-msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr "Brisanjem stavke(a) izbrisat ćete i originalnu(e) stavku(e)."
+msgid "Deleting the item will also delete the original item."
+msgid_plural "Deleting the items will also delete the original items."
+msgstr[0] "Brisanjem stavke(a) izbrisat ćete i originalnu(e) stavku(e)."
+msgstr[1] "Brisanjem stavke(a) izbrisat ćete i originalnu(e) stavku(e)."
+msgstr[2] "Brisanjem stavke(a) izbrisat ćete i originalnu(e) stavku(e)."
 
-msgid "Do you want to delete the item(s)?"
-msgstr "Želite li izbrisati stavku(e)?"
+msgid "Do you want to delete the item?"
+msgid_plural "Do you want to delete the items?"
+msgstr[0] "Želite li izbrisati stavku(e)?"
+msgstr[1] "Želite li izbrisati stavku(e)?"
+msgstr[2] "Želite li izbrisati stavku(e)?"
 
 msgid "Sort by: Priority"
 msgstr "Razvrstaj po: Prioritet"
@@ -5619,12 +5864,12 @@ msgstr "Novi zadatak"
 msgid "Completed"
 msgstr "Završeno"
 
-msgid "Printed by: "
-msgstr "Tisak:"
+msgid "Printed by: {0}"
+msgstr "Ispisao: {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "Printed on: "
-msgstr "Tiskano na:"
+#. TRANSLATORS: {0} is the date the list was printed on
+msgid "Printed on: {0}"
+msgstr "Ispisano: {0}"
 
 msgid "Percent complete"
 msgstr "Postotak dovršeno"
@@ -5736,126 +5981,6 @@ msgstr "Nema zadataka."
 
 msgid "Tasks / To-Do"
 msgstr "Zadaci"
-
-msgid "Click the link to open the URL in a new window."
-msgstr "Kliknite vezu da biste otvorili URL u novom prozoru."
-
-msgid "The server reported an unknown error on your request."
-msgstr "Poslužitelj je prijavio nepoznatu pogrešku na vaš zahtjev."
-
-msgid "The server reported an unspecified error on your request."
-msgstr "Poslužitelj je prijavio neodređenu pogrešku na vaš zahtjev."
-
-msgid "The session has expired, reauthentication is required."
-msgstr "Sesija je istekla, potrebna je ponovna autentifikacija."
-
-msgid "The session in the current browser window has been closed from another browser window or tab."
-msgstr "Sesija u trenutnom prozoru preglednika zatvorena je iz drugog prozora preglednika ili kartice."
-
-msgid "Session expired"
-msgstr "Sesija je istekla"
-
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "Želite li biti preusmjereni na stranicu za prijavu?"
-
-msgid "Reauthentication required, click here to go to back to logon page."
-msgstr "Potrebna je ponovna autentifikacija, kliknite ovdje za povratak na stranicu za prijavu."
-
-msgid "Connection problem"
-msgstr "Problem s vezom"
-
-msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr "Nije moguće povezati se s poslužiteljem, ponovni pokušaj za{0}sekundi"
-
-msgid "Click to retry now"
-msgstr "Kliknite za ponovni pokušaj"
-
-msgid "Connection restored"
-msgstr "Veza je uspostavljena"
-
-msgid "Connection with server has been restored"
-msgstr "Veza s poslužiteljem je ponovno uspostavljena"
-
-msgid "grommunio Web was updated"
-msgstr "Aplikacija grommunio Web ažurirana je"
-
-msgid "A new version is available, click here to reload."
-msgstr "Dostupna je nova verzija. Kliknite ovdje za ponovno učitavanje."
-
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP{0}"
-
-msgid "Invalid data received from the server"
-msgstr "Nevažeći podaci primljeni s poslužitelja"
-
-msgid "Missing store"
-msgstr "Nedostaje trgovina"
-
-msgid "The default store is missing from the hierarchy."
-msgstr "Zadana trgovina nedostaje u hijerarhiji."
-
-msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "Moguće je da zbog toga ne rade ispravno sve funkcionalnosti grommunio Weba."
-
-msgctxt "hierarchy.foldername"
-msgid "Inbox"
-msgstr "Inbox"
-
-msgctxt "hierarchy.foldername"
-msgid "Outbox"
-msgstr "Odlazna pošta"
-
-msgctxt "hierarchy.foldername"
-msgid "Sent Items"
-msgstr "Poslane stavke"
-
-msgctxt "hierarchy.foldername"
-msgid "Deleted items"
-msgstr "Izbrisane stavke"
-
-msgctxt "hierarchy.foldername"
-msgid "Calendar"
-msgstr "Kalendar"
-
-msgctxt "hierarchy.foldername"
-msgid "Contacts"
-msgstr "Kontakti"
-
-msgctxt "hierarchy.foldername"
-msgid "Drafts"
-msgstr "Nacrti"
-
-msgctxt "hierarchy.foldername"
-msgid "Journal"
-msgstr "Časopis"
-
-msgctxt "hierarchy.foldername"
-msgid "Notes"
-msgstr "Bilješke"
-
-msgctxt "hierarchy.foldername"
-msgid "Tasks"
-msgstr "Zadaci"
-
-msgctxt "hierarchy.foldername"
-msgid "Junk Email"
-msgstr "Bezvrijedna e-pošta"
-
-msgid "Missing folders"
-msgstr "Nedostaju mape"
-
-msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] "Sljedeća potrebna mapa nedostaje u hijerarhiji:{0}"
-msgstr[1] "Sljedeće potrebne mape nedostaju u hijerarhiji:{0}"
-msgstr[2] "Sljedeće potrebne mape nedostaju u hijerarhiji:{0}"
-
-msgid "Loading model from server failed"
-msgstr "Učitavanje modela s poslužitelja nije uspjelo"
-
-msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr "Izvan ureda je trenutno aktiviran. Želite li ga isključiti?"
 
 msgid "AI Assistant"
 msgstr "AI asistent"
@@ -6121,6 +6246,9 @@ msgstr "Razmišljam…"
 msgid "The response was interrupted and may be incomplete."
 msgstr "Odgovor je prekinut i možda je nepotpun."
 
+msgid "The answer reached the output limit configured for this model and stops here."
+msgstr "Odgovor je dosegnuo ograničenje duljine postavljeno za ovaj model i ovdje prestaje."
+
 msgid "Insert at cursor"
 msgstr "Umetni na mjesto kursora"
 
@@ -6224,7 +6352,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Postoji više od jedne poveznice za dijeljenje. Prikazuje se samo najnovija"
 
 msgid "Loading details…"
-msgstr "Učitavanje detalja..."
+msgstr "Učitavanje detalja…"
 
 msgid "Files: Seafile Backend"
 msgstr "Datoteke: Seafile Backend"
@@ -6241,14 +6369,8 @@ msgstr "Međuspremnik"
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr "Nije moguće automatski kopirati vezu. Molimo kopirajte ga ručno."
 
-msgid "Loading details..."
-msgstr "Učitavanje detalja..."
-
 msgid "Share"
 msgstr "Udio"
-
-msgid "Loading..."
-msgstr "Učitavanje..."
 
 msgid "Add attachment from {0}"
 msgstr "Dodaj privitak iz {0}"
@@ -6445,8 +6567,12 @@ msgstr "max"
 msgid "You have to choose at least one file!"
 msgstr "Morate odabrati barem jednu datoteku!"
 
-msgid "Create New "
-msgstr "Stvori novo"
+msgid "Document"
+msgstr "Dokument"
+
+#. TRANSLATORS: {0} is a translated file type such as Document, Presentation or Spreadsheet
+msgid "Create New {0}"
+msgstr "Stvori novo {0}"
 
 msgid "Incorrect filename"
 msgstr "Netočan naziv datoteke"
@@ -6493,14 +6619,14 @@ msgstr "Privitak uspješno dodan u „Datoteke”"
 msgid "Upload Failed"
 msgstr "Prijenos nije uspio"
 
-msgid "Attachment could not be stored in Files! Error: "
-msgstr "Neuspjelo spremanje privitka u „Datoteke”! Greška: "
+msgid "Attachment could not be stored in Files!"
+msgstr "Neuspjelo spremanje privitka u „Datoteke”!"
 
 msgid "Share Files"
 msgstr "Dijelite datoteke"
 
-msgid "Uploading files to "
-msgstr "Prijenos datoteka u"
+msgid "Uploading files to {0}"
+msgstr "Prijenos datoteka u {0}"
 
 msgid "Starting upload"
 msgstr "Pokretanje prijenosa"
@@ -6511,14 +6637,14 @@ msgstr "Odustani od prijenosa"
 msgid "- seconds left"
 msgstr "- preostale sekunde"
 
-msgid " seconds left"
-msgstr "preostalih sekundi"
+msgid "{0} seconds left"
+msgstr "{0} preostalih sekundi"
 
-msgid " minutes left"
-msgstr "preostalih minuta"
+msgid "{0} minutes left"
+msgstr "{0} preostalih minuta"
 
-msgid "Uploading: "
-msgstr "Prijenos:"
+msgid "Uploading: {0}%"
+msgstr "Prijenos: {0}%"
 
 msgid "Upload status unavailable... please wait."
 msgstr "Status prijenosa nije dostupan... pričekajte."
@@ -6532,12 +6658,6 @@ msgstr "Prijenos prekinut!"
 msgid "Upload failed!"
 msgstr "Prijenos nije uspio!"
 
-msgid "Document"
-msgstr "Dokument"
-
-msgid "Presentation"
-msgstr "Prezentacija"
-
 msgid "Spreadsheet"
 msgstr "Proračunska tablica"
 
@@ -6549,6 +6669,9 @@ msgstr "Izradi dokument"
 
 msgid "Create office document"
 msgstr "Stvorite uredski dokument"
+
+msgid "Preview file"
+msgstr "Pregledaj datoteku"
 
 msgid "Download files"
 msgstr "Preuzimanje datoteka"
@@ -6583,20 +6706,14 @@ msgstr "Dijeli se"
 msgid "File preview"
 msgstr "Pregled datoteke"
 
-msgid "File content"
-msgstr "Sadržaj datoteke"
-
-msgid "Your browser does not support previewing of audio files!"
-msgstr "Tvoj preglednik ne podržava pregled audio datoteka!"
-
-msgid "Your browser does not support previewing of video files!"
-msgstr "Tvoj preglednik ne podržava pregled video datoteka!"
-
 msgid "d.m.Y G:i"
 msgstr "d.m.Y. G:i"
 
 msgid "File ({0})"
 msgstr "Datoteka ({0})"
+
+msgid "Path"
+msgstr "Putanja"
 
 msgid "Sort by: Path"
 msgstr "Razvrstaj po: Putanja"
@@ -6621,6 +6738,9 @@ msgstr "Intranet"
 
 msgid "Archive to InfoShare"
 msgstr "Arhivirajte na InfoShare"
+
+msgid "Kendox InfoShare plugin"
+msgstr "Kendox InfoShare plugin"
 
 msgid "Kendox InfoShare"
 msgstr "Kendox InfoShare"
@@ -6724,6 +6844,12 @@ msgstr "Karta"
 
 msgid "Mobile Device Manager"
 msgstr "Upravljač mobilnim uređajima"
+
+msgid "Device removed"
+msgstr "Uređaj uklonjen"
+
+msgid "The device was not removed. Check your password and try again."
+msgstr "Uređaj nije uklonjen. Provjerite lozinku i pokušajte ponovno."
 
 msgid "Wiping device"
 msgstr "Brisanje uređaja"
@@ -7026,17 +7152,530 @@ msgstr "Jedno ili više polja sadrži pogreške."
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
 msgstr "Lozinka je slaba. Lozinka treba sadržavati velika slova, mala slova i brojeve. Lozinka treba imati od 8 do 20 znakova."
 
+msgid "Invalid or oversized OpenPGP armor."
+msgstr "Neispravan ili prevelik OpenPGP ASCII zapis."
+
+msgid "Expected a single OpenPGP public key block."
+msgstr "Očekuje se točno jedan blok javnog OpenPGP ključa."
+
+msgid "Expected a single OpenPGP private key block."
+msgstr "Očekuje se točno jedan blok privatnog OpenPGP ključa."
+
+msgid "Expected a single OpenPGP signature block."
+msgstr "Očekuje se točno jedan blok OpenPGP potpisa."
+
+msgid "Expected a single OpenPGP message block."
+msgstr "Očekuje se točno jedan blok OpenPGP poruke."
+
+msgid "Expected a single OpenPGP armor block."
+msgstr "Očekuje se točno jedan blok OpenPGP ASCII zapisa."
+
+msgid "Additional data outside the OpenPGP armor is not allowed."
+msgstr "Dodatni podaci izvan OpenPGP ASCII zapisa nisu dopušteni."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Uvezite samo jedan cjelovit OpenPGP ključ odjednom."
+
+msgid "This key exceeds the supported subkey or identity limit."
+msgstr "Ovaj ključ premašuje podržano ograničenje podključeva ili identiteta."
+
+msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
+msgstr "Privatni ključevi moraju biti zaštićeni zaporkom prije prijenosa. Najprije zaštitite ovaj ključ lokalno."
+
+msgid "The public certificate must match the private key fingerprint."
+msgstr "Javni certifikat mora odgovarati otisku prsta privatnog ključa."
+
+msgid "Unlock your OpenPGP private key in this browser tab first."
+msgstr "Najprije otključajte svoj privatni OpenPGP ključ u ovoj kartici preglednika."
+
+msgid "The OpenPGP key was locked while the operation was running."
+msgstr "OpenPGP ključ zaključan je tijekom izvođenja operacije."
+
+msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
+msgstr "OpenPGP zahtijeva moderan preglednik i sigurnu HTTPS vezu."
+
+msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
+msgstr "Zaštita očekuje nezaštićeni privatni ključ. Za zaštićene ključeve upotrijebite promjenu zaporke."
+
+msgid "The passphrase could not unlock this private key."
+msgstr "Zaporkom nije bilo moguće otključati ovaj privatni ključ."
+
+msgid "Every recipient needs a verified OpenPGP public key."
+msgstr "Svaki primatelj mora imati provjereni javni OpenPGP ključ."
+
+msgid "Encrypted message exceeds the size limit."
+msgstr "Šifrirana poruka premašuje ograničenje veličine."
+
+msgid "Expected one complete clear-signed OpenPGP message."
+msgstr "Očekuje se jedna cjelovita OpenPGP poruka potpisana u čitljivom obliku."
+
+msgid "Invalid clear-signed OpenPGP signature."
+msgstr "Neispravan OpenPGP potpis u čitljivom obliku."
+
+msgid "The OpenPGP request failed. Please try again."
+msgstr "OpenPGP zahtjev nije uspio. Pokušajte ponovno."
+
+msgid "Working…"
+msgstr "Obrada…"
+
+msgid "The operation failed. Please try again."
+msgstr "Operacija nije uspjela. Pokušajte ponovno."
+
+msgid "Passphrase"
+msgstr "Zaporka"
+
+msgid "Unlock OpenPGP private key"
+msgstr "Otključavanje privatnog OpenPGP ključa"
+
+msgid "Unlock"
+msgstr "Otključaj"
+
+msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
+msgstr "Vaša zaporka i otključani ključ ostaju u ovoj kartici preglednika. Ključ se automatski zaključava nakon ograničenog vremena ili kad se kartica zatvori. Otisak prsta: "
+
+msgid "Set up OpenPGP"
+msgstr "Postavljanje OpenPGP zaštite"
+
+msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
+msgstr "Dodajte privatni ključ koji odgovara adresi pošiljatelja kako biste potpisivali poruke ili sačuvali čitljivu kopiju poslane šifrirane poruke. Postojeći ključ možete uvesti ili novi stvoriti u OpenPGP postavkama."
+
+msgid "Open key settings"
+msgstr "Otvori postavke ključeva"
+
+msgid "Choose OpenPGP key"
+msgstr "Odabir OpenPGP ključa"
+
+msgid "Private key"
+msgstr "Privatni ključ"
+
+msgid "Use key"
+msgstr "Upotrijebi ključ"
+
+msgid "Private-key unlocking was cancelled."
+msgstr "Otključavanje privatnog ključa je otkazano."
+
+msgid "Key selection was cancelled."
+msgstr "Odabir ključa je otkazan."
+
+msgid "Choose private key…"
+msgstr "Odaberi privatni ključ…"
+
+msgid "Manage OpenPGP keys…"
+msgstr "Upravljanje OpenPGP ključevima…"
+
+msgid "Lock private keys"
+msgstr "Zaključaj privatne ključeve"
+
+msgid "Signing key: {0}"
+msgstr "Ključ za potpisivanje: {0}"
+
+msgid "Decryption alone does not authenticate the sender."
+msgstr "Dešifriranje samo po sebi ne potvrđuje identitet pošiljatelja."
+
+msgid "OpenPGP security information"
+msgstr "OpenPGP sigurnosne informacije"
+
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+msgid "OpenPGP signed or encrypted message"
+msgstr "Poruka s OpenPGP potpisom ili šifriranjem"
+
+msgid "OpenPGP Plugin"
+msgstr "OpenPGP dodatak"
+
+msgid "The OpenPGP operation was cancelled."
+msgstr "OpenPGP operacija je otkazana."
+
+msgid "S/MIME and OpenPGP cannot protect the same message."
+msgstr "S/MIME i OpenPGP ne mogu istodobno zaštititi istu poruku."
+
+msgid "Saving the OpenPGP draft timed out. Please retry."
+msgstr "Isteklo je vrijeme za spremanje OpenPGP nacrta. Pokušajte ponovno."
+
+msgid "The draft could not be saved. Nothing was sent."
+msgstr "Nacrt nije bilo moguće spremiti. Ništa nije poslano."
+
+msgid "The sender or message protection changed. Please send again."
+msgstr "Promijenio se pošiljatelj ili zaštita poruke. Pošaljite ponovno."
+
+msgid "The selected private key is not valid for this sender and protection mode."
+msgstr "Odabrani privatni ključ nije valjan za ovog pošiljatelja i način zaštite."
+
+msgid "A matching, passphrase-protected private key is required."
+msgstr "Potreban je odgovarajući privatni ključ zaštićen zaporkom."
+
+msgid "A recipient key is invalid, expired or does not match its email address."
+msgstr "Ključ primatelja nije valjan, istekao je ili ne odgovara svojoj adresi e-pošte."
+
+msgid "No verified recipient keys are available."
+msgstr "Nema dostupnih valjanih ključeva primatelja."
+
+msgid "This message is too large for browser OpenPGP processing."
+msgstr "Ova je poruka prevelika za OpenPGP obradu u pregledniku."
+
+msgid "Message protection changed while preparing the message. Please send again."
+msgstr "Zaštita poruke promijenila se tijekom njezine pripreme. Pošaljite ponovno."
+
+msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
+msgstr "Zaštićena poruka ima {0} MB, više nego što ovaj poslužitelj prihvaća u jednom zahtjevu ({1} MB). Uklonite privitke ili zamolite administratora da poveća ograničenje prijenosa."
+
+msgid "The attachment archive is too large."
+msgstr "Arhiva privitaka je prevelika."
+
+msgid "Unlock the message again to download this attachment."
+msgstr "Ponovno otključajte poruku kako biste preuzeli ovaj privitak."
+
+msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
+msgstr "Ova poruka sadrži ugniježđenu S/MIME zaštitu koju OpenPGP ne može otvoriti."
+
+msgid "Too many nested OpenPGP envelopes."
+msgstr "Previše ugniježđenih OpenPGP omotnica."
+
+msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
+msgstr "Potpis nije valjan ili njegov javni ključ nije dostupan. Nemojte se pouzdati u ovaj identitet pošiljatelja."
+
+msgid "The private key was locked while opening this message."
+msgstr "Privatni ključ je zaključan tijekom otvaranja ove poruke."
+
+msgid "This message contains too many attachments."
+msgstr "Ova poruka sadrži previše privitaka."
+
+msgid "The decoded attachments are too large."
+msgstr "Dekodirani privici su preveliki."
+
+msgid "The OpenPGP operation failed."
+msgstr "OpenPGP operacija nije uspjela."
+
+msgid "OpenPGP: checking message security…"
+msgstr "OpenPGP: provjera sigurnosti poruke…"
+
+msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
+msgstr "Šifrirana poruka pohranjena je bez MIME omotnice — spremite privitak i dešifrirajte ga OpenPGP alatom"
+
+msgid "Signed message stored without its original MIME — the signature cannot be verified"
+msgstr "Potpisana poruka pohranjena je bez izvornog MIME zapisa — potpis nije moguće provjeriti"
+
+msgid "Message decrypted"
+msgstr "Poruka dešifrirana"
+
+msgid "Message could not be decrypted — click for details or retry"
+msgstr "Poruku nije bilo moguće dešifrirati — kliknite za pojedinosti ili ponovni pokušaj"
+
+msgid "Encrypted message — unlock your private key to read"
+msgstr "Šifrirana poruka — otključajte svoj privatni ključ za čitanje"
+
+msgid "Signature could not be verified"
+msgstr "Potpis nije moguće provjeriti"
+
+msgid "Valid signature, but the signing key does not match the sender"
+msgstr "Valjan potpis, ali ključ za potpisivanje ne odgovara pošiljatelju"
+
+msgid "Valid signature — sender fingerprint has not been verified"
+msgstr "Valjan potpis — otisak prsta pošiljatelja nije provjeren"
+
+msgid "Valid signature from a verified sender"
+msgstr "Valjan potpis provjerenog pošiljatelja"
+
+msgid "The signing key has since expired"
+msgstr "Ključ za potpisivanje je u međuvremenu istekao"
+
+msgid "Message is not signed"
+msgstr "Poruka nije potpisana"
+
+msgid "Inline OpenPGP protects the body only; attachments are not covered"
+msgstr "Inline OpenPGP štiti samo tijelo poruke; privici nisu obuhvaćeni"
+
+msgid "Unprotected text after the OpenPGP block is not shown"
+msgstr "Nezaštićeni tekst nakon OpenPGP bloka ne prikazuje se"
+
+msgid "Your public keys could not be loaded, so signatures could not be checked"
+msgstr "Vaše javne ključeve nije bilo moguće učitati pa potpisi nisu provjereni"
+
+msgid "Security information"
+msgstr "Sigurnosne informacije"
+
+msgid "Choose when composing"
+msgstr "Odaberi pri pisanju poruke"
+
+msgid "Personal and public keys"
+msgstr "Osobni i javni ključevi"
+
+msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
+msgstr "Vaši se ključevi pohranjuju u vašem poštanskom sandučiću. Privatni ključevi ostaju zaštićeni zaporkom; potpisivanje, šifriranje i otključavanje odvijaju se u ovom pregledniku. Otiske prstiju svojih kontakata provjerite putem zasebnog pouzdanog kanala. Promjene ključeva stupaju na snagu odmah."
+
+msgid "No OpenPGP keys. Import or generate a key to get started."
+msgstr "Nema OpenPGP ključeva. Uvezite ili generirajte ključ za početak."
+
+msgid "Identity"
+msgstr "Identitet"
+
+msgid "Fingerprint"
+msgstr "Otisak prsta"
+
+msgid "Public key"
+msgstr "Javni ključ"
+
+msgid "Revoked"
+msgstr "Opozvan"
+
+msgid "Expired"
+msgstr "Istekao"
+
+msgid "Fingerprint verified"
+msgstr "Otisak prsta provjeren"
+
+msgid "Not verified"
+msgstr "Nije provjeren"
+
+msgid "Unlocked"
+msgstr "Otključan"
+
+msgid "Locked"
+msgstr "Zaključan"
+
+msgid "Expires"
+msgstr "Ističe"
+
+msgid "No expiry"
+msgstr "Bez isteka"
+
+msgid "Generate key"
+msgstr "Generiraj ključ"
+
+msgid "Import key"
+msgstr "Uvezi ključ"
+
+msgid "Find public key"
+msgstr "Pronađi javni ključ"
+
+msgid "Details / verify"
+msgstr "Pojedinosti / provjera"
+
+msgid "Export public key"
+msgstr "Izvezi javni ključ"
+
+msgid "Back up private key"
+msgstr "Sigurnosno kopiraj privatni ključ"
+
+msgid "Unlock in this browser"
+msgstr "Otključaj u ovom pregledniku"
+
 msgid "Change passphrase"
 msgstr "Promjena zaporke"
+
+msgid "Lock all"
+msgstr "Zaključaj sve"
+
+msgid "Default private key"
+msgstr "Zadani privatni ključ"
+
+msgid "Sign new messages by default"
+msgstr "Zadano potpisivanje novih poruka"
+
+msgid "Encrypt new messages by default"
+msgstr "Zadano šifriranje novih poruka"
+
+msgid "Manage keyservers"
+msgstr "Upravljanje poslužiteljima ključeva"
+
+msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
+msgstr "Zadane postavke pisanja primjenjuju se samo na nove OpenPGP poruke. S/MIME i OpenPGP ne mogu se kombinirati u istoj poruci."
+
+msgid "Generate OpenPGP key"
+msgstr "Generiranje OpenPGP ključa"
+
+msgid "Algorithm"
+msgstr "Algoritam"
+
+msgid "Expires in"
+msgstr "Rok valjanosti"
+
+msgid "1 year"
+msgstr "1 godina"
+
+msgid "2 years"
+msgstr "2 godine"
+
+msgid "5 years"
+msgstr "5 godina"
+
+msgid "Repeat passphrase"
+msgstr "Ponovite zaporku"
+
+msgid "Passphrases do not match."
+msgstr "Zaporke se ne podudaraju."
+
+msgid "Generate"
+msgstr "Generiraj"
+
+msgid "Key created. Back up the private key and store its passphrase separately."
+msgstr "Ključ je stvoren. Sigurnosno kopirajte privatni ključ, a zaporku pohranite odvojeno."
+
+msgid "Revocation certificate — keep secure"
+msgstr "Certifikat za opoziv — čuvajte na sigurnom"
+
+msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
+msgstr "Odaberite jaku zaporku od najmanje 12 znakova. Generiranje se odvija lokalno u ovom pregledniku i može potrajati. Certifikat za opoziv i sigurnosnu kopiju privatnog ključa čuvajte na sigurnom mjestu."
+
+msgid "Import OpenPGP key"
+msgstr "Uvoz OpenPGP ključa"
+
+msgid "Choose armored OpenPGP key file"
+msgstr "Odaberite datoteku s OpenPGP ključem u ASCII formatu"
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Datoteka ključa je prevelika. Najveća veličina: 1 MiB."
+
+msgid "The key file could not be read."
+msgstr "Datoteku ključa nije bilo moguće pročitati."
+
+msgid "Armored key"
+msgstr "ASCII ključ"
+
+msgid "Protect unencrypted key"
+msgstr "Zaštita nešifriranog ključa"
+
+msgid "Optional: new passphrase for an unprotected private key"
+msgstr "Neobavezno: nova zaporka za nezaštićeni privatni ključ"
+
+msgid "Key imported. Verify recipient fingerprints before encrypting to them."
+msgstr "Ključ je uvezen. Provjerite otiske prstiju primatelja prije nego što im šifrirate poruke."
+
+msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
+msgstr "Odaberite datoteku ili zalijepite jedan ključ u ASCII formatu, uključujući njegove retke BEGIN i END. Za nezaštićeni privatni ključ unesite novu zaporku kako biste ga lokalno zaštitili prije pohrane. Uvezeni ključevi primatelja ne smatraju se automatski pouzdanima."
+
+msgid "Public OpenPGP key"
+msgstr "Javni OpenPGP ključ"
+
+msgid "Back up private OpenPGP key"
+msgstr "Sigurnosno kopiranje privatnog OpenPGP ključa"
+
+msgid "Create backup"
+msgstr "Izradi sigurnosnu kopiju"
+
+msgid "Private key backup — keep secure"
+msgstr "Sigurnosna kopija privatnog ključa — čuvajte na sigurnom"
+
+msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
+msgstr "Potvrdite svoju zaporku lokalno prije preuzimanja ove šifrirane sigurnosne kopije privatnog ključa. Čuvajte je na sigurnom i nikada je ne šaljite primatelju ni poslužitelju ključeva."
+
+msgid "Current passphrase"
+msgstr "Trenutačna zaporka"
+
+msgid "New passphrase"
+msgstr "Nova šifra"
+
+msgid "Change OpenPGP passphrase"
+msgstr "Promjena OpenPGP zaporke"
+
+msgid "Repeat new passphrase"
+msgstr "Ponovite novu zaporku"
+
+msgid "Passphrase changed. Make a new private-key backup."
+msgstr "Zaporka je promijenjena. Izradite novu sigurnosnu kopiju privatnog ključa."
+
+msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
+msgstr "Privatni ključ ponovno se šifrira lokalno. Postojeće sigurnosne kopije i dalje zahtijevaju svoju izvornu zaporku."
+
+msgid "Verify OpenPGP fingerprint"
+msgstr "Provjera OpenPGP otiska prsta"
+
+msgid "Verified identities"
+msgstr "Provjereni identiteti"
+
+msgid "Email identity"
+msgstr "E-mail identitet"
+
+msgid "Confirm fingerprint"
+msgstr "Potvrda otiska prsta"
+
+msgid "Enter the full fingerprint shown above."
+msgstr "Unesite cijeli otisak prsta prikazan iznad."
+
+msgid "I verified this fingerprint"
+msgstr "Provjerio sam ovaj otisak prsta"
+
+msgid "Save verification"
+msgstr "Spremi provjeru"
+
+msgid "Fingerprint verification updated."
+msgstr "Provjera otiska prsta je ažurirana."
+
+msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
+msgstr "Usporedite cijeli otisak prsta sa svojim kontaktom putem zasebnog pouzdanog kanala. Označavanjem okvira ovaj se ključ veže uz odabranu adresu; ako okvir ostane neoznačen, ta se provjera uklanja."
+
+msgid "All private keys in this browser tab are locked."
+msgstr "Svi privatni ključevi u ovoj kartici preglednika sada su zaključani."
+
+msgid "Delete OpenPGP key"
+msgstr "Brisanje OpenPGP ključa"
+
+msgid "Type the full fingerprint to confirm deletion."
+msgstr "Upišite cijeli otisak prsta za potvrdu brisanja."
+
+msgid "Delete key"
+msgstr "Izbriši ključ"
+
+msgid "Key removed from your mailbox."
+msgstr "Ključ je uklonjen iz vašeg poštanskog sandučića."
+
+msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
+msgstr "Brisanjem ovog privatnog ključa nećete moći čitati poruke šifrirane za njega, osim ako imate sigurnosnu kopiju. Izradite sigurnosnu kopiju privatnog ključa prije nastavka."
+
+msgid "This removes the public key and its verified fingerprints from your keyring."
+msgstr "Time se iz vašeg skupa ključeva uklanjaju javni ključ i njegovi provjereni otisci prstiju."
+
+msgid "Manage OpenPGP keyservers"
+msgstr "Upravljanje OpenPGP poslužiteljima ključeva"
+
+msgid "HTTPS keyservers"
+msgstr "HTTPS poslužitelji ključeva"
+
+msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
+msgstr "U svaki redak unesite jedno HTTPS ishodište poslužitelja, bez putanje, vjerodajnica ili upita."
+
+msgid "Save keyservers"
+msgstr "Spremi poslužitelje ključeva"
+
+msgid "Keyservers updated."
+msgstr "Poslužitelji ključeva su ažurirani."
+
+msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
+msgstr "Mogu se koristiti samo HTTPS poslužitelji ključeva koje je odobrio administrator. Pretraživanje zahtijeva cijeli otisak prsta. Ključevi se nikada ne prenose automatski."
+
+msgid "Approved servers: {0}"
+msgstr "Odobreni poslužitelji: {0}"
+
+msgid "Find OpenPGP public key"
+msgstr "Pronalaženje javnog OpenPGP ključa"
+
+msgid "Keyserver"
+msgstr "Poslužitelj ključeva"
+
+msgid "Full fingerprint"
+msgstr "Cijeli otisak prsta"
+
+msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
+msgstr "Unesite cjeloviti heksadecimalni otisak prsta od 40 ili 64 znaka."
+
+msgid "Find and import"
+msgstr "Pronađi i uvezi"
+
+msgid "The keyserver did not return the requested public key."
+msgstr "Poslužitelj ključeva nije vratio traženi javni ključ."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Javni ključ je uvezen. Provjerite njegov otisak prsta prije nego što vlasniku šifrirate poruke."
+
+msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
+msgstr "Poslužitelj će primiti otisak prsta koji tražite. Preuzeti ključ i dalje zahtijeva provjeru otiska prsta prije nego što vlasniku šifrirate poruke."
 
 msgid "Old passphrase"
 msgstr "Stara šifra"
 
 msgid "Wrong passphrase. Please try again"
 msgstr "Pogrešna šifra. Molimo pokušajte ponovo"
-
-msgid "New passphrase"
-msgstr "Nova šifra"
 
 msgid "Confirm new passphrase"
 msgstr "Potvrdite novu šifru"
@@ -7068,20 +7707,11 @@ msgstr "Nema uvezenih certifikata, prenesite svoj privatni certifikat"
 msgid "Valid from"
 msgstr "Vrijedi od"
 
-msgid "Expires"
-msgstr "Ističe"
-
 msgid "Key Type"
 msgstr "Vrsta ključa"
 
 msgid "Purpose"
 msgstr "Svrha"
-
-msgid "Sign"
-msgstr "Znak"
-
-msgid "Encrypt"
-msgstr "Šifriraj"
 
 msgid "Sign & Encrypt"
 msgstr "Potpiši i šifriraj"
@@ -7212,14 +7842,12 @@ msgstr "CBC način rada"
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
 msgstr "grommunio Web može provjeriti digitalne potpise e-poruka. Uspješna provjera jamči da poruka nije bila mijenjana i potvrđuje identitet pošiljatelja."
 
-msgid "You are seeing this message because the verification of the digital signature"
-msgstr "Vidite ovu poruku jer provjera digitalnog potpisa"
+#. TRANSLATORS: {0} is the bolded phrase 'has failed'
+msgid "You are seeing this message because the verification of the digital signature {0} for this message."
+msgstr "Vidite ovu poruku jer provjera digitalnog potpisa {0} za ovu poruku."
 
-msgid " has failed"
-msgstr "nije uspio"
-
-msgid " for this message."
-msgstr "za ovu poruku."
+msgid "has failed"
+msgstr "nije uspjela"
 
 msgid "What caused this issue?"
 msgstr "Što je uzrokovalo ovaj problem?"
@@ -7232,12 +7860,6 @@ msgstr "Možete nastaviti raditi. Međutim, trebali biste imati na umu da se ide
 
 msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
 msgstr "Možete se obratiti službi za korisničku podršku ili administratoru sustava ako niste sigurni što dalje."
-
-msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "grommunio Web može provjeriti digitalne potpise e-poruka. Uspješna provjera vas uvjerava "
-
-msgid "that the message has not been tampered with and validates the identity of the sender."
-msgstr "da poruka nije bila mijenjana i potvrđuje identitet pošiljatelja."
 
 msgid "The verification of the digital signature was successful for this email message."
 msgstr "Provjera digitalnog potpisa za ovu e-poruku bila je uspješna."
@@ -7298,9 +7920,6 @@ msgstr "Nije moguće provjeriti potpis, nedostaje javna potvrda"
 
 msgid "Signature verification successful, but certificate is expired"
 msgstr "Provjera potpisa uspješna, ali certifikat je istekao"
-
-msgid "Signature could not be verified"
-msgstr "Potpis nije moguće provjeriti"
 
 msgid "Certificate has been revoked"
 msgstr "Certifikat je opozvan"
@@ -7507,7 +8126,7 @@ msgid "You have been automatically logged out"
 msgstr "Automatski ste odjavljeni"
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
-msgstr "Žao nam je, pristup Grommunio webu nije dostupan s ovim korisničkim računom. Molimo kontaktirajte svog sustavnog administratora."
+msgstr "Žao nam je, pristup grommunio Webu nije dostupan s ovim korisničkim računom. Molimo kontaktirajte svog administratora sustava."
 
 msgid "The AI request failed unexpectedly."
 msgstr "AI zahtjev neočekivano nije uspio."
@@ -7567,7 +8186,7 @@ msgid "This backend provides the default WebDAV integration for Files."
 msgstr "Ova pozadina pruža zadanu WebDAV integraciju za datoteke."
 
 msgid "Files Default Backend: "
-msgstr "Zadana pozadina datoteka:"
+msgstr "Datoteke zadani backend: "
 
 msgid "Server address"
 msgstr "Adresa poslužitelja"
@@ -7635,8 +8254,11 @@ msgstr "PHP-Curl nije dostupan."
 msgid "With this backend, you can connect to any Seafile server."
 msgstr "Pomoću ove pozadine možete se povezati s bilo kojim Seafile poslužiteljem."
 
-msgid "Files "
-msgstr "Datoteke"
+msgid "Files Seafile Backend: "
+msgstr "Datoteke Seafile backend: "
+
+msgid "Moving failed"
+msgstr "Premještanje nije uspjelo"
 
 msgid "Use SSL"
 msgstr "Koristite SSL"
@@ -7714,7 +8336,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "Pomoću ove pozadine možete se povezati s bilo kojim WebDAV poslužiteljem."
 
 msgid "Files WebDAV Backend: "
-msgstr "Datoteke WebDAV Backend:"
+msgstr "Datoteke WebDAV backend: "
 
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL nije instaliran"
@@ -7728,9 +8350,6 @@ msgstr "Stvaranje imenika nije uspjelo"
 msgid "Deletion failed"
 msgstr "Brisanje nije uspjelo"
 
-msgid "Moving failed"
-msgstr "Premještanje nije uspjelo"
-
 msgid "Temporary directory problems"
 msgstr "Privremeni problemi s imenikom"
 
@@ -7740,17 +8359,11 @@ msgstr "Datoteka ili mapa nisu pronađeni"
 msgid "Copying failed"
 msgstr "Kopiranje nije uspjelo"
 
-msgid "Please contact your system administrator"
-msgstr "Molimo kontaktirajte svog administratora sustava"
-
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Datotečni poslužitelj nije dostupan. Provjerite vezu."
 
-msgid "PHP-CURL not installed"
-msgstr "PHP-CURL nije instaliran"
-
 msgid "Unknown backend"
-msgstr ""
+msgstr "Nepoznat backend"
 
 msgid "Account is ready to use."
 msgstr "Račun je spreman za korištenje."
@@ -7765,10 +8378,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Ova datoteka više nije dostupna. Molimo ponovno učitajte mapu."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "Ovaj backend ne podržava pretraživanje primatelja"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "Nije moguće pretražiti primatelje"
 
 msgid "Kendox certificate path is not configured."
 msgstr "Putanja Kendox certifikata nije konfigurirana."
@@ -7790,7 +8403,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "Dogodila se neočekivana pogreška. Molimo kontaktirajte svog sistemskog administratora. Kod pogreške: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "Ovaj poslužitelj ne podržava upravljanje dijeljenim mapama."
 
 msgid "No data received."
 msgstr "Nema primljenih podataka."
@@ -7809,6 +8422,15 @@ msgstr "Greška pri promjeni lozinke. Molimo provjerite svoju lozinku ili kontak
 
 msgid "Password has been changed successfully."
 msgstr "Lozinka je uspješno promijenjena."
+
+msgid "The OpenPGP operation could not be completed."
+msgstr "OpenPGP operaciju nije bilo moguće dovršiti."
+
+msgid "OpenPGP: message was not sent"
+msgstr "OpenPGP: poruka nije poslana"
+
+msgid "The OpenPGP message could not be read."
+msgstr "OpenPGP poruku nije bilo moguće pročitati."
 
 msgid "No certificate available"
 msgstr "Certifikat nije dostupan"
@@ -7835,19 +8457,18 @@ msgid "Unable to generate certs-only message"
 msgstr "Nije moguće generirati poruku samo s certifikatima"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "Nije moguće pročitati certs-only poruku"
 
 msgid "LDAP not configured"
 msgstr "LDAP nije konfiguriran"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "Nevažeća LDAP konfiguracija"
 
-msgid "Missing public certificates for the following recipients: "
-msgstr "Nedostaju javni certifikati za sljedeće primatelje:"
-
-msgid ". Please contact your system administrator for details"
-msgstr ". Molimo kontaktirajte svog administratora sustava za detalje"
+#. TRANSLATORS: %s is a comma-separated list of email addresses
+#, php-format
+msgid "Missing public certificates for the following recipients: %s. Please contact your system administrator for details"
+msgstr "Nedostaju javni certifikati za sljedeće primatelje: %s. Molimo kontaktirajte svog administratora sustava za detalje"
 
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
 msgstr "Vaš javni certifikat nije instaliran. Bez tog certifikata nećete moći čitati šifrirane poruke koje ste poslali drugima."
@@ -7861,8 +8482,9 @@ msgstr "Nije moguće dešifrirati certifikat"
 msgid "Private key can't be used to sign email"
 msgstr "Privatni ključ ne može se koristiti za potpisivanje e-pošte"
 
-msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "Adresa e-pošte certifikata ne odgovara grommunio web računu"
+#, php-format
+msgid "Certificate email address doesn't match grommunio Web account %s"
+msgstr "Adresa e-pošte certifikata ne odgovara grommunio Web računu %s"
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -7871,14 +8493,17 @@ msgstr "Veličina RSA ključa od %d bita je ispod preporučenog minimuma od %d b
 msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
 msgstr "EdDSA (Ed25519) certifikati zahtijevaju PHP 8.4+ i možda nisu u potpunosti podržani. Certifikat je uvezen."
 
-msgid "Certificate was expired on "
-msgstr "Certifikat je istekao"
+#, php-format
+msgid "Certificate was expired on %s."
+msgstr "Certifikat je istekao %s."
 
 msgid "Certificate was imported."
 msgstr "Certifikat je uvezen."
 
-msgid "Certificate is not yet valid "
-msgstr "Certifikat još nije valjan"
+#. TRANSLATORS: %s is the date the certificate becomes valid
+#, php-format
+msgid "Certificate is not yet valid %s."
+msgstr "Certifikat još nije valjan %s."
 
 msgid "Certificate has not been imported"
 msgstr "Certifikat nije uvezen"
@@ -7887,7 +8512,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "Certifikat je opozvan, ali je uvezen."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "Status opoziva certifikata nije mogao biti provjeren. Certifikat je uvezen."
 
 msgid "Unable to read public certificate"
 msgstr "Nije moguće pročitati javni certifikat"
@@ -7931,6 +8556,9 @@ msgstr "Zatraženi su podaci o odgovoru sa sabirnice, ali nema nikakvih podataka
 msgid "Cannot store the category list in this mailbox."
 msgstr "Nije moguće spremiti popis kategorija u ovaj poštanski sandučić."
 
+msgid "Cannot scan this mailbox for categories."
+msgstr "Nije moguće pretražiti ovaj poštanski sandučić radi kategorija."
+
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "Nepoznati modul '%s' s ID-om '%s'"
@@ -7955,6 +8583,18 @@ msgstr "Popis zadataka"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$sod%2$s"
+
+msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
+msgstr "OpenPGP je trenutačno onemogućen ili nedostupan. Vaša poruka nije poslana. Omogućite OpenPGP prije ponovnog pokušaja ili izričito isključite potpisivanje i šifriranje."
+
+msgid "Too many messages were sent in a short time. Please wait a moment and send again."
+msgstr "U kratkom vremenu poslano je previše poruka. Pričekajte trenutak i pošaljite ponovno."
+
+msgid "Message was not sent"
+msgstr "Poruka nije poslana"
+
+msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
+msgstr "Ovaj nacrt traži OpenPGP zaštitu, ali ona nije primijenjena. Poruka nije poslana. Omogućite OpenPGP prije ponovnog pokušaja ili izričito isključite potpisivanje i šifriranje."
 
 msgid "Error retrieving existing settings"
 msgstr "Pogreška pri dohvaćanju postojećih postavki"
@@ -7991,7 +8631,7 @@ msgstr "VCF-privitak nije uspješno uvezen"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "Nije moguće uvesti '%s' u '%s'."
+msgstr "Nije moguće uvesti '%s' u '%s'. "
 
 msgid "There is no appointment found in this file."
 msgstr "U ovoj datoteci nema termina."
@@ -8004,7 +8644,7 @@ msgstr "Datoteka je nevažeća."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr "Nije moguće uvesti '%s'."
+msgstr "Nije moguće uvesti '%s'. "
 
 msgid "Attachment is not imported successfully"
 msgstr "Privitak nije uspješno uvezen"
@@ -8051,8 +8691,8 @@ msgstr "Dijeljene mape kontakata"
 msgid "Public Contact Folders"
 msgstr "Javne mape kontakata"
 
-msgid "Error in search, please try again"
-msgstr "Greška u pretraživanju, pokušajte ponovo"
+msgid "Error in search, please try again."
+msgstr "Greška u pretraživanju, pokušajte ponovo."
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr "Nije moguće izvršiti upit za pretraživanje, nema dopuštenja za stvaranje mape za pretraživanje."
@@ -8072,14 +8712,11 @@ msgstr "Nije moguće otvoriti pojavu."
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "Nije moguće otvoriti pojavu, određena pojava je vjerojatno izbrisana."
 
-msgid "a meeting request"
-msgstr "zahtjev za sastanak"
+msgid "You have insufficient privileges to move a meeting request in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "Nemate dovoljno ovlasti za premještanje zahtjeva za sastanak u ovom kalendaru. Vlasnik kalendara može ih postaviti na kartici 'Dozvole' u svojstvima mape (desni klik na mapu kalendara > Svojstva > Dozvole)"
 
-msgid "an appointment"
-msgstr "sastanak"
-
-msgid "You have insufficient privileges to move "
-msgstr "Nemate dovoljno privilegija za kretanje"
+msgid "You have insufficient privileges to move an appointment in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "Nemate dovoljno ovlasti za premještanje termina u ovom kalendaru. Vlasnik kalendara može ih postaviti na kartici 'Dozvole' u svojstvima mape (desni klik na mapu kalendara > Svojstva > Dozvole)"
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "Ne može se postaviti podsjetnik da se pojavi prije prethodnog događaja. Ponovno postavite podsjetnik kako biste spremili promjenu."
@@ -8113,8 +8750,11 @@ msgid "Meeting could not be saved."
 msgstr "Sastanak nije moguće spremiti."
 
 #, php-format
-msgid "There were %d skipped appointment(s):"
-msgstr "Preskočeni termini (%d):"
+msgid "There was %d skipped appointment:"
+msgid_plural "There were %d skipped appointments:"
+msgstr[0] "Preskočeni termini (%d):"
+msgstr[1] "Preskočeni termini (%d):"
+msgstr[2] "Preskočeni termini (%d):"
 
 msgid "More skipped appointments are not shown."
 msgstr "Ostali preskočeni termini nisu prikazani."
@@ -8132,6 +8772,10 @@ msgstr "Rođendan: %s"
 #, php-format
 msgid "%s's Anniversary"
 msgstr "Obljetnica: %s"
+
+#, php-format
+msgid "Unable to add store: '%s'. Please check if you have the necessary permissions."
+msgstr "Nije moguće dodati poštanski sandučić: '%s'. Provjerite imate li potrebna dopuštenja."
 
 msgid "You don't have the permission to complete this action"
 msgstr "Nemate dopuštenje za dovršetak ove radnje"
@@ -8267,26 +8911,26 @@ msgstr "Poruka nije pronađena, možda je premještena ili izbrisana ili nemate 
 msgid "Could not open message."
 msgstr "Nije moguće otvoriti poruku."
 
-msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "Nemate dovoljno privilegija da odbijete ovaj zahtjev za sastanak"
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "Nemate dovoljno privilegija da odbijete ovaj zahtjev za sastanak."
 
-msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "Nemate dovoljno ovlasti za prihvaćanje ovog zahtjeva za sastanak"
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "Nemate dovoljno ovlasti za prihvaćanje ovog zahtjeva za sastanak."
 
-msgid "Could not copy message"
-msgstr "Nije moguće kopirati poruku"
+msgid "Could not copy message."
+msgstr "Nije moguće kopirati poruku."
 
-msgid "Could not move message"
-msgstr "Nije moguće premjestiti poruku"
+msgid "Could not move message."
+msgstr "Nije moguće premjestiti poruku."
 
-msgid "Could not forward meeting request"
-msgstr "Nije moguće proslijediti zahtjev za sastanak"
+msgid "Could not forward meeting request."
+msgstr "Nije moguće proslijediti zahtjev za sastanak."
 
-msgid "You have insufficient privileges to save items in this folder"
-msgstr "Nemate dovoljno ovlasti za spremanje stavki u ovoj mapi"
+msgid "You have insufficient privileges to save items in this folder."
+msgstr "Nemate dovoljno ovlasti za spremanje stavki u ovoj mapi."
 
-msgid "Could not save message"
-msgstr "Nije moguće spremiti poruku"
+msgid "Could not save message."
+msgstr "Nije moguće spremiti poruku."
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Nemate dovoljno ovlasti za uklanjanje stavke iz kalendara."
@@ -8296,9 +8940,6 @@ msgstr "Poruka više nije u izlaznom redu, obično zato što je već poslana."
 
 msgid "Message cannot be aborted"
 msgstr "Poruka se ne može prekinuti"
-
-msgid "You have insufficient privileges to delete items in this folder"
-msgstr "Nemate dovoljno ovlasti za brisanje stavki u ovoj mapi"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Nemate dovoljno ovlasti za prilaganje stavke kao privitka."
@@ -8321,6 +8962,9 @@ msgstr "Nemate dovoljno ovlasti da odbijete ovaj zahtjev za zadatkom."
 msgid "Could not decline Task Request."
 msgstr "Nije moguće odbiti zahtjev za zadatkom."
 
+msgid "Could not open the attachment."
+msgstr "Nije moguće otvoriti privitak."
+
 msgid "Conflicts with another appointment."
 msgstr "Sukob s drugim imenovanjem."
 
@@ -8336,6 +8980,9 @@ msgstr "Vaša poruka nije stigla do nekih ili svih primatelja"
 
 msgid "The following recipient(s) could not be reached"
 msgstr "Sljedeći primatelji nisu bili dostupni"
+
+msgid "Removing attachments has been disabled by the administrator."
+msgstr "Administrator je onemogućio uklanjanje privitaka."
 
 msgid "l, F j, Y g:i A"
 msgstr "l, j. F Y G:i"
@@ -8367,9 +9014,6 @@ msgstr "Nije moguće zaustaviti operaciju pretraživanja."
 msgid "You have insufficient privileges to save this message."
 msgstr "Nemate dovoljno ovlasti za spremanje ove poruke."
 
-msgid "Could not save message."
-msgstr "Nije moguće spremiti poruku."
-
 msgid "You have insufficient privileges to delete this message."
 msgstr "Nemate dovoljno ovlasti za brisanje ove poruke."
 
@@ -8382,14 +9026,8 @@ msgstr "Nemate dovoljno ovlasti za otkazivanje ovog zahtjeva za sastanak."
 msgid "Could not cancel Meeting Request."
 msgstr "Nije moguće otkazati zahtjev za sastanak."
 
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "Nemate dovoljno privilegija da odbijete ovaj zahtjev za sastanak."
-
 msgid "Could not decline Meeting Request."
 msgstr "Nije moguće odbiti zahtjev za sastanak."
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Nemate dovoljno ovlasti za prihvaćanje ovog zahtjeva za sastanak."
 
 msgid "Could not accept Meeting Request."
 msgstr "Nije moguće prihvatiti zahtjev za sastanak."
@@ -8402,9 +9040,6 @@ msgstr "Nije moguće otkazati pozivnice za zahtjev za sastanak."
 
 msgid "You can not continue search operation on this folder."
 msgstr "Ne možete nastaviti operaciju pretraživanja ove mape."
-
-msgid "Error in search, please try again."
-msgstr "Greška u pretraživanju, pokušajte ponovo."
 
 msgid "Error in distribution list expansion."
 msgstr "Pogreška u proširenju popisa distribucije."
@@ -8455,6 +9090,9 @@ msgstr "Zahtjev za zadatak:"
 msgid "Sign in"
 msgstr "Prijavite se"
 
+msgid "Loading"
+msgstr "Učitavanje"
+
 msgid "File is not imported successfully"
 msgstr "Datoteka nije uspješno uvezena"
 
@@ -8467,8 +9105,8 @@ msgstr "Učitana datoteka prelazi direktivu MAX_FILE_SIZE koja je bila navedena 
 msgid "The uploaded file was only partially uploaded."
 msgstr "Učitana datoteka samo je djelomično učitana."
 
-msgid "No file was uploaded. ."
-msgstr "Nijedna datoteka nije prenesena. ."
+msgid "No file was uploaded."
+msgstr "Nijedna datoteka nije prenesena."
 
 msgid "Missing a temporary folder."
 msgstr "Nedostaje privremena mapa."

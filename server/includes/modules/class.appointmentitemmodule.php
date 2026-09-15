@@ -242,8 +242,9 @@ class AppointmentItemModule extends ItemModule {
 						$messageProps = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
 						$messageClass = $messageProps[PR_MESSAGE_CLASS];
 
-						$text = $messageClass !== "IPM.Appointment" ? _('a meeting request') : _('an appointment');
-						$msg = _('You have insufficient privileges to move ' . $text . ' in this calendar. The calendar owner can set these using the \'permissions\'-tab of the folder properties (right click the calendar folder > properties > permissions)');
+						$msg = $messageClass !== "IPM.Appointment" ?
+							_('You have insufficient privileges to move a meeting request in this calendar. The calendar owner can set these using the \'permissions\'-tab of the folder properties (right click the calendar folder > properties > permissions)') :
+							_('You have insufficient privileges to move an appointment in this calendar. The calendar owner can set these using the \'permissions\'-tab of the folder properties (right click the calendar folder > properties > permissions)');
 
 						$e->setDisplayMessage($msg);
 						$e->setTitle(_('Insufficient privileges'));

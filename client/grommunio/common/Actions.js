@@ -543,7 +543,7 @@ Grommunio.common.Actions = {
 			} else if (objectToPrint instanceof Grommunio.core.data.MAPIRecord) {
 				Ext.MessageBox.alert(
 					_('Print'),
-					_('Printing of this item is not yet available') + '\n' + _('Item type: ') + objectToPrint.get('message_class')
+					_('Printing of this item is not yet available') + '\n' + String.format(_('Item type: {0}'), objectToPrint.get('message_class'))
 				);
 			} else {
 				Ext.MessageBox.alert(

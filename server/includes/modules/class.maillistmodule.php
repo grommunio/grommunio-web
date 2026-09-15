@@ -414,7 +414,7 @@ class MailListModule extends ListModule {
 						$e->setDisplayMessage(_("You have insufficient privileges to perform search operation in this folder."));
 					}
 					else {
-						$e->setDisplayMessage(_("Error in search, please try again"));
+						$e->setDisplayMessage(_("Error in search, please try again."));
 					}
 					break;
 

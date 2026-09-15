@@ -28,7 +28,7 @@ Grommunio.addressbook.dialogs.ABEmailAddressTab = Ext.extend(Ext.form.FormPanel,
 
 		Ext.applyIf(config, {
 			xtype: 'grommunio.abemailaddresstab',
-			title: _('Email Addresses'),
+			title: _('Email addresses'),
 			bodyStyle: 'padding: 5px;',
 			layout: {
 				type: 'vbox',

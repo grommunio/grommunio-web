@@ -263,7 +263,7 @@ class ListModule extends Module {
 		if ($this->restriction == false) {
 			// if error in creating restriction then send error to client
 			$errorInfo = [];
-			$errorInfo["error_message"] = _("Error in search, please try again") . ".";
+			$errorInfo["error_message"] = _("Error in search, please try again.");
 			$errorInfo["original_error_message"] = "Error in parsing restrictions.";
 
 			return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
@@ -285,7 +285,7 @@ class ListModule extends Module {
 			$userStore = WebAppAuthentication::getMAPISession()->getDefaultMessageStore();
 			if ($userStore === false) {
 				$errorInfo = [];
-				$errorInfo["error_message"] = _("Error in search, please try again") . ".";
+				$errorInfo["error_message"] = _("Error in search, please try again.");
 				$errorInfo["original_error_message"] = _("Could not open the store.");
 
 				return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);

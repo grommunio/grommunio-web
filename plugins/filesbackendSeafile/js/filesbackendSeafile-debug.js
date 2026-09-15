@@ -484,7 +484,7 @@ Grommunio.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 		 */
 		checkSharedRecord: function () {
 			this.loadMask = new Ext.LoadMask(this.getEl(), {
-				msg: _('Loading details...'),
+				msg: _('Loading details…'),
 			});
 			if (Ext.isDefined(this.parentRecord)) {
 				if (
@@ -1232,7 +1232,7 @@ Grommunio.plugins.files.backend.Seafile.ui.UserGroupPredictorField = Ext.extend(
 				mode: 'remote',
 				minChars: 2,
 				emptyText: _('Type to search'),
-				loadingText: _('Loading...'),
+				loadingText: _('Loading…'),
 				listEmptyText: _('No results'),
 				itemSelector: 'div.ugpredic_search_item',
 				tpl: new Ext.XTemplate(

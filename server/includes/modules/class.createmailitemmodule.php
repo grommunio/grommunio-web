@@ -362,7 +362,7 @@ class CreateMailItemModule extends ItemModule {
 				}
 				catch (MAPIException $e) {
 					$e->setTitle(_('Unknown error'));
-					$e->setDisplayMessage(sprintf("Unable to add store: '%s'. Please check if you have the necessary permissions.",
+					$e->setDisplayMessage(sprintf(_("Unable to add store: '%s'. Please check if you have the necessary permissions."),
 						$action['props']['sent_representing_email_address']));
 
 					throw $e;

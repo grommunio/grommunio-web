@@ -44,7 +44,7 @@ Grommunio.note.ui.NoteGridColumnModel = Ext.extend(Grommunio.common.ui.grid.Colu
 		return [{
 			dataIndex	: 'icon_index',
 			headerCls	: 'grommunio-icon-column',
-			header		: '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
+			header		: '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
 			tooltip		: _('Sort by: Icon'),
 			width		: 24,
 			fixed		: true,

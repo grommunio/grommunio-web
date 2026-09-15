@@ -118,7 +118,7 @@ Grommunio.plugins.pgp.PgpPlugin = Ext.extend(Grommunio.core.Plugin, {
 			return;
 		}
 		var details = utils.encode(utils.status(info).text);
-		if (info.fingerprint) { details += '<br><br>' + _('Signing key: ') + utils.encode(utils.formatFingerprint(info.fingerprint)); }
+		if (info.fingerprint) { details += '<br><br>' + String.format(_('Signing key: {0}'), utils.encode(utils.formatFingerprint(info.fingerprint))); }
 		if (info.message) { details += '<br><br>' + utils.encode(info.message); }
 		if (info.encrypted && info.decrypted) { details += '<br><br>' + _('Decryption alone does not authenticate the sender.'); }
 		Ext.Msg.alert(_('OpenPGP security information'), details);

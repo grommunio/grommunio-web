@@ -110,7 +110,7 @@ Grommunio.note.ui.NoteGrid = Ext.extend(Grommunio.common.ui.grid.MapiMessageGrid
 	initLoadMask: function()
 	{
 		return {
-			msg: _('Loading Notes') + '...'
+			msg: _('Loading notes') + '...'
 		};
 	},
 

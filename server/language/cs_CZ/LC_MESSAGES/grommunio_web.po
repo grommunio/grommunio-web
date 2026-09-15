@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-06 21:29+0200\n"
+"POT-Creation-Date: 2026-09-15 20:54+0200\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -40,6 +40,13 @@ msgstr "Hodnota musí být mezi 0% a 100%"
 
 msgid "Number must be higher than zero"
 msgstr "Číslice musí být vyšší než nula"
+
+#. TRANSLATORS: punctuation appended to every form label, {0} is the label
+#. itself. French puts a space before the colon, Chinese the full-width one.
+#. TRANSLATORS: punctuation appended to a field label, {0} is the label itself
+msgctxt "label separator"
+msgid "{0}:"
+msgstr "{0}:"
 
 msgid "More options"
 msgstr "Více možností"
@@ -267,8 +274,8 @@ msgstr "Ano"
 msgid "No"
 msgstr "Ne"
 
-msgid "Loading"
-msgstr "Načítání"
+msgid "Loading…"
+msgstr "Načítám…"
 
 msgid "The value in this field is invalid"
 msgstr "Toto pole je neplatné"
@@ -342,9 +349,6 @@ msgstr "Toto pole má obsahovat pouze písmena a _"
 
 msgid "This field should only contain letters, numbers and _"
 msgstr "Toto pole má obsahovat pouze písmena, čísla a _"
-
-msgid "Email Addresses"
-msgstr "E-mailové adresy"
 
 msgid "Email addresses"
 msgstr "E-mailové adresy"
@@ -493,9 +497,8 @@ msgstr "Kopírování kontaktů"
 msgid "Address book"
 msgstr "Adresář"
 
-#, fuzzy
 msgid "Showing only the first {0} names. Use search to find more specific results."
-msgstr "Zobrazení pouze prvních {0} jmen. Pro vyhledání konkrétnějších výsledků použijte vyhledávání."
+msgstr "Zobrazuje se pouze prvních {0} jmen. Pro konkrétnější výsledky použijte vyhledávání."
 
 msgid "Use the search bar to get results"
 msgstr "Chcete-li získat výsledky, použijte vyhledávací panel"
@@ -648,7 +651,7 @@ msgid "Apply"
 msgstr "Použít"
 
 msgid "All folders are selected"
-msgstr "Vybrána složka '{0}'"
+msgstr "Jsou vybrány všechny složky"
 
 msgid "Reply"
 msgstr "Odpovědět"
@@ -704,7 +707,7 @@ msgid "To"
 msgstr "Do"
 
 msgid "Filter category…"
-msgstr "Filtrovat kategorii.."
+msgstr "Filtrovat kategorii…"
 
 msgid "Add Category"
 msgstr "Přidat kategorii"
@@ -827,8 +830,9 @@ msgstr "týden"
 msgid "weeks"
 msgstr "týdny"
 
-msgid " on "
-msgstr " v "
+#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+msgid "{0} on {1}"
+msgstr "{0} v {1}"
 
 msgid "month"
 msgstr "měsíc"
@@ -1026,7 +1030,6 @@ msgstr "Vytvořit rezervaci"
 msgid "Create in other calendar"
 msgstr "Vytvořit v jiném kalendáři"
 
-#, fuzzy
 msgid "The selected calendar has \"read-only\" permissions. Instead you can create an item in your own calendar."
 msgstr "Vybraný kalendář má oprávnění jen pro čtení. Namísto toho můžete vytvořit položku ve svém vlastním kalendáři."
 
@@ -1077,7 +1080,6 @@ msgstr "Nemáte oprávnění tuto položku odstranit."
 msgid "Send update to attendees"
 msgstr "Odeslat aktualizace účastníkům"
 
-#, fuzzy
 msgid "You have made changes to the list of attendees. What would you like to do?"
 msgstr "Provedli jste změny v seznamu účastníků. Co byste chtěli udělat?"
 
@@ -1383,18 +1385,18 @@ msgid "End"
 msgstr "Konec"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-msgid "Printed by"
-msgstr "Vytiskl"
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+msgid "Printed by {0} at {1}"
+msgstr "Vytiskl {0} v {1}"
 
-msgid "at"
-msgstr "v"
+#. TRANSLATORS: {0} is a folder name, {1} the name of the mailbox it lives in
+msgid "{0} of {1}"
+msgstr "{0} ze {1}"
 
-msgid "of"
-msgstr "ze"
-
-msgid "Location: "
-msgstr "Místo:"
+msgid "Location: {0}"
+msgstr "Místo: {0}"
 
 msgid "j M {0}"
 msgstr "j M {0}"
@@ -1402,8 +1404,8 @@ msgstr "j M {0}"
 msgid "l jS M Y {0}"
 msgstr "l jS M Y {0}"
 
-msgid "All day: "
-msgstr "Po celý den: "
+msgid "All day: {0}"
+msgstr "Po celý den: {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1520,6 +1522,12 @@ msgstr "Otevřít"
 msgid "Copy/Move"
 msgstr "Kopírovat/Přesunout"
 
+msgid "Mark Read"
+msgstr "Označit jako přečtené"
+
+msgid "Mark Unread"
+msgstr "Označit jako nepřečtené"
+
 msgid "Send to…"
 msgstr "Odeslat…"
 
@@ -1537,10 +1545,6 @@ msgstr "Schůzka nebyla nalezena"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "Tato schůzka byla přesunuta nebo smazána, chcete pokračovat?"
-
-msgctxt "calendar.contextmenu"
-msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr "Pomocí funkce „Odpovědět všem“ můžete odpovědět všem účastníkům schůzky."
 
 msgid "Options"
 msgstr "Možnosti"
@@ -1632,32 +1636,15 @@ msgstr "Třídit podle: Důležitost"
 msgid "Appointments list"
 msgstr "Seznam schůzek"
 
-msgid "Loading appointments"
-msgstr "Načítání schůzek"
+msgid "Loading appointments…"
+msgstr "Načítání schůzek…"
 
-msgid "Attendees"
-msgstr "Účastníci"
-
-msgid "Optional attendees"
-msgstr "Nepovinní účastníci"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F {0}"
-msgstr "jS F {0}"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F Y"
-msgstr "j. F Y"
-
-#, fuzzy
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Nemáte dostatečná oprávnění k přesunu a kopírování této položky. Požádejte vlastníka složky o udělení oprávnění nebo se obraťte na správce systému."
 
-#, fuzzy
 msgid "You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Ke kopírování této položky nemáte dostatečná oprávnění. Požádejte vlastníka složky o udělení oprávnění nebo se obraťte na správce systému."
 
-#, fuzzy
 msgid "Copying this appointment will unset it as private. Are you sure you want to continue?"
 msgstr "Zkopírováním této schůzky se zruší její nastavení jako soukromé. Určitě chcete pokračovat?"
 
@@ -1667,7 +1654,6 @@ msgstr "Soukromá položka"
 msgid "Copy"
 msgstr "Kopírovat"
 
-#, fuzzy
 msgid "Moving this appointment will unset it as private. Are you sure you want to continue?"
 msgstr "Přesunutím této schůzky se zruší její nastavení jako soukromé. Určitě chcete pokračovat?"
 
@@ -1693,7 +1679,7 @@ msgid "Next"
 msgstr "Další"
 
 msgid "grommunio Web"
-msgstr "webové stránky"
+msgstr "grommunio Web"
 
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
 msgstr "Vezměte prosím na vědomí, že veškeré změny, které provedete, budou přepsány organizatorem v případě aktualizace této žádosti o schůzku?"
@@ -1734,8 +1720,18 @@ msgstr "Váš kalendář bude automaticky aktualizován. Tato žádost o schůzk
 msgid "New appointment subject"
 msgstr "Předmět nové schůzky"
 
-msgid "Loading appointments…"
-msgstr "Načítání schůzek…"
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "j. F Y"
+
+msgid "Online meeting"
+msgstr "Online schůzka"
+
+msgid "Attendees"
+msgstr "Účastníci"
+
+msgid "Optional attendees"
+msgstr "Nepovinní účastníci"
 
 msgid "Please select a calendar via widget settings"
 msgstr "Vyberte kalendář prostřednictvím nastavení widgetu"
@@ -1802,8 +1798,8 @@ msgstr "Tisk více položek nelze provádět."
 msgid "Printing of this item is not yet available"
 msgstr "Tisk této položky není zatím dostupný"
 
-msgid "Item type: "
-msgstr "Typ položky: "
+msgid "Item type: {0}"
+msgstr "Typ položky: {0}"
 
 msgid "Printing of this view is not yet available"
 msgstr "Tisk tohoto náhledu není zatím dostupný"
@@ -1841,7 +1837,6 @@ msgstr "Otevřít celou sérii"
 msgid "Paste Recurring {0}"
 msgstr "Vložit Opakující se {0}"
 
-#, fuzzy
 msgid "This is a recurring {0}. Do you want to paste only this occurrence or the series?"
 msgstr "Toto je opakující se {0}. Chcete vložit pouze tento výskyt nebo sérii?"
 
@@ -1899,6 +1894,12 @@ msgstr "Nedostatečná oprávnění"
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr "Nemáte dostatečná oprávnění k odstraňování položek v této složce."
 
+msgid "You have insufficient privileges to delete one of the selected items."
+msgid_plural "You have insufficient privileges to delete {0} of the selected items."
+msgstr[0] "Nemáte dostatečná oprávnění k odstranění jedné z vybraných položek."
+msgstr[1] "Nemáte dostatečná oprávnění k odstranění {0} z vybraných položek."
+msgstr[2] "Nemáte dostatečná oprávnění k odstranění {0} z vybraných položek."
+
 msgid "Notify recipients"
 msgstr "Upozornit příjemce"
 
@@ -1935,7 +1936,12 @@ msgstr "Duplicitní příjemce"
 msgid "Recipient already exists."
 msgstr "Uživatel již existuje."
 
-#, fuzzy
+msgid "Remove attachment"
+msgstr "Odstranit přílohu"
+
+msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
+msgstr "Odstranit „{0}“ z této zprávy? Přílohu již nebude možné obnovit."
+
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "Odesílatel této zprávy žádá potvrzení o přečtení této zprávy. Přejete si potvrzení odeslat?"
 
@@ -1954,11 +1960,9 @@ msgstr "Chyba importu"
 msgid "Unable to import \"{0}\". The file is not valid"
 msgstr "Nelze importovat \"{0}\". Soubor není platný"
 
-#, fuzzy
 msgid "You have insufficient privileges to move these items. Would you like to copy instead?"
 msgstr "K přesunu těchto položek nemáte dostatečná oprávnění. Chcete místo toho kopírovat?"
 
-#, fuzzy
 msgid "You have insufficient privileges to move this item. Would you like to copy instead?"
 msgstr "Nemáte dostatečná oprávnění k přesunu této položky. Chcete místo toho kopírovat?"
 
@@ -1966,22 +1970,22 @@ msgid "Untitled"
 msgstr "Nepojmenovaný"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "Přílohy se nepodařilo uložit."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Tuto přílohu se nepodařilo uložit: {0}"
+msgstr[1] "Tyto přílohy se nepodařilo uložit: {0}"
+msgstr[2] "Tyto přílohy se nepodařilo uložit: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{0} příloha byla uložena."
+msgstr[1] "{0} přílohy byly uloženy."
+msgstr[2] "{0} příloh bylo uloženo."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "Uložení příloh"
 
 msgid "Insert item"
 msgstr "Vložit položku"
@@ -2029,7 +2033,7 @@ msgid "Preview"
 msgstr "Náhled"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "Náhled v dialogovém okně"
 
 msgid "Download"
 msgstr "Stáhnout"
@@ -2038,24 +2042,22 @@ msgid "Download all as ZIP"
 msgstr "Stáhnout vše jako ZIP"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "Uložit výběr do složky v počítači"
 
 msgid "Import to folder"
 msgstr "Import do složky"
 
-#, fuzzy
 msgid "In order to use the vCard import feature, upgrade your Gromox to version 0 or higher."
 msgstr "Abyste mohli používat funkci importu vCard, aktualizujte aplikaci Gromox na verzi 0 nebo vyšší."
 
-#, fuzzy
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "Chcete-li používat funkci importu ICS / VCS, aktualizujte systém Gromox na verzi 0 nebo vyšší."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "Náhled na kartě grommunio Web"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "Náhled v okně prohlížeče"
 
 msgid "Attachment error"
 msgstr "Chyba přílohy"
@@ -2069,14 +2071,8 @@ msgstr "Nelze stáhnout"
 msgid "Drop files here to attach them"
 msgstr "Přetáhněte sem soubory, které chcete připojit"
 
-msgid "Picture format is not supported. "
-msgstr "Formát obrázku není podporován. "
-
-msgid "Supported format for contact pictures are"
-msgstr "Podporovaný formát pro kontaktní obrázky je"
-
-msgid "Attachment Error"
-msgstr "Chyba přílohy"
+msgid "Picture format is not supported. Supported format for contact pictures are"
+msgstr "Formát obrázku není podporován. Podporovaný formát pro kontaktní obrázky je"
 
 msgid "Could not save the category list."
 msgstr "Seznam kategorií se nepodařilo uložit."
@@ -2099,15 +2095,14 @@ msgstr "Rychlý přístup"
 msgid "Delete Category"
 msgstr "Odstranit kategorii"
 
-#, fuzzy
 msgid "Are you sure you want to delete the category \"{0}\"? Other items keep this category, but lose the assigned color."
 msgstr "Opravdu chcete odstranit kategorii \"{0}\"? Ostatní položky si tuto kategorii zachovají, ale ztratí přiřazenou barvu."
 
 msgid "Rename Category"
 msgstr "Přejmenovat kategorii"
 
-msgid "A category named \""
-msgstr "Kategorie s názvem \""
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "Již máte kategorii s názvem '{0}'. Použijte prosím jiný název."
 
 msgid "Create New Category"
 msgstr "Vytvořit novou kategorii"
@@ -2124,10 +2119,6 @@ msgstr "Vytvořit"
 msgid "You must apply the changes you have made to the categories before you can create this category."
 msgstr "Předtím než vytvoříte tuto kategorii, musíte aplikovat změny, které jste provedli v kategoriích."
 
-msgid "You already have a category named '{0}'. Please use another name."
-msgstr "Již máte kategorii s názvem '{0}'. Použijte prosím jiný název."
-
-#, fuzzy
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
 msgstr "V seznamu čekajících změn již máte kategorii s názvem \"{0}\". Použijte prosím jiný název."
 
@@ -2224,9 +2215,8 @@ msgstr "Vyberte prosím zástupce."
 msgid "Delegates can send items on your behalf."
 msgstr "Delegáti mohou odesílat položky vaším jménem."
 
-#, fuzzy
 msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
-msgstr "Pokud chcete nastavit pouze oprávnění složky, klikněte pravým tlačítkem myši na složku, čímž otevřete kontextovou nabídku a klikněte na možnost \"Sdílet složku…\""
+msgstr "Pokud chcete nastavit pouze oprávnění složky, klikněte na složku pravým tlačítkem myši a v kontextové nabídce zvolte možnost \"Sdílet složku…\""
 
 msgid "Permission"
 msgstr "Oprávnění"
@@ -2255,6 +2245,9 @@ msgstr[2] "Je vybráno {0} zpráv."
 msgid "Folder '{0}' selected."
 msgstr "Vybrána složka '{0}'."
 
+msgid "Suggested folders"
+msgstr "Navrhované složky"
+
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "Vybrané položky nelze do této složky přesunout, protože je určena pro jiný typ obsahu."
 
@@ -2270,13 +2263,11 @@ msgstr "Akci se nepodařilo provést"
 msgid "The selected items are no longer available."
 msgstr "Vybrané položky již nejsou k dispozici."
 
-#, fuzzy
 msgid "You have insufficient privileges to move this folder. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "K přesunu této složky nemáte dostatečná oprávnění. Požádejte vlastníka složky o udělení oprávnění nebo se obraťte na správce systému."
 
-#, fuzzy
 msgid "You have insufficient privileges to copy this folder. Ask the folder owner to grant you permissions or contact your system administrator."
-msgstr "Ke kopírování této složky nemáte dostatečná práva. Požádejte vlastníka složky o udělení oprávnění nebo se obraťte na správce systému."
+msgstr "Ke kopírování této složky nemáte dostatečná oprávnění. Požádejte vlastníka složky o udělení oprávnění nebo se obraťte na správce systému."
 
 msgid "You have insufficient privileges to move following items."
 msgstr "Nemáte dostatečná oprávnění k přesunu následujících položek."
@@ -2443,15 +2434,17 @@ msgstr "Otevřít okno na kopírování/přesunování"
 msgid "Delete selected item"
 msgstr "Odstranit vybranou položku"
 
-#, fuzzy
 msgid "Delete selected item without moving it to the Deleted Items folder. The deleted item can still be restored."
-msgstr "Odstranit vybranou položku, aniž byste ji přesunuli do složky Odstraněné položky. Vymazaná položka může být obnovena."
+msgstr "Odstranit vybranou položku bez přesunutí do složky Odstraněné položky. Odstraněnou položku lze i poté obnovit."
 
 msgid "Undo the last action"
 msgstr "Vrátit zpět poslední akci"
 
 msgid "Redo the last undone action"
 msgstr "Znovu provést poslední vrácenou akci"
+
+msgid "Jump to the search box, press again for the browser search"
+msgstr "Přejít do pole vyhledávání, dalším stisknutím se otevře hledání v prohlížeči"
 
 msgid "Open the command palette"
 msgstr "Otevřít paletu příkazů"
@@ -2506,6 +2499,75 @@ msgstr "Seřadit podle: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
+
+msgid "Presentation"
+msgstr "Prezentace"
+
+msgid "Fullscreen"
+msgstr "Celá obrazovka"
+
+msgid "Previous page"
+msgstr "Předchozí stránka"
+
+msgid "Next page"
+msgstr "Další stránka"
+
+msgid "Page:"
+msgstr "Stránka:"
+
+msgid "of {0}"
+msgstr "z {0}"
+
+msgid "Zoom out"
+msgstr "Oddálit"
+
+msgid "Zoom in"
+msgstr "Přiblížit"
+
+msgid "Zoom"
+msgstr "Přiblížení"
+
+msgid "Automatic"
+msgstr "Automatické"
+
+msgid "Actual size"
+msgstr "Skutečná velikost"
+
+msgid "Page width"
+msgstr "Šířka stránky"
+
+msgid "Rotate left"
+msgstr "Otočit doleva"
+
+msgid "Rotate right"
+msgstr "Otočit doprava"
+
+msgid "This document could not be previewed."
+msgstr "Tento dokument se nepodařilo zobrazit v náhledu."
+
+msgid "This file cannot be previewed."
+msgstr "Tento soubor nelze zobrazit v náhledu."
+
+msgid "Download the file to open it with a program that can read it."
+msgstr "Stáhněte si soubor a otevřete jej programem, který jej dokáže přečíst."
+
+msgid "The document is empty."
+msgstr "Dokument je prázdný."
+
+msgid "This sheet is empty."
+msgstr "Tento list je prázdný."
+
+msgid "Showing the first {0} rows and {1} columns."
+msgstr "Zobrazeny jsou pouze první řádky ({0}) a sloupce ({1})."
+
+msgid "Wrap lines"
+msgstr "Zalamovat řádky"
+
+msgid "Line numbers"
+msgstr "Čísla řádků"
+
+msgid "This message has no content."
+msgstr "Tato zpráva neobsahuje žádný text."
 
 msgid "grommunio Web print"
 msgstr "grommunio Web print"
@@ -2629,7 +2691,7 @@ msgstr "Každý {A} týden(y) na"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Znovu vytvořit nový úkol {A} týden(y) po každém dokončení úkolu"
 
-msgid "Every {A} years(s) on"
+msgid "Every {A} year(s) on"
 msgstr "Každých {A} let dne"
 
 msgid "{A} {B}"
@@ -2758,52 +2820,52 @@ msgid "Sort by: Size"
 msgstr "Třídit podle: Velikost"
 
 msgid "Move the message to folder…"
-msgstr "Přesunutí zprávy do složky.."
+msgstr "Přesunutí zprávy do složky…"
 
 msgid "Copy the message to folder…"
-msgstr "Zkopírujte zprávu do složky.."
+msgstr "Zkopírujte zprávu do složky…"
 
 msgid "Delete the message"
 msgstr "Vymazat zprávu"
 
 msgid "Redirect the message to…"
-msgstr "Přesměrování zprávy na.."
+msgstr "Přesměrování zprávy na…"
 
 msgid "Forward the message to…"
-msgstr "Zprávu přepošlete na adresu.."
+msgstr "Zprávu přepošlete na adresu…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Zprávu přepošlete jako přílohu na adresu.."
+msgstr "Zprávu přepošlete jako přílohu na adresu…"
 
 msgid "Mark the message as read…"
-msgstr "Označte zprávu jako přečtenou.."
+msgstr "Označte zprávu jako přečtenou…"
 
 msgid "is received from…"
-msgstr "je obdržena od.."
+msgstr "je obdržena od…"
 
 msgid "includes these words in the sender's address…"
-msgstr "obsahuje tato slova v adrese odesílatele.."
+msgstr "obsahuje tato slova v adrese odesílatele…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "obsahuje tato slova v adrese příjemce.."
+msgstr "obsahuje tato slova v adrese příjemce…"
 
 msgid "includes these words in the subject…"
-msgstr "obsahuje tato slova v předmětu.."
+msgstr "obsahuje tato slova v předmětu…"
 
 msgid "includes these words in the body…"
-msgstr "obsahuje tato slova v těle.."
+msgstr "obsahuje tato slova v těle…"
 
 msgid "includes these words in the transport headers…"
-msgstr "obsahuje tato slova v přepravních záhlavích.."
+msgstr "obsahuje tato slova v přepravních záhlavích…"
 
 msgid "has importance…"
-msgstr "má význam.."
+msgstr "má význam…"
 
 msgid "has an attachment"
 msgstr "má přílohu"
 
 msgid "is sent to…"
-msgstr "je odeslána na.."
+msgstr "je odeslána na…"
 
 msgid "is sent only to me"
 msgstr "je poslán pouze mně"
@@ -2821,16 +2883,16 @@ msgid "has sensitivity…"
 msgstr "Důvěrnost…"
 
 msgid "is received after…"
-msgstr "je obdržena po.."
+msgstr "je obdržena po…"
 
 msgid "is received before…"
-msgstr "obdrží před.."
+msgstr "obdrží před…"
 
 msgid "size is at least…"
-msgstr "velikost je minimálně.."
+msgstr "velikost je minimálně…"
 
 msgid "size is at most…"
-msgstr "velikost je maximálně.."
+msgstr "velikost je maximálně…"
 
 msgid "has my name in the To field"
 msgstr "je v poli Komu uvedeno mé jméno"
@@ -2959,7 +3021,13 @@ msgid "Always move messages with this subject"
 msgstr "Vždy přesouvejte zprávy s tímto předmětem"
 
 msgid "Create rule…"
-msgstr "Vytvořit pravidlo.."
+msgstr "Vytvořit pravidlo…"
+
+msgid "Saved"
+msgstr "Uloženo"
+
+msgid "Saved successfully"
+msgstr "Uloženo úspěšně"
 
 msgid "myself"
 msgstr "sám"
@@ -3012,7 +3080,6 @@ msgstr "Kliknutím procházet: AND → OR → NOT"
 msgid "Folder does not exist"
 msgstr "Složka neexistuje"
 
-#, fuzzy
 msgid "The folder you are searching through no longer exists. Please select another folder"
 msgstr "Složka, ve které hledáte, již neexistuje. Vyberte prosím jinou složku"
 
@@ -3064,8 +3131,10 @@ msgstr "Povolení oznámení o nové poště na ploše"
 msgid "Enable desktop notifications for reminders"
 msgstr "Povolení upozornění na ploše pro připomenutí"
 
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A} Automatické skrytí oznámení na ploše po sekundě (sekundách) {B}"
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Auto-hide desktop notification after {B} second(s)"
+msgstr "{A}Automatické skrytí oznámení na ploše po {B} sekundách"
 
 msgid "Disable sound"
 msgstr "Zakázat zvuk"
@@ -3160,9 +3229,6 @@ msgstr "{0} zpožděný"
 msgid "Message body editor"
 msgstr "Editor těla zprávy"
 
-msgid "Loading…"
-msgstr "Načítám…"
-
 msgid "Message could not be loaded"
 msgstr "Zprávu se nepodařilo načíst"
 
@@ -3204,10 +3270,9 @@ msgctxt "mail.previewpanel"
 msgid "Please treat this as {0}."
 msgstr "Považujte prosím za {0}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "Kliknutím sem si můžete stáhnout obrázky. Z důvodu ochrany vašeho soukromí zabránil web grommunio automatickému stahování některých obrázků v této zprávě."
+msgstr "Kliknutím sem si můžete stáhnout obrázky. Z důvodu ochrany vašeho soukromí zabránil grommunio Web automatickému stahování některých obrázků v této zprávě."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3285,15 +3350,13 @@ msgctxt "mail.previewpanel"
 msgid "Received for {0}."
 msgstr "Přijato pro {0}."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
 msgstr "Odpověděli jste na tuto zprávu."
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr "Tuto zprávu jste přeposlal."
+msgstr "Tuto zprávu jste přeposlali."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
@@ -3387,6 +3450,27 @@ msgstr "Označit za nepřečtené"
 
 msgid "in"
 msgstr "v"
+
+msgid "Digitally sign this message"
+msgstr "Digitálně podepsat tuto zprávu"
+
+msgid "Encrypt this message"
+msgstr "Zašifrovat tuto zprávu"
+
+msgid "Autosave is paused while encryption is selected."
+msgstr "Automatické ukládání je při zapnutém šifrování pozastaveno."
+
+msgid "Turn off {0} signing and encryption first."
+msgstr "Nejprve vypněte podepisování a šifrování {0}."
+
+msgid "options"
+msgstr "– možnosti"
+
+msgid "Sign"
+msgstr "Podepsat"
+
+msgid "Encrypt"
+msgstr "Zakódovat"
 
 msgid "Root"
 msgstr "Kořen"
@@ -3627,9 +3711,6 @@ msgstr "Místní číslo"
 msgid "Extension"
 msgstr "Linka"
 
-msgid "Add Attachment"
-msgstr "Přidat Přílohu"
-
 msgid "Add attachments to this contact"
 msgstr "Přidat přílohy k tomuto kontaktu"
 
@@ -3672,7 +3753,6 @@ msgstr "E-mail 3 Zobrazit jako"
 msgid "Loading contacts"
 msgstr "Načítání kontaktů"
 
-#, fuzzy
 msgid "There are no items to show in this list. Update the filter for more results."
 msgstr "V tomto seznamu nejsou žádné položky k zobrazení. Aktualizujte filtr, abyste získali další výsledky."
 
@@ -4080,9 +4160,6 @@ msgstr "Světlý"
 msgid "Dark"
 msgstr "Tmavý"
 
-msgid "Automatic"
-msgstr "Automatické"
-
 msgid "Main toolbar"
 msgstr "Hlavní panel nástrojů"
 
@@ -4164,28 +4241,21 @@ msgstr "Rozšířit hierarchii"
 msgid "Folders List"
 msgstr "Seznam složek"
 
+msgid "Loaded {0} of {1}"
+msgstr "Načteno {0} z {1}"
+
 msgid "Copy Details"
 msgstr "Kopírovat podrobnosti"
 
 msgid "Hide Details"
 msgstr "Skrýt detaily"
 
-msgid "Loaded {0} of {1}"
-msgstr "Načteno {0} z {1}"
-
 msgid "Copied!"
 msgstr "Zkopírováno!"
 
-msgid "Saving"
-msgstr "Ukládání"
+msgid "Saving…"
+msgstr "Ukládám…"
 
-msgid "Saved"
-msgstr "Uloženo"
-
-msgid "Saved successfully"
-msgstr "Uloženo úspěšně"
-
-#, fuzzy
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr "Zavřením tohoto okna přijdete o všechna neuložená data. Opravdu chcete zavřít?"
 
@@ -4202,7 +4272,7 @@ msgid "Unsaved changes"
 msgstr "Neuložené změny"
 
 msgid "Welcome to grommunio Web"
-msgstr "Vítejte na webu grommunio"
+msgstr "Vítejte v aplikaci grommunio Web"
 
 msgid "Set up your preferences to get started."
 msgstr "Nastavte si předvolby a začněte."
@@ -4270,14 +4340,134 @@ msgstr "D d-m"
 msgid "D d-m G:i"
 msgstr "D d-m G:i"
 
+msgid "Click the link to open the URL in a new window."
+msgstr "Kliknutím na odkaz otevřete adresu URL v novém okně."
+
+msgid "The server reported an unknown error on your request."
+msgstr "Server na váš dotaz hlásí neznámou chybu."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "Server na váš dotaz hlásí nespecifikovanou chybu."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "Platnost relace vypršela, je nutné provést opětovné ověření."
+
+msgid "The session in the current browser window has been closed from another browser window or tab."
+msgstr "Relace v aktuálním okně prohlížeče byla ukončena z jiného okna nebo karty prohlížeče."
+
+msgid "Session expired"
+msgstr "Relace vypršela"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Chcete být přesměrováni na přihlašovací stránku?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr "Vyžaduje se opětovné ověření, kliknutím sem se vrátíte na přihlašovací stránku."
+
+msgid "Connection problem"
+msgstr "Problém s připojením"
+
+msgid "Could not connect to server, retrying in {0} second"
+msgid_plural "Could not connect to server, retrying in {0} seconds"
+msgstr[0] "Nepodařilo se připojit k serveru, opakovaný pokus za {0} sekund(y)"
+msgstr[1] "Nepodařilo se připojit k serveru, opakovaný pokus za {0} sekund(y)"
+msgstr[2] "Nepodařilo se připojit k serveru, opakovaný pokus za {0} sekund(y)"
+
+msgid "Click to retry now"
+msgstr "Klikněte pro opakování pokusu"
+
+msgid "Connection restored"
+msgstr "Obnovení připojení"
+
+msgid "Connection with server has been restored"
+msgstr "Spojení se serverem bylo obnoveno"
+
+msgid "grommunio Web was updated"
+msgstr "Aplikace grommunio Web byla aktualizována"
+
+msgid "A new version is available, click here to reload."
+msgstr "Je k dispozici nová verze. Kliknutím sem aplikaci znovu načtete."
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr "HTTP {0}"
+
+msgid "Invalid data received from the server"
+msgstr "Neplatná data přijatá ze serveru"
+
+msgid "Missing store"
+msgstr "Chybějící obchod"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "V hierarchii chybí výchozí sklad."
+
+msgid "Not all functionality of grommunio Web might be working properly because of this."
+msgstr "Z tohoto důvodu nemusí správně fungovat všechny funkce aplikace grommunio Web."
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "Doručená pošta"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "Pošta k odeslání"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "Odeslané položky"
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "Odstraněné položky"
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "Kalendář"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "Kontakty"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "Koncepty"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "Žurnál"
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "Poznámky"
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "Úkoly"
+
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "Nevyžádaná pošta"
+
+msgid "Missing folders"
+msgstr "Chybějící složky"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "V hierarchii chybí následující požadovaná složka: {0}"
+msgstr[1] "V hierarchii chybí následující požadované složky: {0}"
+msgstr[2] "V hierarchii chybí následující požadované složky: {0}"
+
+msgid "Loading model from server failed"
+msgstr "Selhalo načítání ze serveru"
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "Funkce Out of Office je v současné době aktivována. Chcete ji vypnout?"
+
 msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
 msgstr "Není k dispozici oprávnění k otevření tohoto úložiště, přejete si odstranit je ze systému?"
 
 msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
 msgstr "Není k dispozici oprávnění k otevření této složky, přejete si odstranit ji ze systému?"
-
-msgid "Insufficient Permissions"
-msgstr "Nedostatečná oprávnění"
 
 msgid "Not enough permissions to open this folder."
 msgstr "Není k dispozici oprávnění otevřít tuto složku."
@@ -4286,13 +4476,13 @@ msgid "Empty folder"
 msgstr "Prázdná složka"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Vyprázdnění {0}... (0%)"
+msgstr "Vyprázdnění {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Úspěšně vyprázdněn {0}. ({1} položky odstraněny)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Vyprázdnění {0}... ({1}%)"
+msgstr "Vyprázdnění {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4589,7 +4779,7 @@ msgid "Properties of {0}"
 msgstr "Vlastnosti {0}"
 
 msgid "Share {0} with…"
-msgstr "Sdílejte {0} s.."
+msgstr "Sdílejte {0} s…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Vlastnosti {0} - {1}"
@@ -4612,9 +4802,17 @@ msgstr "Zobrazit vše"
 msgid "Filter folders"
 msgstr "Filtrovat složky"
 
-#, fuzzy
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "K přesunu této složky nemáte dostatečná oprávnění. Chcete místo toho kopírovat?"
+
+msgid "Enable OpenPGP before replying to this protected message."
+msgstr "Před odpovědí na tuto chráněnou zprávu nebo jejím přeposláním povolte OpenPGP."
+
+msgid "The protected message could not be opened. No reply or forward was created."
+msgstr "Chráněnou zprávu se nepodařilo otevřít. Nebyla vytvořena žádná odpověď ani přeposlaná zpráva."
+
+msgid "Unable to open response"
+msgstr "Odpověď nelze otevřít"
 
 msgid "CC"
 msgstr "Kopie"
@@ -4644,8 +4842,8 @@ msgstr "Naplánujte odesílání pošty"
 msgid "Scheduled Items"
 msgstr "Naplánované položky"
 
-msgid "Your message will be sent at "
-msgstr "Vaše zpráva bude odeslána na adresu "
+msgid "Your message will be sent at {0}."
+msgstr "Vaše zpráva bude odeslána na adresu {0}."
 
 msgid "Go to your Outbox to edit your email."
 msgstr "Přejděte do složky Doručená pošta a upravte svůj e-mail."
@@ -4662,23 +4860,19 @@ msgstr "v určitý čas"
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "Čas, který jste zadali, je již minulostí. Změňte prosím termín odeslání pošty."
 
-msgid "today  at "
-msgstr "dnes na adrese "
+msgid "Your email will be sent today at {0}"
+msgstr "Váš e-mail bude odeslán dnes v {0}"
 
-msgid "tomorrow  at "
-msgstr "zítra v "
+msgid "Your email will be sent tomorrow at {0}"
+msgstr "Váš e-mail bude odeslán zítra v {0}"
 
-msgid "{0} at "
-msgstr "{0} na "
+#. TRANSLATORS: {0} is a weekday name, {1} a time of day
+msgid "Your email will be sent {0} at {1}"
+msgstr "Váš e-mail bude odeslán {0} v {1}"
 
-msgid "at {0}"
-msgstr "na adrese {0}"
-
-msgid "Your email will be sent {0}{1}"
-msgstr "Váš e-mail bude odeslán {0}{1}"
-
-msgid "Saving…"
-msgstr "Ukládám…"
+#. TRANSLATORS: {0} is a full date, {1} a time of day
+msgid "Your email will be sent at {0}, {1}"
+msgstr "Váš e-mail bude odeslán {0} v {1}"
 
 msgid "Saved at {0}"
 msgstr "Uloženo v {0}"
@@ -4688,6 +4882,10 @@ msgstr "Uložení se nezdařilo"
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "Tato zpráva bude po odeslání označena jako následná."
+
+#. TRANSLATORS: {0} is the follow-up period, e.g. 'today' or 'next week'
+msgid "This message will be flagged for follow up {0} when it is sent."
+msgstr "Tato zpráva bude po odeslání označena jako následná na {0}."
 
 msgid "Send Later"
 msgstr "Odeslat později"
@@ -4755,12 +4953,6 @@ msgstr "Nastavit Kategorii"
 msgid "Pop-Out"
 msgstr "Pop-out"
 
-msgid "Mark Read"
-msgstr "Označit jako přečtené"
-
-msgid "Mark Unread"
-msgstr "Označit jako nepřečtené"
-
 msgid "New mail"
 msgstr "Nová pošta"
 
@@ -4787,6 +4979,15 @@ msgstr "Tisk vybraného e-mailu"
 
 msgid "Filter"
 msgstr "Filtr"
+
+msgid "This browser cannot attach the decrypted file. Download it before forwarding."
+msgstr "Tento prohlížeč neumí dešifrovaný soubor připojit. Před přeposláním si jej stáhněte."
+
+msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
+msgstr "Dešifrovaná příloha překračuje limity pro nahrávání. Nebyla vytvořena žádná neúplná odpověď."
+
+msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
+msgstr "Dešifrovanou přílohu se nepodařilo nahrát. Nebyla vytvořena žádná neúplná odpověď."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -4866,6 +5067,9 @@ msgstr "Aktivujte připomenutí přílohy"
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}AutoSave Neodeslaná pošta každou {B} minutu(y)"
 
+msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
+msgstr "Automaticky ukládat i při zapnutém šifrování (koncepty se ukládají nezašifrované)"
+
 msgid "Conversation view settings"
 msgstr "Nastavení zobrazení konverzace"
 
@@ -4938,7 +5142,7 @@ msgid "Open or compose a mail item in a"
 msgstr "Otevření nebo sestavení poštovní položky v"
 
 msgid "grommunio Web tab"
-msgstr "webová karta grommunio"
+msgstr "Karta grommunio Web"
 
 msgid "Browser window"
 msgstr "Okno prohlížeče"
@@ -4985,9 +5189,8 @@ msgstr "Pouze mé kontakty"
 msgid "Anyone outside my organization"
 msgstr "Kdokoli mimo mou organizaci"
 
-#, fuzzy
 msgid "The time you entered is before the out of office date. Please reschedule."
-msgstr "Zadaný čas je před datem ukončení provozu. Změňte prosím termín."
+msgstr "Zadaný čas předchází datu zahájení nepřítomnosti. Zvolte prosím jiný termín."
 
 msgid "Safe Recipients"
 msgstr "Bezpeční příjemci"
@@ -5004,7 +5207,6 @@ msgstr "Seznamy odesílatelů"
 msgid "Safe Senders"
 msgstr "Bezpeční odesílatelé"
 
-#, fuzzy
 msgid "To protect your privacy email addresses or domains can only be added via the \"Add to safe sender list\" functionality in an opened email."
 msgstr "Z důvodu ochrany soukromí lze e-mailové adresy nebo domény přidávat pouze prostřednictvím funkce \"Přidat do seznamu bezpečných odesílatelů\" v otevřeném e-mailu."
 
@@ -5110,9 +5312,6 @@ msgstr "Přesunout do složky Nevyžádané"
 msgid "Not Junk Email"
 msgstr "Není nevyžádaná pošta"
 
-msgid "Send to"
-msgstr "Poslat na"
-
 msgid "Message list"
 msgstr "Seznam zpráv"
 
@@ -5187,18 +5386,14 @@ msgstr "Třídit podle: Barva"
 msgid "Notes list"
 msgstr "Seznam poznámek"
 
-msgid "Loading Notes"
-msgstr "Načítání poznámek"
-
 msgid "Loading notes"
 msgstr "Načítání poznámek"
 
 msgid "Quick Note"
 msgstr "Rychlá poznámka"
 
-#, fuzzy
 msgid "You must reload grommunio Web for the changes to take effect. Unsaved changes will be lost."
-msgstr "Aby se změny projevily, musíte znovu načíst web grommunio. Neuložené změny budou ztraceny."
+msgstr "Aby se změny projevily, musíte znovu načíst grommunio Web. Neuložené změny budou ztraceny."
 
 msgid "Reload grommunio Web"
 msgstr "Znovu načíst grommunio Web"
@@ -5320,14 +5515,8 @@ msgstr "Skrytí panelu widgetů"
 msgid "Auto"
 msgstr "Automaticky"
 
-msgid "Actual size"
-msgstr "Skutečná velikost"
-
-msgid "Page width"
-msgstr "Šířka stránky"
-
-msgid "Attachment preview (PDF and Open formats)"
-msgstr "Náhled přílohy (formáty PDF a Open)"
+msgid "Preview documents and files in grommunio Web"
+msgstr "Zobrazovat náhledy dokumentů a souborů v grommunio Web"
 
 msgid "Document default zoom"
 msgstr "Výchozí zvětšení dokumentu"
@@ -5336,10 +5525,10 @@ msgid "PDF zoom"
 msgstr "Přiblížení ve formátu PDF"
 
 msgid "Dialog"
-msgstr ""
+msgstr "Dialogové okno"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "Kde otevírat náhled"
 
 msgid "File previewing"
 msgstr "Náhled souborů"
@@ -5359,7 +5548,6 @@ msgstr "Nekonečné načítání"
 msgid "grommunio Web automatically loads additional items when you scroll down"
 msgstr "grommunio Web automaticky načítá další položky při posouvání dolů"
 
-#, fuzzy
 msgid "grommunio Web displays items on pages and you can use navigation controls to navigate"
 msgstr "grommunio Web zobrazuje položky na stránkách a k navigaci můžete použít navigační ovládací prvky"
 
@@ -5423,9 +5611,8 @@ msgstr "Překročili jste tvrdou kvótu, nemůžete odesílat ani přijímat e-m
 msgid "At {0} you won't be able to send mails."
 msgstr "Na {0} nebudete moci odesílat zprávy."
 
-#, fuzzy
 msgid "You can not send mails as you have exceeded soft quota, at {0} you won't be able to receive mails."
-msgstr "Nemůžete odesílat e-maily, protože jste překročili měkkou kvótu, při {0} nebudete moci přijímat e-maily."
+msgstr "Nemůžete odesílat e-maily, protože jste překročili měkkou kvótu. Po dosažení {0} nebudete moci přijímat e-maily."
 
 msgid "At {0} you won't be able to send or receive mails."
 msgstr "Na adrese {0} nebude možné odesílat ani přijímat e-maily."
@@ -5439,11 +5626,9 @@ msgstr "Obnovit nastavení"
 msgid "Reset settings to their original defaults."
 msgstr "Obnovení původních výchozích nastavení."
 
-#, fuzzy
 msgid "This will close all opened shared stores and resets all settings to the default value."
 msgstr "Tím se zavřou všechna otevřená sdílená úložiště a všechna nastavení se vrátí na výchozí hodnotu."
 
-#, fuzzy
 msgid "grommunio Web will automatically reload in order for these changes to take effect"
 msgstr "grommunio Web se automaticky znovu načte, aby se tyto změny projevily"
 
@@ -5510,20 +5695,47 @@ msgstr "Údržba"
 msgid "Reset all settings to defaults"
 msgstr "Obnovení výchozích nastavení"
 
+msgid "Migrate legacy categories"
+msgstr "Převést zastaralé kategorie"
+
+msgid "This will scan all folders and migrate the categories assigned to items."
+msgstr "Tím se prohledají všechny složky a převedou se kategorie přiřazené položkám."
+
+msgid "The legacy category settings will remain unchanged."
+msgstr "Nastavení zastaralých kategorií zůstane beze změny."
+
+msgid "Migrate"
+msgstr "Převést"
+
+msgid "Legacy categories migrated successfully."
+msgstr "Zastaralé kategorie byly úspěšně převedeny."
+
+msgid "Could not migrate legacy categories."
+msgstr "Zastaralé kategorie se nepodařilo převést."
+
 msgid "Changes to assigned task"
 msgstr "Změny přiděleného úkolu"
 
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr "Vezměte prosím na vědomí, že veškeré změny, které provedete, budou přepsány organizatorem v případě aktualizace této žádosti o schůzku."
+msgid "Please note that the assigned task will be overwritten when the assignee makes changes."
+msgid_plural "Please note that the assigned tasks will be overwritten when the assignee makes changes."
+msgstr[0] "Vezměte prosím na vědomí, že veškeré změny, které provedete, budou přepsány organizatorem v případě aktualizace této žádosti o schůzku."
+msgstr[1] "Vezměte prosím na vědomí, že veškeré změny, které provedete, budou přepsány organizatorem v případě aktualizace této žádosti o schůzku."
+msgstr[2] "Vezměte prosím na vědomí, že veškeré změny, které provedete, budou přepsány organizatorem v případě aktualizace této žádosti o schůzku."
 
 msgid "Delete confirmation"
 msgstr "Odstranění potvrzení"
 
-msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr "Odstraněním položky (položek) se odstraní i původní položka (položky)."
+msgid "Deleting the item will also delete the original item."
+msgid_plural "Deleting the items will also delete the original items."
+msgstr[0] "Odstraněním položky (položek) se odstraní i původní položka (položky)."
+msgstr[1] "Odstraněním položky (položek) se odstraní i původní položka (položky)."
+msgstr[2] "Odstraněním položky (položek) se odstraní i původní položka (položky)."
 
-msgid "Do you want to delete the item(s)?"
-msgstr "Chcete položku (položky) odstranit?"
+msgid "Do you want to delete the item?"
+msgid_plural "Do you want to delete the items?"
+msgstr[0] "Chcete položku (položky) odstranit?"
+msgstr[1] "Chcete položku (položky) odstranit?"
+msgstr[2] "Chcete položku (položky) odstranit?"
 
 msgid "Sort by: Priority"
 msgstr "Třídit podle: Priority"
@@ -5573,13 +5785,11 @@ msgstr "Přijetí úkolu"
 msgid "Declining Task"
 msgstr "Klesající úkol"
 
-#, fuzzy
 msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
-msgstr "Tato schůzka byla přijata a bude přesunuta do vašeho kalendáře. Přejete si připojit komentář k vaší odpovědí?"
+msgstr "Tento úkol bude přijat a přesunut do vaší složky úkolů. Přejete si připojit komentář k vaší odpovědi?"
 
-#, fuzzy
 msgid "This task will be declined and moved into the Deleted Items folder. Do you want to edit the response before sending it?"
-msgstr "Tato schůzka byla zrušena a bude přesunuta do složky odstraněné položky. Přejete si připojit komentář k vaší odpovědí?"
+msgstr "Tento úkol bude odmítnut a přesunut do složky Odstraněné položky. Přejete si před odesláním odpověď upravit?"
 
 msgid "Send the response now"
 msgstr "Odeslat odpověď nyní"
@@ -5662,12 +5872,12 @@ msgstr "Nový úkol"
 msgid "Completed"
 msgstr "Dokončeno"
 
-msgid "Printed by: "
-msgstr "Třídit podle: Komu "
+msgid "Printed by: {0}"
+msgstr "Třídit podle: Komu {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "Printed on: "
-msgstr "Vytisknout tuto poznámku "
+#. TRANSLATORS: {0} is the date the list was printed on
+msgid "Printed on: {0}"
+msgstr "Vytisknout tuto poznámku {0}"
 
 msgid "Percent complete"
 msgstr "Dokončeno procent"
@@ -5779,130 +5989,6 @@ msgstr "Žádné úkoly."
 
 msgid "Tasks / To-Do"
 msgstr "Úkoly / To-Do"
-
-msgid "Click the link to open the URL in a new window."
-msgstr "Kliknutím na odkaz otevřete adresu URL v novém okně."
-
-msgid "The server reported an unknown error on your request."
-msgstr "Server na váš dotaz hlásí neznámou chybu."
-
-msgid "The server reported an unspecified error on your request."
-msgstr "Server na váš dotaz hlásí nespecifikovanou chybu."
-
-msgid "The session has expired, reauthentication is required."
-msgstr "Platnost relace vypršela, je nutné provést opětovné ověření."
-
-#, fuzzy
-msgid "The session in the current browser window has been closed from another browser window or tab."
-msgstr "Relace v aktuálním okně prohlížeče byla ukončena z jiného okna nebo karty prohlížeče."
-
-msgid "Session expired"
-msgstr "Relace vypršela"
-
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "Chcete být přesměrováni na přihlašovací stránku?"
-
-msgid "Reauthentication required, click here to go to back to logon page."
-msgstr "Vyžaduje se opětovné ověření, kliknutím sem se vrátíte na přihlašovací stránku."
-
-msgid "Connection problem"
-msgstr "Problém s připojením"
-
-msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr "Nepodařilo se připojit k serveru, opakovaný pokus za {0} sekund(y)"
-
-msgid "Click to retry now"
-msgstr "Klikněte pro opakování pokusu"
-
-msgid "Connection restored"
-msgstr "Obnovení připojení"
-
-msgid "Connection with server has been restored"
-msgstr "Spojení se serverem bylo obnoveno"
-
-msgid "grommunio Web was updated"
-msgstr "Aplikace grommunio Web byla aktualizována"
-
-msgid "A new version is available, click here to reload."
-msgstr "Je k dispozici nová verze. Kliknutím sem aplikaci znovu načtete."
-
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
-
-msgid "Invalid data received from the server"
-msgstr "Neplatná data přijatá ze serveru"
-
-msgid "Missing store"
-msgstr "Chybějící obchod"
-
-msgid "The default store is missing from the hierarchy."
-msgstr "V hierarchii chybí výchozí sklad."
-
-#, fuzzy
-msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "Z tohoto důvodu nemusí správně fungovat všechny funkce webu grommunio."
-
-msgctxt "hierarchy.foldername"
-msgid "Inbox"
-msgstr "Doručená pošta"
-
-msgctxt "hierarchy.foldername"
-msgid "Outbox"
-msgstr "Pošta k odeslání"
-
-#, fuzzy
-msgctxt "hierarchy.foldername"
-msgid "Sent Items"
-msgstr "Odeslané položky"
-
-msgctxt "hierarchy.foldername"
-msgid "Deleted items"
-msgstr "Odstraněné položky"
-
-msgctxt "hierarchy.foldername"
-msgid "Calendar"
-msgstr "Kalendář"
-
-msgctxt "hierarchy.foldername"
-msgid "Contacts"
-msgstr "Kontakty"
-
-msgctxt "hierarchy.foldername"
-msgid "Drafts"
-msgstr "Koncepty"
-
-msgctxt "hierarchy.foldername"
-msgid "Journal"
-msgstr "Žurnál"
-
-msgctxt "hierarchy.foldername"
-msgid "Notes"
-msgstr "Poznámky"
-
-msgctxt "hierarchy.foldername"
-msgid "Tasks"
-msgstr "Úkoly"
-
-#, fuzzy
-msgctxt "hierarchy.foldername"
-msgid "Junk Email"
-msgstr "E-mail"
-
-msgid "Missing folders"
-msgstr "Chybějící složky"
-
-msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] "V hierarchii chybí následující požadovaná složka: {0}"
-msgstr[1] "V hierarchii chybí následující požadované složky: {0}"
-msgstr[2] "V hierarchii chybí následující požadované složky: {0}"
-
-msgid "Loading model from server failed"
-msgstr "Selhalo načítání ze serveru"
-
-msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr "Funkce Out of Office je v současné době aktivována. Chcete ji vypnout?"
 
 msgid "AI Assistant"
 msgstr "Asistent AI"
@@ -6168,6 +6254,9 @@ msgstr "Přemýšlím…"
 msgid "The response was interrupted and may be incomplete."
 msgstr "Odpověď byla přerušena a může být neúplná."
 
+msgid "The answer reached the output limit configured for this model and stops here."
+msgstr "Odpověď dosáhla limitu výstupu nastaveného pro tento model a končí zde."
+
 msgid "Insert at cursor"
 msgstr "Vložit na pozici kurzoru"
 
@@ -6271,7 +6360,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Existuje více než 1 odkaz na sdílení. Zobrazuje se pouze ten nejnovější"
 
 msgid "Loading details…"
-msgstr "Načítání podrobností.."
+msgstr "Načítání podrobností…"
 
 msgid "Files: Seafile Backend"
 msgstr "Soubory: Backend mořského souboru"
@@ -6288,14 +6377,8 @@ msgstr "Schránka"
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr "Odkaz se nepodařilo automaticky zkopírovat. Zkopírujte jej prosím ručně."
 
-msgid "Loading details..."
-msgstr "Načítání podrobností..."
-
 msgid "Share"
 msgstr "Sdílet"
-
-msgid "Loading..."
-msgstr "Načítání..."
 
 msgid "Add attachment from {0}"
 msgstr "Přidat přílohu z {0}"
@@ -6315,7 +6398,6 @@ msgstr "Jste si jisti, že chcete odstranit soubory {0}?"
 msgid "Are you sure want to delete {0} folders and all of their contents?"
 msgstr "Opravdu chcete odstranit složky {0} a veškerý jejich obsah?"
 
-#, fuzzy
 msgid "Are you sure want to delete the selected items and all of their contents?"
 msgstr "Opravdu chcete odstranit vybrané položky a veškerý jejich obsah?"
 
@@ -6397,13 +6479,11 @@ msgstr "Obnovení původních výchozích nastavení souborů"
 msgid "Are you sure to remove all settings and accounts?"
 msgstr "Jste si jisti, že jste odstranili všechna nastavení a účty?"
 
-#, fuzzy
 msgid "Accounts marked by your administrator as \"cannot be changed\" will not be removed."
 msgstr "Účty označené správcem jako \"nelze změnit\" nebudou odstraněny."
 
-#, fuzzy
 msgid "grommunio Web will automatically restart in order for these changes to take effect."
-msgstr "aby se tyto změny projevily, bude grommunio Web automaticky restartován."
+msgstr "Aby se tyto změny projevily, bude grommunio Web automaticky restartován."
 
 msgid "grommunio Web is reloading, Please wait."
 msgstr "grommunio Web se načítá, vyčkejte prosím."
@@ -6495,8 +6575,12 @@ msgstr "max"
 msgid "You have to choose at least one file!"
 msgstr "Musíte si vybrat alespoň jeden soubor!"
 
-msgid "Create New "
-msgstr "Vytvořit nový "
+msgid "Document"
+msgstr "Dokument"
+
+#. TRANSLATORS: {0} is a translated file type such as Document, Presentation or Spreadsheet
+msgid "Create New {0}"
+msgstr "Vytvořit nový {0}"
 
 msgid "Incorrect filename"
 msgstr "Nesprávný název souboru"
@@ -6543,14 +6627,14 @@ msgstr "Příloha úspěšně uložena v Souborech"
 msgid "Upload Failed"
 msgstr "Nahrání selhalo"
 
-msgid "Attachment could not be stored in Files! Error: "
-msgstr "Přílohu nelze uložit do Souborů! Chyba: "
+msgid "Attachment could not be stored in Files!"
+msgstr "Přílohu nelze uložit do Souborů!"
 
 msgid "Share Files"
 msgstr "Sdílet soubory"
 
-msgid "Uploading files to "
-msgstr "Nahrávání souborů do "
+msgid "Uploading files to {0}"
+msgstr "Nahrávání souborů do {0}"
 
 msgid "Starting upload"
 msgstr "Zahájení nahrávání"
@@ -6561,14 +6645,14 @@ msgstr "Zrušit nahrávání"
 msgid "- seconds left"
 msgstr "- zbývající sekundy"
 
-msgid " seconds left"
-msgstr " zbývající sekundy"
+msgid "{0} seconds left"
+msgstr "{0} zbývající sekundy"
 
-msgid " minutes left"
-msgstr " zbývající minuty"
+msgid "{0} minutes left"
+msgstr "{0} zbývající minuty"
 
-msgid "Uploading: "
-msgstr "Nahrávání: "
+msgid "Uploading: {0}%"
+msgstr "Nahrávání: {0}%"
 
 msgid "Upload status unavailable... please wait."
 msgstr "Stav nahrávání není k dispozici... počkejte prosím."
@@ -6582,12 +6666,6 @@ msgstr "Nahrávání přerušeno!"
 msgid "Upload failed!"
 msgstr "Nahrávání selhalo!"
 
-msgid "Document"
-msgstr "Dokument"
-
-msgid "Presentation"
-msgstr "Prezentace"
-
 msgid "Spreadsheet"
 msgstr "Tabulky"
 
@@ -6599,6 +6677,9 @@ msgstr "Vytvořit dokument"
 
 msgid "Create office document"
 msgstr "Vytvoření kancelářského dokumentu"
+
+msgid "Preview file"
+msgstr "Náhled souboru"
 
 msgid "Download files"
 msgstr "Soubory ke stažení"
@@ -6618,7 +6699,6 @@ msgstr "Vytváření e-mailových... Počkejte prosím!"
 msgid "Edit share"
 msgstr "Upravit sdílení"
 
-#, fuzzy
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "Nejsou přidány žádné účty. Přejděte do nastavení, na kartu Soubory a přidejte účet"
 
@@ -6634,20 +6714,14 @@ msgstr "Je sdílená"
 msgid "File preview"
 msgstr "Náhled souboru"
 
-msgid "File content"
-msgstr "Obsah souboru"
-
-msgid "Your browser does not support previewing of audio files!"
-msgstr "Váš prohlížeč nepodporuje náhled zvukových souborů!"
-
-msgid "Your browser does not support previewing of video files!"
-msgstr "Váš prohlížeč nepodporuje náhled video souborů!"
-
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
 msgid "File ({0})"
 msgstr "Soubor ({0})"
+
+msgid "Path"
+msgstr "Cesta"
 
 msgid "Sort by: Path"
 msgstr "Seřadit podle: Cesta"
@@ -6672,6 +6746,9 @@ msgstr "Intranet"
 
 msgid "Archive to InfoShare"
 msgstr "Archiv na InfoShare"
+
+msgid "Kendox InfoShare plugin"
+msgstr "Kendox InfoShare plugin"
 
 msgid "Kendox InfoShare"
 msgstr "Kendox InfoShare"
@@ -6776,6 +6853,12 @@ msgstr "Mapa"
 msgid "Mobile Device Manager"
 msgstr "Správce mobilních zařízení"
 
+msgid "Device removed"
+msgstr "Zařízení bylo odebráno"
+
+msgid "The device was not removed. Check your password and try again."
+msgstr "Zařízení nebylo odebráno. Zkontrolujte své heslo a zkuste to znovu."
+
 msgid "Wiping device"
 msgstr "Vymazávání zařízení"
 
@@ -6860,7 +6943,6 @@ msgstr "Sdílené složky"
 msgid "Manage Shared Folders"
 msgstr "Správa sdílených složek"
 
-#, fuzzy
 msgid "Select folders to sync to your device from the list below. To add additional mailboxes to the list, open them in grommunio Web first."
 msgstr "Z níže uvedeného seznamu vyberte složky, které chcete synchronizovat se zařízením. Chcete-li do seznamu přidat další poštovní schránky, otevřete je nejprve v aplikaci grommunio Web."
 
@@ -6873,9 +6955,8 @@ msgstr "Správa mobilních zařízení"
 msgid "Mobile Devices"
 msgstr "Mobilní zařízení"
 
-#, fuzzy
 msgid "Unable to connect to the grommunio-sync server. Click {0} to enter your credentials"
-msgstr "Nelze se připojit k serveru grommunio-sync. Klikněte na {0} a zadejte své pověření"
+msgstr "Nelze se připojit k serveru grommunio-sync. Klikněte na {0} a zadejte své přihlašovací údaje"
 
 msgid "Devices"
 msgstr "Zařízení"
@@ -6914,10 +6995,10 @@ msgid "Please enter your username and password"
 msgstr "Zadejte své uživatelské jméno a heslo"
 
 msgid "Type {0} to confirm"
-msgstr "Pro potvrzení zadejte {0} "
+msgstr "Pro potvrzení zadejte {0}"
 
 msgid "Please type {0} to confirm"
-msgstr "Pro potvrzení zadejte {0} "
+msgstr "Pro potvrzení zadejte prosím {0}"
 
 msgid "Impersonated device: only account-only remote wipe is available."
 msgstr "Zosobněné zařízení: k dispozici je pouze vzdálené vymazání samotného účtu."
@@ -6947,7 +7028,6 @@ msgstr ""
 "Opravdu chcete vymazat obsah zařízení?\n"
 " Pro potvrzení zadejte WIPE."
 
-#, fuzzy
 msgid ""
 "Do you really want to wipe your device?\n"
 " Enter your password to confirm."
@@ -6962,7 +7042,6 @@ msgstr ""
 "Opravdu chcete zařízení odstranit?\n"
 " Pro potvrzení zadejte REMOVE."
 
-#, fuzzy
 msgid ""
 "Do you really want to remove your device?\n"
 " Enter your password to confirm."
@@ -7018,7 +7097,6 @@ msgstr "Přidání jména organizátora k názvu místnosti"
 msgid "Add the URL to the meeting location rather than overwriting it"
 msgstr "Přidání adresy URL do umístění schůzky namísto jejího přepsání"
 
-#, fuzzy
 msgid "Prevent the URL in the meeting location from being overridden automatically (ex: when adding a meetingroom)"
 msgstr "Zabránit automatickému přepsání adresy URL v místě schůzky (např. při přidávání zasedací místnosti)"
 
@@ -7079,21 +7157,533 @@ msgstr "Nové heslo je prázdné."
 msgid "One or more fields does contain errors."
 msgstr "Jedno nebo více polí obsahuje chyby."
 
-#, fuzzy
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
 msgstr "Heslo je slabé. Heslo by mělo obsahovat velká a malá písmena a číslice. Heslo by mělo mít 8 až 20 znaků."
 
+msgid "Invalid or oversized OpenPGP armor."
+msgstr "Neplatný nebo příliš velký blok OpenPGP ve formátu ASCII."
+
+msgid "Expected a single OpenPGP public key block."
+msgstr "Očekáván právě jeden blok veřejného klíče OpenPGP."
+
+msgid "Expected a single OpenPGP private key block."
+msgstr "Očekáván právě jeden blok soukromého klíče OpenPGP."
+
+msgid "Expected a single OpenPGP signature block."
+msgstr "Očekáván právě jeden blok podpisu OpenPGP."
+
+msgid "Expected a single OpenPGP message block."
+msgstr "Očekáván právě jeden blok zprávy OpenPGP."
+
+msgid "Expected a single OpenPGP armor block."
+msgstr "Očekáván právě jeden blok OpenPGP ve formátu ASCII."
+
+msgid "Additional data outside the OpenPGP armor is not allowed."
+msgstr "Další data mimo blok OpenPGP ve formátu ASCII nejsou povolena."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Importujte vždy jen jeden úplný klíč OpenPGP."
+
+msgid "This key exceeds the supported subkey or identity limit."
+msgstr "Tento klíč překračuje podporovaný limit podklíčů nebo identit."
+
+msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
+msgstr "Soukromé klíče musí být před nahráním chráněny přístupovou frází. Nejprve tento klíč ochraňte přímo v prohlížeči."
+
+msgid "The public certificate must match the private key fingerprint."
+msgstr "Veřejný certifikát musí odpovídat otisku soukromého klíče."
+
+msgid "Unlock your OpenPGP private key in this browser tab first."
+msgstr "Nejprve na této kartě prohlížeče odemkněte svůj soukromý klíč OpenPGP."
+
+msgid "The OpenPGP key was locked while the operation was running."
+msgstr "Klíč OpenPGP byl během probíhající operace zamčen."
+
+msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
+msgstr "OpenPGP vyžaduje moderní prohlížeč a zabezpečené připojení HTTPS."
+
+msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
+msgstr "Funkce \"Ochrana nezašifrovaného klíče\" očekává nechráněný soukromý klíč. U chráněných klíčů použijte funkci \"Změna přístupové fráze\"."
+
+msgid "The passphrase could not unlock this private key."
+msgstr "Zadanou přístupovou frází se tento soukromý klíč nepodařilo odemknout."
+
+msgid "Every recipient needs a verified OpenPGP public key."
+msgstr "Každý příjemce musí mít ověřený veřejný klíč OpenPGP."
+
+msgid "Encrypted message exceeds the size limit."
+msgstr "Zašifrovaná zpráva překračuje limit velikosti."
+
+msgid "Expected one complete clear-signed OpenPGP message."
+msgstr "Očekávána právě jedna úplná zpráva OpenPGP podepsaná v čitelné podobě."
+
+msgid "Invalid clear-signed OpenPGP signature."
+msgstr "Neplatný podpis OpenPGP v čitelné podobě."
+
+msgid "The OpenPGP request failed. Please try again."
+msgstr "Požadavek OpenPGP se nezdařil. Zkuste to prosím znovu."
+
+msgid "Working…"
+msgstr "Pracuji…"
+
+msgid "The operation failed. Please try again."
+msgstr "Operace se nezdařila. Zkuste to prosím znovu."
+
+msgid "Passphrase"
+msgstr "Přístupová fráze"
+
+msgid "Unlock OpenPGP private key"
+msgstr "Odemknutí soukromého klíče OpenPGP"
+
+msgid "Unlock"
+msgstr "Odemknout"
+
+msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
+msgstr "Vaše přístupová fráze i odemčený klíč zůstávají pouze na této kartě prohlížeče. Klíč se automaticky zamkne po uplynutí omezené doby nebo při zavření karty. Otisk: "
+
+msgid "Set up OpenPGP"
+msgstr "Zprovoznění OpenPGP"
+
+msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
+msgstr "Chcete-li podepisovat zprávy nebo mít čitelnou kopii odeslané zašifrované zprávy, přidejte soukromý klíč odpovídající adrese odesílatele. Stávající klíč můžete naimportovat nebo si nový vytvořit v nastavení OpenPGP."
+
+msgid "Open key settings"
+msgstr "Otevřít nastavení klíčů"
+
+msgid "Choose OpenPGP key"
+msgstr "Výběr klíče OpenPGP"
+
+msgid "Private key"
+msgstr "Soukromý klíč"
+
+msgid "Use key"
+msgstr "Použít klíč"
+
+msgid "Private-key unlocking was cancelled."
+msgstr "Odemknutí soukromého klíče bylo zrušeno."
+
+msgid "Key selection was cancelled."
+msgstr "Výběr klíče byl zrušen."
+
+msgid "Choose private key…"
+msgstr "Vybrat soukromý klíč…"
+
+msgid "Manage OpenPGP keys…"
+msgstr "Spravovat klíče OpenPGP…"
+
+msgid "Lock private keys"
+msgstr "Zamknout soukromé klíče"
+
+msgid "Signing key: {0}"
+msgstr "Podpisový klíč: {0}"
+
+msgid "Decryption alone does not authenticate the sender."
+msgstr "Samotné dešifrování neprokazuje totožnost odesílatele."
+
+msgid "OpenPGP security information"
+msgstr "Informace o zabezpečení OpenPGP"
+
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+msgid "OpenPGP signed or encrypted message"
+msgstr "Zpráva podepsaná nebo zašifrovaná OpenPGP"
+
+msgid "OpenPGP Plugin"
+msgstr "Zásuvný modul OpenPGP"
+
+msgid "The OpenPGP operation was cancelled."
+msgstr "Operace OpenPGP byla zrušena."
+
+msgid "S/MIME and OpenPGP cannot protect the same message."
+msgstr "S/MIME a OpenPGP nemohou chránit tutéž zprávu."
+
+msgid "Saving the OpenPGP draft timed out. Please retry."
+msgstr "Při ukládání konceptu OpenPGP vypršel časový limit. Zkuste to prosím znovu."
+
+msgid "The draft could not be saved. Nothing was sent."
+msgstr "Koncept se nepodařilo uložit. Nic nebylo odesláno."
+
+msgid "The sender or message protection changed. Please send again."
+msgstr "Odesílatel nebo ochrana zprávy se změnila. Odešlete prosím zprávu znovu."
+
+msgid "The selected private key is not valid for this sender and protection mode."
+msgstr "Vybraný soukromý klíč není platný pro tohoto odesílatele a tento režim ochrany."
+
+msgid "A matching, passphrase-protected private key is required."
+msgstr "Je vyžadován odpovídající soukromý klíč chráněný přístupovou frází."
+
+msgid "A recipient key is invalid, expired or does not match its email address."
+msgstr "Klíč příjemce je neplatný, vypršela jeho platnost nebo neodpovídá jeho e-mailové adrese."
+
+msgid "No verified recipient keys are available."
+msgstr "Nejsou k dispozici žádné platné klíče příjemců."
+
+msgid "This message is too large for browser OpenPGP processing."
+msgstr "Tato zpráva je příliš velká na zpracování OpenPGP v prohlížeči."
+
+msgid "Message protection changed while preparing the message. Please send again."
+msgstr "Během přípravy zprávy se změnila její ochrana. Odešlete prosím zprávu znovu."
+
+msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
+msgstr "Chráněná zpráva má {0} MB, což je více, než tento server přijme v jednom požadavku ({1} MB). Odstraňte přílohy nebo požádejte správce o zvýšení limitu pro nahrávání."
+
+msgid "The attachment archive is too large."
+msgstr "Archiv s přílohami je příliš velký."
+
+msgid "Unlock the message again to download this attachment."
+msgstr "Chcete-li tuto přílohu stáhnout, odemkněte zprávu znovu."
+
+msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
+msgstr "Tato zpráva obsahuje vnořenou ochranu S/MIME, kterou OpenPGP nedokáže otevřít."
+
+msgid "Too many nested OpenPGP envelopes."
+msgstr "Příliš mnoho vnořených obálek OpenPGP."
+
+msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
+msgstr "Podpis je neplatný nebo není k dispozici jeho veřejný klíč. Nespoléhejte se na totožnost tohoto odesílatele."
+
+msgid "The private key was locked while opening this message."
+msgstr "Soukromý klíč byl během otevírání této zprávy zamčen."
+
+msgid "This message contains too many attachments."
+msgstr "Tato zpráva obsahuje příliš mnoho příloh."
+
+msgid "The decoded attachments are too large."
+msgstr "Dekódované přílohy jsou příliš velké."
+
+msgid "The OpenPGP operation failed."
+msgstr "Operace OpenPGP se nezdařila."
+
+msgid "OpenPGP: checking message security…"
+msgstr "OpenPGP: kontrola zabezpečení zprávy…"
+
+msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
+msgstr "Zašifrovaná zpráva byla uložena bez obálky MIME — přílohu si uložte a dešifrujte ji nástrojem OpenPGP"
+
+msgid "Signed message stored without its original MIME — the signature cannot be verified"
+msgstr "Podepsaná zpráva byla uložena bez původního MIME — podpis nelze ověřit"
+
+msgid "Message decrypted"
+msgstr "Zpráva dešifrována"
+
+msgid "Message could not be decrypted — click for details or retry"
+msgstr "Zprávu se nepodařilo dešifrovat — klikněte pro podrobnosti nebo nový pokus"
+
+msgid "Encrypted message — unlock your private key to read"
+msgstr "Zašifrovaná zpráva — pro přečtení odemkněte svůj soukromý klíč"
+
+msgid "Signature could not be verified"
+msgstr "Podpis se nepodařilo ověřit"
+
+msgid "Valid signature, but the signing key does not match the sender"
+msgstr "Platný podpis, ale podpisový klíč neodpovídá odesílateli"
+
+msgid "Valid signature — sender fingerprint has not been verified"
+msgstr "Platný podpis — otisk odesílatele nebyl ověřen"
+
+msgid "Valid signature from a verified sender"
+msgstr "Platný podpis od ověřeného odesílatele"
+
+msgid "The signing key has since expired"
+msgstr "Podpisovému klíči mezitím vypršela platnost"
+
+msgid "Message is not signed"
+msgstr "Zpráva není podepsaná"
+
+msgid "Inline OpenPGP protects the body only; attachments are not covered"
+msgstr "Inline OpenPGP chrání pouze text zprávy; přílohy chráněné nejsou"
+
+msgid "Unprotected text after the OpenPGP block is not shown"
+msgstr "Nechráněný text za blokem OpenPGP se nezobrazuje"
+
+msgid "Your public keys could not be loaded, so signatures could not be checked"
+msgstr "Vaše veřejné klíče se nepodařilo načíst, podpisy proto nebylo možné zkontrolovat"
+
+msgid "Security information"
+msgstr "Informace o zabezpečení"
+
+msgid "Choose when composing"
+msgstr "Vybrat při psaní zprávy"
+
+msgid "Personal and public keys"
+msgstr "Osobní a veřejné klíče"
+
+msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
+msgstr "Vaše klíče jsou uloženy ve vaší poštovní schránce. Soukromé klíče zůstávají chráněné přístupovou frází; podepisování, šifrování i odemykání probíhají v tomto prohlížeči. Otisky klíčů svých kontaktů ověřujte jiným důvěryhodným kanálem. Změny klíčů se projeví okamžitě."
+
+msgid "No OpenPGP keys. Import or generate a key to get started."
+msgstr "Žádné klíče OpenPGP. Pro začátek klíč importujte nebo vygenerujte."
+
+msgid "Identity"
+msgstr "Identita"
+
+msgid "Fingerprint"
+msgstr "Otisk"
+
+msgid "Public key"
+msgstr "Veřejný klíč"
+
+msgid "Revoked"
+msgstr "Odvolán"
+
+msgid "Expired"
+msgstr "Platnost vypršela"
+
+msgid "Fingerprint verified"
+msgstr "Otisk ověřen"
+
+msgid "Not verified"
+msgstr "Otisk neověřen"
+
+msgid "Unlocked"
+msgstr "Odemčen"
+
+msgid "Locked"
+msgstr "Zamčen"
+
+msgid "Expires"
+msgstr "Vyprší"
+
+msgid "No expiry"
+msgstr "Nevyprší"
+
+msgid "Generate key"
+msgstr "Vygenerovat klíč"
+
+msgid "Import key"
+msgstr "Importovat klíč"
+
+msgid "Find public key"
+msgstr "Vyhledat veřejný klíč"
+
+msgid "Details / verify"
+msgstr "Podrobnosti / ověřit"
+
+msgid "Export public key"
+msgstr "Exportovat veřejný klíč"
+
+msgid "Back up private key"
+msgstr "Zálohovat soukromý klíč"
+
+msgid "Unlock in this browser"
+msgstr "Odemknout v tomto prohlížeči"
+
 msgid "Change passphrase"
 msgstr "Změna přístupové fráze"
+
+msgid "Lock all"
+msgstr "Zamknout vše"
+
+msgid "Default private key"
+msgstr "Výchozí soukromý klíč"
+
+msgid "Sign new messages by default"
+msgstr "Podepisovat nové zprávy ve výchozím nastavení"
+
+msgid "Encrypt new messages by default"
+msgstr "Šifrovat nové zprávy ve výchozím nastavení"
+
+msgid "Manage keyservers"
+msgstr "Spravovat servery klíčů"
+
+msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
+msgstr "Výchozí nastavení pro psaní zpráv platí pouze pro nové zprávy OpenPGP. S/MIME a OpenPGP nelze v jedné zprávě kombinovat."
+
+msgid "Generate OpenPGP key"
+msgstr "Generování klíče OpenPGP"
+
+msgid "Algorithm"
+msgstr "Algoritmus"
+
+msgid "Expires in"
+msgstr "Platnost"
+
+msgid "1 year"
+msgstr "1 rok"
+
+msgid "2 years"
+msgstr "2 roky"
+
+msgid "5 years"
+msgstr "5 let"
+
+msgid "Repeat passphrase"
+msgstr "Potvrzení přístupové fráze"
+
+msgid "Passphrases do not match."
+msgstr "Přístupové fráze se neshodují."
+
+msgid "Generate"
+msgstr "Vygenerovat"
+
+msgid "Key created. Back up the private key and store its passphrase separately."
+msgstr "Klíč byl vytvořen. Zálohujte soukromý klíč a jeho přístupovou frázi uložte odděleně."
+
+msgid "Revocation certificate — keep secure"
+msgstr "Revokační certifikát — uchovejte v bezpečí"
+
+msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
+msgstr "Zvolte silnou přístupovou frázi o délce alespoň 12 znaků. Generování probíhá lokálně v tomto prohlížeči a může chvíli trvat. Revokační certifikát i zálohu soukromého klíče uchovávejte na bezpečném místě."
+
+msgid "Import OpenPGP key"
+msgstr "Import klíče OpenPGP"
+
+msgid "Choose armored OpenPGP key file"
+msgstr "Vyberte soubor s klíčem OpenPGP ve formátu ASCII"
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Soubor s klíčem je příliš velký. Maximální velikost: 1 MiB."
+
+msgid "The key file could not be read."
+msgstr "Soubor s klíčem se nepodařilo načíst."
+
+msgid "Armored key"
+msgstr "Klíč ve formátu ASCII"
+
+msgid "Protect unencrypted key"
+msgstr "Ochrana nezašifrovaného klíče"
+
+msgid "Optional: new passphrase for an unprotected private key"
+msgstr "Volitelné: nová přístupová fráze pro nechráněný soukromý klíč"
+
+msgid "Key imported. Verify recipient fingerprints before encrypting to them."
+msgstr "Klíč byl importován. Ověřte otisky příjemců dříve, než jim budete šifrovat zprávy."
+
+msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
+msgstr "Vyberte soubor nebo vložte jeden klíč ve formátu ASCII (ASCII armor) včetně řádků BEGIN a END. U nechráněného soukromého klíče zadejte novou přístupovou frázi, která jej před uložením ochrání přímo v prohlížeči. Importované klíče příjemců se automaticky nepovažují za důvěryhodné."
+
+msgid "Public OpenPGP key"
+msgstr "Veřejný klíč OpenPGP"
+
+msgid "Back up private OpenPGP key"
+msgstr "Záloha soukromého klíče OpenPGP"
+
+msgid "Create backup"
+msgstr "Vytvořit zálohu"
+
+msgid "Private key backup — keep secure"
+msgstr "Záloha soukromého klíče — uchovejte v bezpečí"
+
+msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
+msgstr "Před stažením této zašifrované zálohy soukromého klíče potvrďte svou přístupovou frázi přímo v prohlížeči. Zálohu uchovávejte v bezpečí a nikdy ji neposílejte žádnému příjemci ani na server klíčů."
+
+msgid "Current passphrase"
+msgstr "Současná přístupová fráze"
+
+msgid "New passphrase"
+msgstr "Nová přístupová fráze"
+
+msgid "Change OpenPGP passphrase"
+msgstr "Změna přístupové fráze OpenPGP"
+
+msgid "Repeat new passphrase"
+msgstr "Potvrzení nové přístupové fráze"
+
+msgid "Passphrase changed. Make a new private-key backup."
+msgstr "Přístupová fráze byla změněna. Vytvořte novou zálohu soukromého klíče."
+
+msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
+msgstr "Soukromý klíč se znovu zašifruje přímo v prohlížeči. Stávající zálohy budou i nadále vyžadovat svou původní přístupovou frázi."
+
+msgid "Verify OpenPGP fingerprint"
+msgstr "Ověření otisku OpenPGP"
+
+msgid "Verified identities"
+msgstr "Ověřené identity"
+
+msgid "Email identity"
+msgstr "E-mailová identita"
+
+msgid "Confirm fingerprint"
+msgstr "Potvrzení otisku"
+
+msgid "Enter the full fingerprint shown above."
+msgstr "Zadejte celý otisk zobrazený výše."
+
+msgid "I verified this fingerprint"
+msgstr "Tento otisk jsem ověřil(a)"
+
+msgid "Save verification"
+msgstr "Uložit ověření"
+
+msgid "Fingerprint verification updated."
+msgstr "Ověření otisku bylo aktualizováno."
+
+msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
+msgstr "Porovnejte celý otisk se svým kontaktem jiným důvěryhodným kanálem. Zaškrtnutím pole tento klíč trvale přiřadíte k vybrané adrese; ponecháte-li pole nezaškrtnuté, bude toto ověření odstraněno."
+
+msgid "All private keys in this browser tab are locked."
+msgstr "Všechny soukromé klíče na této kartě prohlížeče jsou nyní zamčené."
+
+msgid "Delete OpenPGP key"
+msgstr "Odstranění klíče OpenPGP"
+
+msgid "Type the full fingerprint to confirm deletion."
+msgstr "Pro potvrzení odstranění zadejte celý otisk."
+
+msgid "Delete key"
+msgstr "Odstranit klíč"
+
+msgid "Key removed from your mailbox."
+msgstr "Klíč byl odstraněn z vaší poštovní schránky."
+
+msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
+msgstr "Pokud tento soukromý klíč odstraníte a nemáte zálohu, nebudete moci číst zprávy zašifrované pro tento klíč. Než budete pokračovat, vytvořte zálohu soukromého klíče."
+
+msgid "This removes the public key and its verified fingerprints from your keyring."
+msgstr "Tím se z vaší klíčenky odstraní veřejný klíč a jeho ověřené otisky."
+
+msgid "Manage OpenPGP keyservers"
+msgstr "Správa serverů klíčů OpenPGP"
+
+msgid "HTTPS keyservers"
+msgstr "Servery klíčů HTTPS"
+
+msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
+msgstr "Zadejte na každý řádek jednu základní adresu serveru HTTPS, bez cesty, přihlašovacích údajů a dotazu."
+
+msgid "Save keyservers"
+msgstr "Uložit servery klíčů"
+
+msgid "Keyservers updated."
+msgstr "Servery klíčů byly aktualizovány."
+
+msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
+msgstr "Použít lze pouze servery klíčů HTTPS schválené správcem. Vyhledávání vyžaduje úplný otisk. Klíče se nikdy nenahrávají automaticky."
+
+msgid "Approved servers: {0}"
+msgstr "Schválené servery: {0}"
+
+msgid "Find OpenPGP public key"
+msgstr "Vyhledání veřejného klíče OpenPGP"
+
+msgid "Keyserver"
+msgstr "Server klíčů"
+
+msgid "Full fingerprint"
+msgstr "Úplný otisk"
+
+msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
+msgstr "Zadejte úplný šestnáctkový otisk o 40 nebo 64 znacích."
+
+msgid "Find and import"
+msgstr "Vyhledat a importovat"
+
+msgid "The keyserver did not return the requested public key."
+msgstr "Server klíčů nevrátil požadovaný veřejný klíč."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Veřejný klíč byl importován. Ověřte jeho otisk dříve, než jeho vlastníkovi budete šifrovat zprávy."
+
+msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
+msgstr "Server se dozví otisk, který hledáte. Stažený klíč je stále potřeba ověřit podle otisku, než jeho vlastníkovi budete šifrovat zprávy."
 
 msgid "Old passphrase"
 msgstr "Stará přístupová fráze"
 
 msgid "Wrong passphrase. Please try again"
 msgstr "Špatná přístupová fráze. Zkuste to prosím znovu"
-
-msgid "New passphrase"
-msgstr "Nová přístupová fráze"
 
 msgid "Confirm new passphrase"
 msgstr "Potvrzení nové přístupové fráze"
@@ -7125,20 +7715,11 @@ msgstr "Žádné certifikáty nejsou importovány, nahrajte prosím svůj soukro
 msgid "Valid from"
 msgstr "Platné od"
 
-msgid "Expires"
-msgstr "Vyprší"
-
 msgid "Key Type"
 msgstr "Typ klíče"
 
 msgid "Purpose"
 msgstr "Účel"
-
-msgid "Sign"
-msgstr "Podepsat"
-
-msgid "Encrypt"
-msgstr "Zakódovat"
 
 msgid "Sign & Encrypt"
 msgstr "Podepisování a šifrování"
@@ -7152,7 +7733,6 @@ msgstr "Zásuvný modul S/MIME"
 msgid "Please select a certificate."
 msgstr "Vyberte certifikát."
 
-#, fuzzy
 msgid "Do you really want to remove your private certificate? If you remove your certificate you will not be able to sign or decrypt S/MIME emails."
 msgstr "Opravdu chcete odebrat svůj soukromý certifikát? Pokud svůj certifikát odstraníte, nebudete moci podepisovat ani dešifrovat e-maily S/MIME."
 
@@ -7222,7 +7802,6 @@ msgstr "Máte platný certifikát odpovídající vašemu účtu"
 msgid "Upload your certificate"
 msgstr "Nahrajte svůj certifikát"
 
-#, fuzzy
 msgid "Below you can upload your private certificate in PKCS#12 format. grommunio Web only accepts certificates which are valid and only stores one private certificate on the server."
 msgstr "Níže můžete nahrát svůj soukromý certifikát ve formátu PKCS#12. grommunio Web přijímá pouze platné certifikáty a na serveru ukládá pouze jeden soukromý certifikát."
 
@@ -7250,14 +7829,12 @@ msgstr "podepisování a šifrování"
 msgid "Sign message"
 msgstr "Zpráva na znamení"
 
-#, fuzzy
 msgid "Ensure the authenticity of the message by adding a digital signature to this message. Any changes to the message will invalidate the signature."
-msgstr "Zajištění pravosti zprávy přidáním digitálního podpisu k této zprávě. Jakékoli změny ve zprávě zneplatní podpis."
+msgstr "Zajistěte pravost zprávy přidáním digitálního podpisu k této zprávě. Jakékoli změny ve zprávě zneplatní podpis."
 
 msgid "Encrypt message"
 msgstr "Šifrování zprávy"
 
-#, fuzzy
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Zajistěte soukromí zprávy zašifrováním jejího obsahu. Zprávu bude moci otevřít pouze její příjemce."
 
@@ -7270,19 +7847,15 @@ msgstr "Co se děje s mým e-mailem?"
 msgid "CBC mode"
 msgstr "Režim CBC"
 
-#, fuzzy
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
 msgstr "grommunio Web umí ověřovat digitální podpisy e-mailů. Úspěšné ověření vás ujistí, že se zprávou nebylo manipulováno, a potvrdí identitu odesílatele."
 
-#, fuzzy
-msgid "You are seeing this message because the verification of the digital signature"
-msgstr "Tato zpráva se zobrazuje, protože ověření digitálního podpisu"
+#. TRANSLATORS: {0} is the bolded phrase 'has failed'
+msgid "You are seeing this message because the verification of the digital signature {0} for this message."
+msgstr "Tato zpráva se zobrazuje, protože kontrola digitálního podpisu {0} pro tuto zprávu."
 
-msgid " has failed"
-msgstr " selhala"
-
-msgid " for this message."
-msgstr " pro tuto zprávu."
+msgid "has failed"
+msgstr "selhala"
 
 msgid "What caused this issue?"
 msgstr "Co tento problém způsobilo?"
@@ -7290,50 +7863,35 @@ msgstr "Co tento problém způsobilo?"
 msgid "What should I do?"
 msgstr "Co mám dělat?"
 
-#, fuzzy
 msgid "You can continue to work. However, you should keep in mind that the identity and the authenticity of the message content could not be verified."
 msgstr "Můžete pokračovat v práci. Měli byste však mít na paměti, že identitu a pravost obsahu zprávy nebylo možné ověřit."
 
-#, fuzzy
 msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
 msgstr "Pokud si nejste jisti, jak dále postupovat, můžete se obrátit na helpdesk nebo správce systému."
 
-msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "grommunio Web umí ověřovat digitální podpisy e-mailů. Úspěšné ověření vás ujistí "
-
-#, fuzzy
-msgid "that the message has not been tampered with and validates the identity of the sender."
-msgstr "že se zprávou nebylo manipulováno a ověřuje totožnost odesílatele."
-
-#, fuzzy
 msgid "The verification of the digital signature was successful for this email message."
 msgstr "Ověření digitálního podpisu bylo u této e-mailové zprávy úspěšné."
 
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr "grommunio Web nemohl najít veřejný certifikát pro příjemce."
 
-#, fuzzy
 msgid "The identity of the sender and authenticity of the message content have been verified, but the certificate used to sign the message expired on [d-m-Y]."
 msgstr "Identita odesílatele a pravost obsahu zprávy byly ověřeny, ale platnost certifikátu použitého k podpisu zprávy vypršela dne [d-m-Y]."
 
 msgid "The digital signature could not be verified for unknown reasons."
 msgstr "Digitální podpis nebylo možné z neznámých důvodů ověřit."
 
-#, fuzzy
 msgid "The digital certificate used to sign this message has been revoked (i.e. the sender has marked it as compromised)"
 msgstr "Digitální certifikát použitý k podpisu této zprávy byl odvolán (tj. odesílatel jej označil jako kompromitovaný)"
 
-#, fuzzy
 msgid "The verification service of the certificate authority that signed the sender's certificate is not available. The validity of the certificate could not be verified."
-msgstr "Služba ověření certifikační autority, která podepsala certifikát odesílatele, není k dispozici. Platnost certifikátu se nepodařilo ověřit."
+msgstr "Ověřovací služba certifikační autority, která podepsala certifikát odesílatele, není k dispozici. Platnost certifikátu se nepodařilo ověřit."
 
-#, fuzzy
 msgid "The revocation status of the digital certificate used to sign this email is unknown (Server is unavailable or certificate does not support OCSP). The validity of the certificate could not be verified."
 msgstr "Stav odvolání digitálního certifikátu použitého k podpisu tohoto e-mailu není znám (Server není k dispozici nebo certifikát nepodporuje OCSP). Platnost certifikátu se nepodařilo ověřit."
 
-#, fuzzy
 msgid "The revocation status of the digital certificate used to sign this email is disabled (OCSP). The validity of the certificate could not be verified."
-msgstr "Stav odvolání digitálního certifikátu použitého k podpisu tohoto e-mailu je zakázán (OCSP). Platnost certifikátu se nepodařilo ověřit."
+msgstr "Kontrola stavu odvolání digitálního certifikátu použitého k podpisu tohoto e-mailu je vypnuta (OCSP). Platnost certifikátu se nepodařilo ověřit."
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
 msgstr "Server pro ověřování certifikátů (OCSP) je dočasně offline."
@@ -7370,9 +7928,6 @@ msgstr "Nelze ověřit podpis, chybí veřejný certifikát"
 
 msgid "Signature verification successful, but certificate is expired"
 msgstr "Ověření podpisu proběhlo úspěšně, ale platnost certifikátu vypršela"
-
-msgid "Signature could not be verified"
-msgstr "Podpis se nepodařilo ověřit"
 
 msgid "Certificate has been revoked"
 msgstr "Certifikát byl zrušen"
@@ -7578,9 +8133,8 @@ msgstr "Očekávání"
 msgid "You have been automatically logged out"
 msgstr "Byli jste automaticky odhlášeni"
 
-#, fuzzy
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
-msgstr "Omlouváme se, ale s tímto uživatelským účtem není přístup na web grommunio dostupný. Obraťte se prosím na správce systému."
+msgstr "Omlouváme se, přístup do aplikace grommunio Web není s tímto uživatelským účtem k dispozici. Obraťte se prosím na správce systému."
 
 msgid "The AI request failed unexpectedly."
 msgstr "Požadavek AI skončil neočekávanou chybou."
@@ -7708,8 +8262,11 @@ msgstr "PHP-Curl není k dispozici."
 msgid "With this backend, you can connect to any Seafile server."
 msgstr "Pomocí tohoto backendu se můžete připojit k libovolnému serveru Seafile."
 
-msgid "Files "
-msgstr "Soubory "
+msgid "Files Seafile Backend: "
+msgstr "Soubory Seafile Backend: "
+
+msgid "Moving failed"
+msgstr "Stěhování se nezdařilo"
 
 msgid "Use SSL"
 msgstr "Použití protokolu SSL"
@@ -7801,9 +8358,6 @@ msgstr "Vytvoření adresáře se nezdařilo"
 msgid "Deletion failed"
 msgstr "Odstranění se nezdařilo"
 
-msgid "Moving failed"
-msgstr "Stěhování se nezdařilo"
-
 msgid "Temporary directory problems"
 msgstr "Problémy s dočasnými adresáři"
 
@@ -7813,17 +8367,11 @@ msgstr "Soubor nebo složka nebyly nalezeny"
 msgid "Copying failed"
 msgstr "Kopírování se nezdařilo"
 
-msgid "Please contact your system administrator"
-msgstr "Obraťte se na správce systému"
-
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Souborový server není dosažitelný. Ověřte prosím připojení."
 
-msgid "PHP-CURL not installed"
-msgstr "PHP-CURL není nainstalován"
-
 msgid "Unknown backend"
-msgstr ""
+msgstr "Neznámý backend"
 
 msgid "Account is ready to use."
 msgstr "Účet je připraven k použití."
@@ -7838,10 +8386,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Tento soubor již není k dispozici. Prosím, načtěte složku znovu."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "Tento backend nepodporuje vyhledávání příjemců"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "Příjemce se nepodařilo vyhledat"
 
 msgid "Kendox certificate path is not configured."
 msgstr "Cesta k certifikátu Kendox není nakonfigurována."
@@ -7858,12 +8406,12 @@ msgstr "Certifikát Kendox nelze číst."
 msgid "Mobile device management plugin"
 msgstr "Zásuvný modul pro správu mobilních zařízení"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
 msgstr "Došlo k neočekávané chybě. Obraťte se prosím na správce systému. Kód chyby: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "Tento server nepodporuje správu sdílených složek."
 
 msgid "No data received."
 msgstr "Nebyla přijata žádná data."
@@ -7871,7 +8419,6 @@ msgstr "Nebyla přijata žádná data."
 msgid "Account is empty."
 msgstr "Účet je prázdný."
 
-#, fuzzy
 msgid "Your password is wrong or you have insufficient permission to change password"
 msgstr "Vaše heslo je špatné nebo nemáte dostatečné oprávnění ke změně hesla"
 
@@ -7883,6 +8430,15 @@ msgstr "Došlo k chybě při změně hesla. Zkontrolujte prosím své heslo nebo
 
 msgid "Password has been changed successfully."
 msgstr "Heslo bylo úspěšně změněno."
+
+msgid "The OpenPGP operation could not be completed."
+msgstr "Operaci OpenPGP se nepodařilo dokončit."
+
+msgid "OpenPGP: message was not sent"
+msgstr "OpenPGP: zpráva nebyla odeslána"
+
+msgid "The OpenPGP message could not be read."
+msgstr "Zprávu OpenPGP se nepodařilo načíst."
 
 msgid "No certificate available"
 msgstr "Certifikát není k dispozici"
@@ -7909,21 +8465,19 @@ msgid "Unable to generate certs-only message"
 msgstr "Nelze vygenerovat zprávu pouze pro certifikáty"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "Nelze přečíst zprávu certs-only"
 
 msgid "LDAP not configured"
 msgstr "LDAP není nakonfigurován"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "Neplatná konfigurace LDAP"
 
-msgid "Missing public certificates for the following recipients: "
-msgstr "Chybějící veřejné certifikáty pro následující příjemce: "
+#. TRANSLATORS: %s is a comma-separated list of email addresses
+#, php-format
+msgid "Missing public certificates for the following recipients: %s. Please contact your system administrator for details"
+msgstr "Chybějící veřejné certifikáty pro následující příjemce: %s. Podrobnosti získáte od správce systému"
 
-msgid ". Please contact your system administrator for details"
-msgstr ". Podrobnosti získáte od správce systému"
-
-#, fuzzy
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
 msgstr "Váš veřejný certifikát není nainstalován. Bez tohoto certifikátu nebudete moci číst zašifrované zprávy, které jste odeslali ostatním."
 
@@ -7936,8 +8490,9 @@ msgstr "Nelze dešifrovat certifikát"
 msgid "Private key can't be used to sign email"
 msgstr "Soukromý klíč nelze použít k podpisu e-mailu"
 
-msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "E-mailová adresa certifikátu neodpovídá webovému účtu grommunio Web "
+#, php-format
+msgid "Certificate email address doesn't match grommunio Web account %s"
+msgstr "E-mailová adresa certifikátu neodpovídá webovému účtu grommunio Web %s"
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -7946,14 +8501,17 @@ msgstr "Velikost klíče RSA %d bitů je nižší než doporučené minimum %d b
 msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
 msgstr "Certifikáty EdDSA (Ed25519) vyžadují PHP 8.4+ a nemusí být plně podporovány. Certifikát byl importován."
 
-msgid "Certificate was expired on "
-msgstr "Platnost certifikátu vypršela dne "
+#, php-format
+msgid "Certificate was expired on %s."
+msgstr "Platnost certifikátu vypršela dne %s."
 
 msgid "Certificate was imported."
 msgstr "Certifikát byl importován."
 
-msgid "Certificate is not yet valid "
-msgstr "Certifikát ještě není platný "
+#. TRANSLATORS: %s is the date the certificate becomes valid
+#, php-format
+msgid "Certificate is not yet valid %s."
+msgstr "Certifikát ještě není platný %s."
 
 msgid "Certificate has not been imported"
 msgstr "Certifikát nebyl importován"
@@ -7962,7 +8520,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "Certifikát je odvolán, ale byl importován."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "Stav odvolání certifikátu nebylo možné ověřit. Certifikát byl importován."
 
 msgid "Unable to read public certificate"
 msgstr "Nelze přečíst veřejný certifikát"
@@ -8006,11 +8564,13 @@ msgstr "Odpovědní data požadovaná ze sběrnice, která však nemá žádná 
 msgid "Cannot store the category list in this mailbox."
 msgstr "Seznam kategorií nelze uložit do této poštovní schránky."
 
+msgid "Cannot scan this mailbox for categories."
+msgstr "V této poštovní schránce nelze vyhledat kategorie."
+
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "Neznámý modul '%s' s id '%s'"
 
-#, fuzzy
 msgid "Server encountered some problem, so it was not able to handle the request."
 msgstr "Server narazil na nějaký problém, takže nebyl schopen požadavek zpracovat."
 
@@ -8032,6 +8592,18 @@ msgstr "Seznam úkolů"
 msgid "%1$s of %2$s"
 msgstr "%1$s v %2$s"
 
+msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
+msgstr "OpenPGP je momentálně zakázán nebo není k dispozici. Vaše zpráva nebyla odeslána. Než to zkusíte znovu, povolte OpenPGP, nebo výslovně vypněte podepisování a šifrování."
+
+msgid "Too many messages were sent in a short time. Please wait a moment and send again."
+msgstr "V krátké době bylo odesláno příliš mnoho zpráv. Chvíli prosím počkejte a odešlete zprávu znovu."
+
+msgid "Message was not sent"
+msgstr "Zpráva nebyla odeslána"
+
+msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
+msgstr "Tento koncept vyžaduje ochranu OpenPGP, ta však nebyla použita. Zpráva nebyla odeslána. Než to zkusíte znovu, povolte OpenPGP, nebo výslovně vypněte podepisování a šifrování."
+
 msgid "Error retrieving existing settings"
 msgstr "Chyba při načítání existujících nastavení"
 
@@ -8044,9 +8616,8 @@ msgstr "Přihlášení se nezdařilo. Ověřte prosím své přihlašovací úda
 msgid "Cannot connect to Gromox."
 msgstr "Nelze se připojit ke službě Gromox."
 
-#, fuzzy
 msgid "Login did not work due to a duplicate session. The issue was automatically resolved, please log in again."
-msgstr "Přihlášení nefungovalo kvůli duplicitní relaci. Problém byl automaticky vyřešen, přihlaste se znovu."
+msgstr "Přihlášení se nezdařilo kvůli duplicitní relaci. Problém byl automaticky vyřešen, přihlaste se prosím znovu."
 
 msgid "Unknown MAPI Error"
 msgstr "Neznámá chyba MAPI"
@@ -8077,7 +8648,7 @@ msgid "The file is corrupt."
 msgstr "Soubor je poškozený."
 
 msgid "The file is invalid."
-msgstr "{0} není platný čas."
+msgstr "Soubor je neplatný."
 
 #, php-format
 msgid "Unable to import '%s'. "
@@ -8128,8 +8699,8 @@ msgstr "Sdílené složky kontaktů"
 msgid "Public Contact Folders"
 msgstr "Veřejné složky kontaktů"
 
-msgid "Error in search, please try again"
-msgstr "Chyba ve vyhledávání, zkuste to prosím znovu"
+msgid "Error in search, please try again."
+msgstr "Chyba ve vyhledávání, zkuste to prosím znovu."
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr "Nelze provést vyhledávací dotaz, chybí oprávnění k vytvoření vyhledávací složky."
@@ -8149,35 +8720,31 @@ msgstr "Výskyt se nepodařilo otevřít."
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "Nelze otevřít výskyt, konkrétní výskyt je pravděpodobně smazán."
 
-msgid "a meeting request"
-msgstr "žádost o schůzku"
+msgid "You have insufficient privileges to move a meeting request in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "K přesunutí žádosti o schůzku v tomto kalendáři nemáte dostatečná oprávnění. Vlastník kalendáře je může nastavit pomocí záložky \"oprávnění\" ve vlastnostech složky (klikněte pravým tlačítkem myši na složku kalendáře > vlastnosti > oprávnění)"
 
-msgid "an appointment"
-msgstr "schůzku"
+msgid "You have insufficient privileges to move an appointment in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "K přesunutí schůzky v tomto kalendáři nemáte dostatečná oprávnění. Vlastník kalendáře je může nastavit pomocí záložky \"oprávnění\" ve vlastnostech složky (klikněte pravým tlačítkem myši na složku kalendáře > vlastnosti > oprávnění)"
 
-msgid "You have insufficient privileges to move "
-msgstr "Nemáte dostatečná oprávnění k přesunu "
-
-#, fuzzy
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
-msgstr "Nelze nastavit, aby se připomenutí zobrazilo před předchozím výskytem. Obnovení připomenutí pro uložení změny"
+msgstr "Nelze nastavit, aby se připomenutí zobrazilo před předchozím výskytem. Pro uložení změny resetujte připomenutí"
 
 msgid "Two occurrences cannot occur on the same day"
 msgstr "Dvě události nemohou nastat ve stejný den"
 
-#, fuzzy, php-format
+#, php-format
 msgid "You marked '%s' as a resource. You cannot schedule a meeting with '%s' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule '%s'."
-msgstr "Označili jste '%s' jako prostředek. Nemůžete naplánovat schůzku s '%s', protože nemáte pro tento účet příslušná oprávnění. Buď zadejte toto jméno jako povinného nebo nepovinného účastníka, nebo se poraďte se správcem, zda vám udělí oprávnění naplánovat schůzku '%s'."
+msgstr "Označili jste '%s' jako zdroj. Nemůžete naplánovat schůzku s '%s', protože nemáte pro tento účet příslušná oprávnění. Buď zadejte toto jméno jako povinného či nepovinného účastníka, nebo požádejte správce o udělení oprávnění plánovat '%s'."
 
-#, fuzzy, php-format
+#, php-format
 msgid "'%s' has declined your meeting because '%s' does not automatically accept meeting requests."
 msgstr "'%s' odmítl vaši schůzku, protože '%s' automaticky nepřijímá žádosti o schůzku."
 
-#, fuzzy, php-format
+#, php-format
 msgid "'%s' has declined your meeting because it is recurring. You must book each meeting separately with this resource."
 msgstr "'%s' odmítl vaši schůzku, protože se opakuje. Každou schůzku si musíte u tohoto zdroje rezervovat zvlášť."
 
-#, fuzzy, php-format
+#, php-format
 msgid "'%s' is already booked for this specified time. You must use another time or find another resource."
 msgstr "'%s' je na tento čas již rezervován. Musíte použít jiný čas nebo najít jiný zdroj."
 
@@ -8191,8 +8758,11 @@ msgid "Meeting could not be saved."
 msgstr "Setkání se nepodařilo zachránit."
 
 #, php-format
-msgid "There were %d skipped appointment(s):"
-msgstr "Vynechané schůzky (%d):"
+msgid "There was %d skipped appointment:"
+msgid_plural "There were %d skipped appointments:"
+msgstr[0] "Vynechané schůzky (%d):"
+msgstr[1] "Vynechané schůzky (%d):"
+msgstr[2] "Vynechané schůzky (%d):"
 
 msgid "More skipped appointments are not shown."
 msgstr "Další vynechané schůzky nejsou zobrazeny."
@@ -8210,6 +8780,10 @@ msgstr "Narozeniny: %s"
 #, php-format
 msgid "%s's Anniversary"
 msgstr "Výročí: %s"
+
+#, php-format
+msgid "Unable to add store: '%s'. Please check if you have the necessary permissions."
+msgstr "Nelze přidat poštovní schránku: '%s'. Zkontrolujte prosím, zda máte potřebná oprávnění."
 
 msgid "You don't have the permission to complete this action"
 msgstr "K dokončení této akce nemáte oprávnění"
@@ -8284,7 +8858,6 @@ msgstr "Nepodařilo se vyprázdnit složku."
 msgid "Could not perform action correctly."
 msgstr "Akci se nepodařilo provést správně."
 
-#, fuzzy
 msgid "A favorite folder with this name already exists, please use another name."
 msgstr "Oblíbená složka s tímto názvem již existuje, použijte prosím jiný název."
 
@@ -8318,9 +8891,9 @@ msgstr "Nelze zavřít sdílenou složku."
 msgid "User could not be resolved."
 msgstr "Uživatele se nepodařilo vyřešit."
 
-#, fuzzy, php-format
+#, php-format
 msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "K otevření této složky %1$s nemáte dostatečná práva. Vlastník složky je může nastavit pomocí záložky \"oprávnění\" ve vlastnostech složky (klikněte pravým tlačítkem myši na složku %1$s > vlastnosti > oprávnění)."
+msgstr "K otevření této složky %1$s nemáte dostatečná oprávnění. Vlastník složky je může nastavit pomocí záložky \"oprávnění\" ve vlastnostech složky (klikněte pravým tlačítkem myši na složku %1$s > vlastnosti > oprávnění)."
 
 msgid "default"
 msgstr "výchozí"
@@ -8340,46 +8913,41 @@ msgstr "Nepodařilo se zkopírovat složku"
 msgid "You have insufficient privileges to open this message."
 msgstr "K otevření této zprávy nemáte dostatečná práva."
 
-#, fuzzy
 msgid "Could not find message, either it has been moved or deleted or you don't have access to open this message."
-msgstr "Zprávu se nepodařilo najít, buď byla přesunuta nebo smazána, nebo nemáte přístup k otevření této zprávy."
+msgstr "Zprávu se nepodařilo najít, buď byla přesunuta, nebo smazána, nebo nemáte přístup k otevření této zprávy."
 
 msgid "Could not open message."
 msgstr "Nelze otevřít zprávu."
 
-msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "Nemáte oprávnění odmítnout tuto žádost o schůzku"
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "Nemáte dostatečná práva k odmítnutí této žádosti o schůzku."
 
-msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "Nemáte oprávnění přijmout tuto žádost o schůzku"
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "Nemáte dostatečná oprávnění k přijetí této žádosti o schůzku."
 
-msgid "Could not copy message"
-msgstr "Nelze kopírovat zprávu"
+msgid "Could not copy message."
+msgstr "Nelze kopírovat zprávu."
 
-msgid "Could not move message"
-msgstr "Nelze přesunout zprávu"
+msgid "Could not move message."
+msgstr "Nelze přesunout zprávu."
 
-msgid "Could not forward meeting request"
-msgstr "Žádost o schůzku se nepodařilo přeposlat"
+msgid "Could not forward meeting request."
+msgstr "Žádost o schůzku se nepodařilo přeposlat."
 
-msgid "You have insufficient privileges to save items in this folder"
-msgstr "Nemáte oprávnění uložit položky v této složce"
+msgid "You have insufficient privileges to save items in this folder."
+msgstr "Nemáte oprávnění uložit položky v této složce."
 
-msgid "Could not save message"
-msgstr "Nelze uložit zprávu"
+msgid "Could not save message."
+msgstr "Zprávu se nepodařilo uložit."
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "Nemáte oprávnění odstranit položku z kalendáře."
 
-#, fuzzy
 msgid "Message is no longer in the outgoing queue, typically because it has already been sent."
 msgstr "Zpráva již není ve frontě odchozích zpráv, obvykle proto, že již byla odeslána."
 
 msgid "Message cannot be aborted"
 msgstr "Zprávu nelze přerušit"
-
-msgid "You have insufficient privileges to delete items in this folder"
-msgstr "Nemáte dostatečná práva k odstranění položek v této složce"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "Nemáte oprávnění připojit položku jako přílohu."
@@ -8402,6 +8970,9 @@ msgstr "Nemáte oprávnění odmítnout toto zadání úkolu."
 msgid "Could not decline Task Request."
 msgstr "Nelze odmítnout zadání úkolu."
 
+msgid "Could not open the attachment."
+msgstr "Přílohu se nepodařilo otevřít."
+
 msgid "Conflicts with another appointment."
 msgstr "V rozporu s další schůzkou."
 
@@ -8417,6 +8988,9 @@ msgstr "Vaše zpráva nebyla doručena některému anebo všem uvedeným příje
 
 msgid "The following recipient(s) could not be reached"
 msgstr "Nebyla doručena následujícímu příjemci/příjemcům"
+
+msgid "Removing attachments has been disabled by the administrator."
+msgstr "Odstraňování příloh bylo správcem zakázáno."
 
 msgid "l, F j, Y g:i A"
 msgstr "l, j. F Y G:i"
@@ -8436,7 +9010,6 @@ msgstr "K zobrazení obsahu této složky nemáte dostatečná oprávnění."
 msgid "Could not load the contents of this folder."
 msgstr "Obsah této složky se nepodařilo načíst."
 
-#, fuzzy
 msgid "You have insufficient privileges to perform search operation in this folder."
 msgstr "Nemáte dostatečná oprávnění k provádění vyhledávacích operací v této složce."
 
@@ -8448,9 +9021,6 @@ msgstr "Nepodařilo se zastavit vyhledávací operaci."
 
 msgid "You have insufficient privileges to save this message."
 msgstr "K uložení této zprávy nemáte dostatečná práva."
-
-msgid "Could not save message."
-msgstr "Zprávu se nepodařilo uložit."
 
 msgid "You have insufficient privileges to delete this message."
 msgstr "Nemáte dostatečná práva k odstranění této zprávy."
@@ -8464,14 +9034,8 @@ msgstr "Nemáte dostatečná práva ke zrušení této žádosti o schůzku."
 msgid "Could not cancel Meeting Request."
 msgstr "Nelze zrušit žádost o schůzku."
 
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "Nemáte dostatečná práva k odmítnutí této žádosti o schůzku."
-
 msgid "Could not decline Meeting Request."
 msgstr "Nelze odmítnout žádost o schůzku."
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "Nemáte dostatečná oprávnění k přijetí této žádosti o schůzku."
 
 msgid "Could not accept Meeting Request."
 msgstr "Nelze přijmout žádost o schůzku."
@@ -8485,16 +9049,12 @@ msgstr "Nelze zrušit pozvánky na žádost o schůzku."
 msgid "You can not continue search operation on this folder."
 msgstr "V této složce nelze pokračovat ve vyhledávání."
 
-msgid "Error in search, please try again."
-msgstr "Chyba ve vyhledávání, zkuste to prosím znovu."
-
 msgid "Error in distribution list expansion."
 msgstr "Chyba v rozšíření distribučního seznamu."
 
 msgid "The message store has exceeded its hard quota limit."
 msgstr "Úložiště zpráv překročilo svůj pevný limit kvóty."
 
-#, fuzzy
 msgid "To reduce the amount of data in this message store, select some items that you no longer need, delete them and cleanup your Deleted Items folder."
 msgstr "Chcete-li snížit množství dat v tomto úložišti zpráv, vyberte některé položky, které již nepotřebujete, odstraňte je a vyčistěte složku Odstraněné položky."
 
@@ -8538,6 +9098,9 @@ msgstr "Požadavek na úkol:"
 msgid "Sign in"
 msgstr "Přihlásit se"
 
+msgid "Loading"
+msgstr "Načítání"
+
 msgid "File is not imported successfully"
 msgstr "Soubor se nepodařilo úspěšně importovat"
 
@@ -8550,8 +9113,8 @@ msgstr "Nahraný soubor překračuje směrnici MAX_FILE_SIZE, která byla zadán
 msgid "The uploaded file was only partially uploaded."
 msgstr "Nahraný soubor byl nahrán pouze částečně."
 
-msgid "No file was uploaded. ."
-msgstr "Nebyl nahrán žádný soubor. ."
+msgid "No file was uploaded."
+msgstr "Nebyl nahrán žádný soubor."
 
 msgid "Missing a temporary folder."
 msgstr "Chybí dočasná složka."
@@ -8565,11 +9128,9 @@ msgstr "Odesílání souborů zastavilo rozšíření PHP. PHP neposkytuje způs
 msgid "There is no contact found in this file."
 msgstr "V tomto souboru nebyl nalezen žádný kontakt."
 
-#, fuzzy
 msgid "grommunio Web does not support importing multiple VCF with this version."
 msgstr "grommunio Web v této verzi nepodporuje import více VCF."
 
-#, fuzzy
 msgid "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web v této verzi nepodporuje import více ICS."
 

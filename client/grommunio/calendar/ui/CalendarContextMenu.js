@@ -720,7 +720,7 @@ Grommunio.calendar.ui.CalendarContextMenu = Ext.extend(Grommunio.core.ui.menu.Co
 			// Reply (not All) as organizer is replying to yourself
 			if (!isReplyAll && iAmOrganizer) {
 				container.getNotifier().notify('info.meeting',
-					pgettext('calendar.contextmenu', 'Use Reply All to reply to all attendees of your meeting.'));
+					pgettext('calendar.toolbar', 'Use Reply All to reply to all attendees of your meeting.'));
 				return;
 			}
 

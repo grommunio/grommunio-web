@@ -89,7 +89,7 @@ Grommunio.common.delegates.ui.DelegatesPanel = Ext.extend(Ext.Panel, {
 				},
 				items: [{
 					xtype: 'button',
-					text: _('Add') + '...',
+					text: _('Add') + '…',
 					width: 130,
 					handler: this.onDelegateAdd,
 					ref: '../../addButton',
@@ -99,7 +99,7 @@ Grommunio.common.delegates.ui.DelegatesPanel = Ext.extend(Ext.Panel, {
 					height: 10
 				}, {
 					xtype: 'button',
-					text: _('Remove') + '...',
+					text: _('Remove') + '…',
 					width: 130,
 					disabled: true,
 					ref: '../../removeButton',
@@ -110,7 +110,7 @@ Grommunio.common.delegates.ui.DelegatesPanel = Ext.extend(Ext.Panel, {
 					height: 10
 				}, {
 					xtype: 'button',
-					text: _('Permission') + '...',
+					text: _('Permission') + '…',
 					width: 130,
 					disabled: true,
 					ref: '../../permissionButton',

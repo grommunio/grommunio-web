@@ -97,12 +97,12 @@ Grommunio.plugins.files.settings.ui.FeatureVersionInfoPanel = Ext.extend(Ext.Pan
 				xtype     : 'displayfield',
 				ref       : '../backendVersionField',
 				fieldLabel: _('Backend'),
-				value     : _('Loading') + '&hellip;'
+				value     : _('Loading…')
 			}, {
 				xtype     : 'displayfield',
 				ref       : '../serverVersionField',
 				fieldLabel: this.account.get('backend'),
-				value     : _('Loading') + '&hellip;'
+				value     : _('Loading…')
 			}]
 		}];
 	}

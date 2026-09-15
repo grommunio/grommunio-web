@@ -62,7 +62,7 @@ Grommunio.common.recurrence.dialogs.YearlyPanel = Ext.extend(Grommunio.common.re
 			items: [{
 				xtype: 'grommunio.compositefield',
 				plugins: [ 'grommunio.splitfieldlabeler' ],
-				fieldLabel: _('Every {A} years(s) on') + ':',
+				fieldLabel: Grommunio.util.Translations.Label(_('Every {A} year(s) on')),
 				labelWidth: 140,
 				columnWidth: 1,
 				items: [{

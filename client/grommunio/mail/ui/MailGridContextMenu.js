@@ -229,7 +229,7 @@ Grommunio.mail.ui.MailGridContextMenu = Ext.extend(Grommunio.core.ui.menu.Condit
 	{
 		return [{
 			xtype: 'grommunio.conditionalitem',
-			text: _('Send to') + "...",
+			text: _('Send to…'),
 			iconCls: 'icon_embed_attachment',
 			singleSelectOnly: true,
 			beforeShow: this.onMenuItemBeforeShow,

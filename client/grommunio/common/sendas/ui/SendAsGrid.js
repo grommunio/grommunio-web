@@ -66,7 +66,7 @@ Grommunio.common.sendas.ui.SendAsGrid = Ext.extend(Ext.grid.GridPanel, {
 		return [{
 			dataIndex: 'icon_index',
 			headerCls: 'grommunio-icon-column',
-			header: '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
+			header: '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
 			width: 24,
 			fixed: true,
 			renderer: Grommunio.common.ui.grid.Renderers.icon

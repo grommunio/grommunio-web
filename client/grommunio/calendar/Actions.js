@@ -170,7 +170,7 @@ Grommunio.calendar.Actions = {
 			store: store,
 			selectionCfg: [{
 				xtype: 'grommunio.recipientfield',
-				fieldLabel: _('To') + ':',
+				fieldLabel: Grommunio.util.Translations.Label(_('To')),
 				height: 50,
 				boxStore: store,
 				filterRecipientType: Grommunio.core.mapi.RecipientType.MAPI_TO,
@@ -313,7 +313,7 @@ Grommunio.calendar.Actions = {
 			store: store,
 			selectionCfg: [{
 				xtype: 'grommunio.recipientfield',
-				fieldLabel: _('Required') + ':',
+				fieldLabel: Grommunio.util.Translations.Label(_('Required')),
 				height: 50,
 				boxStore: store,
 				filterRecipientType: Grommunio.core.mapi.RecipientType.MAPI_TO,
@@ -321,7 +321,7 @@ Grommunio.calendar.Actions = {
 				flex: 1
 			},{
 				xtype: 'grommunio.recipientfield',
-				fieldLabel: _('Optional') + ':',
+				fieldLabel: Grommunio.util.Translations.Label(_('Optional')),
 				height: 50,
 				boxStore: store,
 				filterRecipientType: Grommunio.core.mapi.RecipientType.MAPI_CC,
@@ -329,7 +329,7 @@ Grommunio.calendar.Actions = {
 				flex: 1
 			},{
 				xtype: 'grommunio.recipientfield',
-				fieldLabel: _('Resource') + ':',
+				fieldLabel: Grommunio.util.Translations.Label(_('Resource')),
 				height: 50,
 				boxStore: store,
 				filterRecipientType: Grommunio.core.mapi.RecipientType.MAPI_BCC,

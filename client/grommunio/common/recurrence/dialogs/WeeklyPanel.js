@@ -70,7 +70,7 @@ Grommunio.common.recurrence.dialogs.WeeklyPanel = Ext.extend(Grommunio.common.re
 			},{
 				xtype: 'grommunio.compositefield',
 				plugins: [ 'grommunio.splitfieldlabeler' ],
-				fieldLabel: _('Every {A} week(s) on') + ':',
+				fieldLabel: Grommunio.util.Translations.Label(_('Every {A} week(s) on')),
 				labelWidth: 140,
 				columnWidth: 1,
 				items: [{

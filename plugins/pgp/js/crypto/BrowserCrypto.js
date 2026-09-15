@@ -65,16 +65,21 @@
 	}
 	function armor(value, type, limit) {
 		if (typeof value !== 'string' || value.length > limit || value.indexOf('\u0000') !== -1) {
-			fail('Invalid or oversized OpenPGP armor.');
+			fail(_('Invalid or oversized OpenPGP armor.'));
 		}
 		var text = value.trim();
 		var head = '-----BEGIN PGP ' + type + '-----';
 		var tail = '-----END PGP ' + type + '-----';
 		if (!text.startsWith(head + '\n') && !text.startsWith(head + '\r\n')) {
-			fail('Expected a single OpenPGP ' + type.toLowerCase() + ' block.');
+			// One message per armor type: the type word cannot be concatenated in.
+			var expected = {'PUBLIC KEY BLOCK': _('Expected a single OpenPGP public key block.'),
+				'PRIVATE KEY BLOCK': _('Expected a single OpenPGP private key block.'),
+				'SIGNATURE': _('Expected a single OpenPGP signature block.'),
+				'MESSAGE': _('Expected a single OpenPGP message block.')};
+			fail(expected[type] || _('Expected a single OpenPGP armor block.'));
 		}
 		if (!text.endsWith(tail) || text.indexOf(head, head.length) !== -1 || text.indexOf(tail) !== text.length - tail.length) {
-			fail('Additional data outside the OpenPGP armor is not allowed.');
+			fail(_('Additional data outside the OpenPGP armor is not allowed.'));
 		}
 		return text;
 	}
@@ -114,13 +119,13 @@
 		var keys = await pgp.readKeys(options);
 		if (keys.length !== 1) {
 			keys.forEach(wipe);
-			fail('Import one complete OpenPGP key at a time.');
+			fail(_('Import one complete OpenPGP key at a time.'));
 		}
 		var key = keys[0];
 		fingerprint(key.getFingerprint());
 		if (key.getKeys().length > 32 || key.users.length > 100) {
 			wipe(key);
-			fail('This key exceeds the supported subkey or identity limit.');
+			fail(_('This key exceeds the supported subkey or identity limit.'));
 		}
 		if (key.isPrivate() && requireProtected) {
 			// PrivateKey.isDecrypted() is intentionally true if ANY packet is
@@ -131,7 +136,7 @@
 			});
 			if (unsafe) {
 				wipe(key);
-				fail('Private keys must be passphrase protected before upload. Protect this key locally first.', 'OPENPGP_UNPROTECTED_KEY');
+				fail(_('Private keys must be passphrase protected before upload. Protect this key locally first.'), 'OPENPGP_UNPROTECTED_KEY');
 			}
 		}
 		return key;
@@ -170,7 +175,7 @@
 			var updates = await readKey(publicArmor, cfg, true);
 			if (updates.isPrivate() || updates.getFingerprint() !== key.getFingerprint()) {
 				wipe(key); wipe(updates);
-				fail('The public certificate must match the private key fingerprint.');
+				fail(_('The public certificate must match the private key fingerprint.'));
 			}
 			key = await key.update(updates, undefined, cfg);
 		}
@@ -204,7 +209,7 @@
 		var key = state.keys.get(fingerprint(fp));
 		if (!key || key.expires <= Date.now()) {
 			if (key) { service.lock(fp); }
-			fail('Unlock your OpenPGP private key in this browser tab first.', 'OPENPGP_LOCKED');
+			fail(_('Unlock your OpenPGP private key in this browser tab first.'), 'OPENPGP_LOCKED');
 		}
 		return key.key;
 	}
@@ -213,7 +218,7 @@
 		var expired = used.some(function(fp) { var entry = state.keys.get(fp); return !entry || entry.expires <= Date.now(); });
 		if (state.epoch !== epoch || expired) {
 			if (data instanceof Uint8Array) { data.fill(0); }
-			fail('The OpenPGP key was locked while the operation was running.', 'OPENPGP_LOCKED');
+			fail(_('The OpenPGP key was locked while the operation was running.'), 'OPENPGP_LOCKED');
 		}
 	}
 	/**
@@ -241,7 +246,7 @@
 		constructor(options) {
 			options = options || {};
 			if (!pgp || typeof pgp.encrypt !== 'function' || !globalThis.crypto || !globalThis.crypto.subtle) {
-				fail('OpenPGP requires a modern browser and a secure HTTPS connection.', 'OPENPGP_UNAVAILABLE');
+				fail(_('OpenPGP requires a modern browser and a secure HTTPS connection.'), 'OPENPGP_UNAVAILABLE');
 			}
 			var limit = Number(options.maxMessageBytes) || DEFAULT_LIMIT;
 			limit = Math.min(100 * 1024 * 1024, Math.max(1024, Math.floor(limit)));
@@ -285,7 +290,7 @@
 			var key = await readKey(input, cfg, false);
 			try {
 				if (!key.isPrivate() || !key.getKeys().every(function(part) { return part.keyPacket.isDecrypted() || part.keyPacket.isDummy(); })) {
-					fail('Protect expects an unprotected private key. Use change passphrase for protected keys.');
+					fail(_('Protect expects an unprotected private key. Use change passphrase for protected keys.'));
 				}
 				var encrypted = await pgp.encryptKey({privateKey: key, passphrase: passphrase(newPassphrase, true), config: cfg});
 				return await exported(encrypted, cfg);
@@ -314,13 +319,13 @@
 				if (!key.isPrivate()) { fail('A protected private key is required.'); }
 				try { unlocked = await pgp.decryptKey({privateKey: key, passphrase: passphrase(password, false), config: state.config}); }
 				catch (error) {
-					if (!publicArmor) { fail('The passphrase could not unlock this private key.', 'OPENPGP_BAD_PASSPHRASE'); }
+					if (!publicArmor) { fail(_('The passphrase could not unlock this private key.'), 'OPENPGP_BAD_PASSPHRASE'); }
 					// The refreshed certificate may carry subkeys the stored private
 					// key lacks; those cannot be unlocked. Fall back to the key as stored.
 					wipe(key);
 					key = await readKey(input, state.config, true);
 					try { unlocked = await pgp.decryptKey({privateKey: key, passphrase: passphrase(password, false), config: state.config}); }
-					catch (retry) { fail('The passphrase could not unlock this private key.', 'OPENPGP_BAD_PASSPHRASE'); }
+					catch (retry) { fail(_('The passphrase could not unlock this private key.'), 'OPENPGP_BAD_PASSPHRASE'); }
 				}
 				var fp = fingerprint(key.getFingerprint());
 				checkEpoch(this, epoch, []);
@@ -389,21 +394,21 @@
 		async encrypt(data, recipientArmors, signer) {
 			var state = states.get(this), epoch = state.epoch;
 			var recipients = await publicKeys(recipientArmors, state.config);
-			if (!recipients.length) { fail('Every recipient needs a verified OpenPGP public key.'); }
+			if (!recipients.length) { fail(_('Every recipient needs a verified OpenPGP public key.')); }
 			var fp = signer ? fingerprint(signer) : null;
 			var key = fp ? active(this, fp) : undefined;
 			var message = await pgp.createMessage({binary: bytes(data, state.limit)});
 			var result = await pgp.encrypt({message: message, encryptionKeys: recipients, signingKeys: key,
 				wildcard: true, format: 'armored', config: state.config});
 			checkEpoch(this, epoch, fp ? [fp] : []);
-			if (result.length > state.limit * 2) { fail('Encrypted message exceeds the size limit.'); }
+			if (result.length > state.limit * 2) { fail(_('Encrypted message exceeds the size limit.')); }
 			return result;
 		}
 
 		async decrypt(input, verificationArmors) {
 			var state = states.get(this);
 			var entries = this.unlocked();
-			if (!entries.length) { fail('Unlock your OpenPGP private key in this browser tab first.', 'OPENPGP_LOCKED'); }
+			if (!entries.length) { fail(_('Unlock your OpenPGP private key in this browser tab first.'), 'OPENPGP_LOCKED'); }
 			var keys = entries.map(function(entry) { return active(this, entry.fingerprint); }, this);
 			var epoch = state.epoch;
 			var verification = await publicKeys(verificationArmors || [], state.config);
@@ -431,9 +436,9 @@
 		async verifyCleartext(input, verificationArmors) {
 			var state = states.get(this);
 			if (typeof input !== 'string' || input.length > state.limit || !/^-----BEGIN PGP SIGNED MESSAGE-----\r?\n/.test(input) ||
-				(input.match(/-----BEGIN PGP SIGNED MESSAGE-----/g) || []).length !== 1) { fail('Expected one complete clear-signed OpenPGP message.'); }
+				(input.match(/-----BEGIN PGP SIGNED MESSAGE-----/g) || []).length !== 1) { fail(_('Expected one complete clear-signed OpenPGP message.')); }
 			var start = input.indexOf('-----BEGIN PGP SIGNATURE-----');
-			if (start < 0 || (input[start - 1] !== '\n')) { fail('Invalid clear-signed OpenPGP signature.'); }
+			if (start < 0 || (input[start - 1] !== '\n')) { fail(_('Invalid clear-signed OpenPGP signature.')); }
 			armor(input.slice(start), 'SIGNATURE', KEY_LIMIT);
 			var keys = await publicKeys(verificationArmors || [], state.config);
 			var message = await pgp.readCleartextMessage({cleartextMessage: input, config: state.config});

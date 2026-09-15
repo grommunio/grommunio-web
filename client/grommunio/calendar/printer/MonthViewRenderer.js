@@ -50,7 +50,7 @@ Grommunio.calendar.printer.MonthViewRenderer = Ext.extend(Grommunio.calendar.pri
 			if (folders[i].getMAPIStore().get('display_name') === container.getUser().getDisplayName()) {
 				foldersData.push({folderName : folders[i].get('display_name'), folderColor : folderColor});
 			} else {
-				foldersData.push({folderName : folders[i].get('display_name') + ' ' + _('of') + ' ' + folders[i].getMAPIStore().get('display_name'), folderColor : folderColor});
+				foldersData.push({folderName : String.format(_('{0} of {1}'), folders[i].get('display_name'), folders[i].getMAPIStore().get('display_name')), folderColor : folderColor});
 			}
 		}
 		data['folderList'] = foldersData;

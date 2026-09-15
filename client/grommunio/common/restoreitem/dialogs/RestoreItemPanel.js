@@ -404,7 +404,7 @@ Grommunio.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Grommunio.com
 			columns: [{
 				dataIndex: 'icon_index',
 				headerCls: 'grommunio-icon-column',
-				header: '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
+				header: '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
 				tooltip: _('Sort by: Icon'),
 				width: 24,
 				sortable: true,
@@ -444,7 +444,7 @@ Grommunio.common.restoreitem.dialogs.RestoreItemPanel = Ext.extend(Grommunio.com
 			columns: [{
 				dataIndex: 'icon_index',
 				headerCls: 'grommunio-icon-column',
-				header: '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
+				header: '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
 				tooltip: _('Sort by: Icon'),
 				width: 24,
 				sortable: true,

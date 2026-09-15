@@ -154,18 +154,18 @@ Grommunio.mail.dialogs.DelayedDeliveryPanel = Ext.extend(Ext.Panel, {
             //    “Your email will be sent [Day] at [xx:xx]"
             // 4) All other dates further than one week, the delayInfoMessage will be shown as
             //    “Your email will be sent at [Month] [dd]th [yyyy], [xx:xx]"
-            var date = '';
             var time = dateTime.format('H:i');
             if (this.isTodayDate(dateTime)) {
-                date = _('today  at ');
+                delayInfoMessage = String.format(_('Your email will be sent today at {0}'), time);
             } else if (this.isTomorrowDate(dateTime)) {
-                date = _('tomorrow  at ');
+                delayInfoMessage = String.format(_('Your email will be sent tomorrow at {0}'), time);
             } else if (this.isDayInCurrentWeek(dateTime)) {
-                date = String.format(_('{0} at '), dateTime.format('l '));
+                // TRANSLATORS: {0} is a weekday name, {1} a time of day
+                delayInfoMessage = String.format(_('Your email will be sent {0} at {1}'), dateTime.format('l'), time);
             } else {
-                date = String.format(_('at {0}'), dateTime.format('F jS Y, '));
+                // TRANSLATORS: {0} is a full date, {1} a time of day
+                delayInfoMessage = String.format(_('Your email will be sent at {0}, {1}'), dateTime.format('F jS Y'), time);
             }
-            delayInfoMessage = String.format(_('Your email will be sent {0}{1}'), date, time);
             this.ownerCt.setDisabled(false);
             this.delayedDeliveryDateTimeField.removeClass('grommunio-delayeddelivery-invalid-date');
             return delayInfoMessage;

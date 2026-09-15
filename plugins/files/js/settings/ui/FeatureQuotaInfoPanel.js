@@ -119,17 +119,17 @@ Grommunio.plugins.files.settings.ui.FeatureQuotaInfoPanel = Ext.extend(Ext.Panel
 				xtype     : 'displayfield',
 				name      : 'usedField',
 				fieldLabel: _('Used'),
-				value     : _('Loading') + '&hellip;'
+				value     : _('Loading…')
 			}, {
 				xtype     : 'displayfield',
 				name      : 'availableField',
 				fieldLabel: _('Free'),
-				value     : _('Loading') + '&hellip;'
+				value     : _('Loading…')
 			}, {
 				xtype     : 'displayfield',
 				name      : 'totalField',
 				fieldLabel: _('Total'),
-				value     : _('Loading') + '&hellip;'
+				value     : _('Loading…')
 			}]
 		}];
 	}

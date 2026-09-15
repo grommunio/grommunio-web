@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-06 21:29+0200\n"
+"POT-Creation-Date: 2026-09-15 20:54+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: import\n"
 "Language: he_IL\n"
@@ -38,6 +38,13 @@ msgstr "הערך חייב להיות בין 0% ל-100%"
 
 msgid "Number must be higher than zero"
 msgstr "המספר חייב להיות גבוה מאפס"
+
+#. TRANSLATORS: punctuation appended to every form label, {0} is the label
+#. itself. French puts a space before the colon, Chinese the full-width one.
+#. TRANSLATORS: punctuation appended to a field label, {0} is the label itself
+msgctxt "label separator"
+msgid "{0}:"
+msgstr "{0}:"
 
 msgid "More options"
 msgstr "אפשרויות נוספות"
@@ -256,8 +263,8 @@ msgstr "כן"
 msgid "No"
 msgstr "לא"
 
-msgid "Loading"
-msgstr "טְעִינָה"
+msgid "Loading…"
+msgstr "טוען…"
 
 msgid "The value in this field is invalid"
 msgstr "הערך בשדה זה לא תקף"
@@ -332,9 +339,6 @@ msgstr "בתחום זה יש להשתמש רק באותיות ו _"
 msgid "This field should only contain letters, numbers and _"
 msgstr "שדה זה צריך להכיל רק אותיות, מספרים ו _"
 
-msgid "Email Addresses"
-msgstr "כתובות אימייל"
-
 msgid "Email addresses"
 msgstr "כתובות אימייל"
 
@@ -399,7 +403,7 @@ msgid "State"
 msgstr "מדינה"
 
 msgid "Zip Code"
-msgstr "מיקוד "
+msgstr "מיקוד"
 
 msgid "Country"
 msgstr "מדינה"
@@ -683,18 +687,16 @@ msgstr "קבצים מצורפים"
 msgid "Date"
 msgstr "תַאֲרִיך"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "From"
-msgstr "מאת"
+msgstr "מ-"
 
-#, fuzzy
 msgctxt "search.date"
 msgid "To"
-msgstr "אל"
+msgstr "עד"
 
 msgid "Filter category…"
-msgstr "קטגוריית סינון..."
+msgstr "קטגוריית סינון…"
 
 msgid "Add Category"
 msgstr "הוסף קטגוריה"
@@ -817,8 +819,9 @@ msgstr "שבוע"
 msgid "weeks"
 msgstr "שבועות"
 
-msgid " on "
-msgstr "עַל"
+#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+msgid "{0} on {1}"
+msgstr "{0} ב{1}"
 
 msgid "month"
 msgstr "חודש"
@@ -1040,7 +1043,6 @@ msgstr "שדה אל או שדה עותק נוסף"
 msgid "Meeting"
 msgstr "פגישה"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Resources have been planned"
 msgstr "תוכננו משאבים"
@@ -1084,10 +1086,9 @@ msgstr "מכניס ללוח הזמנים"
 msgid "Tracking"
 msgstr "במעקב"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
-msgstr "לא ניתן היה להגיע לכל הנמענים"
+msgstr "לא ניתן היה לזהות את כל המשתתפים."
 
 msgctxt "calendar.dialog"
 msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
@@ -1101,10 +1102,9 @@ msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
 msgstr "הצעת זמן חדש לפגישה זו {0}"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
-msgstr "הצעת זמן חדש לפגישה זו {0}"
+msgstr "{0} הציע זמן חדש לפגישה זו ב-{1}"
 
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
@@ -1118,10 +1118,9 @@ msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
 msgstr "התקבל בהיסוס ב {0}"
 
-#, fuzzy
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
-msgstr "התקבל בהיסוס ב {0}"
+msgstr "התקבל בהיסוס על ידי {0} ב-{1}"
 
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
@@ -1172,7 +1171,7 @@ msgid "Attachments cannot be modified for a single occurrence"
 msgstr "לא ניתן לשנות קבצים מצורפים עבור אירוע בודד"
 
 msgid "Type your message here…"
-msgstr "הקלד את הודעתך כאן..."
+msgstr "הקלד את הודעתך כאן…"
 
 msgid "Update location"
 msgstr "עדכן מיקום"
@@ -1310,17 +1309,14 @@ msgstr "שלח את הביטול עכשיו."
 msgid "Send Meeting Request Confirmation"
 msgstr "שלח אישור בקשת פגישה"
 
-#, fuzzy
 msgid "This meeting will be accepted and moved to your calendar. Do you want to include comments with your response?"
-msgstr "פגישה זו התקבלה ותועבר ללוח השנה שלך. האם אתה רוצה לכלול הערות עם התגובה שלך?"
+msgstr "פגישה זו תתקבל ותועבר ללוח השנה שלך. האם ברצונך לצרף הערות לתגובתך?"
 
-#, fuzzy
 msgid "This meeting will be tentatively accepted and moved to your calendar. Do you want to include comments with your response?"
-msgstr "פגשיה זו התקבלה בהיסוס ומועברת ללוח השנה שלך. האם אתה רוצה לכלול הערות עם התגובה שלך?"
+msgstr "פגישה זו תתקבל בהיסוס ותועבר ללוח השנה שלך. האם ברצונך לצרף הערות לתגובתך?"
 
-#, fuzzy
 msgid "This meeting will be declined and moved to your Deleted Items folder. Do you want to include comments with your response?"
-msgstr "פגישה זו סורבה ותועבר לתיקית \"פריטים שנמחקו\". האם אתה רוצה לכלול הערות עם התגובה שלך?"
+msgstr "פגישה זו תידחה ותועבר לתיקיית \"פריטים שנמחקו\" שלך. האם ברצונך לצרף הערות לתגובתך?"
 
 msgid "Edit the response before sending"
 msgstr "ערוך את התגובה לפני השליחה"
@@ -1373,18 +1369,18 @@ msgid "End"
 msgstr "סוֹף"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-msgid "Printed by"
-msgstr "נדפס על ידי"
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+msgid "Printed by {0} at {1}"
+msgstr "נדפס על ידי {0} בְּ- {1}"
 
-msgid "at"
-msgstr "בְּ-"
+#. TRANSLATORS: {0} is a folder name, {1} the name of the mailbox it lives in
+msgid "{0} of {1}"
+msgstr "{0} שֶׁל {1}"
 
-msgid "of"
-msgstr "שֶׁל"
-
-msgid "Location: "
-msgstr "מִקוּם:"
+msgid "Location: {0}"
+msgstr "מיקום: {0}"
 
 msgid "j M {0}"
 msgstr "j M{0}"
@@ -1392,8 +1388,8 @@ msgstr "j M{0}"
 msgid "l jS M Y {0}"
 msgstr "l jS M Y{0}"
 
-msgid "All day: "
-msgstr "כל היום:"
+msgid "All day: {0}"
+msgstr "כל היום: {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1494,8 +1490,8 @@ msgstr "jS"
 
 msgid "{0} selected item"
 msgid_plural "{0} selected items"
-msgstr[0] "נבחר פריט {0}"
-msgstr[1] "נבחר פריט {1}"
+msgstr[0] "{0} פריט נבחר"
+msgstr[1] "{0} פריטים נבחרו"
 
 msgid "New Appointment"
 msgstr "פגישה חדשה"
@@ -1508,6 +1504,12 @@ msgstr "פתח"
 
 msgid "Copy/Move"
 msgstr "העתק/העבר"
+
+msgid "Mark Read"
+msgstr "סמן כנקרא"
+
+msgid "Mark Unread"
+msgstr "סמן כלא נקרא"
 
 msgid "Send to…"
 msgstr "שלח אל…"
@@ -1526,10 +1528,6 @@ msgstr "הפגישה לא נמצאה"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "פגישה זו הועברה או נמחקה, האם ברצונך להמשיך?"
-
-msgctxt "calendar.contextmenu"
-msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr "השתמש באפשרות \"השב לכולם\" כדי להשיב לכל המשתתפים בפגישה שלך."
 
 msgid "Options"
 msgstr "אפשרויות"
@@ -1621,22 +1619,8 @@ msgstr "מיין לפי: חשיבות"
 msgid "Appointments list"
 msgstr "רשימת פגישות"
 
-msgid "Loading appointments"
-msgstr "טוען פגישות"
-
-msgid "Attendees"
-msgstr "משתתפים"
-
-msgid "Optional attendees"
-msgstr "משתתפים אופציונליים"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F {0}"
-msgstr "jS F{0}"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F Y"
-msgstr "jS F Y"
+msgid "Loading appointments…"
+msgstr "טוען פגישות…"
 
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "אין לך הרשאות מספיקות כדי להעביר ולהעתיק פריט זה. בקש מבעל התיקייה להעניק לך הרשאות או פנה למנהל המערכת שלך."
@@ -1678,7 +1662,7 @@ msgid "Next"
 msgstr "הבא"
 
 msgid "grommunio Web"
-msgstr "הווב אפ של זראפה"
+msgstr "grommunio Web"
 
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
 msgstr "שימו לב: כל שינוי שתבצעו יוחלף כאשר מארגן הפגישה יעדכן את בקשת הפגישה. האם ברצונכם להעביר את הפגישה?"
@@ -1719,8 +1703,18 @@ msgstr "לוח השנה שלך עודכן אוטומטית. בקשת פגישה 
 msgid "New appointment subject"
 msgstr "נושא פגישה חדשה"
 
-msgid "Loading appointments…"
-msgstr "טוען פגישות..."
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "jS F Y"
+
+msgid "Online meeting"
+msgstr "פגישה מקוונת"
+
+msgid "Attendees"
+msgstr "משתתפים"
+
+msgid "Optional attendees"
+msgstr "משתתפים אופציונליים"
 
 msgid "Please select a calendar via widget settings"
 msgstr "אנא בחר לוח שנה באמצעות הגדרות ווידג'ט"
@@ -1787,8 +1781,8 @@ msgstr "הדפסה של מספר פריטים לא יושמה."
 msgid "Printing of this item is not yet available"
 msgstr "הדפסת פריט זה אינה זמינה עדיין"
 
-msgid "Item type: "
-msgstr "סוג פריט:"
+msgid "Item type: {0}"
+msgstr "סוג פריט: {0}"
 
 msgid "Printing of this view is not yet available"
 msgstr "הדפסת תצוגה זו אינה זמינה עדיין"
@@ -1842,7 +1836,7 @@ msgid "Paste this occurrence only"
 msgstr "הדבק מופע זה בלבד"
 
 msgid "Paste the series…"
-msgstr "הדבק את הסדרה..."
+msgstr "הדבק את הסדרה…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "זוהי הודעה חוזרת. האם ברצונך למחוק רק את ההודעה הזו או את הסדרה כולה?"
@@ -1883,6 +1877,11 @@ msgstr "הרשאות לא מספיקות"
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr "אין לך הרשאות מספיקות כדי למחוק פריטים בתיקייה זו."
 
+msgid "You have insufficient privileges to delete one of the selected items."
+msgid_plural "You have insufficient privileges to delete {0} of the selected items."
+msgstr[0] "אין לך הרשאות מספיקות כדי למחוק אחד מהפריטים שנבחרו."
+msgstr[1] "אין לך הרשאות מספיקות כדי למחוק {0} מהפריטים שנבחרו."
+
 msgid "Notify recipients"
 msgstr "הודע לנמענים"
 
@@ -1919,9 +1918,14 @@ msgstr "שכפול נמען"
 msgid "Recipient already exists."
 msgstr "הנמען כבר קיים."
 
-#, fuzzy
+msgid "Remove attachment"
+msgstr "הסר קובץ מצורף"
+
+msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
+msgstr "להסיר את '{0}' מהודעה זו? לא ניתן יהיה לשחזר את הקובץ המצורף לאחר מכן."
+
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
-msgstr "שולח ההודעה ביקש להיות מיודע כשאר אתה קורא את ההודעה. האם ברצונך ליידע את השולח?"
+msgstr "שולח הודעה זו ביקש אישור קריאה. האם ברצונך ליידע את השולח?"
 
 msgid "Import"
 msgstr "יְבוּא"
@@ -1948,20 +1952,20 @@ msgid "Untitled"
 msgstr "ללא כותרת."
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "לא ניתן היה לשמור את הקבצים המצורפים."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "לא ניתן היה לשמור את הקובץ המצורף הבא: {0}"
+msgstr[1] "לא ניתן היה לשמור את הקבצים המצורפים הבאים: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "נשמר {0} קובץ מצורף."
+msgstr[1] "נשמרו {0} קבצים מצורפים."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "שמירת קבצים מצורפים"
 
 msgid "Insert item"
 msgstr "הכנס פריט"
@@ -2009,7 +2013,7 @@ msgid "Preview"
 msgstr "תצוגה מקדימה"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "תצוגה מקדימה בתיבת דו-שיח"
 
 msgid "Download"
 msgstr "הורד"
@@ -2018,7 +2022,7 @@ msgid "Download all as ZIP"
 msgstr "הורד הכל כ-ZIP"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "שמור את הבחירה בתיקיה במחשב"
 
 msgid "Import to folder"
 msgstr "ייבא לתיקיה"
@@ -2030,10 +2034,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "כדי להשתמש בתכונת הייבוא של ICS / VCS, שדרג את Gromox לגרסה 0 או לגרסה מתקדמת יותר."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "תצוגה מקדימה בלשונית grommunio Web"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "תצוגה מקדימה בחלון דפדפן"
 
 msgid "Attachment error"
 msgstr "שגיאת קובץ מצורף"
@@ -2047,14 +2051,8 @@ msgstr "לא ניתן להוריד"
 msgid "Drop files here to attach them"
 msgstr "גרור קבצים לכאן כדי לצרף אותם"
 
-msgid "Picture format is not supported. "
-msgstr "פורמט תמונה אינו נתמך."
-
-msgid "Supported format for contact pictures are"
-msgstr "פורמט נתמך עבור תמונות אנשי קשר הם"
-
-msgid "Attachment Error"
-msgstr "שגיאת קובץ מצורף"
+msgid "Picture format is not supported. Supported format for contact pictures are"
+msgstr "פורמט תמונה אינו נתמך. פורמט נתמך עבור תמונות אנשי קשר הם"
 
 msgid "Could not save the category list."
 msgstr "לא ניתן לשמור את רשימת הקטגוריות."
@@ -2083,8 +2081,8 @@ msgstr "האם אתה בטוח שברצונך למחוק את הקטגוריה \
 msgid "Rename Category"
 msgstr "שנה את שם הקטגוריה"
 
-msgid "A category named \""
-msgstr "קטגוריה בשם \""
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "כבר יש לך קטגוריה בשם '{0}'. אנא השתמש בשם אחר."
 
 msgid "Create New Category"
 msgstr "צור קטגוריה חדשה"
@@ -2100,9 +2098,6 @@ msgstr "לִיצוֹר"
 
 msgid "You must apply the changes you have made to the categories before you can create this category."
 msgstr "עליך להחיל את השינויים שביצעת בקטגוריות לפני שתוכל ליצור קטגוריה זו."
-
-msgid "You already have a category named '{0}'. Please use another name."
-msgstr "כבר יש לך קטגוריה בשם '{0}'. אנא השתמש בשם אחר."
 
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
 msgstr "יש לך כבר קטגוריה בשם '{0}' בשינויים הממתינים. אנא השתמש בשם אחר."
@@ -2228,6 +2223,9 @@ msgstr[1] "{0} הודעות נבחרו."
 
 msgid "Folder '{0}' selected."
 msgstr "תיקיית '{0}' נבחרה."
+
+msgid "Suggested folders"
+msgstr "תיקיות מוצעות"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "לא ניתן להעביר את הפריטים שנבחרו לתיקייה זו, משום שהיא מכילה תוכן מסוג אחר."
@@ -2424,6 +2422,9 @@ msgstr "בטל את הפעולה האחרונה"
 msgid "Redo the last undone action"
 msgstr "בצע שוב את הפעולה האחרונה שבוטלה"
 
+msgid "Jump to the search box, press again for the browser search"
+msgstr "עבור לתיבת החיפוש, לחיצה נוספת מעבירה לחיפוש של הדפדפן"
+
 msgid "Open the command palette"
 msgstr "פתח את לוח הפקודות"
 
@@ -2478,8 +2479,77 @@ msgstr "מיין לפי: context.mail.griddefaultcolumn"
 msgid "ZDeveloper"
 msgstr "ZDeveloper"
 
+msgid "Presentation"
+msgstr "הַצָגָה"
+
+msgid "Fullscreen"
+msgstr "מסך מלא"
+
+msgid "Previous page"
+msgstr "עמוד קודם"
+
+msgid "Next page"
+msgstr "עמוד הבא"
+
+msgid "Page:"
+msgstr "עמוד:"
+
+msgid "of {0}"
+msgstr "מתוך {0}"
+
+msgid "Zoom out"
+msgstr "הקטן תצוגה"
+
+msgid "Zoom in"
+msgstr "הגדל תצוגה"
+
+msgid "Zoom"
+msgstr "זום"
+
+msgid "Automatic"
+msgstr "אוֹטוֹמָטִי"
+
+msgid "Actual size"
+msgstr "גודל בפועל"
+
+msgid "Page width"
+msgstr "רוחב עמוד"
+
+msgid "Rotate left"
+msgstr "סובב שמאלה"
+
+msgid "Rotate right"
+msgstr "סובב ימינה"
+
+msgid "This document could not be previewed."
+msgstr "לא ניתן היה להציג את המסמך בתצוגה מקדימה."
+
+msgid "This file cannot be previewed."
+msgstr "לא ניתן להציג את הקובץ הזה בתצוגה מקדימה."
+
+msgid "Download the file to open it with a program that can read it."
+msgstr "הורד את הקובץ כדי לפתוח אותו בתוכנה שיכולה לקרוא אותו."
+
+msgid "The document is empty."
+msgstr "המסמך ריק."
+
+msgid "This sheet is empty."
+msgstr "הגיליון הזה ריק."
+
+msgid "Showing the first {0} rows and {1} columns."
+msgstr "מוצגות {0} השורות הראשונות ו-{1} העמודות הראשונות."
+
+msgid "Wrap lines"
+msgstr "גלישת שורות"
+
+msgid "Line numbers"
+msgstr "מספרי שורות"
+
+msgid "This message has no content."
+msgstr "להודעה זו אין תוכן."
+
 msgid "grommunio Web print"
-msgstr "הדפסת אינטרנט של grommunio"
+msgstr "הדפסת grommunio Web"
 
 msgid "Display name"
 msgstr "שם תצוגה"
@@ -2584,7 +2654,7 @@ msgid "No end date"
 msgstr "אין תאריך סיום"
 
 msgid "End after {A} occurrences"
-msgstr "סיים לאחר {A} מופעים "
+msgstr "סיים לאחר {A} מופעים"
 
 msgid "End by {A}"
 msgstr "סיים על ידי {A}"
@@ -2600,7 +2670,7 @@ msgstr "כל {A} שבועות ב"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "צור מחדש משימה חדש {A} שבועות לאחר שהמשימה הושלמה"
 
-msgid "Every {A} years(s) on"
+msgid "Every {A} year(s) on"
 msgstr "כל {A} שנים בתאריך"
 
 msgid "{A} {B}"
@@ -2726,43 +2796,43 @@ msgid "Sort by: Size"
 msgstr "מיין לפי: גודל"
 
 msgid "Move the message to folder…"
-msgstr "העבר את ההודעה לתיקיה..."
+msgstr "העבר את ההודעה לתיקיה…"
 
 msgid "Copy the message to folder…"
-msgstr "העתק את ההודעה לתיקיה..."
+msgstr "העתק את ההודעה לתיקיה…"
 
 msgid "Delete the message"
 msgstr "מחק את ההודעה"
 
 msgid "Redirect the message to…"
-msgstr "הפנה את ההודעה אל..."
+msgstr "הפנה את ההודעה אל…"
 
 msgid "Forward the message to…"
 msgstr "העבר את ההודעה ל…"
 
 msgid "Forward the message as attachment to…"
-msgstr "העבר את ההודעה כקובץ מצורף אל..."
+msgstr "העבר את ההודעה כקובץ מצורף אל…"
 
 msgid "Mark the message as read…"
-msgstr "סמן את ההודעה כנקראה..."
+msgstr "סמן את ההודעה כנקראה…"
 
 msgid "is received from…"
 msgstr "מתקבל מ…"
 
 msgid "includes these words in the sender's address…"
-msgstr "כולל מילים אלו בכתובת השולח..."
+msgstr "כולל מילים אלו בכתובת השולח…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "כולל מילים אלו בכתובת הנמען..."
+msgstr "כולל מילים אלו בכתובת הנמען…"
 
 msgid "includes these words in the subject…"
-msgstr "כולל את המילים הללו בנושא..."
+msgstr "כולל את המילים הללו בנושא…"
 
 msgid "includes these words in the body…"
-msgstr "כולל את המילים האלה בגוף..."
+msgstr "כולל את המילים האלה בגוף…"
 
 msgid "includes these words in the transport headers…"
-msgstr "כולל את המילים האלה בכותרות התחבורה..."
+msgstr "כולל את המילים האלה בכותרות התחבורה…"
 
 msgid "has importance…"
 msgstr "יש חשיבות…"
@@ -2927,7 +2997,13 @@ msgid "Always move messages with this subject"
 msgstr "העבר תמיד הודעות עם הנושא הזה"
 
 msgid "Create rule…"
-msgstr "צור כלל..."
+msgstr "צור כלל…"
+
+msgid "Saved"
+msgstr "נשמר"
+
+msgid "Saved successfully"
+msgstr "נשמר בהצלחה"
 
 msgid "myself"
 msgstr "עַצמִי"
@@ -3031,8 +3107,10 @@ msgstr "הפעל התראות בשולחן העבודה עבור דואר חדש
 msgid "Enable desktop notifications for reminders"
 msgstr "אפשר הודעות על שולחן העבודה עבור תזכורות"
 
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A} הסתר אוטומטית התראה על שולחן העבודה לאחר שניות {B}"
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Auto-hide desktop notification after {B} second(s)"
+msgstr "{A}הסתר אוטומטית התראה בשולחן העבודה לאחר {B} שניות"
 
 msgid "Disable sound"
 msgstr "השבת את הצליל"
@@ -3125,9 +3203,6 @@ msgstr "{0}באיחור"
 
 msgid "Message body editor"
 msgstr "עורך גוף ההודעה"
-
-msgid "Loading…"
-msgstr "טוען…"
 
 msgid "Message could not be loaded"
 msgstr "לא ניתן היה לטעון את ההודעה"
@@ -3343,6 +3418,27 @@ msgstr "סמן כלא נקרא"
 
 msgid "in"
 msgstr "ב"
+
+msgid "Digitally sign this message"
+msgstr "חתום דיגיטלית על הודעה זו"
+
+msgid "Encrypt this message"
+msgstr "הצפן הודעה זו"
+
+msgid "Autosave is paused while encryption is selected."
+msgstr "השמירה האוטומטית מושהית כל עוד ההצפנה מסומנת."
+
+msgid "Turn off {0} signing and encryption first."
+msgstr "תחילה כבה את החתימה וההצפנה של {0}."
+
+msgid "options"
+msgstr "אפשרויות"
+
+msgid "Sign"
+msgstr "סִימָן"
+
+msgid "Encrypt"
+msgstr "הצפין"
 
 msgid "Root"
 msgstr "שׁוֹרֶשׁ"
@@ -3583,9 +3679,6 @@ msgstr "מספר מקומי"
 msgid "Extension"
 msgstr "תוספת"
 
-msgid "Add Attachment"
-msgstr "הוסף קובץ מצורף"
-
 msgid "Add attachments to this contact"
 msgstr "הוסף קבצים מצורפים לאיש קשר זה"
 
@@ -3611,7 +3704,7 @@ msgid "Add New"
 msgstr "הוסף חדש"
 
 msgid "Type your note here…"
-msgstr "הקלד את ההערה שלך כאן..."
+msgstr "הקלד את ההערה שלך כאן…"
 
 msgid "New contact"
 msgstr "איש קשר חדש"
@@ -3880,7 +3973,7 @@ msgid "Work"
 msgstr "עבודה"
 
 msgid "Personal"
-msgstr "אישי "
+msgstr "אישי"
 
 msgid "Holiday"
 msgstr "חג"
@@ -3901,7 +3994,7 @@ msgid "Free"
 msgstr "חופשי"
 
 msgid "Low"
-msgstr "נמוך "
+msgstr "נמוך"
 
 msgid "Normal"
 msgstr "רגיל"
@@ -4035,9 +4128,6 @@ msgstr "בהיר"
 msgid "Dark"
 msgstr "כהה"
 
-msgid "Automatic"
-msgstr "אוֹטוֹמָטִי"
-
 msgid "Main toolbar"
 msgstr "סרגל הכלים הראשי"
 
@@ -4119,26 +4209,20 @@ msgstr "הרחב את ההיררכיה"
 msgid "Folders List"
 msgstr "רשימת תיקיות"
 
+msgid "Loaded {0} of {1}"
+msgstr "נטען{0}של{1}"
+
 msgid "Copy Details"
 msgstr "העתק פרטים"
 
 msgid "Hide Details"
 msgstr "הסתר פרטים"
 
-msgid "Loaded {0} of {1}"
-msgstr "נטען{0}של{1}"
-
 msgid "Copied!"
 msgstr "מוּעֲתָק!"
 
-msgid "Saving"
-msgstr "חִסָכוֹן"
-
-msgid "Saved"
-msgstr "נשמר"
-
-msgid "Saved successfully"
-msgstr "נשמר בהצלחה"
+msgid "Saving…"
+msgstr "שומר…"
 
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr "כל העבודה שלא נשמרה תאבד. האם אתה בטוח שברצונך לסגור חלון זה?"
@@ -4224,14 +4308,132 @@ msgstr "ד ד-מ"
 msgid "D d-m G:i"
 msgstr "⁦D d-m G:i⁩"
 
+msgid "Click the link to open the URL in a new window."
+msgstr "לחץ על הקישור כדי לפתוח את כתובת האתר בחלון חדש."
+
+msgid "The server reported an unknown error on your request."
+msgstr "השרת דיווח על שגיאה לא ידועה בבקשתך."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "השרת דיווח על שגיאה לא מפורטת בבקשתך."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "פג תוקף ההפעלה, נדרש אימות מחדש."
+
+msgid "The session in the current browser window has been closed from another browser window or tab."
+msgstr "הפעלה בחלון הדפדפן הנוכחי נסגרה מחלון דפדפן או מכרטיסייה אחרים."
+
+msgid "Session expired"
+msgstr "פג תוקף ההפעלה"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "האם ברצונך שיפנו אותך לדף הכניסה?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr "נדרש אימות מחדש, לחץ כאן כדי לחזור לדף הכניסה."
+
+msgid "Connection problem"
+msgstr "בעיית חיבור"
+
+msgid "Could not connect to server, retrying in {0} second"
+msgid_plural "Could not connect to server, retrying in {0} seconds"
+msgstr[0] "לא ניתן להתחבר לשרת, מנסה שוב בעוד{0}שניות"
+msgstr[1] "לא ניתן להתחבר לשרת, מנסה שוב בעוד{0}שניות"
+
+msgid "Click to retry now"
+msgstr "לחץ כדי לנסות שוב כעת"
+
+msgid "Connection restored"
+msgstr "החיבור שוחזר"
+
+msgid "Connection with server has been restored"
+msgstr "החיבור לשרת שוחזר"
+
+msgid "grommunio Web was updated"
+msgstr "⁦grommunio Web⁩ עודכן"
+
+msgid "A new version is available, click here to reload."
+msgstr "גרסה חדשה זמינה. לחץ כאן כדי לטעון מחדש."
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr "HTTP{0}"
+
+msgid "Invalid data received from the server"
+msgstr "נתונים לא חוקיים התקבלו מהשרת"
+
+msgid "Missing store"
+msgstr "חסרה חנות"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "חנות ברירת המחדל חסרה בהיררכיה."
+
+msgid "Not all functionality of grommunio Web might be working properly because of this."
+msgstr "ייתכן שלא כל הפונקציות של grommunio Web פועלות כראוי עקב כך."
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "תיבת דואר נכנס"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "תיבת דואר יוצא"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "פריטים שנשלחו"
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "פריטים שנמחקו"
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "לוח שנה"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "אנשי קשר"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "דַמקָה"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "יומן"
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "פתקים"
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "משימות"
+
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "דואר זבל"
+
+msgid "Missing folders"
+msgstr "חסרות תיקיות"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "התיקיה הנדרשת הבאה חסרה בהיררכיה:{0}"
+msgstr[1] "התיקיות הנדרשות הבאות חסרות בהיררכיה:{0}"
+
+msgid "Loading model from server failed"
+msgstr "טעינת מודל מן השרת נכשלה"
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "מחוץ למשרד מופעל כעת. האם תרצה לכבות אותו?"
+
 msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
 msgstr "אין לך מספיק הרשאות כדי לפתוח חנות זו. האם ברצונך להסירה מההיררכיה?"
 
 msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
 msgstr "אין לך הרשאות מספיקות כדי לפתוח את התיקיה הזו. האם ברצונך להסיר אותה מההיררכיה?"
-
-msgid "Insufficient Permissions"
-msgstr "הרשאות לא מספיקות"
 
 msgid "Not enough permissions to open this folder."
 msgstr "אין מספיק הרשאות לפתיחת תיקיה זו."
@@ -4240,13 +4442,13 @@ msgid "Empty folder"
 msgstr "תיקיה ריקה"
 
 msgid "Emptying {0}… (0%)"
-msgstr "מרוקן את{0}... (0%)"
+msgstr "מרוקן את{0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "רוקן בהצלחה את{0}. (פריטים{1}הוסרו)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "מרוקן את{0}... ({1}%)"
+msgstr "מרוקן את{0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4524,7 +4726,7 @@ msgid "Remove From Favorites"
 msgstr "הסר מהמועדפים"
 
 msgid "Share folder…"
-msgstr "שתף תיקייה..."
+msgstr "שתף תיקייה…"
 
 msgid "Import emails"
 msgstr "ייבוא ​​מיילים"
@@ -4539,7 +4741,7 @@ msgid "Properties of {0}"
 msgstr "מאפיינים של{0}"
 
 msgid "Share {0} with…"
-msgstr "שתף את{0}עם..."
+msgstr "שתף את{0}עם…"
 
 msgid "Properties of {0} - {1}"
 msgstr "מאפיינים של{0}-{1}"
@@ -4564,6 +4766,15 @@ msgstr "סינון תיקיות"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "אין לך הרשאות מספיקות כדי להעביר תיקייה זו. האם ברצונך להעתיק אותה במקום זאת?"
+
+msgid "Enable OpenPGP before replying to this protected message."
+msgstr "הפעל את OpenPGP לפני מענה להודעה מוגנת זו."
+
+msgid "The protected message could not be opened. No reply or forward was created."
+msgstr "לא ניתן היה לפתוח את ההודעה המוגנת. לא נוצרה תשובה או הודעה מועברת."
+
+msgid "Unable to open response"
+msgstr "לא ניתן לפתוח תשובה או העברה"
 
 msgid "CC"
 msgstr "עותק נוסף"
@@ -4593,8 +4804,8 @@ msgstr "תזמן שליחת דואר"
 msgid "Scheduled Items"
 msgstr "פריטים מתוזמנים"
 
-msgid "Your message will be sent at "
-msgstr "הודעתך תישלח ב-"
+msgid "Your message will be sent at {0}."
+msgstr "הודעתך תישלח ב-{0}."
 
 msgid "Go to your Outbox to edit your email."
 msgstr "עבור אל תיבת הדואר הנכנס שלך כדי לערוך את הדוא\"ל שלך."
@@ -4611,23 +4822,19 @@ msgstr "בזמן מסוים"
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "השעה שהזנת היא בעבר. נא לתזמן מחדש את הדואר שלך."
 
-msgid "today  at "
-msgstr "היום בשעה"
+msgid "Your email will be sent today at {0}"
+msgstr "הדוא\"ל שלך יישלח היום בשעה {0}"
 
-msgid "tomorrow  at "
-msgstr "מחר בשעה"
+msgid "Your email will be sent tomorrow at {0}"
+msgstr "הדוא\"ל שלך יישלח מחר בשעה {0}"
 
-msgid "{0} at "
-msgstr "{0}בשעה"
+#. TRANSLATORS: {0} is a weekday name, {1} a time of day
+msgid "Your email will be sent {0} at {1}"
+msgstr "הדוא\"ל שלך יישלח ב{0} בשעה {1}"
 
-msgid "at {0}"
-msgstr "ב-{0}"
-
-msgid "Your email will be sent {0}{1}"
-msgstr "הדוא\"ל שלך יישלח{0}{1}"
-
-msgid "Saving…"
-msgstr "שומר…"
+#. TRANSLATORS: {0} is a full date, {1} a time of day
+msgid "Your email will be sent at {0}, {1}"
+msgstr "הדוא\"ל שלך יישלח בתאריך {0} בשעה {1}"
 
 msgid "Saved at {0}"
 msgstr "נשמר בשעה {0}"
@@ -4637,6 +4844,10 @@ msgstr "השמירה נכשלה"
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "הודעה זו תסומן למעקב כאשר היא תישלח."
+
+#. TRANSLATORS: {0} is the follow-up period, e.g. 'today' or 'next week'
+msgid "This message will be flagged for follow up {0} when it is sent."
+msgstr "הודעה זו תסומן למעקב {0} כאשר היא תישלח."
 
 msgid "Send Later"
 msgstr "שלח מאוחר יותר"
@@ -4704,12 +4915,6 @@ msgstr "הגדר קטגוריה"
 msgid "Pop-Out"
 msgstr "פופ-אאוט"
 
-msgid "Mark Read"
-msgstr "סמן כנקרא"
-
-msgid "Mark Unread"
-msgstr "סמן כלא נקרא"
-
 msgid "New mail"
 msgstr "דואר חדש"
 
@@ -4736,6 +4941,15 @@ msgstr "הדפס את האימייל שנבחר"
 
 msgid "Filter"
 msgstr "לְסַנֵן"
+
+msgid "This browser cannot attach the decrypted file. Download it before forwarding."
+msgstr "הדפדפן הזה אינו יכול לצרף את הקובץ המפוענח. הורד אותו לפני העברת ההודעה."
+
+msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
+msgstr "קובץ מצורף מפוענח חורג ממגבלות ההעלאה. לא נוצרה תשובה חלקית."
+
+msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
+msgstr "לא ניתן היה להעלות קובץ מצורף מפוענח. לא נוצרה תשובה חלקית."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -4814,6 +5028,9 @@ msgstr "הפעל תזכורת לקובץ מצורף"
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}שמירה אוטומטית של דואר שלא נשלח כל {B} דקות"
+
+msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
+msgstr "בצע שמירה אוטומטית גם כשההצפנה מסומנת (הטיוטות נשמרות ללא הצפנה)"
 
 msgid "Conversation view settings"
 msgstr "הגדרות תצוגת שיחה"
@@ -4995,7 +5212,7 @@ msgid "ZIP file"
 msgstr "קובץ ZIP"
 
 msgid "max. "
-msgstr "מקסימום"
+msgstr "מקסימום "
 
 msgid "Sort by: Sent"
 msgstr "מיין לפי: נשלחו"
@@ -5056,9 +5273,6 @@ msgstr "העבר לתיקית זבל"
 
 msgid "Not Junk Email"
 msgstr "לא דואר זבל"
-
-msgid "Send to"
-msgstr "שלח ל"
 
 msgid "Message list"
 msgstr "רשימת הודעות"
@@ -5133,9 +5347,6 @@ msgstr "מיין לפי: צבע"
 
 msgid "Notes list"
 msgstr "רשימת הערות"
-
-msgid "Loading Notes"
-msgstr "טוען הערות"
 
 msgid "Loading notes"
 msgstr "טוען הערות"
@@ -5266,14 +5477,8 @@ msgstr "הסתר חלונית ווידג'ט"
 msgid "Auto"
 msgstr "אוטומטי"
 
-msgid "Actual size"
-msgstr "גודל בפועל"
-
-msgid "Page width"
-msgstr "רוחב עמוד"
-
-msgid "Attachment preview (PDF and Open formats)"
-msgstr "תצוגה מקדימה של קבצים מצורפים (PDF ופורמטים פתוחים)"
+msgid "Preview documents and files in grommunio Web"
+msgstr "הצג מסמכים וקבצים בתצוגה מקדימה ב-grommunio Web"
 
 msgid "Document default zoom"
 msgstr "זום ברירת מחדל למסמך"
@@ -5282,10 +5487,10 @@ msgid "PDF zoom"
 msgstr "זום PDF"
 
 msgid "Dialog"
-msgstr ""
+msgstr "תיבת דו-שיח"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "מיקום פתיחת התצוגה המקדימה"
 
 msgid "File previewing"
 msgstr "תצוגה מקדימה של קבצים"
@@ -5451,20 +5656,44 @@ msgstr "תַחזוּקָה"
 msgid "Reset all settings to defaults"
 msgstr "אפס את כל ההגדרות לברירות המחדל"
 
+msgid "Migrate legacy categories"
+msgstr "העבר קטגוריות מדור קודם"
+
+msgid "This will scan all folders and migrate the categories assigned to items."
+msgstr "הפעולה תסרוק את כל התיקיות ותעביר את הקטגוריות שהוקצו לפריטים."
+
+msgid "The legacy category settings will remain unchanged."
+msgstr "הגדרות הקטגוריות מדור קודם יישארו ללא שינוי."
+
+msgid "Migrate"
+msgstr "העבר"
+
+msgid "Legacy categories migrated successfully."
+msgstr "הקטגוריות מדור קודם הועברו בהצלחה."
+
+msgid "Could not migrate legacy categories."
+msgstr "לא ניתן היה להעביר את הקטגוריות מדור קודם."
+
 msgid "Changes to assigned task"
 msgstr "שינויים במשימה שהוקצתה"
 
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr "שימו לב: משימות שהוקצו יוחלפו כאשר מקבל המשימה יבצע שינויים."
+msgid "Please note that the assigned task will be overwritten when the assignee makes changes."
+msgid_plural "Please note that the assigned tasks will be overwritten when the assignee makes changes."
+msgstr[0] "שימו לב: משימות שהוקצו יוחלפו כאשר מקבל המשימה יבצע שינויים."
+msgstr[1] "שימו לב: משימות שהוקצו יוחלפו כאשר מקבל המשימה יבצע שינויים."
 
 msgid "Delete confirmation"
 msgstr "מחק אישור"
 
-msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr "מחיקת הפריט/ים תמחק גם את הפריט/ים המקוריים."
+msgid "Deleting the item will also delete the original item."
+msgid_plural "Deleting the items will also delete the original items."
+msgstr[0] "מחיקת הפריט/ים תמחק גם את הפריט/ים המקוריים."
+msgstr[1] "מחיקת הפריט/ים תמחק גם את הפריט/ים המקוריים."
 
-msgid "Do you want to delete the item(s)?"
-msgstr "האם ברצונך למחוק את הפריט/ים?"
+msgid "Do you want to delete the item?"
+msgid_plural "Do you want to delete the items?"
+msgstr[0] "האם ברצונך למחוק את הפריט/ים?"
+msgstr[1] "האם ברצונך למחוק את הפריט/ים?"
 
 msgid "Sort by: Priority"
 msgstr "מיין לפי: עדיפות"
@@ -5514,13 +5743,11 @@ msgstr "קבלת משימה"
 msgid "Declining Task"
 msgstr "משימה דוחה"
 
-#, fuzzy
 msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
-msgstr "פגישה זו התקבלה ותועבר ללוח השנה שלך. האם אתה רוצה לכלול הערות עם התגובה שלך?"
+msgstr "משימה זו תתקבל ותועבר לתיקיית המשימות שלך. האם ברצונך לצרף הערות לתגובתך?"
 
-#, fuzzy
 msgid "This task will be declined and moved into the Deleted Items folder. Do you want to edit the response before sending it?"
-msgstr "פגישה זו סורבה ותועבר לתיקית \"פריטים שנמחקו\". האם אתה רוצה לכלול הערות עם התגובה שלך?"
+msgstr "משימה זו תידחה ותועבר לתיקיית \"פריטים שנמחקו\". האם ברצונך לערוך את התגובה לפני שליחתה?"
 
 msgid "Send the response now"
 msgstr "שלח את התגובה עכשיו"
@@ -5603,12 +5830,12 @@ msgstr "משימה חדשה"
 msgid "Completed"
 msgstr "הושלם"
 
-msgid "Printed by: "
-msgstr "נדפס על ידי:"
+msgid "Printed by: {0}"
+msgstr "נדפס על ידי: {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "Printed on: "
-msgstr "מודפס על:"
+#. TRANSLATORS: {0} is the date the list was printed on
+msgid "Printed on: {0}"
+msgstr "נדפס בתאריך: {0}"
 
 msgid "Percent complete"
 msgstr "אחוז הושלמה"
@@ -5720,127 +5947,6 @@ msgstr "אין משימות."
 
 msgid "Tasks / To-Do"
 msgstr "משימות / מטלות"
-
-msgid "Click the link to open the URL in a new window."
-msgstr "לחץ על הקישור כדי לפתוח את כתובת האתר בחלון חדש."
-
-msgid "The server reported an unknown error on your request."
-msgstr "השרת דיווח על שגיאה לא ידועה בבקשתך."
-
-msgid "The server reported an unspecified error on your request."
-msgstr "השרת דיווח על שגיאה לא מפורטת בבקשתך."
-
-msgid "The session has expired, reauthentication is required."
-msgstr "פג תוקף ההפעלה, נדרש אימות מחדש."
-
-msgid "The session in the current browser window has been closed from another browser window or tab."
-msgstr "הפעלה בחלון הדפדפן הנוכחי נסגרה מחלון דפדפן או מכרטיסייה אחרים."
-
-msgid "Session expired"
-msgstr "פג תוקף ההפעלה"
-
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "האם ברצונך שיפנו אותך לדף הכניסה?"
-
-msgid "Reauthentication required, click here to go to back to logon page."
-msgstr "נדרש אימות מחדש, לחץ כאן כדי לחזור לדף הכניסה."
-
-msgid "Connection problem"
-msgstr "בעיית חיבור"
-
-msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr "לא ניתן להתחבר לשרת, מנסה שוב בעוד{0}שניות"
-
-msgid "Click to retry now"
-msgstr "לחץ כדי לנסות שוב כעת"
-
-msgid "Connection restored"
-msgstr "החיבור שוחזר"
-
-msgid "Connection with server has been restored"
-msgstr "החיבור לשרת שוחזר"
-
-msgid "grommunio Web was updated"
-msgstr "⁦grommunio Web⁩ עודכן"
-
-msgid "A new version is available, click here to reload."
-msgstr "גרסה חדשה זמינה. לחץ כאן כדי לטעון מחדש."
-
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP{0}"
-
-msgid "Invalid data received from the server"
-msgstr "נתונים לא חוקיים התקבלו מהשרת"
-
-msgid "Missing store"
-msgstr "חסרה חנות"
-
-msgid "The default store is missing from the hierarchy."
-msgstr "חנות ברירת המחדל חסרה בהיררכיה."
-
-msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "ייתכן שלא כל הפונקציות של grommunio Web פועלות כראוי עקב כך."
-
-msgctxt "hierarchy.foldername"
-msgid "Inbox"
-msgstr "תיבת דואר נכנס"
-
-msgctxt "hierarchy.foldername"
-msgid "Outbox"
-msgstr "תיבת דואר יוצא"
-
-msgctxt "hierarchy.foldername"
-msgid "Sent Items"
-msgstr "פריטים שנשלחו"
-
-#, fuzzy
-msgctxt "hierarchy.foldername"
-msgid "Deleted items"
-msgstr "מחק פריטים"
-
-msgctxt "hierarchy.foldername"
-msgid "Calendar"
-msgstr "לוח שנה"
-
-msgctxt "hierarchy.foldername"
-msgid "Contacts"
-msgstr "אנשי קשר"
-
-msgctxt "hierarchy.foldername"
-msgid "Drafts"
-msgstr "דַמקָה"
-
-msgctxt "hierarchy.foldername"
-msgid "Journal"
-msgstr "יומן"
-
-msgctxt "hierarchy.foldername"
-msgid "Notes"
-msgstr "פתקים"
-
-msgctxt "hierarchy.foldername"
-msgid "Tasks"
-msgstr "משימות"
-
-#, fuzzy
-msgctxt "hierarchy.foldername"
-msgid "Junk Email"
-msgstr "דואר אלקטורני"
-
-msgid "Missing folders"
-msgstr "חסרות תיקיות"
-
-msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] "התיקיה הנדרשת הבאה חסרה בהיררכיה:{0}"
-msgstr[1] "התיקיות הנדרשות הבאות חסרות בהיררכיה:{0}"
-
-msgid "Loading model from server failed"
-msgstr "טעינת מודל מן השרת נכשלה"
-
-msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr "מחוץ למשרד מופעל כעת. האם תרצה לכבות אותו?"
 
 msgid "AI Assistant"
 msgstr "עוזר בינה מלאכותית"
@@ -6106,6 +6212,9 @@ msgstr "חושב…"
 msgid "The response was interrupted and may be incomplete."
 msgstr "התשובה הופסקה ועשויה להיות חלקית."
 
+msgid "The answer reached the output limit configured for this model and stops here."
+msgstr "התשובה הגיעה למגבלת הפלט שהוגדרה עבור מודל זה ונעצרת כאן."
+
 msgid "Insert at cursor"
 msgstr "הוספה במיקום הסמן"
 
@@ -6209,7 +6318,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "קיים יותר מקישור שיתוף אחד. מציג רק את האחרון"
 
 msgid "Loading details…"
-msgstr "טוען פרטים..."
+msgstr "טוען פרטים…"
 
 msgid "Files: Seafile Backend"
 msgstr "קבצים: Seafile Backend"
@@ -6226,14 +6335,8 @@ msgstr "לוח כתיבה"
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr "לא ניתן היה להעתיק את הקישור באופן אוטומטי. אנא העתק אותו ידנית."
 
-msgid "Loading details..."
-msgstr "טוען פרטים..."
-
 msgid "Share"
 msgstr "לַחֲלוֹק"
-
-msgid "Loading..."
-msgstr "טְעִינָה..."
 
 msgid "Add attachment from {0}"
 msgstr "הוסף קובץ מצורף מ-{0}"
@@ -6362,7 +6465,7 @@ msgid "Update"
 msgstr "לְעַדְכֵּן"
 
 msgid "ID"
-msgstr "תְעוּדַת זֶהוּת"
+msgstr "מזהה"
 
 msgid "Sort by: ID"
 msgstr "מיין לפי: מזהה"
@@ -6430,8 +6533,12 @@ msgstr "מקסימום"
 msgid "You have to choose at least one file!"
 msgstr "אתה צריך לבחור לפחות קובץ אחד!"
 
-msgid "Create New "
-msgstr "צור חדש"
+msgid "Document"
+msgstr "מִסְמָך"
+
+#. TRANSLATORS: {0} is a translated file type such as Document, Presentation or Spreadsheet
+msgid "Create New {0}"
+msgstr "צור חדש {0}"
 
 msgid "Incorrect filename"
 msgstr "שם קובץ שגוי"
@@ -6478,14 +6585,14 @@ msgstr "הקובץ המצורף מאוחסן בהצלחה בקבצים"
 msgid "Upload Failed"
 msgstr "ההעלאה נכשלה"
 
-msgid "Attachment could not be stored in Files! Error: "
-msgstr "לא ניתן לאחסן קובץ מצורף בקבצים! שְׁגִיאָה:"
+msgid "Attachment could not be stored in Files!"
+msgstr "לא ניתן לאחסן קובץ מצורף בקבצים!"
 
 msgid "Share Files"
 msgstr "שתף קבצים"
 
-msgid "Uploading files to "
-msgstr "העלאת קבצים ל"
+msgid "Uploading files to {0}"
+msgstr "העלאת קבצים אל {0}"
 
 msgid "Starting upload"
 msgstr "מתחיל להעלות"
@@ -6496,14 +6603,14 @@ msgstr "בטל העלאה"
 msgid "- seconds left"
 msgstr "- נותרו שניות"
 
-msgid " seconds left"
-msgstr "נותרו שניות"
+msgid "{0} seconds left"
+msgstr "{0} שניות נותרו"
 
-msgid " minutes left"
-msgstr "דקות נותרו"
+msgid "{0} minutes left"
+msgstr "{0} דקות נותרו"
 
-msgid "Uploading: "
-msgstr "מעלה:"
+msgid "Uploading: {0}%"
+msgstr "מעלה: {0}%"
 
 msgid "Upload status unavailable... please wait."
 msgstr "סטטוס ההעלאה אינו זמין... אנא המתן."
@@ -6517,12 +6624,6 @@ msgstr "ההעלאה בוטלה!"
 msgid "Upload failed!"
 msgstr "ההעלאה נכשלה!"
 
-msgid "Document"
-msgstr "מִסְמָך"
-
-msgid "Presentation"
-msgstr "הַצָגָה"
-
 msgid "Spreadsheet"
 msgstr "גיליון אלקטרוני"
 
@@ -6534,6 +6635,9 @@ msgstr "צור מסמך"
 
 msgid "Create office document"
 msgstr "צור מסמך אופיס"
+
+msgid "Preview file"
+msgstr "תצוגה מקדימה של קובץ"
 
 msgid "Download files"
 msgstr "הורד קבצים"
@@ -6568,20 +6672,14 @@ msgstr "משותף"
 msgid "File preview"
 msgstr "תצוגה מקדימה של הקובץ"
 
-msgid "File content"
-msgstr "תוכן הקובץ"
-
-msgid "Your browser does not support previewing of audio files!"
-msgstr "הדפדפן שלך אינו תומך בתצוגה מקדימה של קבצי אודיו!"
-
-msgid "Your browser does not support previewing of video files!"
-msgstr "הדפדפן שלך אינו תומך בתצוגה מקדימה של קבצי וידאו!"
-
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
 msgid "File ({0})"
 msgstr "קובץ ({0})"
+
+msgid "Path"
+msgstr "נתיב"
 
 msgid "Sort by: Path"
 msgstr "מיין לפי: נתיב"
@@ -6606,6 +6704,9 @@ msgstr "אינטראנט"
 
 msgid "Archive to InfoShare"
 msgstr "העבר לארכיון ל-InfoShare"
+
+msgid "Kendox InfoShare plugin"
+msgstr "Kendox InfoShare plugin"
 
 msgid "Kendox InfoShare"
 msgstr "Kendox InfoShare"
@@ -6709,6 +6810,12 @@ msgstr "מַפָּה"
 
 msgid "Mobile Device Manager"
 msgstr "מנהל התקנים ניידים"
+
+msgid "Device removed"
+msgstr "המכשיר הוסר"
+
+msgid "The device was not removed. Check your password and try again."
+msgstr "המכשיר לא הוסר. בדוק את הסיסמה שלך ונסה שוב."
 
 msgid "Wiping device"
 msgstr "מוחק מכשיר"
@@ -7011,17 +7118,530 @@ msgstr "שדה אחד או יותר מכילים שגיאות."
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
 msgstr "הסיסמה חלשה. הסיסמה צריכה להכיל אותיות גדולות, אותיות קטנות ומספרים. אורך הסיסמה צריך להיות בין 8 ל-20 תווים."
 
+msgid "Invalid or oversized OpenPGP armor."
+msgstr "טקסט ה-OpenPGP בקידוד ASCII אינו תקין או שהוא גדול מדי."
+
+msgid "Expected a single OpenPGP public key block."
+msgstr "נדרש בלוק OpenPGP יחיד מסוג מפתח ציבורי."
+
+msgid "Expected a single OpenPGP private key block."
+msgstr "נדרש בלוק OpenPGP יחיד מסוג מפתח פרטי."
+
+msgid "Expected a single OpenPGP signature block."
+msgstr "נדרש בלוק OpenPGP יחיד מסוג חתימה."
+
+msgid "Expected a single OpenPGP message block."
+msgstr "נדרש בלוק OpenPGP יחיד מסוג הודעה."
+
+msgid "Expected a single OpenPGP armor block."
+msgstr "נדרש בלוק OpenPGP יחיד בקידוד ASCII."
+
+msgid "Additional data outside the OpenPGP armor is not allowed."
+msgstr "נתונים נוספים מחוץ לבלוק ה-OpenPGP בקידוד ASCII אינם מותרים."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "ייבא מפתח OpenPGP אחד ושלם בכל פעם."
+
+msgid "This key exceeds the supported subkey or identity limit."
+msgstr "המפתח הזה חורג ממגבלת תתי-המפתחות או הזהויות הנתמכת."
+
+msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
+msgstr "מפתחות פרטיים חייבים להיות מוגנים בביטוי סיסמה לפני ההעלאה. הגן על המפתח הזה באופן מקומי תחילה."
+
+msgid "The public certificate must match the private key fingerprint."
+msgstr "התעודה הציבורית חייבת להתאים לטביעת האצבע של המפתח הפרטי."
+
+msgid "Unlock your OpenPGP private key in this browser tab first."
+msgstr "שחרר תחילה את נעילת המפתח הפרטי של OpenPGP בכרטיסיית דפדפן זו."
+
+msgid "The OpenPGP key was locked while the operation was running."
+msgstr "מפתח ה-OpenPGP ננעל במהלך ביצוע הפעולה."
+
+msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
+msgstr "OpenPGP דורש דפדפן מודרני וחיבור HTTPS מאובטח."
+
+msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
+msgstr "פעולת ההגנה מצפה למפתח פרטי לא מוגן. עבור מפתחות מוגנים השתמש באפשרות 'שנה ביטוי סיסמה'."
+
+msgid "The passphrase could not unlock this private key."
+msgstr "ביטוי הסיסמה לא הצליח לשחרר את נעילת המפתח הפרטי הזה."
+
+msgid "Every recipient needs a verified OpenPGP public key."
+msgstr "כל נמען זקוק למפתח ציבורי מאומת של OpenPGP."
+
+msgid "Encrypted message exceeds the size limit."
+msgstr "ההודעה המוצפנת חורגת ממגבלת הגודל."
+
+msgid "Expected one complete clear-signed OpenPGP message."
+msgstr "נדרשת הודעת OpenPGP אחת ושלמה בחתימה גלויה."
+
+msgid "Invalid clear-signed OpenPGP signature."
+msgstr "חתימה גלויה של OpenPGP אינה תקינה."
+
+msgid "The OpenPGP request failed. Please try again."
+msgstr "בקשת OpenPGP נכשלה. אנא נסה שוב."
+
+msgid "Working…"
+msgstr "מעבד…"
+
+msgid "The operation failed. Please try again."
+msgstr "הפעולה נכשלה. אנא נסה שוב."
+
+msgid "Passphrase"
+msgstr "ביטוי סיסמה"
+
+msgid "Unlock OpenPGP private key"
+msgstr "שחרר נעילת מפתח פרטי של OpenPGP"
+
+msgid "Unlock"
+msgstr "שחרר נעילה"
+
+msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
+msgstr "ביטוי הסיסמה והמפתח המשוחרר נשארים בכרטיסיית דפדפן זו. המפתח ננעל אוטומטית לאחר זמן מוגבל או עם סגירת הכרטיסייה. טביעת אצבע: "
+
+msgid "Set up OpenPGP"
+msgstr "הגדרת OpenPGP"
+
+msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
+msgstr "הוסף מפתח פרטי התואם לכתובת השולח כדי לחתום על הודעות או כדי לשמור עותק מוצפן וקריא בפריטים שנשלחו. ניתן לייבא מפתח קיים או ליצור מפתח חדש בהגדרות OpenPGP."
+
+msgid "Open key settings"
+msgstr "פתח את הגדרות המפתחות"
+
+msgid "Choose OpenPGP key"
+msgstr "בחר מפתח OpenPGP"
+
+msgid "Private key"
+msgstr "מפתח פרטי"
+
+msgid "Use key"
+msgstr "השתמש במפתח"
+
+msgid "Private-key unlocking was cancelled."
+msgstr "שחרור נעילת המפתח הפרטי בוטל."
+
+msgid "Key selection was cancelled."
+msgstr "בחירת המפתח בוטלה."
+
+msgid "Choose private key…"
+msgstr "בחר מפתח פרטי…"
+
+msgid "Manage OpenPGP keys…"
+msgstr "נהל מפתחות OpenPGP…"
+
+msgid "Lock private keys"
+msgstr "נעל מפתחות פרטיים"
+
+msgid "Signing key: {0}"
+msgstr "מפתח החתימה: {0}"
+
+msgid "Decryption alone does not authenticate the sender."
+msgstr "פענוח ההודעה כשלעצמו אינו מאמת את זהות השולח."
+
+msgid "OpenPGP security information"
+msgstr "פרטי אבטחה של OpenPGP"
+
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+msgid "OpenPGP signed or encrypted message"
+msgstr "הודעה חתומה או מוצפנת ב-OpenPGP"
+
+msgid "OpenPGP Plugin"
+msgstr "תוסף OpenPGP"
+
+msgid "The OpenPGP operation was cancelled."
+msgstr "פעולת OpenPGP בוטלה."
+
+msgid "S/MIME and OpenPGP cannot protect the same message."
+msgstr "S/MIME ו-OpenPGP אינם יכולים להגן על אותה הודעה."
+
+msgid "Saving the OpenPGP draft timed out. Please retry."
+msgstr "שמירת טיוטת OpenPGP חרגה מהזמן המוקצב. אנא נסה שוב."
+
+msgid "The draft could not be saved. Nothing was sent."
+msgstr "לא ניתן היה לשמור את הטיוטה. שום דבר לא נשלח."
+
+msgid "The sender or message protection changed. Please send again."
+msgstr "השולח או הגנת ההודעה השתנו. אנא שלח שוב."
+
+msgid "The selected private key is not valid for this sender and protection mode."
+msgstr "המפתח הפרטי שנבחר אינו תקף עבור השולח הזה ומצב ההגנה הזה."
+
+msgid "A matching, passphrase-protected private key is required."
+msgstr "נדרש מפתח פרטי תואם המוגן בביטוי סיסמה."
+
+msgid "A recipient key is invalid, expired or does not match its email address."
+msgstr "מפתח של נמען אינו תקף, פג תוקפו או אינו תואם לכתובת האימייל שלו."
+
+msgid "No verified recipient keys are available."
+msgstr "אין מפתחות תקינים וזמינים עבור הנמענים."
+
+msgid "This message is too large for browser OpenPGP processing."
+msgstr "ההודעה הזו גדולה מדי לעיבוד OpenPGP בדפדפן."
+
+msgid "Message protection changed while preparing the message. Please send again."
+msgstr "הגנת ההודעה השתנתה בזמן הכנת ההודעה. אנא שלח שוב."
+
+msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
+msgstr "גודל ההודעה המוגנת הוא {0} MB, יותר ממה שהשרת הזה מקבל בבקשה אחת ({1} MB). הסר קבצים מצורפים או בקש ממנהל המערכת להגדיל את מגבלת ההעלאה."
+
+msgid "The attachment archive is too large."
+msgstr "ארכיון הקבצים המצורפים גדול מדי."
+
+msgid "Unlock the message again to download this attachment."
+msgstr "שחרר שוב את נעילת ההודעה כדי להוריד את הקובץ המצורף הזה."
+
+msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
+msgstr "ההודעה הזו מכילה הגנת S/MIME מקוננת ש-OpenPGP אינו יכול לפתוח."
+
+msgid "Too many nested OpenPGP envelopes."
+msgstr "יותר מדי מעטפות OpenPGP מקוננות."
+
+msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
+msgstr "החתימה אינה תקפה או שהמפתח הציבורי שלה אינו זמין. אל תסתמך על זהות השולח הזו."
+
+msgid "The private key was locked while opening this message."
+msgstr "המפתח הפרטי ננעל בעת פתיחת ההודעה."
+
+msgid "This message contains too many attachments."
+msgstr "ההודעה הזו מכילה יותר מדי קבצים מצורפים."
+
+msgid "The decoded attachments are too large."
+msgstr "הקבצים המצורפים שפוענחו גדולים מדי."
+
+msgid "The OpenPGP operation failed."
+msgstr "פעולת OpenPGP נכשלה."
+
+msgid "OpenPGP: checking message security…"
+msgstr "OpenPGP: בודק את אבטחת ההודעה…"
+
+msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
+msgstr "הודעה מוצפנת שנשמרה ללא מעטפת ה-MIME שלה — שמור את הקובץ המצורף ופענח אותו בעזרת כלי OpenPGP"
+
+msgid "Signed message stored without its original MIME — the signature cannot be verified"
+msgstr "הודעה חתומה שנשמרה ללא ה-MIME המקורי שלה — לא ניתן לאמת את החתימה"
+
+msgid "Message decrypted"
+msgstr "ההודעה פוענחה"
+
+msgid "Message could not be decrypted — click for details or retry"
+msgstr "לא ניתן היה לפענח את ההודעה — לחץ לפרטים או לניסיון נוסף"
+
+msgid "Encrypted message — unlock your private key to read"
+msgstr "הודעה מוצפנת — שחרר את נעילת המפתח הפרטי שלך כדי לקרוא אותה"
+
+msgid "Signature could not be verified"
+msgstr "לא ניתן לאמת את החתימה"
+
+msgid "Valid signature, but the signing key does not match the sender"
+msgstr "חתימה תקפה, אך מפתח החתימה אינו תואם לשולח"
+
+msgid "Valid signature — sender fingerprint has not been verified"
+msgstr "חתימה תקפה — טביעת האצבע של השולח לא אומתה"
+
+msgid "Valid signature from a verified sender"
+msgstr "חתימה תקפה משולח מאומת"
+
+msgid "The signing key has since expired"
+msgstr "בינתיים פג תוקפו של מפתח החתימה"
+
+msgid "Message is not signed"
+msgstr "ההודעה אינה חתומה"
+
+msgid "Inline OpenPGP protects the body only; attachments are not covered"
+msgstr "OpenPGP מוטבע מגן על גוף ההודעה בלבד; הקבצים המצורפים אינם מוגנים"
+
+msgid "Unprotected text after the OpenPGP block is not shown"
+msgstr "טקסט לא מוגן שמופיע אחרי בלוק ה-OpenPGP אינו מוצג"
+
+msgid "Your public keys could not be loaded, so signatures could not be checked"
+msgstr "לא ניתן היה לטעון את המפתחות הציבוריים שלך, ולכן לא ניתן היה לבדוק את החתימות"
+
+msgid "Security information"
+msgstr "פרטי אבטחה"
+
+msgid "Choose when composing"
+msgstr "בחירה בעת כתיבת הודעה"
+
+msgid "Personal and public keys"
+msgstr "מפתחות אישיים וציבוריים"
+
+msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
+msgstr "המפתחות שלך מאוחסנים בתיבת הדואר שלך. המפתחות הפרטיים נשארים מוגנים בביטוי סיסמה; החתימה, ההצפנה ושחרור הנעילה מתבצעים בדפדפן זה. אמת את טביעות האצבע של אנשי הקשר שלך בערוץ מהימן נפרד. שינויים במפתחות נכנסים לתוקף מיד."
+
+msgid "No OpenPGP keys. Import or generate a key to get started."
+msgstr "אין מפתחות OpenPGP. ייבא או צור מפתח כדי להתחיל."
+
+msgid "Identity"
+msgstr "זהות"
+
+msgid "Fingerprint"
+msgstr "טביעת אצבע"
+
+msgid "Public key"
+msgstr "מפתח ציבורי"
+
+msgid "Revoked"
+msgstr "מבוטל"
+
+msgid "Expired"
+msgstr "תוקפו פג"
+
+msgid "Fingerprint verified"
+msgstr "טביעת אצבע מאומתת"
+
+msgid "Not verified"
+msgstr "לא מאומת"
+
+msgid "Unlocked"
+msgstr "משוחרר"
+
+msgid "Locked"
+msgstr "נעול"
+
+msgid "Expires"
+msgstr "פג תוקף"
+
+msgid "No expiry"
+msgstr "ללא תפוגה"
+
+msgid "Generate key"
+msgstr "צור מפתח"
+
+msgid "Import key"
+msgstr "ייבא מפתח"
+
+msgid "Find public key"
+msgstr "חפש מפתח ציבורי"
+
+msgid "Details / verify"
+msgstr "פרטים / אימות"
+
+msgid "Export public key"
+msgstr "ייצא מפתח ציבורי"
+
+msgid "Back up private key"
+msgstr "גבה מפתח פרטי"
+
+msgid "Unlock in this browser"
+msgstr "שחרר נעילה בדפדפן זה"
+
 msgid "Change passphrase"
 msgstr "שנה ביטוי סיסמה"
+
+msgid "Lock all"
+msgstr "נעל הכל"
+
+msgid "Default private key"
+msgstr "מפתח פרטי כברירת מחדל"
+
+msgid "Sign new messages by default"
+msgstr "חתום על הודעות חדשות כברירת מחדל"
+
+msgid "Encrypt new messages by default"
+msgstr "הצפן הודעות חדשות כברירת מחדל"
+
+msgid "Manage keyservers"
+msgstr "נהל שרתי מפתחות"
+
+msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
+msgstr "ברירות המחדל לכתיבת הודעות חלות על הודעות OpenPGP חדשות בלבד. לא ניתן לשלב S/MIME ו-OpenPGP באותה הודעה."
+
+msgid "Generate OpenPGP key"
+msgstr "צור מפתח OpenPGP"
+
+msgid "Algorithm"
+msgstr "אלגוריתם"
+
+msgid "Expires in"
+msgstr "פג תוקף בעוד"
+
+msgid "1 year"
+msgstr "1 שנה"
+
+msgid "2 years"
+msgstr "2 שנים"
+
+msgid "5 years"
+msgstr "5 שנים"
+
+msgid "Repeat passphrase"
+msgstr "חזור על ביטוי הסיסמה"
+
+msgid "Passphrases do not match."
+msgstr "ביטויי הסיסמה אינם תואמים."
+
+msgid "Generate"
+msgstr "צור"
+
+msgid "Key created. Back up the private key and store its passphrase separately."
+msgstr "המפתח נוצר. גבה את המפתח הפרטי ושמור את ביטוי הסיסמה שלו בנפרד."
+
+msgid "Revocation certificate — keep secure"
+msgstr "תעודת ביטול — שמור במקום מאובטח"
+
+msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
+msgstr "בחר ביטוי סיסמה חזק באורך 12 תווים לפחות. יצירת המפתח מתבצעת באופן מקומי בדפדפן זה ועשויה להימשך זמן מה. שמור את תעודת הביטול ואת גיבוי המפתח הפרטי במקום בטוח."
+
+msgid "Import OpenPGP key"
+msgstr "ייבא מפתח OpenPGP"
+
+msgid "Choose armored OpenPGP key file"
+msgstr "בחר קובץ מפתח OpenPGP בקידוד ASCII"
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "קובץ המפתח גדול מדי. גודל מקסימלי: 1 MiB."
+
+msgid "The key file could not be read."
+msgstr "לא ניתן היה לקרוא את קובץ המפתח."
+
+msgid "Armored key"
+msgstr "מפתח בקידוד ASCII"
+
+msgid "Protect unencrypted key"
+msgstr "הגנה על מפתח לא מוצפן"
+
+msgid "Optional: new passphrase for an unprotected private key"
+msgstr "אופציונלי: ביטוי סיסמה חדש למפתח פרטי לא מוגן"
+
+msgid "Key imported. Verify recipient fingerprints before encrypting to them."
+msgstr "המפתח יובא. אמת את טביעות האצבע של הנמענים לפני הצפנת הודעות עבורם."
+
+msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
+msgstr "בחר קובץ או הדבק מפתח אחד בקידוד ASCII, כולל שורות ה-BEGIN וה-END שלו. עבור מפתח פרטי לא מוגן, הזן ביטוי סיסמה חדש כדי להגן עליו באופן מקומי לפני האחסון. מפתחות של נמענים שיובאו אינם נחשבים מהימנים באופן אוטומטי."
+
+msgid "Public OpenPGP key"
+msgstr "מפתח ציבורי של OpenPGP"
+
+msgid "Back up private OpenPGP key"
+msgstr "גבה מפתח פרטי של OpenPGP"
+
+msgid "Create backup"
+msgstr "צור גיבוי"
+
+msgid "Private key backup — keep secure"
+msgstr "גיבוי מפתח פרטי — שמור במקום מאובטח"
+
+msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
+msgstr "אשר את ביטוי הסיסמה שלך באופן מקומי לפני הורדת גיבוי המפתח הפרטי המוצפן הזה. שמור אותו במקום מאובטח ולעולם אל תשלח אותו לנמען כלשהו או לשרת מפתחות."
+
+msgid "Current passphrase"
+msgstr "ביטוי הסיסמה הנוכחי"
+
+msgid "New passphrase"
+msgstr "ביטוי סיסמה חדש"
+
+msgid "Change OpenPGP passphrase"
+msgstr "שנה ביטוי סיסמה של OpenPGP"
+
+msgid "Repeat new passphrase"
+msgstr "חזור על ביטוי הסיסמה החדש"
+
+msgid "Passphrase changed. Make a new private-key backup."
+msgstr "ביטוי הסיסמה השתנה. צור גיבוי חדש של המפתח הפרטי."
+
+msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
+msgstr "המפתח הפרטי מוצפן מחדש באופן מקומי. גיבויים קיימים עדיין דורשים את ביטוי הסיסמה המקורי שלהם."
+
+msgid "Verify OpenPGP fingerprint"
+msgstr "אמת טביעת אצבע של OpenPGP"
+
+msgid "Verified identities"
+msgstr "זהויות מאומתות"
+
+msgid "Email identity"
+msgstr "זהות אימייל"
+
+msgid "Confirm fingerprint"
+msgstr "אשר טביעת אצבע"
+
+msgid "Enter the full fingerprint shown above."
+msgstr "הזן את טביעת האצבע המלאה המוצגת למעלה."
+
+msgid "I verified this fingerprint"
+msgstr "אימתתי את טביעת האצבע הזו"
+
+msgid "Save verification"
+msgstr "שמור אימות"
+
+msgid "Fingerprint verification updated."
+msgstr "אימות טביעת האצבע עודכן."
+
+msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
+msgstr "השווה את טביעת האצבע המלאה מול איש הקשר שלך בערוץ מהימן נפרד. סימון התיבה מקבע את המפתח הזה עבור הכתובת שנבחרה; השארתה ללא סימון מסירה את האימות הזה."
+
+msgid "All private keys in this browser tab are locked."
+msgstr "כל המפתחות הפרטיים בכרטיסיית דפדפן זו נעולים."
+
+msgid "Delete OpenPGP key"
+msgstr "מחק מפתח OpenPGP"
+
+msgid "Type the full fingerprint to confirm deletion."
+msgstr "הקלד את טביעת האצבע המלאה כדי לאשר את המחיקה."
+
+msgid "Delete key"
+msgstr "מחק את המפתח"
+
+msgid "Key removed from your mailbox."
+msgstr "המפתח הוסר מתיבת הדואר שלך."
+
+msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
+msgstr "מחיקת המפתח הפרטי הזה תמנע ממך לקרוא הודעות שהוצפנו עבורו, אלא אם יש לך גיבוי. צור גיבוי של המפתח הפרטי לפני שתמשיך."
+
+msgid "This removes the public key and its verified fingerprints from your keyring."
+msgstr "פעולה זו מסירה מצרור המפתחות שלך את המפתח הציבורי ואת טביעות האצבע המאומתות שלו."
+
+msgid "Manage OpenPGP keyservers"
+msgstr "נהל שרתי מפתחות של OpenPGP"
+
+msgid "HTTPS keyservers"
+msgstr "שרתי מפתחות HTTPS"
+
+msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
+msgstr "הזן מקור שרת HTTPS אחד בכל שורה, ללא נתיב, פרטי התחברות או מחרוזת שאילתה."
+
+msgid "Save keyservers"
+msgstr "שמור שרתי מפתחות"
+
+msgid "Keyservers updated."
+msgstr "שרתי המפתחות עודכנו."
+
+msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
+msgstr "ניתן להשתמש רק בשרתי מפתחות HTTPS שאושרו על ידי מנהל המערכת. חיפוש מחייב טביעת אצבע מלאה. מפתחות לעולם אינם מועלים באופן אוטומטי."
+
+msgid "Approved servers: {0}"
+msgstr "שרתים מאושרים: {0}"
+
+msgid "Find OpenPGP public key"
+msgstr "חפש מפתח ציבורי של OpenPGP"
+
+msgid "Keyserver"
+msgstr "שרת מפתחות"
+
+msgid "Full fingerprint"
+msgstr "טביעת אצבע מלאה"
+
+msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
+msgstr "הזן טביעת אצבע הקסדצימלית מלאה בת 40 או 64 תווים."
+
+msgid "Find and import"
+msgstr "חפש וייבא"
+
+msgid "The keyserver did not return the requested public key."
+msgstr "שרת המפתחות לא החזיר את המפתח הציבורי המבוקש."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "המפתח הציבורי יובא. אמת את טביעת האצבע שלו לפני הצפנת הודעות עבור בעליו."
+
+msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
+msgstr "השרת יקבל את טביעת האצבע שאתה מחפש. מפתח שהורדת עדיין מחייב אימות טביעת אצבע לפני הצפנת הודעות עבור בעליו."
 
 msgid "Old passphrase"
 msgstr "ביטוי סיסמה ישן"
 
 msgid "Wrong passphrase. Please try again"
 msgstr "ביטוי סיסמה שגוי. אנא נסה שוב"
-
-msgid "New passphrase"
-msgstr "ביטוי סיסמה חדש"
 
 msgid "Confirm new passphrase"
 msgstr "אשר ביטוי סיסמה חדש"
@@ -7053,20 +7673,11 @@ msgstr "לא יובאו אישורים, אנא העלה את האישור הפר
 msgid "Valid from"
 msgstr "תקף החל מ"
 
-msgid "Expires"
-msgstr "פג תוקף"
-
 msgid "Key Type"
 msgstr "סוג מפתח"
 
 msgid "Purpose"
 msgstr "מַטָרָה"
-
-msgid "Sign"
-msgstr "סִימָן"
-
-msgid "Encrypt"
-msgstr "הצפין"
 
 msgid "Sign & Encrypt"
 msgstr "חתום והצפן"
@@ -7197,14 +7808,12 @@ msgstr "מצב CBC"
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
 msgstr "grommunio Web יכול לאמת חתימות דיגיטליות של הודעות דוא\"ל. אימות מוצלח מבטיח לך שההודעה לא זויפה ומאמת את זהות השולח."
 
-msgid "You are seeing this message because the verification of the digital signature"
-msgstr "הודעה זו מוצגת מכיוון שאימות החתימה הדיגיטלית"
+#. TRANSLATORS: {0} is the bolded phrase 'has failed'
+msgid "You are seeing this message because the verification of the digital signature {0} for this message."
+msgstr "הודעה זו מוצגת מכיוון שאימות החתימה הדיגיטלית {0} להודעה זו."
 
-msgid " has failed"
+msgid "has failed"
 msgstr "נכשל"
-
-msgid " for this message."
-msgstr "להודעה זו."
 
 msgid "What caused this issue?"
 msgstr "מה גרם לבעיה זו?"
@@ -7217,12 +7826,6 @@ msgstr "אתה יכול להמשיך לעבוד. עם זאת, עליך לזכו�
 
 msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
 msgstr "אם אינך בטוח מה עליך לעשות כעת, תוכל לפנות לשירות התמיכה או למנהל המערכת."
-
-msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "grommunio Web יכול לאמת חתימות דיגיטליות של הודעות דוא\"ל. אימות מוצלח מעניק לך ביטחון "
-
-msgid "that the message has not been tampered with and validates the identity of the sender."
-msgstr "המעיד כי ההודעה לא זויפה ומאמת את זהות השולח."
 
 msgid "The verification of the digital signature was successful for this email message."
 msgstr "אימות החתימה הדיגיטלית של הודעת דוא\"ל זו הצליח."
@@ -7283,9 +7886,6 @@ msgstr "לא ניתן היה לאמת חתימה, חסר אישור ציבורי
 
 msgid "Signature verification successful, but certificate is expired"
 msgstr "אימות החתימה הצליח, אך פג תוקף האישור"
-
-msgid "Signature could not be verified"
-msgstr "לא ניתן לאמת את החתימה"
 
 msgid "Certificate has been revoked"
 msgstr "האישור בוטל"
@@ -7552,7 +8152,7 @@ msgid "This backend provides the default WebDAV integration for Files."
 msgstr "קצה עורפי זה מספק את שילוב ברירת המחדל של WebDAV עבור קבצים."
 
 msgid "Files Default Backend: "
-msgstr "Backend ברירת מחדל לקבצים:"
+msgstr "Backend ברירת מחדל לקבצים: "
 
 msgid "Server address"
 msgstr "כתובת השרת"
@@ -7620,8 +8220,11 @@ msgstr "PHP-Curl אינו זמין."
 msgid "With this backend, you can connect to any Seafile server."
 msgstr "עם הקצה האחורי הזה, אתה יכול להתחבר לכל שרת Seafile."
 
-msgid "Files "
-msgstr "קבצים"
+msgid "Files Seafile Backend: "
+msgstr "קבצים Seafile Backend: "
+
+msgid "Moving failed"
+msgstr "המעבר נכשל"
 
 msgid "Use SSL"
 msgstr "השתמש ב-SSL"
@@ -7699,7 +8302,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "עם הקצה האחורי הזה, אתה יכול להתחבר לכל שרת WebDAV."
 
 msgid "Files WebDAV Backend: "
-msgstr "קבצים WebDAV Backend:"
+msgstr "קבצים WebDAV Backend: "
 
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL אינו מותקן"
@@ -7713,9 +8316,6 @@ msgstr "יצירת הספרייה נכשלה"
 msgid "Deletion failed"
 msgstr "המחיקה נכשלה"
 
-msgid "Moving failed"
-msgstr "המעבר נכשל"
-
 msgid "Temporary directory problems"
 msgstr "בעיות זמניות בספרייה"
 
@@ -7725,17 +8325,11 @@ msgstr "הקובץ או התיקיה לא נמצאו"
 msgid "Copying failed"
 msgstr "ההעתקה נכשלה"
 
-msgid "Please contact your system administrator"
-msgstr "אנא פנה למנהל המערכת שלך"
-
 msgid "File server is not reachable. Please verify the connection."
 msgstr "לא ניתן להגיע לשרת הקבצים. נא לאמת את החיבור."
 
-msgid "PHP-CURL not installed"
-msgstr "PHP-CURL לא מותקן"
-
 msgid "Unknown backend"
-msgstr ""
+msgstr "קצה אחורי לא ידוע"
 
 msgid "Account is ready to use."
 msgstr "החשבון מוכן לשימוש."
@@ -7750,10 +8344,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "קובץ זה אינו זמין יותר. טען מחדש את התיקיה."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "חיפוש נמענים אינו נתמך על ידי הקצה האחורי הזה"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "לא ניתן לאתר נמענים"
 
 msgid "Kendox certificate path is not configured."
 msgstr "נתיב אישור Kendox לא מוגדר."
@@ -7775,7 +8369,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "אירעה שגיאה בלתי צפויה. אנא פנה למנהל המערכת שלך. קוד שגיאה: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "ניהול תיקיות משותפות אינו נתמך על ידי שרת זה."
 
 msgid "No data received."
 msgstr "לא התקבלו נתונים."
@@ -7794,6 +8388,15 @@ msgstr "שגיאה בשינוי הסיסמה. אנא אמת את הסיסמה ש
 
 msgid "Password has been changed successfully."
 msgstr "הסיסמה שונתה בהצלחה."
+
+msgid "The OpenPGP operation could not be completed."
+msgstr "לא ניתן היה להשלים את פעולת OpenPGP."
+
+msgid "OpenPGP: message was not sent"
+msgstr "OpenPGP: ההודעה לא נשלחה"
+
+msgid "The OpenPGP message could not be read."
+msgstr "לא ניתן היה לקרוא את הודעת ה-OpenPGP."
 
 msgid "No certificate available"
 msgstr "אין תעודה זמינה"
@@ -7820,19 +8423,18 @@ msgid "Unable to generate certs-only message"
 msgstr "לא ניתן ליצור הודעת אישורים בלבד"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "לא ניתן לקרוא הודעת אישורים בלבד"
 
 msgid "LDAP not configured"
 msgstr "LDAP לא מוגדר"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "תצורת LDAP לא חוקית"
 
-msgid "Missing public certificates for the following recipients: "
-msgstr "חסרות תעודות ציבוריות עבור הנמענים הבאים:"
-
-msgid ". Please contact your system administrator for details"
-msgstr ". אנא פנה למנהל המערכת שלך לקבלת פרטים"
+#. TRANSLATORS: %s is a comma-separated list of email addresses
+#, php-format
+msgid "Missing public certificates for the following recipients: %s. Please contact your system administrator for details"
+msgstr "חסרות תעודות ציבוריות עבור הנמענים הבאים: %s. אנא פנה למנהל המערכת שלך לקבלת פרטים"
 
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
 msgstr "התעודה הציבורית שלך אינה מותקנת. ללא תעודה זו, לא תוכל לקרוא הודעות מוצפנות ששלחת לאחרים."
@@ -7846,8 +8448,9 @@ msgstr "לא ניתן לפענח את האישור"
 msgid "Private key can't be used to sign email"
 msgstr "לא ניתן להשתמש במפתח פרטי כדי לחתום על דוא\"ל"
 
-msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "כתובת הדוא\"ל של האישור אינה תואמת לחשבון האינטרנט של grommunio"
+#, php-format
+msgid "Certificate email address doesn't match grommunio Web account %s"
+msgstr "כתובת הדוא\"ל של האישור אינה תואמת לחשבון grommunio Web %s"
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -7856,14 +8459,17 @@ msgstr "גודל מפתח RSA של %d סיביות נמוך מהמינימום �
 msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
 msgstr "תעודות EdDSA (Ed25519) דורשות PHP 8.4+ וייתכן שלא יתמכו באופן מלא. התעודה יובאה."
 
-msgid "Certificate was expired on "
-msgstr "תוקף האישור פג בתאריך"
+#, php-format
+msgid "Certificate was expired on %s."
+msgstr "תוקף האישור פג בתאריך %s."
 
 msgid "Certificate was imported."
 msgstr "האישור יובא."
 
-msgid "Certificate is not yet valid "
-msgstr "האישור עדיין לא בתוקף"
+#. TRANSLATORS: %s is the date the certificate becomes valid
+#, php-format
+msgid "Certificate is not yet valid %s."
+msgstr "האישור עדיין לא בתוקף %s."
 
 msgid "Certificate has not been imported"
 msgstr "האישור לא יובא"
@@ -7872,7 +8478,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "האישור בוטל, אך יובא."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "לא ניתן היה לאמת את מצב הביטול של האישור. האישור יובא."
 
 msgid "Unable to read public certificate"
 msgstr "לא ניתן לקרוא תעודה ציבורית"
@@ -7916,6 +8522,9 @@ msgstr "נתוני תגובה נתבקשו מהאוטובוס אך אין לו �
 msgid "Cannot store the category list in this mailbox."
 msgstr "לא ניתן לשמור את רשימת הקטגוריות בתיבת דואר זו."
 
+msgid "Cannot scan this mailbox for categories."
+msgstr "לא ניתן לסרוק תיבת דואר זו לאיתור קטגוריות."
+
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "מודול לא ידוע '%s' עם המזהה '%s'"
@@ -7940,6 +8549,18 @@ msgstr "רשימת מטלות"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$sאו%2$s"
+
+msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
+msgstr "OpenPGP מושבת או אינו זמין כעת. ההודעה שלך לא נשלחה. הפעל את OpenPGP לפני ניסיון נוסף, או כבה במפורש את החתימה וההצפנה."
+
+msgid "Too many messages were sent in a short time. Please wait a moment and send again."
+msgstr "נשלחו יותר מדי הודעות בזמן קצר. אנא המתן רגע ושלח שוב."
+
+msgid "Message was not sent"
+msgstr "ההודעה לא נשלחה"
+
+msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
+msgstr "הטיוטה הזו מבקשת הגנת OpenPGP, אך ההגנה לא הוחלה. ההודעה לא נשלחה. הפעל את OpenPGP לפני ניסיון נוסף, או כבה במפורש את החתימה וההצפנה."
 
 msgid "Error retrieving existing settings"
 msgstr "שגיאה באחזור הגדרות קיימות"
@@ -7976,7 +8597,7 @@ msgstr "קובץ ה-vcf המצורף לא מיובא בהצלחה"
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "לא ניתן לייבא את '%s' אל '%s'."
+msgstr "לא ניתן לייבא את '%s' אל '%s'. "
 
 msgid "There is no appointment found in this file."
 msgstr "לא נמצאה פגישה בקובץ זה."
@@ -7989,7 +8610,7 @@ msgstr "הקובץ לא חוקי."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr "לא ניתן לייבא את '%s'."
+msgstr "לא ניתן לייבא את '%s'. "
 
 msgid "Attachment is not imported successfully"
 msgstr "הקובץ המצורף לא מיובא בהצלחה"
@@ -8036,8 +8657,8 @@ msgstr "תיקיות אנשי קשר משותפות"
 msgid "Public Contact Folders"
 msgstr "תיקיות אנשי קשר ציבוריות"
 
-msgid "Error in search, please try again"
-msgstr "שגיאה בחיפוש, אנא נסה שוב"
+msgid "Error in search, please try again."
+msgstr "שגיאה בחיפוש, אנא נסה שוב."
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr "לא ניתן לבצע שאילתת חיפוש, אין הרשאות ליצור תיקיית חיפוש."
@@ -8057,14 +8678,11 @@ msgstr "לא ניתן היה לפתוח את ההתרחשות."
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "לא ניתן היה לפתוח את ההתרחשות, כנראה שהמופע הספציפי נמחק."
 
-msgid "a meeting request"
-msgstr "בקשה לפגישה"
+msgid "You have insufficient privileges to move a meeting request in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "אין לך הרשאות מספיקות כדי להעביר בקשת פגישה בלוח שנה זה. בעל לוח השנה יכול להגדיר הרשאות אלה באמצעות הכרטיסייה 'הרשאות' במאפייני התיקייה (לחץ לחיצה ימנית על תיקיית לוח השנה > מאפיינים > הרשאות)"
 
-msgid "an appointment"
-msgstr "פגישה"
-
-msgid "You have insufficient privileges to move "
-msgstr "אין לך מספיק הרשאות לעבור"
+msgid "You have insufficient privileges to move an appointment in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "אין לך הרשאות מספיקות כדי להעביר פגישה בלוח שנה זה. בעל לוח השנה יכול להגדיר הרשאות אלה באמצעות הכרטיסייה 'הרשאות' במאפייני התיקייה (לחץ לחיצה ימנית על תיקיית לוח השנה > מאפיינים > הרשאות)"
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "לא ניתן להגדיר תזכורת שתופיע לפני האירוע הקודם. אפס את התזכורת כדי לשמור את השינוי"
@@ -8098,8 +8716,10 @@ msgid "Meeting could not be saved."
 msgstr "לא ניתן היה לשמור את הפגישה."
 
 #, php-format
-msgid "There were %d skipped appointment(s):"
-msgstr "פגישות שדולגו (⁦%d⁩):"
+msgid "There was %d skipped appointment:"
+msgid_plural "There were %d skipped appointments:"
+msgstr[0] "פגישות שדולגו (⁦%d⁩):"
+msgstr[1] "פגישות שדולגו (⁦%d⁩):"
 
 msgid "More skipped appointments are not shown."
 msgstr "פגישות נוספות שדולגו אינן מוצגות."
@@ -8117,6 +8737,10 @@ msgstr "יום ההולדת של%s"
 #, php-format
 msgid "%s's Anniversary"
 msgstr "יום השנה ל-%s"
+
+#, php-format
+msgid "Unable to add store: '%s'. Please check if you have the necessary permissions."
+msgstr "לא ניתן להוסיף את תיבת הדואר: '%s'. אנא בדוק אם יש לך את ההרשאות הנדרשות."
 
 msgid "You don't have the permission to complete this action"
 msgstr "אין לך הרשאה להשלים פעולה זו"
@@ -8252,26 +8876,26 @@ msgstr "לא ניתן למצוא את ההודעה. ייתכן שהיא הועב
 msgid "Could not open message."
 msgstr "לא ניתן לפתוח את ההודעה."
 
-msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "אין לך מספיק הרשאות כדי לדחות את בקשת הפגישה הזו"
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "אין לך מספיק הרשאות כדי לדחות את בקשת הפגישה הזו."
 
-msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "אין לך מספיק הרשאות לקבל את בקשת הפגישה הזו"
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "אין לך מספיק הרשאות לקבל את בקשת הפגישה הזו."
 
-msgid "Could not copy message"
-msgstr "לא ניתן היה להעתיק את ההודעה"
+msgid "Could not copy message."
+msgstr "לא ניתן היה להעתיק את ההודעה."
 
-msgid "Could not move message"
-msgstr "לא ניתן היה להעביר את ההודעה"
+msgid "Could not move message."
+msgstr "לא ניתן היה להעביר את ההודעה."
 
-msgid "Could not forward meeting request"
-msgstr "לא ניתן להעביר את בקשת הפגישה"
+msgid "Could not forward meeting request."
+msgstr "לא ניתן להעביר את בקשת הפגישה."
 
-msgid "You have insufficient privileges to save items in this folder"
-msgstr "אין ברשותך הרשאות מספקות בכדי לשמור פריטים בתיקיה זו"
+msgid "You have insufficient privileges to save items in this folder."
+msgstr "אין ברשותך הרשאות מספקות בכדי לשמור פריטים בתיקיה זו."
 
-msgid "Could not save message"
-msgstr "לא ניתן לשמור את ההודעה"
+msgid "Could not save message."
+msgstr "לא ניתן לשמור את ההודעה."
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "אין ברשותך הרשאות מספקות בכדי להסיר פריטים מלוח השנה."
@@ -8281,9 +8905,6 @@ msgstr "ההודעה כבר לא נמצאת בתור היוצא, בדרך כלל
 
 msgid "Message cannot be aborted"
 msgstr "לא ניתן לבטל את ההודעה"
-
-msgid "You have insufficient privileges to delete items in this folder"
-msgstr "אין לך הרשאות מספיקות כדי למחוק פריטים בתיקייה זו"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "אין ברשותך הרשאות מספקות בכדי לצרף פריט כקובץ מצורף."
@@ -8306,6 +8927,9 @@ msgstr "אין ברשותך הרשאות מספקות בכדי לסרב לבקש
 msgid "Could not decline Task Request."
 msgstr "לא ניתן לסרב לבקשת משימה זו."
 
+msgid "Could not open the attachment."
+msgstr "לא ניתן היה לפתוח את הקובץ המצורף."
+
 msgid "Conflicts with another appointment."
 msgstr "מתנגש עם מינוי אחר."
 
@@ -8320,6 +8944,9 @@ msgstr "הודעתך לא הגיע לחלק או לכל המיועדים שלה.
 
 msgid "The following recipient(s) could not be reached"
 msgstr "לא ניתן היה להגיע אל המיועדים הבאים:"
+
+msgid "Removing attachments has been disabled by the administrator."
+msgstr "הסרת קבצים מצורפים הושבתה על ידי מנהל המערכת."
 
 msgid "l, F j, Y g:i A"
 msgstr "l, j F Y G:i"
@@ -8351,9 +8978,6 @@ msgstr "לא ניתן להפסיק את פעולת החיפוש."
 msgid "You have insufficient privileges to save this message."
 msgstr "אין לך הרשאות מספיקות כדי לשמור הודעה זו."
 
-msgid "Could not save message."
-msgstr "לא ניתן לשמור את ההודעה."
-
 msgid "You have insufficient privileges to delete this message."
 msgstr "אין לך הרשאות מספיקות כדי למחוק הודעה זו."
 
@@ -8366,14 +8990,8 @@ msgstr "אין לך הרשאות מספיקות כדי לבטל את בקשת ה
 msgid "Could not cancel Meeting Request."
 msgstr "לא ניתן לבטל את בקשת הפגישה."
 
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "אין לך מספיק הרשאות כדי לדחות את בקשת הפגישה הזו."
-
 msgid "Could not decline Meeting Request."
 msgstr "לא ניתן היה לדחות את בקשת הפגישה."
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "אין לך מספיק הרשאות לקבל את בקשת הפגישה הזו."
 
 msgid "Could not accept Meeting Request."
 msgstr "לא ניתן היה לקבל את בקשת הפגישה."
@@ -8386,9 +9004,6 @@ msgstr "לא ניתן לבטל את ההזמנות לבקשת פגישה."
 
 msgid "You can not continue search operation on this folder."
 msgstr "לא ניתן להמשיך בפעולת החיפוש בתיקייה זו."
-
-msgid "Error in search, please try again."
-msgstr "שגיאה בחיפוש, אנא נסה שוב."
 
 msgid "Error in distribution list expansion."
 msgstr "שגיאה בהרחבת רשימת התפוצה."
@@ -8439,6 +9054,9 @@ msgstr "בקשת משימה:"
 msgid "Sign in"
 msgstr "היכנס"
 
+msgid "Loading"
+msgstr "טְעִינָה"
+
 msgid "File is not imported successfully"
 msgstr "הקובץ לא יובא בהצלחה"
 
@@ -8451,8 +9069,8 @@ msgstr "הקובץ שהועלה חורג מההוראה MAX_FILE_SIZE שצוינ
 msgid "The uploaded file was only partially uploaded."
 msgstr "הקובץ שהועלה הועלה רק חלקית."
 
-msgid "No file was uploaded. ."
-msgstr "לא הועלה קובץ. ."
+msgid "No file was uploaded."
+msgstr "לא הועלה קובץ."
 
 msgid "Missing a temporary folder."
 msgstr "חסרה תיקיה זמנית."

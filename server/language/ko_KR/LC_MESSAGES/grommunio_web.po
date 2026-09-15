@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Korean (Korea)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-06 21:29+0200\n"
+"POT-Creation-Date: 2026-09-15 20:54+0200\n"
 "PO-Revision-Date: 2017-10-05 20:07+0200\n"
 "Last-Translator: import\n"
 "Language: ko_KR\n"
@@ -39,6 +39,13 @@ msgstr "값은 0%에서 100% 사이여야 합니다."
 
 msgid "Number must be higher than zero"
 msgstr "숫자는 0보다 커야 합니다."
+
+#. TRANSLATORS: punctuation appended to every form label, {0} is the label
+#. itself. French puts a space before the colon, Chinese the full-width one.
+#. TRANSLATORS: punctuation appended to a field label, {0} is the label itself
+msgctxt "label separator"
+msgid "{0}:"
+msgstr "{0}:"
 
 msgid "More options"
 msgstr "추가 옵션"
@@ -167,7 +174,7 @@ msgid "Page {A} of {0}"
 msgstr "페이지 {0}의 {A} 페이지"
 
 msgid "Displaying messages {0} - {1} of {2}"
-msgstr "2}의 {0} - {1} 메시지 표시"
+msgstr "{2}개 중 {0} - {1} 메시지 표시"
 
 msgid "No messages to display"
 msgstr "표시할 메시지가 없습니다."
@@ -248,8 +255,8 @@ msgstr "예"
 msgid "No"
 msgstr "아니요"
 
-msgid "Loading"
-msgstr "로드 중"
+msgid "Loading…"
+msgstr "로드 중…"
 
 msgid "The value in this field is invalid"
 msgstr "이 필드의 값이 유효하지 않습니다."
@@ -323,9 +330,6 @@ msgstr "이 필드에는 문자와 _만 포함해야 합니다."
 
 msgid "This field should only contain letters, numbers and _"
 msgstr "이 필드에는 문자, 숫자 및 _만 포함해야 합니다."
-
-msgid "Email Addresses"
-msgstr "이메일 주소"
 
 msgid "Email addresses"
 msgstr "이메일 주소"
@@ -487,7 +491,7 @@ msgid "Show Names from the"
 msgstr "이름 표시"
 
 msgid "Search…"
-msgstr "검색..."
+msgstr "검색…"
 
 msgid "Sort by: Icon"
 msgstr "정렬 기준: 아이콘"
@@ -649,7 +653,7 @@ msgid "Include subfolders"
 msgstr "하위 폴더 포함"
 
 msgid "Show…"
-msgstr "쇼..."
+msgstr "쇼…"
 
 msgid "Mails"
 msgstr "메일"
@@ -664,7 +668,7 @@ msgid "Tasks"
 msgstr "작업"
 
 msgid "Filter…"
-msgstr "필터..."
+msgstr "필터…"
 
 msgid "Unread"
 msgstr "읽지 않음"
@@ -684,7 +688,7 @@ msgid "To"
 msgstr "To"
 
 msgid "Filter category…"
-msgstr "카테고리 필터링..."
+msgstr "카테고리 필터링…"
 
 msgid "Add Category"
 msgstr "카테고리 추가"
@@ -807,8 +811,9 @@ msgstr "주"
 msgid "weeks"
 msgstr "주"
 
-msgid " on "
-msgstr " on"
+#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+msgid "{0} on {1}"
+msgstr "{0} {1}"
 
 msgid "month"
 msgstr "월"
@@ -823,44 +828,44 @@ msgid "years"
 msgstr "년"
 
 msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "2}에서 {3}까지 {0} 유효 {1}마다 발생합니다."
+msgstr "{1}부터 {0}마다 {2}~{3}에 발생합니다."
 
 msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "3}에서 {4}까지 {0} {1} 유효 {2}마다 발생합니다."
+msgstr "{2}부터 {0} {1}마다 {3}~{4}에 발생합니다."
 
 msgid "Occurs every {0} effective {1}."
 msgstr "유효 {1}마다 {0}번 발생합니다."
 
 msgid "Occurs every {0} {1} effective {2}."
-msgstr "0} {1} 유효 {2}마다 발생합니다."
+msgstr "{2}부터 {0} {1}마다 발생합니다."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "3}에서 {4}까지 {2}번 발생할 때마다 {0}번 유효하게 {1}번 발생합니다."
+msgstr[0] "{1}부터 {0}마다 {3}~{4}에 {2}회 발생합니다."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "4}에서 {5}까지 {3}번 발생할 때마다 {0} {1} 유효 {2}번 발생합니다."
+msgstr[0] "{2}부터 {0} {1}마다 {4}~{5}에 {3}회 발생합니다."
 
 msgid "Occurs every {0} effective {1} for {2} occurrence."
 msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "2} 발생 시 {0} 유효 {1}마다 발생합니다."
+msgstr[0] "{1}부터 {0}마다 {2}회 발생합니다."
 
 msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
 msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "3} 발생 시 {0} {1} 유효 {2}마다 발생합니다."
+msgstr[0] "{2}부터 {0} {1}마다 {3}회 발생합니다."
 
 msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "0}부터 {1}까지 {2}까지 {3}에서 {4}까지 매 {1}마다 발생합니다."
+msgstr "{1}부터 {2}까지 {0}마다 {3}~{4}에 발생합니다."
 
 msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "4}부터 {5}까지 {3}까지 {0} {1} 유효 {2}마다 발생합니다."
+msgstr "{2}부터 {3}까지 {0} {1}마다 {4}~{5}에 발생합니다."
 
 msgid "Occurs every {0} effective {1} until {2}."
-msgstr "1}부터 {2}까지 {0}마다 발생합니다."
+msgstr "{1}부터 {2}까지 {0}마다 발생합니다."
 
 msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "3}까지 {0} {1} 유효 {2}마다 발생합니다."
+msgstr "{2}부터 {3}까지 {0} {1}마다 발생합니다."
 
 msgid "New Meeting Time Proposed"
 msgstr "새로운 회의 시간 제안"
@@ -873,7 +878,7 @@ msgid "Fwd"
 msgstr "전달"
 
 msgid "and "
-msgstr "그리고"
+msgstr "그리고 "
 
 msgid "Sort by: Attachment"
 msgstr "정렬 기준: 첨부 파일"
@@ -1091,15 +1096,15 @@ msgstr "{0}이(가) {1}에 이 회의의 새 시간을 제안했습니다."
 
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
-msgstr "0}에 수락됨"
+msgstr "{0}에 수락함"
 
 msgctxt "calendar.dialog"
 msgid "Accepted by {0} on {1}"
-msgstr "1}에서 {0}이 수락했습니다."
+msgstr "{1}에 {0}이(가) 수락함"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
-msgstr "0}에서 잠정 수락됨"
+msgstr "{0}에 잠정적으로 수락함"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
@@ -1154,7 +1159,7 @@ msgid "Attachments cannot be modified for a single occurrence"
 msgstr "첨부 파일은 한 번만 수정할 수 있습니다."
 
 msgid "Type your message here…"
-msgstr "여기에 메시지를 입력하세요..."
+msgstr "여기에 메시지를 입력하세요…"
 
 msgid "Update location"
 msgstr "위치 업데이트"
@@ -1351,18 +1356,18 @@ msgid "End"
 msgstr "종료"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-msgid "Printed by"
-msgstr "인쇄자"
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+msgid "Printed by {0} at {1}"
+msgstr "인쇄자 {0} 에서 {1}"
 
-msgid "at"
-msgstr "에서"
+#. TRANSLATORS: {0} is a folder name, {1} the name of the mailbox it lives in
+msgid "{0} of {1}"
+msgstr "{1}의 {0}"
 
-msgid "of"
-msgstr "의"
-
-msgid "Location: "
-msgstr "위치:"
+msgid "Location: {0}"
+msgstr "위치: {0}"
 
 msgid "j M {0}"
 msgstr "j M {0}"
@@ -1370,8 +1375,8 @@ msgstr "j M {0}"
 msgid "l jS M Y {0}"
 msgstr "l jS M Y {0}"
 
-msgid "All day: "
-msgstr "하루 종일:"
+msgid "All day: {0}"
+msgstr "하루 종일: {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1486,8 +1491,14 @@ msgstr "열기"
 msgid "Copy/Move"
 msgstr "복사/이동"
 
+msgid "Mark Read"
+msgstr "마크 읽기"
+
+msgid "Mark Unread"
+msgstr "읽지 않음 표시"
+
 msgid "Send to…"
-msgstr "보내기..."
+msgstr "보내기…"
 
 msgid "Export as"
 msgstr "다른 이름으로 내보내기"
@@ -1503,10 +1514,6 @@ msgstr "약속을 찾을 수 없습니다."
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "이 약속이 이동 또는 삭제되었는데 계속 진행하시겠습니까?"
-
-msgctxt "calendar.contextmenu"
-msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr "‘모두에게 답장’을 사용하여 회의 참가자 전원에게 답장하세요."
 
 msgid "Options"
 msgstr "옵션"
@@ -1598,22 +1605,8 @@ msgstr "정렬 기준: 중요도"
 msgid "Appointments list"
 msgstr "일정 목록"
 
-msgid "Loading appointments"
-msgstr "약속 로드 중"
-
-msgid "Attendees"
-msgstr "참석자"
-
-msgid "Optional attendees"
-msgstr "선택적 참석자"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F {0}"
-msgstr "jS F {0}"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F Y"
-msgstr "jS F Y"
+msgid "Loading appointments…"
+msgstr "약속 로드 중…"
 
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "이 항목을 이동 및 복사할 수 있는 권한이 부족합니다. 폴더 소유자에게 권한을 부여해 달라고 요청하거나 시스템 관리자에게 문의하세요."
@@ -1655,7 +1648,7 @@ msgid "Next"
 msgstr "다음"
 
 msgid "grommunio Web"
-msgstr "그로뮤니오 웹"
+msgstr "grommunio Web"
 
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer. Would you like to move this meeting?"
 msgstr "주최자가 이 미팅 요청을 업데이트할 때 변경 사항을 덮어쓰게 된다는 점에 유의하세요. 이 미팅을 옮기시겠습니까?"
@@ -1696,8 +1689,18 @@ msgstr "캘린더가 자동으로 업데이트되었습니다. 이제 이 미팅
 msgid "New appointment subject"
 msgstr "새 약속 제목"
 
-msgid "Loading appointments…"
-msgstr "약속 로드 중..."
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "jS F Y"
+
+msgid "Online meeting"
+msgstr "온라인 회의"
+
+msgid "Attendees"
+msgstr "참석자"
+
+msgid "Optional attendees"
+msgstr "선택적 참석자"
 
 msgid "Please select a calendar via widget settings"
 msgstr "위젯 설정을 통해 캘린더를 선택하세요."
@@ -1715,10 +1718,10 @@ msgid "Upcoming Appointments"
 msgstr "예정된 약속"
 
 msgid "Appointments of {0}"
-msgstr "0}의 약속"
+msgstr "{0}의 약속"
 
 msgid "Appointments of {0} - {1}"
-msgstr "0} - {1}의 약속"
+msgstr "{0} - {1}의 약속"
 
 msgid "No appointments"
 msgstr "약속 없음"
@@ -1747,7 +1750,7 @@ msgid "d/m/y"
 msgstr "d/m/y"
 
 msgid "Select one…"
-msgstr "하나 선택..."
+msgstr "하나 선택…"
 
 msgid "Unnamed folder"
 msgstr "이름 없는 폴더"
@@ -1764,8 +1767,8 @@ msgstr "여러 항목의 인쇄가 구현되지 않았습니다."
 msgid "Printing of this item is not yet available"
 msgstr "이 항목의 인쇄는 아직 사용할 수 없습니다."
 
-msgid "Item type: "
-msgstr "항목 유형:"
+msgid "Item type: {0}"
+msgstr "항목 유형: {0}"
 
 msgid "Printing of this view is not yet available"
 msgstr "이 보기의 인쇄는 아직 사용할 수 없습니다."
@@ -1819,7 +1822,7 @@ msgid "Paste this occurrence only"
 msgstr "이 발생만 붙여넣기"
 
 msgid "Paste the series…"
-msgstr "시리즈 붙여넣기..."
+msgstr "시리즈 붙여넣기…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "반복되는 메시지입니다. 이 발생만 삭제하시겠습니까, 아니면 시리즈 전체를 삭제하시겠습니까?"
@@ -1860,6 +1863,10 @@ msgstr "권한 부족"
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr "이 폴더의 항목을 삭제할 수 있는 권한이 부족합니다."
 
+msgid "You have insufficient privileges to delete one of the selected items."
+msgid_plural "You have insufficient privileges to delete {0} of the selected items."
+msgstr[0] "선택한 항목 중 {0}개를 삭제할 수 있는 권한이 부족합니다."
+
 msgid "Notify recipients"
 msgstr "수신자에게 알림"
 
@@ -1896,6 +1903,12 @@ msgstr "중복 수신자"
 msgid "Recipient already exists."
 msgstr "수신자가 이미 존재합니다."
 
+msgid "Remove attachment"
+msgstr "첨부 파일 제거"
+
+msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
+msgstr "이 메시지에서 '{0}'을(를) 제거하시겠습니까? 제거한 첨부 파일은 복원할 수 없습니다."
+
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "이 이메일의 발신자가 읽음 영수증을 요청했습니다. 발신자에게 알림을 보내시겠습니까?"
 
@@ -1924,18 +1937,18 @@ msgid "Untitled"
 msgstr "제목 없음"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "첨부 파일을 저장할 수 없습니다."
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
+msgstr[0] "다음 첨부 파일을 저장하지 못했습니다: {0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
+msgstr[0] "첨부 파일 {0}개를 저장했습니다."
 
 msgid "Save attachments"
-msgstr ""
+msgstr "첨부 파일 저장"
 
 msgid "Insert item"
 msgstr "항목 삽입"
@@ -1983,7 +1996,7 @@ msgid "Preview"
 msgstr "미리 보기"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "대화 상자에서 미리 보기"
 
 msgid "Download"
 msgstr "다운로드"
@@ -1992,7 +2005,7 @@ msgid "Download all as ZIP"
 msgstr "모두 ZIP으로 다운로드"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "선택 항목을 폴더에 저장"
 
 msgid "Import to folder"
 msgstr "폴더로 가져오기"
@@ -2004,10 +2017,10 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "ICS/VCS 가져오기 기능을 사용하려면 Gromox를 버전 0 이상으로 업그레이드하세요."
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "grommunio Web 탭에서 미리 보기"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "브라우저 창에서 미리 보기"
 
 msgid "Attachment error"
 msgstr "첨부 파일 오류"
@@ -2021,14 +2034,8 @@ msgstr "다운로드할 수 없습니다."
 msgid "Drop files here to attach them"
 msgstr "첨부할 파일을 여기에 끌어다 놓으세요"
 
-msgid "Picture format is not supported. "
-msgstr "사진 형식은 지원되지 않습니다."
-
-msgid "Supported format for contact pictures are"
-msgstr "연락처 사진에 지원되는 형식은 다음과 같습니다."
-
-msgid "Attachment Error"
-msgstr "첨부 파일 오류"
+msgid "Picture format is not supported. Supported format for contact pictures are"
+msgstr "사진 형식은 지원되지 않습니다. 연락처 사진에 지원되는 형식은 다음과 같습니다."
 
 msgid "Could not save the category list."
 msgstr "카테고리 목록을 저장할 수 없습니다."
@@ -2057,8 +2064,8 @@ msgstr "\"{0}\" 카테고리를 삭제하시겠습니까? 다른 항목은 이 �
 msgid "Rename Category"
 msgstr "카테고리 이름 바꾸기"
 
-msgid "A category named \""
-msgstr "\""
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "이미 '{0}'이라는 카테고리가 있습니다. 다른 이름을 사용하세요."
 
 msgid "Create New Category"
 msgstr "새 카테고리 만들기"
@@ -2074,9 +2081,6 @@ msgstr "만들기"
 
 msgid "You must apply the changes you have made to the categories before you can create this category."
 msgstr "이 카테고리를 만들려면 먼저 카테고리에 변경한 내용을 적용해야 합니다."
-
-msgid "You already have a category named '{0}'. Please use another name."
-msgstr "이미 '{0}'이라는 카테고리가 있습니다. 다른 이름을 사용하세요."
 
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
 msgstr "보류 중인 변경 사항에 '{0}'이라는 이름의 카테고리가 이미 있습니다. 다른 이름을 사용하세요."
@@ -2175,7 +2179,7 @@ msgid "Delegates can send items on your behalf."
 msgstr "대리인이 회원님을 대신하여 항목을 보낼 수 있습니다."
 
 msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
-msgstr "폴더 권한만 설정하려면 폴더를 마우스 오른쪽 버튼으로 클릭하여 상황에 맞는 메뉴를 열고 \"폴더 공유...\"를 클릭합니다."
+msgstr "폴더 권한만 설정하려면 폴더를 마우스 오른쪽 버튼으로 클릭하여 상황에 맞는 메뉴를 열고 \"폴더 공유…\"를 클릭합니다."
 
 msgid "Permission"
 msgstr "권한"
@@ -2197,10 +2201,13 @@ msgstr "대상 폴더"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
-msgstr[0] "0} 메시지가 선택되었습니다."
+msgstr[0] "{0}개의 메시지가 선택되었습니다."
 
 msgid "Folder '{0}' selected."
 msgstr "폴더 '{0}'이 선택되었습니다."
+
+msgid "Suggested folders"
+msgstr "제안된 폴더"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "선택한 항목은 다른 유형의 콘텐츠를 저장하는 이 폴더로 이동할 수 없습니다."
@@ -2397,6 +2404,9 @@ msgstr "마지막 작업 실행 취소"
 msgid "Redo the last undone action"
 msgstr "마지막으로 실행 취소한 작업 다시 실행"
 
+msgid "Jump to the search box, press again for the browser search"
+msgstr "검색 상자로 이동, 다시 누르면 브라우저 검색"
+
 msgid "Open the command palette"
 msgstr "명령 팔레트 열기"
 
@@ -2451,8 +2461,77 @@ msgstr "정렬 기준: context.mail.gridefaultcolumn"
 msgid "ZDeveloper"
 msgstr "Z개발자"
 
+msgid "Presentation"
+msgstr "프레젠테이션"
+
+msgid "Fullscreen"
+msgstr "전체 화면"
+
+msgid "Previous page"
+msgstr "이전 페이지"
+
+msgid "Next page"
+msgstr "다음 페이지"
+
+msgid "Page:"
+msgstr "페이지:"
+
+msgid "of {0}"
+msgstr "/ {0}"
+
+msgid "Zoom out"
+msgstr "축소"
+
+msgid "Zoom in"
+msgstr "확대"
+
+msgid "Zoom"
+msgstr "확대/축소"
+
+msgid "Automatic"
+msgstr "자동"
+
+msgid "Actual size"
+msgstr "실제 크기"
+
+msgid "Page width"
+msgstr "페이지 너비"
+
+msgid "Rotate left"
+msgstr "왼쪽으로 회전"
+
+msgid "Rotate right"
+msgstr "오른쪽으로 회전"
+
+msgid "This document could not be previewed."
+msgstr "이 문서를 미리 볼 수 없습니다."
+
+msgid "This file cannot be previewed."
+msgstr "이 파일은 미리 보기를 지원하지 않습니다."
+
+msgid "Download the file to open it with a program that can read it."
+msgstr "파일을 다운로드하여 이 파일을 읽을 수 있는 프로그램에서 여세요."
+
+msgid "The document is empty."
+msgstr "문서가 비어 있습니다."
+
+msgid "This sheet is empty."
+msgstr "이 시트가 비어 있습니다."
+
+msgid "Showing the first {0} rows and {1} columns."
+msgstr "처음 {0}개 행과 {1}개 열만 표시합니다."
+
+msgid "Wrap lines"
+msgstr "자동 줄 바꿈"
+
+msgid "Line numbers"
+msgstr "줄 번호"
+
+msgid "This message has no content."
+msgstr "이 메시지에는 내용이 없습니다."
+
 msgid "grommunio Web print"
-msgstr "그로뮤니오 웹 인쇄"
+msgstr "grommunio Web 인쇄"
 
 msgid "Display name"
 msgstr "표시 이름"
@@ -2506,7 +2585,7 @@ msgid "last"
 msgstr "마지막"
 
 msgid "Every {A} day(s)"
-msgstr "A}일마다"
+msgstr "{A}일마다"
 
 msgid "Every weekday"
 msgstr "매주 평일"
@@ -2518,7 +2597,7 @@ msgid "Day {A} of every {B} month(s)"
 msgstr "매월 {B}월의 {A}일"
 
 msgid "The {A} {B} of every {C} month(s)"
-msgstr "A} {C} 개월마다 {B} 개월"
+msgstr "{C}개월마다 {A} {B}"
 
 msgid "Regenerate new task {A} month(s) after each task is completed"
 msgstr "각 작업이 완료된 후 {A}월에 새 작업 재생성"
@@ -2557,7 +2636,7 @@ msgid "No end date"
 msgstr "종료 날짜 없음"
 
 msgid "End after {A} occurrences"
-msgstr "A} 발생 후 종료"
+msgstr "{A}회 발생 후 종료"
 
 msgid "End by {A}"
 msgstr "끝 {A}로 끝"
@@ -2573,14 +2652,14 @@ msgstr "매주 {A}주마다"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "각 작업이 완료된 후 {A} 주에 새 작업 재생성"
 
-msgid "Every {A} years(s) on"
+msgid "Every {A} year(s) on"
 msgstr "매 {A}년마다"
 
 msgid "{A} {B}"
 msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
-msgstr "A} {C}의 {B}"
+msgstr "{C}의 {A} {B}"
 
 msgid "Regenerate new task {A} year(s) after each task is completed"
 msgstr "각 작업이 완료된 후 {A} 연도에 새 작업 재생성"
@@ -2593,7 +2672,7 @@ msgstr "현재 지원되지 않습니다."
 
 msgid "There is {0} reminder"
 msgid_plural "There are {0} reminders"
-msgstr[0] "0} 알림이 있습니다."
+msgstr[0] "{0}개의 미리 알림이 있습니다."
 
 msgid "Reminders"
 msgstr "리마인더"
@@ -2696,52 +2775,52 @@ msgid "Sort by: Size"
 msgstr "정렬 기준: 크기"
 
 msgid "Move the message to folder…"
-msgstr "메시지를 폴더로 이동..."
+msgstr "메시지를 폴더로 이동…"
 
 msgid "Copy the message to folder…"
-msgstr "메시지를 폴더에 복사..."
+msgstr "메시지를 폴더에 복사…"
 
 msgid "Delete the message"
 msgstr "메시지 삭제"
 
 msgid "Redirect the message to…"
-msgstr "메시지 리디렉션 대상..."
+msgstr "메시지 리디렉션 대상…"
 
 msgid "Forward the message to…"
-msgstr "메시지 전달 대상..."
+msgstr "메시지 전달 대상…"
 
 msgid "Forward the message as attachment to…"
-msgstr "메시지를 첨부 파일로 다음 주소로 전달..."
+msgstr "메시지를 첨부 파일로 다음 주소로 전달…"
 
 msgid "Mark the message as read…"
-msgstr "메시지를 읽음으로 표시..."
+msgstr "메시지를 읽음으로 표시…"
 
 msgid "is received from…"
-msgstr "에서 수신됩니다..."
+msgstr "에서 수신됩니다…"
 
 msgid "includes these words in the sender's address…"
-msgstr "발신자 주소에 이러한 단어가 포함되어 있습니다..."
+msgstr "발신자 주소에 이러한 단어가 포함되어 있습니다…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "수신자 주소에 이러한 단어가 포함되어 있습니다..."
+msgstr "수신자 주소에 이러한 단어가 포함되어 있습니다…"
 
 msgid "includes these words in the subject…"
-msgstr "제목에 이러한 단어가 포함되어 있습니다..."
+msgstr "제목에 이러한 단어가 포함되어 있습니다…"
 
 msgid "includes these words in the body…"
-msgstr "본문에 이러한 단어가 포함되어 있습니다..."
+msgstr "본문에 이러한 단어가 포함되어 있습니다…"
 
 msgid "includes these words in the transport headers…"
-msgstr "전송 헤더에 이러한 단어가 포함되어 있습니다..."
+msgstr "전송 헤더에 이러한 단어가 포함되어 있습니다…"
 
 msgid "has importance…"
-msgstr "중요성이 있습니다..."
+msgstr "중요성이 있습니다…"
 
 msgid "has an attachment"
 msgstr "첨부 파일이 있습니다."
 
 msgid "is sent to…"
-msgstr "로 전송됩니다..."
+msgstr "로 전송됩니다…"
 
 msgid "is sent only to me"
 msgstr "나에게만 전송됩니다."
@@ -2756,19 +2835,19 @@ msgid "has my name in the To or Cc field"
 msgstr "받는 사람 또는 참조 필드에 내 이름이 있습니다."
 
 msgid "has sensitivity…"
-msgstr "감도가 있습니다..."
+msgstr "감도가 있습니다…"
 
 msgid "is received after…"
-msgstr "이후에 수신됩니다..."
+msgstr "이후에 수신됩니다…"
 
 msgid "is received before…"
-msgstr "가 수신되기 전에..."
+msgstr "가 수신되기 전에…"
 
 msgid "size is at least…"
-msgstr "크기는 적어도..."
+msgstr "크기는 적어도…"
 
 msgid "size is at most…"
-msgstr "크기는 기껏해야..."
+msgstr "크기는 기껏해야…"
 
 msgid "has my name in the To field"
 msgstr "받는 사람 필드에 내 이름이 있습니다."
@@ -2897,7 +2976,13 @@ msgid "Always move messages with this subject"
 msgstr "항상 이 제목으로 메시지를 이동합니다."
 
 msgid "Create rule…"
-msgstr "규칙 만들기..."
+msgstr "규칙 만들기…"
+
+msgid "Saved"
+msgstr "저장됨"
+
+msgid "Saved successfully"
+msgstr "저장 성공"
 
 msgid "myself"
 msgstr "나 자신"
@@ -2939,7 +3024,7 @@ msgid "All folders"
 msgstr "모든 폴더"
 
 msgid "Other…"
-msgstr "기타..."
+msgstr "기타…"
 
 msgid "Search"
 msgstr "검색"
@@ -3001,8 +3086,10 @@ msgstr "새 메일에 대한 데스크톱 알림 사용 설정"
 msgid "Enable desktop notifications for reminders"
 msgstr "미리 알림에 대한 데스크톱 알림 사용"
 
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A} 초 후 바탕 화면 알림 자동 숨기기 {B}"
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Auto-hide desktop notification after {B} second(s)"
+msgstr "{A}{B}초 후 데스크톱 알림 자동 숨기기"
 
 msgid "Disable sound"
 msgstr "사운드 비활성화"
@@ -3095,9 +3182,6 @@ msgstr "{0} 기한 초과"
 msgid "Message body editor"
 msgstr "메시지 본문 편집기"
 
-msgid "Loading…"
-msgstr "로드 중..."
-
 msgid "Message could not be loaded"
 msgstr "메시지를 로드할 수 없습니다."
 
@@ -3134,7 +3218,7 @@ msgstr "이를 {0}으로 처리해 주세요."
 
 msgctxt "mail.previewpanel"
 msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "사진을 다운로드하려면 여기를 클릭하세요. 개인정보 보호를 위해 그로뮤니오 웹에서는 이 메시지에 포함된 일부 사진의 자동 다운로드를 차단했습니다."
+msgstr "사진을 다운로드하려면 여기를 클릭하세요. 개인정보 보호를 위해 grommunio Web에서는 이 메시지에 포함된 일부 사진의 자동 다운로드를 차단했습니다."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3210,7 +3294,7 @@ msgstr "이전에 보낸 미팅 요청을 업데이트한 것입니다."
 
 msgctxt "mail.previewpanel"
 msgid "Received for {0}."
-msgstr "0}에 대해 수신했습니다."
+msgstr "{0}을(를) 대신하여 수신했습니다."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message."
@@ -3222,32 +3306,32 @@ msgstr "이 메시지를 전달했습니다."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr "0}에서 이 메시지에 답장했습니다."
+msgstr "{0}에 이 메시지에 답장했습니다."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
 msgstr "이 메시지를 {0}에서 전달했습니다."
 
 msgid "Assigned by {0} on {1}."
-msgstr "0}이 {1}에 할당했습니다."
+msgstr "{0}이(가) {1}에 할당했습니다."
 
 msgid "Waiting for response from recipient"
 msgstr "수신자의 응답을 기다리는 중"
 
 msgid "Accepted by {0} on {1}."
-msgstr "1}에서 {0}이 수락했습니다."
+msgstr "{0}이(가) {1}에 수락했습니다."
 
 msgid "{0} has accepted on behalf of {1} {2}."
 msgstr "{0}이(가) {1}을(를) 대신하여 수락했습니다. {2}."
 
 msgid "Declined by {0} on {1}."
-msgstr "1}에서 {0}이 거부했습니다."
+msgstr "{0}이(가) {1}에 거부했습니다."
 
 msgid "{0} has declined on behalf of {1} {2}."
 msgstr "{0}이(가) {1}을(를) 대신하여 거부했습니다. {2}."
 
 msgid "Last update sent on {0}."
-msgstr "0}에서 보낸 마지막 업데이트입니다."
+msgstr "{0}에 마지막 업데이트를 보냈습니다."
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0}이(가) {1}을(를) 대신하여 업데이트했습니다. {2}."
@@ -3312,6 +3396,27 @@ msgstr "읽지 않음으로 표시"
 
 msgid "in"
 msgstr "in"
+
+msgid "Digitally sign this message"
+msgstr "이 메시지에 디지털 서명"
+
+msgid "Encrypt this message"
+msgstr "이 메시지 암호화"
+
+msgid "Autosave is paused while encryption is selected."
+msgstr "암호화를 선택하면 자동 저장이 일시 중지됩니다."
+
+msgid "Turn off {0} signing and encryption first."
+msgstr "먼저 {0} 서명 및 암호화를 해제하세요."
+
+msgid "options"
+msgstr "옵션"
+
+msgid "Sign"
+msgstr "서명"
+
+msgid "Encrypt"
+msgstr "암호화"
 
 msgid "Root"
 msgstr "루트"
@@ -3552,9 +3657,6 @@ msgstr "지역 번호"
 msgid "Extension"
 msgstr "확장"
 
-msgid "Add Attachment"
-msgstr "첨부 파일 추가"
-
 msgid "Add attachments to this contact"
 msgstr "이 연락처에 첨부파일 추가"
 
@@ -3580,7 +3682,7 @@ msgid "Add New"
 msgstr "신규 추가"
 
 msgid "Type your note here…"
-msgstr "여기에 메모를 입력하세요..."
+msgstr "여기에 메모를 입력하세요…"
 
 msgid "New contact"
 msgstr "새 연락처"
@@ -3757,7 +3859,7 @@ msgid "Open in new browser window"
 msgstr "새 브라우저 창에서 열기"
 
 msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
-msgstr "브라우저가 하나 이상의 팝업을 차단한 것 같습니다. 브라우저 설정을 변경하여 그로뮤니오 웹의 팝업을 항상 허용하세요."
+msgstr "브라우저가 하나 이상의 팝업을 차단한 것 같습니다. 브라우저 설정을 변경하여 grommunio Web의 팝업을 항상 허용하세요."
 
 msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "첨부 파일을 업로드할 수 없습니다. 메시지에 {0}개의 첨부 파일만 추가할 수 있습니다."
@@ -4004,9 +4106,6 @@ msgstr "밝음"
 msgid "Dark"
 msgstr "Dark"
 
-msgid "Automatic"
-msgstr "자동"
-
 msgid "Main toolbar"
 msgstr "메인 툴바"
 
@@ -4035,7 +4134,7 @@ msgid "Widgets"
 msgstr "위젯"
 
 msgid "Sending…"
-msgstr "보내기..."
+msgstr "보내기…"
 
 msgid "Sent successfully"
 msgstr "전송 성공"
@@ -4088,26 +4187,20 @@ msgstr "계층 구조 확장"
 msgid "Folders List"
 msgstr "폴더 목록"
 
+msgid "Loaded {0} of {1}"
+msgstr "{1}개 중 {0}개 로드됨"
+
 msgid "Copy Details"
 msgstr "세부 정보 복사"
 
 msgid "Hide Details"
 msgstr "세부 정보 숨기기"
 
-msgid "Loaded {0} of {1}"
-msgstr "1}의 {0}을 로드했습니다."
-
 msgid "Copied!"
 msgstr "복사 완료!"
 
-msgid "Saving"
-msgstr "저장"
-
-msgid "Saved"
-msgstr "저장됨"
-
-msgid "Saved successfully"
-msgstr "저장 성공"
+msgid "Saving…"
+msgstr "저장…"
 
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr "저장하지 않은 모든 작업이 손실됩니다. 이 창을 닫으시겠습니까?"
@@ -4125,7 +4218,7 @@ msgid "Unsaved changes"
 msgstr "저장되지 않은 변경 사항"
 
 msgid "Welcome to grommunio Web"
-msgstr "그로뮤니오 웹에 오신 것을 환영합니다."
+msgstr "grommunio Web에 오신 것을 환영합니다."
 
 msgid "Set up your preferences to get started."
 msgstr "시작하려면 환경설정을 설정하세요."
@@ -4193,14 +4286,130 @@ msgstr "D d-m"
 msgid "D d-m G:i"
 msgstr "D d-m G:i"
 
+msgid "Click the link to open the URL in a new window."
+msgstr "링크를 클릭하면 URL이 새 창에서 열립니다."
+
+msgid "The server reported an unknown error on your request."
+msgstr "서버가 요청에 대해 알 수 없는 오류를 보고했습니다."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "서버가 요청에 대해 지정되지 않은 오류를 보고했습니다."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "세션이 만료되었으므로 재인증이 필요합니다."
+
+msgid "The session in the current browser window has been closed from another browser window or tab."
+msgstr "현재 브라우저 창의 세션이 다른 브라우저 창이나 탭에서 닫혔습니다."
+
+msgid "Session expired"
+msgstr "세션이 만료되었습니다."
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "로그온 페이지로 리디렉션되기를 원하시나요?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr "재인증이 필요합니다. 로그인 페이지로 돌아가려면 여기를 클릭하세요."
+
+msgid "Connection problem"
+msgstr "연결 문제"
+
+msgid "Could not connect to server, retrying in {0} second"
+msgid_plural "Could not connect to server, retrying in {0} seconds"
+msgstr[0] "서버에 연결할 수 없습니다, {0}초 후에 다시 시도합니다."
+
+msgid "Click to retry now"
+msgstr "지금 다시 시도하려면 클릭하세요."
+
+msgid "Connection restored"
+msgstr "연결이 복원되었습니다."
+
+msgid "Connection with server has been restored"
+msgstr "서버와의 연결이 복원되었습니다."
+
+msgid "grommunio Web was updated"
+msgstr "grommunio Web이 업데이트되었습니다"
+
+msgid "A new version is available, click here to reload."
+msgstr "새 버전을 사용할 수 있습니다. 다시 로드하려면 여기를 클릭하세요."
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr "HTTP {0}"
+
+msgid "Invalid data received from the server"
+msgstr "서버에서 수신한 유효하지 않은 데이터"
+
+msgid "Missing store"
+msgstr "누락된 스토어"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "기본 스토어가 계층 구조에서 누락되었습니다."
+
+msgid "Not all functionality of grommunio Web might be working properly because of this."
+msgstr "이로 인해 grommunio Web의 모든 기능이 제대로 작동하지 않을 수 있습니다."
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "받은 편지함"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "받은 편지함"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "보낸 항목"
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "삭제된 항목"
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "캘린더"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "연락처"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "초안"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "저널"
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "참고"
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "작업"
+
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "정크 이메일"
+
+msgid "Missing folders"
+msgstr "누락된 폴더"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "계층 구조에 다음 필수 폴더가 없습니다: {0}"
+
+msgid "Loading model from server failed"
+msgstr "서버에서 모델을 로드하지 못했습니다."
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "부재 중이 현재 활성화되어 있습니다. 해제하시겠습니까?"
+
 msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
 msgstr "이 스토어를 열 수 있는 권한이 부족하여 계층 구조에서 제거하시겠습니까?"
 
 msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
 msgstr "이 폴더를 열 수 있는 권한이 부족하여 계층 구조에서 폴더를 제거하시겠습니까?"
-
-msgid "Insufficient Permissions"
-msgstr "권한 부족"
 
 msgid "Not enough permissions to open this folder."
 msgstr "이 폴더를 열 수 있는 권한이 부족합니다."
@@ -4209,17 +4418,17 @@ msgid "Empty folder"
 msgstr "빈 폴더"
 
 msgid "Emptying {0}… (0%)"
-msgstr "비우기 {0}... (0%)"
+msgstr "비우기 {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "성공적으로 비워짐 {0}. ({1} 항목 제거됨 )"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "비우기 {0}... ({1}%)"
+msgstr "비우기 {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
-msgstr[0] "2}의 {1} 폴더에 {0} 읽지 않은 메시지가 있습니다."
+msgstr[0] "{2}의 폴더 {1}에 읽지 않은 메시지가 {0}개 있습니다."
 
 msgid "There is {0} unread message in the folder {1}"
 msgid_plural "There are {0} unread messages in the folder {1}"
@@ -4315,7 +4524,7 @@ msgid "Folder size"
 msgstr "폴더 크기"
 
 msgid "Folder containing {0} Items"
-msgstr "0} 항목이 들어 있는 폴더"
+msgstr "{0} 항목이 들어 있는 폴더"
 
 msgid "Permissions"
 msgstr "권한"
@@ -4489,7 +4698,7 @@ msgid "Remove From Favorites"
 msgstr "즐겨찾기에서 제거"
 
 msgid "Share folder…"
-msgstr "폴더 공유..."
+msgstr "폴더 공유…"
 
 msgid "Import emails"
 msgstr "이메일 가져오기"
@@ -4501,13 +4710,13 @@ msgid "Import contacts"
 msgstr "연락처 가져오기"
 
 msgid "Properties of {0}"
-msgstr "0}의 속성"
+msgstr "{0}의 속성"
 
 msgid "Share {0} with…"
-msgstr "0} 공유 대상..."
+msgstr "{0} 공유 대상…"
 
 msgid "Properties of {0} - {1}"
-msgstr "0} - {1}의 속성"
+msgstr "{0} - {1}의 속성"
 
 msgid "Are you sure you want to permanently delete all the items and subfolders in the \"{0}\" folder?"
 msgstr "\"{0}\" 폴더의 모든 항목과 하위 폴더를 영구적으로 삭제하시겠습니까?"
@@ -4519,7 +4728,7 @@ msgid "Delete folder"
 msgstr "폴더 삭제"
 
 msgid "Are you sure you want to empty {0}?"
-msgstr "0}을 비우시겠습니까?"
+msgstr "{0}을(를) 비우시겠습니까?"
 
 msgid "Show All"
 msgstr "모두 보기"
@@ -4529,6 +4738,15 @@ msgstr "폴더 필터"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "이 폴더를 이동할 수 있는 권한이 부족합니다. 대신 복사하시겠습니까?"
+
+msgid "Enable OpenPGP before replying to this protected message."
+msgstr "보호된 이 메시지에 응답하려면 먼저 OpenPGP를 사용 설정하세요."
+
+msgid "The protected message could not be opened. No reply or forward was created."
+msgstr "보호된 메시지를 열 수 없습니다. 답장이나 전달 메시지가 생성되지 않았습니다."
+
+msgid "Unable to open response"
+msgstr "응답 메시지를 열 수 없음"
 
 msgid "CC"
 msgstr "CC"
@@ -4558,8 +4776,8 @@ msgstr "메일 발송 예약"
 msgid "Scheduled Items"
 msgstr "예약된 항목"
 
-msgid "Your message will be sent at "
-msgstr "메시지는 다음 주소로 전송됩니다."
+msgid "Your message will be sent at {0}."
+msgstr "메시지가 다음 시간에 전송됩니다: {0}."
 
 msgid "Go to your Outbox to edit your email."
 msgstr "받은 편지함으로 이동하여 이메일을 수정합니다."
@@ -4576,23 +4794,19 @@ msgstr "특정 시간에"
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "입력하신 시간이 지났습니다. 메일 일정을 다시 잡으세요."
 
-msgid "today  at "
-msgstr "오늘"
+msgid "Your email will be sent today at {0}"
+msgstr "이메일이 오늘 {0}에 전송됩니다."
 
-msgid "tomorrow  at "
-msgstr "내일"
+msgid "Your email will be sent tomorrow at {0}"
+msgstr "이메일이 내일 {0}에 전송됩니다."
 
-msgid "{0} at "
-msgstr "{0}에서"
+#. TRANSLATORS: {0} is a weekday name, {1} a time of day
+msgid "Your email will be sent {0} at {1}"
+msgstr "이메일이 {0} {1}에 전송됩니다."
 
-msgid "at {0}"
-msgstr "at {0}"
-
-msgid "Your email will be sent {0}{1}"
-msgstr "이메일이 {0}{1}로 전송됩니다."
-
-msgid "Saving…"
-msgstr "저장..."
+#. TRANSLATORS: {0} is a full date, {1} a time of day
+msgid "Your email will be sent at {0}, {1}"
+msgstr "이메일이 {0} {1}에 전송됩니다."
 
 msgid "Saved at {0}"
 msgstr "{0}에 저장됨"
@@ -4602,6 +4816,10 @@ msgstr "저장 실패"
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "이 메시지는 전송 시 후속 조치를 위해 플래그가 지정됩니다."
+
+#. TRANSLATORS: {0} is the follow-up period, e.g. 'today' or 'next week'
+msgid "This message will be flagged for follow up {0} when it is sent."
+msgstr "이 메시지는 전송 시 {0} 후속 조치를 위해 플래그가 지정됩니다."
 
 msgid "Send Later"
 msgstr "나중에 보내기"
@@ -4669,12 +4887,6 @@ msgstr "카테고리 설정"
 msgid "Pop-Out"
 msgstr "팝아웃"
 
-msgid "Mark Read"
-msgstr "마크 읽기"
-
-msgid "Mark Unread"
-msgstr "읽지 않음 표시"
-
 msgid "New mail"
 msgstr "새 메일"
 
@@ -4701,6 +4913,15 @@ msgstr "선택한 이메일 인쇄"
 
 msgid "Filter"
 msgstr "필터"
+
+msgid "This browser cannot attach the decrypted file. Download it before forwarding."
+msgstr "이 브라우저에서는 해독된 파일을 첨부할 수 없습니다. 전달하기 전에 파일을 다운로드하세요."
+
+msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
+msgstr "해독된 첨부 파일이 업로드 한도를 초과합니다. 불완전한 응답 메시지는 생성되지 않았습니다."
+
+msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
+msgstr "해독된 첨부 파일을 업로드할 수 없습니다. 불완전한 응답 메시지는 생성되지 않았습니다."
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -4780,6 +5001,9 @@ msgstr "첨부파일 알림 활성화"
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A}발송되지 않은 메일을 {B}분마다 자동 저장합니다."
 
+msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
+msgstr "암호화를 선택한 경우에도 자동 저장(초안은 암호화되지 않은 상태로 저장됨)"
+
 msgid "Conversation view settings"
 msgstr "대화 보기 설정"
 
@@ -4852,7 +5076,7 @@ msgid "Open or compose a mail item in a"
 msgstr "에서 메일 항목을 열거나 작성합니다."
 
 msgid "grommunio Web tab"
-msgstr "그로뮤니오 웹 탭"
+msgstr "grommunio Web 탭"
 
 msgid "Browser window"
 msgstr "브라우저 창"
@@ -4960,7 +5184,7 @@ msgid "ZIP file"
 msgstr "ZIP 파일"
 
 msgid "max. "
-msgstr "최대."
+msgstr "최대 "
 
 msgid "Sort by: Sent"
 msgstr "정렬 기준: 보낸"
@@ -5021,9 +5245,6 @@ msgstr "정크 폴더로 이동"
 
 msgid "Not Junk Email"
 msgstr "스팸 메일 아님"
-
-msgid "Send to"
-msgstr "다음 주소로 보내기"
 
 msgid "Message list"
 msgstr "메시지 목록"
@@ -5099,9 +5320,6 @@ msgstr "정렬 기준: 색상"
 msgid "Notes list"
 msgstr "메모 목록"
 
-msgid "Loading Notes"
-msgstr "로딩 메모"
-
 msgid "Loading notes"
 msgstr "노트 로드 중"
 
@@ -5109,10 +5327,10 @@ msgid "Quick Note"
 msgstr "빠른 참고 사항"
 
 msgid "You must reload grommunio Web for the changes to take effect. Unsaved changes will be lost."
-msgstr "변경 사항을 적용하려면 그로뮤니오 웹을 다시 로드해야 합니다. 저장하지 않은 변경 사항은 손실됩니다."
+msgstr "변경 사항을 적용하려면 grommunio Web을 다시 로드해야 합니다. 저장하지 않은 변경 사항은 손실됩니다."
 
 msgid "Reload grommunio Web"
-msgstr "웹 그로밋 로드"
+msgstr "grommunio Web 다시 로드"
 
 msgid "Basic"
 msgstr "기본"
@@ -5154,7 +5372,7 @@ msgid "Developer tools"
 msgstr "개발자 도구"
 
 msgid "Show insertion points in grommunio Web"
-msgstr "그로뮤니오 웹에서 삽입 지점 보기"
+msgstr "grommunio Web에서 삽입 지점 보기"
 
 msgid "Show \"item data\" button in context menu (mail only)"
 msgstr "컨텍스트 메뉴에 '항목 데이터' 버튼 표시(메일 전용)"
@@ -5231,14 +5449,8 @@ msgstr "위젯 패널 숨기기"
 msgid "Auto"
 msgstr "자동"
 
-msgid "Actual size"
-msgstr "실제 크기"
-
-msgid "Page width"
-msgstr "페이지 너비"
-
-msgid "Attachment preview (PDF and Open formats)"
-msgstr "첨부파일 미리 보기(PDF 및 Open 형식)"
+msgid "Preview documents and files in grommunio Web"
+msgstr "grommunio Web에서 문서 및 파일 미리 보기"
 
 msgid "Document default zoom"
 msgstr "문서 기본 확대/축소"
@@ -5247,10 +5459,10 @@ msgid "PDF zoom"
 msgstr "PDF 확대/축소"
 
 msgid "Dialog"
-msgstr ""
+msgstr "대화 상자"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "미리 보기를 열 위치"
 
 msgid "File previewing"
 msgstr "파일 미리 보기"
@@ -5268,13 +5480,13 @@ msgid "Infinite Scroll"
 msgstr "무한 스크롤"
 
 msgid "grommunio Web automatically loads additional items when you scroll down"
-msgstr "아래로 스크롤하면 그로뮤니오 웹이 자동으로 추가 항목을 로드합니다."
+msgstr "아래로 스크롤하면 grommunio Web이 자동으로 추가 항목을 로드합니다."
 
 msgid "grommunio Web displays items on pages and you can use navigation controls to navigate"
-msgstr "그로뮤니오 웹은 페이지에 항목을 표시하고 탐색 컨트롤을 사용하여 탐색할 수 있습니다."
+msgstr "grommunio Web은 페이지에 항목을 표시하고 탐색 컨트롤을 사용하여 탐색할 수 있습니다."
 
 msgid "Load items in blocks of {A}"
-msgstr "A} 블록으로 항목을 로드합니다."
+msgstr "항목을 {A}개 단위로 로드합니다."
 
 msgid "Load {A} items per page."
 msgstr "페이지당 {A}개 항목을 로드합니다."
@@ -5298,7 +5510,7 @@ msgid "Extended shortcuts on"
 msgstr "확장된 바로 가기"
 
 msgid "This change requires a reload of grommunio Web"
-msgstr "이 변경 사항을 적용하려면 그로뮤니오 웹을 다시 로드해야 합니다."
+msgstr "이 변경 사항을 적용하려면 grommunio Web을 다시 로드해야 합니다."
 
 msgid "Plugins"
 msgstr "플러그인"
@@ -5331,13 +5543,13 @@ msgid "You have exceeded hard quota, you can not send or receive mails."
 msgstr "하드 할당량을 초과하여 메일을 보내거나 받을 수 없습니다."
 
 msgid "At {0} you won't be able to send mails."
-msgstr "0}에서는 메일을 보낼 수 없습니다."
+msgstr "{0}에 도달하면 메일을 보낼 수 없습니다."
 
 msgid "You can not send mails as you have exceeded soft quota, at {0} you won't be able to receive mails."
 msgstr "소프트 할당량을 초과했으므로 {0}에서 메일을 받을 수 없으므로 메일을 보낼 수 없습니다."
 
 msgid "At {0} you won't be able to send or receive mails."
-msgstr "0}에서는 메일을 보내거나 받을 수 없습니다."
+msgstr "{0}에 도달하면 메일을 보내거나 받을 수 없습니다."
 
 msgid "You can not send mails as you have exceeded soft quota."
 msgstr "소프트 할당량을 초과했으므로 메일을 보낼 수 없습니다."
@@ -5352,7 +5564,7 @@ msgid "This will close all opened shared stores and resets all settings to the d
 msgstr "이렇게 하면 열려 있는 모든 공유 스토어가 닫히고 모든 설정이 기본값으로 재설정됩니다."
 
 msgid "grommunio Web will automatically reload in order for these changes to take effect"
-msgstr "이러한 변경 사항을 적용하려면 그로뮤니오 웹이 자동으로 다시 로드됩니다."
+msgstr "이러한 변경 사항을 적용하기 위해 grommunio Web이 자동으로 다시 로드됩니다."
 
 msgid "Reset"
 msgstr "초기화"
@@ -5415,20 +5627,41 @@ msgstr "유지 관리"
 msgid "Reset all settings to defaults"
 msgstr "모든 설정을 기본값으로 초기화"
 
+msgid "Migrate legacy categories"
+msgstr "레거시 카테고리 마이그레이션"
+
+msgid "This will scan all folders and migrate the categories assigned to items."
+msgstr "모든 폴더를 검사하여 항목에 할당된 카테고리를 마이그레이션합니다."
+
+msgid "The legacy category settings will remain unchanged."
+msgstr "레거시 카테고리 설정은 변경되지 않습니다."
+
+msgid "Migrate"
+msgstr "마이그레이션"
+
+msgid "Legacy categories migrated successfully."
+msgstr "레거시 카테고리를 성공적으로 마이그레이션했습니다."
+
+msgid "Could not migrate legacy categories."
+msgstr "레거시 카테고리를 마이그레이션할 수 없습니다."
+
 msgid "Changes to assigned task"
 msgstr "할당된 작업의 변경 사항"
 
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr "양수인이 작업을 변경하면 할당된 작업을 덮어쓰게 된다는 점에 유의하세요."
+msgid "Please note that the assigned task will be overwritten when the assignee makes changes."
+msgid_plural "Please note that the assigned tasks will be overwritten when the assignee makes changes."
+msgstr[0] "양수인이 작업을 변경하면 할당된 작업을 덮어쓰게 된다는 점에 유의하세요."
 
 msgid "Delete confirmation"
 msgstr "확인 삭제"
 
-msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr "항목을 삭제하면 원래 항목도 삭제됩니다."
+msgid "Deleting the item will also delete the original item."
+msgid_plural "Deleting the items will also delete the original items."
+msgstr[0] "항목을 삭제하면 원래 항목도 삭제됩니다."
 
-msgid "Do you want to delete the item(s)?"
-msgstr "항목을 삭제하시겠습니까?"
+msgid "Do you want to delete the item?"
+msgid_plural "Do you want to delete the items?"
+msgstr[0] "항목을 삭제하시겠습니까?"
 
 msgid "Sort by: Priority"
 msgstr "정렬 기준: 우선순위"
@@ -5565,12 +5798,12 @@ msgstr "새 작업"
 msgid "Completed"
 msgstr "완료"
 
-msgid "Printed by: "
-msgstr "인쇄자"
+msgid "Printed by: {0}"
+msgstr "인쇄자: {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "Printed on: "
-msgstr "인쇄됨:"
+#. TRANSLATORS: {0} is the date the list was printed on
+msgid "Printed on: {0}"
+msgstr "인쇄일: {0}"
 
 msgid "Percent complete"
 msgstr "완료 비율"
@@ -5682,124 +5915,6 @@ msgstr "작업이 없습니다."
 
 msgid "Tasks / To-Do"
 msgstr "작업 / 할 일"
-
-msgid "Click the link to open the URL in a new window."
-msgstr "링크를 클릭하면 URL이 새 창에서 열립니다."
-
-msgid "The server reported an unknown error on your request."
-msgstr "서버가 요청에 대해 알 수 없는 오류를 보고했습니다."
-
-msgid "The server reported an unspecified error on your request."
-msgstr "서버가 요청에 대해 지정되지 않은 오류를 보고했습니다."
-
-msgid "The session has expired, reauthentication is required."
-msgstr "세션이 만료되었으므로 재인증이 필요합니다."
-
-msgid "The session in the current browser window has been closed from another browser window or tab."
-msgstr "현재 브라우저 창의 세션이 다른 브라우저 창이나 탭에서 닫혔습니다."
-
-msgid "Session expired"
-msgstr "세션이 만료되었습니다."
-
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "로그온 페이지로 리디렉션되기를 원하시나요?"
-
-msgid "Reauthentication required, click here to go to back to logon page."
-msgstr "재인증이 필요합니다. 로그인 페이지로 돌아가려면 여기를 클릭하세요."
-
-msgid "Connection problem"
-msgstr "연결 문제"
-
-msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr "서버에 연결할 수 없습니다, {0}초 후에 다시 시도합니다."
-
-msgid "Click to retry now"
-msgstr "지금 다시 시도하려면 클릭하세요."
-
-msgid "Connection restored"
-msgstr "연결이 복원되었습니다."
-
-msgid "Connection with server has been restored"
-msgstr "서버와의 연결이 복원되었습니다."
-
-msgid "grommunio Web was updated"
-msgstr "grommunio Web이 업데이트되었습니다"
-
-msgid "A new version is available, click here to reload."
-msgstr "새 버전을 사용할 수 있습니다. 다시 로드하려면 여기를 클릭하세요."
-
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
-
-msgid "Invalid data received from the server"
-msgstr "서버에서 수신한 유효하지 않은 데이터"
-
-msgid "Missing store"
-msgstr "누락된 스토어"
-
-msgid "The default store is missing from the hierarchy."
-msgstr "기본 스토어가 계층 구조에서 누락되었습니다."
-
-msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "이로 인해 그로뮤니오 웹의 모든 기능이 제대로 작동하지 않을 수 있습니다."
-
-msgctxt "hierarchy.foldername"
-msgid "Inbox"
-msgstr "받은 편지함"
-
-msgctxt "hierarchy.foldername"
-msgid "Outbox"
-msgstr "받은 편지함"
-
-msgctxt "hierarchy.foldername"
-msgid "Sent Items"
-msgstr "보낸 항목"
-
-msgctxt "hierarchy.foldername"
-msgid "Deleted items"
-msgstr "삭제된 항목"
-
-msgctxt "hierarchy.foldername"
-msgid "Calendar"
-msgstr "캘린더"
-
-msgctxt "hierarchy.foldername"
-msgid "Contacts"
-msgstr "연락처"
-
-msgctxt "hierarchy.foldername"
-msgid "Drafts"
-msgstr "초안"
-
-msgctxt "hierarchy.foldername"
-msgid "Journal"
-msgstr "저널"
-
-msgctxt "hierarchy.foldername"
-msgid "Notes"
-msgstr "참고"
-
-msgctxt "hierarchy.foldername"
-msgid "Tasks"
-msgstr "작업"
-
-msgctxt "hierarchy.foldername"
-msgid "Junk Email"
-msgstr "정크 이메일"
-
-msgid "Missing folders"
-msgstr "누락된 폴더"
-
-msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] "계층 구조에 다음 필수 폴더가 없습니다: {0}"
-
-msgid "Loading model from server failed"
-msgstr "서버에서 모델을 로드하지 못했습니다."
-
-msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr "부재 중이 현재 활성화되어 있습니다. 해제하시겠습니까?"
 
 msgid "AI Assistant"
 msgstr "AI 어시스턴트"
@@ -6065,6 +6180,9 @@ msgstr "생각 중…"
 msgid "The response was interrupted and may be incomplete."
 msgstr "응답이 중단되어 불완전할 수 있습니다."
 
+msgid "The answer reached the output limit configured for this model and stops here."
+msgstr "이 모델에 구성된 출력 한도에 도달하여 답변이 여기서 중단됩니다."
+
 msgid "Insert at cursor"
 msgstr "커서 위치에 삽입"
 
@@ -6168,7 +6286,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "공유 링크가 1개 이상 존재합니다. 최신 링크만 표시"
 
 msgid "Loading details…"
-msgstr "세부 정보 로드 중..."
+msgstr "세부 정보 로드 중…"
 
 msgid "Files: Seafile Backend"
 msgstr "파일: 씨파일 백엔드"
@@ -6185,32 +6303,26 @@ msgstr "클립보드"
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr "링크를 자동으로 복사할 수 없습니다. 수동으로 복사해 주세요."
 
-msgid "Loading details..."
-msgstr "세부 정보 로드 중..."
-
 msgid "Share"
 msgstr "공유"
 
-msgid "Loading..."
-msgstr "로드 중..."
-
 msgid "Add attachment from {0}"
-msgstr "0}에서 첨부 파일 추가"
+msgstr "{0}에서 첨부 파일 추가"
 
 msgid "Confirm deletion"
 msgstr "삭제 확인"
 
 msgid "Are you sure you want to delete {0}?"
-msgstr "0}을 삭제하시겠습니까?"
+msgstr "{0}을(를) 삭제하시겠습니까?"
 
 msgid "Are you sure you want to delete {0} and all of its contents?"
-msgstr "0} 및 모든 콘텐츠를 삭제하시겠습니까?"
+msgstr "{0} 및 해당 폴더의 모든 콘텐츠를 삭제하시겠습니까?"
 
 msgid "Are you sure you want to delete {0} files?"
-msgstr "0} 파일을 삭제하시겠습니까?"
+msgstr "{0}개 파일을 삭제하시겠습니까?"
 
 msgid "Are you sure want to delete {0} folders and all of their contents?"
-msgstr "0} 폴더와 해당 폴더의 모든 콘텐츠를 삭제하시겠습니까?"
+msgstr "{0}개 폴더와 해당 폴더의 모든 콘텐츠를 삭제하시겠습니까?"
 
 msgid "Are you sure want to delete the selected items and all of their contents?"
 msgstr "선택한 항목과 해당 콘텐츠를 모두 삭제하시겠습니까?"
@@ -6297,10 +6409,10 @@ msgid "Accounts marked by your administrator as \"cannot be changed\" will not b
 msgstr "관리자가 '변경할 수 없음'으로 표시한 계정은 삭제되지 않습니다."
 
 msgid "grommunio Web will automatically restart in order for these changes to take effect."
-msgstr "변경 사항을 적용하기 위해 grommunio 웹이 자동으로 다시 시작됩니다."
+msgstr "변경 사항을 적용하기 위해 grommunio Web이 자동으로 다시 시작됩니다."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "그로뮤니오 웹이 로드 중입니다 잠시만 기다려주세요."
+msgstr "grommunio Web을 다시 로드하는 중입니다. 잠시만 기다려 주세요."
 
 msgid "Edit Account"
 msgstr "계정 수정"
@@ -6389,8 +6501,12 @@ msgstr "최대"
 msgid "You have to choose at least one file!"
 msgstr "파일을 하나 이상 선택해야 합니다!"
 
-msgid "Create New "
-msgstr "새로 만들기"
+msgid "Document"
+msgstr "문서"
+
+#. TRANSLATORS: {0} is a translated file type such as Document, Presentation or Spreadsheet
+msgid "Create New {0}"
+msgstr "새 {0}"
 
 msgid "Incorrect filename"
 msgstr "잘못된 파일 이름"
@@ -6437,14 +6553,14 @@ msgstr "첨부 파일이 파일에 성공적으로 저장되었습니다."
 msgid "Upload Failed"
 msgstr "업로드 실패"
 
-msgid "Attachment could not be stored in Files! Error: "
-msgstr "첨부 파일을 파일에 저장할 수 없습니다! 오류가 발생했습니다:"
+msgid "Attachment could not be stored in Files!"
+msgstr "첨부 파일을 파일에 저장할 수 없습니다!"
 
 msgid "Share Files"
 msgstr "파일 공유"
 
-msgid "Uploading files to "
-msgstr "다음 주소로 파일 업로드"
+msgid "Uploading files to {0}"
+msgstr "다음 위치로 파일 업로드 중: {0}"
 
 msgid "Starting upload"
 msgstr "업로드 시작"
@@ -6455,14 +6571,14 @@ msgstr "업로드 취소"
 msgid "- seconds left"
 msgstr "- 남은 시간(초)"
 
-msgid " seconds left"
-msgstr " 남은 시간(초)"
+msgid "{0} seconds left"
+msgstr "{0} 남은 시간(초)"
 
-msgid " minutes left"
-msgstr " 남은 시간"
+msgid "{0} minutes left"
+msgstr "{0} 남은 시간"
 
-msgid "Uploading: "
-msgstr "업로드 중입니다:"
+msgid "Uploading: {0}%"
+msgstr "업로드 중: {0}%"
 
 msgid "Upload status unavailable... please wait."
 msgstr "업로드할 수 없는 상태입니다... 잠시만 기다려주세요."
@@ -6476,12 +6592,6 @@ msgstr "업로드가 중단되었습니다!"
 msgid "Upload failed!"
 msgstr "업로드에 실패했습니다!"
 
-msgid "Document"
-msgstr "문서"
-
-msgid "Presentation"
-msgstr "프레젠테이션"
-
 msgid "Spreadsheet"
 msgstr "스프레드시트"
 
@@ -6493,6 +6603,9 @@ msgstr "문서 만들기"
 
 msgid "Create office document"
 msgstr "오피스 문서 만들기"
+
+msgid "Preview file"
+msgstr "파일 미리 보기"
 
 msgid "Download files"
 msgstr "파일 다운로드"
@@ -6527,20 +6640,14 @@ msgstr "공유됨"
 msgid "File preview"
 msgstr "파일 미리 보기"
 
-msgid "File content"
-msgstr "파일 내용"
-
-msgid "Your browser does not support previewing of audio files!"
-msgstr "브라우저가 오디오 파일 미리보기를 지원하지 않습니다!"
-
-msgid "Your browser does not support previewing of video files!"
-msgstr "브라우저가 동영상 파일 미리보기를 지원하지 않습니다!"
-
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
 msgid "File ({0})"
 msgstr "파일 ({0})"
+
+msgid "Path"
+msgstr "경로"
 
 msgid "Sort by: Path"
 msgstr "정렬 기준: 경로"
@@ -6565,6 +6672,9 @@ msgstr "인트라넷"
 
 msgid "Archive to InfoShare"
 msgstr "InfoShare에 아카이브"
+
+msgid "Kendox InfoShare plugin"
+msgstr "Kendox InfoShare plugin"
 
 msgid "Kendox InfoShare"
 msgstr "Kendox InfoShare"
@@ -6669,6 +6779,12 @@ msgstr "지도"
 msgid "Mobile Device Manager"
 msgstr "모바일 장치 관리자"
 
+msgid "Device removed"
+msgstr "장치 제거됨"
+
+msgid "The device was not removed. Check your password and try again."
+msgstr "장치가 제거되지 않았습니다. 비밀번호를 확인한 후 다시 시도하세요."
+
 msgid "Wiping device"
 msgstr "장치 초기화 중"
 
@@ -6754,7 +6870,7 @@ msgid "Manage Shared Folders"
 msgstr "공유 폴더 관리"
 
 msgid "Select folders to sync to your device from the list below. To add additional mailboxes to the list, open them in grommunio Web first."
-msgstr "아래 목록에서 장치에 동기화할 폴더를 선택합니다. 목록에 사서함을 추가하려면 먼저 그로뮤니오 웹에서 해당 사서함을 엽니다."
+msgstr "아래 목록에서 장치에 동기화할 폴더를 선택합니다. 목록에 사서함을 추가하려면 먼저 grommunio Web에서 해당 사서함을 엽니다."
 
 msgid "grommunio-sync"
 msgstr "그로뮤니오 동기화"
@@ -6970,17 +7086,530 @@ msgstr "하나 이상의 필드에 오류가 있습니다."
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
 msgstr "비밀번호가 약합니다. 비밀번호는 대문자, 대문자가 아닌 문자 및 숫자를 포함해야 합니다. 비밀번호는 8~20자로 구성되어야 합니다."
 
+msgid "Invalid or oversized OpenPGP armor."
+msgstr "OpenPGP 아머가 잘못되었거나 너무 큽니다."
+
+msgid "Expected a single OpenPGP public key block."
+msgstr "OpenPGP 공개 키 블록이 정확히 하나만 있어야 합니다."
+
+msgid "Expected a single OpenPGP private key block."
+msgstr "OpenPGP 개인 키 블록이 정확히 하나만 있어야 합니다."
+
+msgid "Expected a single OpenPGP signature block."
+msgstr "OpenPGP 서명 블록이 정확히 하나만 있어야 합니다."
+
+msgid "Expected a single OpenPGP message block."
+msgstr "OpenPGP 메시지 블록이 정확히 하나만 있어야 합니다."
+
+msgid "Expected a single OpenPGP armor block."
+msgstr "OpenPGP 아머 블록이 정확히 하나만 있어야 합니다."
+
+msgid "Additional data outside the OpenPGP armor is not allowed."
+msgstr "OpenPGP 아머 밖의 추가 데이터는 허용되지 않습니다."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "한 번에 완전한 OpenPGP 키 하나씩만 가져오세요."
+
+msgid "This key exceeds the supported subkey or identity limit."
+msgstr "이 키는 지원되는 하위 키 또는 사용자 ID 수 제한을 초과합니다."
+
+msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
+msgstr "개인 키는 업로드하기 전에 암호 문구로 보호해야 합니다. 이 키를 먼저 로컬에서 보호하세요."
+
+msgid "The public certificate must match the private key fingerprint."
+msgstr "공개 인증서는 개인 키 지문과 일치해야 합니다."
+
+msgid "Unlock your OpenPGP private key in this browser tab first."
+msgstr "먼저 이 브라우저 탭에서 OpenPGP 개인 키를 잠금 해제하세요."
+
+msgid "The OpenPGP key was locked while the operation was running."
+msgstr "작업이 실행되는 중에 OpenPGP 키가 잠겼습니다."
+
+msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
+msgstr "OpenPGP를 사용하려면 최신 브라우저와 안전한 HTTPS 연결이 필요합니다."
+
+msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
+msgstr "'보호'에는 보호되지 않은 개인 키가 필요합니다. 이미 보호된 키에는 '암호 문구 변경'을 사용하세요."
+
+msgid "The passphrase could not unlock this private key."
+msgstr "암호 문구로 이 개인 키를 잠금 해제할 수 없습니다."
+
+msgid "Every recipient needs a verified OpenPGP public key."
+msgstr "모든 수신자에게 확인된 OpenPGP 공개 키가 필요합니다."
+
+msgid "Encrypted message exceeds the size limit."
+msgstr "암호화된 메시지가 크기 제한을 초과합니다."
+
+msgid "Expected one complete clear-signed OpenPGP message."
+msgstr "완전한 클리어 서명 OpenPGP 메시지가 정확히 하나만 있어야 합니다."
+
+msgid "Invalid clear-signed OpenPGP signature."
+msgstr "OpenPGP 클리어 서명이 잘못되었습니다."
+
+msgid "The OpenPGP request failed. Please try again."
+msgstr "OpenPGP 요청에 실패했습니다. 다시 시도해 주세요."
+
+msgid "Working…"
+msgstr "처리 중…"
+
+msgid "The operation failed. Please try again."
+msgstr "작업에 실패했습니다. 다시 시도해 주세요."
+
+msgid "Passphrase"
+msgstr "암호 문구"
+
+msgid "Unlock OpenPGP private key"
+msgstr "OpenPGP 개인 키 잠금 해제"
+
+msgid "Unlock"
+msgstr "잠금 해제"
+
+msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
+msgstr "암호 문구와 잠금 해제된 키는 이 브라우저 탭에만 남아 있습니다. 키는 일정 시간이 지나거나 탭을 닫으면 자동으로 잠깁니다. 지문: "
+
+msgid "Set up OpenPGP"
+msgstr "OpenPGP 설정"
+
+msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
+msgstr "메시지에 서명하거나 보낸 항목의 암호화된 사본을 읽을 수 있도록 하려면 발신자 주소와 일치하는 개인 키를 추가하세요. OpenPGP 설정 페이지에서 기존 키를 가져오거나 새 키를 만들 수 있습니다."
+
+msgid "Open key settings"
+msgstr "키 설정 열기"
+
+msgid "Choose OpenPGP key"
+msgstr "OpenPGP 키 선택"
+
+msgid "Private key"
+msgstr "개인 키"
+
+msgid "Use key"
+msgstr "키 사용"
+
+msgid "Private-key unlocking was cancelled."
+msgstr "개인 키 잠금 해제가 취소되었습니다."
+
+msgid "Key selection was cancelled."
+msgstr "키 선택이 취소되었습니다."
+
+msgid "Choose private key…"
+msgstr "개인 키 선택…"
+
+msgid "Manage OpenPGP keys…"
+msgstr "OpenPGP 키 관리…"
+
+msgid "Lock private keys"
+msgstr "개인 키 잠금"
+
+msgid "Signing key: {0}"
+msgstr "서명 키: {0}"
+
+msgid "Decryption alone does not authenticate the sender."
+msgstr "암호 해독만으로는 발신자의 신원이 인증되지 않습니다."
+
+msgid "OpenPGP security information"
+msgstr "OpenPGP 보안 정보"
+
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+msgid "OpenPGP signed or encrypted message"
+msgstr "OpenPGP로 서명되었거나 암호화된 메시지"
+
+msgid "OpenPGP Plugin"
+msgstr "OpenPGP 플러그인"
+
+msgid "The OpenPGP operation was cancelled."
+msgstr "OpenPGP 작업이 취소되었습니다."
+
+msgid "S/MIME and OpenPGP cannot protect the same message."
+msgstr "S/MIME과 OpenPGP로 같은 메시지를 동시에 보호할 수 없습니다."
+
+msgid "Saving the OpenPGP draft timed out. Please retry."
+msgstr "OpenPGP 초안을 저장하는 중 시간이 초과되었습니다. 다시 시도해 주세요."
+
+msgid "The draft could not be saved. Nothing was sent."
+msgstr "초안을 저장할 수 없습니다. 아무것도 전송되지 않았습니다."
+
+msgid "The sender or message protection changed. Please send again."
+msgstr "발신자 또는 메시지 보호 설정이 변경되었습니다. 다시 보내 주세요."
+
+msgid "The selected private key is not valid for this sender and protection mode."
+msgstr "선택한 개인 키는 이 발신자 및 보호 모드에 유효하지 않습니다."
+
+msgid "A matching, passphrase-protected private key is required."
+msgstr "일치하고 암호 문구로 보호된 개인 키가 필요합니다."
+
+msgid "A recipient key is invalid, expired or does not match its email address."
+msgstr "수신자 키가 유효하지 않거나 만료되었거나 해당 이메일 주소와 일치하지 않습니다."
+
+msgid "No verified recipient keys are available."
+msgstr "사용할 수 있는 검증된 수신자 키가 없습니다."
+
+msgid "This message is too large for browser OpenPGP processing."
+msgstr "이 메시지는 브라우저에서 OpenPGP로 처리하기에 너무 큽니다."
+
+msgid "Message protection changed while preparing the message. Please send again."
+msgstr "메시지를 준비하는 동안 메시지 보호 설정이 변경되었습니다. 다시 보내 주세요."
+
+msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
+msgstr "보호된 메시지의 크기는 {0} MB로, 이 서버가 한 번의 요청에서 허용하는 크기({1} MB)를 초과합니다. 첨부 파일을 제거하거나 관리자에게 업로드 한도를 늘려 달라고 요청하세요."
+
+msgid "The attachment archive is too large."
+msgstr "첨부 파일의 압축 파일이 너무 큽니다."
+
+msgid "Unlock the message again to download this attachment."
+msgstr "이 첨부 파일을 다운로드하려면 메시지를 다시 잠금 해제하세요."
+
+msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
+msgstr "이 메시지에는 OpenPGP가 열 수 없는 중첩된 S/MIME 보호가 포함되어 있습니다."
+
+msgid "Too many nested OpenPGP envelopes."
+msgstr "중첩된 OpenPGP 봉투가 너무 많습니다."
+
+msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
+msgstr "서명이 유효하지 않거나 해당 공개 키를 사용할 수 없습니다. 이 발신자 신원을 신뢰하지 마세요."
+
+msgid "The private key was locked while opening this message."
+msgstr "이 메시지를 여는 동안 개인 키가 잠겼습니다."
+
+msgid "This message contains too many attachments."
+msgstr "이 메시지에는 첨부 파일이 너무 많습니다."
+
+msgid "The decoded attachments are too large."
+msgstr "디코딩된 첨부 파일이 너무 큽니다."
+
+msgid "The OpenPGP operation failed."
+msgstr "OpenPGP 작업에 실패했습니다."
+
+msgid "OpenPGP: checking message security…"
+msgstr "OpenPGP: 메시지 보안 확인 중…"
+
+msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
+msgstr "MIME 봉투 없이 저장된 암호화 메시지 — 첨부 파일을 저장한 후 OpenPGP 도구로 해독하세요"
+
+msgid "Signed message stored without its original MIME — the signature cannot be verified"
+msgstr "원본 MIME 없이 저장된 서명 메시지 — 서명을 검증할 수 없음"
+
+msgid "Message decrypted"
+msgstr "메시지 해독됨"
+
+msgid "Message could not be decrypted — click for details or retry"
+msgstr "메시지를 해독할 수 없음 — 자세한 내용을 보거나 다시 시도하려면 클릭하세요"
+
+msgid "Encrypted message — unlock your private key to read"
+msgstr "암호화된 메시지 — 읽으려면 개인 키를 잠금 해제하세요"
+
+msgid "Signature could not be verified"
+msgstr "서명을 확인할 수 없습니다."
+
+msgid "Valid signature, but the signing key does not match the sender"
+msgstr "유효한 서명이지만 서명 키가 발신자와 일치하지 않음"
+
+msgid "Valid signature — sender fingerprint has not been verified"
+msgstr "유효한 서명 — 발신자 지문이 확인되지 않음"
+
+msgid "Valid signature from a verified sender"
+msgstr "확인된 발신자의 유효한 서명"
+
+msgid "The signing key has since expired"
+msgstr "그 이후 서명 키가 만료됨"
+
+msgid "Message is not signed"
+msgstr "메시지에 서명이 없음"
+
+msgid "Inline OpenPGP protects the body only; attachments are not covered"
+msgstr "인라인 OpenPGP는 본문만 보호하며 첨부 파일은 보호되지 않음"
+
+msgid "Unprotected text after the OpenPGP block is not shown"
+msgstr "OpenPGP 블록 뒤의 보호되지 않은 텍스트는 표시되지 않음"
+
+msgid "Your public keys could not be loaded, so signatures could not be checked"
+msgstr "공개 키를 불러올 수 없어 서명을 검증하지 못함"
+
+msgid "Security information"
+msgstr "보안 정보"
+
+msgid "Choose when composing"
+msgstr "작성할 때 선택"
+
+msgid "Personal and public keys"
+msgstr "개인 및 공개 키"
+
+msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
+msgstr "키는 사용자의 사서함에 저장됩니다. 개인 키는 암호 문구로 보호된 상태로 유지되며 서명, 암호화, 잠금 해제는 이 브라우저에서 이루어집니다. 상대방의 지문은 별도의 신뢰할 수 있는 경로를 통해 확인하세요. 키 변경 사항은 즉시 적용됩니다."
+
+msgid "No OpenPGP keys. Import or generate a key to get started."
+msgstr "OpenPGP 키가 없습니다. 시작하려면 키를 가져오거나 생성하세요."
+
+msgid "Identity"
+msgstr "사용자 ID"
+
+msgid "Fingerprint"
+msgstr "지문"
+
+msgid "Public key"
+msgstr "공개 키"
+
+msgid "Revoked"
+msgstr "해지됨"
+
+msgid "Expired"
+msgstr "만료됨"
+
+msgid "Fingerprint verified"
+msgstr "지문 확인됨"
+
+msgid "Not verified"
+msgstr "확인되지 않음"
+
+msgid "Unlocked"
+msgstr "잠금 해제됨"
+
+msgid "Locked"
+msgstr "잠김"
+
+msgid "Expires"
+msgstr "만료"
+
+msgid "No expiry"
+msgstr "만료 없음"
+
+msgid "Generate key"
+msgstr "키 생성"
+
+msgid "Import key"
+msgstr "키 가져오기"
+
+msgid "Find public key"
+msgstr "공개 키 찾기"
+
+msgid "Details / verify"
+msgstr "세부 정보 / 지문 확인"
+
+msgid "Export public key"
+msgstr "공개 키 내보내기"
+
+msgid "Back up private key"
+msgstr "개인 키 백업"
+
+msgid "Unlock in this browser"
+msgstr "이 브라우저에서 잠금 해제"
+
 msgid "Change passphrase"
 msgstr "암호 문구 변경"
+
+msgid "Lock all"
+msgstr "모두 잠금"
+
+msgid "Default private key"
+msgstr "기본 개인 키"
+
+msgid "Sign new messages by default"
+msgstr "새 메시지에 기본적으로 서명"
+
+msgid "Encrypt new messages by default"
+msgstr "새 메시지를 기본적으로 암호화"
+
+msgid "Manage keyservers"
+msgstr "키 서버 관리"
+
+msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
+msgstr "작성 기본값은 새 OpenPGP 메시지에만 적용됩니다. S/MIME과 OpenPGP는 같은 메시지에 함께 사용할 수 없습니다."
+
+msgid "Generate OpenPGP key"
+msgstr "OpenPGP 키 생성"
+
+msgid "Algorithm"
+msgstr "알고리즘"
+
+msgid "Expires in"
+msgstr "유효 기간"
+
+msgid "1 year"
+msgstr "1년"
+
+msgid "2 years"
+msgstr "2년"
+
+msgid "5 years"
+msgstr "5년"
+
+msgid "Repeat passphrase"
+msgstr "암호 문구 확인"
+
+msgid "Passphrases do not match."
+msgstr "암호 문구가 일치하지 않습니다."
+
+msgid "Generate"
+msgstr "생성"
+
+msgid "Key created. Back up the private key and store its passphrase separately."
+msgstr "키가 생성되었습니다. 개인 키를 백업하고 암호 문구는 따로 보관하세요."
+
+msgid "Revocation certificate — keep secure"
+msgstr "해지 인증서 — 안전하게 보관하세요"
+
+msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
+msgstr "12자 이상의 강력한 암호 문구를 선택하세요. 키 생성은 이 브라우저에서 로컬로 실행되며 시간이 다소 걸릴 수 있습니다. 해지 인증서와 개인 키 백업은 안전한 곳에 보관하세요."
+
+msgid "Import OpenPGP key"
+msgstr "OpenPGP 키 가져오기"
+
+msgid "Choose armored OpenPGP key file"
+msgstr "ASCII 아머 OpenPGP 키 파일 선택"
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "키 파일이 너무 큽니다. 최대 크기: 1 MiB."
+
+msgid "The key file could not be read."
+msgstr "키 파일을 읽을 수 없습니다."
+
+msgid "Armored key"
+msgstr "ASCII 아머 키"
+
+msgid "Protect unencrypted key"
+msgstr "암호화되지 않은 키 보호"
+
+msgid "Optional: new passphrase for an unprotected private key"
+msgstr "선택 사항: 보호되지 않은 개인 키의 새 암호 문구"
+
+msgid "Key imported. Verify recipient fingerprints before encrypting to them."
+msgstr "키를 가져왔습니다. 수신자에게 암호화하여 보내기 전에 수신자의 지문을 확인하세요."
+
+msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
+msgstr "파일을 선택하거나 BEGIN 및 END 줄을 포함한 ASCII 아머 키 하나를 붙여 넣으세요. 보호되지 않은 개인 키라면 저장하기 전에 새 암호 문구를 입력하여 로컬에서 보호하세요. 가져온 수신자 키는 자동으로 신뢰되지 않습니다."
+
+msgid "Public OpenPGP key"
+msgstr "OpenPGP 공개 키"
+
+msgid "Back up private OpenPGP key"
+msgstr "OpenPGP 개인 키 백업"
+
+msgid "Create backup"
+msgstr "백업 만들기"
+
+msgid "Private key backup — keep secure"
+msgstr "개인 키 백업 — 안전하게 보관하세요"
+
+msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
+msgstr "이 암호화된 개인 키 백업을 다운로드하기 전에 로컬에서 암호 문구를 확인하세요. 백업은 안전하게 보관하고 수신자나 키 서버에 절대 보내지 마세요."
+
+msgid "Current passphrase"
+msgstr "현재 암호 문구"
+
+msgid "New passphrase"
+msgstr "새 암호 문구"
+
+msgid "Change OpenPGP passphrase"
+msgstr "OpenPGP 암호 문구 변경"
+
+msgid "Repeat new passphrase"
+msgstr "새 암호 문구 확인"
+
+msgid "Passphrase changed. Make a new private-key backup."
+msgstr "암호 문구가 변경되었습니다. 개인 키 백업을 새로 만드세요."
+
+msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
+msgstr "개인 키는 로컬에서 다시 암호화됩니다. 기존 백업에는 여전히 원래 암호 문구가 필요합니다."
+
+msgid "Verify OpenPGP fingerprint"
+msgstr "OpenPGP 지문 확인"
+
+msgid "Verified identities"
+msgstr "확인된 ID"
+
+msgid "Email identity"
+msgstr "이메일 ID"
+
+msgid "Confirm fingerprint"
+msgstr "지문 확인"
+
+msgid "Enter the full fingerprint shown above."
+msgstr "위에 표시된 전체 지문을 입력하세요."
+
+msgid "I verified this fingerprint"
+msgstr "이 지문을 확인했습니다"
+
+msgid "Save verification"
+msgstr "확인 상태 저장"
+
+msgid "Fingerprint verification updated."
+msgstr "지문 확인 상태가 업데이트되었습니다."
+
+msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
+msgstr "별도의 신뢰할 수 있는 경로로 상대방과 전체 지문을 비교하세요. 확인란을 선택하면 선택한 주소에 이 키가 고정되고, 선택을 해제하면 해당 확인이 제거됩니다."
+
+msgid "All private keys in this browser tab are locked."
+msgstr "이 브라우저 탭의 모든 개인 키가 잠겼습니다."
+
+msgid "Delete OpenPGP key"
+msgstr "OpenPGP 키 삭제"
+
+msgid "Type the full fingerprint to confirm deletion."
+msgstr "삭제를 확인하려면 전체 지문을 입력하세요."
+
+msgid "Delete key"
+msgstr "키 삭제"
+
+msgid "Key removed from your mailbox."
+msgstr "사서함에서 키가 제거되었습니다."
+
+msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
+msgstr "이 개인 키를 삭제하면 백업이 없는 한 이 키로 암호화된 메시지를 읽을 수 없습니다. 계속하기 전에 개인 키를 백업하세요."
+
+msgid "This removes the public key and its verified fingerprints from your keyring."
+msgstr "이 작업은 키링에서 공개 키와 확인된 지문을 제거합니다."
+
+msgid "Manage OpenPGP keyservers"
+msgstr "OpenPGP 키 서버 관리"
+
+msgid "HTTPS keyservers"
+msgstr "HTTPS 키 서버"
+
+msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
+msgstr "경로, 자격 증명, 쿼리 없이 HTTPS 서버 출처를 한 줄에 하나씩 입력하세요."
+
+msgid "Save keyservers"
+msgstr "키 서버 저장"
+
+msgid "Keyservers updated."
+msgstr "키 서버 목록이 업데이트되었습니다."
+
+msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
+msgstr "관리자가 승인한 HTTPS 키 서버만 사용할 수 있습니다. 검색하려면 전체 지문이 필요합니다. 키는 자동으로 업로드되지 않습니다."
+
+msgid "Approved servers: {0}"
+msgstr "승인된 서버: {0}"
+
+msgid "Find OpenPGP public key"
+msgstr "OpenPGP 공개 키 찾기"
+
+msgid "Keyserver"
+msgstr "키 서버"
+
+msgid "Full fingerprint"
+msgstr "전체 지문"
+
+msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
+msgstr "40자리 또는 64자리 16진수 지문 전체를 입력하세요."
+
+msgid "Find and import"
+msgstr "찾아서 가져오기"
+
+msgid "The keyserver did not return the requested public key."
+msgstr "요청한 공개 키를 키 서버가 반환하지 않았습니다."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "공개 키를 가져왔습니다. 키 소유자에게 암호화하여 보내기 전에 지문을 확인하세요."
+
+msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
+msgstr "검색하는 지문은 해당 키 서버로 전송됩니다. 다운로드한 키도 소유자에게 암호화하여 보내기 전에 지문 확인이 필요합니다."
 
 msgid "Old passphrase"
 msgstr "이전 암호 문구"
 
 msgid "Wrong passphrase. Please try again"
 msgstr "암호가 잘못되었습니다. 다시 시도해 주세요."
-
-msgid "New passphrase"
-msgstr "새 암호 문구"
 
 msgid "Confirm new passphrase"
 msgstr "새 비밀번호 확인"
@@ -7012,20 +7641,11 @@ msgstr "가져온 인증서가 없습니다, 개인 인증서를 업로드하세
 msgid "Valid from"
 msgstr "유효 기간"
 
-msgid "Expires"
-msgstr "만료"
-
 msgid "Key Type"
 msgstr "키 유형"
 
 msgid "Purpose"
 msgstr "목적"
-
-msgid "Sign"
-msgstr "서명"
-
-msgid "Encrypt"
-msgstr "암호화"
 
 msgid "Sign & Encrypt"
 msgstr "서명 및 암호화"
@@ -7154,16 +7774,14 @@ msgid "CBC mode"
 msgstr "CBC 모드"
 
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
-msgstr "그로뮤니오 웹은 이메일의 디지털 서명을 확인할 수 있습니다. 확인에 성공하면 메시지가 변조되지 않았음을 확신할 수 있으며 발신자의 신원을 확인할 수 있습니다."
+msgstr "grommunio Web은 이메일의 디지털 서명을 확인할 수 있습니다. 확인에 성공하면 메시지가 변조되지 않았음을 확신할 수 있으며 발신자의 신원을 확인할 수 있습니다."
 
-msgid "You are seeing this message because the verification of the digital signature"
-msgstr "디지털 서명 확인이 완료되지 않아 이 메시지가 표시되고 있습니다."
+#. TRANSLATORS: {0} is the bolded phrase 'has failed'
+msgid "You are seeing this message because the verification of the digital signature {0} for this message."
+msgstr "이 이메일 메시지의 디지털 서명 확인이 {0} 따라서 이 안내가 표시됩니다."
 
-msgid " has failed"
-msgstr " 실패했습니다."
-
-msgid " for this message."
-msgstr " 를 입력하세요."
+msgid "has failed"
+msgstr "실패했습니다."
 
 msgid "What caused this issue?"
 msgstr "이 문제의 원인은 무엇인가요?"
@@ -7177,17 +7795,11 @@ msgstr "계속 작업할 수 있습니다. 그러나 메시지 내용의 신원 
 msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
 msgstr "다음에 수행할 작업이 확실하지 않은 경우 헬프데스크 또는 시스템 관리자에게 문의할 수 있습니다."
 
-msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "그로뮤니오 웹은 이메일의 디지털 서명을 확인할 수 있습니다. 확인에 성공하면 안심할 수 있습니다."
-
-msgid "that the message has not been tampered with and validates the identity of the sender."
-msgstr "메시지가 변조되지 않았음을 확인하고 발신자의 신원을 확인합니다."
-
 msgid "The verification of the digital signature was successful for this email message."
 msgstr "이 이메일 메시지에 대한 디지털 서명 확인이 성공했습니다."
 
 msgid "grommunio Web could not find a public certificate for the recipient."
-msgstr "그로뮤니오 웹에서 수신자의 공인 인증서를 찾을 수 없습니다."
+msgstr "grommunio Web에서 수신자의 공인 인증서를 찾을 수 없습니다."
 
 msgid "The identity of the sender and authenticity of the message content have been verified, but the certificate used to sign the message expired on [d-m-Y]."
 msgstr "보낸 사람의 신원과 메시지 내용의 진위가 확인되었지만 메시지에 서명하는 데 사용된 인증서가 [d-m-Y]에 만료되었습니다."
@@ -7242,9 +7854,6 @@ msgstr "서명을 확인할 수 없음, 공인 인증서 누락"
 
 msgid "Signature verification successful, but certificate is expired"
 msgstr "서명 확인에 성공했지만 인증서가 만료되었습니다."
-
-msgid "Signature could not be verified"
-msgstr "서명을 확인할 수 없습니다."
 
 msgid "Certificate has been revoked"
 msgstr "인증서가 해지되었습니다."
@@ -7451,7 +8060,7 @@ msgid "You have been automatically logged out"
 msgstr "자동으로 로그아웃되었습니다."
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
-msgstr "죄송합니다. 이 사용자 계정으로는 그로뮤니오 웹에 액세스할 수 없습니다. 시스템 관리자에게 문의하세요."
+msgstr "죄송합니다. 이 사용자 계정으로는 grommunio Web에 액세스할 수 없습니다. 시스템 관리자에게 문의하세요."
 
 msgid "The AI request failed unexpectedly."
 msgstr "AI 요청이 예기치 않게 실패했습니다."
@@ -7579,8 +8188,11 @@ msgstr "PHP-Curl을 사용할 수 없습니다."
 msgid "With this backend, you can connect to any Seafile server."
 msgstr "이 백엔드를 사용하면 모든 Seafile 서버에 연결할 수 있습니다."
 
-msgid "Files "
-msgstr "파일 "
+msgid "Files Seafile Backend: "
+msgstr "파일 Seafile 백엔드: "
+
+msgid "Moving failed"
+msgstr "이동 실패"
 
 msgid "Use SSL"
 msgstr "SSL 사용"
@@ -7658,7 +8270,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "이 백엔드를 사용하면 모든 WebDAV 서버에 연결할 수 있습니다."
 
 msgid "Files WebDAV Backend: "
-msgstr "파일 WebDAV 백엔드:"
+msgstr "파일 WebDAV 백엔드: "
 
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL이 설치되지 않았습니다."
@@ -7672,9 +8284,6 @@ msgstr "디렉터리 생성 실패"
 msgid "Deletion failed"
 msgstr "삭제 실패"
 
-msgid "Moving failed"
-msgstr "이동 실패"
-
 msgid "Temporary directory problems"
 msgstr "임시 디렉터리 문제"
 
@@ -7684,17 +8293,11 @@ msgstr "파일 또는 폴더를 찾을 수 없음"
 msgid "Copying failed"
 msgstr "복사 실패"
 
-msgid "Please contact your system administrator"
-msgstr "시스템 관리자에게 문의하세요."
-
 msgid "File server is not reachable. Please verify the connection."
 msgstr "파일 서버에 연결할 수 없습니다. 연결을 확인하세요."
 
-msgid "PHP-CURL not installed"
-msgstr "PHP-CURL이 설치되지 않았습니다."
-
 msgid "Unknown backend"
-msgstr ""
+msgstr "알 수 없는 백엔드"
 
 msgid "Account is ready to use."
 msgstr "계정을 사용할 준비가 되었습니다."
@@ -7709,10 +8312,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "이 파일은 더 이상 사용할 수 없습니다. 폴더를 다시 로드하세요."
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "이 백엔드에서는 수신자 검색이 지원되지 않습니다"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "수신자를 조회할 수 없습니다"
 
 msgid "Kendox certificate path is not configured."
 msgstr "Kendox 인증서 경로가 구성되지 않았습니다."
@@ -7734,7 +8337,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "예기치 않은 오류가 발생했습니다. 시스템 관리자에게 문의하세요. 오류 코드: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "이 서버에서는 공유 폴더 관리가 지원되지 않습니다."
 
 msgid "No data received."
 msgstr "수신된 데이터가 없습니다."
@@ -7753,6 +8356,15 @@ msgstr "비밀번호 변경 중 오류가 발생했습니다. 비밀번호를 �
 
 msgid "Password has been changed successfully."
 msgstr "비밀번호가 성공적으로 변경되었습니다."
+
+msgid "The OpenPGP operation could not be completed."
+msgstr "OpenPGP 작업을 완료할 수 없습니다."
+
+msgid "OpenPGP: message was not sent"
+msgstr "OpenPGP: 메시지가 전송되지 않음"
+
+msgid "The OpenPGP message could not be read."
+msgstr "OpenPGP 메시지를 읽을 수 없습니다."
 
 msgid "No certificate available"
 msgstr "사용 가능한 인증서 없음"
@@ -7779,19 +8391,18 @@ msgid "Unable to generate certs-only message"
 msgstr "인증서 전용 메시지를 생성할 수 없습니다"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "certs-only 메시지를 읽을 수 없습니다"
 
 msgid "LDAP not configured"
 msgstr "LDAP가 구성되지 않음"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "잘못된 LDAP 구성"
 
-msgid "Missing public certificates for the following recipients: "
-msgstr "다음 수신자에 대한 누락된 공인 인증서가 있습니다:"
-
-msgid ". Please contact your system administrator for details"
-msgstr ". 자세한 내용은 시스템 관리자에게 문의하세요."
+#. TRANSLATORS: %s is a comma-separated list of email addresses
+#, php-format
+msgid "Missing public certificates for the following recipients: %s. Please contact your system administrator for details"
+msgstr "다음 수신자의 공인 인증서가 없습니다: %s. 자세한 내용은 시스템 관리자에게 문의하세요."
 
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
 msgstr "공인 인증서가 설치되어 있지 않습니다. 이 인증서가 없으면 다른 사람에게 보낸 암호화된 메시지를 읽을 수 없습니다."
@@ -7805,8 +8416,9 @@ msgstr "인증서를 해독할 수 없습니다."
 msgid "Private key can't be used to sign email"
 msgstr "개인 키를 사용하여 이메일에 서명할 수 없습니다."
 
-msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "인증서 이메일 주소가 그로뮤니오 웹 계정과 일치하지 않습니다."
+#, php-format
+msgid "Certificate email address doesn't match grommunio Web account %s"
+msgstr "인증서 이메일 주소가 grommunio Web 계정과 일치하지 않습니다: %s"
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -7815,14 +8427,17 @@ msgstr "RSA 키 크기가 %d비트로, 권장 최소 크기인 %d비트보다 �
 msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
 msgstr "EdDSA(Ed25519) 인증서는 PHP 8.4 이상이 필요하며, 일부 기능이 제대로 지원되지 않을 수 있습니다. 인증서가 가져왔습니다."
 
-msgid "Certificate was expired on "
-msgstr "인증서가 다음 날짜에 만료되었습니다."
+#, php-format
+msgid "Certificate was expired on %s."
+msgstr "인증서가 다음 날짜에 만료되었습니다: %s."
 
 msgid "Certificate was imported."
 msgstr "인증서를 가져왔습니다."
 
-msgid "Certificate is not yet valid "
-msgstr "인증서가 아직 유효하지 않습니다."
+#. TRANSLATORS: %s is the date the certificate becomes valid
+#, php-format
+msgid "Certificate is not yet valid %s."
+msgstr "인증서가 아직 유효하지 않습니다. 유효 시작일: %s."
 
 msgid "Certificate has not been imported"
 msgstr "인증서를 가져오지 않았습니다."
@@ -7831,7 +8446,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "인증서가 해지되었지만 가져온 인증서입니다."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "인증서 해지 상태를 확인할 수 없습니다. 인증서를 가져왔습니다."
 
 msgid "Unable to read public certificate"
 msgstr "공인 인증서를 읽을 수 없습니다."
@@ -7875,6 +8490,9 @@ msgstr "버스에서 요청했지만 데이터가 없는 응답 데이터입니�
 msgid "Cannot store the category list in this mailbox."
 msgstr "이 사서함에 카테고리 목록을 저장할 수 없습니다."
 
+msgid "Cannot scan this mailbox for categories."
+msgstr "이 사서함에서 카테고리를 검사할 수 없습니다."
+
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "알 수 없는 모듈 '%s'의 ID가 '%s'입니다."
@@ -7899,6 +8517,18 @@ msgstr "할 일 목록"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%2$s의 %1$s"
+
+msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
+msgstr "OpenPGP가 현재 비활성화되어 있거나 사용할 수 없습니다. 메시지가 전송되지 않았습니다. 다시 시도하기 전에 OpenPGP를 사용 설정하거나, 서명과 암호화를 명시적으로 해제하세요."
+
+msgid "Too many messages were sent in a short time. Please wait a moment and send again."
+msgstr "짧은 시간에 너무 많은 메시지가 전송되었습니다. 잠시 기다린 후 다시 보내 주세요."
+
+msgid "Message was not sent"
+msgstr "메시지가 전송되지 않음"
+
+msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
+msgstr "이 초안은 OpenPGP 보호를 요청했지만 적용되지 않았습니다. 메시지가 전송되지 않았습니다. 다시 시도하기 전에 OpenPGP를 사용 설정하거나, 서명과 암호화를 명시적으로 해제하세요."
 
 msgid "Error retrieving existing settings"
 msgstr "기존 설정을 검색하는 동안 오류가 발생했습니다."
@@ -7935,7 +8565,7 @@ msgstr "VCF 첨부 파일을 성공적으로 가져오지 못했습니다."
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "'%s'를 '%s'로 가져올 수 없습니다."
+msgstr "'%s'를 '%s'로 가져올 수 없습니다. "
 
 msgid "There is no appointment found in this file."
 msgstr "이 파일에 약속이 없습니다."
@@ -7948,7 +8578,7 @@ msgstr "파일이 유효하지 않습니다."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr "'%s'를 가져올 수 없습니다."
+msgstr "'%s'를 가져올 수 없습니다. "
 
 msgid "Attachment is not imported successfully"
 msgstr "첨부 파일을 성공적으로 가져오지 못했습니다."
@@ -7995,7 +8625,7 @@ msgstr "공유 연락처 폴더"
 msgid "Public Contact Folders"
 msgstr "공용 연락처 폴더"
 
-msgid "Error in search, please try again"
+msgid "Error in search, please try again."
 msgstr "검색 중 오류가 발생했습니다. 다시 시도하세요."
 
 msgid "Unable to perform search query, no permissions to create search folder."
@@ -8016,14 +8646,11 @@ msgstr "열 수 없습니다."
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "발생을 열 수 없습니다. 특정 발생이 삭제되었을 수 있습니다."
 
-msgid "a meeting request"
-msgstr "회의 요청"
+msgid "You have insufficient privileges to move a meeting request in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "이 캘린더에서 미팅 요청을 이동할 수 있는 권한이 부족합니다. 캘린더 소유자는 폴더 속성의 '권한' 탭(캘린더 폴더 마우스 오른쪽 클릭 > 속성 > 권한)을 사용하여 이 권한을 설정할 수 있습니다."
 
-msgid "an appointment"
-msgstr "약속"
-
-msgid "You have insufficient privileges to move "
-msgstr "이동할 수 있는 권한이 충분하지 않습니다."
+msgid "You have insufficient privileges to move an appointment in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "이 캘린더에서 약속을 이동할 수 있는 권한이 부족합니다. 캘린더 소유자는 폴더 속성의 '권한' 탭(캘린더 폴더 마우스 오른쪽 클릭 > 속성 > 권한)을 사용하여 이 권한을 설정할 수 있습니다."
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
 msgstr "이전 발생 전에 미리 알림이 표시되도록 설정할 수 없습니다. 미리 알림을 재설정하여 변경 내용을 저장합니다."
@@ -8057,8 +8684,9 @@ msgid "Meeting could not be saved."
 msgstr "모임을 저장할 수 없습니다."
 
 #, php-format
-msgid "There were %d skipped appointment(s):"
-msgstr "%d개의 약속을 건너뛰었습니다:"
+msgid "There was %d skipped appointment:"
+msgid_plural "There were %d skipped appointments:"
+msgstr[0] "%d개의 약속을 건너뛰었습니다:"
 
 msgid "More skipped appointments are not shown."
 msgstr "건너뛴 나머지 약속은 표시되지 않습니다."
@@ -8076,6 +8704,10 @@ msgstr "%s의 생일"
 #, php-format
 msgid "%s's Anniversary"
 msgstr "%s의 기념일"
+
+#, php-format
+msgid "Unable to add store: '%s'. Please check if you have the necessary permissions."
+msgstr "'%s' 스토어를 추가할 수 없습니다. 필요한 권한이 있는지 확인하세요."
 
 msgid "You don't have the permission to complete this action"
 msgstr "이 작업을 완료할 수 있는 권한이 없습니다."
@@ -8211,25 +8843,25 @@ msgstr "메시지가 이동 또는 삭제되었거나 이 메시지를 열 수 �
 msgid "Could not open message."
 msgstr "메시지를 열 수 없습니다."
 
-msgid "You have insufficient privileges to decline this Meeting Request"
+msgid "You have insufficient privileges to decline this Meeting Request."
 msgstr "이 미팅 요청을 거절할 수 있는 권한이 부족합니다."
 
-msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "이 모임 요청을 수락할 수 있는 권한이 부족합니다."
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "이 미팅 요청을 수락할 수 있는 권한이 부족합니다."
 
-msgid "Could not copy message"
+msgid "Could not copy message."
 msgstr "메시지를 복사할 수 없습니다."
 
-msgid "Could not move message"
+msgid "Could not move message."
 msgstr "메시지를 이동할 수 없습니다."
 
-msgid "Could not forward meeting request"
-msgstr "회의 요청을 전달할 수 없습니다"
+msgid "Could not forward meeting request."
+msgstr "회의 요청을 전달할 수 없습니다."
 
-msgid "You have insufficient privileges to save items in this folder"
+msgid "You have insufficient privileges to save items in this folder."
 msgstr "이 폴더에 항목을 저장할 수 있는 권한이 부족합니다."
 
-msgid "Could not save message"
+msgid "Could not save message."
 msgstr "메시지를 저장할 수 없습니다."
 
 msgid "You have insufficient privileges to remove item from the calendar."
@@ -8240,9 +8872,6 @@ msgstr "메시지가 더 이상 발신 대기열에 없습니다. 일반적으�
 
 msgid "Message cannot be aborted"
 msgstr "메시지를 중단할 수 없습니다."
-
-msgid "You have insufficient privileges to delete items in this folder"
-msgstr "이 폴더의 항목을 삭제할 수 있는 권한이 부족합니다."
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "항목을 첨부 파일로 첨부할 수 있는 권한이 부족합니다."
@@ -8265,6 +8894,9 @@ msgstr "이 작업 요청을 거부할 수 있는 권한이 부족합니다."
 msgid "Could not decline Task Request."
 msgstr "작업 요청을 거절할 수 없습니다."
 
+msgid "Could not open the attachment."
+msgstr "첨부 파일을 열 수 없습니다."
+
 msgid "Conflicts with another appointment."
 msgstr "다른 약속과 충돌합니다."
 
@@ -8278,6 +8910,9 @@ msgstr "메시지가 의도한 수신자의 일부 또는 전체에게 전달되
 
 msgid "The following recipient(s) could not be reached"
 msgstr "다음 수신자에게 연결할 수 없습니다."
+
+msgid "Removing attachments has been disabled by the administrator."
+msgstr "첨부 파일 제거 기능이 관리자에 의해 비활성화되었습니다."
 
 msgid "l, F j, Y g:i A"
 msgstr "Y년 n월 j일 (l) A g:i"
@@ -8309,9 +8944,6 @@ msgstr "검색 작업을 중지할 수 없습니다."
 msgid "You have insufficient privileges to save this message."
 msgstr "이 메시지를 저장할 수 있는 권한이 부족합니다."
 
-msgid "Could not save message."
-msgstr "메시지를 저장할 수 없습니다."
-
 msgid "You have insufficient privileges to delete this message."
 msgstr "이 메시지를 삭제할 수 있는 권한이 부족합니다."
 
@@ -8324,14 +8956,8 @@ msgstr "이 미팅 요청을 취소할 수 있는 권한이 부족합니다."
 msgid "Could not cancel Meeting Request."
 msgstr "미팅 요청을 취소할 수 없습니다."
 
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "이 미팅 요청을 거절할 수 있는 권한이 부족합니다."
-
 msgid "Could not decline Meeting Request."
 msgstr "미팅 요청을 거절할 수 없습니다."
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "이 미팅 요청을 수락할 수 있는 권한이 부족합니다."
 
 msgid "Could not accept Meeting Request."
 msgstr "미팅 요청을 수락할 수 없습니다."
@@ -8344,9 +8970,6 @@ msgstr "미팅 요청 초대를 취소할 수 없습니다."
 
 msgid "You can not continue search operation on this folder."
 msgstr "이 폴더에서는 검색 작업을 계속할 수 없습니다."
-
-msgid "Error in search, please try again."
-msgstr "검색 중 오류가 발생했습니다. 다시 시도하세요."
 
 msgid "Error in distribution list expansion."
 msgstr "배포 목록 확장에 오류가 발생했습니다."
@@ -8397,6 +9020,9 @@ msgstr "작업 요청:"
 msgid "Sign in"
 msgstr "로그인"
 
+msgid "Loading"
+msgstr "로드 중"
+
 msgid "File is not imported successfully"
 msgstr "파일을 성공적으로 가져오지 못했습니다."
 
@@ -8409,8 +9035,8 @@ msgstr "업로드한 파일이 HTML 양식에 지정된 MAX_FILE_SIZE 지시어�
 msgid "The uploaded file was only partially uploaded."
 msgstr "업로드한 파일이 일부만 업로드되었습니다."
 
-msgid "No file was uploaded. ."
-msgstr "업로드된 파일이 없습니다. ."
+msgid "No file was uploaded."
+msgstr "업로드된 파일이 없습니다."
 
 msgid "Missing a temporary folder."
 msgstr "임시 폴더가 없습니다."
@@ -8425,10 +9051,10 @@ msgid "There is no contact found in this file."
 msgstr "이 파일에 연락처가 없습니다."
 
 msgid "grommunio Web does not support importing multiple VCF with this version."
-msgstr "이 버전에서는 그로뮤니오 웹이 여러 개의 VCF 가져오기를 지원하지 않습니다."
+msgstr "이 버전에서는 grommunio Web이 여러 개의 VCF 가져오기를 지원하지 않습니다."
 
 msgid "grommunio Web does not support importing multiple ICS with this version."
-msgstr "그로뮤니오 웹은 이 버전에서 여러 ICS 가져오기를 지원하지 않습니다."
+msgstr "grommunio Web은 이 버전에서 여러 ICS 가져오기를 지원하지 않습니다."
 
 msgid "GB"
 msgstr "GB"

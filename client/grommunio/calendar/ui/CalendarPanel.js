@@ -47,7 +47,7 @@ Grommunio.calendar.ui.CalendarPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @cfg {String} loadMaskText text shown when the panel is loading data from the store.
 	 */
-	loadMaskText: _('Loading') + '...',
+	loadMaskText: _('Loading…'),
 
 	/**
 	 * The selection model which manages the selection of {@link Grommunio.core.data.IPMRecord appointments}

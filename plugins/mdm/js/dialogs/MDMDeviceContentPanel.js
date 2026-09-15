@@ -25,7 +25,7 @@ Grommunio.plugins.mdm.dialogs.MDMDeviceContentPanel = Ext.extend(Grommunio.core.
 			xtype: 'mdmplugin.devicecontentpanel',
 			modal: true,
 			showModalWithoutParent: true,
-			title: _(config.record.get('devicetype')),
+			title: Ext.util.Format.htmlEncode(config.record.get('devicetype')),
 			recordComponentPluginConfig: Ext.applyIf(config.recordComponentPluginConfig || {}, {
 				allowWrite: true,
 				useShadowStore: true

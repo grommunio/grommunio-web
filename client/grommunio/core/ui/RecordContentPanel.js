@@ -83,7 +83,7 @@ Grommunio.core.ui.RecordContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel
 	 * will be shown when the message is being saved. When an object is provided which contains
 	 * the 'msg' and 'title' fields respectively.
 	 */
-	savingText: { msg: _('Saving') + '...' },
+	savingText: { msg: _('Saving…') },
 
 	/**
 	 * @cfg {String/Object} savingDoneText When {@link #showInfoMask} is true, then this text

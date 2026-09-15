@@ -13,6 +13,10 @@
 	 * "for" names an element that cannot be labelled.
 	 */
 	Ext.override(Ext.layout.FormLayout, {
+		// TRANSLATORS: punctuation appended to every form label, {0} is the label
+		// itself. French puts a space before the colon, Chinese the full-width one.
+		labelSeparator: String.format(pgettext('label separator', '{0}:'), ''),
+
 		renderItem: function(c)
 		{
 			orig.apply(this, arguments);

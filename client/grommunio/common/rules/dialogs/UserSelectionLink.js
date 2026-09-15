@@ -229,7 +229,7 @@ Grommunio.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, 
 			modal: true,
 			selectionCfg: [{
 				xtype: 'grommunio.recipientfield',
-				fieldLabel: label + ':',
+				fieldLabel: Grommunio.util.Translations.Label(label),
 				height: 50,
 				boxStore: this.store,
 				flex: 1

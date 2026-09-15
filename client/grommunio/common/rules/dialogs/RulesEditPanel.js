@@ -63,7 +63,7 @@ Grommunio.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 			height: 15
 		}, {
 			xtype: 'displayfield',
-			value: _('When the message') + '...',
+			value: _('When the message') + '…',
 			height: 20
 		}, {
 			xtype: 'grommunio.rulesconditioncontainer',
@@ -73,7 +73,7 @@ Grommunio.common.rules.dialogs.RulesEditPanel = Ext.extend(Ext.form.FormPanel, {
 			height: 15
 		}, {
 			xtype: 'displayfield',
-			value: _('Do the following') + '...',
+			value: _('Do the following') + '…',
 			height: 20
 		}, {
 			xtype: 'grommunio.rulesactionscontainer',

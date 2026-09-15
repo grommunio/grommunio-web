@@ -60,7 +60,7 @@ Grommunio.task.ui.TaskGridColumnModel = Ext.extend(Grommunio.common.ui.grid.Colu
 		return[{
 			dataIndex: 'icon_index',
 			headerCls: 'grommunio-icon-column icon',
-			header: '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
+			header: '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
 			width: 25,
 			tooltip: _('Sort by: Icon'),
 			fixed: true,
@@ -131,7 +131,7 @@ Grommunio.task.ui.TaskGridColumnModel = Ext.extend(Grommunio.common.ui.grid.Colu
 			renderer: Grommunio.common.ui.grid.Renderers.categories
 		}, {
 			headerCls: 'grommunio-icon-column',
-			header: '<p class="icon_paperclip">&nbsp;<span class="title">Attachment</span></p>',
+			header: '<p class="icon_paperclip">&nbsp;<span class="title">' + _('Attachment') + '</span></p>',
 			dataIndex: 'hasattach',
 			width: 24,
 			renderer: Grommunio.common.ui.grid.Renderers.attachment,
@@ -141,7 +141,7 @@ Grommunio.task.ui.TaskGridColumnModel = Ext.extend(Grommunio.common.ui.grid.Colu
 		}, {
 			dataIndex: 'importance',
 			headerCls: 'grommunio-icon-column importance',
-			header: '<p class="icon_importance">&nbsp;<span class="title">Importance</span></p>',
+			header: '<p class="icon_importance">&nbsp;<span class="title">' + _('Importance') + '</span></p>',
 			width: 24,
 			tooltip: _('Sort by: Priority'),
 			fixed: true,
@@ -183,7 +183,7 @@ Grommunio.task.ui.TaskGridColumnModel = Ext.extend(Grommunio.common.ui.grid.Colu
 		return[{
 			dataIndex: 'icon_index',
 			headerCls: 'grommunio-icon-column icon',
-			header: '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
+			header: '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
 			width: 25,
 			tooltip: _('Sort by: Icon'),
 			fixed: true,
@@ -251,7 +251,7 @@ Grommunio.task.ui.TaskGridColumnModel = Ext.extend(Grommunio.common.ui.grid.Colu
 			renderer: Grommunio.common.ui.grid.Renderers.categories
 		}, {
 			headerCls: 'grommunio-icon-column',
-			header: '<p class="icon_paperclip">&nbsp;<span class="title">Attachment</span></p>',
+			header: '<p class="icon_paperclip">&nbsp;<span class="title">' + _('Attachment') + '</span></p>',
 			dataIndex: 'hasattach',
 			width: 24,
 			renderer: Grommunio.common.ui.grid.Renderers.attachment,
@@ -260,7 +260,7 @@ Grommunio.task.ui.TaskGridColumnModel = Ext.extend(Grommunio.common.ui.grid.Colu
 		}, {
 			dataIndex: 'importance',
 			headerCls: 'grommunio-icon-column importance',
-			header: '<p class="icon_importance">&nbsp;<span class="title">Importance</span></p>',
+			header: '<p class="icon_importance">&nbsp;<span class="title">' + _('Importance') + '</span></p>',
 			width: 24,
 			tooltip: _('Sort by: Priority'),
 			fixed: true,
@@ -414,7 +414,8 @@ Grommunio.task.ui.TaskGridColumnModel = Ext.extend(Grommunio.common.ui.grid.Colu
 			if (!record.isTaskOwner() && !record.isTaskRequest()) {
 				Ext.MessageBox.show({
 					title: _('Assigned task changes'),
-					msg:_('Please note that assigned task(s) will be overwritten when the assignee makes changes.'),
+					// Always one task here; a bare _() on a plural entry resolves to msgstr[0], the zero form in Arabic.
+					msg: ngettext('Please note that the assigned task will be overwritten when the assignee makes changes.', 'Please note that the assigned tasks will be overwritten when the assignee makes changes.', 1),
 					scope: this,
 					buttons: Ext.MessageBox.OK
 				});

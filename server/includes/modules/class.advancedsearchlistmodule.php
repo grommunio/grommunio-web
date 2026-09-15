@@ -759,7 +759,7 @@ class AdvancedSearchListModule extends ListModule {
 			]);
 			// if error in creating restriction then send error to client
 			$errorInfo = [];
-			$errorInfo["error_message"] = _("Error in search, please try again") . ".";
+			$errorInfo["error_message"] = _("Error in search, please try again.");
 			$errorInfo["original_error_message"] = "Error in parsing restrictions.";
 
 			return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);
@@ -770,7 +770,7 @@ class AdvancedSearchListModule extends ListModule {
 				'restriction_sample' => array_keys($this->restriction),
 			]);
 			$errorInfo = [];
-			$errorInfo["error_message"] = _("Error in search, please try again") . ".";
+			$errorInfo["error_message"] = _("Error in search, please try again.");
 			$errorInfo["original_error_message"] = "Unable to translate search query to full-text expression.";
 
 			return $this->sendSearchErrorToClient($store, $entryid, $action, $errorInfo);

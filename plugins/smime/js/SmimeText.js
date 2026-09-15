@@ -21,7 +21,8 @@ Grommunio.plugins.smime.SmimeText = function () {
 		 */
 		createMessage: function (text) {
 			return _('grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender.') +
-				"<br><br>" + _('You are seeing this message because the verification of the digital signature') + "<b>" + _(' has failed') + "</b>" + _(' for this message.') + "<br>" +
+				// TRANSLATORS: {0} is the bolded phrase 'has failed'
+				"<br><br>" + String.format(_('You are seeing this message because the verification of the digital signature {0} for this message.'), "<b>" + _('has failed') + "</b>") + "<br>" +
 				"<br><b>" + _('What caused this issue?') + "</b><br><br>" +
 				text +
 				"<br><br><b>" + _('What should I do?') + "</b><br><br>" +
@@ -40,8 +41,7 @@ Grommunio.plugins.smime.SmimeText = function () {
 			switch (index) {
 			// Verified successfully
 			case 0:
-				return _('grommunio Web can verify digital signatures of emails. A successful verification reassures you ') +
-					_('that the message has not been tampered with and validates the identity of the sender.') + "<br><br>" +
+				return _('grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender.') + "<br><br>" +
 					_('The verification of the digital signature was successful for this email message.');
 			// Could not verify, missing public certificate
 			case 1:

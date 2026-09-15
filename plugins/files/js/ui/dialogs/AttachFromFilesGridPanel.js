@@ -37,7 +37,7 @@ Grommunio.plugins.files.ui.dialogs.AttachFromFilesGridPanel = Ext.extend(Ext.gri
 			columns: [model,{
 				id       : 'type',
 				dataIndex: 'type',
-				header   : '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
+				header   : '<p class="icon_index">&nbsp;<span class="title">' + _('Icon') + '</span></p>',
 				headerCls: 'grommunio-icon-column icon',
 				renderer : Grommunio.plugins.files.data.Utils.Renderer.typeRenderer,
 				width    : 24,

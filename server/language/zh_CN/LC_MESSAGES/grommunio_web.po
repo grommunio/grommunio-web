@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-06 21:29+0200\n"
+"POT-Creation-Date: 2026-09-15 20:54+0200\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -40,6 +40,13 @@ msgstr "数值必须介于0％至100％之间"
 
 msgid "Number must be higher than zero"
 msgstr "数字必须大于零"
+
+#. TRANSLATORS: punctuation appended to every form label, {0} is the label
+#. itself. French puts a space before the colon, Chinese the full-width one.
+#. TRANSLATORS: punctuation appended to a field label, {0} is the label itself
+msgctxt "label separator"
+msgid "{0}:"
+msgstr "{0}："
 
 msgid "More options"
 msgstr "更多选项"
@@ -251,8 +258,8 @@ msgstr "是"
 msgid "No"
 msgstr "否"
 
-msgid "Loading"
-msgstr "正在加载"
+msgid "Loading…"
+msgstr "正在加载…"
 
 msgid "The value in this field is invalid"
 msgstr "该字段内的数值无效"
@@ -326,9 +333,6 @@ msgstr "此字段只能包含字母和_"
 
 msgid "This field should only contain letters, numbers and _"
 msgstr "此字段只能包含字母、数字和_"
-
-msgid "Email Addresses"
-msgstr "电子邮件地址"
 
 msgid "Email addresses"
 msgstr "电子邮件地址"
@@ -810,8 +814,9 @@ msgstr "周"
 msgid "weeks"
 msgstr "周"
 
-msgid " on "
-msgstr " 时间 "
+#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+msgid "{0} on {1}"
+msgstr "{0} 时间 {1}"
 
 msgid "month"
 msgstr "月"
@@ -1354,18 +1359,18 @@ msgid "End"
 msgstr "结束"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for formatting instructions
-msgid "Printed by"
-msgstr "印刷者"
+#. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
+msgid "Printed by {0} at {1}"
+msgstr "印刷者 {0} 在 {1}"
 
-msgid "at"
-msgstr "在"
+#. TRANSLATORS: {0} is a folder name, {1} the name of the mailbox it lives in
+msgid "{0} of {1}"
+msgstr "{0} 的 {1}"
 
-msgid "of"
-msgstr "的"
-
-msgid "Location: "
-msgstr "地点： "
+msgid "Location: {0}"
+msgstr "地点： {0}"
 
 msgid "j M {0}"
 msgstr "j M{0}"
@@ -1373,8 +1378,8 @@ msgstr "j M{0}"
 msgid "l jS M Y {0}"
 msgstr "l jS M Y{0}"
 
-msgid "All day: "
-msgstr "全天候。"
+msgid "All day: {0}"
+msgstr "全天： {0}"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "l jS F Y"
@@ -1455,7 +1460,7 @@ msgid "Calendar view settings"
 msgstr "日历视图设置"
 
 msgid "View multiple calendars in"
-msgstr "查看...中的多个日历"
+msgstr "查看多个日历的方式"
 
 msgid "Reminder settings"
 msgstr "提醒设置"
@@ -1489,6 +1494,12 @@ msgstr "打开"
 msgid "Copy/Move"
 msgstr "复制/移动"
 
+msgid "Mark Read"
+msgstr "标记为已读"
+
+msgid "Mark Unread"
+msgstr "标记为未读"
+
 msgid "Send to…"
 msgstr "正在发送给收件人…"
 
@@ -1506,10 +1517,6 @@ msgstr "未找到任何预约"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
 msgstr "此预约已被移动或删除，您是否继续？"
-
-msgctxt "calendar.contextmenu"
-msgid "Use Reply All to reply to all attendees of your meeting."
-msgstr "使用“回复所有”功能回复会议的所有与会者。"
 
 msgid "Options"
 msgstr "选项"
@@ -1601,22 +1608,8 @@ msgstr "排序方式：重要性"
 msgid "Appointments list"
 msgstr "日程列表"
 
-msgid "Loading appointments"
-msgstr "加载预约"
-
-msgid "Attendees"
-msgstr "参与者"
-
-msgid "Optional attendees"
-msgstr "可选与会者"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F {0}"
-msgstr "jS F {0}"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F Y"
-msgstr "jS F Y"
+msgid "Loading appointments…"
+msgstr "正在加载预约…"
 
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "您无足够的权限移动和复制此项目。请文件夹所有者授予您权限或与您的系统管理员联系。"
@@ -1624,9 +1617,8 @@ msgstr "您无足够的权限移动和复制此项目。请文件夹所有者授
 msgid "You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "您无足够的权限复制此项目。请文件夹所有者授予您权限或与您的系统管理员联系。"
 
-#, fuzzy
 msgid "Copying this appointment will unset it as private. Are you sure you want to continue?"
-msgstr "复制这个约会将取消它的隐私。你确定你要继续吗？"
+msgstr "复制此预约将取消其“私人”标记。您确定要继续吗？"
 
 msgid "Private item"
 msgstr "私人项目"
@@ -1634,9 +1626,8 @@ msgstr "私人项目"
 msgid "Copy"
 msgstr "复制"
 
-#, fuzzy
 msgid "Moving this appointment will unset it as private. Are you sure you want to continue?"
-msgstr "移动这个约会将取消它的隐私。你确定你要继续吗？"
+msgstr "移动此预约将取消其“私人”标记。您确定要继续吗？"
 
 msgid "Move"
 msgstr "移动"
@@ -1701,8 +1692,18 @@ msgstr "您的日历已自动更新。现在将删除此会议请求。"
 msgid "New appointment subject"
 msgstr "新约会主题"
 
-msgid "Loading appointments…"
-msgstr "正在加载预约…"
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "jS F Y"
+
+msgid "Online meeting"
+msgstr "在线会议"
+
+msgid "Attendees"
+msgstr "参与者"
+
+msgid "Optional attendees"
+msgstr "可选与会者"
 
 msgid "Please select a calendar via widget settings"
 msgstr "请通过小部件设置选择日历"
@@ -1769,8 +1770,8 @@ msgstr "尚未打印多个项目。"
 msgid "Printing of this item is not yet available"
 msgstr "尚无法打印此项目"
 
-msgid "Item type: "
-msgstr "项目类型： "
+msgid "Item type: {0}"
+msgstr "项目类型： {0}"
 
 msgid "Printing of this view is not yet available"
 msgstr "尚无法打印此视图"
@@ -1865,6 +1866,10 @@ msgstr "权限不足"
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr "您没有足够的权限删除此文件夹中的项目。"
 
+msgid "You have insufficient privileges to delete one of the selected items."
+msgid_plural "You have insufficient privileges to delete {0} of the selected items."
+msgstr[0] "您没有足够的权限删除所选项目中的{0}项。"
+
 msgid "Notify recipients"
 msgstr "通知收件人"
 
@@ -1901,6 +1906,12 @@ msgstr "重复的收件人"
 msgid "Recipient already exists."
 msgstr "收件人已存在。"
 
+msgid "Remove attachment"
+msgstr "删除附件"
+
+msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
+msgstr "要从此邮件中删除“{0}”吗？删除后将无法恢复该附件。"
+
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "此电子邮件的发件人已请求已读回执。您是否欲通知发件人？"
 
@@ -1929,18 +1940,18 @@ msgid "Untitled"
 msgstr "无标题"
 
 msgid "The attachments could not be saved."
-msgstr ""
+msgstr "无法保存这些附件。"
 
 msgid "This attachment could not be saved: {0}"
 msgid_plural "These attachments could not be saved: {0}"
-msgstr[0] ""
+msgstr[0] "以下附件无法保存：{0}"
 
 msgid "{0} attachment was saved."
 msgid_plural "{0} attachments were saved."
-msgstr[0] ""
+msgstr[0] "已保存{0}个附件。"
 
 msgid "Save attachments"
-msgstr ""
+msgstr "保存附件"
 
 msgid "Insert item"
 msgstr "插入项目"
@@ -1988,7 +1999,7 @@ msgid "Preview"
 msgstr "预览"
 
 msgid "Preview in a dialog"
-msgstr ""
+msgstr "在对话框中预览"
 
 msgid "Download"
 msgstr "下载"
@@ -1997,24 +2008,22 @@ msgid "Download all as ZIP"
 msgstr "全部下载为ZIP"
 
 msgid "Save selection to folder"
-msgstr ""
+msgstr "将所选附件保存至本地文件夹"
 
 msgid "Import to folder"
 msgstr "导入至文件夹"
 
-#, fuzzy
 msgid "In order to use the vCard import feature, upgrade your Gromox to version 0 or higher."
 msgstr "为了使用vCard导入功能，请将您的Gromox升级到0或更高版本。"
 
-#, fuzzy
 msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher."
 msgstr "为了使用ICS/VCS导入功能，请将您的Gromox升级到0或更高版本。"
 
 msgid "Preview in a grommunio Web tab"
-msgstr ""
+msgstr "在 grommunio Web 选项卡中预览"
 
 msgid "Preview in a browser window"
-msgstr ""
+msgstr "在浏览器窗口中预览"
 
 msgid "Attachment error"
 msgstr "附件错误"
@@ -2028,14 +2037,8 @@ msgstr "无法下载"
 msgid "Drop files here to attach them"
 msgstr "将文件拖放到此处以添加为附件"
 
-msgid "Picture format is not supported. "
-msgstr "不支持图片格式。 "
-
-msgid "Supported format for contact pictures are"
-msgstr "支持的联系人图片格式为"
-
-msgid "Attachment Error"
-msgstr "附件错误"
+msgid "Picture format is not supported. Supported format for contact pictures are"
+msgstr "不支持图片格式。 支持的联系人图片格式为"
 
 msgid "Could not save the category list."
 msgstr "无法保存类别列表。"
@@ -2058,15 +2061,14 @@ msgstr "快速访问"
 msgid "Delete Category"
 msgstr "删除类别"
 
-#, fuzzy
 msgid "Are you sure you want to delete the category \"{0}\"? Other items keep this category, but lose the assigned color."
-msgstr "你确定要删除\"{0}\"这个类别吗？其他项目保留这个类别，但失去指定的颜色。"
+msgstr "您确定要删除类别“{0}”吗？其他项目会保留此类别，但会失去已分配的颜色。"
 
 msgid "Rename Category"
 msgstr "重命名类别"
 
-msgid "A category named \""
-msgstr "名为\"的一个类别"
+msgid "You already have a category named '{0}'. Please use another name."
+msgstr "您已经有一个名为'{0}'的类别。请使用另一个名称。"
 
 msgid "Create New Category"
 msgstr "建立新类别"
@@ -2082,9 +2084,6 @@ msgstr "创建"
 
 msgid "You must apply the changes you have made to the categories before you can create this category."
 msgstr "在创建此类别之前，您必须应用您已对各类别所做的更改。"
-
-msgid "You already have a category named '{0}'. Please use another name."
-msgstr "您已经有一个名为'{0}'的类别。请使用另一个名称。"
 
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
 msgstr "您的待定更改中已经有一个名为'{0}'的类别。请使用另一个名称。"
@@ -2209,6 +2208,9 @@ msgstr[0] "已有{0}条选择消息。"
 
 msgid "Folder '{0}' selected."
 msgstr "已选择文件夹'{0}'。"
+
+msgid "Suggested folders"
+msgstr "推荐文件夹"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "无法将所选项目移动到此文件夹，因为该文件夹存放的是其他类型的内容。"
@@ -2343,7 +2345,7 @@ msgid "No suggestions available"
 msgstr "无任何可用的建议"
 
 msgid "Switch between different contexts e.g. inbox, calendar, etc."
-msgstr "切换情景 例如: 收件箱，日历...等等."
+msgstr "在不同情景之间切换，例如收件箱、日历等。"
 
 msgid "Basic navigation"
 msgstr "基本导航"
@@ -2405,6 +2407,9 @@ msgstr "撤销上一个操作"
 msgid "Redo the last undone action"
 msgstr "重做上一个已撤销的操作"
 
+msgid "Jump to the search box, press again for the browser search"
+msgstr "跳转到搜索框，再次按下则使用浏览器查找"
+
 msgid "Open the command palette"
 msgstr "打开命令面板"
 
@@ -2459,8 +2464,77 @@ msgstr "排序方式：context.mail.griddefaultcolumn"
 msgid "ZDeveloper"
 msgstr "Z开发者"
 
+msgid "Presentation"
+msgstr "演示"
+
+msgid "Fullscreen"
+msgstr "全屏"
+
+msgid "Previous page"
+msgstr "上一页"
+
+msgid "Next page"
+msgstr "下一页"
+
+msgid "Page:"
+msgstr "页码："
+
+msgid "of {0}"
+msgstr "共{0}页"
+
+msgid "Zoom out"
+msgstr "缩小"
+
+msgid "Zoom in"
+msgstr "放大"
+
+msgid "Zoom"
+msgstr "缩放"
+
+msgid "Automatic"
+msgstr "自动"
+
+msgid "Actual size"
+msgstr "实际尺寸"
+
+msgid "Page width"
+msgstr "页面宽度"
+
+msgid "Rotate left"
+msgstr "向左旋转"
+
+msgid "Rotate right"
+msgstr "向右旋转"
+
+msgid "This document could not be previewed."
+msgstr "此文档预览失败。"
+
+msgid "This file cannot be previewed."
+msgstr "无法预览此文件。"
+
+msgid "Download the file to open it with a program that can read it."
+msgstr "请下载该文件，然后使用能够读取它的程序打开。"
+
+msgid "The document is empty."
+msgstr "此文档为空。"
+
+msgid "This sheet is empty."
+msgstr "此工作表为空。"
+
+msgid "Showing the first {0} rows and {1} columns."
+msgstr "仅显示前{0}行和前{1}列。"
+
+msgid "Wrap lines"
+msgstr "自动换行"
+
+msgid "Line numbers"
+msgstr "行号"
+
+msgid "This message has no content."
+msgstr "此邮件没有内容。"
+
 msgid "grommunio Web print"
-msgstr "grommunio 网络印刷"
+msgstr "grommunio Web 打印"
 
 msgid "Display name"
 msgstr "显示名称"
@@ -2581,7 +2655,7 @@ msgstr "每{A}周"
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "每项任务完成后{A}周重新生成新任务"
 
-msgid "Every {A} years(s) on"
+msgid "Every {A} year(s) on"
 msgstr "每 {A} 年的"
 
 msgid "{A} {B}"
@@ -2907,6 +2981,12 @@ msgstr "始终移动包含此主题的消息"
 msgid "Create rule…"
 msgstr "正在创建规则…"
 
+msgid "Saved"
+msgstr "已保存"
+
+msgid "Saved successfully"
+msgstr "已成功保存"
+
 msgid "myself"
 msgstr "我本人"
 
@@ -3009,8 +3089,10 @@ msgstr "启用新邮件桌面通知"
 msgid "Enable desktop notifications for reminders"
 msgstr "启用桌面提醒通知"
 
-msgid "{A} Auto-hide desktop notification after second(s) {B}"
-msgstr "{A}秒后自动隐藏桌面通知 {B}"
+#. TRANSLATORS: The {A} _must_ always be at the start of the translation
+#. The '{B}' represents the number of seconds which the user will type in.
+msgid "{A}Auto-hide desktop notification after {B} second(s)"
+msgstr "{A}{B}秒后自动隐藏桌面通知"
 
 msgid "Disable sound"
 msgstr "禁用声音"
@@ -3103,9 +3185,6 @@ msgstr "{0}已过期"
 msgid "Message body editor"
 msgstr "邮件正文编辑器"
 
-msgid "Loading…"
-msgstr "正在加载…"
-
 msgid "Message could not be loaded"
 msgstr "无法加载消息"
 
@@ -3140,10 +3219,9 @@ msgctxt "mail.previewpanel"
 msgid "Please treat this as {0}."
 msgstr "请将此视为{0}。"
 
-#, fuzzy
 msgctxt "mail.previewpanel"
 msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "点击这里下载图片。为了帮助保护您的隐私，grommunio Web阻止自动下载本消息中的一些图片。"
+msgstr "点击这里下载图片。为了帮助保护您的隐私，grommunio Web已阻止自动下载本消息中的一些图片。"
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3321,6 +3399,27 @@ msgstr "标记为未读"
 
 msgid "in"
 msgstr "内"
+
+msgid "Digitally sign this message"
+msgstr "对此邮件进行数字签名"
+
+msgid "Encrypt this message"
+msgstr "对此邮件进行加密"
+
+msgid "Autosave is paused while encryption is selected."
+msgstr "选择加密时，自动保存将暂停。"
+
+msgid "Turn off {0} signing and encryption first."
+msgstr "请先关闭 {0} 签名和加密。"
+
+msgid "options"
+msgstr "选项"
+
+msgid "Sign"
+msgstr "标志"
+
+msgid "Encrypt"
+msgstr "加密"
 
 msgid "Root"
 msgstr "根"
@@ -3561,9 +3660,6 @@ msgstr "本地号码"
 msgid "Extension"
 msgstr "扩展名"
 
-msgid "Add Attachment"
-msgstr "添加附件"
-
 msgid "Add attachments to this contact"
 msgstr "添加附件至此联系人"
 
@@ -3606,15 +3702,14 @@ msgstr "电子邮件3显示为"
 msgid "Loading contacts"
 msgstr "加载联系人"
 
-#, fuzzy
 msgid "There are no items to show in this list. Update the filter for more results."
-msgstr "此列表中没有要显示的项目。更新过滤器以获得更多结果。"
+msgstr "此列表中没有可显示的项目。请更新筛选条件以获得更多结果。"
 
 msgid "[Group]"
 msgstr "[组]"
 
 msgid "Work:"
-msgstr "工作。"
+msgstr "工作："
 
 msgid "Primary:"
 msgstr "主要："
@@ -4014,9 +4109,6 @@ msgstr "浅色"
 msgid "Dark"
 msgstr "暗色"
 
-msgid "Automatic"
-msgstr "自动"
-
 msgid "Main toolbar"
 msgstr "主工具栏"
 
@@ -4098,26 +4190,20 @@ msgstr "展开层次结构"
 msgid "Folders List"
 msgstr "文件夹列表"
 
+msgid "Loaded {0} of {1}"
+msgstr "已加载{1}的{0}"
+
 msgid "Copy Details"
 msgstr "复制详细信息"
 
 msgid "Hide Details"
 msgstr "隐藏详细信息"
 
-msgid "Loaded {0} of {1}"
-msgstr "已加载{1}的{0}"
-
 msgid "Copied!"
 msgstr "已复制！"
 
-msgid "Saving"
-msgstr "正在保存"
-
-msgid "Saved"
-msgstr "已保存"
-
-msgid "Saved successfully"
-msgstr "已成功保存"
+msgid "Saving…"
+msgstr "正在保存…"
 
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr "您将丢失所有未保存的工作。您是否确定关闭此窗口？"
@@ -4203,14 +4289,130 @@ msgstr "D d-m"
 msgid "D d-m G:i"
 msgstr "D d-m G:i"
 
+msgid "Click the link to open the URL in a new window."
+msgstr "点击此链接以在新窗口中打开URL。"
+
+msgid "The server reported an unknown error on your request."
+msgstr "针对您的请求，服务器报告了一个未知错误。"
+
+msgid "The server reported an unspecified error on your request."
+msgstr "针对您的请求，服务器报告了一个未指定的错误。"
+
+msgid "The session has expired, reauthentication is required."
+msgstr "会话已过期，需重新验证。"
+
+msgid "The session in the current browser window has been closed from another browser window or tab."
+msgstr "当前浏览器窗口中的会话已通过另一个浏览器窗口或选项卡关闭。"
+
+msgid "Session expired"
+msgstr "会话已过期"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "您是否欲重定向至登录页面？"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr "需重新验证，请点击此处返回登录页面。"
+
+msgid "Connection problem"
+msgstr "连接问题"
+
+msgid "Could not connect to server, retrying in {0} second"
+msgid_plural "Could not connect to server, retrying in {0} seconds"
+msgstr[0] "无法连接服务器，请于{0}秒后重试"
+
+msgid "Click to retry now"
+msgstr "点击以立即重试"
+
+msgid "Connection restored"
+msgstr "连接已恢复"
+
+msgid "Connection with server has been restored"
+msgstr "与服务器的连接已恢复"
+
+msgid "grommunio Web was updated"
+msgstr "grommunio Web 已更新"
+
+msgid "A new version is available, click here to reload."
+msgstr "已有新版本可用，点击此处重新加载。"
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr "超文本传输协定{0}"
+
+msgid "Invalid data received from the server"
+msgstr "从服务器接收到的数据无效"
+
+msgid "Missing store"
+msgstr "缺少存储器"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "层次结构中缺少默认的存储器。"
+
+msgid "Not all functionality of grommunio Web might be working properly because of this."
+msgstr "因此，并非grommunio Web的所有功能均能正常运行。"
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "收件箱"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "发件箱"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "已发送的项目"
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "已删除的项目"
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "日历"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "联系人"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "草稿"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "日志"
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "便签"
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "任务"
+
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "垃圾邮件"
+
+msgid "Missing folders"
+msgstr "缺少文件夹"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "层次结构中缺少以下必需的文件夹：{0}"
+
+msgid "Loading model from server failed"
+msgstr "从服务器加载模块失败"
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "外出状态当前已激活。您是否需将其关闭？"
+
 msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
 msgstr "无足够权限打开此存储器，您是否欲从层次结构中将其删除？"
 
 msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
 msgstr "无足够权限打开此文件夹，您是否欲从层次结构将其删除？"
-
-msgid "Insufficient Permissions"
-msgstr "权限不足"
 
 msgid "Not enough permissions to open this folder."
 msgstr "无足够权限打开此文件夹。"
@@ -4219,13 +4421,13 @@ msgid "Empty folder"
 msgstr "空文件夹"
 
 msgid "Emptying {0}… (0%)"
-msgstr "清空{0}... (0%)"
+msgstr "清空{0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "成功清空{0}. ({1} 项目已删除)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "清空{0}... ({1}%)"
+msgstr "清空{0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4514,7 +4716,7 @@ msgid "Properties of {0}"
 msgstr "{0}的属性"
 
 msgid "Share {0} with…"
-msgstr "与…共享{0}"
+msgstr "与…共享{0}…"
 
 msgid "Properties of {0} - {1}"
 msgstr "{0}-{1}的属性"
@@ -4537,9 +4739,17 @@ msgstr "显示所有"
 msgid "Filter folders"
 msgstr "筛选文件夹"
 
-#, fuzzy
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
-msgstr "你没有足够的权限来移动这个文件夹。你想用复制来代替吗？"
+msgstr "您没有足够的权限移动此文件夹。是否改为复制？"
+
+msgid "Enable OpenPGP before replying to this protected message."
+msgstr "回复此受保护的邮件前，请先启用 OpenPGP。"
+
+msgid "The protected message could not be opened. No reply or forward was created."
+msgstr "无法打开受保护的邮件。未创建回复或转发邮件。"
+
+msgid "Unable to open response"
+msgstr "无法打开回复或转发邮件"
 
 msgid "CC"
 msgstr "抄送对象"
@@ -4569,8 +4779,8 @@ msgstr "安排待发出的邮件"
 msgid "Scheduled Items"
 msgstr "已安排的项目"
 
-msgid "Your message will be sent at "
-msgstr "将按下列条件发送您的消息 "
+msgid "Your message will be sent at {0}."
+msgstr "将按下列条件发送您的消息 {0}."
 
 msgid "Go to your Outbox to edit your email."
 msgstr "进入您的发件箱，以编辑您的电子邮件。"
@@ -4587,23 +4797,19 @@ msgstr "按特定时间"
 msgid "The time you entered is in the past. Please reschedule your mail."
 msgstr "您输入的时间是过去的时间。请重新安排您的邮件。"
 
-msgid "today  at "
-msgstr "今天的时间 "
+msgid "Your email will be sent today at {0}"
+msgstr "您的电子邮件将于今天 {0} 发送"
 
-msgid "tomorrow  at "
-msgstr "明天的时间 "
+msgid "Your email will be sent tomorrow at {0}"
+msgstr "您的电子邮件将于明天 {0} 发送"
 
-msgid "{0} at "
-msgstr "{0}的时间 "
+#. TRANSLATORS: {0} is a weekday name, {1} a time of day
+msgid "Your email will be sent {0} at {1}"
+msgstr "您的电子邮件将于{0} {1} 发送"
 
-msgid "at {0}"
-msgstr "于{0}时"
-
-msgid "Your email will be sent {0}{1}"
-msgstr "将发送您的电子邮件{0}{1}"
-
-msgid "Saving…"
-msgstr "正在保存…"
+#. TRANSLATORS: {0} is a full date, {1} a time of day
+msgid "Your email will be sent at {0}, {1}"
+msgstr "您的电子邮件将于{0} {1} 发送"
 
 msgid "Saved at {0}"
 msgstr "已于 {0} 保存"
@@ -4613,6 +4819,10 @@ msgstr "保存失败"
 
 msgid "This message will be flagged for follow up when it is sent."
 msgstr "发送此消息时，通过标记跟进此消息。"
+
+#. TRANSLATORS: {0} is the follow-up period, e.g. 'today' or 'next week'
+msgid "This message will be flagged for follow up {0} when it is sent."
+msgstr "此消息在发送时会被标记为{0}跟进。"
 
 msgid "Send Later"
 msgstr "稍后发送"
@@ -4680,12 +4890,6 @@ msgstr "设置类别"
 msgid "Pop-Out"
 msgstr "弹出式"
 
-msgid "Mark Read"
-msgstr "标记为已读"
-
-msgid "Mark Unread"
-msgstr "标记为未读"
-
 msgid "New mail"
 msgstr "新邮件"
 
@@ -4712,6 +4916,15 @@ msgstr "打印选定的电子邮件"
 
 msgid "Filter"
 msgstr "筛选"
+
+msgid "This browser cannot attach the decrypted file. Download it before forwarding."
+msgstr "此浏览器无法附加已解密的文件。请先下载该文件，再进行转发。"
+
+msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
+msgstr "某个已解密的附件超出了上传限制。未创建不完整的回复或转发邮件。"
+
+msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
+msgstr "某个已解密的附件上传失败。未创建不完整的回复或转发邮件。"
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -4791,6 +5004,9 @@ msgstr "激活附件提醒"
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "每{B}分钟{A}自动保存未发送的邮件"
 
+msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
+msgstr "选择加密时也自动保存（草稿以未加密方式存储）"
+
 msgid "Conversation view settings"
 msgstr "对话视图设置"
 
@@ -4860,7 +5076,7 @@ msgid "General mail settings"
 msgstr "常规邮件设置"
 
 msgid "Open or compose a mail item in a"
-msgstr "在...中打开或撰写邮件"
+msgstr "在以下位置打开或撰写邮件"
 
 msgid "grommunio Web tab"
 msgstr "grommunio Web选项卡"
@@ -4875,19 +5091,19 @@ msgid "I am currently in the office"
 msgstr "我目前在办公室"
 
 msgid "I am out of the office from"
-msgstr "我自...时起不在公司"
+msgstr "我从以下时间起不在办公室"
 
 msgid "Out of office from"
 msgstr "请假起始日期"
 
 msgid "I will be back on"
-msgstr "我将在...时回来"
+msgstr "我将于以下时间返回"
 
 msgid "Back on"
 msgstr "返回"
 
 msgid "Automatically reply with the following message:"
-msgstr "自动回复如下信息"
+msgstr "自动回复如下信息："
 
 msgid "(The frequency of replies is dependent on server configuration.)"
 msgstr "(回复频率取决于服务器配置）。"
@@ -4953,7 +5169,7 @@ msgid "Signature name"
 msgstr "签名名称"
 
 msgid "Signature name:"
-msgstr "签名名称。"
+msgstr "签名名称："
 
 msgid "Save Signature"
 msgstr "保存签名"
@@ -5033,9 +5249,6 @@ msgstr "移至垃圾邮件文件夹"
 msgid "Not Junk Email"
 msgstr "非垃圾邮件"
 
-msgid "Send to"
-msgstr "发送至"
-
 msgid "Message list"
 msgstr "邮件列表"
 
@@ -5109,9 +5322,6 @@ msgstr "排序方式：颜色"
 
 msgid "Notes list"
 msgstr "备忘录列表"
-
-msgid "Loading Notes"
-msgstr "正在加载便签"
 
 msgid "Loading notes"
 msgstr "正在加载便签"
@@ -5242,14 +5452,8 @@ msgstr "隐藏小部件面板"
 msgid "Auto"
 msgstr "自动"
 
-msgid "Actual size"
-msgstr "实际尺寸"
-
-msgid "Page width"
-msgstr "页面宽度"
-
-msgid "Attachment preview (PDF and Open formats)"
-msgstr "附件预览（PDF 和 Open 格式）"
+msgid "Preview documents and files in grommunio Web"
+msgstr "在 grommunio Web 中预览文档和文件"
 
 msgid "Document default zoom"
 msgstr "文件默认缩放"
@@ -5258,10 +5462,10 @@ msgid "PDF zoom"
 msgstr "PDF 缩放"
 
 msgid "Dialog"
-msgstr ""
+msgstr "对话框"
 
 msgid "Open a preview in a"
-msgstr ""
+msgstr "在以下位置打开预览"
 
 msgid "File previewing"
 msgstr "文件预览"
@@ -5270,7 +5474,7 @@ msgid "Inbox navigation"
 msgstr "收件箱导航"
 
 msgid "I want to navigate through my items by using:"
-msgstr "我想使用...浏览我的项目"
+msgstr "我想使用以下方式浏览我的项目："
 
 msgid "Navigation method"
 msgstr "导航方式"
@@ -5344,9 +5548,8 @@ msgstr "您已超出硬配额，无法收发邮件。"
 msgid "At {0} you won't be able to send mails."
 msgstr "当{0}时，您将无法发送邮件。"
 
-#, fuzzy
 msgid "You can not send mails as you have exceeded soft quota, at {0} you won't be able to receive mails."
-msgstr "你不能发送邮件，因为你已经超过了软配额，在{0}你将无法接收邮件。"
+msgstr "您已超出软配额，无法发送邮件；达到{0}时，您将无法接收邮件。"
 
 msgid "At {0} you won't be able to send or receive mails."
 msgstr "在{0} ，您将无法收发邮件。"
@@ -5427,20 +5630,41 @@ msgstr "维护"
 msgid "Reset all settings to defaults"
 msgstr "将所有设置重置为默认值"
 
+msgid "Migrate legacy categories"
+msgstr "迁移旧版类别"
+
+msgid "This will scan all folders and migrate the categories assigned to items."
+msgstr "此操作将扫描所有文件夹，并迁移已分配给各项目的类别。"
+
+msgid "The legacy category settings will remain unchanged."
+msgstr "旧版类别设置将保持不变。"
+
+msgid "Migrate"
+msgstr "迁移"
+
+msgid "Legacy categories migrated successfully."
+msgstr "旧版类别迁移成功。"
+
+msgid "Could not migrate legacy categories."
+msgstr "无法迁移旧版类别。"
+
 msgid "Changes to assigned task"
 msgstr "更改分配任务"
 
-msgid "Please note that assigned task(s) will be overwritten when the assignee makes changes."
-msgstr "请注意，当代理人进行更改时，分配任务将被覆盖。"
+msgid "Please note that the assigned task will be overwritten when the assignee makes changes."
+msgid_plural "Please note that the assigned tasks will be overwritten when the assignee makes changes."
+msgstr[0] "请注意，当代理人进行更改时，分配任务将被覆盖。"
 
 msgid "Delete confirmation"
 msgstr "删除确认"
 
-msgid "Deleting the item(s) will also delete the original item(s)."
-msgstr "删除项目也会删除原始项目。"
+msgid "Deleting the item will also delete the original item."
+msgid_plural "Deleting the items will also delete the original items."
+msgstr[0] "删除项目也会删除原始项目。"
 
-msgid "Do you want to delete the item(s)?"
-msgstr "您是否欲删除项目？"
+msgid "Do you want to delete the item?"
+msgid_plural "Do you want to delete the items?"
+msgstr[0] "您是否欲删除项目？"
 
 msgid "Sort by: Priority"
 msgstr "排序方式：优先级"
@@ -5577,12 +5801,12 @@ msgstr "新任务"
 msgid "Completed"
 msgstr "已完成"
 
-msgid "Printed by: "
-msgstr "\"打印机构： "
+msgid "Printed by: {0}"
+msgstr "\"打印机构： {0}"
 
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "Printed on: "
-msgstr "打印日期： "
+#. TRANSLATORS: {0} is the date the list was printed on
+msgid "Printed on: {0}"
+msgstr "打印日期： {0}"
 
 msgid "Percent complete"
 msgstr "已完成比例"
@@ -5694,124 +5918,6 @@ msgstr "无任务。"
 
 msgid "Tasks / To-Do"
 msgstr "任务/待办事项"
-
-msgid "Click the link to open the URL in a new window."
-msgstr "点击此链接以在新窗口中打开URL。"
-
-msgid "The server reported an unknown error on your request."
-msgstr "针对您的请求，服务器报告了一个未知错误。"
-
-msgid "The server reported an unspecified error on your request."
-msgstr "针对您的请求，服务器报告了一个未指定的错误。"
-
-msgid "The session has expired, reauthentication is required."
-msgstr "会话已过期，需重新验证。"
-
-msgid "The session in the current browser window has been closed from another browser window or tab."
-msgstr "当前浏览器窗口中的会话已通过另一个浏览器窗口或选项卡关闭。"
-
-msgid "Session expired"
-msgstr "会话已过期"
-
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "您是否欲重定向至登录页面？"
-
-msgid "Reauthentication required, click here to go to back to logon page."
-msgstr "需重新验证，请点击此处返回登录页面。"
-
-msgid "Connection problem"
-msgstr "连接问题"
-
-msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr "无法连接服务器，请于{0}秒后重试"
-
-msgid "Click to retry now"
-msgstr "点击以立即重试"
-
-msgid "Connection restored"
-msgstr "连接已恢复"
-
-msgid "Connection with server has been restored"
-msgstr "与服务器的连接已恢复"
-
-msgid "grommunio Web was updated"
-msgstr "grommunio Web 已更新"
-
-msgid "A new version is available, click here to reload."
-msgstr "已有新版本可用，点击此处重新加载。"
-
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "超文本传输协定{0}"
-
-msgid "Invalid data received from the server"
-msgstr "从服务器接收到的数据无效"
-
-msgid "Missing store"
-msgstr "缺少存储器"
-
-msgid "The default store is missing from the hierarchy."
-msgstr "层次结构中缺少默认的存储器。"
-
-msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "因此，并非grommunio Web的所有功能均能正常运行。"
-
-msgctxt "hierarchy.foldername"
-msgid "Inbox"
-msgstr "收件箱"
-
-msgctxt "hierarchy.foldername"
-msgid "Outbox"
-msgstr "发件箱"
-
-msgctxt "hierarchy.foldername"
-msgid "Sent Items"
-msgstr "已发送的项目"
-
-msgctxt "hierarchy.foldername"
-msgid "Deleted items"
-msgstr "已删除的项目"
-
-msgctxt "hierarchy.foldername"
-msgid "Calendar"
-msgstr "日历"
-
-msgctxt "hierarchy.foldername"
-msgid "Contacts"
-msgstr "联系人"
-
-msgctxt "hierarchy.foldername"
-msgid "Drafts"
-msgstr "草稿"
-
-msgctxt "hierarchy.foldername"
-msgid "Journal"
-msgstr "日志"
-
-msgctxt "hierarchy.foldername"
-msgid "Notes"
-msgstr "便签"
-
-msgctxt "hierarchy.foldername"
-msgid "Tasks"
-msgstr "任务"
-
-msgctxt "hierarchy.foldername"
-msgid "Junk Email"
-msgstr "垃圾邮件"
-
-msgid "Missing folders"
-msgstr "缺少文件夹"
-
-msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] "层次结构中缺少以下必需的文件夹：{0}"
-
-msgid "Loading model from server failed"
-msgstr "从服务器加载模块失败"
-
-msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr "外出状态当前已激活。您是否需将其关闭？"
 
 msgid "AI Assistant"
 msgstr "AI 助手"
@@ -6077,6 +6183,9 @@ msgstr "正在思考…"
 msgid "The response was interrupted and may be incomplete."
 msgstr "回复已中断，可能不完整。"
 
+msgid "The answer reached the output limit configured for this model and stops here."
+msgstr "回答已达到为此模型配置的输出上限，因此在此结束。"
+
 msgid "Insert at cursor"
 msgstr "在光标处插入"
 
@@ -6197,14 +6306,8 @@ msgstr "剪贴板"
 msgid "Could not copy link automatically. Please copy it manually."
 msgstr "无法自动复制链接。请手动复制。"
 
-msgid "Loading details..."
-msgstr "加载详细信息..."
-
 msgid "Share"
 msgstr "分享"
-
-msgid "Loading..."
-msgstr "正在加载..."
 
 msgid "Add attachment from {0}"
 msgstr "从{0}"
@@ -6224,9 +6327,8 @@ msgstr "您确定要删除{0} 文件吗？"
 msgid "Are you sure want to delete {0} folders and all of their contents?"
 msgstr "您确定要删除{0} 文件夹及其所有内容吗？"
 
-#, fuzzy
 msgid "Are you sure want to delete the selected items and all of their contents?"
-msgstr "你确定要删除所选项目和它们的所有内容吗？"
+msgstr "您确定要删除所选项目及其全部内容吗？"
 
 msgid "Confirm overwrite"
 msgstr "确认覆盖"
@@ -6306,16 +6408,14 @@ msgstr "将文件设置重置为原始默认值"
 msgid "Are you sure to remove all settings and accounts?"
 msgstr "您确定删除了所有设置和账户吗？"
 
-#, fuzzy
 msgid "Accounts marked by your administrator as \"cannot be changed\" will not be removed."
-msgstr "被你的管理员标记为 \"不能更改 \"的账户将不会被删除。"
+msgstr "被管理员标记为“不能更改”的账户将不会被删除。"
 
-#, fuzzy
 msgid "grommunio Web will automatically restart in order for these changes to take effect."
 msgstr "grommunio Web将自动重新启动，以便这些更改生效。"
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio 网站正在重新加载，请稍候。"
+msgstr "grommunio Web 正在重新加载，请稍候。"
 
 msgid "Edit Account"
 msgstr "编辑帐户"
@@ -6404,8 +6504,12 @@ msgstr "最大"
 msgid "You have to choose at least one file!"
 msgstr "您必须至少选择一个文件！"
 
-msgid "Create New "
-msgstr "新建 "
+msgid "Document"
+msgstr "文档"
+
+#. TRANSLATORS: {0} is a translated file type such as Document, Presentation or Spreadsheet
+msgid "Create New {0}"
+msgstr "新建 {0}"
 
 msgid "Incorrect filename"
 msgstr "文件名不正确"
@@ -6452,14 +6556,14 @@ msgstr "附件成功存储在文件中"
 msgid "Upload Failed"
 msgstr "文件上传失败"
 
-msgid "Attachment could not be stored in Files! Error: "
-msgstr "附件无法存储在文件中!错误。"
+msgid "Attachment could not be stored in Files!"
+msgstr "附件无法存储在文件中！"
 
 msgid "Share Files"
 msgstr "共享文件"
 
-msgid "Uploading files to "
-msgstr "将文件上传到"
+msgid "Uploading files to {0}"
+msgstr "将文件上传到 {0}"
 
 msgid "Starting upload"
 msgstr "开始上传"
@@ -6470,14 +6574,14 @@ msgstr "取消上传"
 msgid "- seconds left"
 msgstr "- 剩余秒数"
 
-msgid " seconds left"
-msgstr " 还剩几秒钟"
+msgid "{0} seconds left"
+msgstr "{0} 还剩几秒钟"
 
-msgid " minutes left"
-msgstr " 还剩几分钟"
+msgid "{0} minutes left"
+msgstr "{0} 还剩几分钟"
 
-msgid "Uploading: "
-msgstr "上传。"
+msgid "Uploading: {0}%"
+msgstr "正在上传： {0}%"
 
 msgid "Upload status unavailable... please wait."
 msgstr "上传状态不可用......请稍候。"
@@ -6491,12 +6595,6 @@ msgstr "上传中止！"
 msgid "Upload failed!"
 msgstr "上传失败！"
 
-msgid "Document"
-msgstr "文档"
-
-msgid "Presentation"
-msgstr "演示"
-
 msgid "Spreadsheet"
 msgstr "电子表格"
 
@@ -6508,6 +6606,9 @@ msgstr "创建文件"
 
 msgid "Create office document"
 msgstr "创建办公文件"
+
+msgid "Preview file"
+msgstr "预览文件"
 
 msgid "Download files"
 msgstr "下载文件"
@@ -6527,9 +6628,8 @@ msgstr "创建电子邮件...请稍候！"
 msgid "Edit share"
 msgstr "编辑共享"
 
-#, fuzzy
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
-msgstr "没有添加任何账户。进入设置，文件标签，添加一个账户"
+msgstr "尚未添加任何账户。请前往“设置”的“文件”选项卡添加账户"
 
 msgid "Filesize"
 msgstr "文件大小"
@@ -6543,20 +6643,14 @@ msgstr "是否共享"
 msgid "File preview"
 msgstr "文件预览"
 
-msgid "File content"
-msgstr "文件内容"
-
-msgid "Your browser does not support previewing of audio files!"
-msgstr "您的浏览器不支持预览音频文件！"
-
-msgid "Your browser does not support previewing of video files!"
-msgstr "您的浏览器不支持预览视频文件！"
-
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
 msgid "File ({0})"
 msgstr "文件 ({0})"
+
+msgid "Path"
+msgstr "路径"
 
 msgid "Sort by: Path"
 msgstr "排序方式路径"
@@ -6581,6 +6675,9 @@ msgstr "内联网"
 
 msgid "Archive to InfoShare"
 msgstr "存档至 InfoShare"
+
+msgid "Kendox InfoShare plugin"
+msgstr "Kendox InfoShare plugin"
 
 msgid "Kendox InfoShare"
 msgstr "Kendox InfoShare"
@@ -6685,6 +6782,12 @@ msgstr "地图"
 msgid "Mobile Device Manager"
 msgstr "移动设备管理器"
 
+msgid "Device removed"
+msgstr "设备已删除"
+
+msgid "The device was not removed. Check your password and try again."
+msgstr "未能删除该设备。请检查您的密码后重试。"
+
 msgid "Wiping device"
 msgstr "正在擦除设备"
 
@@ -6769,7 +6872,6 @@ msgstr "共享文件夹"
 msgid "Manage Shared Folders"
 msgstr "管理共享文件夹"
 
-#, fuzzy
 msgid "Select folders to sync to your device from the list below. To add additional mailboxes to the list, open them in grommunio Web first."
 msgstr "从下面的列表中选择要同步到设备的文件夹。要在列表中添加其他邮箱，请先在grommunio Web中打开这些邮箱。"
 
@@ -6782,9 +6884,8 @@ msgstr "移动设备管理"
 msgid "Mobile Devices"
 msgstr "移动设备"
 
-#, fuzzy
 msgid "Unable to connect to the grommunio-sync server. Click {0} to enter your credentials"
-msgstr "无法连接到grommunio-sync服务器。点击{0}，输入你的凭证"
+msgstr "无法连接到grommunio-sync服务器。点击{0}输入您的凭证"
 
 msgid "Devices"
 msgstr "设备"
@@ -6856,13 +6957,12 @@ msgstr ""
 "您确定要清除设备数据吗？\n"
 "输入 WIPE 进行确认。"
 
-#, fuzzy
 msgid ""
 "Do you really want to wipe your device?\n"
 " Enter your password to confirm."
 msgstr ""
-"你真的想擦除你的设备吗？\n"
-" 输入你的密码来确认。"
+"您确定要擦除您的设备吗？\n"
+" 请输入您的密码以确认。"
 
 msgid ""
 "Do you really want to remove your device?\n"
@@ -6871,19 +6971,18 @@ msgstr ""
 "您确定要移除设备吗？\n"
 "输入 REMOVE 进行确认。"
 
-#, fuzzy
 msgid ""
 "Do you really want to remove your device?\n"
 " Enter your password to confirm."
 msgstr ""
-"你真的想删除你的设备吗？\n"
-" 输入你的密码来确认。"
+"您确定要删除您的设备吗？\n"
+" 请输入您的密码以确认。"
 
 msgid "Add meeting"
 msgstr "增加会议"
 
 msgid "Room name:"
-msgstr "房间名称"
+msgstr "房间名称："
 
 msgid "Room name"
 msgstr "房间名称"
@@ -6927,9 +7026,8 @@ msgstr "在房间名称中添加组织者名称"
 msgid "Add the URL to the meeting location rather than overwriting it"
 msgstr "将 URL 添加到会议位置，而不是覆盖它"
 
-#, fuzzy
 msgid "Prevent the URL in the meeting location from being overridden automatically (ex: when adding a meetingroom)"
-msgstr "防止会议地点中的URL被自动覆盖（例如：在添加会议室时）。"
+msgstr "防止会议地点中的URL被自动覆盖（例如：添加会议室时）"
 
 msgid "If you have problems when creating meetings, try disabling this setting"
 msgstr "如果在创建会议时遇到问题，请尝试禁用此设置"
@@ -6988,21 +7086,533 @@ msgstr "新密码为空。"
 msgid "One or more fields does contain errors."
 msgstr "一个或多个字段确实包含错误。"
 
-#, fuzzy
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
-msgstr "密码很弱。密码应包含大写、非大写字母和数字。密码应该有8到20个字符。"
+msgstr "密码强度弱。密码应包含大写字母、小写字母和数字。密码长度应为8到20个字符。"
+
+msgid "Invalid or oversized OpenPGP armor."
+msgstr "OpenPGP 铠装数据无效或过大。"
+
+msgid "Expected a single OpenPGP public key block."
+msgstr "应为单个 OpenPGP 公钥数据块。"
+
+msgid "Expected a single OpenPGP private key block."
+msgstr "应为单个 OpenPGP 私钥数据块。"
+
+msgid "Expected a single OpenPGP signature block."
+msgstr "应为单个 OpenPGP 签名数据块。"
+
+msgid "Expected a single OpenPGP message block."
+msgstr "应为单个 OpenPGP 消息数据块。"
+
+msgid "Expected a single OpenPGP armor block."
+msgstr "应为单个 OpenPGP 铠装数据块。"
+
+msgid "Additional data outside the OpenPGP armor is not allowed."
+msgstr "不允许在 OpenPGP 铠装数据之外包含其他数据。"
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "请一次导入一个完整的 OpenPGP 密钥。"
+
+msgid "This key exceeds the supported subkey or identity limit."
+msgstr "此密钥的子密钥或身份数量超出了支持的上限。"
+
+msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
+msgstr "私钥必须先受口令保护才能上传。请先在本地保护此密钥。"
+
+msgid "The public certificate must match the private key fingerprint."
+msgstr "公共证书必须与私钥的指纹匹配。"
+
+msgid "Unlock your OpenPGP private key in this browser tab first."
+msgstr "请先在此浏览器选项卡中解锁您的 OpenPGP 私钥。"
+
+msgid "The OpenPGP key was locked while the operation was running."
+msgstr "操作执行期间，OpenPGP 密钥已被锁定。"
+
+msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
+msgstr "OpenPGP 需要现代浏览器和安全的 HTTPS 连接。"
+
+msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
+msgstr "“保护”操作需要未受保护的私钥。对于已受保护的密钥，请使用“更改口令”。"
+
+msgid "The passphrase could not unlock this private key."
+msgstr "该口令无法解锁此私钥。"
+
+msgid "Every recipient needs a verified OpenPGP public key."
+msgstr "每位收件人都需要一个已核验的 OpenPGP 公钥。"
+
+msgid "Encrypted message exceeds the size limit."
+msgstr "加密后的邮件超出大小上限。"
+
+msgid "Expected one complete clear-signed OpenPGP message."
+msgstr "应为单个完整的明文签名 OpenPGP 消息。"
+
+msgid "Invalid clear-signed OpenPGP signature."
+msgstr "OpenPGP 明文签名无效。"
+
+msgid "The OpenPGP request failed. Please try again."
+msgstr "OpenPGP 请求失败。请重试。"
+
+msgid "Working…"
+msgstr "正在处理…"
+
+msgid "The operation failed. Please try again."
+msgstr "操作失败。请重试。"
+
+msgid "Passphrase"
+msgstr "口令"
+
+msgid "Unlock OpenPGP private key"
+msgstr "解锁 OpenPGP 私钥"
+
+msgid "Unlock"
+msgstr "解锁"
+
+msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
+msgstr "您的口令和已解锁的密钥仅保留在此浏览器选项卡中。密钥会在一段时间后或关闭此选项卡时自动锁定。指纹： "
+
+msgid "Set up OpenPGP"
+msgstr "设置 OpenPGP"
+
+msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
+msgstr "请添加一个与发件人地址匹配的私钥，以便对邮件签名，或使已发送的加密副本保持可读。您可以在 OpenPGP 设置中导入现有密钥或新建密钥。"
+
+msgid "Open key settings"
+msgstr "打开密钥设置"
+
+msgid "Choose OpenPGP key"
+msgstr "选择 OpenPGP 密钥"
+
+msgid "Private key"
+msgstr "私钥"
+
+msgid "Use key"
+msgstr "使用密钥"
+
+msgid "Private-key unlocking was cancelled."
+msgstr "私钥解锁已取消。"
+
+msgid "Key selection was cancelled."
+msgstr "密钥选择已取消。"
+
+msgid "Choose private key…"
+msgstr "选择私钥…"
+
+msgid "Manage OpenPGP keys…"
+msgstr "管理 OpenPGP 密钥…"
+
+msgid "Lock private keys"
+msgstr "锁定私钥"
+
+msgid "Signing key: {0}"
+msgstr "签名密钥： {0}"
+
+msgid "Decryption alone does not authenticate the sender."
+msgstr "仅凭解密成功并不能验证发件人的身份。"
+
+msgid "OpenPGP security information"
+msgstr "OpenPGP 安全信息"
+
+msgid "OpenPGP"
+msgstr "OpenPGP"
+
+msgid "OpenPGP signed or encrypted message"
+msgstr "经 OpenPGP 签名或加密的邮件"
+
+msgid "OpenPGP Plugin"
+msgstr "OpenPGP 插件"
+
+msgid "The OpenPGP operation was cancelled."
+msgstr "OpenPGP 操作已取消。"
+
+msgid "S/MIME and OpenPGP cannot protect the same message."
+msgstr "S/MIME 和 OpenPGP 不能同时保护同一封邮件。"
+
+msgid "Saving the OpenPGP draft timed out. Please retry."
+msgstr "保存 OpenPGP 草稿超时。请重试。"
+
+msgid "The draft could not be saved. Nothing was sent."
+msgstr "无法保存草稿。未发送任何邮件。"
+
+msgid "The sender or message protection changed. Please send again."
+msgstr "发件人或邮件保护方式已发生变化。请重新发送。"
+
+msgid "The selected private key is not valid for this sender and protection mode."
+msgstr "所选私钥对此发件人和保护模式无效。"
+
+msgid "A matching, passphrase-protected private key is required."
+msgstr "需要一个匹配且受口令保护的私钥。"
+
+msgid "A recipient key is invalid, expired or does not match its email address."
+msgstr "某个收件人密钥无效、已过期或与其电子邮件地址不匹配。"
+
+msgid "No verified recipient keys are available."
+msgstr "没有可用的已验证收件人密钥。"
+
+msgid "This message is too large for browser OpenPGP processing."
+msgstr "此邮件过大，浏览器无法对其进行 OpenPGP 处理。"
+
+msgid "Message protection changed while preparing the message. Please send again."
+msgstr "准备邮件期间，邮件保护方式发生了变化。请重新发送。"
+
+msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
+msgstr "受保护的邮件大小为 {0} MB，超过了此服务器单次请求允许的上限（{1} MB）。请删除部分附件，或请管理员提高上传限制。"
+
+msgid "The attachment archive is too large."
+msgstr "附件压缩包过大。"
+
+msgid "Unlock the message again to download this attachment."
+msgstr "请重新解锁此邮件以下载该附件。"
+
+msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
+msgstr "此邮件中嵌套了 OpenPGP 无法打开的 S/MIME 保护。"
+
+msgid "Too many nested OpenPGP envelopes."
+msgstr "嵌套的 OpenPGP 封装层过多。"
+
+msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
+msgstr "签名无效，或者找不到对应的公钥。请勿信赖此发件人身份。"
+
+msgid "The private key was locked while opening this message."
+msgstr "打开此邮件时，私钥已被锁定。"
+
+msgid "This message contains too many attachments."
+msgstr "此邮件包含的附件过多。"
+
+msgid "The decoded attachments are too large."
+msgstr "解码后的附件过大。"
+
+msgid "The OpenPGP operation failed."
+msgstr "OpenPGP 操作失败。"
+
+msgid "OpenPGP: checking message security…"
+msgstr "OpenPGP: 正在检查邮件安全状态…"
+
+msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
+msgstr "加密邮件存储时未保留 MIME 封装 — 请保存该附件并用 OpenPGP 工具解密"
+
+msgid "Signed message stored without its original MIME — the signature cannot be verified"
+msgstr "已签名邮件存储时未保留原始 MIME — 无法验证签名"
+
+msgid "Message decrypted"
+msgstr "邮件已解密"
+
+msgid "Message could not be decrypted — click for details or retry"
+msgstr "无法解密邮件 — 点击可查看详情或重试"
+
+msgid "Encrypted message — unlock your private key to read"
+msgstr "加密邮件 — 请解锁您的私钥以便阅读"
+
+msgid "Signature could not be verified"
+msgstr "无法验证签名"
+
+msgid "Valid signature, but the signing key does not match the sender"
+msgstr "签名有效，但签名密钥与发件人不匹配"
+
+msgid "Valid signature — sender fingerprint has not been verified"
+msgstr "签名有效 — 尚未核验发件人指纹"
+
+msgid "Valid signature from a verified sender"
+msgstr "来自已核验发件人的有效签名"
+
+msgid "The signing key has since expired"
+msgstr "签名密钥此后已过期"
+
+msgid "Message is not signed"
+msgstr "邮件未签名"
+
+msgid "Inline OpenPGP protects the body only; attachments are not covered"
+msgstr "内联 OpenPGP 仅保护正文；附件不在保护范围内"
+
+msgid "Unprotected text after the OpenPGP block is not shown"
+msgstr "不显示 OpenPGP 数据块之后的未受保护文本"
+
+msgid "Your public keys could not be loaded, so signatures could not be checked"
+msgstr "无法加载您的公钥，因此无法验证签名"
+
+msgid "Security information"
+msgstr "安全信息"
+
+msgid "Choose when composing"
+msgstr "撰写邮件时选择"
+
+msgid "Personal and public keys"
+msgstr "个人密钥和公钥"
+
+msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
+msgstr "您的密钥存储在您的邮箱中。私钥始终受口令保护；签名、加密和解锁均在此浏览器中完成。请通过另一条可信渠道核验联系人的指纹。密钥的更改会立即生效。"
+
+msgid "No OpenPGP keys. Import or generate a key to get started."
+msgstr "尚无 OpenPGP 密钥。请导入密钥或生成密钥以开始使用。"
+
+msgid "Identity"
+msgstr "身份"
+
+msgid "Fingerprint"
+msgstr "指纹"
+
+msgid "Public key"
+msgstr "公钥"
+
+msgid "Revoked"
+msgstr "已吊销"
+
+msgid "Expired"
+msgstr "已过期"
+
+msgid "Fingerprint verified"
+msgstr "指纹已核验"
+
+msgid "Not verified"
+msgstr "未核验"
+
+msgid "Unlocked"
+msgstr "已解锁"
+
+msgid "Locked"
+msgstr "已锁定"
+
+msgid "Expires"
+msgstr "到期"
+
+msgid "No expiry"
+msgstr "永不过期"
+
+msgid "Generate key"
+msgstr "生成密钥"
+
+msgid "Import key"
+msgstr "导入密钥"
+
+msgid "Find public key"
+msgstr "查找公钥"
+
+msgid "Details / verify"
+msgstr "详情 / 核验"
+
+msgid "Export public key"
+msgstr "导出公钥"
+
+msgid "Back up private key"
+msgstr "备份私钥"
+
+msgid "Unlock in this browser"
+msgstr "在此浏览器中解锁"
 
 msgid "Change passphrase"
 msgstr "更改密码"
+
+msgid "Lock all"
+msgstr "全部锁定"
+
+msgid "Default private key"
+msgstr "默认私钥"
+
+msgid "Sign new messages by default"
+msgstr "默认对新邮件签名"
+
+msgid "Encrypt new messages by default"
+msgstr "默认对新邮件加密"
+
+msgid "Manage keyservers"
+msgstr "管理密钥服务器"
+
+msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
+msgstr "撰写默认设置仅适用于新的 OpenPGP 邮件。同一封邮件不能同时使用 S/MIME 和 OpenPGP。"
+
+msgid "Generate OpenPGP key"
+msgstr "生成 OpenPGP 密钥"
+
+msgid "Algorithm"
+msgstr "算法"
+
+msgid "Expires in"
+msgstr "有效期"
+
+msgid "1 year"
+msgstr "1 年"
+
+msgid "2 years"
+msgstr "2 年"
+
+msgid "5 years"
+msgstr "5 年"
+
+msgid "Repeat passphrase"
+msgstr "重复口令"
+
+msgid "Passphrases do not match."
+msgstr "两次输入的口令不一致。"
+
+msgid "Generate"
+msgstr "生成"
+
+msgid "Key created. Back up the private key and store its passphrase separately."
+msgstr "密钥已创建。请备份私钥，并将其口令分开存放。"
+
+msgid "Revocation certificate — keep secure"
+msgstr "吊销证书 — 请妥善保管"
+
+msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
+msgstr "请选择至少 12 个字符的高强度口令。密钥生成在此浏览器本地进行，可能需要片刻。请将吊销证书和私钥备份保存在安全的地方。"
+
+msgid "Import OpenPGP key"
+msgstr "导入 OpenPGP 密钥"
+
+msgid "Choose armored OpenPGP key file"
+msgstr "选择 ASCII 铠装的 OpenPGP 密钥文件"
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "密钥文件过大。文件大小上限：1 MiB。"
+
+msgid "The key file could not be read."
+msgstr "无法读取密钥文件。"
+
+msgid "Armored key"
+msgstr "ASCII 铠装密钥"
+
+msgid "Protect unencrypted key"
+msgstr "保护未加密密钥"
+
+msgid "Optional: new passphrase for an unprotected private key"
+msgstr "可选：为未受保护的私钥设置新口令"
+
+msgid "Key imported. Verify recipient fingerprints before encrypting to them."
+msgstr "密钥已导入。在为收件人加密之前，请先核验其指纹。"
+
+msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
+msgstr "请选择文件，或粘贴一个 ASCII 铠装密钥，并包含其 BEGIN 行和 END 行。如果是未受保护的私钥，请输入新口令，以便在存储前于本地对其加以保护。导入的收件人密钥不会自动被信任。"
+
+msgid "Public OpenPGP key"
+msgstr "OpenPGP 公钥"
+
+msgid "Back up private OpenPGP key"
+msgstr "备份 OpenPGP 私钥"
+
+msgid "Create backup"
+msgstr "创建备份"
+
+msgid "Private key backup — keep secure"
+msgstr "私钥备份 — 请妥善保管"
+
+msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
+msgstr "在下载此加密的私钥备份之前，请先在本地确认您的口令。请妥善保管该备份，切勿将其发送给收件人或密钥服务器。"
+
+msgid "Current passphrase"
+msgstr "当前口令"
+
+msgid "New passphrase"
+msgstr "新口令"
+
+msgid "Change OpenPGP passphrase"
+msgstr "更改 OpenPGP 口令"
+
+msgid "Repeat new passphrase"
+msgstr "重复新口令"
+
+msgid "Passphrase changed. Make a new private-key backup."
+msgstr "口令已更改。请重新创建私钥备份。"
+
+msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
+msgstr "私钥将在本地重新加密。现有备份仍需使用其原有口令。"
+
+msgid "Verify OpenPGP fingerprint"
+msgstr "核验 OpenPGP 指纹"
+
+msgid "Verified identities"
+msgstr "已核验的身份"
+
+msgid "Email identity"
+msgstr "电子邮件身份"
+
+msgid "Confirm fingerprint"
+msgstr "确认指纹"
+
+msgid "Enter the full fingerprint shown above."
+msgstr "请输入上方显示的完整指纹。"
+
+msgid "I verified this fingerprint"
+msgstr "我已核验此指纹"
+
+msgid "Save verification"
+msgstr "保存核验结果"
+
+msgid "Fingerprint verification updated."
+msgstr "指纹核验状态已更新。"
+
+msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
+msgstr "请通过另一条可信渠道与联系人核对完整指纹。勾选该复选框会将此密钥绑定到所选地址；不勾选则会删除该核验记录。"
+
+msgid "All private keys in this browser tab are locked."
+msgstr "此浏览器选项卡中的所有私钥均已锁定。"
+
+msgid "Delete OpenPGP key"
+msgstr "删除 OpenPGP 密钥"
+
+msgid "Type the full fingerprint to confirm deletion."
+msgstr "请输入完整指纹以确认删除。"
+
+msgid "Delete key"
+msgstr "删除密钥"
+
+msgid "Key removed from your mailbox."
+msgstr "已从您的邮箱中删除该密钥。"
+
+msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
+msgstr "删除此私钥后，除非您有备份，否则将无法阅读使用该密钥加密的邮件。请先创建私钥备份，然后再继续。"
+
+msgid "This removes the public key and its verified fingerprints from your keyring."
+msgstr "此操作会从您的密钥环中删除该公钥及其已核验的指纹。"
+
+msgid "Manage OpenPGP keyservers"
+msgstr "管理 OpenPGP 密钥服务器"
+
+msgid "HTTPS keyservers"
+msgstr "HTTPS 密钥服务器"
+
+msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
+msgstr "每行请输入一个 HTTPS 服务器源，不含路径、凭据或查询字符串。"
+
+msgid "Save keyservers"
+msgstr "保存密钥服务器"
+
+msgid "Keyservers updated."
+msgstr "密钥服务器已更新。"
+
+msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
+msgstr "只能使用管理员批准的 HTTPS 密钥服务器。搜索时必须提供完整指纹。系统绝不会自动上传密钥。"
+
+msgid "Approved servers: {0}"
+msgstr "已批准的服务器： {0}"
+
+msgid "Find OpenPGP public key"
+msgstr "查找 OpenPGP 公钥"
+
+msgid "Keyserver"
+msgstr "密钥服务器"
+
+msgid "Full fingerprint"
+msgstr "完整指纹"
+
+msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
+msgstr "请输入由 40 位或 64 位十六进制字符组成的完整指纹。"
+
+msgid "Find and import"
+msgstr "查找并导入"
+
+msgid "The keyserver did not return the requested public key."
+msgstr "密钥服务器未返回所请求的公钥。"
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "公钥已导入。在为其所有者加密之前，请先核验其指纹。"
+
+msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
+msgstr "服务器将收到您所搜索的指纹。下载的密钥在为其所有者加密之前，仍需完成指纹核验。"
 
 msgid "Old passphrase"
 msgstr "旧密码"
 
 msgid "Wrong passphrase. Please try again"
 msgstr "密码错误。请重试"
-
-msgid "New passphrase"
-msgstr "新口令"
 
 msgid "Confirm new passphrase"
 msgstr "确认新口令"
@@ -7034,20 +7644,11 @@ msgstr "未导入证书，请上传您的私人证书"
 msgid "Valid from"
 msgstr "有效期自"
 
-msgid "Expires"
-msgstr "到期"
-
 msgid "Key Type"
 msgstr "钥匙类型"
 
 msgid "Purpose"
 msgstr "目的"
-
-msgid "Sign"
-msgstr "标志"
-
-msgid "Encrypt"
-msgstr "加密"
 
 msgid "Sign & Encrypt"
 msgstr "签名和加密"
@@ -7061,9 +7662,8 @@ msgstr "S/MIME 插件"
 msgid "Please select a certificate."
 msgstr "请选择证书。"
 
-#, fuzzy
 msgid "Do you really want to remove your private certificate? If you remove your certificate you will not be able to sign or decrypt S/MIME emails."
-msgstr "你真的想删除你的私人证书吗？如果你删除你的证书，你将不能签署或解密S/MIME电子邮件。"
+msgstr "您确定要删除您的私人证书吗？如果删除该证书，您将无法签署或解密S/MIME电子邮件。"
 
 msgid "Signing"
 msgstr "签署"
@@ -7131,7 +7731,6 @@ msgstr "您拥有与账户相对应的有效证书"
 msgid "Upload your certificate"
 msgstr "上传证书"
 
-#, fuzzy
 msgid "Below you can upload your private certificate in PKCS#12 format. grommunio Web only accepts certificates which are valid and only stores one private certificate on the server."
 msgstr "下面您可以上传PKCS#12格式的私人证书。grommunio Web只接受有效的证书，并且只在服务器上存储一个私人证书。"
 
@@ -7159,16 +7758,14 @@ msgstr "签名和加密"
 msgid "Sign message"
 msgstr "标志信息"
 
-#, fuzzy
 msgid "Ensure the authenticity of the message by adding a digital signature to this message. Any changes to the message will invalidate the signature."
-msgstr "通过向该消息添加数字签名来确保消息的真实性。对信息的任何改动都会使签名失效。"
+msgstr "通过向该信息添加数字签名来确保信息的真实性。对信息的任何改动都会使签名失效。"
 
 msgid "Encrypt message"
 msgstr "加密信息"
 
-#, fuzzy
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
-msgstr "通过对信息内容进行加密，确保信息的隐私。只有信息的接收者才能打开它。"
+msgstr "通过对信息内容进行加密，确保信息的私密性。只有该信息的收件人才能打开它。"
 
 msgid "Algorithms used"
 msgstr "使用的算法"
@@ -7179,19 +7776,15 @@ msgstr "我的电子邮件怎么了？"
 msgid "CBC mode"
 msgstr "CBC 模式"
 
-#, fuzzy
 msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you that the message has not been tampered with and validates the identity of the sender."
-msgstr "grommunio Web可以验证电子邮件的数字签名。成功的验证可以让您放心，邮件没有被篡改过，并验证发件人的身份。"
+msgstr "grommunio Web可以验证电子邮件的数字签名。验证成功后，您就可以放心：该信息未被篡改，且发件人的身份已得到验证。"
 
-#, fuzzy
-msgid "You are seeing this message because the verification of the digital signature"
-msgstr "你看到这个消息是因为数字签名的验证"
+#. TRANSLATORS: {0} is the bolded phrase 'has failed'
+msgid "You are seeing this message because the verification of the digital signature {0} for this message."
+msgstr "您看到此消息是因为数字签名的验证 {0} 为这个消息。"
 
-msgid " has failed"
-msgstr " 已经失败"
-
-msgid " for this message."
-msgstr " 为这个消息。"
+msgid "has failed"
+msgstr "已经失败"
 
 msgid "What caused this issue?"
 msgstr "是什么导致了这个问题？"
@@ -7199,50 +7792,35 @@ msgstr "是什么导致了这个问题？"
 msgid "What should I do?"
 msgstr "我该怎么办？"
 
-#, fuzzy
 msgid "You can continue to work. However, you should keep in mind that the identity and the authenticity of the message content could not be verified."
-msgstr "你可以继续工作。但是，你应该记住，信息内容的身份和真实性无法得到验证。"
+msgstr "您可以继续工作。但请注意，发件人身份和信息内容的真实性无法得到验证。"
 
-#, fuzzy
 msgid "You can contact your helpdesk or system administrator if you are not sure what to do next."
-msgstr "如果你不确定下一步该怎么做，你可以联系你的服务台或系统管理员。"
+msgstr "如果您不确定下一步该怎么做，可以联系服务台或系统管理员。"
 
-msgid "grommunio Web can verify digital signatures of emails. A successful verification reassures you "
-msgstr "grommunio Web可以验证电子邮件的数字签名。验证成功后，您就可以放心了"
-
-#, fuzzy
-msgid "that the message has not been tampered with and validates the identity of the sender."
-msgstr "确保信息没有被篡改并验证发件人的身份。"
-
-#, fuzzy
 msgid "The verification of the digital signature was successful for this email message."
 msgstr "该邮件的数字签名验证成功。"
 
 msgid "grommunio Web could not find a public certificate for the recipient."
 msgstr "grommunio Web 无法找到收件人的公共证书。"
 
-#, fuzzy
 msgid "The identity of the sender and authenticity of the message content have been verified, but the certificate used to sign the message expired on [d-m-Y]."
-msgstr "发件人的身份和信息内容的真实性已被验证，但用于签署信息的证书在[d-m-Y]过期。"
+msgstr "发件人的身份和信息内容的真实性已通过验证，但用于签署该信息的证书已于[d-m-Y]过期。"
 
 msgid "The digital signature could not be verified for unknown reasons."
 msgstr "数字签名无法验证，原因不明。"
 
-#, fuzzy
 msgid "The digital certificate used to sign this message has been revoked (i.e. the sender has marked it as compromised)"
-msgstr "用于签署此信息的数字证书已被撤销（即发件人已将其标记为受损）。"
+msgstr "用于签署此信息的数字证书已被吊销（即发件人已将其标记为已泄露）。"
 
-#, fuzzy
 msgid "The verification service of the certificate authority that signed the sender's certificate is not available. The validity of the certificate could not be verified."
-msgstr "签署发件人证书的证书机构的验证服务不可用。证书的有效性无法被验证。"
+msgstr "签署发件人证书的证书颁发机构的验证服务不可用。证书的有效性无法验证。"
 
-#, fuzzy
 msgid "The revocation status of the digital certificate used to sign this email is unknown (Server is unavailable or certificate does not support OCSP). The validity of the certificate could not be verified."
-msgstr "用于签署此邮件的数字证书的撤销状态未知（服务器不可用或证书不支持OCSP）。该证书的有效性无法被验证。"
+msgstr "用于签署此邮件的数字证书的撤销状态未知（服务器不可用或证书不支持OCSP）。证书的有效性无法验证。"
 
-#, fuzzy
 msgid "The revocation status of the digital certificate used to sign this email is disabled (OCSP). The validity of the certificate could not be verified."
-msgstr "用于签署此邮件的数字证书的撤销状态为禁用（OCSP）。该证书的有效性无法被验证。"
+msgstr "用于签署此邮件的数字证书的撤销状态检查已禁用（OCSP）。证书的有效性无法验证。"
 
 msgid "The certificate verification server (OCSP) is temporarily offline."
 msgstr "证书验证服务器 (OCSP) 暂时离线。"
@@ -7279,9 +7857,6 @@ msgstr "无法验证签名，缺少公共证书"
 
 msgid "Signature verification successful, but certificate is expired"
 msgstr "签名验证成功，但证书已过期"
-
-msgid "Signature could not be verified"
-msgstr "无法验证签名"
 
 msgid "Certificate has been revoked"
 msgstr "证书已被吊销"
@@ -7616,8 +8191,11 @@ msgstr "PHP-Curl 不可用。"
 msgid "With this backend, you can connect to any Seafile server."
 msgstr "通过该后台，您可以连接到任何 Seafile 服务器。"
 
-msgid "Files "
-msgstr "文件 "
+msgid "Files Seafile Backend: "
+msgstr "文件Seafile后端： "
+
+msgid "Moving failed"
+msgstr "搬家失败"
 
 msgid "Use SSL"
 msgstr "使用 SSL"
@@ -7709,9 +8287,6 @@ msgstr "目录创建失败"
 msgid "Deletion failed"
 msgstr "删除失败"
 
-msgid "Moving failed"
-msgstr "搬家失败"
-
 msgid "Temporary directory problems"
 msgstr "临时目录问题"
 
@@ -7721,17 +8296,11 @@ msgstr "未找到文件或文件夹"
 msgid "Copying failed"
 msgstr "复制失败"
 
-msgid "Please contact your system administrator"
-msgstr "请联系您的系统管理员"
-
 msgid "File server is not reachable. Please verify the connection."
 msgstr "文件服务器无法连接。请验证连接。"
 
-msgid "PHP-CURL not installed"
-msgstr "未安装 PHP-CURL"
-
 msgid "Unknown backend"
-msgstr ""
+msgstr "未知后端"
 
 msgid "Account is ready to use."
 msgstr "账户可随时使用。"
@@ -7746,10 +8315,10 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "该文件已不可用。请重新加载文件夹。"
 
 msgid "Recipient search is not supported by this backend"
-msgstr ""
+msgstr "此后端不支持搜索共享接收者"
 
 msgid "Unable to look up recipients"
-msgstr ""
+msgstr "无法查找共享接收者"
 
 msgid "Kendox certificate path is not configured."
 msgstr "未配置 Kendox 证书路径。"
@@ -7766,12 +8335,12 @@ msgstr "Kendox 证书不可读取。"
 msgid "Mobile device management plugin"
 msgstr "移动设备管理插件"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unexpected error occurred. Please contact your system administrator. Error code: %s"
-msgstr "发生了意想不到的错误。请联系您的系统管理员。错误代码。%s"
+msgstr "发生意外错误。请联系您的系统管理员。错误代码：%s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
+msgstr "此服务器不支持管理共享文件夹。"
 
 msgid "No data received."
 msgstr "未收到数据。"
@@ -7779,9 +8348,8 @@ msgstr "未收到数据。"
 msgid "Account is empty."
 msgstr "账户为空。"
 
-#, fuzzy
 msgid "Your password is wrong or you have insufficient permission to change password"
-msgstr "你的密码是错误的，或者你没有足够的权限来改变密码"
+msgstr "您的密码错误，或者您没有足够的权限更改密码"
 
 msgid "Password is not changed."
 msgstr "密码未更改。"
@@ -7791,6 +8359,15 @@ msgstr "更改密码时发生错误。请核对密码或联系系统管理员。
 
 msgid "Password has been changed successfully."
 msgstr "密码已成功更改。"
+
+msgid "The OpenPGP operation could not be completed."
+msgstr "无法完成 OpenPGP 操作。"
+
+msgid "OpenPGP: message was not sent"
+msgstr "OpenPGP：邮件未发送"
+
+msgid "The OpenPGP message could not be read."
+msgstr "无法读取此 OpenPGP 邮件。"
 
 msgid "No certificate available"
 msgstr "无证书"
@@ -7817,23 +8394,21 @@ msgid "Unable to generate certs-only message"
 msgstr "无法生成纯证书信息"
 
 msgid "Unable to read certs-only message"
-msgstr ""
+msgstr "无法读取纯证书信息"
 
 msgid "LDAP not configured"
 msgstr "未配置 LDAP"
 
 msgid "Invalid LDAP configuration"
-msgstr ""
+msgstr "LDAP 配置无效"
 
-msgid "Missing public certificates for the following recipients: "
-msgstr "缺少以下收件人的公共证书。 "
+#. TRANSLATORS: %s is a comma-separated list of email addresses
+#, php-format
+msgid "Missing public certificates for the following recipients: %s. Please contact your system administrator for details"
+msgstr "缺少以下收件人的公共证书。 %s.详情请咨询系统管理员"
 
-msgid ". Please contact your system administrator for details"
-msgstr ".详情请咨询系统管理员"
-
-#, fuzzy
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
-msgstr "你的公共证书没有安装。没有这个证书，你将无法阅读你发给别人的加密信息。"
+msgstr "您的公共证书尚未安装。没有该证书，您将无法阅读您发送给他人的加密信息。"
 
 msgid "Certificate is already stored on the server"
 msgstr "证书已存储在服务器上"
@@ -7844,8 +8419,9 @@ msgstr "无法解密证书"
 msgid "Private key can't be used to sign email"
 msgstr "私人密钥不能用于签署电子邮件"
 
-msgid "Certificate email address doesn't match grommunio Web account "
-msgstr "证书的电子邮件地址与grommunio网络账户不一致 "
+#, php-format
+msgid "Certificate email address doesn't match grommunio Web account %s"
+msgstr "证书的电子邮件地址与 grommunio Web 账户不一致 %s"
 
 #, php-format
 msgid "RSA key size %d bits is below the recommended minimum of %d bits. Certificate was imported."
@@ -7854,14 +8430,17 @@ msgstr "%d 位的 RSA 密钥长度低于 %d 位的推荐最小值。证书已导
 msgid "EdDSA (Ed25519) certificates require PHP 8.4+ and may not be fully supported. Certificate was imported."
 msgstr "EdDSA（Ed25519）证书需要 PHP 8.4 及以上版本，且可能无法完全支持。证书已导入。"
 
-msgid "Certificate was expired on "
-msgstr "证书过期时间为 "
+#, php-format
+msgid "Certificate was expired on %s."
+msgstr "证书过期时间为 %s."
 
 msgid "Certificate was imported."
 msgstr "证书已导入。"
 
-msgid "Certificate is not yet valid "
-msgstr "证书尚未生效 "
+#. TRANSLATORS: %s is the date the certificate becomes valid
+#, php-format
+msgid "Certificate is not yet valid %s."
+msgstr "证书尚未生效 %s."
 
 msgid "Certificate has not been imported"
 msgstr "证书尚未导入"
@@ -7870,7 +8449,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "证书已废止，但已导入。"
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
+msgstr "无法验证证书的吊销状态。证书已导入。"
 
 msgid "Unable to read public certificate"
 msgstr "无法读取公共证书"
@@ -7914,13 +8493,15 @@ msgstr "要求总线提供响应数据，但总线没有任何数据。"
 msgid "Cannot store the category list in this mailbox."
 msgstr "无法将类别列表存储在此邮箱中。"
 
+msgid "Cannot scan this mailbox for categories."
+msgstr "无法扫描此邮箱以查找类别。"
+
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "未知模块 \"%s\"，id 为 \"%s\"。"
 
-#, fuzzy
 msgid "Server encountered some problem, so it was not able to handle the request."
-msgstr "服务器遇到了一些问题，所以它无法处理该请求。"
+msgstr "服务器遇到问题，无法处理该请求。"
 
 #, php-format
 msgid "Unknown notifier '%s'"
@@ -7939,6 +8520,18 @@ msgstr "待办事项列表"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s of %2$s"
+
+msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
+msgstr "OpenPGP 当前已禁用或不可用。您的邮件未发送。请先启用 OpenPGP 再重试，或明确关闭签名和加密。"
+
+msgid "Too many messages were sent in a short time. Please wait a moment and send again."
+msgstr "短时间内发送的邮件过多。请稍候片刻后重新发送。"
+
+msgid "Message was not sent"
+msgstr "邮件未发送"
+
+msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
+msgstr "此草稿请求使用 OpenPGP 保护，但保护并未应用。邮件未发送。请先启用 OpenPGP 再重试，或明确关闭签名和加密。"
 
 msgid "Error retrieving existing settings"
 msgstr "检索现有设置时出错"
@@ -8035,8 +8628,8 @@ msgstr "共享联系人文件夹"
 msgid "Public Contact Folders"
 msgstr "公共联系人文件夹"
 
-msgid "Error in search, please try again"
-msgstr "搜索出错，请重试"
+msgid "Error in search, please try again."
+msgstr "搜索出错，请重试。"
 
 msgid "Unable to perform search query, no permissions to create search folder."
 msgstr "无法执行搜索查询，没有创建搜索文件夹的权限。"
@@ -8056,37 +8649,33 @@ msgstr "无法打开。"
 msgid "Could not open occurrence, specific occurrence is probably deleted."
 msgstr "无法打开事件，特定事件可能已删除。"
 
-msgid "a meeting request"
-msgstr "一个会议请求"
+msgid "You have insufficient privileges to move a meeting request in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "您没有足够的权限在此日历中移动会议请求。日历所有者可以通过文件夹属性中的“权限”选项卡设置这些权限（右击日历文件夹 > 属性 > 权限）"
 
-msgid "an appointment"
-msgstr "一个事件"
+msgid "You have insufficient privileges to move an appointment in this calendar. The calendar owner can set these using the 'permissions'-tab of the folder properties (right click the calendar folder > properties > permissions)"
+msgstr "您没有足够的权限在此日历中移动预约。日历所有者可以通过文件夹属性中的“权限”选项卡设置这些权限（右击日历文件夹 > 属性 > 权限）"
 
-msgid "You have insufficient privileges to move "
-msgstr "权限不足 无法移动 "
-
-#, fuzzy
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
-msgstr "不能将提醒设置为在前一次发生之前出现。重置提醒以保存更改"
+msgstr "无法将提醒设置为在上一个事件之前出现。请重置提醒以保存更改"
 
 msgid "Two occurrences cannot occur on the same day"
 msgstr "两次事件不能发生在同一天"
 
-#, fuzzy, php-format
+#, php-format
 msgid "You marked '%s' as a resource. You cannot schedule a meeting with '%s' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule '%s'."
-msgstr "您将'%s'标记为一个资源。您不能为'%s'安排会议，因为您没有该账户的相应权限。你可以把这个名字作为必要的或可选的出席者来输入，或者与你的管理员商量，让你有权限来安排'%s'。"
+msgstr "您已将'%s'标记为资源。您无法与'%s'安排会议，因为您没有该账户的相应权限。请将该名称作为必要与会者或可选与会者输入，或与您的管理员联系，请其授予您安排'%s'的权限。"
 
-#, fuzzy, php-format
+#, php-format
 msgid "'%s' has declined your meeting because '%s' does not automatically accept meeting requests."
-msgstr "%s'已经拒绝了你的会议，因为'%s'不自动接受会议请求。"
+msgstr "'%s'已拒绝您的会议，因为'%s'不会自动接受会议请求。"
 
-#, fuzzy, php-format
+#, php-format
 msgid "'%s' has declined your meeting because it is recurring. You must book each meeting separately with this resource."
-msgstr "'%s'已经拒绝了你的会议，因为它是经常性的。你必须用这个资源单独预订每个会议。"
+msgstr "'%s'已拒绝您的会议，因为该会议是重复性会议。您必须使用该资源单独预订每次会议。"
 
-#, fuzzy, php-format
+#, php-format
 msgid "'%s' is already booked for this specified time. You must use another time or find another resource."
-msgstr "'%s'在这个指定的时间已经被预订了。你必须使用另一个时间或找到其他资源。"
+msgstr "'%s'在指定时间已被预订。您必须选择其他时间或另寻资源。"
 
 msgid "Meeting was not scheduled."
 msgstr "未安排会议。"
@@ -8098,8 +8687,9 @@ msgid "Meeting could not be saved."
 msgstr "会议无法挽救。"
 
 #, php-format
-msgid "There were %d skipped appointment(s):"
-msgstr "已跳过 %d 个预约："
+msgid "There was %d skipped appointment:"
+msgid_plural "There were %d skipped appointments:"
+msgstr[0] "已跳过 %d 个预约："
 
 msgid "More skipped appointments are not shown."
 msgstr "其余已跳过的预约未显示。"
@@ -8117,6 +8707,10 @@ msgstr "%s生日"
 #, php-format
 msgid "%s's Anniversary"
 msgstr "%s周年纪念"
+
+#, php-format
+msgid "Unable to add store: '%s'. Please check if you have the necessary permissions."
+msgstr "无法添加存储器：“%s”。请检查您是否具有必要的权限。"
 
 msgid "You don't have the permission to complete this action"
 msgstr "您没有权限完成此操作"
@@ -8191,9 +8785,8 @@ msgstr "无法清空文件夹。"
 msgid "Could not perform action correctly."
 msgstr "无法正确执行操作。"
 
-#, fuzzy
 msgid "A favorite folder with this name already exists, please use another name."
-msgstr "有一个以此命名的收藏夹文件夹已经存在，请使用其他名称。"
+msgstr "收藏夹中已存在同名文件夹，请使用其他名称。"
 
 msgid "Could not add folder to favorites."
 msgstr "无法将文件夹添加到收藏夹。"
@@ -8225,9 +8818,9 @@ msgstr "无法关闭共享文件夹。"
 msgid "User could not be resolved."
 msgstr "无法解决用户问题。"
 
-#, fuzzy, php-format
+#, php-format
 msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "你没有足够的权限来打开这个%1$s文件夹。文件夹所有者可以通过文件夹属性的 \"权限 \"选项卡来设置这些权限（右击%1$s文件夹 > 属性 > 权限）。"
+msgstr "您没有足够的权限打开此%1$s文件夹。文件夹所有者可以通过文件夹属性中的“权限”选项卡设置这些权限（右击%1$s文件夹 > 属性 > 权限）。"
 
 msgid "default"
 msgstr "默认"
@@ -8247,33 +8840,32 @@ msgstr "无法复制文件夹"
 msgid "You have insufficient privileges to open this message."
 msgstr "您没有足够的权限打开此邮件。"
 
-#, fuzzy
 msgid "Could not find message, either it has been moved or deleted or you don't have access to open this message."
-msgstr "找不到信息，要么它已被移动或删除，要么你没有权限打开此信息。"
+msgstr "找不到该消息，它可能已被移动或删除，或者您没有权限打开它。"
 
 msgid "Could not open message."
 msgstr "无法打开消息。"
 
-msgid "You have insufficient privileges to decline this Meeting Request"
-msgstr "您无足够的权限拒绝此会议请求"
+msgid "You have insufficient privileges to decline this Meeting Request."
+msgstr "您没有足够的权限拒绝此会议请求。"
 
-msgid "You have insufficient privileges to accept this Meeting Request"
-msgstr "您无足够的权限接受此会议请求"
+msgid "You have insufficient privileges to accept this Meeting Request."
+msgstr "您没有足够的权限接受此会议请求。"
 
-msgid "Could not copy message"
-msgstr "无法复制消息"
+msgid "Could not copy message."
+msgstr "无法复制消息。"
 
-msgid "Could not move message"
-msgstr "无法移动消息"
+msgid "Could not move message."
+msgstr "无法移动消息。"
 
-msgid "Could not forward meeting request"
-msgstr "无法转发会议请求"
+msgid "Could not forward meeting request."
+msgstr "无法转发会议请求。"
 
-msgid "You have insufficient privileges to save items in this folder"
-msgstr "您无足够的权限将项目保存到此文件夹中"
+msgid "You have insufficient privileges to save items in this folder."
+msgstr "您无足够的权限将项目保存到此文件夹中。"
 
-msgid "Could not save message"
-msgstr "无法保存消息"
+msgid "Could not save message."
+msgstr "无法保存信息。"
 
 msgid "You have insufficient privileges to remove item from the calendar."
 msgstr "您无足够的权限从日历中删除项目。"
@@ -8283,9 +8875,6 @@ msgstr "消息不会再出现在传出队列中，通常是因为已发送此消
 
 msgid "Message cannot be aborted"
 msgstr "消息无法中止"
-
-msgid "You have insufficient privileges to delete items in this folder"
-msgstr "您无足够的权限删除此文件夹中的项目"
 
 msgid "You have insufficient privileges to attach item as an attachment."
 msgstr "您无足够的权限将项目作为附件添加。"
@@ -8308,6 +8897,9 @@ msgstr "您无足够的权限拒绝此任务请求。"
 msgid "Could not decline Task Request."
 msgstr "无法拒绝任务请求。"
 
+msgid "Could not open the attachment."
+msgstr "无法打开该附件。"
+
 msgid "Conflicts with another appointment."
 msgstr "与另一项预约冲突。"
 
@@ -8321,6 +8913,9 @@ msgstr "您的消息未送达部分或全部预期收件人"
 
 msgid "The following recipient(s) could not be reached"
 msgstr "无法联系以下收件人"
+
+msgid "Removing attachments has been disabled by the administrator."
+msgstr "管理员已禁用删除附件功能。"
 
 msgid "l, F j, Y g:i A"
 msgstr "Y年n月j日 l G:i"
@@ -8340,9 +8935,8 @@ msgstr "您没有足够的权限查看该文件夹的内容。"
 msgid "Could not load the contents of this folder."
 msgstr "无法加载此文件夹的内容。"
 
-#, fuzzy
 msgid "You have insufficient privileges to perform search operation in this folder."
-msgstr "你没有足够的权限在这个文件夹中执行搜索操作。"
+msgstr "您没有足够的权限在该文件夹中执行搜索操作。"
 
 msgid "Could not update search results."
 msgstr "无法更新搜索结果。"
@@ -8352,9 +8946,6 @@ msgstr "无法停止搜索操作。"
 
 msgid "You have insufficient privileges to save this message."
 msgstr "您没有足够的权限保存此信息。"
-
-msgid "Could not save message."
-msgstr "无法保存信息。"
 
 msgid "You have insufficient privileges to delete this message."
 msgstr "您没有足够的权限删除此信息。"
@@ -8368,14 +8959,8 @@ msgstr "您没有足够的权限取消此会议申请。"
 msgid "Could not cancel Meeting Request."
 msgstr "无法取消会议请求。"
 
-msgid "You have insufficient privileges to decline this Meeting Request."
-msgstr "您没有足够的权限拒绝此会议请求。"
-
 msgid "Could not decline Meeting Request."
 msgstr "无法拒绝会议请求。"
-
-msgid "You have insufficient privileges to accept this Meeting Request."
-msgstr "您没有足够的权限接受此会议请求。"
 
 msgid "Could not accept Meeting Request."
 msgstr "无法接受会议请求。"
@@ -8389,18 +8974,14 @@ msgstr "无法取消会议申请邀请。"
 msgid "You can not continue search operation on this folder."
 msgstr "无法继续对该文件夹进行搜索操作。"
 
-msgid "Error in search, please try again."
-msgstr "搜索出错，请重试。"
-
 msgid "Error in distribution list expansion."
 msgstr "分发列表扩展错误。"
 
 msgid "The message store has exceeded its hard quota limit."
 msgstr "信息存储已超过硬配额限制。"
 
-#, fuzzy
 msgid "To reduce the amount of data in this message store, select some items that you no longer need, delete them and cleanup your Deleted Items folder."
-msgstr "为了减少这个信息库的数据量，选择一些你不再需要的项目，删除它们并清理你的删除项目文件夹。"
+msgstr "为了减少此信息存储中的数据量，请选择一些您不再需要的项目，将其删除并清理“已删除项目”文件夹。"
 
 msgid "The message store has exceeded its soft quota limit."
 msgstr "信息存储已超过软配额限制。"
@@ -8437,10 +9018,13 @@ msgid "Could not load rules."
 msgstr "无法加载规则。"
 
 msgid "Task Request:"
-msgstr "任务要求。"
+msgstr "任务请求："
 
 msgid "Sign in"
 msgstr "登录"
+
+msgid "Loading"
+msgstr "正在加载"
 
 msgid "File is not imported successfully"
 msgstr "文件未成功导入"
@@ -8454,7 +9038,7 @@ msgstr "上传的文件超出了 HTML 表格中指定的 MAX_FILE_SIZE 指令。
 msgid "The uploaded file was only partially uploaded."
 msgstr "上传的文件只上传了一部分。"
 
-msgid "No file was uploaded. ."
+msgid "No file was uploaded."
 msgstr "未上传文件。."
 
 msgid "Missing a temporary folder."
@@ -8472,7 +9056,6 @@ msgstr "未能在此文件中找到任何联系人。"
 msgid "grommunio Web does not support importing multiple VCF with this version."
 msgstr "grommunio Web不支持使用此版本导入多个VCF。"
 
-#, fuzzy
 msgid "grommunio Web does not support importing multiple ICS with this version."
 msgstr "grommunio Web在这个版本中不支持导入多个ICS。"
 
