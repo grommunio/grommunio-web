@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 20:54+0200\n"
+"POT-Creation-Date: 2026-09-15 22:48+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: import\n"
 "Language: he_IL\n"
@@ -804,80 +804,79 @@ msgstr "לא ניתן לפתוח את מאגר האחסון."
 msgid "Could not open default calendar folder."
 msgstr "לא ניתן לפתוח את תיקיית ברירת המחדל של לוח השנה"
 
-msgid "workday"
-msgstr "יום עבודה"
+msgctxt "recurrence"
+msgid "every workday"
+msgstr ""
 
-msgid "day"
-msgstr "יום"
+msgctxt "recurrence"
+msgid "every day"
+msgstr ""
 
-msgid "days"
-msgstr "ימים"
+#. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} day"
+msgid_plural "every {0} days"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "week"
-msgstr "שבוע"
+msgctxt "recurrence"
+msgid "every week"
+msgstr ""
 
-msgid "weeks"
-msgstr "שבועות"
+#. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} week"
+msgid_plural "every {0} weeks"
+msgstr[0] ""
+msgstr[1] ""
 
-#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+#. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
 msgstr "{0} ב{1}"
 
-msgid "month"
-msgstr "חודש"
+msgctxt "recurrence"
+msgid "every month"
+msgstr ""
 
-msgid "months"
-msgstr "חודשים"
+#. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} month"
+msgid_plural "every {0} months"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "year"
-msgstr "שנה"
+msgctxt "recurrence"
+msgid "every year"
+msgstr ""
 
-msgid "years"
-msgstr "שנים"
+#. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} year"
+msgid_plural "every {0} years"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "מופיע כל {0} החל {1} מ {2} עד {3}."
+msgid "Occurs {0} effective {1} from {2} to {3}."
+msgstr ""
 
-msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "מופיע כל {0}{1} החל {2} מ {3} עד {4}"
+msgid "Occurs {0} effective {1}."
+msgstr ""
 
-msgid "Occurs every {0} effective {1}."
-msgstr "מופיע כל {0} החל מ{1}"
+msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "Occurs every {0} {1} effective {2}."
-msgstr "מופיע כל {0}{1} החל מ{2}."
+msgid "Occurs {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences."
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "מתרחש כל{0}יעיל{1}עבור התרחשות{2}מ{3}ל{4}."
-msgstr[1] "מתרחש בכל{0}יעיל{1}עבור מופעי{2}מ-{3}עד{4}."
+msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
+msgstr ""
 
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "מתרחש כל{0}{1}יעיל{2}עבור התרחשות{3}מ{4}עד{5}."
-msgstr[1] "מתרחש בכל{0}{1}יעיל{2}עבור מופעי{3}{4}עד{5}."
-
-msgid "Occurs every {0} effective {1} for {2} occurrence."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "מתרחש בכל{0}יעיל{1}עבור התרחשות{2}."
-msgstr[1] "מתרחש בכל{0}יעיל{1}עבור התרחשויות{2}."
-
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "מתרחש בכל{0}{1}יעיל{2}עבור התרחשות{3}."
-msgstr[1] "מתרחש בכל{0}{1}יעיל{2}עבור התרחשויות{3}."
-
-msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "מופיע כל {0} החל מ{1} עד {2} בין {3} ל {4}."
-
-msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "מופיע כל {0}{1} החל מ{2} עד {3} בין {4} ל {5}."
-
-msgid "Occurs every {0} effective {1} until {2}."
-msgstr "מופיע כל {0} החל מ{1} עד {2}."
-
-msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "מופיע כל {0}{1} החל מ{2} עד {3}."
+msgid "Occurs {0} effective {1} until {2}."
+msgstr ""
 
 msgid "New Meeting Time Proposed"
 msgstr "זמן חדש לפגישה הוצע"
@@ -889,8 +888,13 @@ msgstr "l jS F Y{0}"
 msgid "Fwd"
 msgstr "הועבר"
 
-msgid "and "
-msgstr "ו"
+#. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
+msgid "{0}, {1}"
+msgstr ""
+
+#. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
+msgid "{0} and {1}"
+msgstr ""
 
 msgid "Sort by: Attachment"
 msgstr "מיין לפי: קבצים מצורפים"
@@ -8638,6 +8642,48 @@ msgstr "לא ניתן למצוא את ההודעה, או שהיא הועברה �
 
 msgid "Action is not performed correctly."
 msgstr "הפעולה לא מבוצעת כהלכה."
+
+msgid "Tentatively accepted"
+msgstr ""
+
+msgid "New Time Proposed"
+msgstr ""
+
+msgid "Task Accepted:"
+msgstr ""
+
+msgid "Task Declined:"
+msgstr ""
+
+msgid "Task Updated:"
+msgstr ""
+
+msgid "Task Completed:"
+msgstr ""
+
+msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
+msgstr ""
+
+msgid "Can not connect to Gromox."
+msgstr ""
+
+msgid "Can not find object."
+msgstr ""
+
+msgid "Can not open object with provided id."
+msgstr ""
+
+msgid "Logon Failed. Please check your name/password."
+msgstr ""
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr ""
+
+msgid "There are no recipients in the message."
+msgstr ""
+
+msgid "You have insufficient privileges to open this object."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "לא ניתן לטפל בסוג אובייקט זה."

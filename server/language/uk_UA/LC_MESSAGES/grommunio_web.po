@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 20:54+0200\n"
+"POT-Creation-Date: 2026-09-15 22:48+0200\n"
 "PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/grommunio-web/uk/>\n"
@@ -815,84 +815,85 @@ msgstr "Не вдається відкрити сховище."
 msgid "Could not open default calendar folder."
 msgstr "Не вдалося відкрити усталену теку календаря."
 
-msgid "workday"
-msgstr "робочий день"
+msgctxt "recurrence"
+msgid "every workday"
+msgstr ""
 
-msgid "day"
-msgstr "день"
+msgctxt "recurrence"
+msgid "every day"
+msgstr ""
 
-msgid "days"
-msgstr "дні"
+#. TRANSLATORS: {0} is the number of days between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} day"
+msgid_plural "every {0} days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
-msgid "week"
-msgstr "тиждень"
+msgctxt "recurrence"
+msgid "every week"
+msgstr ""
 
-msgid "weeks"
-msgstr "тижні"
+#. TRANSLATORS: {0} is the number of weeks between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} week"
+msgid_plural "every {0} weeks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
-#. TRANSLATORS: {0} is the period ('week' or 'weeks'), {1} the list of weekdays
+#. TRANSLATORS: {0} is the frequency ('every week'), {1} the list of weekdays
 msgid "{0} on {1}"
 msgstr "{0} на {1}"
 
-msgid "month"
-msgstr "місяць"
+msgctxt "recurrence"
+msgid "every month"
+msgstr ""
 
-msgid "months"
-msgstr "місяці"
+#. TRANSLATORS: {0} is the number of months between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} month"
+msgid_plural "every {0} months"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
-msgid "year"
-msgstr "рік"
+msgctxt "recurrence"
+msgid "every year"
+msgstr ""
 
-msgid "years"
-msgstr "роки"
+#. TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
+msgctxt "recurrence"
+msgid "every {0} year"
+msgid_plural "every {0} years"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
-msgid "Occurs every {0} effective {1} from {2} to {3}."
-msgstr "Відбувається кожного {0} ефективного {1} від {2} до {3}."
+msgid "Occurs {0} effective {1} from {2} to {3}."
+msgstr ""
 
-msgid "Occurs every {0} {1} effective {2} from {3} to {4}."
-msgstr "Відбувається кожні {0} {1} ефективний {2} від {3} до {4}."
+msgid "Occurs {0} effective {1}."
+msgstr ""
 
-msgid "Occurs every {0} effective {1}."
-msgstr "Відбувається кожного {0} ефективного {1}."
+msgid "Occurs {0} effective {1} for {2} occurrence from {3} to {4}."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences from {3} to {4}."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
-msgid "Occurs every {0} {1} effective {2}."
-msgstr "Відбувається кожні {0} {1} ефективний {2}."
+msgid "Occurs {0} effective {1} for {2} occurrence."
+msgid_plural "Occurs {0} effective {1} for {2} occurrences."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
-msgid "Occurs every {0} effective {1} for {2} occurrence from {3} to {4}."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences from {3} to {4}."
-msgstr[0] "Відбувається кожного {0} ефективного {1} для {2} входження від {3} до {4}."
-msgstr[1] "Відбувається кожні {0} з {1} протягом {2} випадків з {3} по {4}."
-msgstr[2] "Відбувається кожні {0} з {1} протягом {2} випадків з {3} по {4}."
+msgid "Occurs {0} effective {1} until {2} from {3} to {4}."
+msgstr ""
 
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence from {4} to {5}."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences {4} to {5}."
-msgstr[0] "Відбувається кожні {0} {1} ефективний {2} для {3} входження від {4} до {5}."
-msgstr[1] "Відбувається кожні {0} {1} з {2} для {3} випадків від {4} до {5}."
-msgstr[2] "Відбувається кожні {0} {1} з {2} для {3} випадків від {4} до {5}."
-
-msgid "Occurs every {0} effective {1} for {2} occurrence."
-msgid_plural "Occurs every {0} effective {1} for {2} occurrences."
-msgstr[0] "Відбувається кожен {0} ефективний {1} для {2} входження."
-msgstr[1] "Відбувається кожні {0} з {1} для {2} випадків."
-msgstr[2] "Відбувається кожні {0} з {1} для {2} випадків."
-
-msgid "Occurs every {0} {1} effective {2} for {3} occurrence."
-msgid_plural "Occurs every {0} {1} effective {2} for {3} occurrences."
-msgstr[0] "Відбувається кожні {0} {1} ефективний {2} для {3} входження."
-msgstr[1] "Відбувається кожні {0} {1} з {2} для {3} випадків."
-msgstr[2] "Відбувається кожні {0} {1} з {2} для {3} випадків."
-
-msgid "Occurs every {0} effective {1} until {2} from {3} to {4}."
-msgstr "Відбувається кожні {0} з {1} до {2} з {3} до {4}."
-
-msgid "Occurs every {0} {1} effective {2} until {3} from {4} to {5}."
-msgstr "Відбувається кожні {0} {1} починаючи з {2} до {3} з {4} до {5}."
-
-msgid "Occurs every {0} effective {1} until {2}."
-msgstr "Відбувається кожні {0} починаючи з {1} до {2}."
-
-msgid "Occurs every {0} {1} effective {2} until {3}."
-msgstr "Відбувається кожні {0} {1} починаючи з {2} до {3}."
+msgid "Occurs {0} effective {1} until {2}."
+msgstr ""
 
 msgid "New Meeting Time Proposed"
 msgstr "Запропоновано новий час зустрічі"
@@ -904,8 +905,13 @@ msgstr "l jS F Y {0}"
 msgid "Fwd"
 msgstr "Вперед!"
 
-msgid "and "
-msgstr "і "
+#. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
+msgid "{0}, {1}"
+msgstr ""
+
+#. TRANSLATORS: joins the last item of an enumeration, {0} is what came before, {1} the last item
+msgid "{0} and {1}"
+msgstr ""
 
 msgid "Sort by: Attachment"
 msgstr "Сортувати за: Вкладенням"
@@ -8673,6 +8679,48 @@ msgstr "Не вдалося знайти повідомлення, або вон
 
 msgid "Action is not performed correctly."
 msgstr "Дія виконується некоректно."
+
+msgid "Tentatively accepted"
+msgstr ""
+
+msgid "New Time Proposed"
+msgstr ""
+
+msgid "Task Accepted:"
+msgstr ""
+
+msgid "Task Declined:"
+msgstr ""
+
+msgid "Task Updated:"
+msgstr ""
+
+msgid "Task Completed:"
+msgstr ""
+
+msgid "Cannot assign tasks in public folders. Public folders are not mail-enabled and cannot send task assignment notifications."
+msgstr ""
+
+msgid "Can not connect to Gromox."
+msgstr ""
+
+msgid "Can not find object."
+msgstr ""
+
+msgid "Can not open object with provided id."
+msgstr ""
+
+msgid "Logon Failed. Please check your name/password."
+msgstr ""
+
+msgid "Operation failed: Server does not have enough memory."
+msgstr ""
+
+msgid "There are no recipients in the message."
+msgstr ""
+
+msgid "You have insufficient privileges to open this object."
+msgstr ""
 
 msgid "Could not handle this type of object."
 msgstr "Не зміг впоратися з таким типом об'єктів."
