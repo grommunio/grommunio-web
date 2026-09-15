@@ -497,7 +497,7 @@ msgid "Show Names from the"
 msgstr "Exibir nomes do"
 
 msgid "Search…"
-msgstr "Pesquisar.."
+msgstr "Pesquisar…"
 
 msgid "Sort by: Icon"
 msgstr "Ordenar por: Ícone"
@@ -659,7 +659,7 @@ msgid "Include subfolders"
 msgstr "Incluir subpastas"
 
 msgid "Show…"
-msgstr "Mostrar.."
+msgstr "Mostrar…"
 
 msgid "Mails"
 msgstr "Correio eletrônico"
@@ -674,7 +674,7 @@ msgid "Tasks"
 msgstr "Tarefas"
 
 msgid "Filter…"
-msgstr "Filtro..."
+msgstr "Filtro…"
 
 msgid "Unread"
 msgstr "Não Lido"
@@ -694,7 +694,7 @@ msgid "To"
 msgstr "Até"
 
 msgid "Filter category…"
-msgstr "Categoria de filtro..."
+msgstr "Categoria de filtro…"
 
 msgid "Add Category"
 msgstr "Adicionar categoria"
@@ -1168,7 +1168,7 @@ msgid "Attachments cannot be modified for a single occurrence"
 msgstr "Anexos de uma ocorrência não podem ser modificados"
 
 msgid "Type your message here…"
-msgstr "Digite sua mensagem aqui..."
+msgstr "Digite sua mensagem aqui…"
 
 msgid "Update location"
 msgstr "Atualizar o local"
@@ -1509,7 +1509,7 @@ msgid "Mark Unread"
 msgstr "Marcar como não lida"
 
 msgid "Send to…"
-msgstr "Enviar para.."
+msgstr "Enviar para…"
 
 msgid "Export as"
 msgstr "Exportar como"
@@ -1718,7 +1718,7 @@ msgid "Optional attendees"
 msgstr "Participantes opcionais"
 
 msgid "Loading appointments…"
-msgstr "Carregando compromissos.."
+msgstr "Carregando compromissos…"
 
 msgid "Please select a calendar via widget settings"
 msgstr "Selecione um calendário nas configurações do widget"
@@ -1840,7 +1840,7 @@ msgid "Paste this occurrence only"
 msgstr "Cole apenas essa ocorrência"
 
 msgid "Paste the series…"
-msgstr "Cole a série..."
+msgstr "Cole a série…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "Essa é uma mensagem recorrente. Você deseja apagar somente essa ocorrência ou a série completa?"
@@ -2209,7 +2209,7 @@ msgid "Delegates can send items on your behalf."
 msgstr "Os delegados podem enviar itens em seu nome."
 
 msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
-msgstr "Se você quiser apenas definir permissões de pasta, clique com o botão direito do mouse em uma pasta para abrir o menu de contexto e clique em \"Compartilhar pasta...\""
+msgstr "Se você quiser apenas definir permissões de pasta, clique com o botão direito do mouse em uma pasta para abrir o menu de contexto e clique em \"Compartilhar pasta…\""
 
 msgid "Permission"
 msgstr "Permissão"
@@ -2809,52 +2809,52 @@ msgid "Sort by: Size"
 msgstr "Ordenar por: Tamanho"
 
 msgid "Move the message to folder…"
-msgstr "Mover a mensagem para a pasta.."
+msgstr "Mover a mensagem para a pasta…"
 
 msgid "Copy the message to folder…"
-msgstr "Copiar a mensagem para a pasta.."
+msgstr "Copiar a mensagem para a pasta…"
 
 msgid "Delete the message"
 msgstr "Excluir mensagem"
 
 msgid "Redirect the message to…"
-msgstr "Redirecionar a mensagem para.."
+msgstr "Redirecionar a mensagem para…"
 
 msgid "Forward the message to…"
-msgstr "Encaminhar a mensagem para.."
+msgstr "Encaminhar a mensagem para…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Encaminhar a mensagem como anexo para.."
+msgstr "Encaminhar a mensagem como anexo para…"
 
 msgid "Mark the message as read…"
-msgstr "Marcar a mensagem como lida.."
+msgstr "Marcar a mensagem como lida…"
 
 msgid "is received from…"
-msgstr "é recebido de.."
+msgstr "é recebido de…"
 
 msgid "includes these words in the sender's address…"
-msgstr "inclui estas palavras no endereço do remetente.."
+msgstr "inclui estas palavras no endereço do remetente…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "inclui essas palavras no endereço do destinatário.."
+msgstr "inclui essas palavras no endereço do destinatário…"
 
 msgid "includes these words in the subject…"
-msgstr "inclui essas palavras no assunto.."
+msgstr "inclui essas palavras no assunto…"
 
 msgid "includes these words in the body…"
-msgstr "inclui essas palavras no corpo.."
+msgstr "inclui essas palavras no corpo…"
 
 msgid "includes these words in the transport headers…"
-msgstr "inclui essas palavras nos cabeçalhos de transporte.."
+msgstr "inclui essas palavras nos cabeçalhos de transporte…"
 
 msgid "has importance…"
-msgstr "tem importância.."
+msgstr "tem importância…"
 
 msgid "has an attachment"
 msgstr "tem um anexo"
 
 msgid "is sent to…"
-msgstr "é enviado para.."
+msgstr "é enviado para…"
 
 msgid "is sent only to me"
 msgstr "foi enviado somente para mim"
@@ -2869,19 +2869,19 @@ msgid "has my name in the To or Cc field"
 msgstr "tem meu nome no campo Para ou Cc"
 
 msgid "has sensitivity…"
-msgstr "tem sensibilidade.."
+msgstr "tem sensibilidade…"
 
 msgid "is received after…"
-msgstr "é recebido após.."
+msgstr "é recebido após…"
 
 msgid "is received before…"
-msgstr "é recebido antes de.."
+msgstr "é recebido antes de…"
 
 msgid "size is at least…"
-msgstr "O tamanho é de pelo menos..."
+msgstr "O tamanho é de pelo menos…"
 
 msgid "size is at most…"
-msgstr "O tamanho é de no máximo..."
+msgstr "O tamanho é de no máximo…"
 
 msgid "has my name in the To field"
 msgstr "tem meu nome no campo Para"
@@ -3010,7 +3010,7 @@ msgid "Always move messages with this subject"
 msgstr "Sempre mova mensagens com esse assunto"
 
 msgid "Create rule…"
-msgstr "Criar regra..."
+msgstr "Criar regra…"
 
 msgid "myself"
 msgstr "eu mesmo"
@@ -3052,7 +3052,7 @@ msgid "All folders"
 msgstr "Todas as pastas"
 
 msgid "Other…"
-msgstr "Outros.."
+msgstr "Outros…"
 
 msgid "Search"
 msgstr "Pesquisa"
@@ -3715,7 +3715,7 @@ msgid "Add New"
 msgstr "Adicionar novo(a)"
 
 msgid "Type your note here…"
-msgstr "Digite sua nota aqui..."
+msgstr "Digite sua nota aqui…"
 
 msgid "New contact"
 msgstr "Novo contato"
@@ -4167,7 +4167,7 @@ msgid "Widgets"
 msgstr "Widgets"
 
 msgid "Sending…"
-msgstr "Enviando.."
+msgstr "Enviando…"
 
 msgid "Sent successfully"
 msgstr "Enviado com sucesso"
@@ -4460,13 +4460,13 @@ msgid "Empty folder"
 msgstr "Pasta vazia"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Esvaziando {0}... (0%)"
+msgstr "Esvaziando {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Successfully emptyed {0}. ({1} items removed)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Esvaziamento {0}... ({1}%)"
+msgstr "Esvaziamento {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4744,7 +4744,7 @@ msgid "Remove From Favorites"
 msgstr "Remover dos favoritos"
 
 msgid "Share folder…"
-msgstr "Compartilhar pasta.."
+msgstr "Compartilhar pasta…"
 
 msgid "Import emails"
 msgstr "Importar e-mails"
@@ -4759,7 +4759,7 @@ msgid "Properties of {0}"
 msgstr "Propriedades de {0}"
 
 msgid "Share {0} with…"
-msgstr "Compartilhe {0} com..."
+msgstr "Compartilhe {0} com…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Propriedades do site {0} - {1}"
@@ -6336,7 +6336,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Existe mais de um link de compartilhamento. Somente o mais recente é exibido"
 
 msgid "Loading details…"
-msgstr "Carregando detalhes..."
+msgstr "Carregando detalhes…"
 
 msgid "Files: Seafile Backend"
 msgstr "Arquivos: Backend do Seafile"

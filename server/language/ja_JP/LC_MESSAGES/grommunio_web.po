@@ -1833,7 +1833,7 @@ msgid "Paste this occurrence only"
 msgstr "このオカレンスだけを貼り付ける"
 
 msgid "Paste the series…"
-msgstr "シリーズを貼り付ける"
+msgstr "シリーズを貼り付ける…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "これは定期的なアイテムです。このアイテムだけを削除しますか？それとも一連のアイテムを削除しますか？"
@@ -2819,22 +2819,22 @@ msgid "is received from…"
 msgstr "が受信される…"
 
 msgid "includes these words in the sender's address…"
-msgstr "差出人の住所には次のような言葉がある。"
+msgstr "差出人の住所には次のような言葉がある。…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "受信者のアドレスにこの言葉が含まれている..."
+msgstr "受信者のアドレスにこの言葉が含まれている…"
 
 msgid "includes these words in the subject…"
-msgstr "件名にこれらの言葉が含まれている..."
+msgstr "件名にこれらの言葉が含まれている…"
 
 msgid "includes these words in the body…"
-msgstr "本文には次のような言葉がある。"
+msgstr "本文には次のような言葉がある。…"
 
 msgid "includes these words in the transport headers…"
-msgstr "トランスポートのヘッダーには次のような言葉がある。"
+msgstr "トランスポートのヘッダーには次のような言葉がある。…"
 
 msgid "has importance…"
-msgstr "は重要性を持っている..."
+msgstr "は重要性を持っている…"
 
 msgid "has an attachment"
 msgstr "愛着がある"
@@ -2864,10 +2864,10 @@ msgid "is received before…"
 msgstr "が受信される前に、…"
 
 msgid "size is at least…"
-msgstr "サイズは少なくとも..."
+msgstr "サイズは少なくとも…"
 
 msgid "size is at most…"
-msgstr "サイズはせいぜい..."
+msgstr "サイズはせいぜい…"
 
 msgid "has my name in the To field"
 msgstr "は、宛先欄に私の名前があります。"
@@ -2997,7 +2997,7 @@ msgid "Always move messages with this subject"
 msgstr "常にこの件名でメッセージを移動する"
 
 msgid "Create rule…"
-msgstr "ルールを作る"
+msgstr "ルールを作る…"
 
 msgid "myself"
 msgstr "私自身"
@@ -3701,7 +3701,7 @@ msgid "Add New"
 msgstr "新規追加"
 
 msgid "Type your note here…"
-msgstr "ここにメモを入力してください"
+msgstr "ここにメモを入力してください…"
 
 msgid "New contact"
 msgstr "新規コンタクト"
@@ -4445,13 +4445,13 @@ msgid "Empty folder"
 msgstr "フォルダを空にする"
 
 msgid "Emptying {0}… (0%)"
-msgstr "{0}... (0%)"
+msgstr "{0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "{0} 。 ({1} アイテム削除)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "空の{0}... ({1}%)"
+msgstr "空の{0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -6316,7 +6316,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "複数の共有リンクが存在する。最新のもののみ表示"
 
 msgid "Loading details…"
-msgstr "詳細を読み込む..."
+msgstr "詳細を読み込む…"
 
 msgid "Files: Seafile Backend"
 msgstr "ファイルSeafileバックエンド"

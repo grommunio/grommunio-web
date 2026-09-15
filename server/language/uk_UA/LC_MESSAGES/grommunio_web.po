@@ -1524,7 +1524,7 @@ msgid "Mark Unread"
 msgstr "Позначити як непрочитане"
 
 msgid "Send to…"
-msgstr "Надіслати на..."
+msgstr "Надіслати на…"
 
 msgid "Export as"
 msgstr "Експортувати як"
@@ -2227,7 +2227,7 @@ msgid "Delegates can send items on your behalf."
 msgstr "Делегати можуть надсилати матеріали від вашого імені."
 
 msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
-msgstr "Якщо ви хочете встановити лише права доступу до папки, клацніть правою кнопкою миші на папці, щоб відкрити контекстне меню, і виберіть пункт \"Відкрити спільний доступ до папки...\""
+msgstr "Якщо ви хочете встановити лише права доступу до папки, клацніть правою кнопкою миші на папці, щоб відкрити контекстне меню, і виберіть пункт \"Відкрити спільний доступ до папки…\""
 
 msgid "Permission"
 msgstr "Дозвіл"
@@ -2831,7 +2831,7 @@ msgid "Sort by: Size"
 msgstr "Сортувати по: Розмір"
 
 msgid "Move the message to folder…"
-msgstr "Перемістити повідомлення до папки..."
+msgstr "Перемістити повідомлення до папки…"
 
 msgid "Copy the message to folder…"
 msgstr "Скопіювати повідомлення до теки…"
@@ -2840,43 +2840,43 @@ msgid "Delete the message"
 msgstr "Видалити повідомлення"
 
 msgid "Redirect the message to…"
-msgstr "Перенаправте повідомлення на."
+msgstr "Перенаправте повідомлення на…"
 
 msgid "Forward the message to…"
-msgstr "Переслати повідомлення на..."
+msgstr "Переслати повідомлення на…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Перешліть повідомлення як вкладення до."
+msgstr "Перешліть повідомлення як вкладення до…"
 
 msgid "Mark the message as read…"
-msgstr "Позначте повідомлення як прочитане..."
+msgstr "Позначте повідомлення як прочитане…"
 
 msgid "is received from…"
-msgstr "отримано від..."
+msgstr "отримано від…"
 
 msgid "includes these words in the sender's address…"
-msgstr "включає такі слова у звернення до відправника..."
+msgstr "включає такі слова у звернення до відправника…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "включає ці слова у звернення до адресата..."
+msgstr "включає ці слова у звернення до адресата…"
 
 msgid "includes these words in the subject…"
-msgstr "включає ці слова в тему..."
+msgstr "включає ці слова в тему…"
 
 msgid "includes these words in the body…"
-msgstr "включає ці слова в тіло..."
+msgstr "включає ці слова в тіло…"
 
 msgid "includes these words in the transport headers…"
-msgstr "включає ці слова в транспортні заголовки..."
+msgstr "включає ці слова в транспортні заголовки…"
 
 msgid "has importance…"
-msgstr "має значення..."
+msgstr "має значення…"
 
 msgid "has an attachment"
 msgstr "має вкладення"
 
 msgid "is sent to…"
-msgstr "надсилається до..."
+msgstr "надсилається до…"
 
 msgid "is sent only to me"
 msgstr "надсилається тільки мені"
@@ -2891,19 +2891,19 @@ msgid "has my name in the To or Cc field"
 msgstr "має моє ім'я в полі \"Кому\" або \"Копія"
 
 msgid "has sensitivity…"
-msgstr "має чутливість..."
+msgstr "має чутливість…"
 
 msgid "is received after…"
 msgstr "отримано після…"
 
 msgid "is received before…"
-msgstr "буде отримано до того, як..."
+msgstr "буде отримано до того, як…"
 
 msgid "size is at least…"
-msgstr "розмір щонайменше..."
+msgstr "розмір щонайменше…"
 
 msgid "size is at most…"
-msgstr "розмір не більше..."
+msgstr "розмір не більше…"
 
 msgid "has my name in the To field"
 msgstr "має моє ім'я в полі Кому"
@@ -3032,7 +3032,7 @@ msgid "Always move messages with this subject"
 msgstr "Завжди переміщайте повідомлення з такою темою"
 
 msgid "Create rule…"
-msgstr "Створити правило..."
+msgstr "Створити правило…"
 
 msgid "myself"
 msgstr "Я сам."
@@ -3074,7 +3074,7 @@ msgid "All folders"
 msgstr "Всі папки"
 
 msgid "Other…"
-msgstr "Інше..."
+msgstr "Інше…"
 
 msgid "Search"
 msgstr "Пошук"
@@ -3233,7 +3233,7 @@ msgid "Message body editor"
 msgstr "Редактор тексту повідомлення"
 
 msgid "Loading…"
-msgstr "Завантаження..."
+msgstr "Завантаження…"
 
 msgid "Message could not be loaded"
 msgstr "Повідомлення не вдалося завантажити"
@@ -3738,7 +3738,7 @@ msgid "Add New"
 msgstr "Додати нове"
 
 msgid "Type your note here…"
-msgstr "Напишіть свою замітку тут..."
+msgstr "Напишіть свою замітку тут…"
 
 msgid "New contact"
 msgstr "Новий контакт"
@@ -4190,7 +4190,7 @@ msgid "Widgets"
 msgstr "Віджети"
 
 msgid "Sending…"
-msgstr "Відправляю..."
+msgstr "Відправляю…"
 
 msgid "Sent successfully"
 msgstr "Відправлено успішно"
@@ -4484,13 +4484,13 @@ msgid "Empty folder"
 msgstr "Очистити теку"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Порожній {0}... (0%)"
+msgstr "Порожній {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Успішно очищено {0}. ({1} елементи видалено)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Випорожнення {0}... ({1}%)"
+msgstr "Випорожнення {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4772,7 +4772,7 @@ msgid "Remove From Favorites"
 msgstr "Видалити з обраного"
 
 msgid "Share folder…"
-msgstr "Папка для спільного доступу..."
+msgstr "Папка для спільного доступу…"
 
 msgid "Import emails"
 msgstr "Імпорт імейлів"
@@ -4787,7 +4787,7 @@ msgid "Properties of {0}"
 msgstr "Властивості {0}"
 
 msgid "Share {0} with…"
-msgstr "Поділіться {0} з..."
+msgstr "Поділіться {0} з…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Властивості {0} - {1}"
@@ -4884,7 +4884,7 @@ msgid "Your email will be sent {0}{1}"
 msgstr "На вашу електронну пошту буде надіслано {0}{1}"
 
 msgid "Saving…"
-msgstr "Врятувати..."
+msgstr "Врятувати…"
 
 msgid "Saved at {0}"
 msgstr "Збережено в {0}"
@@ -6365,7 +6365,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Існує більше 1 посилання на спільний доступ. Показано лише останнє"
 
 msgid "Loading details…"
-msgstr "Деталі завантаження..."
+msgstr "Деталі завантаження…"
 
 msgid "Files: Seafile Backend"
 msgstr "Файли: Seafile Backend"

@@ -4438,13 +4438,13 @@ msgid "Empty folder"
 msgstr "空文件夹"
 
 msgid "Emptying {0}… (0%)"
-msgstr "清空{0}... (0%)"
+msgstr "清空{0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "成功清空{0}. ({1} 项目已删除)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "清空{0}... ({1}%)"
+msgstr "清空{0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4733,7 +4733,7 @@ msgid "Properties of {0}"
 msgstr "{0}的属性"
 
 msgid "Share {0} with…"
-msgstr "与…共享{0}"
+msgstr "与…共享{0}…"
 
 msgid "Properties of {0} - {1}"
 msgstr "{0}-{1}的属性"

@@ -2830,7 +2830,7 @@ msgid "Sort by: Size"
 msgstr "Razvrstaj po: Veličina"
 
 msgid "Move the message to folder…"
-msgstr "Premjesti poruku u mapu..."
+msgstr "Premjesti poruku u mapu…"
 
 msgid "Copy the message to folder…"
 msgstr "Kopiraj poruku u mapu…"
@@ -2839,7 +2839,7 @@ msgid "Delete the message"
 msgstr "Izbriši poruku"
 
 msgid "Redirect the message to…"
-msgstr "Preusmjerite poruku na..."
+msgstr "Preusmjerite poruku na…"
 
 msgid "Forward the message to…"
 msgstr "Proslijedite poruku na…"
@@ -2854,19 +2854,19 @@ msgid "is received from…"
 msgstr "primljeno je od…"
 
 msgid "includes these words in the sender's address…"
-msgstr "uključuje ove riječi u adresu pošiljatelja..."
+msgstr "uključuje ove riječi u adresu pošiljatelja…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "uključuje ove riječi u adresu primatelja..."
+msgstr "uključuje ove riječi u adresu primatelja…"
 
 msgid "includes these words in the subject…"
-msgstr "uključuje ove riječi u temu..."
+msgstr "uključuje ove riječi u temu…"
 
 msgid "includes these words in the body…"
-msgstr "uključuje ove riječi u tijelo..."
+msgstr "uključuje ove riječi u tijelo…"
 
 msgid "includes these words in the transport headers…"
-msgstr "uključuje ove riječi u zaglavlja transporta..."
+msgstr "uključuje ove riječi u zaglavlja transporta…"
 
 msgid "has importance…"
 msgstr "ima važnost…"
@@ -2890,19 +2890,19 @@ msgid "has my name in the To or Cc field"
 msgstr "sadrži moje ime u polju „Prima” ili „Cc”"
 
 msgid "has sensitivity…"
-msgstr "ima osjetljivost..."
+msgstr "ima osjetljivost…"
 
 msgid "is received after…"
 msgstr "prima se nakon…"
 
 msgid "is received before…"
-msgstr "primljeno je prije..."
+msgstr "primljeno je prije…"
 
 msgid "size is at least…"
-msgstr "veličina je najmanje..."
+msgstr "veličina je najmanje…"
 
 msgid "size is at most…"
-msgstr "veličina je najviše..."
+msgstr "veličina je najviše…"
 
 msgid "has my name in the To field"
 msgstr "sadrži moje ime u polju „Prima”"
@@ -3232,7 +3232,7 @@ msgid "Message body editor"
 msgstr "Uređivač tijela poruke"
 
 msgid "Loading…"
-msgstr "učitavanje..."
+msgstr "učitavanje…"
 
 msgid "Message could not be loaded"
 msgstr "Poruka se ne može učitati"
@@ -4786,7 +4786,7 @@ msgid "Properties of {0}"
 msgstr "Svojstva{0}"
 
 msgid "Share {0} with…"
-msgstr "Podijelite{0}sa..."
+msgstr "Podijelite{0}sa…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Svojstva{0}-{1}"
@@ -4883,7 +4883,7 @@ msgid "Your email will be sent {0}{1}"
 msgstr "Vaša e-pošta bit će poslana{0}{1}"
 
 msgid "Saving…"
-msgstr "Spremanje..."
+msgstr "Spremanje…"
 
 msgid "Saved at {0}"
 msgstr "Spremljeno u {0}"
@@ -6364,7 +6364,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Postoji više od jedne poveznice za dijeljenje. Prikazuje se samo najnovija"
 
 msgid "Loading details…"
-msgstr "Učitavanje detalja..."
+msgstr "Učitavanje detalja…"
 
 msgid "Files: Seafile Backend"
 msgstr "Datoteke: Seafile Backend"

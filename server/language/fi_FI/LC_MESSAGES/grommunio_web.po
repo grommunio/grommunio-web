@@ -1840,7 +1840,7 @@ msgid "Paste this occurrence only"
 msgstr "Liitä vain tämä esiintymä"
 
 msgid "Paste the series…"
-msgstr "Liitä sarja.."
+msgstr "Liitä sarja…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "Tämä on toistuva viesti. Haluatko poistaa vain tämän tapahtuman vai tapahtumasarjan?"
@@ -2809,52 +2809,52 @@ msgid "Sort by: Size"
 msgstr "Järjestä: Koko"
 
 msgid "Move the message to folder…"
-msgstr "Siirrä viesti kansioon.."
+msgstr "Siirrä viesti kansioon…"
 
 msgid "Copy the message to folder…"
-msgstr "Kopioi viesti kansioon.."
+msgstr "Kopioi viesti kansioon…"
 
 msgid "Delete the message"
 msgstr "Poista viesti"
 
 msgid "Redirect the message to…"
-msgstr "Ohjaa viesti uudelleen.."
+msgstr "Ohjaa viesti uudelleen…"
 
 msgid "Forward the message to…"
-msgstr "Lähetä viesti eteenpäin osoitteeseen.."
+msgstr "Lähetä viesti eteenpäin osoitteeseen…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Lähetä viesti edelleen liitetiedostona osoitteeseen.."
+msgstr "Lähetä viesti edelleen liitetiedostona osoitteeseen…"
 
 msgid "Mark the message as read…"
-msgstr "Merkitse viesti luetuksi.."
+msgstr "Merkitse viesti luetuksi…"
 
 msgid "is received from…"
-msgstr "vastaanotetaan.."
+msgstr "vastaanotetaan…"
 
 msgid "includes these words in the sender's address…"
-msgstr "sisältää nämä sanat lähettäjän osoitteessa.."
+msgstr "sisältää nämä sanat lähettäjän osoitteessa…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "sisältää nämä sanat vastaanottajan osoitteessa.."
+msgstr "sisältää nämä sanat vastaanottajan osoitteessa…"
 
 msgid "includes these words in the subject…"
-msgstr "sisältää nämä sanat aiheessa.."
+msgstr "sisältää nämä sanat aiheessa…"
 
 msgid "includes these words in the body…"
-msgstr "sisältää nämä sanat.."
+msgstr "sisältää nämä sanat…"
 
 msgid "includes these words in the transport headers…"
-msgstr "sisältää nämä sanat kuljetusotsikoissa.."
+msgstr "sisältää nämä sanat kuljetusotsikoissa…"
 
 msgid "has importance…"
-msgstr "on tärkeää.."
+msgstr "on tärkeää…"
 
 msgid "has an attachment"
 msgstr "on liitetiedosto"
 
 msgid "is sent to…"
-msgstr "lähetetään.."
+msgstr "lähetetään…"
 
 msgid "is sent only to me"
 msgstr "on lähetetty vain minulle"
@@ -2872,16 +2872,16 @@ msgid "has sensitivity…"
 msgstr "herkkyys…"
 
 msgid "is received after…"
-msgstr "vastaanotetaan sen jälkeen, kun.."
+msgstr "vastaanotetaan sen jälkeen, kun…"
 
 msgid "is received before…"
-msgstr "vastaanotetaan ennen kuin.."
+msgstr "vastaanotetaan ennen kuin…"
 
 msgid "size is at least…"
-msgstr "koko on vähintään.."
+msgstr "koko on vähintään…"
 
 msgid "size is at most…"
-msgstr "koko on enintään.."
+msgstr "koko on enintään…"
 
 msgid "has my name in the To field"
 msgstr "to-kentässä on nimeni"
@@ -3010,7 +3010,7 @@ msgid "Always move messages with this subject"
 msgstr "Siirrä aina tämän aiheen sisältävät viestit"
 
 msgid "Create rule…"
-msgstr "Luo sääntö.."
+msgstr "Luo sääntö…"
 
 msgid "myself"
 msgstr "itse"
@@ -3715,7 +3715,7 @@ msgid "Add New"
 msgstr "Lisää uusi"
 
 msgid "Type your note here…"
-msgstr "Kirjoita viestisi tähän.."
+msgstr "Kirjoita viestisi tähän…"
 
 msgid "New contact"
 msgstr "Uusi kontakti"
@@ -4460,13 +4460,13 @@ msgid "Empty folder"
 msgstr "Tyhjä kansio"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Tyhjennys {0}... (0%)"
+msgstr "Tyhjennys {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Tyhjennetty onnistuneesti {0}. ({1} kohteet poistettu)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Tyhjennys {0}... ({1}%)"
+msgstr "Tyhjennys {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4759,7 +4759,7 @@ msgid "Properties of {0}"
 msgstr "Ominaisuudet {0}"
 
 msgid "Share {0} with…"
-msgstr "Jaa {0}.."
+msgstr "Jaa {0}…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Ominaisuudet {0} - {1}"
@@ -6336,7 +6336,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "On olemassa useampi kuin 1 jakolinkki. Näyttää vain viimeisimmän"
 
 msgid "Loading details…"
-msgstr "Ladataan yksityiskohtia.."
+msgstr "Ladataan yksityiskohtia…"
 
 msgid "Files: Seafile Backend"
 msgstr "Tiedostot: Seafile Backend"

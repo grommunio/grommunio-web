@@ -1567,7 +1567,7 @@ msgid "Mark Unread"
 msgstr "وضع علامة غير مقروءة"
 
 msgid "Send to…"
-msgstr "أرسل إلى..."
+msgstr "أرسل إلى…"
 
 msgid "Export as"
 msgstr "تصدير باسم"
@@ -1898,7 +1898,7 @@ msgid "Paste this occurrence only"
 msgstr "لصق هذا الحدث فقط"
 
 msgid "Paste the series…"
-msgstr "لصق السلسلة..."
+msgstr "لصق السلسلة…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "هذه رسالة متكررة. هل تريد حذف هذه الرسالة فقط أم السلسلة بأكملها؟"
@@ -2279,7 +2279,7 @@ msgid "Delegates can send items on your behalf."
 msgstr "يمكن للمندوبين إرسال العناصر نيابة عنك."
 
 msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
-msgstr "إذا كنت تريد فقط تعيين أذونات المجلد، فانقر بزر الماوس الأيمن على المجلد لفتح قائمة السياق وانقر على \"مشاركة المجلد...\""
+msgstr "إذا كنت تريد فقط تعيين أذونات المجلد، فانقر بزر الماوس الأيمن على المجلد لفتح قائمة السياق وانقر على \"مشاركة المجلد…\""
 
 msgid "Permission"
 msgstr "إذن"
@@ -2895,43 +2895,43 @@ msgid "Sort by: Size"
 msgstr "فرز حسب: الحجم"
 
 msgid "Move the message to folder…"
-msgstr "انقل الرسالة إلى المجلد..."
+msgstr "انقل الرسالة إلى المجلد…"
 
 msgid "Copy the message to folder…"
-msgstr "انسخ الرسالة إلى المجلد..."
+msgstr "انسخ الرسالة إلى المجلد…"
 
 msgid "Delete the message"
 msgstr "احذف الرسالة"
 
 msgid "Redirect the message to…"
-msgstr "إعادة توجيه الرسالة إلى..."
+msgstr "إعادة توجيه الرسالة إلى…"
 
 msgid "Forward the message to…"
 msgstr "إعادة توجيه الرسالة إلى…"
 
 msgid "Forward the message as attachment to…"
-msgstr "إعادة توجيه الرسالة كمرفق إلى..."
+msgstr "إعادة توجيه الرسالة كمرفق إلى…"
 
 msgid "Mark the message as read…"
-msgstr "وضع علامة على الرسالة كمقروءة..."
+msgstr "وضع علامة على الرسالة كمقروءة…"
 
 msgid "is received from…"
 msgstr "يتم استلامه من…"
 
 msgid "includes these words in the sender's address…"
-msgstr "يتضمن هذه الكلمات في عنوان المرسل..."
+msgstr "يتضمن هذه الكلمات في عنوان المرسل…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "يتضمن هذه الكلمات في عنوان المستلم..."
+msgstr "يتضمن هذه الكلمات في عنوان المستلم…"
 
 msgid "includes these words in the subject…"
-msgstr "يتضمن هذه الكلمات في الموضوع ..."
+msgstr "يتضمن هذه الكلمات في الموضوع …"
 
 msgid "includes these words in the body…"
-msgstr "يتضمن هذه الكلمات في الجسم ..."
+msgstr "يتضمن هذه الكلمات في الجسم …"
 
 msgid "includes these words in the transport headers…"
-msgstr "يتضمن هذه الكلمات في رؤوس النقل..."
+msgstr "يتضمن هذه الكلمات في رؤوس النقل…"
 
 msgid "has importance…"
 msgstr "له أهمية…"
@@ -3096,7 +3096,7 @@ msgid "Always move messages with this subject"
 msgstr "قم دائمًا بنقل الرسائل التي تحتوي على هذا الموضوع"
 
 msgid "Create rule…"
-msgstr "إنشاء قاعدة..."
+msgstr "إنشاء قاعدة…"
 
 msgid "myself"
 msgstr "نفسي"
@@ -3805,7 +3805,7 @@ msgid "Add New"
 msgstr "أضف جديد"
 
 msgid "Type your note here…"
-msgstr "اكتب ملاحظتك هنا..."
+msgstr "اكتب ملاحظتك هنا…"
 
 msgid "New contact"
 msgstr "جهة اتصال جديدة"
@@ -4554,13 +4554,13 @@ msgid "Empty folder"
 msgstr "مجلد فارغ"
 
 msgid "Emptying {0}… (0%)"
-msgstr "جارٍ إفراغ{0}... (0%)"
+msgstr "جارٍ إفراغ{0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "تم إفراغ{0}بنجاح. (تمت إزالة عناصر{1})"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "جارٍ إفراغ{0}... ({1}%)"
+msgstr "جارٍ إفراغ{0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4854,7 +4854,7 @@ msgid "Remove From Favorites"
 msgstr "إزالة من المفضلة"
 
 msgid "Share folder…"
-msgstr "مشاركة المجلد..."
+msgstr "مشاركة المجلد…"
 
 msgid "Import emails"
 msgstr "استيراد رسائل البريد الإلكتروني"
@@ -4869,7 +4869,7 @@ msgid "Properties of {0}"
 msgstr "خصائص{0}"
 
 msgid "Share {0} with…"
-msgstr "مشاركة{0}مع..."
+msgstr "مشاركة{0}مع…"
 
 msgid "Properties of {0} - {1}"
 msgstr "خصائص{0}-{1}"

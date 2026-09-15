@@ -703,7 +703,7 @@ msgid "To"
 msgstr "Do"
 
 msgid "Filter category…"
-msgstr "Filtrovat kategorii.."
+msgstr "Filtrovat kategorii…"
 
 msgid "Add Category"
 msgstr "Přidat kategorii"
@@ -2831,52 +2831,52 @@ msgid "Sort by: Size"
 msgstr "Třídit podle: Velikost"
 
 msgid "Move the message to folder…"
-msgstr "Přesunutí zprávy do složky.."
+msgstr "Přesunutí zprávy do složky…"
 
 msgid "Copy the message to folder…"
-msgstr "Zkopírujte zprávu do složky.."
+msgstr "Zkopírujte zprávu do složky…"
 
 msgid "Delete the message"
 msgstr "Vymazat zprávu"
 
 msgid "Redirect the message to…"
-msgstr "Přesměrování zprávy na.."
+msgstr "Přesměrování zprávy na…"
 
 msgid "Forward the message to…"
-msgstr "Zprávu přepošlete na adresu.."
+msgstr "Zprávu přepošlete na adresu…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Zprávu přepošlete jako přílohu na adresu.."
+msgstr "Zprávu přepošlete jako přílohu na adresu…"
 
 msgid "Mark the message as read…"
-msgstr "Označte zprávu jako přečtenou.."
+msgstr "Označte zprávu jako přečtenou…"
 
 msgid "is received from…"
-msgstr "je obdržena od.."
+msgstr "je obdržena od…"
 
 msgid "includes these words in the sender's address…"
-msgstr "obsahuje tato slova v adrese odesílatele.."
+msgstr "obsahuje tato slova v adrese odesílatele…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "obsahuje tato slova v adrese příjemce.."
+msgstr "obsahuje tato slova v adrese příjemce…"
 
 msgid "includes these words in the subject…"
-msgstr "obsahuje tato slova v předmětu.."
+msgstr "obsahuje tato slova v předmětu…"
 
 msgid "includes these words in the body…"
-msgstr "obsahuje tato slova v těle.."
+msgstr "obsahuje tato slova v těle…"
 
 msgid "includes these words in the transport headers…"
-msgstr "obsahuje tato slova v přepravních záhlavích.."
+msgstr "obsahuje tato slova v přepravních záhlavích…"
 
 msgid "has importance…"
-msgstr "má význam.."
+msgstr "má význam…"
 
 msgid "has an attachment"
 msgstr "má přílohu"
 
 msgid "is sent to…"
-msgstr "je odeslána na.."
+msgstr "je odeslána na…"
 
 msgid "is sent only to me"
 msgstr "je poslán pouze mně"
@@ -2894,16 +2894,16 @@ msgid "has sensitivity…"
 msgstr "Důvěrnost…"
 
 msgid "is received after…"
-msgstr "je obdržena po.."
+msgstr "je obdržena po…"
 
 msgid "is received before…"
-msgstr "obdrží před.."
+msgstr "obdrží před…"
 
 msgid "size is at least…"
-msgstr "velikost je minimálně.."
+msgstr "velikost je minimálně…"
 
 msgid "size is at most…"
-msgstr "velikost je maximálně.."
+msgstr "velikost je maximálně…"
 
 msgid "has my name in the To field"
 msgstr "je v poli Komu uvedeno mé jméno"
@@ -3032,7 +3032,7 @@ msgid "Always move messages with this subject"
 msgstr "Vždy přesouvejte zprávy s tímto předmětem"
 
 msgid "Create rule…"
-msgstr "Vytvořit pravidlo.."
+msgstr "Vytvořit pravidlo…"
 
 msgid "myself"
 msgstr "sám"
@@ -4491,13 +4491,13 @@ msgid "Empty folder"
 msgstr "Prázdná složka"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Vyprázdnění {0}... (0%)"
+msgstr "Vyprázdnění {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Úspěšně vyprázdněn {0}. ({1} položky odstraněny)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Vyprázdnění {0}... ({1}%)"
+msgstr "Vyprázdnění {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4794,7 +4794,7 @@ msgid "Properties of {0}"
 msgstr "Vlastnosti {0}"
 
 msgid "Share {0} with…"
-msgstr "Sdílejte {0} s.."
+msgstr "Sdílejte {0} s…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Vlastnosti {0} - {1}"
@@ -6372,7 +6372,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Existuje více než 1 odkaz na sdílení. Zobrazuje se pouze ten nejnovější"
 
 msgid "Loading details…"
-msgstr "Načítání podrobností.."
+msgstr "Načítání podrobností…"
 
 msgid "Files: Seafile Backend"
 msgstr "Soubory: Backend mořského souboru"

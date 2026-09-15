@@ -674,7 +674,7 @@ msgid "Tasks"
 msgstr "Tareas"
 
 msgid "Filter…"
-msgstr "Filtrar.."
+msgstr "Filtrar…"
 
 msgid "Unread"
 msgstr "Sin leer"
@@ -1841,7 +1841,7 @@ msgid "Paste this occurrence only"
 msgstr "Pegar sólo esta ocurrencia"
 
 msgid "Paste the series…"
-msgstr "Pega la serie.."
+msgstr "Pega la serie…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "Esta es un mensaje recurrente. ¿Desea borrar solamente esta ocurrencia o la serie?"
@@ -2812,52 +2812,52 @@ msgid "Sort by: Size"
 msgstr "Ordenar por. Tamaño"
 
 msgid "Move the message to folder…"
-msgstr "Mover el mensaje a la carpeta.."
+msgstr "Mover el mensaje a la carpeta…"
 
 msgid "Copy the message to folder…"
-msgstr "Copiar el mensaje a la carpeta.."
+msgstr "Copiar el mensaje a la carpeta…"
 
 msgid "Delete the message"
 msgstr "Eliminar el mensaje"
 
 msgid "Redirect the message to…"
-msgstr "Redirigir el mensaje a.."
+msgstr "Redirigir el mensaje a…"
 
 msgid "Forward the message to…"
-msgstr "Reenvía el mensaje a.."
+msgstr "Reenvía el mensaje a…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Reenviar el mensaje como archivo adjunto a.."
+msgstr "Reenviar el mensaje como archivo adjunto a…"
 
 msgid "Mark the message as read…"
-msgstr "Marcar el mensaje como leído.."
+msgstr "Marcar el mensaje como leído…"
 
 msgid "is received from…"
 msgstr "se recibe de…"
 
 msgid "includes these words in the sender's address…"
-msgstr "incluye estas palabras en la dirección del remitente.."
+msgstr "incluye estas palabras en la dirección del remitente…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "incluye estas palabras en la dirección del destinatario.."
+msgstr "incluye estas palabras en la dirección del destinatario…"
 
 msgid "includes these words in the subject…"
-msgstr "incluye estas palabras en el asunto.."
+msgstr "incluye estas palabras en el asunto…"
 
 msgid "includes these words in the body…"
-msgstr "incluye estas palabras en el cuerpo.."
+msgstr "incluye estas palabras en el cuerpo…"
 
 msgid "includes these words in the transport headers…"
-msgstr "incluye estas palabras en las cabeceras de transporte.."
+msgstr "incluye estas palabras en las cabeceras de transporte…"
 
 msgid "has importance…"
-msgstr "tiene importancia.."
+msgstr "tiene importancia…"
 
 msgid "has an attachment"
 msgstr "tiene un adjunto"
 
 msgid "is sent to…"
-msgstr "se envía a.."
+msgstr "se envía a…"
 
 msgid "is sent only to me"
 msgstr "es enviado solo para mí"
@@ -2881,10 +2881,10 @@ msgid "is received before…"
 msgstr "se recibe de…"
 
 msgid "size is at least…"
-msgstr "el tamaño es al menos.."
+msgstr "el tamaño es al menos…"
 
 msgid "size is at most…"
-msgstr "tamaño es como mucho.."
+msgstr "tamaño es como mucho…"
 
 msgid "has my name in the To field"
 msgstr "tiene mi nombre en el campo Para"
@@ -3013,7 +3013,7 @@ msgid "Always move messages with this subject"
 msgstr "Mueva siempre los mensajes con este asunto"
 
 msgid "Create rule…"
-msgstr "Crear regla.."
+msgstr "Crear regla…"
 
 msgid "myself"
 msgstr "yo mismo"
@@ -4467,13 +4467,13 @@ msgid "Empty folder"
 msgstr "Carpeta vacía"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Vaciar {0}... (0%)"
+msgstr "Vaciar {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Vaciado con éxito {0}. ({1} items removed)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Vaciado {0}... ({1}%)"
+msgstr "Vaciado {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4766,7 +4766,7 @@ msgid "Properties of {0}"
 msgstr "Propiedades de {0}"
 
 msgid "Share {0} with…"
-msgstr "Comparte {0} con.."
+msgstr "Comparte {0} con…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Propiedades de {0} - {1}"
@@ -6343,7 +6343,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Existe más de 1 enlace para compartir. Sólo se muestra el último"
 
 msgid "Loading details…"
-msgstr "Cargando detalles.."
+msgstr "Cargando detalles…"
 
 msgid "Files: Seafile Backend"
 msgstr "Ficheros: Seafile Backend"

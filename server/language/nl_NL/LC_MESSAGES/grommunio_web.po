@@ -4465,13 +4465,13 @@ msgid "Empty folder"
 msgstr "Leeg folder"
 
 msgid "Emptying {0}… (0%)"
-msgstr "{0}legen ... (0%)"
+msgstr "{0}legen … (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "{0} met succes geleegd. ({1} items verwijderd)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Leegmaken {0}... ({1}%)"
+msgstr "Leegmaken {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"

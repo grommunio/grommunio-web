@@ -2818,43 +2818,43 @@ msgid "Delete the message"
 msgstr "Supprimer le message"
 
 msgid "Redirect the message to…"
-msgstr "Rediriger le message vers.."
+msgstr "Rediriger le message vers…"
 
 msgid "Forward the message to…"
-msgstr "Transmettre le message à.."
+msgstr "Transmettre le message à…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Transmettre le message en pièce jointe à.."
+msgstr "Transmettre le message en pièce jointe à…"
 
 msgid "Mark the message as read…"
-msgstr "Marquer le message comme lu.."
+msgstr "Marquer le message comme lu…"
 
 msgid "is received from…"
-msgstr "est reçu de .."
+msgstr "est reçu de …"
 
 msgid "includes these words in the sender's address…"
-msgstr "inclut ces mots dans l'adresse de l'expéditeur.."
+msgstr "inclut ces mots dans l'adresse de l'expéditeur…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "inclut ces mots dans l'adresse du destinataire.."
+msgstr "inclut ces mots dans l'adresse du destinataire…"
 
 msgid "includes these words in the subject…"
-msgstr "inclut ces mots dans le sujet.."
+msgstr "inclut ces mots dans le sujet…"
 
 msgid "includes these words in the body…"
-msgstr "inclut ces mots dans le corps.."
+msgstr "inclut ces mots dans le corps…"
 
 msgid "includes these words in the transport headers…"
-msgstr "inclut ces mots dans les en-têtes de transport.."
+msgstr "inclut ces mots dans les en-têtes de transport…"
 
 msgid "has importance…"
-msgstr "a de l'importance.."
+msgstr "a de l'importance…"
 
 msgid "has an attachment"
 msgstr "a une pièce jointe"
 
 msgid "is sent to…"
-msgstr "est envoyé à .."
+msgstr "est envoyé à …"
 
 msgid "is sent only to me"
 msgstr "est envoyé seulement à moi"
@@ -2878,10 +2878,10 @@ msgid "is received before…"
 msgstr "a été reçu avant…"
 
 msgid "size is at least…"
-msgstr "la taille est au moins.."
+msgstr "la taille est au moins…"
 
 msgid "size is at most…"
-msgstr "est au maximum de .."
+msgstr "est au maximum de …"
 
 msgid "has my name in the To field"
 msgstr "a mon nom dans le champ À"
@@ -3010,7 +3010,7 @@ msgid "Always move messages with this subject"
 msgstr "Déplacez toujours les messages ayant ce sujet"
 
 msgid "Create rule…"
-msgstr "Créer une règle.."
+msgstr "Créer une règle…"
 
 msgid "myself"
 msgstr "moi-même"
@@ -4460,13 +4460,13 @@ msgid "Empty folder"
 msgstr "Dossier vide"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Vider {0}... (0%)"
+msgstr "Vider {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Vidage réussi de {0}({1} items removed)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Vider {0}... ({1}%)"
+msgstr "Vider {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4759,7 +4759,7 @@ msgid "Properties of {0}"
 msgstr "Propriétés des {0}"
 
 msgid "Share {0} with…"
-msgstr "Partagez {0} avec.."
+msgstr "Partagez {0} avec…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Propriétés de {0} - {1}"
@@ -6336,7 +6336,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Il existe plus d'un lien de partage. N'affiche que le dernier"
 
 msgid "Loading details…"
-msgstr "Chargement des détails.."
+msgstr "Chargement des détails…"
 
 msgid "Files: Seafile Backend"
 msgstr "Fichiers : Backend Seafile"

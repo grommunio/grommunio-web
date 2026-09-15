@@ -487,7 +487,7 @@ msgid "Show Names from the"
 msgstr "이름 표시"
 
 msgid "Search…"
-msgstr "검색..."
+msgstr "검색…"
 
 msgid "Sort by: Icon"
 msgstr "정렬 기준: 아이콘"
@@ -649,7 +649,7 @@ msgid "Include subfolders"
 msgstr "하위 폴더 포함"
 
 msgid "Show…"
-msgstr "쇼..."
+msgstr "쇼…"
 
 msgid "Mails"
 msgstr "메일"
@@ -664,7 +664,7 @@ msgid "Tasks"
 msgstr "작업"
 
 msgid "Filter…"
-msgstr "필터..."
+msgstr "필터…"
 
 msgid "Unread"
 msgstr "읽지 않음"
@@ -684,7 +684,7 @@ msgid "To"
 msgstr "To"
 
 msgid "Filter category…"
-msgstr "카테고리 필터링..."
+msgstr "카테고리 필터링…"
 
 msgid "Add Category"
 msgstr "카테고리 추가"
@@ -1154,7 +1154,7 @@ msgid "Attachments cannot be modified for a single occurrence"
 msgstr "첨부 파일은 한 번만 수정할 수 있습니다."
 
 msgid "Type your message here…"
-msgstr "여기에 메시지를 입력하세요..."
+msgstr "여기에 메시지를 입력하세요…"
 
 msgid "Update location"
 msgstr "위치 업데이트"
@@ -1493,7 +1493,7 @@ msgid "Mark Unread"
 msgstr "읽지 않음 표시"
 
 msgid "Send to…"
-msgstr "보내기..."
+msgstr "보내기…"
 
 msgid "Export as"
 msgstr "다른 이름으로 내보내기"
@@ -1702,7 +1702,7 @@ msgid "Optional attendees"
 msgstr "선택적 참석자"
 
 msgid "Loading appointments…"
-msgstr "약속 로드 중..."
+msgstr "약속 로드 중…"
 
 msgid "Please select a calendar via widget settings"
 msgstr "위젯 설정을 통해 캘린더를 선택하세요."
@@ -1752,7 +1752,7 @@ msgid "d/m/y"
 msgstr "d/m/y"
 
 msgid "Select one…"
-msgstr "하나 선택..."
+msgstr "하나 선택…"
 
 msgid "Unnamed folder"
 msgstr "이름 없는 폴더"
@@ -1824,7 +1824,7 @@ msgid "Paste this occurrence only"
 msgstr "이 발생만 붙여넣기"
 
 msgid "Paste the series…"
-msgstr "시리즈 붙여넣기..."
+msgstr "시리즈 붙여넣기…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "반복되는 메시지입니다. 이 발생만 삭제하시겠습니까, 아니면 시리즈 전체를 삭제하시겠습니까?"
@@ -2190,7 +2190,7 @@ msgid "Delegates can send items on your behalf."
 msgstr "대리인이 회원님을 대신하여 항목을 보낼 수 있습니다."
 
 msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
-msgstr "폴더 권한만 설정하려면 폴더를 마우스 오른쪽 버튼으로 클릭하여 상황에 맞는 메뉴를 열고 \"폴더 공유...\"를 클릭합니다."
+msgstr "폴더 권한만 설정하려면 폴더를 마우스 오른쪽 버튼으로 클릭하여 상황에 맞는 메뉴를 열고 \"폴더 공유…\"를 클릭합니다."
 
 msgid "Permission"
 msgstr "권한"
@@ -2786,52 +2786,52 @@ msgid "Sort by: Size"
 msgstr "정렬 기준: 크기"
 
 msgid "Move the message to folder…"
-msgstr "메시지를 폴더로 이동..."
+msgstr "메시지를 폴더로 이동…"
 
 msgid "Copy the message to folder…"
-msgstr "메시지를 폴더에 복사..."
+msgstr "메시지를 폴더에 복사…"
 
 msgid "Delete the message"
 msgstr "메시지 삭제"
 
 msgid "Redirect the message to…"
-msgstr "메시지 리디렉션 대상..."
+msgstr "메시지 리디렉션 대상…"
 
 msgid "Forward the message to…"
-msgstr "메시지 전달 대상..."
+msgstr "메시지 전달 대상…"
 
 msgid "Forward the message as attachment to…"
-msgstr "메시지를 첨부 파일로 다음 주소로 전달..."
+msgstr "메시지를 첨부 파일로 다음 주소로 전달…"
 
 msgid "Mark the message as read…"
-msgstr "메시지를 읽음으로 표시..."
+msgstr "메시지를 읽음으로 표시…"
 
 msgid "is received from…"
-msgstr "에서 수신됩니다..."
+msgstr "에서 수신됩니다…"
 
 msgid "includes these words in the sender's address…"
-msgstr "발신자 주소에 이러한 단어가 포함되어 있습니다..."
+msgstr "발신자 주소에 이러한 단어가 포함되어 있습니다…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "수신자 주소에 이러한 단어가 포함되어 있습니다..."
+msgstr "수신자 주소에 이러한 단어가 포함되어 있습니다…"
 
 msgid "includes these words in the subject…"
-msgstr "제목에 이러한 단어가 포함되어 있습니다..."
+msgstr "제목에 이러한 단어가 포함되어 있습니다…"
 
 msgid "includes these words in the body…"
-msgstr "본문에 이러한 단어가 포함되어 있습니다..."
+msgstr "본문에 이러한 단어가 포함되어 있습니다…"
 
 msgid "includes these words in the transport headers…"
-msgstr "전송 헤더에 이러한 단어가 포함되어 있습니다..."
+msgstr "전송 헤더에 이러한 단어가 포함되어 있습니다…"
 
 msgid "has importance…"
-msgstr "중요성이 있습니다..."
+msgstr "중요성이 있습니다…"
 
 msgid "has an attachment"
 msgstr "첨부 파일이 있습니다."
 
 msgid "is sent to…"
-msgstr "로 전송됩니다..."
+msgstr "로 전송됩니다…"
 
 msgid "is sent only to me"
 msgstr "나에게만 전송됩니다."
@@ -2846,19 +2846,19 @@ msgid "has my name in the To or Cc field"
 msgstr "받는 사람 또는 참조 필드에 내 이름이 있습니다."
 
 msgid "has sensitivity…"
-msgstr "감도가 있습니다..."
+msgstr "감도가 있습니다…"
 
 msgid "is received after…"
-msgstr "이후에 수신됩니다..."
+msgstr "이후에 수신됩니다…"
 
 msgid "is received before…"
-msgstr "가 수신되기 전에..."
+msgstr "가 수신되기 전에…"
 
 msgid "size is at least…"
-msgstr "크기는 적어도..."
+msgstr "크기는 적어도…"
 
 msgid "size is at most…"
-msgstr "크기는 기껏해야..."
+msgstr "크기는 기껏해야…"
 
 msgid "has my name in the To field"
 msgstr "받는 사람 필드에 내 이름이 있습니다."
@@ -2987,7 +2987,7 @@ msgid "Always move messages with this subject"
 msgstr "항상 이 제목으로 메시지를 이동합니다."
 
 msgid "Create rule…"
-msgstr "규칙 만들기..."
+msgstr "규칙 만들기…"
 
 msgid "myself"
 msgstr "나 자신"
@@ -3029,7 +3029,7 @@ msgid "All folders"
 msgstr "모든 폴더"
 
 msgid "Other…"
-msgstr "기타..."
+msgstr "기타…"
 
 msgid "Search"
 msgstr "검색"
@@ -3186,7 +3186,7 @@ msgid "Message body editor"
 msgstr "메시지 본문 편집기"
 
 msgid "Loading…"
-msgstr "로드 중..."
+msgstr "로드 중…"
 
 msgid "Message could not be loaded"
 msgstr "메시지를 로드할 수 없습니다."
@@ -3691,7 +3691,7 @@ msgid "Add New"
 msgstr "신규 추가"
 
 msgid "Type your note here…"
-msgstr "여기에 메모를 입력하세요..."
+msgstr "여기에 메모를 입력하세요…"
 
 msgid "New contact"
 msgstr "새 연락처"
@@ -4143,7 +4143,7 @@ msgid "Widgets"
 msgstr "위젯"
 
 msgid "Sending…"
-msgstr "보내기..."
+msgstr "보내기…"
 
 msgid "Sent successfully"
 msgstr "전송 성공"
@@ -4435,13 +4435,13 @@ msgid "Empty folder"
 msgstr "빈 폴더"
 
 msgid "Emptying {0}… (0%)"
-msgstr "비우기 {0}... (0%)"
+msgstr "비우기 {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "성공적으로 비워짐 {0}. ({1} 항목 제거됨 )"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "비우기 {0}... ({1}%)"
+msgstr "비우기 {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4715,7 +4715,7 @@ msgid "Remove From Favorites"
 msgstr "즐겨찾기에서 제거"
 
 msgid "Share folder…"
-msgstr "폴더 공유..."
+msgstr "폴더 공유…"
 
 msgid "Import emails"
 msgstr "이메일 가져오기"
@@ -4730,7 +4730,7 @@ msgid "Properties of {0}"
 msgstr "0}의 속성"
 
 msgid "Share {0} with…"
-msgstr "0} 공유 대상..."
+msgstr "0} 공유 대상…"
 
 msgid "Properties of {0} - {1}"
 msgstr "0} - {1}의 속성"
@@ -4827,7 +4827,7 @@ msgid "Your email will be sent {0}{1}"
 msgstr "이메일이 {0}{1}로 전송됩니다."
 
 msgid "Saving…"
-msgstr "저장..."
+msgstr "저장…"
 
 msgid "Saved at {0}"
 msgstr "{0}에 저장됨"
@@ -6306,7 +6306,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "공유 링크가 1개 이상 존재합니다. 최신 링크만 표시"
 
 msgid "Loading details…"
-msgstr "세부 정보 로드 중..."
+msgstr "세부 정보 로드 중…"
 
 msgid "Files: Seafile Backend"
 msgstr "파일: 씨파일 백엔드"

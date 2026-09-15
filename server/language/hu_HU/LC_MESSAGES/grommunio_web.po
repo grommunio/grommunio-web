@@ -1858,7 +1858,7 @@ msgid "Paste this occurrence only"
 msgstr "Csak ezt az eseményt illessze be"
 
 msgid "Paste the series…"
-msgstr "A sorozat beillesztése.."
+msgstr "A sorozat beillesztése…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "Ez egy ismétlődő üzenet. Csak ezt az egy ismétlődést akarja törölni, vagy az egész sorozatot?"
@@ -2829,52 +2829,52 @@ msgid "Sort by: Size"
 msgstr "Rendezés: Méret"
 
 msgid "Move the message to folder…"
-msgstr "Az üzenet áthelyezése a mappába.."
+msgstr "Az üzenet áthelyezése a mappába…"
 
 msgid "Copy the message to folder…"
-msgstr "Az üzenet mappába másolása.."
+msgstr "Az üzenet mappába másolása…"
 
 msgid "Delete the message"
 msgstr "Üzenet törlése"
 
 msgid "Redirect the message to…"
-msgstr "Az üzenet átirányítása.."
+msgstr "Az üzenet átirányítása…"
 
 msgid "Forward the message to…"
-msgstr "Továbbítsa az üzenetet a következő címre.."
+msgstr "Továbbítsa az üzenetet a következő címre…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Továbbítsa az üzenetet csatolmányként a következő címre.."
+msgstr "Továbbítsa az üzenetet csatolmányként a következő címre…"
 
 msgid "Mark the message as read…"
-msgstr "Jelölje az üzenetet olvasottként.."
+msgstr "Jelölje az üzenetet olvasottként…"
 
 msgid "is received from…"
-msgstr "érkezik a.."
+msgstr "érkezik a…"
 
 msgid "includes these words in the sender's address…"
-msgstr "ezeket a szavakat tartalmazza a feladó címében.."
+msgstr "ezeket a szavakat tartalmazza a feladó címében…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "ezeket a szavakat tartalmazza a címzett címében.."
+msgstr "ezeket a szavakat tartalmazza a címzett címében…"
 
 msgid "includes these words in the subject…"
-msgstr "ezeket a szavakat tartalmazza a tárgyban.."
+msgstr "ezeket a szavakat tartalmazza a tárgyban…"
 
 msgid "includes these words in the body…"
-msgstr "ezeket a szavakat tartalmazza a testben.."
+msgstr "ezeket a szavakat tartalmazza a testben…"
 
 msgid "includes these words in the transport headers…"
-msgstr "ezeket a szavakat tartalmazza a szállítási fejlécekben.."
+msgstr "ezeket a szavakat tartalmazza a szállítási fejlécekben…"
 
 msgid "has importance…"
-msgstr "fontos.."
+msgstr "fontos…"
 
 msgid "has an attachment"
 msgstr "mellékletet tartalmaz"
 
 msgid "is sent to…"
-msgstr "elküldik.."
+msgstr "elküldik…"
 
 msgid "is sent only to me"
 msgstr "kizárólag nekem van címezve"
@@ -2898,10 +2898,10 @@ msgid "is received before…"
 msgstr "korábban érkezett mint…"
 
 msgid "size is at least…"
-msgstr "mérete legalább.."
+msgstr "mérete legalább…"
 
 msgid "size is at most…"
-msgstr "mérete legfeljebb.."
+msgstr "mérete legfeljebb…"
 
 msgid "has my name in the To field"
 msgstr "nekem lett címezve"
@@ -3030,7 +3030,7 @@ msgid "Always move messages with this subject"
 msgstr "Az ilyen tárgyú üzeneteket mindig áthelyezzük"
 
 msgid "Create rule…"
-msgstr "Szabály létrehozása.."
+msgstr "Szabály létrehozása…"
 
 msgid "myself"
 msgstr "saját magam"
@@ -4487,13 +4487,13 @@ msgid "Empty folder"
 msgstr "Üres mappa"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Ürítés {0}... (0%)"
+msgstr "Ürítés {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Sikeresen kiürítettük a {0} címet ({1} elemek eltávolítva)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Kiürítés {0}... ({1}%)"
+msgstr "Kiürítés {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4786,7 +4786,7 @@ msgid "Properties of {0}"
 msgstr "Tulajdonságok {0}"
 
 msgid "Share {0} with…"
-msgstr "Ossza meg a {0} címet.."
+msgstr "Ossza meg a {0} címet…"
 
 msgid "Properties of {0} - {1}"
 msgstr "A {0} tulajdonságai - {1}"

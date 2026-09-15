@@ -2809,46 +2809,46 @@ msgid "Sort by: Size"
 msgstr "Sorter efter: Størrelse"
 
 msgid "Move the message to folder…"
-msgstr "Flyt beskeden til en mappe.."
+msgstr "Flyt beskeden til en mappe…"
 
 msgid "Copy the message to folder…"
-msgstr "Kopier beskeden til en mappe.."
+msgstr "Kopier beskeden til en mappe…"
 
 msgid "Delete the message"
 msgstr "Slet denne meddelelse"
 
 msgid "Redirect the message to…"
-msgstr "Omdiriger beskeden til.."
+msgstr "Omdiriger beskeden til…"
 
 msgid "Forward the message to…"
-msgstr "Send beskeden videre til.."
+msgstr "Send beskeden videre til…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Videresend beskeden som vedhæftet fil til.."
+msgstr "Videresend beskeden som vedhæftet fil til…"
 
 msgid "Mark the message as read…"
-msgstr "Marker beskeden som læst.."
+msgstr "Marker beskeden som læst…"
 
 msgid "is received from…"
-msgstr "er modtaget fra.."
+msgstr "er modtaget fra…"
 
 msgid "includes these words in the sender's address…"
-msgstr "indeholder disse ord i afsenderens adresse.."
+msgstr "indeholder disse ord i afsenderens adresse…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "inkluderer disse ord i modtagerens adresse.."
+msgstr "inkluderer disse ord i modtagerens adresse…"
 
 msgid "includes these words in the subject…"
-msgstr "indeholder disse ord i emnet.."
+msgstr "indeholder disse ord i emnet…"
 
 msgid "includes these words in the body…"
-msgstr "inkluderer disse ord i brødteksten.."
+msgstr "inkluderer disse ord i brødteksten…"
 
 msgid "includes these words in the transport headers…"
-msgstr "indeholder disse ord i transportoverskrifterne..."
+msgstr "indeholder disse ord i transportoverskrifterne…"
 
 msgid "has importance…"
-msgstr "har betydning.."
+msgstr "har betydning…"
 
 msgid "has an attachment"
 msgstr "har en vedhæftning"
@@ -2878,10 +2878,10 @@ msgid "is received before…"
 msgstr "er modtaget før…"
 
 msgid "size is at least…"
-msgstr "størrelsen er mindst.."
+msgstr "størrelsen er mindst…"
 
 msgid "size is at most…"
-msgstr "størrelsen er højst.."
+msgstr "størrelsen er højst…"
 
 msgid "has my name in the To field"
 msgstr "har mit navn i Til-feltet"
@@ -3010,7 +3010,7 @@ msgid "Always move messages with this subject"
 msgstr "Flyt altid beskeder med dette emne"
 
 msgid "Create rule…"
-msgstr "Opret regel.."
+msgstr "Opret regel…"
 
 msgid "myself"
 msgstr "mig selv"
@@ -4460,13 +4460,13 @@ msgid "Empty folder"
 msgstr "Tomme mapper"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Tømning af {0}... (0%)"
+msgstr "Tømning af {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Tømte {0} med succes ({1} elementer fjernet)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Tømning af {0}... ({1}%)"
+msgstr "Tømning af {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4759,7 +4759,7 @@ msgid "Properties of {0}"
 msgstr "Egenskaber ved {0}"
 
 msgid "Share {0} with…"
-msgstr "Del {0} med.."
+msgstr "Del {0} med…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Egenskaber ved {0} {1}"
@@ -6336,7 +6336,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Der findes mere end 1 delelink. Viser kun det seneste"
 
 msgid "Loading details…"
-msgstr "Indlæser detaljer.."
+msgstr "Indlæser detaljer…"
 
 msgid "Files: Seafile Backend"
 msgstr "Filer: Seafile-backend"

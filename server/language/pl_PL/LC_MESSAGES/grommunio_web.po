@@ -4487,13 +4487,13 @@ msgid "Empty folder"
 msgstr "Opróżnij folder"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Opróżnianie {0}... (0%)"
+msgstr "Opróżnianie {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Pomyślnie opróżniono {0}. ({1} elementy usunięte)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Opróżnianie {0}... ({1}%)"
+msgstr "Opróżnianie {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -6368,7 +6368,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Istnieje więcej niż 1 łącze udostępniania. Wyświetlany jest tylko najnowszy"
 
 msgid "Loading details…"
-msgstr "Ładowanie szczegółów.."
+msgstr "Ładowanie szczegółów…"
 
 msgid "Files: Seafile Backend"
 msgstr "Pliki: Seafile Backend"

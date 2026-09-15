@@ -2831,52 +2831,52 @@ msgid "Sort by: Size"
 msgstr "Сортировка по: Размеру"
 
 msgid "Move the message to folder…"
-msgstr "Переместить сообщение в папку.."
+msgstr "Переместить сообщение в папку…"
 
 msgid "Copy the message to folder…"
-msgstr "Скопируйте сообщение в папку.."
+msgstr "Скопируйте сообщение в папку…"
 
 msgid "Delete the message"
 msgstr "Удалить сообщение"
 
 msgid "Redirect the message to…"
-msgstr "Перенаправьте сообщение на.."
+msgstr "Перенаправьте сообщение на…"
 
 msgid "Forward the message to…"
-msgstr "Переслать сообщение.."
+msgstr "Переслать сообщение…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Перешлите сообщение как вложение.."
+msgstr "Перешлите сообщение как вложение…"
 
 msgid "Mark the message as read…"
-msgstr "Пометьте сообщение как прочитанное.."
+msgstr "Пометьте сообщение как прочитанное…"
 
 msgid "is received from…"
 msgstr "получен от…"
 
 msgid "includes these words in the sender's address…"
-msgstr "включает эти слова в адрес отправителя.."
+msgstr "включает эти слова в адрес отправителя…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "включает эти слова в адрес получателя.."
+msgstr "включает эти слова в адрес получателя…"
 
 msgid "includes these words in the subject…"
-msgstr "включает эти слова в тему.."
+msgstr "включает эти слова в тему…"
 
 msgid "includes these words in the body…"
-msgstr "включает эти слова в тело.."
+msgstr "включает эти слова в тело…"
 
 msgid "includes these words in the transport headers…"
-msgstr "включает эти слова в транспортные заголовки.."
+msgstr "включает эти слова в транспортные заголовки…"
 
 msgid "has importance…"
-msgstr "имеет важное значение.."
+msgstr "имеет важное значение…"
 
 msgid "has an attachment"
 msgstr "имеет вложение"
 
 msgid "is sent to…"
-msgstr "отправляется.."
+msgstr "отправляется…"
 
 msgid "is sent only to me"
 msgstr "отправлено только мне"
@@ -3032,7 +3032,7 @@ msgid "Always move messages with this subject"
 msgstr "Всегда перемещайте сообщения с этой темой"
 
 msgid "Create rule…"
-msgstr "Создайте правило.."
+msgstr "Создайте правило…"
 
 msgid "myself"
 msgstr "сам"
@@ -4484,13 +4484,13 @@ msgid "Empty folder"
 msgstr "Очистить папку"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Опустошение {0}... (0%)"
+msgstr "Опустошение {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Успешно опустошен {0}. ({1} элементы удалены)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Опустошение {0}... ({1}%)"
+msgstr "Опустошение {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"

@@ -487,7 +487,7 @@ msgid "Show Names from the"
 msgstr "顯示名稱從"
 
 msgid "Search…"
-msgstr "搜尋..."
+msgstr "搜尋…"
 
 msgid "Sort by: Icon"
 msgstr "依圖示排序"
@@ -649,7 +649,7 @@ msgid "Include subfolders"
 msgstr "包含子資料夾"
 
 msgid "Show…"
-msgstr "顯示..."
+msgstr "顯示…"
 
 msgid "Mails"
 msgstr "郵件"
@@ -664,7 +664,7 @@ msgid "Tasks"
 msgstr "任務"
 
 msgid "Filter…"
-msgstr "過濾器..."
+msgstr "過濾器…"
 
 msgid "Unread"
 msgstr "未讀"
@@ -684,7 +684,7 @@ msgid "To"
 msgstr "至"
 
 msgid "Filter category…"
-msgstr "篩選分類..."
+msgstr "篩選分類…"
 
 msgid "Add Category"
 msgstr "新增分類"
@@ -1154,7 +1154,7 @@ msgid "Attachments cannot be modified for a single occurrence"
 msgstr "無法單一修改附件"
 
 msgid "Type your message here…"
-msgstr "在此輸入您的訊息..."
+msgstr "在此輸入您的訊息…"
 
 msgid "Update location"
 msgstr "更新位置"
@@ -1493,7 +1493,7 @@ msgid "Mark Unread"
 msgstr "標示未閱讀"
 
 msgid "Send to…"
-msgstr "發送至..."
+msgstr "發送至…"
 
 msgid "Export as"
 msgstr "匯出為"
@@ -1702,7 +1702,7 @@ msgid "Optional attendees"
 msgstr "可選出席者"
 
 msgid "Loading appointments…"
-msgstr "正在載入約會..."
+msgstr "正在載入約會…"
 
 msgid "Please select a calendar via widget settings"
 msgstr "請透過 widget 設定選擇行事曆"
@@ -1824,7 +1824,7 @@ msgid "Paste this occurrence only"
 msgstr "僅粘貼此出現"
 
 msgid "Paste the series…"
-msgstr "貼上系列..."
+msgstr "貼上系列…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "訊息通知，您要刪除此通知或序列嗎?"
@@ -2786,52 +2786,52 @@ msgid "Sort by: Size"
 msgstr "依大小排序"
 
 msgid "Move the message to folder…"
-msgstr "將訊息移至資料夾..."
+msgstr "將訊息移至資料夾…"
 
 msgid "Copy the message to folder…"
-msgstr "複製訊息到資料夾..."
+msgstr "複製訊息到資料夾…"
 
 msgid "Delete the message"
 msgstr "刪除郵件"
 
 msgid "Redirect the message to…"
-msgstr "將訊息重定向至..."
+msgstr "將訊息重定向至…"
 
 msgid "Forward the message to…"
-msgstr "將訊息轉寄給..."
+msgstr "將訊息轉寄給…"
 
 msgid "Forward the message as attachment to…"
-msgstr "將訊息作為附件轉寄給..."
+msgstr "將訊息作為附件轉寄給…"
 
 msgid "Mark the message as read…"
-msgstr "標記訊息為已讀..."
+msgstr "標記訊息為已讀…"
 
 msgid "is received from…"
-msgstr "是從..."
+msgstr "是從…"
 
 msgid "includes these words in the sender's address…"
-msgstr "在寄件人地址中包含這些字..."
+msgstr "在寄件人地址中包含這些字…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "在收件人地址中包含這些字..."
+msgstr "在收件人地址中包含這些字…"
 
 msgid "includes these words in the subject…"
-msgstr "在主題中包含這些字詞..."
+msgstr "在主題中包含這些字詞…"
 
 msgid "includes these words in the body…"
-msgstr "在正文中包含這些字詞..."
+msgstr "在正文中包含這些字詞…"
 
 msgid "includes these words in the transport headers…"
-msgstr "在傳輸標頭中包含這些字詞..."
+msgstr "在傳輸標頭中包含這些字詞…"
 
 msgid "has importance…"
-msgstr "具有重要性..."
+msgstr "具有重要性…"
 
 msgid "has an attachment"
 msgstr "有附件"
 
 msgid "is sent to…"
-msgstr "被發送至..."
+msgstr "被發送至…"
 
 msgid "is sent only to me"
 msgstr "只傳送給自己"
@@ -2846,19 +2846,19 @@ msgid "has my name in the To or Cc field"
 msgstr "收件人或抄送欄位中有我的名字"
 
 msgid "has sensitivity…"
-msgstr "具有敏感性..."
+msgstr "具有敏感性…"
 
 msgid "is received after…"
-msgstr "後收到..."
+msgstr "後收到…"
 
 msgid "is received before…"
-msgstr "之前收到..."
+msgstr "之前收到…"
 
 msgid "size is at least…"
-msgstr "尺寸至少..."
+msgstr "尺寸至少…"
 
 msgid "size is at most…"
-msgstr "尺寸最多..."
+msgstr "尺寸最多…"
 
 msgid "has my name in the To field"
 msgstr "收件人欄位中有我的名字"
@@ -2987,7 +2987,7 @@ msgid "Always move messages with this subject"
 msgstr "總是移動包含此標題的訊息"
 
 msgid "Create rule…"
-msgstr "建立規則..."
+msgstr "建立規則…"
 
 msgid "myself"
 msgstr "我自己"
@@ -3029,7 +3029,7 @@ msgid "All folders"
 msgstr "所有資料夾"
 
 msgid "Other…"
-msgstr "其他..."
+msgstr "其他…"
 
 msgid "Search"
 msgstr "搜尋"
@@ -3691,7 +3691,7 @@ msgid "Add New"
 msgstr "新增新的"
 
 msgid "Type your note here…"
-msgstr "在此輸入您的注意事項..."
+msgstr "在此輸入您的注意事項…"
 
 msgid "New contact"
 msgstr "新聯絡人"
@@ -4143,7 +4143,7 @@ msgid "Widgets"
 msgstr "小工具"
 
 msgid "Sending…"
-msgstr "發送..."
+msgstr "發送…"
 
 msgid "Sent successfully"
 msgstr "傳送成功"
@@ -4435,13 +4435,13 @@ msgid "Empty folder"
 msgstr "空文件夾"
 
 msgid "Emptying {0}… (0%)"
-msgstr "清空{0}... (0%)"
+msgstr "清空{0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "成功清空{0}. ({1} 項目已移除)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "清空{0}... ({1}%)"
+msgstr "清空{0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4715,7 +4715,7 @@ msgid "Remove From Favorites"
 msgstr "從我的最愛移除"
 
 msgid "Share folder…"
-msgstr "分享資料夾..."
+msgstr "分享資料夾…"
 
 msgid "Import emails"
 msgstr "匯入電子郵件"
@@ -4730,7 +4730,7 @@ msgid "Properties of {0}"
 msgstr "特性{0}"
 
 msgid "Share {0} with…"
-msgstr "分享{0} 與..."
+msgstr "分享{0} 與…"
 
 msgid "Properties of {0} - {1}"
 msgstr "{0} - 屬性{1}"
@@ -4827,7 +4827,7 @@ msgid "Your email will be sent {0}{1}"
 msgstr "您的電子郵件將發送{0}{1}"
 
 msgid "Saving…"
-msgstr "節省..."
+msgstr "節省…"
 
 msgid "Saved at {0}"
 msgstr "儲存於{0}"
@@ -6306,7 +6306,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "存在超過 1 個分享連結。只顯示最新的一個"
 
 msgid "Loading details…"
-msgstr "載入詳細資料..."
+msgstr "載入詳細資料…"
 
 msgid "Files: Seafile Backend"
 msgstr "檔案：Seafile 後端"

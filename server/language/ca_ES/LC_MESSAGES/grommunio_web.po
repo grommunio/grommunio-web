@@ -658,7 +658,7 @@ msgid "Include subfolders"
 msgstr "Inclou subcarpetes"
 
 msgid "Show…"
-msgstr "Mostra..."
+msgstr "Mostra…"
 
 msgid "Mails"
 msgstr "Correus"
@@ -673,7 +673,7 @@ msgid "Tasks"
 msgstr "Tareas"
 
 msgid "Filter…"
-msgstr "Filtra..."
+msgstr "Filtra…"
 
 msgid "Unread"
 msgstr "Sin leer"
@@ -693,7 +693,7 @@ msgid "To"
 msgstr "A"
 
 msgid "Filter category…"
-msgstr "Filtra categoria..."
+msgstr "Filtra categoria…"
 
 msgid "Add Category"
 msgstr "Afegeix categoria"
@@ -1168,7 +1168,7 @@ msgid "Attachments cannot be modified for a single occurrence"
 msgstr "Los adjuntos no se pueden modificar para una sola ocurrencia."
 
 msgid "Type your message here…"
-msgstr "Escriu el teu missatge aquí..."
+msgstr "Escriu el teu missatge aquí…"
 
 msgid "Update location"
 msgstr "Actualitza la ubicació"
@@ -1718,7 +1718,7 @@ msgid "Optional attendees"
 msgstr "Assistents opcionals"
 
 msgid "Loading appointments…"
-msgstr "S'estan carregant les cites..."
+msgstr "S'estan carregant les cites…"
 
 msgid "Please select a calendar via widget settings"
 msgstr "Seleccioneu un calendari mitjançant la configuració del widget"
@@ -1768,7 +1768,7 @@ msgid "d/m/y"
 msgstr "d/m/a"
 
 msgid "Select one…"
-msgstr "Seleccioneu-ne un..."
+msgstr "Seleccioneu-ne un…"
 
 msgid "Unnamed folder"
 msgstr "Carpeta sense nom"
@@ -1840,7 +1840,7 @@ msgid "Paste this occurrence only"
 msgstr "Enganxeu només aquesta ocurrència"
 
 msgid "Paste the series…"
-msgstr "Enganxeu la sèrie..."
+msgstr "Enganxeu la sèrie…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "Esta es un mensaje recurrente. ¿Desea borrar solamente esta ocurrencia o la serie?"
@@ -2809,52 +2809,52 @@ msgid "Sort by: Size"
 msgstr "Ordenar por. Tamaño"
 
 msgid "Move the message to folder…"
-msgstr "Mou el missatge a la carpeta..."
+msgstr "Mou el missatge a la carpeta…"
 
 msgid "Copy the message to folder…"
-msgstr "Copia el missatge a la carpeta..."
+msgstr "Copia el missatge a la carpeta…"
 
 msgid "Delete the message"
 msgstr "Esborra el missatge"
 
 msgid "Redirect the message to…"
-msgstr "Redirigeix ​​el missatge a..."
+msgstr "Redirigeix ​​el missatge a…"
 
 msgid "Forward the message to…"
-msgstr "Reenvia el missatge a..."
+msgstr "Reenvia el missatge a…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Reenvia el missatge com a fitxer adjunt a..."
+msgstr "Reenvia el missatge com a fitxer adjunt a…"
 
 msgid "Mark the message as read…"
-msgstr "Marca el missatge com a llegit..."
+msgstr "Marca el missatge com a llegit…"
 
 msgid "is received from…"
 msgstr "es rep de…"
 
 msgid "includes these words in the sender's address…"
-msgstr "inclou aquestes paraules a l'adreça del remitent..."
+msgstr "inclou aquestes paraules a l'adreça del remitent…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "inclou aquestes paraules a l'adreça del destinatari..."
+msgstr "inclou aquestes paraules a l'adreça del destinatari…"
 
 msgid "includes these words in the subject…"
-msgstr "inclou aquestes paraules al tema..."
+msgstr "inclou aquestes paraules al tema…"
 
 msgid "includes these words in the body…"
-msgstr "inclou aquestes paraules al cos..."
+msgstr "inclou aquestes paraules al cos…"
 
 msgid "includes these words in the transport headers…"
-msgstr "inclou aquestes paraules a les capçaleres de transport..."
+msgstr "inclou aquestes paraules a les capçaleres de transport…"
 
 msgid "has importance…"
-msgstr "té importància..."
+msgstr "té importància…"
 
 msgid "has an attachment"
 msgstr "té un adjunt"
 
 msgid "is sent to…"
-msgstr "s'envia a..."
+msgstr "s'envia a…"
 
 msgid "is sent only to me"
 msgstr "s'envia només a mi"
@@ -2869,19 +2869,19 @@ msgid "has my name in the To or Cc field"
 msgstr "té el meu nom al camp A o Cc"
 
 msgid "has sensitivity…"
-msgstr "té sensibilitat..."
+msgstr "té sensibilitat…"
 
 msgid "is received after…"
-msgstr "es rep després de..."
+msgstr "es rep després de…"
 
 msgid "is received before…"
-msgstr "es rep abans..."
+msgstr "es rep abans…"
 
 msgid "size is at least…"
-msgstr "la mida és almenys..."
+msgstr "la mida és almenys…"
 
 msgid "size is at most…"
-msgstr "la mida és com a màxim..."
+msgstr "la mida és com a màxim…"
 
 msgid "has my name in the To field"
 msgstr "té el meu nom al camp A"
@@ -3010,7 +3010,7 @@ msgid "Always move messages with this subject"
 msgstr "Mou sempre els missatges amb aquest assumpte"
 
 msgid "Create rule…"
-msgstr "Crea una regla..."
+msgstr "Crea una regla…"
 
 msgid "myself"
 msgstr "jo mateix"
@@ -3715,7 +3715,7 @@ msgid "Add New"
 msgstr "Añadir Nuevo"
 
 msgid "Type your note here…"
-msgstr "Escriu la teva nota aquí..."
+msgstr "Escriu la teva nota aquí…"
 
 msgid "New contact"
 msgstr "Contacte nou"
@@ -4460,7 +4460,7 @@ msgid "Empty folder"
 msgstr "Carpeta buida"
 
 msgid "Emptying {0}… (0%)"
-msgstr "S'està buidant{0}... (0%)"
+msgstr "S'està buidant{0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "{0}s'ha buidat correctament. (Els elements{1}s'han eliminat)"
@@ -4744,7 +4744,7 @@ msgid "Remove From Favorites"
 msgstr "Elimina dels preferits"
 
 msgid "Share folder…"
-msgstr "Comparteix la carpeta..."
+msgstr "Comparteix la carpeta…"
 
 msgid "Import emails"
 msgstr "Importa correus electrònics"
@@ -4759,7 +4759,7 @@ msgid "Properties of {0}"
 msgstr "Propietats de{0}"
 
 msgid "Share {0} with…"
-msgstr "Comparteix{0}amb..."
+msgstr "Comparteix{0}amb…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Propietats de{0}-{1}"
@@ -6336,7 +6336,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Existeix més d'1 enllaç per compartir. Només es mostra l'últim"
 
 msgid "Loading details…"
-msgstr "S'estan carregant els detalls..."
+msgstr "S'estan carregant els detalls…"
 
 msgid "Files: Seafile Backend"
 msgstr "Fitxers: Backend de Seafile"

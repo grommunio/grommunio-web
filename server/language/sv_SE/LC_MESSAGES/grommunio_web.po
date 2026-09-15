@@ -694,7 +694,7 @@ msgid "To"
 msgstr "Till"
 
 msgid "Filter category…"
-msgstr "Filtrera kategori..."
+msgstr "Filtrera kategori…"
 
 msgid "Add Category"
 msgstr "Lägg till kategori"
@@ -1168,7 +1168,7 @@ msgid "Attachments cannot be modified for a single occurrence"
 msgstr "Bilagor kan inte ändras för en enskild händelse"
 
 msgid "Type your message here…"
-msgstr "Skriv ditt meddelande här..."
+msgstr "Skriv ditt meddelande här…"
 
 msgid "Update location"
 msgstr "Uppdatera plats"
@@ -1509,7 +1509,7 @@ msgid "Mark Unread"
 msgstr "Markera oläst"
 
 msgid "Send to…"
-msgstr "Skicka till..."
+msgstr "Skicka till…"
 
 msgid "Export as"
 msgstr "Exportera som"
@@ -1718,7 +1718,7 @@ msgid "Optional attendees"
 msgstr "Valfria deltagare"
 
 msgid "Loading appointments…"
-msgstr "Läser in möten..."
+msgstr "Läser in möten…"
 
 msgid "Please select a calendar via widget settings"
 msgstr "Välj en kalender via widgetinställningar"
@@ -1768,7 +1768,7 @@ msgid "d/m/y"
 msgstr "d/m/y"
 
 msgid "Select one…"
-msgstr "Välj en..."
+msgstr "Välj en…"
 
 msgid "Unnamed folder"
 msgstr "Namnlös mapp"
@@ -1840,7 +1840,7 @@ msgid "Paste this occurrence only"
 msgstr "Klistra in endast denna förekomst"
 
 msgid "Paste the series…"
-msgstr "Klistra in serien..."
+msgstr "Klistra in serien…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "Detta är ett återkommande meddelande. Vill du bara ta bort denna förekomst eller serien?"
@@ -2209,7 +2209,7 @@ msgid "Delegates can send items on your behalf."
 msgstr "Delegater kan skicka föremål för din räkning."
 
 msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
-msgstr "Om du bara vill ställa in mappbehörigheter, högerklicka på en mapp för att öppna snabbmenyn och klicka på \"Dela mapp...\""
+msgstr "Om du bara vill ställa in mappbehörigheter, högerklicka på en mapp för att öppna snabbmenyn och klicka på \"Dela mapp…\""
 
 msgid "Permission"
 msgstr "Tillstånd"
@@ -2809,52 +2809,52 @@ msgid "Sort by: Size"
 msgstr "Sortera efter: Storlek"
 
 msgid "Move the message to folder…"
-msgstr "Flytta meddelandet till mappen..."
+msgstr "Flytta meddelandet till mappen…"
 
 msgid "Copy the message to folder…"
-msgstr "Kopiera meddelandet till mappen..."
+msgstr "Kopiera meddelandet till mappen…"
 
 msgid "Delete the message"
 msgstr "Ta bort meddelandet"
 
 msgid "Redirect the message to…"
-msgstr "Omdirigera meddelandet till..."
+msgstr "Omdirigera meddelandet till…"
 
 msgid "Forward the message to…"
-msgstr "Vidarebefordra meddelandet till..."
+msgstr "Vidarebefordra meddelandet till…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Vidarebefordra meddelandet som bilaga till..."
+msgstr "Vidarebefordra meddelandet som bilaga till…"
 
 msgid "Mark the message as read…"
-msgstr "Markera meddelandet som läst..."
+msgstr "Markera meddelandet som läst…"
 
 msgid "is received from…"
-msgstr "tas emot från..."
+msgstr "tas emot från…"
 
 msgid "includes these words in the sender's address…"
-msgstr "inkluderar dessa ord i avsändarens adress..."
+msgstr "inkluderar dessa ord i avsändarens adress…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "inkluderar dessa ord i mottagarens adress..."
+msgstr "inkluderar dessa ord i mottagarens adress…"
 
 msgid "includes these words in the subject…"
-msgstr "inkluderar dessa ord i ämnet..."
+msgstr "inkluderar dessa ord i ämnet…"
 
 msgid "includes these words in the body…"
-msgstr "inkluderar dessa ord i kroppen..."
+msgstr "inkluderar dessa ord i kroppen…"
 
 msgid "includes these words in the transport headers…"
-msgstr "inkluderar dessa ord i transporthuvuden..."
+msgstr "inkluderar dessa ord i transporthuvuden…"
 
 msgid "has importance…"
-msgstr "har betydelse..."
+msgstr "har betydelse…"
 
 msgid "has an attachment"
 msgstr "har en bilaga"
 
 msgid "is sent to…"
-msgstr "skickas till..."
+msgstr "skickas till…"
 
 msgid "is sent only to me"
 msgstr "skickas bara till mig"
@@ -2869,19 +2869,19 @@ msgid "has my name in the To or Cc field"
 msgstr "har mitt namn i fältet Till eller Kopia"
 
 msgid "has sensitivity…"
-msgstr "har känslighet..."
+msgstr "har känslighet…"
 
 msgid "is received after…"
-msgstr "tas emot efter..."
+msgstr "tas emot efter…"
 
 msgid "is received before…"
-msgstr "mottages innan..."
+msgstr "mottages innan…"
 
 msgid "size is at least…"
-msgstr "storleken är minst..."
+msgstr "storleken är minst…"
 
 msgid "size is at most…"
-msgstr "storleken är högst..."
+msgstr "storleken är högst…"
 
 msgid "has my name in the To field"
 msgstr "har mitt namn i fältet Till"
@@ -3010,7 +3010,7 @@ msgid "Always move messages with this subject"
 msgstr "Flytta alltid meddelanden med detta ämne"
 
 msgid "Create rule…"
-msgstr "Skapa regel..."
+msgstr "Skapa regel…"
 
 msgid "myself"
 msgstr "själv"
@@ -3715,7 +3715,7 @@ msgid "Add New"
 msgstr "Lägg till ny"
 
 msgid "Type your note here…"
-msgstr "Skriv din anteckning här..."
+msgstr "Skriv din anteckning här…"
 
 msgid "New contact"
 msgstr "Ny kontakt"
@@ -4460,13 +4460,13 @@ msgid "Empty folder"
 msgstr "Tom mapp"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Tömning av {0}... (0%)"
+msgstr "Tömning av {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Framgångsrikt tömt {0}. ({1} objekt borttagna)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Tömning av {0}... ({1}%)"
+msgstr "Tömning av {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4744,7 +4744,7 @@ msgid "Remove From Favorites"
 msgstr "Ta bort från favoriter"
 
 msgid "Share folder…"
-msgstr "Dela mapp..."
+msgstr "Dela mapp…"
 
 msgid "Import emails"
 msgstr "Importera e-postmeddelanden"
@@ -4759,7 +4759,7 @@ msgid "Properties of {0}"
 msgstr "Egenskaper för {0}"
 
 msgid "Share {0} with…"
-msgstr "Dela {0} med..."
+msgstr "Dela {0} med…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Egenskaper för {0} - {1}"
@@ -6336,7 +6336,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Det finns fler än 1 delningslänk. Visar bara den senaste"
 
 msgid "Loading details…"
-msgstr "Läser in detaljer..."
+msgstr "Läser in detaljer…"
 
 msgid "Files: Seafile Backend"
 msgstr "Filer: Seafile Backend"

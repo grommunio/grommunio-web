@@ -1870,7 +1870,7 @@ msgid "Paste this occurrence only"
 msgstr "Prilepite samo ta pojav"
 
 msgid "Paste the series…"
-msgstr "Prilepite serijo.."
+msgstr "Prilepite serijo…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "To je ponavljajoče sporočilo. Ali želite izbrisati samo to ponavljanje ali serijo ponavljanj?"
@@ -2853,28 +2853,28 @@ msgid "Sort by: Size"
 msgstr "Razvrsti po: Velikosti"
 
 msgid "Move the message to folder…"
-msgstr "Premaknite sporočilo v mapo.."
+msgstr "Premaknite sporočilo v mapo…"
 
 msgid "Copy the message to folder…"
-msgstr "Sporočilo kopirajte v mapo.."
+msgstr "Sporočilo kopirajte v mapo…"
 
 msgid "Delete the message"
 msgstr "Izbriši sporočilo"
 
 msgid "Redirect the message to…"
-msgstr "Preusmerite sporočilo na.."
+msgstr "Preusmerite sporočilo na…"
 
 msgid "Forward the message to…"
-msgstr "Posredujte sporočilo.."
+msgstr "Posredujte sporočilo…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Sporočilo kot priponko pošljite naprej na.."
+msgstr "Sporočilo kot priponko pošljite naprej na…"
 
 msgid "Mark the message as read…"
-msgstr "Sporočilo označite kot prebrano.."
+msgstr "Sporočilo označite kot prebrano…"
 
 msgid "is received from…"
-msgstr "je prejeta od.."
+msgstr "je prejeta od…"
 
 msgid "includes these words in the sender's address…"
 msgstr "v naslov pošiljatelja vključite te besede…"
@@ -2913,19 +2913,19 @@ msgid "has my name in the To or Cc field"
 msgstr "ima moje ime v polju Za ali Cc"
 
 msgid "has sensitivity…"
-msgstr "ima občutljivost.."
+msgstr "ima občutljivost…"
 
 msgid "is received after…"
-msgstr "se prejme po.."
+msgstr "se prejme po…"
 
 msgid "is received before…"
-msgstr "je prejeto pred.."
+msgstr "je prejeto pred…"
 
 msgid "size is at least…"
-msgstr "velikost je vsaj.."
+msgstr "velikost je vsaj…"
 
 msgid "size is at most…"
-msgstr "velikost je največ.."
+msgstr "velikost je največ…"
 
 msgid "has my name in the To field"
 msgstr "ima v polju Za moje ime"
@@ -3054,7 +3054,7 @@ msgid "Always move messages with this subject"
 msgstr "Vedno premaknite sporočila s tem predmetom"
 
 msgid "Create rule…"
-msgstr "Ustvarite pravilo.."
+msgstr "Ustvarite pravilo…"
 
 msgid "myself"
 msgstr "sam"
@@ -3761,7 +3761,7 @@ msgid "Add New"
 msgstr "Dodaj novo"
 
 msgid "Type your note here…"
-msgstr "Tukaj vpišite svojo opombo.."
+msgstr "Tukaj vpišite svojo opombo…"
 
 msgid "New contact"
 msgstr "Nov stik"
@@ -4508,13 +4508,13 @@ msgid "Empty folder"
 msgstr "Prazna mapa"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Praznjenje {0}... (0%)"
+msgstr "Praznjenje {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Uspešno izpraznjen {0}. ({1} odstranjeni elementi)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Izpraznitev {0}... ({1}%)"
+msgstr "Izpraznitev {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4815,7 +4815,7 @@ msgid "Properties of {0}"
 msgstr "Lastnosti {0}"
 
 msgid "Share {0} with…"
-msgstr "Delite {0} z.."
+msgstr "Delite {0} z…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Lastnosti {0} - {1}"
@@ -6394,7 +6394,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Obstaja več kot 1 povezava za skupno rabo. Prikaže se samo zadnja"
 
 msgid "Loading details…"
-msgstr "Nalaganje podrobnosti.."
+msgstr "Nalaganje podrobnosti…"
 
 msgid "Files: Seafile Backend"
 msgstr "Datoteke: Backend za morsko datoteko"

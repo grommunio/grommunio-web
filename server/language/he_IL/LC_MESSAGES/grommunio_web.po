@@ -692,7 +692,7 @@ msgid "To"
 msgstr "עד"
 
 msgid "Filter category…"
-msgstr "קטגוריית סינון..."
+msgstr "קטגוריית סינון…"
 
 msgid "Add Category"
 msgstr "הוסף קטגוריה"
@@ -1166,7 +1166,7 @@ msgid "Attachments cannot be modified for a single occurrence"
 msgstr "לא ניתן לשנות קבצים מצורפים עבור אירוע בודד"
 
 msgid "Type your message here…"
-msgstr "הקלד את הודעתך כאן..."
+msgstr "הקלד את הודעתך כאן…"
 
 msgid "Update location"
 msgstr "עדכן מיקום"
@@ -1716,7 +1716,7 @@ msgid "Optional attendees"
 msgstr "משתתפים אופציונליים"
 
 msgid "Loading appointments…"
-msgstr "טוען פגישות..."
+msgstr "טוען פגישות…"
 
 msgid "Please select a calendar via widget settings"
 msgstr "אנא בחר לוח שנה באמצעות הגדרות ווידג'ט"
@@ -1838,7 +1838,7 @@ msgid "Paste this occurrence only"
 msgstr "הדבק מופע זה בלבד"
 
 msgid "Paste the series…"
-msgstr "הדבק את הסדרה..."
+msgstr "הדבק את הסדרה…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "זוהי הודעה חוזרת. האם ברצונך למחוק רק את ההודעה הזו או את הסדרה כולה?"
@@ -2807,43 +2807,43 @@ msgid "Sort by: Size"
 msgstr "מיין לפי: גודל"
 
 msgid "Move the message to folder…"
-msgstr "העבר את ההודעה לתיקיה..."
+msgstr "העבר את ההודעה לתיקיה…"
 
 msgid "Copy the message to folder…"
-msgstr "העתק את ההודעה לתיקיה..."
+msgstr "העתק את ההודעה לתיקיה…"
 
 msgid "Delete the message"
 msgstr "מחק את ההודעה"
 
 msgid "Redirect the message to…"
-msgstr "הפנה את ההודעה אל..."
+msgstr "הפנה את ההודעה אל…"
 
 msgid "Forward the message to…"
 msgstr "העבר את ההודעה ל…"
 
 msgid "Forward the message as attachment to…"
-msgstr "העבר את ההודעה כקובץ מצורף אל..."
+msgstr "העבר את ההודעה כקובץ מצורף אל…"
 
 msgid "Mark the message as read…"
-msgstr "סמן את ההודעה כנקראה..."
+msgstr "סמן את ההודעה כנקראה…"
 
 msgid "is received from…"
 msgstr "מתקבל מ…"
 
 msgid "includes these words in the sender's address…"
-msgstr "כולל מילים אלו בכתובת השולח..."
+msgstr "כולל מילים אלו בכתובת השולח…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "כולל מילים אלו בכתובת הנמען..."
+msgstr "כולל מילים אלו בכתובת הנמען…"
 
 msgid "includes these words in the subject…"
-msgstr "כולל את המילים הללו בנושא..."
+msgstr "כולל את המילים הללו בנושא…"
 
 msgid "includes these words in the body…"
-msgstr "כולל את המילים האלה בגוף..."
+msgstr "כולל את המילים האלה בגוף…"
 
 msgid "includes these words in the transport headers…"
-msgstr "כולל את המילים האלה בכותרות התחבורה..."
+msgstr "כולל את המילים האלה בכותרות התחבורה…"
 
 msgid "has importance…"
 msgstr "יש חשיבות…"
@@ -3008,7 +3008,7 @@ msgid "Always move messages with this subject"
 msgstr "העבר תמיד הודעות עם הנושא הזה"
 
 msgid "Create rule…"
-msgstr "צור כלל..."
+msgstr "צור כלל…"
 
 msgid "myself"
 msgstr "עַצמִי"
@@ -3713,7 +3713,7 @@ msgid "Add New"
 msgstr "הוסף חדש"
 
 msgid "Type your note here…"
-msgstr "הקלד את ההערה שלך כאן..."
+msgstr "הקלד את ההערה שלך כאן…"
 
 msgid "New contact"
 msgstr "איש קשר חדש"
@@ -4458,13 +4458,13 @@ msgid "Empty folder"
 msgstr "תיקיה ריקה"
 
 msgid "Emptying {0}… (0%)"
-msgstr "מרוקן את{0}... (0%)"
+msgstr "מרוקן את{0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "רוקן בהצלחה את{0}. (פריטים{1}הוסרו)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "מרוקן את{0}... ({1}%)"
+msgstr "מרוקן את{0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4742,7 +4742,7 @@ msgid "Remove From Favorites"
 msgstr "הסר מהמועדפים"
 
 msgid "Share folder…"
-msgstr "שתף תיקייה..."
+msgstr "שתף תיקייה…"
 
 msgid "Import emails"
 msgstr "ייבוא ​​מיילים"
@@ -4757,7 +4757,7 @@ msgid "Properties of {0}"
 msgstr "מאפיינים של{0}"
 
 msgid "Share {0} with…"
-msgstr "שתף את{0}עם..."
+msgstr "שתף את{0}עם…"
 
 msgid "Properties of {0} - {1}"
 msgstr "מאפיינים של{0}-{1}"
@@ -6334,7 +6334,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "קיים יותר מקישור שיתוף אחד. מציג רק את האחרון"
 
 msgid "Loading details…"
-msgstr "טוען פרטים..."
+msgstr "טוען פרטים…"
 
 msgid "Files: Seafile Backend"
 msgstr "קבצים: Seafile Backend"

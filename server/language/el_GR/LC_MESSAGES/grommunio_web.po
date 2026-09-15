@@ -659,7 +659,7 @@ msgid "Include subfolders"
 msgstr "Συμπεριλάβετε υποφακέλους"
 
 msgid "Show…"
-msgstr "Εμφάνιση.."
+msgstr "Εμφάνιση…"
 
 msgid "Mails"
 msgstr "Μηνύματα"
@@ -674,7 +674,7 @@ msgid "Tasks"
 msgstr "Εργασίες"
 
 msgid "Filter…"
-msgstr "Φίλτρο.."
+msgstr "Φίλτρο…"
 
 msgid "Unread"
 msgstr "Αδιάβαστο"
@@ -694,7 +694,7 @@ msgid "To"
 msgstr "Προς"
 
 msgid "Filter category…"
-msgstr "Κατηγορία φίλτρου.."
+msgstr "Κατηγορία φίλτρου…"
 
 msgid "Add Category"
 msgstr "Προσθήκη κατηγορίας"
@@ -1509,7 +1509,7 @@ msgid "Mark Unread"
 msgstr "Σημείωσε ως αδιάβαστο"
 
 msgid "Send to…"
-msgstr "Στείλτε στο.."
+msgstr "Στείλτε στο…"
 
 msgid "Export as"
 msgstr "Εξαγωγή ως"
@@ -1718,7 +1718,7 @@ msgid "Optional attendees"
 msgstr "Προαιρετικοί συμμετέχοντες"
 
 msgid "Loading appointments…"
-msgstr "Φόρτωση ραντεβού.."
+msgstr "Φόρτωση ραντεβού…"
 
 msgid "Please select a calendar via widget settings"
 msgstr "Παρακαλούμε επιλέξτε ένα ημερολόγιο μέσω των ρυθμίσεων του widget"
@@ -1840,7 +1840,7 @@ msgid "Paste this occurrence only"
 msgstr "Επικολλήστε μόνο αυτό το περιστατικό"
 
 msgid "Paste the series…"
-msgstr "Επικολλήστε τη σειρά.."
+msgstr "Επικολλήστε τη σειρά…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
 msgstr "Αυτό είναι ένα επαναλαμβανόμενο μήνυμα. Θέλετε να διαγράψετε μόνο αυτό το περιστατικό ή τη σειρά;"
@@ -2809,52 +2809,52 @@ msgid "Sort by: Size"
 msgstr "Ταξινόμηση κατά: Μέγεθος"
 
 msgid "Move the message to folder…"
-msgstr "Μετακινήστε το μήνυμα σε φάκελο.."
+msgstr "Μετακινήστε το μήνυμα σε φάκελο…"
 
 msgid "Copy the message to folder…"
-msgstr "Αντιγράψτε το μήνυμα στο φάκελο.."
+msgstr "Αντιγράψτε το μήνυμα στο φάκελο…"
 
 msgid "Delete the message"
 msgstr "Διαγράψτε το μήνυμα"
 
 msgid "Redirect the message to…"
-msgstr "Επανακατευθύνετε το μήνυμα σε.."
+msgstr "Επανακατευθύνετε το μήνυμα σε…"
 
 msgid "Forward the message to…"
-msgstr "Προωθήστε το μήνυμα στο.."
+msgstr "Προωθήστε το μήνυμα στο…"
 
 msgid "Forward the message as attachment to…"
-msgstr "Προωθήστε το μήνυμα ως συνημμένο στη διεύθυνση.."
+msgstr "Προωθήστε το μήνυμα ως συνημμένο στη διεύθυνση…"
 
 msgid "Mark the message as read…"
-msgstr "Σημειώστε το μήνυμα ως αναγνωσμένο.."
+msgstr "Σημειώστε το μήνυμα ως αναγνωσμένο…"
 
 msgid "is received from…"
-msgstr "λαμβάνεται από.."
+msgstr "λαμβάνεται από…"
 
 msgid "includes these words in the sender's address…"
-msgstr "περιλαμβάνει αυτές τις λέξεις στη διεύθυνση του αποστολέα.."
+msgstr "περιλαμβάνει αυτές τις λέξεις στη διεύθυνση του αποστολέα…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "περιλαμβάνει αυτές τις λέξεις στη διεύθυνση του παραλήπτη.."
+msgstr "περιλαμβάνει αυτές τις λέξεις στη διεύθυνση του παραλήπτη…"
 
 msgid "includes these words in the subject…"
-msgstr "περιλαμβάνει αυτές τις λέξεις στο θέμα.."
+msgstr "περιλαμβάνει αυτές τις λέξεις στο θέμα…"
 
 msgid "includes these words in the body…"
-msgstr "περιλαμβάνει αυτές τις λέξεις στο σώμα.."
+msgstr "περιλαμβάνει αυτές τις λέξεις στο σώμα…"
 
 msgid "includes these words in the transport headers…"
-msgstr "περιλαμβάνει αυτές τις λέξεις στις επικεφαλίδες μεταφοράς.."
+msgstr "περιλαμβάνει αυτές τις λέξεις στις επικεφαλίδες μεταφοράς…"
 
 msgid "has importance…"
-msgstr "έχει σημασία.."
+msgstr "έχει σημασία…"
 
 msgid "has an attachment"
 msgstr "έχει ένα συνημμένο"
 
 msgid "is sent to…"
-msgstr "αποστέλλεται στο.."
+msgstr "αποστέλλεται στο…"
 
 msgid "is sent only to me"
 msgstr "αποστέλλεται μόνο σε μένα"
@@ -2869,19 +2869,19 @@ msgid "has my name in the To or Cc field"
 msgstr "έχει το όνομά μου στο πεδίο To ή Cc"
 
 msgid "has sensitivity…"
-msgstr "έχει ευαισθησία.."
+msgstr "έχει ευαισθησία…"
 
 msgid "is received after…"
-msgstr "λαμβάνεται μετά.."
+msgstr "λαμβάνεται μετά…"
 
 msgid "is received before…"
-msgstr "λαμβάνεται πριν.."
+msgstr "λαμβάνεται πριν…"
 
 msgid "size is at least…"
-msgstr "μέγεθος είναι τουλάχιστον.."
+msgstr "μέγεθος είναι τουλάχιστον…"
 
 msgid "size is at most…"
-msgstr "μέγεθος είναι το πολύ.."
+msgstr "μέγεθος είναι το πολύ…"
 
 msgid "has my name in the To field"
 msgstr "έχει το όνομά μου στο πεδίο To"
@@ -3010,7 +3010,7 @@ msgid "Always move messages with this subject"
 msgstr "Πάντα να μετακινείτε μηνύματα με αυτό το θέμα"
 
 msgid "Create rule…"
-msgstr "Δημιουργήστε κανόνα.."
+msgstr "Δημιουργήστε κανόνα…"
 
 msgid "myself"
 msgstr "εγώ ο ίδιος"
@@ -3052,7 +3052,7 @@ msgid "All folders"
 msgstr "Όλοι οι φάκελοι"
 
 msgid "Other…"
-msgstr "Άλλα.."
+msgstr "Άλλα…"
 
 msgid "Search"
 msgstr "Αναζήτηση"
@@ -3715,7 +3715,7 @@ msgid "Add New"
 msgstr "Προσθήκη Νέου"
 
 msgid "Type your note here…"
-msgstr "Πληκτρολογήστε το σημείωμά σας εδώ.."
+msgstr "Πληκτρολογήστε το σημείωμά σας εδώ…"
 
 msgid "New contact"
 msgstr "Νέα επαφή"
@@ -4460,13 +4460,13 @@ msgid "Empty folder"
 msgstr "Άδειος φάκελος"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Άδειασμα {0}... (0%)"
+msgstr "Άδειασμα {0}… (0%)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
 msgstr "Επιτυχής εκκένωση του {0}. ({1} στοιχεία αφαιρέθηκαν)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Άδειασμα {0}... ({1}%)"
+msgstr "Άδειασμα {0}… ({1}%)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4744,7 +4744,7 @@ msgid "Remove From Favorites"
 msgstr "Αφαίρεση από τα αγαπημένα"
 
 msgid "Share folder…"
-msgstr "Φάκελος κοινής χρήσης.."
+msgstr "Φάκελος κοινής χρήσης…"
 
 msgid "Import emails"
 msgstr "Εισαγωγή emails"
@@ -4759,7 +4759,7 @@ msgid "Properties of {0}"
 msgstr "Ιδιότητες των {0}"
 
 msgid "Share {0} with…"
-msgstr "Μοιραστείτε το {0} με.."
+msgstr "Μοιραστείτε το {0} με…"
 
 msgid "Properties of {0} - {1}"
 msgstr "Ιδιότητες του {0} - {1}"
@@ -6336,7 +6336,7 @@ msgid "More than 1 share link exists. Only showing the latest one"
 msgstr "Υπάρχουν περισσότεροι από 1 σύνδεσμοι κοινής χρήσης. Εμφανίζεται μόνο ο πιο πρόσφατος"
 
 msgid "Loading details…"
-msgstr "Φόρτωση λεπτομερειών.."
+msgstr "Φόρτωση λεπτομερειών…"
 
 msgid "Files: Seafile Backend"
 msgstr "Αρχεία: Seafile Backend"
