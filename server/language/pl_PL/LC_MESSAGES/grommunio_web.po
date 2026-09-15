@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-06 21:29+0200\n"
+"POT-Creation-Date: 2026-09-15 16:52+0200\n"
 "PO-Revision-Date: 2022-07-26 17:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -1518,6 +1518,12 @@ msgstr "Otwarte"
 msgid "Copy/Move"
 msgstr "Kopiuj/Przenieś"
 
+msgid "Mark Read"
+msgstr "Zaznacz jako przeczytane"
+
+msgid "Mark Unread"
+msgstr "Zaznacz jako nieprzeczytane"
+
 msgid "Send to…"
 msgstr "Wyślij do…"
 
@@ -1633,20 +1639,6 @@ msgstr "Lista spotkań"
 msgid "Loading appointments"
 msgstr "Wczytywanie terminów"
 
-msgid "Attendees"
-msgstr "Uczestnicy"
-
-msgid "Optional attendees"
-msgstr "Opcjonalni uczestnicy"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F {0}"
-msgstr "j. F {0}"
-
-#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
-msgid "jS F Y"
-msgstr "j. F Y"
-
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Nie masz wystarczających uprawnień do przenoszenia i kopiowania tego elementu. Poproś właściciela folderu o przyznanie Ci uprawnień lub skontaktuj się z administratorem systemu."
 
@@ -1729,6 +1721,19 @@ msgstr "Twój kalendarz został automatycznie zaktualizowany. Wezwanie na spotka
 
 msgid "New appointment subject"
 msgstr "Temat nowego spotkania"
+
+#. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
+msgid "jS F Y"
+msgstr "j. F Y"
+
+msgid "Online meeting"
+msgstr ""
+
+msgid "Attendees"
+msgstr "Uczestnicy"
+
+msgid "Optional attendees"
+msgstr "Opcjonalni uczestnicy"
 
 msgid "Loading appointments…"
 msgstr "Ładowanie spotkań…"
@@ -1894,6 +1899,12 @@ msgstr "Niewystarczające uprawnienia"
 msgid "You have insufficient privileges to delete items in this folder."
 msgstr "Nie masz wystarczających uprawnień do usuwania elementów w tym folderze."
 
+msgid "You have insufficient privileges to delete one of the selected items."
+msgid_plural "You have insufficient privileges to delete {0} of the selected items."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
 msgid "Notify recipients"
 msgstr "Powiadomić odbiorcę"
 
@@ -1929,6 +1940,12 @@ msgstr "Duplikat odbiorcy"
 
 msgid "Recipient already exists."
 msgstr "Odbiorca już istnieje."
+
+msgid "Remove attachment"
+msgstr ""
+
+msgid "Remove '{0}' from this message? The attachment cannot be restored afterwards."
+msgstr ""
 
 msgid "The sender of this email has requested a read receipt. Do you wish to notify the sender?"
 msgstr "Nadawca wymaga wysłania potwierdzenia odczytu wiadomości. Wysłać potwierdzenie?"
@@ -2245,6 +2262,9 @@ msgstr[2] "Wybrano {0} wiadomości."
 msgid "Folder '{0}' selected."
 msgstr "Wybrano '{0}' folderów."
 
+msgid "Suggested folders"
+msgstr ""
+
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
 msgstr "Nie można przenieść wybranych elementów do tego folderu, ponieważ jest on przeznaczony dla elementów innego typu."
 
@@ -2440,6 +2460,9 @@ msgstr "Cofnij ostatnią akcję"
 msgid "Redo the last undone action"
 msgstr "Ponów ostatnio cofniętą akcję"
 
+msgid "Jump to the search box, press again for the browser search"
+msgstr ""
+
 msgid "Open the command palette"
 msgstr "Otwórz paletę poleceń"
 
@@ -2493,6 +2516,75 @@ msgstr "Sortuj według: context.mail.griddefaultcolumn"
 
 msgid "ZDeveloper"
 msgstr "ZProgramista"
+
+msgid "Presentation"
+msgstr "Prezentacja"
+
+msgid "Fullscreen"
+msgstr ""
+
+msgid "Previous page"
+msgstr ""
+
+msgid "Next page"
+msgstr ""
+
+msgid "Page:"
+msgstr ""
+
+msgid "of {0}"
+msgstr ""
+
+msgid "Zoom out"
+msgstr ""
+
+msgid "Zoom in"
+msgstr ""
+
+msgid "Zoom"
+msgstr ""
+
+msgid "Automatic"
+msgstr "Automatyczny"
+
+msgid "Actual size"
+msgstr "Rzeczywisty rozmiar"
+
+msgid "Page width"
+msgstr "Szerokość strony"
+
+msgid "Rotate left"
+msgstr ""
+
+msgid "Rotate right"
+msgstr ""
+
+msgid "This document could not be previewed."
+msgstr ""
+
+msgid "This file cannot be previewed."
+msgstr ""
+
+msgid "Download the file to open it with a program that can read it."
+msgstr ""
+
+msgid "The document is empty."
+msgstr ""
+
+msgid "This sheet is empty."
+msgstr ""
+
+msgid "Showing the first {0} rows and {1} columns."
+msgstr ""
+
+msgid "Wrap lines"
+msgstr ""
+
+msgid "Line numbers"
+msgstr ""
+
+msgid "This message has no content."
+msgstr ""
 
 msgid "grommunio Web print"
 msgstr "grommunio Web print"
@@ -3368,6 +3460,27 @@ msgstr "Zaznacz jako nieprzeczytane"
 msgid "in"
 msgstr "w"
 
+msgid "Digitally sign this message"
+msgstr ""
+
+msgid "Encrypt this message"
+msgstr ""
+
+msgid "Autosave is paused while encryption is selected."
+msgstr ""
+
+msgid "Turn off {0} signing and encryption first."
+msgstr ""
+
+msgid "options"
+msgstr ""
+
+msgid "Sign"
+msgstr "Tabliczka"
+
+msgid "Encrypt"
+msgstr "Szyfrowanie"
+
 msgid "Root"
 msgstr "Katalog główny"
 
@@ -4060,9 +4173,6 @@ msgstr "Jasny"
 msgid "Dark"
 msgstr "Ciemny"
 
-msgid "Automatic"
-msgstr "Automatyczny"
-
 msgid "Main toolbar"
 msgstr "Główny pasek narzędzi"
 
@@ -4144,14 +4254,14 @@ msgstr "Rozwiń hierarchie folderów"
 msgid "Folders List"
 msgstr "Lista folderów"
 
+msgid "Loaded {0} of {1}"
+msgstr "Wczytano elementów {0} z {1}"
+
 msgid "Copy Details"
 msgstr "Skopiuj szczegóły"
 
 msgid "Hide Details"
 msgstr "Schowaj się Szczegóły"
-
-msgid "Loaded {0} of {1}"
-msgstr "Wczytano elementów {0} z {1}"
 
 msgid "Copied!"
 msgstr "Skopiowane!"
@@ -4248,6 +4358,126 @@ msgstr "D, d-m-r"
 
 msgid "D d-m G:i"
 msgstr "D, d-m G:i"
+
+msgid "Click the link to open the URL in a new window."
+msgstr "Kliknij na link, aby otworzyć URL w nowym oknie."
+
+msgid "The server reported an unknown error on your request."
+msgstr "Serwer cofnął Twoje zapytanie z nieznanym błędem."
+
+msgid "The server reported an unspecified error on your request."
+msgstr "Serwer cofnął Twoje zapytanie z bliżej nieokreślonymbłędem."
+
+msgid "The session has expired, reauthentication is required."
+msgstr "Twoja sesja wygasła, zaloguj się ponownie."
+
+msgid "The session in the current browser window has been closed from another browser window or tab."
+msgstr "Sesja w katualnym oknie została zamknięta przez inną przeglądarkęlub kartę."
+
+msgid "Session expired"
+msgstr "Sesja wygasła"
+
+msgid "Do you wish to be redirected to the logon page?"
+msgstr "Czy chcesz przejść do strony logowania?"
+
+msgid "Reauthentication required, click here to go to back to logon page."
+msgstr "Wymagane ponowne zalogowanie, kliknij tu, aby przejść dostrony logowania."
+
+msgid "Connection problem"
+msgstr "Problemy z połączeniem"
+
+msgid "Could not connect to server, retrying in {0} second(s)"
+msgstr "Nie można połączyć się z serwerem, spróbuj ponownie za {0} sekundę (sekund)"
+
+msgid "Click to retry now"
+msgstr "Spóbuj ponownie"
+
+msgid "Connection restored"
+msgstr "Połączenie zostało przywrócone"
+
+msgid "Connection with server has been restored"
+msgstr "Połączenie z serwerem zostało przywrócone"
+
+msgid "grommunio Web was updated"
+msgstr "Aplikacja grommunio Web została zaktualizowana"
+
+msgid "A new version is available, click here to reload."
+msgstr "Dostępna jest nowa wersja. Kliknij tutaj, aby ponownie wczytać aplikację."
+
+#. TRANSLATORS: Example: HTTP 404
+msgid "HTTP {0}"
+msgstr "HTTP {0}"
+
+msgid "Invalid data received from the server"
+msgstr "Nieprawidłowe dane otrzymane z serwera"
+
+msgid "Missing store"
+msgstr "Brakująca poczta"
+
+msgid "The default store is missing from the hierarchy."
+msgstr "Brak poczty domyślnej w hierarchii."
+
+msgid "Not all functionality of grommunio Web might be working properly because of this."
+msgstr "Aplikacja sieci Web może przez to funkcjonować nie w pełni prawidłowo."
+
+msgctxt "hierarchy.foldername"
+msgid "Inbox"
+msgstr "Skrzynka odbiorcza"
+
+msgctxt "hierarchy.foldername"
+msgid "Outbox"
+msgstr "Skrzynka nadawcza"
+
+msgctxt "hierarchy.foldername"
+msgid "Sent Items"
+msgstr "Wiadomości wysłane"
+
+msgctxt "hierarchy.foldername"
+msgid "Deleted items"
+msgstr "Usunięte obiekty"
+
+msgctxt "hierarchy.foldername"
+msgid "Calendar"
+msgstr "Kalendarz"
+
+msgctxt "hierarchy.foldername"
+msgid "Contacts"
+msgstr "Kontakty"
+
+msgctxt "hierarchy.foldername"
+msgid "Drafts"
+msgstr "Robocze"
+
+msgctxt "hierarchy.foldername"
+msgid "Journal"
+msgstr "Dziennik"
+
+msgctxt "hierarchy.foldername"
+msgid "Notes"
+msgstr "Notatki"
+
+msgctxt "hierarchy.foldername"
+msgid "Tasks"
+msgstr "Zadania"
+
+msgctxt "hierarchy.foldername"
+msgid "Junk Email"
+msgstr "Niechciana poczta"
+
+msgid "Missing folders"
+msgstr "Brakujące foldery"
+
+msgid "The following required folder is missing in the hierarchy: {0}"
+msgid_plural "The following required folders are missing in the hierarchy: {0}"
+msgstr[0] "W hierarchii brakuje następującego wymaganego folderu: {0}"
+msgstr[1] "W hierarchii brakuje następujących wymaganych folderów: {0}"
+msgstr[2] "W hierarchii brakuje następujących wymaganych folderów: {0}"
+
+msgid "Loading model from server failed"
+msgstr "Ładowanie modułu z serwera nie powiodło się"
+
+msgid "Out of Office is currently activated. Would you like to turn it off?"
+msgstr "Informacja o nieobecności jest teraz aktywna. Czy chcesz ją wyłączyć?"
 
 msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
 msgstr "Brak wystarczających uprawnień, aby otworzyć tę pocztę. Czy chcesz ją usunąć z hierarchii?"
@@ -4595,6 +4825,15 @@ msgstr "Filtruj foldery"
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Nie masz wystarczających uprawnień, aby przenieść ten folder. Czy chcesz skopiować ten folder?"
 
+msgid "Enable OpenPGP before replying to this protected message."
+msgstr ""
+
+msgid "The protected message could not be opened. No reply or forward was created."
+msgstr ""
+
+msgid "Unable to open response"
+msgstr ""
+
 msgid "CC"
 msgstr "DW"
 
@@ -4734,12 +4973,6 @@ msgstr "Ustaw kategorię"
 msgid "Pop-Out"
 msgstr "Odłącz"
 
-msgid "Mark Read"
-msgstr "Zaznacz jako przeczytane"
-
-msgid "Mark Unread"
-msgstr "Zaznacz jako nieprzeczytane"
-
 msgid "New mail"
 msgstr "Nowy e-mail"
 
@@ -4766,6 +4999,15 @@ msgstr "Drukuj wybrany element"
 
 msgid "Filter"
 msgstr "Filtruj"
+
+msgid "This browser cannot attach the decrypted file. Download it before forwarding."
+msgstr ""
+
+msgid "A decrypted attachment exceeds the upload limits. No incomplete response was created."
+msgstr ""
+
+msgid "A decrypted attachment could not be uploaded. No incomplete response was created."
+msgstr ""
 
 #. TRANSLATORS: prefix before sender name in print-to-PDF filename
 msgid "FROM"
@@ -4844,6 +5086,9 @@ msgstr "Aktywuj przypomnienie o załącznikach"
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
 msgstr "{A} Wiadomości niewysłane zapisuj automatycznie co {B} minutę(minut)"
+
+msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
+msgstr ""
 
 msgid "Conversation view settings"
 msgstr "Ustawienia widoku rozmowy"
@@ -5296,14 +5541,8 @@ msgstr "Ukryj panel widżetów"
 msgid "Auto"
 msgstr "Automatycznie"
 
-msgid "Actual size"
-msgstr "Rzeczywisty rozmiar"
-
-msgid "Page width"
-msgstr "Szerokość strony"
-
-msgid "Attachment preview (PDF and Open formats)"
-msgstr "Podgląd załącznika (formaty PDF i Open)"
+msgid "Preview documents and files in grommunio Web"
+msgstr ""
 
 msgid "Document default zoom"
 msgstr "Domyślny zoom dokumentu"
@@ -5482,6 +5721,24 @@ msgstr "Konserwacja"
 
 msgid "Reset all settings to defaults"
 msgstr "Resetowanie wszystkich ustawień do wartości domyślnych"
+
+msgid "Migrate legacy categories"
+msgstr ""
+
+msgid "This will scan all folders and migrate the categories assigned to items."
+msgstr ""
+
+msgid "The legacy category settings will remain unchanged."
+msgstr ""
+
+msgid "Migrate"
+msgstr ""
+
+msgid "Legacy categories migrated successfully."
+msgstr ""
+
+msgid "Could not migrate legacy categories."
+msgstr ""
 
 msgid "Changes to assigned task"
 msgstr "Zmiany w przydzielonym zadaniu"
@@ -5751,126 +6008,6 @@ msgstr "Brak zadań."
 msgid "Tasks / To-Do"
 msgstr "Zadania / Zadania do wykonania"
 
-msgid "Click the link to open the URL in a new window."
-msgstr "Kliknij na link, aby otworzyć URL w nowym oknie."
-
-msgid "The server reported an unknown error on your request."
-msgstr "Serwer cofnął Twoje zapytanie z nieznanym błędem."
-
-msgid "The server reported an unspecified error on your request."
-msgstr "Serwer cofnął Twoje zapytanie z bliżej nieokreślonymbłędem."
-
-msgid "The session has expired, reauthentication is required."
-msgstr "Twoja sesja wygasła, zaloguj się ponownie."
-
-msgid "The session in the current browser window has been closed from another browser window or tab."
-msgstr "Sesja w katualnym oknie została zamknięta przez inną przeglądarkęlub kartę."
-
-msgid "Session expired"
-msgstr "Sesja wygasła"
-
-msgid "Do you wish to be redirected to the logon page?"
-msgstr "Czy chcesz przejść do strony logowania?"
-
-msgid "Reauthentication required, click here to go to back to logon page."
-msgstr "Wymagane ponowne zalogowanie, kliknij tu, aby przejść dostrony logowania."
-
-msgid "Connection problem"
-msgstr "Problemy z połączeniem"
-
-msgid "Could not connect to server, retrying in {0} second(s)"
-msgstr "Nie można połączyć się z serwerem, spróbuj ponownie za {0} sekundę (sekund)"
-
-msgid "Click to retry now"
-msgstr "Spóbuj ponownie"
-
-msgid "Connection restored"
-msgstr "Połączenie zostało przywrócone"
-
-msgid "Connection with server has been restored"
-msgstr "Połączenie z serwerem zostało przywrócone"
-
-msgid "grommunio Web was updated"
-msgstr "Aplikacja grommunio Web została zaktualizowana"
-
-msgid "A new version is available, click here to reload."
-msgstr "Dostępna jest nowa wersja. Kliknij tutaj, aby ponownie wczytać aplikację."
-
-#. TRANSLATORS: Example: HTTP 404
-msgid "HTTP {0}"
-msgstr "HTTP {0}"
-
-msgid "Invalid data received from the server"
-msgstr "Nieprawidłowe dane otrzymane z serwera"
-
-msgid "Missing store"
-msgstr "Brakująca poczta"
-
-msgid "The default store is missing from the hierarchy."
-msgstr "Brak poczty domyślnej w hierarchii."
-
-msgid "Not all functionality of grommunio Web might be working properly because of this."
-msgstr "Aplikacja sieci Web może przez to funkcjonować nie w pełni prawidłowo."
-
-msgctxt "hierarchy.foldername"
-msgid "Inbox"
-msgstr "Skrzynka odbiorcza"
-
-msgctxt "hierarchy.foldername"
-msgid "Outbox"
-msgstr "Skrzynka nadawcza"
-
-msgctxt "hierarchy.foldername"
-msgid "Sent Items"
-msgstr "Wiadomości wysłane"
-
-msgctxt "hierarchy.foldername"
-msgid "Deleted items"
-msgstr "Usunięte obiekty"
-
-msgctxt "hierarchy.foldername"
-msgid "Calendar"
-msgstr "Kalendarz"
-
-msgctxt "hierarchy.foldername"
-msgid "Contacts"
-msgstr "Kontakty"
-
-msgctxt "hierarchy.foldername"
-msgid "Drafts"
-msgstr "Robocze"
-
-msgctxt "hierarchy.foldername"
-msgid "Journal"
-msgstr "Dziennik"
-
-msgctxt "hierarchy.foldername"
-msgid "Notes"
-msgstr "Notatki"
-
-msgctxt "hierarchy.foldername"
-msgid "Tasks"
-msgstr "Zadania"
-
-msgctxt "hierarchy.foldername"
-msgid "Junk Email"
-msgstr "Niechciana poczta"
-
-msgid "Missing folders"
-msgstr "Brakujące foldery"
-
-msgid "The following required folder is missing in the hierarchy: {0}"
-msgid_plural "The following required folders are missing in the hierarchy: {0}"
-msgstr[0] "W hierarchii brakuje następującego wymaganego folderu: {0}"
-msgstr[1] "W hierarchii brakuje następujących wymaganych folderów: {0}"
-msgstr[2] "W hierarchii brakuje następujących wymaganych folderów: {0}"
-
-msgid "Loading model from server failed"
-msgstr "Ładowanie modułu z serwera nie powiodło się"
-
-msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr "Informacja o nieobecności jest teraz aktywna. Czy chcesz ją wyłączyć?"
-
 msgid "AI Assistant"
 msgstr "Asystent AI"
 
@@ -6134,6 +6271,9 @@ msgstr "Myślę…"
 
 msgid "The response was interrupted and may be incomplete."
 msgstr "Odpowiedź została przerwana i może być niekompletna."
+
+msgid "The answer reached the output limit configured for this model and stops here."
+msgstr ""
 
 msgid "Insert at cursor"
 msgstr "Wstaw w miejscu kursora"
@@ -6552,9 +6692,6 @@ msgstr "Wysyłanie pliku nie powiodło się!"
 msgid "Document"
 msgstr "Dokument"
 
-msgid "Presentation"
-msgstr "Prezentacja"
-
 msgid "Spreadsheet"
 msgstr "Arkusza Kalkulacyjny"
 
@@ -6566,6 +6703,9 @@ msgstr "Utwórz dokument"
 
 msgid "Create office document"
 msgstr "Tworzenie dokumentów biurowych"
+
+msgid "Preview file"
+msgstr ""
 
 msgid "Download files"
 msgstr "Pobieranie plików"
@@ -6600,15 +6740,6 @@ msgstr "Jest udostępniany"
 
 msgid "File preview"
 msgstr "Podgląd pliku"
-
-msgid "File content"
-msgstr "Zawartość pliku"
-
-msgid "Your browser does not support previewing of audio files!"
-msgstr "Twoja przeglądarka nie obsługuje podglądu plików audio!"
-
-msgid "Your browser does not support previewing of video files!"
-msgstr "Twoja przeglądarka nie obsługuje podglądu plików wideo!"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
@@ -6742,6 +6873,12 @@ msgstr "Mapa"
 
 msgid "Mobile Device Manager"
 msgstr "Menedżer urządzeń mobilnych"
+
+msgid "Device removed"
+msgstr ""
+
+msgid "The device was not removed. Check your password and try again."
+msgstr ""
 
 msgid "Wiping device"
 msgstr "Wymazywanie urządzenia"
@@ -7050,17 +7187,470 @@ msgstr "Jedno lub więcej pól zawiera błędy."
 msgid "Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters."
 msgstr "Hasło jest słabe. Hasło powinno zawierać duże, małe i duże litery oraz cyfry. Hasło powinno mieć od 8 do 20 znaków."
 
+msgid "The OpenPGP request failed. Please try again."
+msgstr ""
+
+msgid "Working…"
+msgstr ""
+
+msgid "The operation failed. Please try again."
+msgstr ""
+
+msgid "Passphrase"
+msgstr ""
+
+msgid "Unlock OpenPGP private key"
+msgstr ""
+
+msgid "Unlock"
+msgstr ""
+
+msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
+msgstr ""
+
+msgid "Set up OpenPGP"
+msgstr ""
+
+msgid "Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings."
+msgstr ""
+
+msgid "Open key settings"
+msgstr ""
+
+msgid "Choose OpenPGP key"
+msgstr ""
+
+msgid "Private key"
+msgstr ""
+
+msgid "Use key"
+msgstr ""
+
+msgid "Private-key unlocking was cancelled."
+msgstr ""
+
+msgid "Key selection was cancelled."
+msgstr ""
+
+msgid "Choose private key…"
+msgstr ""
+
+msgid "Manage OpenPGP keys…"
+msgstr ""
+
+msgid "Lock private keys"
+msgstr ""
+
+msgid "Signing key: "
+msgstr ""
+
+msgid "Decryption alone does not authenticate the sender."
+msgstr ""
+
+msgid "OpenPGP security information"
+msgstr ""
+
+msgid "OpenPGP"
+msgstr ""
+
+msgid "OpenPGP signed or encrypted message"
+msgstr ""
+
+msgid "OpenPGP Plugin"
+msgstr ""
+
+msgid "The OpenPGP operation was cancelled."
+msgstr ""
+
+msgid "S/MIME and OpenPGP cannot protect the same message."
+msgstr ""
+
+msgid "Saving the OpenPGP draft timed out. Please retry."
+msgstr ""
+
+msgid "The draft could not be saved. Nothing was sent."
+msgstr ""
+
+msgid "The sender or message protection changed. Please send again."
+msgstr ""
+
+msgid "The selected private key is not valid for this sender and protection mode."
+msgstr ""
+
+msgid "A matching, passphrase-protected private key is required."
+msgstr ""
+
+msgid "A recipient key is invalid, expired or does not match its email address."
+msgstr ""
+
+msgid "No verified recipient keys are available."
+msgstr ""
+
+msgid "This message is too large for browser OpenPGP processing."
+msgstr ""
+
+msgid "Message protection changed while preparing the message. Please send again."
+msgstr ""
+
+msgid "The protected message is {0} MB, more than this server accepts in one request ({1} MB). Remove attachments or ask the administrator to raise the upload limit."
+msgstr ""
+
+msgid "The attachment archive is too large."
+msgstr ""
+
+msgid "Unlock the message again to download this attachment."
+msgstr ""
+
+msgid "This message contains nested S/MIME protection that OpenPGP cannot open."
+msgstr ""
+
+msgid "Too many nested OpenPGP envelopes."
+msgstr ""
+
+msgid "The signature is invalid or its public key is not available. Do not rely on this sender identity."
+msgstr ""
+
+msgid "The private key was locked while opening this message."
+msgstr ""
+
+msgid "This message contains too many attachments."
+msgstr ""
+
+msgid "The decoded attachments are too large."
+msgstr ""
+
+msgid "The OpenPGP operation failed."
+msgstr ""
+
+msgid "OpenPGP: checking message security…"
+msgstr ""
+
+msgid "Encrypted message stored without its MIME envelope — save the attachment and decrypt it with an OpenPGP tool"
+msgstr ""
+
+msgid "Signed message stored without its original MIME — the signature cannot be verified"
+msgstr ""
+
+msgid "Message decrypted"
+msgstr ""
+
+msgid "Message could not be decrypted — click for details or retry"
+msgstr ""
+
+msgid "Encrypted message — unlock your private key to read"
+msgstr ""
+
+msgid "Signature could not be verified"
+msgstr "Nie można zweryfikować podpisu"
+
+msgid "Valid signature, but the signing key does not match the sender"
+msgstr ""
+
+msgid "Valid signature — sender fingerprint has not been verified"
+msgstr ""
+
+msgid "Valid signature from a verified sender"
+msgstr ""
+
+msgid "The signing key has since expired"
+msgstr ""
+
+msgid "Message is not signed"
+msgstr ""
+
+msgid "Inline OpenPGP protects the body only; attachments are not covered"
+msgstr ""
+
+msgid "Unprotected text after the OpenPGP block is not shown"
+msgstr ""
+
+msgid "Your public keys could not be loaded, so signatures could not be checked"
+msgstr ""
+
+msgid "Security information"
+msgstr ""
+
+msgid "Choose when composing"
+msgstr ""
+
+msgid "Personal and public keys"
+msgstr ""
+
+msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
+msgstr ""
+
+msgid "No OpenPGP keys. Import or generate a key to get started."
+msgstr ""
+
+msgid "Identity"
+msgstr ""
+
+msgid "Fingerprint"
+msgstr ""
+
+msgid "Public key"
+msgstr ""
+
+msgid "Revoked"
+msgstr ""
+
+msgid "Expired"
+msgstr ""
+
+msgid "Fingerprint verified"
+msgstr ""
+
+msgid "Not verified"
+msgstr ""
+
+msgid "Unlocked"
+msgstr ""
+
+msgid "Locked"
+msgstr ""
+
+msgid "Expires"
+msgstr "Wygasa"
+
+msgid "No expiry"
+msgstr ""
+
+msgid "Generate key"
+msgstr ""
+
+msgid "Import key"
+msgstr ""
+
+msgid "Find public key"
+msgstr ""
+
+msgid "Details / verify"
+msgstr ""
+
+msgid "Export public key"
+msgstr ""
+
+msgid "Back up private key"
+msgstr ""
+
+msgid "Unlock in this browser"
+msgstr ""
+
 msgid "Change passphrase"
 msgstr "Zmień hasło"
+
+msgid "Lock all"
+msgstr ""
+
+msgid "Default private key"
+msgstr ""
+
+msgid "Sign new messages by default"
+msgstr ""
+
+msgid "Encrypt new messages by default"
+msgstr ""
+
+msgid "Manage keyservers"
+msgstr ""
+
+msgid "Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message."
+msgstr ""
+
+msgid "Generate OpenPGP key"
+msgstr ""
+
+msgid "Algorithm"
+msgstr ""
+
+msgid "Expires in"
+msgstr ""
+
+msgid "1 year"
+msgstr ""
+
+msgid "2 years"
+msgstr ""
+
+msgid "5 years"
+msgstr ""
+
+msgid "Repeat passphrase"
+msgstr ""
+
+msgid "Passphrases do not match."
+msgstr ""
+
+msgid "Generate"
+msgstr ""
+
+msgid "Key created. Back up the private key and store its passphrase separately."
+msgstr ""
+
+msgid "Revocation certificate — keep secure"
+msgstr ""
+
+msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
+msgstr ""
+
+msgid "Import OpenPGP key"
+msgstr ""
+
+msgid "Choose armored OpenPGP key file"
+msgstr ""
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr ""
+
+msgid "The key file could not be read."
+msgstr ""
+
+msgid "Armored key"
+msgstr ""
+
+msgid "Protect unencrypted key"
+msgstr ""
+
+msgid "Optional: new passphrase for an unprotected private key"
+msgstr ""
+
+msgid "Key imported. Verify recipient fingerprints before encrypting to them."
+msgstr ""
+
+msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
+msgstr ""
+
+msgid "Public OpenPGP key"
+msgstr ""
+
+msgid "Back up private OpenPGP key"
+msgstr ""
+
+msgid "Create backup"
+msgstr ""
+
+msgid "Private key backup — keep secure"
+msgstr ""
+
+msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
+msgstr ""
+
+msgid "Current passphrase"
+msgstr ""
+
+msgid "New passphrase"
+msgstr "Nowe hasło"
+
+msgid "Change OpenPGP passphrase"
+msgstr ""
+
+msgid "Repeat new passphrase"
+msgstr ""
+
+msgid "Passphrase changed. Make a new private-key backup."
+msgstr ""
+
+msgid "The private key is re-encrypted locally. Existing backups still require their original passphrase."
+msgstr ""
+
+msgid "Verify OpenPGP fingerprint"
+msgstr ""
+
+msgid "Verified identities"
+msgstr ""
+
+msgid "Email identity"
+msgstr ""
+
+msgid "Confirm fingerprint"
+msgstr ""
+
+msgid "Enter the full fingerprint shown above."
+msgstr ""
+
+msgid "I verified this fingerprint"
+msgstr ""
+
+msgid "Save verification"
+msgstr ""
+
+msgid "Fingerprint verification updated."
+msgstr ""
+
+msgid "Compare the complete fingerprint with your contact using a separate trusted channel. Checking the box pins this key for the selected address; leaving it unchecked removes that verification."
+msgstr ""
+
+msgid "All private keys in this browser tab are locked."
+msgstr ""
+
+msgid "Delete OpenPGP key"
+msgstr ""
+
+msgid "Type the full fingerprint to confirm deletion."
+msgstr ""
+
+msgid "Delete key"
+msgstr ""
+
+msgid "Key removed from your mailbox."
+msgstr ""
+
+msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
+msgstr ""
+
+msgid "This removes the public key and its verified fingerprints from your keyring."
+msgstr ""
+
+msgid "Manage OpenPGP keyservers"
+msgstr ""
+
+msgid "HTTPS keyservers"
+msgstr ""
+
+msgid "Enter one HTTPS server origin per line, without a path, credentials, or query."
+msgstr ""
+
+msgid "Save keyservers"
+msgstr ""
+
+msgid "Keyservers updated."
+msgstr ""
+
+msgid "Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically."
+msgstr ""
+
+msgid "Approved servers: "
+msgstr ""
+
+msgid "Find OpenPGP public key"
+msgstr ""
+
+msgid "Keyserver"
+msgstr ""
+
+msgid "Full fingerprint"
+msgstr ""
+
+msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
+msgstr ""
+
+msgid "Find and import"
+msgstr ""
+
+msgid "The keyserver did not return the requested public key."
+msgstr ""
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr ""
+
+msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
+msgstr ""
 
 msgid "Old passphrase"
 msgstr "Stare hasło"
 
 msgid "Wrong passphrase. Please try again"
 msgstr "Nieprawidłowe hasło. Spróbuj ponownie"
-
-msgid "New passphrase"
-msgstr "Nowe hasło"
 
 msgid "Confirm new passphrase"
 msgstr "Potwierdź nowe hasło"
@@ -7092,20 +7682,11 @@ msgstr "Brak zaimportowanych certyfikatów, prześlij swój prywatny certyfikat"
 msgid "Valid from"
 msgstr "Ważne od"
 
-msgid "Expires"
-msgstr "Wygasa"
-
 msgid "Key Type"
 msgstr "Typ klucza"
 
 msgid "Purpose"
 msgstr "Cel"
-
-msgid "Sign"
-msgstr "Tabliczka"
-
-msgid "Encrypt"
-msgstr "Szyfrowanie"
 
 msgid "Sign & Encrypt"
 msgstr "Podpisywanie i szyfrowanie"
@@ -7337,9 +7918,6 @@ msgstr "Nie można zweryfikować podpisu, brak certyfikatu publicznego"
 
 msgid "Signature verification successful, but certificate is expired"
 msgstr "Weryfikacja podpisu powiodła się, ale certyfikat wygasł"
-
-msgid "Signature could not be verified"
-msgstr "Nie można zweryfikować podpisu"
 
 msgid "Certificate has been revoked"
 msgstr "Certyfikat został unieważniony"
@@ -7850,6 +8428,15 @@ msgstr "Wystąpił błąd podczas zmiany hasła. Sprawdź hasło lub skontaktuj 
 msgid "Password has been changed successfully."
 msgstr "Hasło zostało zmienione pomyślnie."
 
+msgid "The OpenPGP operation could not be completed."
+msgstr ""
+
+msgid "OpenPGP: message was not sent"
+msgstr ""
+
+msgid "The OpenPGP message could not be read."
+msgstr ""
+
 msgid "No certificate available"
 msgstr "Brak dostępnego certyfikatu"
 
@@ -7972,6 +8559,9 @@ msgstr "Dane odpowiedzi zażądane z magistrali, ale nie ma żadnych danych."
 msgid "Cannot store the category list in this mailbox."
 msgstr "Nie można zapisać listy kategorii w tej skrzynce pocztowej."
 
+msgid "Cannot scan this mailbox for categories."
+msgstr ""
+
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
 msgstr "Nieznany moduł '%s' o identyfikatorze '%s'"
@@ -7997,6 +8587,18 @@ msgstr "Lista rzeczy do zrobienia"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "strony %1$s z %2$s"
+
+msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
+msgstr ""
+
+msgid "Too many messages were sent in a short time. Please wait a moment and send again."
+msgstr ""
+
+msgid "Message was not sent"
+msgstr ""
+
+msgid "This draft requests OpenPGP protection, but it was not applied. The message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
+msgstr ""
 
 msgid "Error retrieving existing settings"
 msgstr "Błąd pobierania istniejących ustawień"
@@ -8366,6 +8968,9 @@ msgstr "Nie masz wystarczających uprawnień, aby die odrzucić wprowadzone zada
 msgid "Could not decline Task Request."
 msgstr "Wprowadzenie zadania nie może być odrzucone."
 
+msgid "Could not open the attachment."
+msgstr ""
+
 msgid "Conflicts with another appointment."
 msgstr "Koliduje z innym terminem."
 
@@ -8381,6 +8986,9 @@ msgstr "Twoja wiadomość nie została dostarczona do jednego lub więcej adresa
 
 msgid "The following recipient(s) could not be reached"
 msgstr "Ten odbiorca nie jest dostępny"
+
+msgid "Removing attachments has been disabled by the administrator."
+msgstr ""
 
 msgid "l, F j, Y g:i A"
 msgstr "l, j F Y G:i"
