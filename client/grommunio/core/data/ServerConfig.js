@@ -401,6 +401,22 @@ Grommunio.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {Number} The edge length in pixels of the stored profile picture
+	 */
+	getProfilePictureMaxEdge: function ()
+	{
+		return this.meta.profile_picture_max_edge || 512;
+	},
+
+	/**
+	 * @return {Number} The maximum size in bytes of the stored profile picture
+	 */
+	getProfilePictureMaxBytes: function ()
+	{
+		return this.meta.profile_picture_max_bytes || 524288;
+	},
+
+	/**
 	 * @returns {Boolean} True if theming is enabled by admin(from config.php) else false.
 	 */
 	isThemingEnabled: function ()

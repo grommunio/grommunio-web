@@ -80,6 +80,21 @@ if (!defined("ATTACHMENT_DRAG_OUT_MAX_SIZE")) {
 	define("ATTACHMENT_DRAG_OUT_MAX_SIZE", 26214400);
 }
 
+// Bounds for the profile picture in the user's settings. It is stored square as
+// JPEG; anything larger is scaled down and re-encoded.
+if (!defined("PROFILE_PICTURE_MAX_EDGE")) {
+	define("PROFILE_PICTURE_MAX_EDGE", 512);
+}
+
+if (!defined("PROFILE_PICTURE_MAX_BYTES")) {
+	define("PROFILE_PICTURE_MAX_BYTES", 524288);
+}
+
+// A small file can carry a huge canvas; this bounds what GD is asked to decode.
+if (!defined("PROFILE_PICTURE_MAX_PIXELS")) {
+	define("PROFILE_PICTURE_MAX_PIXELS", 30000000);
+}
+
 /*
  * Comma-separated list of keywords that trigger an attachment reminder when
  * composing a message. The check is case-insensitive. Admins can override
