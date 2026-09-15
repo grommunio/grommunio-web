@@ -301,7 +301,13 @@ class ReminderListModule extends ListModule {
 
 				$occurrences = null;
 				if ($flagDueBy !== null) {
-					$occurrences = $recur->getItems($flagDueBy, time() + $remindertimeinseconds, 0, true);
+					try {
+						$occurrences = $recur->getItems($flagDueBy, time() + $remindertimeinseconds, 0, true);
+					}
+					catch (RecurrenceException $re) {
+						$re->setHandled();
+						continue;
+					}
 
 					if (empty($occurrences)) {
 						continue;

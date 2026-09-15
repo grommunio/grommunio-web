@@ -553,6 +553,9 @@ class Properties {
 			$properties["startdate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole;
 			$properties["duedate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole;
 			$properties["busystatus"] = "PT_LONG:PSETID_Appointment:" . PidLidBusyStatus;
+			$properties["entryid"] = PR_ENTRYID;
+			$properties["subject"] = PR_SUBJECT;
+			$properties["recurring_data"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentRecur;
 
 			$this->mapping[$this->storeMapping]['busytime'] = getPropIdsFromStrings($this->store, $properties);
 		}

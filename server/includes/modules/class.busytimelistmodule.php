@@ -55,7 +55,20 @@ class BusyTimeListModule extends AppointmentListModule {
 		foreach ($calendaritems as $calendaritem) {
 			if (isset($calendaritem[$this->properties["recurring"]]) && $calendaritem[$this->properties["recurring"]]) {
 				$recurrence = new Recurrence($store, $calendaritem);
-				$recuritems = $recurrence->getItems($start, $end);
+				try {
+					$recuritems = $recurrence->getItems($start, $end);
+				}
+				catch (RecurrenceException $re) {
+					$subject = $calendaritem[$this->properties["subject"]] ?? '<empty subject>';
+					error_log(sprintf(
+						"processItems (busytimelist) RecurrenceException (%d) for item '%s' - %s - %s",
+						$re->getCode(),
+						$subject,
+						bin2hex($calendaritem[$this->properties["entryid"]]),
+						bin2hex($calendaritem[$this->properties["recurring_data"]])
+					));
+					continue;
+				}
 
 				foreach ($recuritems as $recuritem) {
 					$item = Conversion::mapMAPI2XML($this->minproperties, $recuritem);
