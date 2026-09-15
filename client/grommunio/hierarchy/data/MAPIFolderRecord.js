@@ -36,6 +36,7 @@ Grommunio.hierarchy.data.MAPIFolderRecordFields = [
 	{name: 'creation_time', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'message_size', type: 'int'},
 	{name: 'total_message_size', type: 'int'},
+	{name: 'sendPermissions', type: 'int', useNull: true, defaultValue: null},
 	{name: 'deleted_on', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'rights', type: 'int'},
 	{name: 'access', type: 'int'},
