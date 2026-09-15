@@ -1035,13 +1035,20 @@ div.x-btn-group-bc {
 #grommunio-mainpanel-contentpanel-mail.grommunio-preview-right .grommunio-context-mainpanel {
   border-right: none; }
 #grommunio-mainpanel-contentpanel-mail.grommunio-preview-right #grommunio-main-content-mail-preview {
-  border-left: none !important;
+  /* The negative margin pulls the preview under the splitter, so this border is
+     the divider between the two panels and the grid's own one stays off. */
+  border-left: 1px solid var(--ui-border);
   margin-left: -3px; }
 
 #grommunio-mainpanel-contentpanel-mail.grommunio-preview-bottom .grommunio-context-mainpanel {
   border-bottom: 1px solid var(--ui-border); }
 #grommunio-mainpanel-contentpanel-mail.grommunio-preview-bottom #grommunio-main-content-mail-preview {
   border-top: none !important; }
+
+/* The panel border is the top edge of the preview; ExtJS gives its toolbar one
+   of its own, which lands a second line right underneath. */
+#grommunio-main-content-mail-preview .grommunio-previewpanel-toolbar {
+  border: none; }
 
 #grommunio-mainpanel-contentpanel-today .grommunio-main-header {
   background: transparent;
