@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.files.settings.ui');
+Ext.namespace('Grommunio.plugins.files.settings.ui');
 
 /**
- * @class Zarafa.plugins.files.settings.ui.AccountGrid
+ * @class Grommunio.plugins.files.settings.ui.AccountGrid
  * @extends Ext.grid.GridPanel
  * @xtype filesplugin.accountgrid
  *
  * The main gridpanel for our account list.
  */
-Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
+Grommunio.plugins.files.settings.ui.AccountGrid = Ext.extend(Grommunio.common.ui.grid.GridPanel, {
 
 	/**
 	 * @cfg {Object} The account store.
@@ -15,8 +15,8 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 	store: null,
 
 	/**
-	 * @cfg {Zarafa.plugins.files.data.BackendStore} backendStore which
-	 * contains {@link Zarafa.plugins.files.data.FilesBackendRecord backend} records.
+	 * @cfg {Grommunio.plugins.files.data.BackendStore} backendStore which
+	 * contains {@link Grommunio.plugins.files.data.FilesBackendRecord backend} records.
 	 */
 	backendStore : undefined,
 
@@ -63,7 +63,7 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 				width : 10
 			}, {
 				xtype : 'button',
-				iconCls : 'zarafa-rules-sequence-up',
+				iconCls : 'grommunio-rules-sequence-up',
 				tooltip : _('Move Up'),
 				ariaLabel : _('Move Up'),
 				disabled : true,
@@ -76,7 +76,7 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 				width : 10
 			}, {
 				xtype : 'button',
-				iconCls : 'zarafa-rules-sequence-down',
+				iconCls : 'grommunio-rules-sequence-down',
 				tooltip : _('Move Down'),
 				ariaLabel : _('Move Down'),
 				disabled : true,
@@ -87,7 +87,7 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 			}]
 		});
 
-		Zarafa.plugins.files.settings.ui.AccountGrid.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.settings.ui.AccountGrid.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -144,7 +144,7 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 	 * @private
 	 */
 	initColumnModel: function () {
-		return new Zarafa.plugins.files.settings.ui.AccountGridColumnModel();
+		return new Grommunio.plugins.files.settings.ui.AccountGridColumnModel();
 	},
 
 	/**
@@ -177,7 +177,7 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 		if (accountRecord.get("cannot_change")) {
 			return;
 		}
-		Zarafa.core.data.UIFactory.openLayerComponent(Zarafa.core.data.SharedComponentType['filesplugin.accountedit'], undefined, {
+		Grommunio.core.data.UIFactory.openLayerComponent(Grommunio.core.data.SharedComponentType['filesplugin.accountedit'], undefined, {
 			store  : grid.getStore(),
 			item   : grid.getStore().getAt(rowIndex),
 			backendStore : this.backendStore,
@@ -190,8 +190,8 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 	 */
 	onAccountAdd: function ()
 	{
-		var component = Zarafa.core.data.SharedComponentType['filesplugin.accountedit'];
-		Zarafa.core.data.UIFactory.openLayerComponent(component, undefined, {
+		var component = Grommunio.core.data.SharedComponentType['filesplugin.accountedit'];
+		Grommunio.core.data.UIFactory.openLayerComponent(component, undefined, {
 			store  : this.getStore(),
 			backendStore : this.backendStore,
 			modal : true
@@ -292,8 +292,8 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 	 * Swap two accounts by changing the 'account_sequence' property
 	 * for both accounts, and {@link Ext.data.Store#sort sort}
 	 * the {@link #store}.
-	 * @param {Zarafa.plugins.files.data.AccountRecord} a The first account
-	 * @param {Zarafa.plugins.files.data.AccountRecord} b The second account
+	 * @param {Grommunio.plugins.files.data.AccountRecord} a The first account
+	 * @param {Grommunio.plugins.files.data.AccountRecord} b The second account
 	 * @private
 	 */
 	swapAccounts : function(a, b)
@@ -325,8 +325,8 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 	 * @param store
 	 * @param record
 	 * @param operation
-	 * @param {Zarafa.plugins.files.data.AccountRecord} a The first account
-	 * @param {Zarafa.plugins.files.data.AccountRecord} b The second account
+	 * @param {Grommunio.plugins.files.data.AccountRecord} a The first account
+	 * @param {Grommunio.plugins.files.data.AccountRecord} b The second account
 	 */
 	onAfterSequenceChanged : function(store, record, operation, a, b)
 	{
@@ -342,8 +342,8 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 	 * @param store
 	 * @param record
 	 * @param operation
-	 * @param {Zarafa.plugins.files.data.AccountRecord} a The first account
-	 * @param {Zarafa.plugins.files.data.AccountRecord} b The second account
+	 * @param {Grommunio.plugins.files.data.AccountRecord} a The first account
+	 * @param {Grommunio.plugins.files.data.AccountRecord} b The second account
 	 */
 	onAfterSequenceReload: function(store, record, operation, a, b)
 	{
@@ -357,4 +357,4 @@ Zarafa.plugins.files.settings.ui.AccountGrid = Ext.extend(Zarafa.common.ui.grid.
 	}
 });
 
-Ext.reg('filesplugin.accountgrid', Zarafa.plugins.files.settings.ui.AccountGrid);
+Ext.reg('filesplugin.accountgrid', Grommunio.plugins.files.settings.ui.AccountGrid);

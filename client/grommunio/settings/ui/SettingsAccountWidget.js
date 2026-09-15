@@ -1,0 +1,626 @@
+Ext.namespace('Grommunio.settings.ui');
+
+/**
+ * @class Grommunio.settings.ui.SettingsAccountWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
+ * @xtype grommunio.settingsaccountwidget
+ *
+ * The Account Information widget
+ */
+Grommunio.settings.ui.SettingsAccountWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
+	/**
+	 * The language which is currently active in the interface
+	 * @property
+	 * @type String
+	 * @private
+	 */
+	origLanguage: '',
+
+	/**
+	 * The name that will be shown for the default theme (i.e. no theme selected)
+	 * @property
+	 * @type String
+	 * @private
+	 */
+	defaultThemeName: _('Basic'),
+
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		var user = container.getUser();
+		var languageStore = {
+			xtype: 'jsonstore',
+			autoDestroy: true,
+			fields: ['lang', 'name'],
+			data: container.getLanguages()
+		};
+
+		// Load the items from the maintabbar
+		var items = container.populateInsertionPoint('main.maintabbar.left', this);
+		items = Grommunio.core.Util.sortArray(items, 'ASC', 'tabOrderIndex');
+		var startupStore = {
+			xtype: 'jsonstore',
+			autoDestroy: true,
+			fields: ['context', 'text'],
+			data: items
+		};
+
+		// Create a store with the available themes
+		items = [[0, this.defaultThemeName, 'basic']];
+		var plugins = container.getPlugins();
+		for ( var i=0; i<plugins.length; i++ ){
+			var plugin = plugins[i];
+			if ( plugin instanceof Grommunio.core.ThemePlugin ){
+				items.push([items.length, plugin.getDisplayName(), plugin.getName()]);
+			}
+		}
+		const jsonThemes = container.getServerConfig().getJsonThemes();
+		for ( var theme in jsonThemes ) {
+			if ( Object.prototype.hasOwnProperty.call(jsonThemes, theme) ) {
+				items.push([items.length, jsonThemes[theme], theme]);
+			}
+		}
+		var themeStore = new Ext.data.ArrayStore({
+			fields: ['id', 'displayName', 'name'],
+			idIndex: 0,
+			data: items,
+			sortInfo: {
+				field: 'displayName',
+				direction: 'ASC'
+			}
+		});
+
+		var iconsetItems = [];
+		const iconsets = container.getServerConfig().getIconsets();
+		for ( var iconset in iconsets ) {
+			if ( Object.prototype.hasOwnProperty.call(iconsets, iconset) ) {
+				iconsetItems.push([iconset, iconsets[iconset]['display-name']]);
+			}
+		}
+		var iconsetStore = new Ext.data.ArrayStore({
+			fields: ['id', 'displayName'],
+			idIndex: 0,
+			data: iconsetItems,
+			sortInfo: {
+				field: 'displayName',
+				direction: 'ASC'
+			}
+		});
+
+		// Dark mode toggle: light / dark / system
+		var darkModeStore = new Ext.data.ArrayStore({
+			fields: ['id', 'displayName'],
+			idIndex: 0,
+			data: [
+				['light', _('Light')],
+				['dark', _('Dark')],
+				['system', _('System')]
+			]
+		});
+
+		var formItems = [{
+			xtype: 'grommunio.compositefield',
+			fieldLabel: _('Language'),
+			items: [{
+				xtype: 'combo',
+				name: 'grommunio/v1/main/language',
+				ref: '../../languageCombo',
+				width: 200,
+				store: languageStore,
+				mode: 'local',
+				triggerAction: 'all',
+				displayField: 'name',
+				valueField: 'lang',
+				lazyInit: false,
+				forceSelection: true,
+				editable: false,
+				autoSelect: true,
+				listeners: {
+					select: this.onLanguageSelect,
+					scope: this
+				}
+			},{
+				xtype: 'displayfield',
+				cls: 'grommunio-settings-reload-warning',
+				ref: '../../languageWarning'
+			}]
+		},{
+			xtype: 'combo',
+			fieldLabel: _('Startup folder'),
+			name: 'grommunio/v1/main/default_context',
+			ref: '../startupCombo',
+			width: 200,
+			store: startupStore,
+			mode: 'local',
+			triggerAction: 'all',
+			displayField: 'text',
+			valueField: 'context',
+			lazyInit: false,
+			forceSelection: true,
+			editable: false,
+			autoSelect: true,
+			listeners: {
+				select: this.onStartupSelect,
+				scope: this
+			}
+		}];
+
+		if ( themeStore.data.length > 1 && container.getServerConfig().isThemingEnabled()){
+			formItems.push({
+				xtype: 'combo',
+				width: 200,
+				editable: false,
+				forceSelection: true,
+				triggerAction: 'all',
+				store: themeStore,
+				fieldLabel: _('Theme'),
+				mode: 'local',
+				valueField: 'name',
+				displayField: 'displayName',
+				ref: '../themeCombo',
+				name: 'grommunio/v1/main/active_theme',
+				cls: 'k-theme-combo',
+				tpl: new Ext.XTemplate(
+					'<tpl for="."><div class="x-combo-list-item">',
+						'{[this.dot(values.name)]}{displayName:htmlEncode}',
+					'</div></tpl>',
+					{ dot: this.getThemeDot }
+				),
+				listeners: {
+					select: this.onThemeSelect,
+					afterrender: this.onThemeComboRender,
+					scope: this
+				}
+			});
+		}
+
+		formItems.push({
+			xtype: 'combo',
+			id: 'darkmode-combo',
+			width: 200,
+			editable: false,
+			forceSelection: true,
+			triggerAction: 'all',
+			store: darkModeStore,
+			fieldLabel: _('Appearance'),
+			mode: 'local',
+			valueField: 'id',
+			displayField: 'displayName',
+			ref: '../darkModeCombo',
+			name: 'grommunio/v1/main/dark_mode',
+			listeners: {
+				select: this.onDarkModeSelect,
+				scope: this
+			}
+		});
+
+		formItems.push({
+			xtype: 'combo',
+			width: 200,
+			editable: false,
+			forceSelection: true,
+			triggerAction: 'all',
+			store: iconsetStore,
+			fieldLabel: _('Icons'),
+			mode: 'local',
+			hidden: !container.getServerConfig().isIconSetsEnabled(),
+			valueField: 'id',
+			displayField: 'displayName',
+			ref: '../iconsetCombo',
+			name: 'grommunio/v1/main/active_iconset',
+			listeners: {
+				select: this.onIconsetSelect,
+				scope: this
+			}
+		});
+
+		formItems.push(
+			container.populateInsertionPoint('settings.account.last')
+		);
+
+		Ext.applyIf(config, {
+			title: _('Profile'),
+			cls: 'grommunio-settings-widget k-settings-profile-widget',
+			items: [{
+				xtype: 'container',
+				cls: 'k-settings-profile-header',
+				items: [{
+					xtype: 'box',
+					cls: 'k-settings-profile-photo-wrap',
+					autoEl: {
+						tag: 'img',
+						cls: 'k-settings-profile-photo',
+						src: user.getUserImage()
+					},
+					name: 'grommunio/v1/main/thumbnail_photo',
+					ref: '../thumbnail_photo',
+					listeners: {
+						afterrender: this.onAfterRender,
+						scope: this
+					}
+				},{
+					xtype: 'container',
+					cls: 'k-settings-profile-info',
+					items: [{
+						xtype: 'box',
+						autoEl: {
+							tag: 'div',
+							cls: 'k-settings-profile-name',
+							html: Ext.util.Format.htmlEncode(user.getDisplayName())
+						}
+					},{
+						xtype: 'box',
+						autoEl: {
+							tag: 'div',
+							cls: 'k-settings-profile-email',
+							html: Ext.util.Format.htmlEncode(user.getSMTPAddress())
+						}
+					},{
+						xtype: 'button',
+						cls: 'k-settings-profile-details-btn',
+						text: _('Personal information'),
+						handler: this.onOpenPersonalInfo,
+						scope: this
+					}]
+				}]
+			},{
+				xtype: 'container',
+				cls: 'k-settings-profile-form',
+				layout: 'form',
+				labelWidth: 200,
+				items: formItems
+			}]
+		});
+
+		Grommunio.settings.ui.SettingsAccountWidget.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Event handler which is fired after the {@link Ext.form.FormPanel FormPanel}
+	 * has been {@link Ext.Component#afterrender rendered}. Here thumbnail photo box has
+	 * listen {@link Ext.Element#click single click}, {@link Ext.Element#dblclick double click} and
+	 * {@link Ext.Element#contextmenu context menu} events.
+	 * @param {Ext.Component} thumbnailPhotoBox which show the thumbnail picture.
+	 * @private
+	 */
+	onAfterRender : function(thumbnailPhotoBox)
+	{
+		var el = thumbnailPhotoBox.getEl();
+		var imgEl = el.child('img.k-settings-profile-photo') || el;
+		this.mon(imgEl, {
+			'click' : this.onSingleClick,
+			'dblclick' : this.onDoubleClick,
+			'scope' : this
+		});
+	},
+
+	/**
+	 * Helper to get the profile photo img element.
+	 * @return {HTMLElement} The img DOM element
+	 * @private
+	 */
+	getPhotoImgEl : function()
+	{
+		var el = this.thumbnail_photo.getEl();
+		var imgEl = el.child('img.k-settings-profile-photo');
+		return imgEl ? imgEl.dom : el.dom;
+	},
+
+	/**
+	 * Callback function for {@link Grommunio.common.attachment.ui.UploadAttachmentComponent}.
+	 *
+	 * @param {Object/Array} files The files is contains file information.
+	 * @param {Object} form the form is contains {@link Ext.form.BasicForm bacisform} info.
+	 */
+	uploadThumbnailPhotoCallback : function(files, form)
+	{
+		try {
+			var imgDom = this.getPhotoImgEl();
+			var file = files[0];
+			const fr = new FileReader(file);
+			fr.readAsDataURL(file);
+			fr.onload = function () {
+				imgDom.src = this.result;
+			};
+		}  catch(e) {
+			console.log('File Upload not supported: ' + e);
+		}
+	},
+
+	/**
+	 * Event handler for opening the Browser's file selection dialog.
+	 * See {@link #onFileInputChange} for the handling of the selected files.
+	 * @private
+	 */
+	uploadThumbnailPhoto : function()
+	{
+		var attachComponent = new Grommunio.common.attachment.ui.UploadAttachmentComponent({
+			callback : this.uploadThumbnailPhotoCallback,
+			accept : 'image/*',
+			scope : this
+		});
+
+		attachComponent.openAttachmentDialog();
+	},
+
+	/**
+	 * Event handler which is fired when the thumbnail
+	 * picture field is being clicked this will call the
+	 * {@link #uploadThumbnailPhoto} function to open upload dialog.
+	 *
+	 * @param {Ext.EventObject} eventObj eventObj object of the event
+	 * @param {Element} target Event target
+	 * @param {Object} object Configuration object
+	 */
+	onSingleClick : function(eventObj, target, object)
+	{
+		this.uploadThumbnailPhoto();
+	},
+
+	/**
+	 * Event handler which is fired when thumbnail picture field is being
+	 * double-clicked and this will call the {@link #uploadThumbnailPhoto}
+	 * function to open upload dialog.
+	 *
+	 * @param {Ext.EventObject} eventObj eventObj object of the event
+	 * @param {Element} target Event target
+	 * @param {Object} object Configuration object
+	 */
+	onDoubleClick : function(eventObj, target, object)
+	{
+		this.uploadThumbnailPhoto();
+	},
+
+	/**
+	 * Opens the current user's address book detail dialog showing
+	 * full personal information from the GAL.
+	 * @private
+	 */
+	onOpenPersonalInfo : function()
+	{
+		var user = container.getUser();
+		var entryid = user.getEntryId();
+		var record = Grommunio.core.data.RecordFactory.createRecordObjectByObjectType(
+			Grommunio.core.mapi.ObjectType.MAPI_MAILUSER, {
+				entryid: entryid,
+				display_name: user.getDisplayName(),
+				object_type: Grommunio.core.mapi.ObjectType.MAPI_MAILUSER
+			}, entryid);
+
+		container.getShadowStore().add(record);
+		Grommunio.core.data.UIFactory.openViewRecord(record, { modal: true });
+	},
+
+	/**
+	 * Event handler which is fired when a language in the {@link Ext.form.ComboBox combobox}
+	 * has been selected. This will inform the user that this setting requires a reload of the
+	 * webapp to become active.
+	 * @param {Ext.form.ComboBox} combo The combobox which fired the event
+	 * @param {Ext.data.Record} record The selected record in the combobox
+	 * @param {Number} index The selected index in the store
+	 * @private
+	 */
+	onLanguageSelect: function(combo, record, index)
+	{
+		var value = record.get(combo.valueField);
+
+		if (this.origLanguage !== value) {
+			this.model.requiresReload = true;
+		}
+
+		if (this.model) {
+			this.model.set(combo.name, value);
+		}
+	},
+
+	/**
+	 * Event handler which is fired when a Startup Context in the {@link Ext.form.ComboBox combobox}
+	 * has been selected.
+	 * @param {Ext.form.ComboBox} combo The combobox which fired the event
+	 * @param {Ext.data.Record} record The selected record in the combobox
+	 * @param {Number} index The selected index in the store
+	 * @private
+	 */
+	onStartupSelect: function(combo, record, index)
+	{
+		var value = record.get(combo.valueField);
+		if (this.model) {
+			this.model.set(combo.name, value);
+		}
+	},
+
+	/**
+	 * Event handler which is fired when a theme in the {@link Ext.form.ComboBox combobox}
+	 * has been selected. This will dynamically apply the new theme without requiring a reload.
+	 * @param {Ext.form.ComboBox} combo The combobox which fired the event
+	 * @param {Ext.data.Record} record The selected record in the combobox
+	 * @param {Number} index The selected index in the store
+	 * @private
+	 */
+	onThemeSelect: function(combo, record, index)
+	{
+		var value = record.get(combo.valueField);
+
+		if (this.activeTheme !== value) {
+			// Dynamically switch theme by updating the body class
+			var bodyEl = Ext.getBody();
+
+			// Remove ALL existing theme-* classes
+			var bodyClasses = bodyEl.dom.className.split(' ');
+			for (var i = 0; i < bodyClasses.length; i++) {
+				if (bodyClasses[i].indexOf('theme-') === 0) {
+					bodyEl.removeClass(bodyClasses[i]);
+				}
+			}
+
+			// Add new theme class if not 'basic'
+			if (value && value !== 'basic') {
+				bodyEl.addClass('theme-' + value);
+			}
+
+			this.activeTheme = value;
+		}
+		this.updateThemeDot();
+
+		if (this.model) {
+			this.model.set(combo.name, value);
+		}
+	},
+
+	/**
+	 * @param {String} name The theme name
+	 * @return {String} A colour dot for the themes whose colour the stylesheet knows
+	 * @private
+	 */
+	getThemeDot: function(name)
+	{
+		var known = name === 'basic' || Grommunio.core.Themes.themes.some(function(theme) {
+			return theme.name === name;
+		});
+		return known ? '<span class="k-theme-dot theme-' + Ext.util.Format.htmlEncode(name) + '"></span>' : '';
+	},
+
+	/**
+	 * Adds the dot showing the selected colour in front of the theme field.
+	 * @param {Ext.form.ComboBox} combo The theme combo
+	 * @private
+	 */
+	onThemeComboRender: function(combo)
+	{
+		this.themeDot = combo.wrap.createChild({ tag: 'span', cls: 'k-theme-dot k-theme-combo-dot' });
+		this.updateThemeDot();
+	},
+
+	/**
+	 * @private
+	 */
+	updateThemeDot: function()
+	{
+		if (!this.themeDot || !this.themeCombo) {
+			return;
+		}
+		var name = this.themeCombo.getValue();
+		if (Ext.isEmpty(name) || this.themeCombo.store.find('name', name) === -1) {
+			name = 'basic';
+		}
+		var dot = this.getThemeDot(name);
+		this.themeDot.dom.className = 'k-theme-dot k-theme-combo-dot' + (dot ? ' theme-' + name : ' k-theme-dot-unknown');
+		this.themeCombo.wrap[dot ? 'addClass' : 'removeClass']('k-theme-combo-known');
+	},
+
+	/**
+	 * Event handler for dark mode combo selection.
+	 * @param {Ext.form.ComboBox} combo
+	 * @param {Ext.data.Record} record
+	 * @param {Number} index
+	 * @private
+	 */
+	onDarkModeSelect: function(combo, record, index)
+	{
+		var value = record.get(combo.valueField);
+		Grommunio.core.DarkMode.setMode(value);
+
+		if (this.model) {
+			this.model.set(combo.name, value);
+		}
+	},
+
+	/**
+	 * Event handler which is fired when an iconset in the {@link Ext.form.ComboBox combobox}
+	 * has been selected. This will inform the user that this setting requires a reload of the
+	 * webapp to become active.
+	 * @param {Ext.form.ComboBox} combo The combobox which fired the event
+	 * @param {Ext.data.Record} record The selected record in the combobox
+	 * @param {Number} index The selected index in the store
+	 * @private
+	 */
+	onIconsetSelect: function(combo, record, index)
+	{
+		var value = record.get(combo.valueField);
+
+		if (this.activeIconset !== value) {
+			this.model.requiresReload = true;
+		}
+
+		if (this.model) {
+			this.model.set(combo.name, value);
+		}
+	},
+
+	/**
+	 * Called by the {@link Grommunio.settings.ui.SettingsCategoryWidgetPanel widget panel}
+	 * to load the latest version of the settings from the
+	 * {@link Grommunio.settings.SettingsModel} into the UI of this category.
+	 * @param {Grommunio.settings.SettingsModel} settingsModel The settings to load
+	 */
+	update: function(settingsModel)
+	{
+		Grommunio.settings.ui.SettingsAccountWidget.superclass.update.apply(this, arguments);
+
+		this.model = settingsModel;
+
+		// Load the original language from the settings
+		this.origLanguage = settingsModel.get(this.languageCombo.name);
+
+		this.languageCombo.setValue(this.origLanguage);
+		this.languageWarning.reset();
+
+		this.startupCombo.setValue(settingsModel.get(this.startupCombo.name));
+
+		// Set the currently active theme only when themes are available and the themecombo exists
+		if ( Ext.isDefined(this.themeCombo) ){
+			this.activeTheme = settingsModel.get(this.themeCombo.name);
+			// Check if a theme was set and if this theme has not been removed by the admin
+			if ( !this.activeTheme || this.themeCombo.store.find('name', this.activeTheme)===-1 ){
+				this.activeTheme = container.getServerConfig().getActiveTheme() || 'basic';
+			}
+			this.themeCombo.setValue(this.activeTheme);
+			this.updateThemeDot();
+		}
+
+		this.activeIconset = settingsModel.get(this.iconsetCombo.name);
+		// Check if an iconset was set
+		if ( !this.activeIconset || this.iconsetCombo.store.find('id', this.activeIconset)===-1 ){
+			this.activeIconset = container.getServerConfig().getActiveIconset();
+		}
+		this.iconsetCombo.setValue(this.activeIconset);
+
+		// Set the dark mode combo value
+		var darkMode = settingsModel.get(this.darkModeCombo.name) || Grommunio.core.DarkMode.getMode();
+		this.darkModeCombo.setValue(darkMode);
+	},
+
+	/**
+	 * Called by the {@link Grommunio.settings.ui.SettingsCategoryWidgetPanel widget panel}
+	 * to update the settings from the UI into the {@link Grommunio.settings.SettingsModel settings model}.
+	 * @param {Grommunio.settings.SettingsModel} settingsModel The settings to update
+	 */
+	updateSettings: function(settingsModel)
+	{
+		Grommunio.settings.ui.SettingsAccountWidget.superclass.updateSettings.apply(this, arguments);
+
+		settingsModel.beginEdit();
+		var user = container.getUser();
+		var photoSrc = this.getPhotoImgEl().src;
+		user.setUserImage(photoSrc);
+		settingsModel.set(this.thumbnail_photo.name, photoSrc);
+		settingsModel.set(this.languageCombo.name, this.languageCombo.getValue());
+		settingsModel.set(this.startupCombo.name, this.startupCombo.getValue());
+
+		// Save the selected theme only when themes are available and the themecombo exists
+		if ( Ext.isDefined(this.themeCombo) ){
+			settingsModel.set(this.themeCombo.name, this.themeCombo.getValue());
+		}
+
+		settingsModel.set(this.iconsetCombo.name, this.iconsetCombo.getValue());
+		settingsModel.set(this.darkModeCombo.name, this.darkModeCombo.getValue());
+		settingsModel.endEdit();
+	}
+});
+
+Ext.reg('grommunio.settingsaccountwidget', Grommunio.settings.ui.SettingsAccountWidget);

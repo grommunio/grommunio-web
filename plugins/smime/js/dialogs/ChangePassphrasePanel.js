@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.smime.dialogs');
+Ext.namespace('Grommunio.plugins.smime.dialogs');
 
 /**
- * @class Zarafa.plugins.smime.dialogs.ChangePassphrasePanel
+ * @class Grommunio.plugins.smime.dialogs.ChangePassphrasePanel
  * @extends Ext.Panel
  *
  * The panel containing the form for changing a users passphrase.
  * @xtype smime.changepassphrasepanel
  */
-Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @constructor
 	 * @param config Configuration structure
@@ -42,7 +42,7 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 				hideMode: 'visibility',
 				xtype: 'displayfield',
 				ref: 'wrong_passphrase',
-				cls: 'zarafa-smime-invalid-text',
+				cls: 'grommunio-smime-invalid-text',
 				value: _('Wrong passphrase. Please try again')
 			},{
 				hideLabel: true,
@@ -79,12 +79,12 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 				hidden: true,
 				xtype: 'displayfield',
 				ref: 'wrong_verification',
-				cls: 'zarafa-smime-invalid-text',
+				cls: 'grommunio-smime-invalid-text',
 				value: _("The passphrases don't match. Please try again")
 			}]
 		});
 
-		Zarafa.plugins.smime.dialogs.ChangePassphrasePanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.smime.dialogs.ChangePassphrasePanel.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -125,7 +125,7 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 				'passphrase': this.old_passphrase.getValue(),
 				'new_passphrase': this.new_passphrase.getValue()
 			},
-			new Zarafa.plugins.smime.data.SmimeResponseHandler({
+			new Grommunio.plugins.smime.data.SmimeResponseHandler({
 				successCallback : this.onChangePassphraseRequest.createDelegate(this)
 			})
 		);
@@ -135,7 +135,7 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 	 * Handler for successCallback of the change passphrase change request.
 	 */
 	onChangePassphraseRequest: function(response) {
-		if (response.code === Zarafa.plugins.smime.CHANGE_CERTIFICATE_SUCCESS) {
+		if (response.code === Grommunio.plugins.smime.CHANGE_CERTIFICATE_SUCCESS) {
 			container.getNotifier().notify('info.saved', _('S/MIME Message'), _('Passphrase changed successfully'));
 			this.dialog.close();
 		} else {
@@ -144,4 +144,4 @@ Zarafa.plugins.smime.dialogs.ChangePassphrasePanel = Ext.extend(Ext.Panel, {
 	}
 });
 
-Ext.reg('smime.changepassphrasepanel', Zarafa.plugins.smime.dialogs.ChangePassphrasePanel);
+Ext.reg('smime.changepassphrasepanel', Grommunio.plugins.smime.dialogs.ChangePassphrasePanel);

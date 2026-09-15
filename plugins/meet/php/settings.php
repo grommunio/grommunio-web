@@ -27,7 +27,7 @@ class Pluginmeet extends Plugin {
 		if (defined('MEET_DEFAULTS') && is_array(MEET_DEFAULTS)) {
 			$data['settingsObj']->addSysAdminDefaults(
 				[
-					'zarafa' => [
+					'grommunio' => [
 						'v1' => [
 							'plugins' => [
 								'meet' => MEET_DEFAULTS,

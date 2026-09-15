@@ -1,14 +1,14 @@
-Ext.namespace('Zarafa.plugins.files.backend.Default');
+Ext.namespace('Grommunio.plugins.files.backend.Default');
 
 /**
  *
- * @class Zarafa.plugins.files.backend.Default.DefaultBackend
- * @extends Zarafa.core.Plugin
+ * @class Grommunio.plugins.files.backend.Default.DefaultBackend
+ * @extends Grommunio.core.Plugin
  *
  * Plugin for the default WebDAV backend. It requires the main files plugin.
  */
-Zarafa.plugins.files.backend.Default.DefaultBackend = Ext.extend(
-	Zarafa.core.Plugin,
+Grommunio.plugins.files.backend.Default.DefaultBackend = Ext.extend(
+	Grommunio.core.Plugin,
 	{
 		/**
 		 * Constructor
@@ -17,7 +17,7 @@ Zarafa.plugins.files.backend.Default.DefaultBackend = Ext.extend(
 		constructor: function (config) {
 			config = config || {};
 
-			Zarafa.plugins.files.backend.Default.DefaultBackend.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Default.DefaultBackend.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -27,7 +27,7 @@ Zarafa.plugins.files.backend.Default.DefaultBackend = Ext.extend(
 		 * Initialize all insertion points.
 		 */
 		initPlugin: function () {
-			Zarafa.plugins.files.backend.Default.DefaultBackend.superclass.initPlugin.apply(
+			Grommunio.plugins.files.backend.Default.DefaultBackend.superclass.initPlugin.apply(
 				this,
 				arguments,
 			);
@@ -39,7 +39,7 @@ Zarafa.plugins.files.backend.Default.DefaultBackend = Ext.extend(
 			);
 
 			// Register common specific dialog types
-			Zarafa.core.data.SharedComponentType.addProperty(
+			Grommunio.core.data.SharedComponentType.addProperty(
 				'filesplugin.default.useredit',
 			);
 		},
@@ -58,14 +58,14 @@ Zarafa.plugins.files.backend.Default.DefaultBackend = Ext.extend(
 		/**
 		 * Bid for the type of shared component
 		 * and the given record.
-		 * @param {Zarafa.core.data.SharedComponentType} type Type of component a context can bid for.
+		 * @param {Grommunio.core.data.SharedComponentType} type Type of component a context can bid for.
 		 * @param {Ext.data.Record} record Optionally passed record.
 		 * @return {Number} The bid for the shared component
 		 */
 		bidSharedComponent: function (type, record) {
 			var bid = -1;
 			switch (type) {
-				case Zarafa.core.data.SharedComponentType[
+				case Grommunio.core.data.SharedComponentType[
 					'filesplugin.default.useredit'
 				]:
 					bid = 1;
@@ -77,18 +77,18 @@ Zarafa.plugins.files.backend.Default.DefaultBackend = Ext.extend(
 		/**
 		 * Will return the reference to the shared component.
 		 * Based on the type of component requested a component is returned.
-		 * @param {Zarafa.core.data.SharedComponentType} type Type of component a context can bid for.
+		 * @param {Grommunio.core.data.SharedComponentType} type Type of component a context can bid for.
 		 * @param {Ext.data.Record} record Optionally passed record.
 		 * @return {Ext.Component} Component
 		 */
 		getSharedComponent: function (type, record) {
 			var component;
 			switch (type) {
-				case Zarafa.core.data.SharedComponentType[
+				case Grommunio.core.data.SharedComponentType[
 					'filesplugin.default.useredit'
 				]:
 					component =
-						Zarafa.plugins.files.backend.Default.ui
+						Grommunio.plugins.files.backend.Default.ui
 							.FilesShareUserEditContentPanel;
 					break;
 			}
@@ -99,13 +99,13 @@ Zarafa.plugins.files.backend.Default.DefaultBackend = Ext.extend(
 );
 
 // Register plugin
-Zarafa.onReady(function () {
+Grommunio.onReady(function () {
 	container.registerPlugin(
-		new Zarafa.core.PluginMetaData({
+		new Grommunio.core.PluginMetaData({
 			name: 'filesbackendDefault', // this name must be in format "filesbackend<Backendname>"
 			displayName: _('Files: Default plugin'),
 			allowUserDisable: false, // don't allow to disable this plugin - files will get confused if it is disabled
-			pluginConstructor: Zarafa.plugins.files.backend.Default.DefaultBackend,
+			pluginConstructor: Grommunio.plugins.files.backend.Default.DefaultBackend,
 		}),
 	);
 });

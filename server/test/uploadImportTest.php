@@ -70,7 +70,7 @@ try {
 
 		throw new RuntimeException('An unreadable attachment was accepted.');
 	}
-	catch (ZarafaException) {
+	catch (GrommunioException) {
 		// Expected failure for an unreadable attachment.
 	}
 	finally {

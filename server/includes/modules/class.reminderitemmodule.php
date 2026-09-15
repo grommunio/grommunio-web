@@ -110,7 +110,7 @@ class ReminderItemModule extends ItemModule {
 			$newProps = [PR_ENTRYID => $entryid];
 			$props = mapi_getprops($message, $this->properties);
 
-			$snoozeTime = $GLOBALS["settings"]->get('zarafa/v1/main/reminder/default_snooze_time', 5);
+			$snoozeTime = $GLOBALS["settings"]->get('grommunio/v1/main/reminder/default_snooze_time', 5);
 			if (isset($action["message_action"]["snoozeTime"]) && is_numeric($action["message_action"]["snoozeTime"])) {
 				$snoozeTime = $action["message_action"]["snoozeTime"];
 			}

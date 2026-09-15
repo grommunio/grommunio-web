@@ -207,10 +207,10 @@
 
 		/**
 		 * Event handler for the {@link #beforeshow} event. This will go through all
-		 * {@link Zarafa.core.ui.menu.ConditionalItem items} in the menu and call the
-		 * {@link Zarafa.core.ui.menu.ConditionalItem#beforeShow} function.
+		 * {@link Grommunio.core.ui.menu.ConditionalItem items} in the menu and call the
+		 * {@link Grommunio.core.ui.menu.ConditionalItem#beforeShow} function.
 		 *
-		 * @param {Zarafa.core.ui.menu.ConditionalMenu} menu The menu which is being opened.
+		 * @param {Grommunio.core.ui.menu.ConditionalMenu} menu The menu which is being opened.
 		 * @private
 		 */
 		onBeforeShowMoreMenu: function (menu)

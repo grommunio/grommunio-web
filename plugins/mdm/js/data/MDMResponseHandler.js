@@ -1,12 +1,12 @@
-Ext.namespace('Zarafa.plugins.mdm.data');
+Ext.namespace('Grommunio.plugins.mdm.data');
 
 /**
- * @class Zarafa.plugins.mdm.data.MDMResponseHandler
- * @extends Zarafa.core.data.AbstractResponseHandler
+ * @class Grommunio.plugins.mdm.data.MDMResponseHandler
+ * @extends Grommunio.core.data.AbstractResponseHandler
  *
  * MDM specific response handler.
  */
-Zarafa.plugins.mdm.data.MDMResponseHandler = Ext.extend(Zarafa.core.data.AbstractResponseHandler, {
+Grommunio.plugins.mdm.data.MDMResponseHandler = Ext.extend(Grommunio.core.data.AbstractResponseHandler, {
 
 	/**
 	 * @cfg {Function} successCallback The function which
@@ -113,4 +113,4 @@ Zarafa.plugins.mdm.data.MDMResponseHandler = Ext.extend(Zarafa.core.data.Abstrac
 	}
 });
 
-Ext.reg('mdm.responsehandler', Zarafa.plugins.mdm.data.MDMResponseHandler);
+Ext.reg('mdm.responsehandler', Grommunio.plugins.mdm.data.MDMResponseHandler);

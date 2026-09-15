@@ -84,7 +84,7 @@
     overflow-y: auto;
 }
 
-.zarafa-hierarchy-node-backend {
+.grommunio-hierarchy-node-backend {
     font-weight: normal;
     color: var(--ui-text-3) !important;
     font-style: italic !important;

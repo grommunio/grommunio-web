@@ -6,7 +6,7 @@
 	"repository": "https://github.com/grommunio/grommunio-web",
 	"scripts": {
 		"phplint": "phpmd server text .phpmd.xml || true",
-		"lint": "eslint client/zarafa",
+		"lint": "eslint client/grommunio",
 		"phplintci": "phpmd server xml .phpmd.xml --ignore-violations-on-exit | python tools/violations_to_junit.py > phpmd.xml",
 		"build:icons": "node tools/build-icons.js",
 		"build:pgp-vendor": "node tools/build-pgp-vendor.mjs",

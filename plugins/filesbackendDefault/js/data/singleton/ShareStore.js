@@ -1,18 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.backend.Default.data.singleton');
+Ext.namespace('Grommunio.plugins.files.backend.Default.data.singleton');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.data.singleton.ShareStore
+ * @class Grommunio.plugins.files.backend.Default.data.singleton.ShareStore
  * @extends Object
  *
- * This singleton provides access to the {@link Zarafa.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
+ * This singleton provides access to the {@link Grommunio.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
  * It must be initialized once by calling the init method.
  */
-Zarafa.plugins.files.backend.Default.data.singleton.ShareStore = Ext.extend(
+Grommunio.plugins.files.backend.Default.data.singleton.ShareStore = Ext.extend(
 	Object,
 	{
 		/**
 		 * @property
-		 * @type Zarafa.plugins.files.data.AccountStore
+		 * @type Grommunio.plugins.files.data.AccountStore
 		 * @private
 		 */
 		store: undefined,
@@ -22,7 +22,7 @@ Zarafa.plugins.files.backend.Default.data.singleton.ShareStore = Ext.extend(
 		 * @param {Number} fileType folder or file
 		 */
 		init: function (fileType) {
-			this.store = new Zarafa.plugins.files.backend.Default.data.ShareGridStore(
+			this.store = new Grommunio.plugins.files.backend.Default.data.ShareGridStore(
 				fileType,
 			);
 		},
@@ -36,7 +36,7 @@ Zarafa.plugins.files.backend.Default.data.singleton.ShareStore = Ext.extend(
 		 * - shareWith: ownclouds internal user identifier
 		 * - shareWithDisplayname: the shareusers displayname
 		 * - permissions: bytecode presentation of the chare permissions
-		 * - shareType: type of the share, one of Zarafa.plugins.files.backend.Default.data.RecipientTypes
+		 * - shareType: type of the share, one of Grommunio.plugins.files.backend.Default.data.RecipientTypes
 		 */
 		addUser: function (shareOpts) {
 			var permissionCreate = false;
@@ -84,7 +84,7 @@ Zarafa.plugins.files.backend.Default.data.singleton.ShareStore = Ext.extend(
 		 * - shareWith: ownclouds internal user identifier
 		 * - shareWithDisplayname: the shareusers displayname
 		 * - permissions: bytecode presentation of the chare permissions
-		 * - shareType: type of the share, one of Zarafa.plugins.files.backend.Default.data.RecipientTypes
+		 * - shareType: type of the share, one of Grommunio.plugins.files.backend.Default.data.RecipientTypes
 		 */
 		addGroup: function (shareOpts) {
 			var permissionCreate = false;
@@ -124,8 +124,8 @@ Zarafa.plugins.files.backend.Default.data.singleton.ShareStore = Ext.extend(
 		},
 
 		/**
-		 * Get instance of the {@link Zarafa.plugins.files.data.AccountStore Accountstore}
-		 * @return {Zarafa.plugins.files.data.AccountStore} the account store
+		 * Get instance of the {@link Grommunio.plugins.files.data.AccountStore Accountstore}
+		 * @return {Grommunio.plugins.files.data.AccountStore} the account store
 		 */
 		getStore: function () {
 			return this.store;
@@ -134,5 +134,5 @@ Zarafa.plugins.files.backend.Default.data.singleton.ShareStore = Ext.extend(
 );
 
 // Make it a Singleton
-Zarafa.plugins.files.backend.Default.data.singleton.ShareStore =
-	new Zarafa.plugins.files.backend.Default.data.singleton.ShareStore();
+Grommunio.plugins.files.backend.Default.data.singleton.ShareStore =
+	new Grommunio.plugins.files.backend.Default.data.singleton.ShareStore();

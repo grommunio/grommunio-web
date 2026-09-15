@@ -9,7 +9,7 @@ require_once dirname(__DIR__) . '/includes/core/class.operations.php';
 if (!class_exists('BaseException')) {
 	class BaseException extends Exception {}
 }
-require_once dirname(__DIR__) . '/includes/exceptions/class.ZarafaException.php';
+require_once dirname(__DIR__) . '/includes/exceptions/class.GrommunioException.php';
 require_once dirname(__DIR__) . '/includes/modules/class.module.php';
 require_once dirname(__DIR__) . '/includes/modules/class.listmodule.php';
 require_once dirname(__DIR__) . '/includes/modules/class.appointmentlistmodule.php';

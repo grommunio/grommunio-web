@@ -1,7 +1,7 @@
 <?php
 
 // required to handle php errors
-require_once __DIR__ . '/exceptions/class.ZarafaErrorException.php';
+require_once __DIR__ . '/exceptions/class.GrommunioErrorException.php';
 require_once __DIR__ . '/download_base.php';
 
 /**
@@ -111,7 +111,7 @@ class DownloadMessage extends DownloadBase {
 			unlink($randomZipName);
 
 			// Throw exception if ZIP is not created successfully
-			throw new ZarafaException(_("ZIP is not created successfully"));
+			throw new GrommunioException(_("ZIP is not created successfully"));
 		}
 
 		$zip->close();

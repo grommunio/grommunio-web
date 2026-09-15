@@ -1,15 +1,15 @@
-Ext.namespace('Zarafa.plugins.files.data');
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.FilesFoldersSubStore
- * @extends Zarafa.core.data.IPFStore
+ * @class Grommunio.plugins.files.data.FilesFoldersSubStore
+ * @extends Grommunio.core.data.IPFStore
  */
-Zarafa.plugins.files.data.FilesFoldersSubStore = Ext.extend(Zarafa.core.data.IPFStore, {
+Grommunio.plugins.files.data.FilesFoldersSubStore = Ext.extend(Grommunio.core.data.IPFStore, {
 
 	/**
-	 * The {@link Zarafa.core.data.MAPIRecord MAPIRecord} that is the parent of this store.
+	 * The {@link Grommunio.core.data.MAPIRecord MAPIRecord} that is the parent of this store.
 	 * @property
-	 * @type Zarafa.core.data.MAPIRecord
+	 * @type Grommunio.core.data.MAPIRecord
 	 */
 	parentRecord: null,
 
@@ -21,17 +21,17 @@ Zarafa.plugins.files.data.FilesFoldersSubStore = Ext.extend(Zarafa.core.data.IPF
 	{
 		config = config || {};
 
-		var recordType = Zarafa.core.data.RecordFactory.getRecordClassByCustomType(Zarafa.core.data.RecordCustomObjectType.FILES_FOLDER);
+		var recordType = Grommunio.core.data.RecordFactory.getRecordClassByCustomType(Grommunio.core.data.RecordCustomObjectType.FILES_FOLDER);
 
 		Ext.applyIf(config, {
-			proxy: new Zarafa.plugins.files.data.FilesHierarchyProxy(),
-			writer : new Zarafa.core.data.JsonWriter(),
-			reader : new Zarafa.core.data.JsonReader({
+			proxy: new Grommunio.plugins.files.data.FilesHierarchyProxy(),
+			writer : new Grommunio.core.data.JsonWriter(),
+			reader : new Grommunio.core.data.JsonReader({
 				dynamicRecord : false,
 			}, recordType)
 		});
 
-		Zarafa.plugins.files.data.FilesFoldersSubStore.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.data.FilesFoldersSubStore.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -53,7 +53,7 @@ Zarafa.plugins.files.data.FilesFoldersSubStore = Ext.extend(Zarafa.core.data.IPF
 			parentRecord.afterEdit();
 		}
 
-		Zarafa.plugins.files.data.FilesFoldersSubStore.superclass.createRecords.call(this, store, record, index);
+		Grommunio.plugins.files.data.FilesFoldersSubStore.superclass.createRecords.call(this, store, record, index);
 	},
 
 	/**
@@ -69,12 +69,12 @@ Zarafa.plugins.files.data.FilesFoldersSubStore = Ext.extend(Zarafa.core.data.IPF
 		if(this.getParentRecord()){
 			this.getParentRecord().markDirty();
 		}
-		Zarafa.plugins.files.data.FilesFoldersSubStore.superclass.destroyRecord.call(this, store, record, index);
+		Grommunio.plugins.files.data.FilesFoldersSubStore.superclass.destroyRecord.call(this, store, record, index);
 	},
 
 	/**
-	 * Get the {@link Zarafa.core.data.IPFRecord IPFRecord} that is the parent of this store.
-	 * @return {Zarafa.core.data.IPFRecord} The parent IPFRecord.
+	 * Get the {@link Grommunio.core.data.IPFRecord IPFRecord} that is the parent of this store.
+	 * @return {Grommunio.core.data.IPFRecord} The parent IPFRecord.
 	 */
 	getParentRecord : function()
 	{
@@ -82,8 +82,8 @@ Zarafa.plugins.files.data.FilesFoldersSubStore = Ext.extend(Zarafa.core.data.IPF
 	},
 
 	/**
-	 * Set the {@link Zarafa.core.data.IPFRecord IPFRecord} that is the parent of this store.
-	 * @param {Zarafa.core.data.IPFRecord} record The parent IPFRecord.
+	 * Set the {@link Grommunio.core.data.IPFRecord IPFRecord} that is the parent of this store.
+	 * @param {Grommunio.core.data.IPFRecord} record The parent IPFRecord.
 	 */
 	setParentRecord : function(record)
 	{
@@ -92,12 +92,12 @@ Zarafa.plugins.files.data.FilesFoldersSubStore = Ext.extend(Zarafa.core.data.IPF
 
 	/**
 	 * Notification handler called by {@link #onNotify} when
-	 * a {@link Zarafa.core.data.Notifications#objectDeleted objectDeleted}
+	 * a {@link Grommunio.core.data.Notifications#objectDeleted objectDeleted}
 	 * notification has been received.
 	 *
 	 * This will remove the folder from the store.
 	 *
-	 * @param {Zarafa.core.data.Notifications} action The notification action
+	 * @param {Grommunio.core.data.Notifications} action The notification action
 	 * @param {Ext.data.Record/Array} records The record or records which have been affected by the notification.
 	 * @param {Object} data The data which has been received from the PHP-side which must be applied
 	 * to the given records.
@@ -123,12 +123,12 @@ Zarafa.plugins.files.data.FilesFoldersSubStore = Ext.extend(Zarafa.core.data.IPF
 
 	/**
 	 * Notification handler called by {@link #onNotify} when
-	 * a {@link Zarafa.core.data.Notifications#objectModified objectModified}
+	 * a {@link Grommunio.core.data.Notifications#objectModified objectModified}
 	 * notification has been received.
 	 *
 	 * This will update the folder in the store.
 	 *
-	 * @param {Zarafa.core.data.Notifications} action The notification action
+	 * @param {Grommunio.core.data.Notifications} action The notification action
 	 * @param {Ext.data.Record/Array} records The record or records which have been affected by the notification.
 	 * @param {Object} data The data which has been received from the PHP-side which must be applied
 	 * to the given records.
@@ -181,7 +181,7 @@ Zarafa.plugins.files.data.FilesFoldersSubStore = Ext.extend(Zarafa.core.data.IPF
 			var entryId = this.parentRecord.get('store_entryid');
 
 			for (var i = 0, len = entryidList.length; i < len; i++) {
-				if (Zarafa.core.EntryId.compareStoreEntryIds(entryId, entryidList[i])) {
+				if (Grommunio.core.EntryId.compareStoreEntryIds(entryId, entryidList[i])) {
 					return true;
 				}
 			}
@@ -192,12 +192,12 @@ Zarafa.plugins.files.data.FilesFoldersSubStore = Ext.extend(Zarafa.core.data.IPF
 
 	/**
 	 * Notification handler called by {@link #onNotify} when
-	 * a {@link Zarafa.core.data.Notifications#objectCreated objectCreated}
+	 * a {@link Grommunio.core.data.Notifications#objectCreated objectCreated}
 	 * notification has been received.
 	 *
 	 * This will add the folder to the store.
 	 *
-	 * @param {Zarafa.core.data.Notifications} action The notification action
+	 * @param {Grommunio.core.data.Notifications} action The notification action
 	 * @param {Ext.data.Record/Array} records The record or records which have been affected by the notification.
 	 * @param {Object} data The data which has been received from the PHP-side which must be applied
 	 * to the given records.
@@ -220,7 +220,7 @@ Zarafa.plugins.files.data.FilesFoldersSubStore = Ext.extend(Zarafa.core.data.IPF
 
 	/**
 	 * <p>Loads the Record cache from the configured <tt>{@link #proxy}</tt> using the configured <tt>{@link #reader}</tt>.</p>
-	 * <br> Function just adds 'list' as actionType in options and calls parent {@link Zarafa.core.data.IPFStore#load} method.
+	 * <br> Function just adds 'list' as actionType in options and calls parent {@link Grommunio.core.data.IPFStore#load} method.
 	 * <br> Check documentation of {@link Ext.data.Store#load} for more information.
 	 *
 	 * @param {Object} options An object containing properties which control loading.
@@ -264,9 +264,9 @@ Zarafa.plugins.files.data.FilesFoldersSubStore = Ext.extend(Zarafa.core.data.IPF
 		}
 
 		Ext.applyIf(options, {
-			actionType : Zarafa.core.Actions['list']
+			actionType : Grommunio.core.Actions['list']
 		});
 
-		return Zarafa.plugins.files.data.FilesFoldersSubStore.superclass.load.call(this, options);
+		return Grommunio.plugins.files.data.FilesFoldersSubStore.superclass.load.call(this, options);
 	}
 });

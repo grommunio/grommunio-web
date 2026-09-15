@@ -1,15 +1,15 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+Ext.namespace('Grommunio.plugins.files.ui');
 
-Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.DraggableDataView, {
+Grommunio.plugins.files.ui.FilesRecordIconView = Ext.extend(Grommunio.common.ui.DraggableDataView, {
 	/**
-	 * @cfg {Zarafa.plugins.files.FilesContext} context The context to which this context menu belongs.
+	 * @cfg {Grommunio.plugins.files.FilesContext} context The context to which this context menu belongs.
 	 */
 	context : undefined,
 
 	/**
-	 * The {@link Zarafa.plugins.files.FilesContextModel} which is obtained from the {@link #context}.
+	 * The {@link Grommunio.plugins.files.FilesContextModel} which is obtained from the {@link #context}.
 	 * @property
-	 * @type Zarafa.plugins.files.FilesContextModel
+	 * @type Grommunio.plugins.files.FilesContextModel
 	 */
 	model: undefined,
 
@@ -30,25 +30,25 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 		config.store = Ext.StoreMgr.lookup(config.store);
 
 		config.plugins = Ext.value(config.plugins, []);
-		config.plugins.push('zarafa.icondragselectorplugin');
+		config.plugins.push('grommunio.icondragselectorplugin');
 
 		Ext.applyIf(config, {
 			xtype: 'filesplugin.filesrecordiconview',
-			cls           : 'zarafa-files-iconview',
+			cls           : 'grommunio-files-iconview',
 			loadingText   : _('Loading files') + '...',
 			deferEmptyText: false,
 			autoScroll    : true,
 			emptyText     : '<div class="emptytext">' + _('There are no items to show in this view') + '</div>',
-			overClass     : 'zarafa-files-iconview-over',
+			overClass     : 'grommunio-files-iconview-over',
 			tpl           : this.initTemplate(),
 			multiSelect   : true,
-			selectedClass : 'zarafa-files-iconview-selected',
-			itemSelector  : 'div.zarafa-files-iconview-thumb',
+			selectedClass : 'grommunio-files-iconview-selected',
+			itemSelector  : 'div.grommunio-files-iconview-thumb',
 			enableDragDrop: true,
 			ddGroup       : 'dd.filesrecord'
 		});
 
-		Zarafa.plugins.files.ui.FilesRecordIconView.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.FilesRecordIconView.superclass.constructor.call(this, config);
 
 		this.initEvents();
 	},
@@ -57,9 +57,9 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 		return new Ext.XTemplate(
 			'<div style="height: 100%; width: 100%; overflow: auto;">',
 				'<tpl for=".">',
-					'<div class="zarafa-files-iconview-thumb">',
-						'<div class="zarafa-files-iconview-icon {.:this.getTheme} {.:this.getHidden}"></div>',
-						'<div class="zarafa-files-iconview-subject">{filename:htmlEncode}</div>',
+					'<div class="grommunio-files-iconview-thumb">',
+						'<div class="grommunio-files-iconview-icon {.:this.getTheme} {.:this.getHidden}"></div>',
+						'<div class="grommunio-files-iconview-subject">{filename:htmlEncode}</div>',
 					'</div>',
 				'</tpl>',
 			'</div>',
@@ -72,11 +72,11 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 				},
 				getTheme: function (record) {
 					switch (record.type) {
-						case Zarafa.plugins.files.data.FileTypes.FOLDER:
-							return Zarafa.plugins.files.data.Utils.File.getIconClass("folder");
+						case Grommunio.plugins.files.data.FileTypes.FOLDER:
+							return Grommunio.plugins.files.data.Utils.File.getIconClass("folder");
 							break;
-						case Zarafa.plugins.files.data.FileTypes.FILE:
-							return Zarafa.plugins.files.data.Utils.File.getIconClass(record.filename);
+						case Grommunio.plugins.files.data.FileTypes.FILE:
+							return Grommunio.plugins.files.data.Utils.File.getIconClass(record.filename);
 							break;
 						default:
 							return 'files48icon_blank';
@@ -103,16 +103,16 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 	/**
 	 * Event handler triggers when folder is record is created.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesRecordStore} store The store which fires this event.
+	 * @param {Grommunio.plugins.files.data.FilesRecordStore} store The store which fires this event.
 	 * @param {String} parentFolderId The parentFolderId under which folder was created.
 	 * @param {Object} data The data contains the information about newly created folder.
 	 */
 	onCreateFolder : function (store, parentFolderId, data)
 	{
 		if (store.getPath() === parentFolderId) {
-			var record = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_FILES, data);
+			var record = Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_FILES, data);
 			store.add(record);
-			store.on("update", Zarafa.plugins.files.data.Actions.doRefreshIconView, Zarafa.plugins.files.data.Actions, {single: true});
+			store.on("update", Grommunio.plugins.files.data.Actions.doRefreshIconView, Grommunio.plugins.files.data.Actions, {single: true});
 			record.commit(true);
 		}
 	},
@@ -120,14 +120,14 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 	onAfterRender: function ()
 	{
 		// Add key maps only while keyboard shortcut is enable
-		if (Zarafa.core.KeyMapMgr.isGloballyEnabled()) {
+		if (Grommunio.core.KeyMapMgr.isGloballyEnabled()) {
 			this.keyMap = new Ext.KeyMap(this.getEl(), {
 				key: Ext.EventObject.DELETE,
 				fn: this.onKeyDelete.createDelegate(this)
 			});
 
 			// Disable all other key maps for this element
-			Zarafa.core.KeyMapMgr.disableAllKeymaps(this.getEl());
+			Grommunio.core.KeyMapMgr.disableAllKeymaps(this.getEl());
 		}
 
 		this.initDropTarget();
@@ -135,7 +135,7 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 
 	onKeyDelete: function (key, event) {
 		var selections = this.getSelectedRecords();
-		Zarafa.plugins.files.data.Actions.deleteRecords(selections);
+		Grommunio.plugins.files.data.Actions.deleteRecords(selections);
 	},
 
 	initDropTarget: function () {
@@ -162,12 +162,12 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 				if (Ext.isDefined(dragData)) {
 					var cellindex = dragData.index;
 					var dropTarget = this.fileStore.getAt(cellindex);
-					if (Ext.isDefined(cellindex) && dropTarget.get('type') === Zarafa.plugins.files.data.FileTypes.FOLDER) {
+					if (Ext.isDefined(cellindex) && dropTarget.get('type') === Grommunio.plugins.files.data.FileTypes.FOLDER) {
 
 						Ext.each(data.selections, function (record) {
 							record.setDisabled(true);
 						});
-						return Zarafa.plugins.files.data.Actions.moveRecords(data.selections, dropTarget, {hierarchyStore: this.model.getHierarchyStore()});
+						return Grommunio.plugins.files.data.Actions.moveRecords(data.selections, dropTarget, {hierarchyStore: this.model.getHierarchyStore()});
 					}
 				}
 
@@ -183,7 +183,7 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 					if (Ext.isDefined(cellindex)) {
 						var dropTarget = this.fileStore.getAt(cellindex);
 
-						if (dropTarget.get('type') === Zarafa.plugins.files.data.FileTypes.FOLDER) {
+						if (dropTarget.get('type') === Grommunio.plugins.files.data.FileTypes.FOLDER) {
 							ret = this.dropAllowed;
 						}
 
@@ -244,7 +244,7 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 		event.preventDefault();
 
 		var files = event.browserEvent.target.files || event.browserEvent.dataTransfer.files;
-		Zarafa.plugins.files.data.Actions.uploadAsyncItems(files, this.getStore());
+		Grommunio.plugins.files.data.Actions.uploadAsyncItems(files, this.getStore());
 	},
 
 	openContextMenuForNode: function (index, node, event) {
@@ -264,7 +264,7 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 		});
 
 		if (show) {
-			return Zarafa.core.data.UIFactory.openDefaultContextMenu(records, {
+			return Grommunio.core.data.UIFactory.openDefaultContextMenu(records, {
 				position: event.getXY(),
 				context : this.context
 			});
@@ -275,10 +275,10 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 	{
 		var store = this.getStore();
 		var record = store.getAt(index);
-		if (record.get('type') === Zarafa.plugins.files.data.FileTypes.FOLDER) {
-			Zarafa.plugins.files.data.Actions.openFolder(this.model, record.get('entryid'));
+		if (record.get('type') === Grommunio.plugins.files.data.FileTypes.FOLDER) {
+			Grommunio.plugins.files.data.Actions.openFolder(this.model, record.get('entryid'));
 		} else {
-			Zarafa.plugins.files.data.Actions.openFile(record);
+			Grommunio.plugins.files.data.Actions.openFile(record);
 		}
 	},
 
@@ -301,11 +301,11 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 		var viewMode = this.context.getCurrentViewMode();
 		var count = records.length;
 
-		if (viewMode !== Zarafa.plugins.files.data.ViewModes.NO_PREVIEW) {
+		if (viewMode !== Grommunio.plugins.files.data.ViewModes.NO_PREVIEW) {
 			if (count !== 1) {
 				this.model.setPreviewRecord(undefined);
 			} else if (count == 1) {
-				if (records[0].get('folder_id') !== (container.getSettingsModel().get('zarafa/v1/contexts/files/files_path') + "/") && records[0].get('filename') !== "..") {
+				if (records[0].get('folder_id') !== (container.getSettingsModel().get('grommunio/v1/contexts/files/files_path') + "/") && records[0].get('filename') !== "..") {
 					this.model.setPreviewRecord(records[0]);
 				} else {
 					this.model.setPreviewRecord(undefined);
@@ -315,4 +315,4 @@ Zarafa.plugins.files.ui.FilesRecordIconView = Ext.extend(Zarafa.common.ui.Dragga
 	}
 });
 
-Ext.reg('filesplugin.filesrecordiconview', Zarafa.plugins.files.ui.FilesRecordIconView);
+Ext.reg('filesplugin.filesrecordiconview', Grommunio.plugins.files.ui.FilesRecordIconView);

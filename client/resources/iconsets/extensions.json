@@ -2,11 +2,11 @@
 	".drop-yes": ".x-tree-drop-ok-append .x-dd-drop-icon",
 	".drop-add": ".x-tree-drop-ok-append-add .x-dd-drop-icon",
 	".drop-no": ".x-dd-drag-proxy.x-dd-drop-nodrop .x-dd-drop-icon",
-	".icon_mail_large_white": ".x-btn.zarafa-action .icon_new_email",
-	".icon_calendar_large_white": ".x-btn.zarafa-action .icon_new_appointment",
-	".icon_contact_large_white": ".x-btn.zarafa-action .icon_new_contact",
-	".icon_task_large_white": ".x-btn.zarafa-action .icon_new_task",
-	".icon_note_large_white": ".x-btn.zarafa-action .icon_new_note",
+	".icon_mail_large_white": ".x-btn.grommunio-action .icon_new_email",
+	".icon_calendar_large_white": ".x-btn.grommunio-action .icon_new_appointment",
+	".icon_contact_large_white": ".x-btn.grommunio-action .icon_new_contact",
+	".icon_task_large_white": ".x-btn.grommunio-action .icon_new_task",
+	".icon_note_large_white": ".x-btn.grommunio-action .icon_new_note",
 
 	".icon_settings": "#mainmenu-button-settings em",
 	".icon_logout": "#mainmenu-button-logout em",
@@ -77,7 +77,7 @@
 	".icon_calendar_appt_newtime": ".icon_appt_meeting_newtime",
 	".icon_contact_card": [
 		".icon_contact_user",
-		".x-zarafa-boxfield-recipient-item-ambiguous .x-zarafa-boxfield-item-icon"
+		".x-grommunio-boxfield-recipient-item-ambiguous .x-grommunio-boxfield-item-icon"
 	],
 	".icon_distlist": ".icon_contact_distlist",
 
@@ -95,21 +95,21 @@
 	],
 	".icon_task_assigned": ".icon_task_assignee",
 
-	".icon_unread_mail": ".zarafa-settings-category-mail",
+	".icon_unread_mail": ".grommunio-settings-category-mail",
 	".icon_oof": [
-		".zarafa-settings-category-oof",
-		".zarafa-settings-favorite-oof"
+		".grommunio-settings-category-oof",
+		".grommunio-settings-favorite-oof"
 	],
-	".icon_funnel": ".zarafa-settings-category-rules",
-	".icon_calendar": ".zarafa-settings-category-calendar",
-	".delegates_s": ".zarafa-settings-category-delegate",
-	".icon_safesenders": ".zarafa-settings-category-safesenders",
-	".icon_sendas": ".zarafa-settings-category-sendas",
-	".icon_plug": ".zarafa-settings-category-plugins",
-	".icon_shortcuts": ".zarafa-settings-category-keyshortcut",
-	".icon_spanner": ".zarafa-settings-category-advanced",
-	".icon_seal": ".zarafa-settings-category-copyright",
-	".icon_signature": ".zarafa-settings-favorite-signatures",
+	".icon_funnel": ".grommunio-settings-category-rules",
+	".icon_calendar": ".grommunio-settings-category-calendar",
+	".delegates_s": ".grommunio-settings-category-delegate",
+	".icon_safesenders": ".grommunio-settings-category-safesenders",
+	".icon_sendas": ".grommunio-settings-category-sendas",
+	".icon_plug": ".grommunio-settings-category-plugins",
+	".icon_shortcuts": ".grommunio-settings-category-keyshortcut",
+	".icon_spanner": ".grommunio-settings-category-advanced",
+	".icon_seal": ".grommunio-settings-category-copyright",
+	".icon_signature": ".grommunio-settings-favorite-signatures",
 
 	".icon_category_add_hover": [
 		".k-category-add:hover",
@@ -122,8 +122,8 @@
 	".icon_trash_dark": ".k-grid-button-delete:hover",
 	".icon_pin_outline": ".k-grid-button-pin",
 	".icon_pin_outline_dark": ".k-grid-button-pin:hover",
-	".icon_pin": ".zarafa-pinned .k-grid-button-pin",
-	".icon_pin_dark": ".zarafa-pinned .k-grid-button-pin:hover",
+	".icon_pin": ".grommunio-pinned .k-grid-button-pin",
+	".icon_pin_dark": ".grommunio-pinned .k-grid-button-pin:hover",
 
 	".folder_bw" : ".icon_open",
 	".icon_folder_rename_bw": ".icon_folder_rename",
@@ -132,7 +132,7 @@
 
 	".icon_not_current": ".icon_no_response_required",
 
-	".icon_reply_white": ".x-btn.x-btn-text-icon.zarafa-action .x-btn-small .icon_reply",
-	".icon_calendar_appt_accept_white": ".x-btn.x-btn-text-icon.zarafa-action .x-btn-small .icon_calendar_appt_accept",
-	".icon_calendar_white": ".x-btn.x-btn-text-icon.zarafa-action .x-btn-small .icon_calendar"
+	".icon_reply_white": ".x-btn.x-btn-text-icon.grommunio-action .x-btn-small .icon_reply",
+	".icon_calendar_appt_accept_white": ".x-btn.x-btn-text-icon.grommunio-action .x-btn-small .icon_calendar_appt_accept",
+	".icon_calendar_white": ".x-btn.x-btn-text-icon.grommunio-action .x-btn-small .icon_calendar"
 }

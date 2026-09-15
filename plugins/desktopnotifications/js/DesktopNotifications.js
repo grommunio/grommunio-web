@@ -1,12 +1,12 @@
-Ext.namespace('Zarafa.plugins.desktopnotifications.js');
+Ext.namespace('Grommunio.plugins.desktopnotifications.js');
 
 /**
- * @class Zarafa.plugins.desktopnotifications.js.DesktopNotification
+ * @class Grommunio.plugins.desktopnotifications.js.DesktopNotification
  * @singleton
  *
  * Singleton class to provide a wrapper for HTML5 desktop notifications feature
  */
-Zarafa.plugins.desktopnotifications.js.DesktopNotification = (function() {
+Grommunio.plugins.desktopnotifications.js.DesktopNotification = (function() {
 	return {
 		/**
 		 * Check if browser supports notifications API
@@ -92,7 +92,7 @@ Zarafa.plugins.desktopnotifications.js.DesktopNotification = (function() {
 			}
 
 			var settingsModel = container.getSettingsModel();
-			var soundDisabled = settingsModel.get('zarafa/v1/main/desktop_notification/disable_sound');
+			var soundDisabled = settingsModel.get('grommunio/v1/main/desktop_notification/disable_sound');
 
 			var notification = new Notification(title, {
 				icon : options.icon,
@@ -101,8 +101,8 @@ Zarafa.plugins.desktopnotifications.js.DesktopNotification = (function() {
 				silent: !soundDisabled ? false : true
 			});
 
-			if (settingsModel.get('zarafa/v1/plugins/desktopnotifications/autohide_enable')) {
-				var sleepTime = settingsModel.get('zarafa/v1/plugins/desktopnotifications/autohide_time') * 1000;
+			if (settingsModel.get('grommunio/v1/plugins/desktopnotifications/autohide_enable')) {
+				var sleepTime = settingsModel.get('grommunio/v1/plugins/desktopnotifications/autohide_time') * 1000;
 				setTimeout(function () {
 					notification.close();
 				}, sleepTime);

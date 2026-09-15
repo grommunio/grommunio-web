@@ -241,7 +241,7 @@ class AppointmentListModule extends ListModule {
 			$limit = $action['restriction']['limit'];
 		}
 		else {
-			$limit = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
+			$limit = $GLOBALS['settings']->get('grommunio/v1/main/page_size', 50);
 		}
 
 		$isSearchFolder = isset($action['search_folder_entryid']);

@@ -1,10 +1,10 @@
-Ext.namespace('Zarafa.plugins.chat.ui');
+Ext.namespace('Grommunio.plugins.chat.ui');
 
 /**
- * @class Zarafa.plugins.chat.ui.ContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.chat.ui.ContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  */
-Zarafa.plugins.chat.ui.ContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.chat.ui.ContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
 	/**
 	 * @constructor
 	 * @param config Configuration structure
@@ -15,20 +15,20 @@ Zarafa.plugins.chat.ui.ContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 
 		Ext.applyIf(config, {
 			// Overridden from Ext.Component
-			xtype: 'zarafa.plugins.chat.ui.contentpanel',
+			xtype: 'grommunio.plugins.chat.ui.contentpanel',
 			layout : 'fit',
 			header: false,
 			iconCls: 'icon_chat',
 			border: false,
 			items : [{
-				xtype: 'zarafa.plugins.chat.ui.panel',
+				xtype: 'grommunio.plugins.chat.ui.panel',
 				url: config.url,
 				tabOrder: config.tabOrder
 			}]
 		});
 
-		Zarafa.plugins.chat.ui.ContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.chat.ui.ContentPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('zarafa.plugins.chat.ui.contentpanel', Zarafa.plugins.chat.ui.ContentPanel);
+Ext.reg('grommunio.plugins.chat.ui.contentpanel', Grommunio.plugins.chat.ui.ContentPanel);

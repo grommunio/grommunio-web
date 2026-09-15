@@ -1,14 +1,14 @@
-Ext.namespace("Zarafa.plugins.kendox.js.settings");
+Ext.namespace("Grommunio.plugins.kendox.js.settings");
 
 /**
- * @class Zarafa.plugins.kendox.js.settings.SettingsNotificationsCategory
- * @extends Zarafa.settings.ui.SettingsCategory
- * @xtype zarafa.settingspasswdcategory
+ * @class Grommunio.plugins.kendox.js.settings.SettingsNotificationsCategory
+ * @extends Grommunio.settings.ui.SettingsCategory
+ * @xtype grommunio.settingspasswdcategory
  *
  * The Kendox InfoShare settings category that will allow users to edit urls to InfoShare API and web-dialog
  */
-Zarafa.plugins.kendox.js.settings.SettingsKendoxCategory = Ext.extend(
-	Zarafa.settings.ui.SettingsCategory,
+Grommunio.plugins.kendox.js.settings.SettingsKendoxCategory = Ext.extend(
+	Grommunio.settings.ui.SettingsCategory,
 	{
 		/**
 		 * @constructor
@@ -20,17 +20,17 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxCategory = Ext.extend(
 			Ext.applyIf(config, {
 				title: _("Kendox InfoShare"),
 				categoryIndex: 9990,
-				xtype: "zarafa.kendoxsettingscategory",
+				xtype: "grommunio.kendoxsettingscategory",
 				iconCls: "icon_kendox_settings",
 				items: [
 					{
-						xtype: "zarafa.settingskendoxwidget",
+						xtype: "grommunio.settingskendoxwidget",
 						settingsContext: config.settingsContext,
 					},
 				],
 			});
 
-			Zarafa.plugins.kendox.js.settings.SettingsKendoxCategory.superclass.constructor.call(
+			Grommunio.plugins.kendox.js.settings.SettingsKendoxCategory.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -39,23 +39,23 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxCategory = Ext.extend(
 );
 
 Ext.reg(
-	"zarafa.kendoxsettingscategory",
-	Zarafa.plugins.kendox.js.settings.SettingsKendoxCategory,
+	"grommunio.kendoxsettingscategory",
+	Grommunio.plugins.kendox.js.settings.SettingsKendoxCategory,
 );
 
 /**
- * @class Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget
- * @extends Zarafa.settings.ui.SettingsWidget
- * @xtype zarafa.settingskendoxwidget
+ * @class Grommunio.plugins.kendox.js.settings.SettingsKendoxWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
+ * @xtype grommunio.settingskendoxwidget
  *
- * The {@link Zarafa.settings.ui.SettingsWidget widget} for setup InfoShare API
- * in the {@link Zarafa.plugins.kendox.js.settings.SettingsKendoxCategory Kendox InfoShare category}.
+ * The {@link Grommunio.settings.ui.SettingsWidget widget} for setup InfoShare API
+ * in the {@link Grommunio.plugins.kendox.js.settings.SettingsKendoxCategory Kendox InfoShare category}.
  */
-Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
-	Zarafa.settings.ui.SettingsWidget,
+Grommunio.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
+	Grommunio.settings.ui.SettingsWidget,
 	{
 		/**
-		 * @cfg {Zarafa.plugins.kendox.js.KendoxPlugin} plugin The plugin which has registered this
+		 * @cfg {Grommunio.plugins.kendox.js.KendoxPlugin} plugin The plugin which has registered this
 		 * settings widget.
 		 */
 		plugin: undefined,
@@ -63,7 +63,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 		/**
 		 * Settings model instance which will be used to get current settings
 		 * @property
-		 * @type Zarafa.settings.SettingsModel
+		 * @type Grommunio.settings.SettingsModel
 		 */
 		model: undefined,
 
@@ -76,13 +76,13 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 
 			Ext.applyIf(config, {
 				title: _("Kendox InfoShare"),
-				xtype: "zarafa.settingskendoxwidget",
-				cls: "zarafa-settings-widget k-settings-kendox",
+				xtype: "grommunio.settingskendoxwidget",
+				cls: "grommunio-settings-widget k-settings-kendox",
 				autoScroll: true,
 				items: this.createPanelItems(),
 			});
 
-			Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget.superclass.constructor.call(
+			Grommunio.plugins.kendox.js.settings.SettingsKendoxWidget.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -106,7 +106,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							xtype: "numberfield",
 							allowBlank: false,
 							fieldLabel: _("Max count attachments"),
-							name: "zarafa/v1/plugins/kendox/max_attachments_number",
+							name: "grommunio/v1/plugins/kendox/max_attachments_number",
 							ref: "../max_attachments_number",
 							msgTarget: "under",
 							listeners: {
@@ -118,7 +118,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							xtype: "numberfield",
 							allowBlank: false,
 							fieldLabel: _("Max size all selected attachments (MB)"),
-							name: "zarafa/v1/plugins/kendox/max_attachments_size_mb",
+							name: "grommunio/v1/plugins/kendox/max_attachments_size_mb",
 							ref: "../max_attachments_size_mb",
 							msgTarget: "under",
 							listeners: {
@@ -138,7 +138,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 					items: [
 						{
 							xtype: "radiogroup",
-							name: "zarafa/v1/plugins/kendox/environment",
+							name: "grommunio/v1/plugins/kendox/environment",
 							ref: "../environment",
 							hideLabel: true,
 							columns: 1,
@@ -178,7 +178,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							allowBlank: false,
 							vtype: "url",
 							fieldLabel: _("Kendox InfoShare API URL"),
-							name: "zarafa/v1/plugins/kendox/api_url",
+							name: "grommunio/v1/plugins/kendox/api_url",
 							ref: "../api_url",
 							msgTarget: "under",
 							listeners: {
@@ -193,7 +193,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							allowBlank: false,
 							vtype: "url",
 							fieldLabel: _("Kendox InfoShare Web dialog URL"),
-							name: "zarafa/v1/plugins/kendox/dialog_url",
+							name: "grommunio/v1/plugins/kendox/dialog_url",
 							ref: "../dialog_url",
 							msgTarget: "under",
 							listeners: {
@@ -218,7 +218,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							allowBlank: false,
 							vtype: "url",
 							fieldLabel: _("Kendox InfoShare API URL"),
-							name: "zarafa/v1/plugins/kendox/api_url_test",
+							name: "grommunio/v1/plugins/kendox/api_url_test",
 							ref: "../api_url_test",
 							msgTarget: "under",
 							listeners: {
@@ -233,7 +233,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 							allowBlank: false,
 							vtype: "url",
 							fieldLabel: _("Kendox InfoShare Web dialog URL"),
-							name: "zarafa/v1/plugins/kendox/dialog_url_test",
+							name: "grommunio/v1/plugins/kendox/dialog_url_test",
 							ref: "../dialog_url_test",
 							msgTarget: "under",
 							listeners: {
@@ -251,7 +251,7 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 		 * model. Called when opening the settings widget or when a new
 		 * folder is selected.
 		 *
-		 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to display.
+		 * @param {Grommunio.settings.SettingsModel} settingsModel The settings to display.
 		 */
 		update: function (settingsModel) {
 			this.model = settingsModel;
@@ -265,10 +265,10 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 		},
 
 		/**
-		 * Called by the {@link Zarafa.settings.ui.SettingsCategory Category} when
-		 * it has been called with {@link zarafa.settings.ui.SettingsCategory#updateSettings}.
-		 * This is used to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
-		 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
+		 * Called by the {@link Grommunio.settings.ui.SettingsCategory Category} when
+		 * it has been called with {@link grommunio.settings.ui.SettingsCategory#updateSettings}.
+		 * This is used to update the settings from the UI into the {@link Grommunio.settings.SettingsModel settings model}.
+		 * @param {Grommunio.settings.SettingsModel} settingsModel The settings to update
 		 */
 		updateSettings: function (settingsModel) {
 			settingsModel.beginEdit();
@@ -299,6 +299,6 @@ Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget = Ext.extend(
 );
 
 Ext.reg(
-	"zarafa.settingskendoxwidget",
-	Zarafa.plugins.kendox.js.settings.SettingsKendoxWidget,
+	"grommunio.settingskendoxwidget",
+	Grommunio.plugins.kendox.js.settings.SettingsKendoxWidget,
 );

@@ -19,7 +19,7 @@ use Files\Core\Util\Logger;
 
 class AccountStore {
 	public const LOG_CONTEXT = "AccountStore"; // Context for the Logger
-	public const ACCOUNT_STORAGE_PATH = "zarafa/v1/plugins/files/accounts";
+	public const ACCOUNT_STORAGE_PATH = "grommunio/v1/plugins/files/accounts";
 	public const ACCOUNT_VERSION = 1;
 
 	/**
@@ -83,7 +83,7 @@ class AccountStore {
 
 		$GLOBALS["settings"]->saveSettings(); // save to MAPI storage
 
-		// add account to our local store after it was saved to the zarafa-settings
+		// add account to our local store after it was saved to the grommunio-settings
 		$this->accounts[$newID] = $newAccount;
 
 		return $newAccount;

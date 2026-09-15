@@ -1,7 +1,7 @@
 <?php
 
-if (!class_exists('ZarafaException')) {
-	class ZarafaException extends Exception {}
+if (!class_exists('GrommunioException')) {
+	class GrommunioException extends Exception {}
 }
 
 require_once dirname(__DIR__) . '/includes/modules/class.module.php';

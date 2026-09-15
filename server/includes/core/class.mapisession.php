@@ -809,7 +809,7 @@ class MAPISession {
 						// The user or the corresponding store couldn't be found,
 						// print an error to the log, and remove the user from the settings.
 						dump('Failed to load store for user ' . $username . ', user was not found. Removing it from settings.: ' . $e->getMessage());
-						$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . bin2hex($username), true);
+						$GLOBALS["settings"]->delete("grommunio/v1/contexts/hierarchy/shared_stores/" . bin2hex($username), true);
 					}
 					else {
 						// That is odd, something else went wrong. Lets not be hasty and preserve
@@ -824,7 +824,7 @@ class MAPISession {
 						// (e.g. the user was deleted or permissions revoked),
 						// print an error to the log, and remove the user from the settings.
 						dump(sprintf("The user %s failed to load store of the user %s. Removing it from settings.", $this->session_info["username"], $username));
-						$GLOBALS["settings"]->delete("zarafa/v1/contexts/hierarchy/shared_stores/" . bin2hex($username), true);
+						$GLOBALS["settings"]->delete("grommunio/v1/contexts/hierarchy/shared_stores/" . bin2hex($username), true);
 					}
 				}
 			}
@@ -877,7 +877,7 @@ class MAPISession {
 	 * @return array Array of usernames of delegate stores
 	 */
 	public function retrieveOtherUsersFromSettings() {
-		$other_users = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", []);
+		$other_users = $GLOBALS["settings"]->get("grommunio/v1/contexts/hierarchy/shared_stores", []);
 		$result = [];
 		foreach ($other_users as $username => $folders) {
 			// No folders are being shared, the store has probably been closed by the user,
@@ -1024,7 +1024,7 @@ class MAPISession {
 					$this->getOtherUserStore();
 				}
 
-				$sharedSetting = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores", []);
+				$sharedSetting = $GLOBALS["settings"]->get("grommunio/v1/contexts/hierarchy/shared_stores", []);
 				// Find available contact folders from all user stores, one by one.
 				foreach ($this->userstores as $username => $storeEntryID) {
 					$userContactFolders = [];

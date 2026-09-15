@@ -48,6 +48,6 @@ if ($arg === "extjs") {
 }
 
 if ($arg === "grommunio") {
-	$files = $loader->getZarafaJavascriptFiles(LOAD_SOURCE);
+	$files = $loader->getGrommunioJavascriptFiles(LOAD_SOURCE);
 	file_put_contents($filename, create_arg($files));
 }

@@ -1,10 +1,10 @@
-Ext.namespace('Zarafa.plugins.files.ui.snippets');
+Ext.namespace('Grommunio.plugins.files.ui.snippets');
 
-Zarafa.plugins.files.ui.snippets.FilesQuotaBar = Ext.extend(Ext.Panel, {
+Grommunio.plugins.files.ui.snippets.FilesQuotaBar = Ext.extend(Ext.Panel, {
 	/**
-	 * The {@link Zarafa.plugins.files.FilesContextModel} which is obtained from the {@link #context}.
+	 * The {@link Grommunio.plugins.files.FilesContextModel} which is obtained from the {@link #context}.
 	 * @property
-	 * @type Zarafa.plugins.files.FilesContextModel
+	 * @type Grommunio.plugins.files.FilesContextModel
 	 */
 	model: undefined,
 
@@ -61,7 +61,7 @@ Zarafa.plugins.files.ui.snippets.FilesQuotaBar = Ext.extend(Ext.Panel, {
 			}]
 		});
 
-		Zarafa.plugins.files.ui.snippets.FilesQuotaBar.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.snippets.FilesQuotaBar.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -78,20 +78,20 @@ Zarafa.plugins.files.ui.snippets.FilesQuotaBar = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Event handler which will be called when the {@link #model} fires the
-	 * {@link Zarafa.core.ContextModel#folderchange} event. This will determine
+	 * {@link Grommunio.core.ContextModel#folderchange} event. This will determine
 	 * if the selected folders support 'search folders' and update the UI accordingly.
-	 * @param {Zarafa.core.ContextModel} model this context model.
-	 * @param {Array} folders selected folders as an array of {Zarafa.hierarchy.data.MAPIFolderRecord Folder} objects.
+	 * @param {Grommunio.core.ContextModel} model this context model.
+	 * @param {Array} folders selected folders as an array of {Grommunio.hierarchy.data.MAPIFolderRecord Folder} objects.
 	 * @private
 	 */
 	onStoreLoad: function (store, records, options)
 	{
-		var accID = Zarafa.plugins.files.data.Utils.File.getAccountId(store.folderId);
+		var accID = Grommunio.plugins.files.data.Utils.File.getAccountId(store.folderId);
 
 		// look up the account
 		var account = this.accountsStore.getById(accID);
 
-		if (Ext.isDefined(account) && account.supportsFeature(Zarafa.plugins.files.data.AccountRecordFeature.QUOTA)) {
+		if (Ext.isDefined(account) && account.supportsFeature(Grommunio.plugins.files.data.AccountRecordFeature.QUOTA)) {
 
 			// load the information only once or if a new account was loaded.
 			if (this.loaded != accID || !this.loadOnlyOnce) {
@@ -114,7 +114,7 @@ Zarafa.plugins.files.ui.snippets.FilesQuotaBar = Ext.extend(Ext.Panel, {
 	 * Request quota values from the server.
 	 */
 	loadQuotaInformation: function (accountID, directory) {
-		var responseHandler = new Zarafa.core.data.AbstractResponseHandler({
+		var responseHandler = new Grommunio.core.data.AbstractResponseHandler({
 			doGetquota: this.gotQuotaValues.createDelegate(this)
 		});
 
@@ -160,4 +160,4 @@ Zarafa.plugins.files.ui.snippets.FilesQuotaBar = Ext.extend(Ext.Panel, {
 	}
 });
 
-Ext.reg('filesplugin.quotabar', Zarafa.plugins.files.ui.snippets.FilesQuotaBar);
+Ext.reg('filesplugin.quotabar', Grommunio.plugins.files.ui.snippets.FilesQuotaBar);

@@ -47,7 +47,7 @@ class Pluginmaps extends Plugin {
 	 */
 	public function addLeafletJsFile(&$data) {
 		// make sure to load remote files only when plugin is enabled
-		if ($GLOBALS['settings']->get('zarafa/v1/plugins/maps/enable') == true) {
+		if ($GLOBALS['settings']->get('grommunio/v1/plugins/maps/enable') == true) {
 			// removing https: provides protocols compatibility, especially in IE9
 			$data['files'][] = 'plugins/maps/js/external/leaflet.js';
 			$data['files'][] = 'plugins/maps/js/external/geosearch.umd.js';
@@ -62,7 +62,7 @@ class Pluginmaps extends Plugin {
 	 */
 	public function addLeafletCssFile(&$data) {
 		// make sure to load remote files only when plugin is enabled
-		if ($GLOBALS['settings']->get('zarafa/v1/plugins/maps/enable') == true) {
+		if ($GLOBALS['settings']->get('grommunio/v1/plugins/maps/enable') == true) {
 			// removing https: provides protocols compatibility, especially in IE9
 			$data['files'][] = 'plugins/maps/resources/css/leaflet.css';
 			$data['files'][] = 'plugins/maps/resources/css/geocoder.css';
@@ -77,7 +77,7 @@ class Pluginmaps extends Plugin {
 	 */
 	public function injectPluginSettings(&$data) {
 		$data['settingsObj']->addSysAdminDefaults([
-			'zarafa' => [
+			'grommunio' => [
 				'v1' => [
 					'plugins' => [
 						'maps' => [

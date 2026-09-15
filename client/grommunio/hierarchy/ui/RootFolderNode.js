@@ -1,0 +1,89 @@
+Ext.namespace('Grommunio.hierarchy.ui');
+
+/**
+ * @class Grommunio.hierarchy.ui.RootFolderNode
+ * @extends Grommunio.hierarchy.ui.FolderNode
+ *
+ * This will register itself as 'rootfolder' nodetype in the {@link Ext.tree.TreePanel#nodeTypes} object.
+ */
+Grommunio.hierarchy.ui.RootFolderNode = Ext.extend(Grommunio.hierarchy.ui.FolderNode, {
+	/*
+	 * @constructor
+	 * @param {Object} config configuration object
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		var containerCls = 'grommunio-tree-root-container';
+		var nodeCls = 'grommunio-tree-root-node';
+
+		// A shared mailbox can be dragged to give it a position of the user's choosing
+		// within the hierarchy. The own store and the Public store stay pinned to the
+		// top and the bottom respectively, so their root nodes remain undraggable.
+		//
+		// This node type is used for every top level node, which is the IPM_SUBTREE of a
+		// store in an unfiltered tree but the store's visible folders in a filtered one -
+		// the calendar folder list, for instance. Both stand for their mailbox here, so
+		// both can be dragged to move it.
+		var reorderable = false;
+
+		// Format IPM subtree container differently
+		if (config.folder) {
+			reorderable = Grommunio.hierarchy.data.StoreOrder.isReorderable(config.folder.getMAPIStore());
+
+			if (config.folder.isIPMSubTree()) {
+				containerCls += ' grommunio-tree-ipm-subtree-container';
+			} else if (config.folder.isFavoritesRootFolder()) {
+				containerCls += ' grommunio-tree-ipm-subtree-favorites-container';
+			}
+			nodeCls += ' grommunio-tree-ipm-subtree-node';
+		}
+
+		Ext.applyIf(config, {
+			containerCls: containerCls,
+			cls: nodeCls
+		});
+
+		// Set authoritatively rather than with applyIf: the HierarchyTreeLoader already
+		// assigns 'allowDrag' for every node it creates, and whether a root node can be
+		// dragged is decided here and nowhere else.
+		Ext.apply(config, {
+			allowDrag: reorderable,
+			draggable: reorderable
+		});
+
+		Grommunio.hierarchy.ui.RootFolderNode.superclass.constructor.call(this, config);
+
+		this.on('beforeclick', this.onBeforeClick, this);
+	},
+
+	/**
+	 * Event handler which is fired when the user has clicked the foldernode, this event will
+	 * be called just before the event handlers will run to allow the default action to be cancelled.
+	 *
+	 * When the folder is the {@link Grommunio.hierarchy.data.MAPIFolderRecord#isIPMSubtree subtree} of
+	 * a non-{@link Grommunio.hierarchy.data.MAPIStoreRecord#isDefaultStore default} store or
+	 * {@link Grommunio.hierarchy.data.MAPIFolderRecord#isFavoritesRootFolder FavoritesRootFolder} then click
+	 * action will be cancelled. The reason is that by default there are no actions possible on
+	 * a IPM_SUBTREE or Favorites(IPM_COMMON_VIEWS) folder.
+	 *
+	 * Another case for which we will allow the click action is if the folder has the 'is_unavailable'
+	 * property set. This indicates that the folder is fake, and by allowing the user to interact
+	 * with it, we can show an error to the user.
+	 *
+	 * @param {Grommunio.hierarchy.ui.RootFolderNode} node The node which is being clicked
+	 * @private
+	 */
+	onBeforeClick: function(node)
+	{
+		var folder = node.getFolder();
+		if (folder.isFavoritesRootFolder()) {
+			return false;
+		} else if (folder && folder.isIPMSubTree()) {
+			return folder.getMAPIStore().isDefaultStore() || folder.get('is_unavailable') === true;
+		}
+	}
+});
+
+Ext.tree.TreePanel.nodeTypes.rootfolder = Grommunio.hierarchy.ui.RootFolderNode;

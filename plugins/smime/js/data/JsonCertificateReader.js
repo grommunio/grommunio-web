@@ -1,23 +1,23 @@
-Ext.namespace('Zarafa.plugins.smime.data');
+Ext.namespace('Grommunio.plugins.smime.data');
 
 /**
- * @class Zarafa.plugins.smime.data.JsonCertificateReader
- * @extends Zarafa.core.data.JsonReader
+ * @class Grommunio.plugins.smime.data.JsonCertificateReader
+ * @extends Grommunio.core.data.JsonReader
  */
-Zarafa.plugins.smime.data.JsonCertificateReader = Ext.extend(Zarafa.core.data.JsonReader, {
+Grommunio.plugins.smime.data.JsonCertificateReader = Ext.extend(Grommunio.core.data.JsonReader, {
         /**
-         * @cfg {Zarafa.core.data.RecordCustomObjectType} customObjectType The custom object type
+         * @cfg {Grommunio.core.data.RecordCustomObjectType} customObjectType The custom object type
          * which represents the {@link Ext.data.Record records} which should be created using
-         * {@link Zarafa.core.data.RecordFactory#createRecordObjectByCustomType}.
+         * {@link Grommunio.core.data.RecordFactory#createRecordObjectByCustomType}.
          */
-        customObjectType : Zarafa.core.data.RecordCustomObjectType.ZARAFA_SMIME,
+        customObjectType : Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_SMIME,
 
         /**
          * @constructor
          * @param {Object} meta Metadata configuration options.
          * @param {Object} recordType (optional) Optional Record type matches the type
          * which must be read from response. If no type is given, it will use the
-         * record type for the {@link Zarafa.core.data.RecordCustomObjectType#ZARAFA_SMIME}.
+         * record type for the {@link Grommunio.core.data.RecordCustomObjectType#GROMMUNIO_SMIME}.
          */
         constructor : function(meta, recordType)
         {
@@ -25,8 +25,8 @@ Zarafa.plugins.smime.data.JsonCertificateReader = Ext.extend(Zarafa.core.data.Js
                         dynamicRecord : false
                 });
 
-		recordType = Zarafa.core.data.RecordFactory.getRecordClassByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_SMIME);
+		recordType = Grommunio.core.data.RecordFactory.getRecordClassByCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_SMIME);
 
-                Zarafa.plugins.smime.data.JsonCertificateReader.superclass.constructor.call(this, meta, recordType);
+                Grommunio.plugins.smime.data.JsonCertificateReader.superclass.constructor.call(this, meta, recordType);
         }
 });

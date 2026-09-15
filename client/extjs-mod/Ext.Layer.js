@@ -25,7 +25,7 @@
     Ext.Layer = function(config, existingEl) {
         config = config || {};
         var dh = Ext.DomHelper,
-            activeBrowserObject = Zarafa.core.BrowserWindowMgr.getActive(),
+            activeBrowserObject = Grommunio.core.BrowserWindowMgr.getActive(),
             cp = config.parentEl, pel = cp ? Ext.getDom(cp) : activeBrowserObject.document.body;
 
         if (existingEl) {

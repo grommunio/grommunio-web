@@ -131,8 +131,8 @@
 				// the target element is belongs to active window or not?
 
 				if (oTarget.cursorIsOver) {
-					var activeWindow = Zarafa.core.BrowserWindowMgr.getActive();
-					var targetOwnerWindow = Zarafa.core.BrowserWindowMgr.getOwnerWindow(oTarget);
+					var activeWindow = Grommunio.core.BrowserWindowMgr.getActive();
+					var targetOwnerWindow = Grommunio.core.BrowserWindowMgr.getOwnerWindow(oTarget);
 					return activeWindow === targetOwnerWindow;
 				} else {
 					return false

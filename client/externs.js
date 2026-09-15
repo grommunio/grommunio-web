@@ -1,7 +1,7 @@
 /* Closure compiler externs */
 var FormData = {};
 var Ext = {};
-var Zarafa = {};
+var Grommunio = {};
 var container = {};
 var settings = {};
 var properties = {};

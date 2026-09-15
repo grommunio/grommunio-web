@@ -1,19 +1,19 @@
-Ext.namespace('Zarafa.plugins.mdm.data');
+Ext.namespace('Grommunio.plugins.mdm.data');
 
 /**
- * @class Zarafa.plugins.mdm.data.MDMDeviceFolderWriter
- * @extends Zarafa.core.data.JsonWriter
+ * @class Grommunio.plugins.mdm.data.MDMDeviceFolderWriter
+ * @extends Grommunio.core.data.JsonWriter
  *
- * This extension of the {@link Zarafa.core.data.JsonWriter} for writing
- * {@link Zarafa.plugins.mdm.data.MDMDeviceFolderRecord records} in preparation for executing CRUD action on
- * {@link Zarafa.plugins.mdm.data.MDMDeviceFolderStore stores}
+ * This extension of the {@link Grommunio.core.data.JsonWriter} for writing
+ * {@link Grommunio.plugins.mdm.data.MDMDeviceFolderRecord records} in preparation for executing CRUD action on
+ * {@link Grommunio.plugins.mdm.data.MDMDeviceFolderStore stores}
  */
-Zarafa.plugins.mdm.data.MDMDeviceFolderWriter = Ext.extend(Zarafa.core.data.JsonWriter, {
+Grommunio.plugins.mdm.data.MDMDeviceFolderWriter = Ext.extend(Grommunio.core.data.JsonWriter, {
 	/**
 	 * Similar to {@link Ext.data.JsonWriter#toHash}
 	 *
-	 * Convert sharedFolder into a hash. {@link Zarafa.plugins.mdm.data.MDMDeviceFolderRecord folder} exists
-	 * within a {@link Zarafa.plugins.mdm.data.MDMDeviceRecord IPMRecord} and thus must be serialized
+	 * Convert sharedFolder into a hash. {@link Grommunio.plugins.mdm.data.MDMDeviceFolderRecord folder} exists
+	 * within a {@link Grommunio.plugins.mdm.data.MDMDeviceRecord IPMRecord} and thus must be serialized
 	 * separately into the hash object.
 	 *
 	 * @param {Ext.data.Record} record The record to hash

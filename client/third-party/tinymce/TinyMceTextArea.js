@@ -652,4 +652,4 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	}
 });
 
-Ext.reg("zarafa.tinymcetextarea", Ext.ux.form.TinyMCETextArea);
+Ext.reg("grommunio.tinymcetextarea", Ext.ux.form.TinyMCETextArea);

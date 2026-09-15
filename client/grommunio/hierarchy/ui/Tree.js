@@ -1,0 +1,563 @@
+Ext.namespace('Grommunio.hierarchy.ui');
+
+/**
+ * @class Grommunio.hierarchy.ui.Tree
+ * @extends Ext.tree.TreePanel
+ * @xtype grommunio.hierarchytree
+ *
+ * TreePanel for Hierarchy List
+ */
+Grommunio.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
+	/**
+	 * @cfg {Grommunio.core.ContextModel} model The model which is used to control the
+	 * current folder selection from this hierarchy tree.
+	 */
+	model: undefined,
+
+	/**
+	 * @cfg {Grommunio.core.data.HierarchyStore} store store which will be used to get data for hierarchy.
+	 */
+	store: undefined,
+
+	/**
+	 * @cfg {String} IPMFilter The IPM String on which the hierarchy must be filtered
+	 */
+	IPMFilter: undefined,
+
+	/**
+	 * @cfg {Number} permissionFilter The {@link Grommunio.core.mapi.Rights} on which the hierarchy must be filtered
+	 */
+	permissionFilter: undefined,
+
+	/**
+	 * @cfg {Boolean} hideDeletedFolders True to hide the subfolders of "Deleted Items".
+	 */
+	hideDeletedFolders: false,
+
+	/**
+	 * @cfg {Boolean} hideTodoList True to hide the To-do list.
+	 */
+	hideTodoList: false,
+
+	/**
+	 * @cfg {Boolean} hideFavorites True to hide the favorites folder in hierarchy.
+	 */
+	hideFavorites: false,
+
+		/**
+	 * @cfg {Boolean} contextFavorites True to let the
+	 * 'grommunio/v1/contexts/hierarchy/show_favorites_in_context' setting decide whether the
+	 * favorites survive the {@link #IPMFilter}. Only the context navigation trees opt in.
+	 */
+	contextFavorites: false,
+
+	/**
+	 * One of 'none', 'same_type' or 'all_types'. Resolved in {@link #initComponent}.
+	 * @property
+	 * @type String
+	 * @private
+	 */
+	favoritesMode: 'none',
+
+	/**
+	 * @cfg {Boolean} hideSearchFolders True to hide the search folder in hierarchy.
+	 */
+	hideSearchFolders: false,
+
+	/**
+	 @cfg {String} store_entryid of {Grommunio.hierarchy.data.MAPIStoreRecord MAPIStoreRecord} which needs to be shown in hierarchy.
+	 * All stores except the Public store and the store which is given in this config will be hidden.
+	 */
+	IPMSubTreeFilter: undefined,
+
+	/**
+	 * @cfg {Object} config option for {@link Grommunio.hierarchy.ui.FolderNode foldernode}
+	 */
+	nodeConfig: undefined,
+
+	/**
+	 * @cfg {Boolean} deferredLoading True to defer updating the Hierarchy when the panel
+	 * is currently not visible.
+	 */
+	deferredLoading: false,
+
+	/**
+	 * The editor which is used for editing a field inside this tree.
+	 * @property
+	 * @type Grommunio.hierarchy.ui.TreeEditor
+	 */
+	treeEditor: undefined,
+
+	/**
+	 * @cfg {Object} loadMask An {@link Grommunio.common.ui.LoadMask} config or true to mask the {@link Grommunio.hierarchy.ui.Tree Tree} while
+	 * loading. Defaults to <code>false</code>.
+	 */
+	loadMask: false,
+
+	/**
+	 * @cfg {Object} treeSorter a {@link Ext.Ext.tree.TreeSorter} config or {@link Boolean}
+	 * to sort the {@link Grommunio.hierarchy.ui.Tree Tree}
+	 * Defaults to <code>false</code>.
+	 */
+	treeSorter: false,
+
+	/**
+	 * @cfg {Boolean} ddAutoScrollContainer Autodetect a valid container to
+	 * {@link Ext.dd.ScrollManager#register register} to the {@link Ext.dd.ScrollManager}.
+	 *
+	 * When {@link #enableDD} is enabled, but this panel itself does not have any {@link #autoScroll scrollbars},
+	 * enabling this option will allow the class to dynamically detect which parent panel does have scrollbars,
+	 * and register that panel to the {@link Ext.dd.ScrollManager}.
+	 * Alternatively {@link #ddScrollContainer} can be used to set a certain panel specifically.
+	 */
+	ddAutoScrollContainer: false,
+
+	/**
+	 * @cfg {Ext.Element/Ext.Container} ddScrollContainer A valid container to
+	 * {@link Ext.dd.ScrollManager#register register} to the {@link Ext.dd.ScrollManager}.
+	 *
+	 * When {@link #enableDD} is enabled, but this panel itself does not have any {@link #autoScroll scrollbars},
+	 * setting a component or element to this option will register it to the {@link Ext.dd.ScrollManager}.
+	 * Alternatively {@link #ddAutoScrollContainer} can be used to have the container be detected automatically.
+	 */
+	ddScrollContainer: undefined,
+
+	/**
+	 * @cfg {Boolean} defaultOpen Used by {@link #isFolderOpened} to determine if the folder should be opened
+	 * by default or not.
+	 */
+	defaultOpen: false,
+
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		if (!config.store) {
+			config.store = container.getHierarchyStore();
+		}
+
+		// Configure root node for this component
+		Ext.applyIf(config, {
+			rootVisible: false,
+			autoScroll: true,
+			animate: false,
+			border: false,
+			// The rootnode is the parent node under which all Stores will be visualized,
+			// because it is not part of the actual hierarchy but more of a helper node,
+			// this node is invisible by default.
+			root: new Grommunio.hierarchy.ui.HierarchyRootNode()
+		});
+
+		Grommunio.hierarchy.ui.Tree.superclass.constructor.call(this, config);
+
+		// sort tree
+		if(this.treeSorter && !(this.treeSorter instanceof Ext.tree.TreeSorter)) {
+			this.treeSorter = new Grommunio.hierarchy.ui.TreeSorter(this, Ext.apply({}, this.treeSorter));
+		}
+
+		// The order of the mailboxes is shared by all hierarchy trees, so a change made
+		// in one tree must be reflected in every other tree as well.
+		if (this.treeSorter) {
+			this.mon(Grommunio.hierarchy.data.StoreOrder, 'change', this.onStoreOrderChange, this);
+		}
+
+		// filter tree on search query.
+		if (this.treeFilter && !(this.treeFilter instanceof Ext.tree.TreeFilter)) {
+			this.treeFilter = new Grommunio.hierarchy.ui.HierarchyTreeFilter(this, {autoClear: true});
+		}
+	},
+
+	/**
+	 * Function will initialize {@link Grommunio.hierarchy.ui.Tree Tree} and creates a
+	 * {@link Grommunio.common.ui.LoadMask} if {@link Grommunio.hierarchy.ui.Tree Tree} is instantiated as full tree.
+	 * @protected
+	 */
+	initComponent: function()
+	{
+		if (this.contextFavorites === true && this.hideFavorites !== true) {
+			this.favoritesMode = container.getSettingsModel().get('grommunio/v1/contexts/hierarchy/show_favorites_in_context') || 'none';
+		}
+
+		// Initialize the loader
+		if (!this.loader) {
+			this.loader = new Grommunio.hierarchy.data.HierarchyTreeLoader({
+				tree: this,
+				store: this.store,
+				nodeConfig: this.nodeConfig,
+				deferredLoading: this.deferredLoading
+			});
+		}
+
+		// call parent
+		Grommunio.hierarchy.ui.Tree.superclass.initComponent.apply(this, arguments);
+
+		// When DD is enabled within container scrolling, we must register a hook
+		// to determine the container on which we are going to scroll.
+		if (this.enableDD === true) {
+			if (this.ddAutoScrollContainer === true) {
+				this.on('load', this.autodetectScrollContainer, this);
+			} else if (this.ddScrollContainer) {
+				this.ddScrollContainer = Ext.Element(this.ddScrollContainer) ? this.ddScrollContainer : this.ddScrollContainer.el;
+				this.registerScrollContainer(this.ddScrollContainer);
+			}
+		}
+
+		// create load mask
+		if(this.loadMask) {
+			this.on('render', this.createLoadMask, this);
+		}
+	},
+
+	/**
+	 * Event handler for the {@link Grommunio.hierarchy.data.StoreOrder#change change} event,
+	 * fired when the user has given the mailboxes a new order. This re-sorts the mailboxes
+	 * in this tree, which the {@link #treeSorter} does not do by itself because no node was
+	 * added or removed.
+	 * @private
+	 */
+	onStoreOrderChange: function()
+	{
+		var rootNode = this.getRootNode();
+		if (rootNode) {
+			this.treeSorter.doSort(rootNode);
+		}
+	},
+
+	/**
+	 * When {@link #ddAutoScrollContainer} has been enabled, this function will walk
+	 * up the parents of the current component parent which is scrollable. The {@link Ext.Container#body}
+	 * will then be used for {@link #registerScrollContainer}.
+	 * @private
+	 */
+	autodetectScrollContainer: function()
+	{
+		var ct = this.ownerCt;
+		while (ct && ct.autoScroll !== true) {
+			ct = ct.ownerCt;
+		}
+
+		if (ct) {
+			// When autoScroll is enabled, the 'body' of the component will
+			// have the actual scrollbar attached to it.
+			this.registerScrollContainer(ct.body || ct.el);
+		}
+	},
+
+	/**
+	 * Register the given {@link Ext.Element} with the
+	 * {@link Ext.dd.ScrollManager ScrollManager}.
+	 * @param {Ext.Element} el The element to register to the scrollmanager
+	 * @private
+	 */
+	registerScrollContainer: function(el)
+	{
+		// Apply some extra configuration options
+		// which are used by the ScrollManager.
+		el.ddScrollConfig = {
+			vthresh: 50,
+			hthresh: -1,
+			frequency: 100,
+			increment: 25
+		};
+
+		Ext.dd.ScrollManager.register(el);
+	},
+
+	/**
+	 * Function will create {@link Grommunio.common.ui.LoadMask} which will be shown
+	 * when loading the {@link Grommunio.hierarchy.ui.Tree Tree}.
+	 * @private
+	 */
+	createLoadMask: function()
+	{
+		this.loadMask = new Grommunio.common.ui.LoadMask(this.getEl(), Ext.apply({store: this.store}, this.loadMask));
+	},
+
+	/**
+	 * @return True when this tree has an {@link #IPMFilter} applied
+	 */
+	hasFilter: function()
+	{
+		return !Ext.isEmpty(this.IPMFilter);
+	},
+
+	/**
+	 * The filter which is applied for filtering nodes from the
+	 * {@link Grommunio.hierarchy.ui.Tree HierarchyTree}.
+	 * @param {Object} folder the folder to filter
+	 * @return {Boolean} true to accept the folder
+	 */
+	nodeFilter: function(folder)
+	{
+		var hide = false;
+
+		// Check if the folder matches the requested IPMFilter
+		if (Ext.isDefined(this.IPMFilter) && !this.isFavoritesExemptFromFilter(folder)) {
+			hide = !folder.isContainerClass(this.IPMFilter, false);
+		}
+
+		// Check if the folder matches the requested permissionFilter
+		if (!hide && Ext.isDefined(this.permissionFilter)) {
+			hide = !(folder.get('rights') & this.permissionFilter);
+		}
+
+		// Check if the folder is located in Deleted items
+		if (!hide && this.hideDeletedFolders) {
+			hide = folder.isInDeletedItems();
+		}
+
+		// Check if the to-do list should be shown
+		if (!hide && this.hideTodoList) {
+			hide = folder.isTodoListFolder();
+		}
+
+		// Check if the favorites list folder should be shown
+		if (!hide && this.hideFavorites) {
+			hide = folder.isFavoritesRootFolder();
+		}
+
+		// Check if the search folder should be shown
+		if (!hide && this.hideSearchFolders) {
+			hide = folder.isSearchFolder();
+		}
+
+		return !hide;
+	},
+
+	/**
+	 * The favorites root has no container class of its own, the server reports it as
+	 * 'IPF.Note'. Exempt it from the {@link #IPMFilter}, and the favorites too in 'all_types'.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder to check
+	 * @return {Boolean} True when the IPMFilter must not be applied to the given folder
+	 * @private
+	 */
+	isFavoritesExemptFromFilter: function(folder)
+	{
+		if (this.favoritesMode === 'none') {
+			return false;
+		}
+
+		if (!folder.isFavoritesRootFolder()) {
+			return this.favoritesMode === 'all_types' && folder.isFavoritesFolder();
+		}
+
+		return this.hasVisibleFavorites(folder);
+	},
+
+	/**
+	 * Keeps a tree which shows no favorite from carrying an empty favorites header.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} root The favorites root folder
+	 * @return {Boolean} True when a favorite below the root passes the {@link #nodeFilter}
+	 * @private
+	 */
+	hasVisibleFavorites: function(root)
+	{
+		var favorites = root.getChildren();
+		for (var i = 0, len = favorites.length; i < len; i++) {
+			if (this.nodeFilter(favorites[i])) {
+				return true;
+			}
+		}
+
+		return false;
+	},
+
+	/**
+	 * Check whether the given folder holds the folder type this tree was filtered on. Only
+	 * such folders can join a {@link Grommunio.hierarchy.ui.MultiSelectHierarchyTree} selection.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder to check
+	 * @return {Boolean} True when the folder holds this tree's own folder type
+	 */
+	isOwnFolderType: function(folder)
+	{
+		if (folder.isFavoritesRootFolder()) {
+			return false;
+		}
+
+		return !Ext.isDefined(this.IPMFilter) || folder.isContainerClass(this.IPMFilter, false);
+	},
+
+	/**
+	 * Open the given folder in response to a click on its node. A folder of another type is
+	 * handed to its own context, resolved, so that context does not have to reveal our node.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder to open
+	 * @protected
+	 */
+	openFolder: function(folder)
+	{
+		if (!this.isOwnFolderType(folder)) {
+			folder = Grommunio.hierarchy.Actions.resolveFavorites(folder);
+		}
+
+		Grommunio.hierarchy.Actions.openFolder(folder);
+	},
+
+	/**
+	 * The filter which is applied for filtering IPMSubTree nodes from the
+	 * {@link Grommunio.hierarchy.ui.Tree HierarchyTree}.
+	 * @param {Object} folder the IPM_SUBTREE folder to filter
+	 * @return {Boolean} true to accept the folder
+	 */
+	IPMSubTreeNodeFilter: function(folder)
+	{
+		var hide = false;
+
+		// Check if folder does not belong to public store or the given store then hide it.
+		if (Ext.isDefined(this.IPMSubTreeFilter)) {
+			var mapiStore = this.store.getById(this.IPMSubTreeFilter);
+			if (mapiStore) {
+				hide = !folder.getMAPIStore().isPublicStore() && !mapiStore.getFolder(folder.get('entryid'));
+			}
+		}
+
+		return !hide;
+	},
+
+	/**
+	 * @return {Array} list of all childnodes
+	 * @private
+	 */
+	getAllNodes: function()
+	{
+		return this.getRootNode().childNodes;
+	},
+
+	/**
+	 * Manual selection of the treeNode to which the folder is attached in the tree.
+	 * This will first ensure the given folder {@link #ensureFolderVisible is visible}
+	 * and will then {@link Ext.tree.DefaultSelectionModel#select select the given node} in the tree.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder to select
+	 * @param {Boolean} ensureVisibility True to make given folder visible in screen moving scroll bar.
+	 * @return {Boolean} True when the TreeNode for the given folder existed, and could be selected.
+	 */
+	selectFolderInTree: function(folder, ensureVisibility)
+	{
+		var treeNode;
+
+		if (ensureVisibility !== false) {
+			treeNode = this.ensureFolderVisible(folder);
+		} else {
+			treeNode = this.getTreeNode(folder);
+		}
+
+		if (treeNode) {
+			this.getSelectionModel().select(treeNode, undefined, ensureVisibility);
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	/**
+	 * This will call {@link Ext.tree.TreeNode#ensureVisible} in the node
+	 * to which the given folder is attached. This will first make sure
+	 * that the actual folder has been loaded by the parent folder.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder which must
+	 * be made visible.
+	 * @return {Grommunio.hierarchy.ui.FolderNode} The node which was made visible,
+	 * false if the folder was not found in the hierarchy.
+	 */
+	ensureFolderVisible: function(folder)
+	{
+		var treeNode = this.getTreeNode(folder);
+
+		// If the tree has not been found, take the parent folder.
+		if (!treeNode) {
+			var parentfolder = folder.getParentFolder();
+			if (!parentfolder) {
+				return false;
+			}
+
+			// With the parent folder we can ensure that folder is visible,
+			// and expand it to ensure the subfolders will be rendered.
+			var parentNode = this.ensureFolderVisible(parentfolder);
+			if (!parentNode) {
+				return false;
+			}
+
+			parentNode.expand();
+
+			// With luck, the node has now been created.
+			treeNode = this.getTreeNode(folder);
+		}
+
+		if (treeNode) {
+			// Ensure that the given node is visible.
+			// WARNING: After this call, treeNode is destroyed
+			// as the TreeLoader will have reloaded the parent!
+			treeNode.ensureVisible();
+
+			// Obtain the new treeNode reference, update the UI and return it.
+			treeNode = this.getTreeNode(folder);
+			treeNode.update(true);
+			return treeNode;
+		}
+
+		return false;
+	},
+
+	/**
+	 * Check if the folder should be opened by default or not.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder to check
+	 * @return {Boolean} True if the folder should be expanded by default
+	 * @private
+	 */
+	isFolderOpened: function(folder)
+	{
+		return folder.isIPMSubTree() || folder.isFavoritesRootFolder() || this.defaultOpen;
+	},
+
+	/**
+	 * Call {@link Grommunio.hierarchy.ui.FolderNode}#{@link Grommunio.hierarchy.ui.FolderNode#update update}
+	 * on {@link #getAllNodes all nodes}.
+	 * @protected
+	 */
+	updateAll: function()
+	{
+		var nodes = this.getAllNodes();
+		for (var i = 0; i < nodes.length; i++) {
+			nodes[i].update(true);
+		}
+	},
+
+	/**
+	 * Function will destroy load mask and calls parent class' beforeDestroy.
+	 * @private
+	 */
+	beforeDestroy: function()
+	{
+		if (this.rendered && this.loadMask) {
+			Ext.destroy(this.loadMask);
+			this.loadMask = false;
+		}
+		if (this.treeSorter) {
+			Ext.destroy(this.treeSorter);
+			this.treeSorter = false;
+		}
+		Grommunio.hierarchy.ui.Tree.superclass.beforeDestroy.call(this);
+	},
+
+	/**
+	 * Function is used to find the {@link Grommunio.hierarchy.ui.FolderNode} based on the folder.
+	 * If selected folder is {@link Grommunio.common.favorites.data.FavoritesFolderRecord favorites} folder then
+	 * we append "favorites-" keyword with folder entryid to uniquely identify and get the favorites marked folder node.
+	 *
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord | Grommunio.common.favorites.data.FavoritesFolderRecord} folder the folder
+	 * can be favorites folder or any normal folder.
+	 * @returns {Grommunio.hierarchy.ui.FolderNode} folder node object
+	 */
+	getTreeNode: function (folder)
+	{
+		var id = folder.get('entryid');
+		if (folder.isFavoritesFolder()) {
+			id = "favorites-"+id;
+		}
+		return this.getNodeById(id);
+	}
+});
+
+Ext.reg('grommunio.hierarchytree', Grommunio.hierarchy.ui.Tree);

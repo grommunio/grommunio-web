@@ -37,9 +37,9 @@ class PluginPgpModule extends Module {
 					'allowed_keyservers' => PLUGIN_PGP_KEYSERVER_ALLOWLIST,
 					'unlock_ttl' => max(30, min(3600, (int) PLUGIN_PGP_UNLOCK_TTL)),
 					'max_envelope_bytes' => self::maxEnvelopeBytes(),
-					'default_key' => $GLOBALS['settings']->get('zarafa/v1/plugins/pgp/default_key', ''),
-					'default_sign' => $GLOBALS['settings']->get('zarafa/v1/plugins/pgp/default_sign', false),
-					'default_encrypt' => $GLOBALS['settings']->get('zarafa/v1/plugins/pgp/default_encrypt', false),
+					'default_key' => $GLOBALS['settings']->get('grommunio/v1/plugins/pgp/default_key', ''),
+					'default_sign' => $GLOBALS['settings']->get('grommunio/v1/plugins/pgp/default_sign', false),
+					'default_encrypt' => $GLOBALS['settings']->get('grommunio/v1/plugins/pgp/default_encrypt', false),
 				];
 			case 'public':
 				return ['keys' => $store->publicKeys()];

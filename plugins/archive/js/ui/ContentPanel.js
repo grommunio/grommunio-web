@@ -1,10 +1,10 @@
-Ext.namespace('Zarafa.plugins.archive.ui');
+Ext.namespace('Grommunio.plugins.archive.ui');
 
 /**
- * @class Zarafa.plugins.archive.ui.ContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.archive.ui.ContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  */
-Zarafa.plugins.archive.ui.ContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.archive.ui.ContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
 	/**
 	 * @constructor
 	 * @param config Configuration structure
@@ -15,19 +15,19 @@ Zarafa.plugins.archive.ui.ContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel,
 
 		Ext.applyIf(config, {
 			// Overridden from Ext.Component
-			xtype: 'zarafa.plugins.archive.ui.contentpanel',
+			xtype: 'grommunio.plugins.archive.ui.contentpanel',
 			layout : 'fit',
 			iconCls: 'icon_archive',
 			border: false,
 			items : [{
-				xtype: 'zarafa.plugins.archive.ui.panel',
+				xtype: 'grommunio.plugins.archive.ui.panel',
 				url: config.url,
 				tabOrder: config.tabOrder
 			}]
 		});
 
-		Zarafa.plugins.archive.ui.ContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.archive.ui.ContentPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('zarafa.plugins.archive.ui.contentpanel', Zarafa.plugins.archive.ui.ContentPanel);
+Ext.reg('grommunio.plugins.archive.ui.contentpanel', Grommunio.plugins.archive.ui.ContentPanel);

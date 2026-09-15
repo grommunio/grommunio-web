@@ -48,7 +48,7 @@ body.dark-mode .x-btn-text.icon_security_encrypt_selected::before {
 
 /* These masks already follow the theme. Do not use the legacy dark text
  * compensation intended for bitmap buttons whose entire contents are inverted. */
-body.zarafa-webclient.dark-mode .x-btn.x-btn-text-icon:not(.zarafa-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text:is(.icon_security_sign, .icon_security_sign_selected, .icon_security_encrypt, .icon_security_encrypt_selected) {
+body.grommunio-webclient.dark-mode .x-btn.x-btn-text-icon:not(.grommunio-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text:is(.icon_security_sign, .icon_security_sign_selected, .icon_security_encrypt, .icon_security_encrypt_selected) {
 	color: var(--dm-fg, #d4d4d4) !important;
 	filter: none !important;
 }

@@ -1,9 +1,9 @@
-Ext.namespace('Zarafa.plugins.files.backend.Seafile.ui');
+Ext.namespace('Grommunio.plugins.files.backend.Seafile.ui');
 
 /**
  * Form panel that lets administrators adjust individual Seafile share settings.
  */
-Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserEditPanel = Ext.extend(
+Grommunio.plugins.files.backend.Seafile.ui.FilesShareUserEditPanel = Ext.extend(
 	Ext.form.FormPanel,
 	{
 		record: undefined,
@@ -36,7 +36,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserEditPanel = Ext.extend(
 					},
 				],
 			});
-			Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserEditPanel.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Seafile.ui.FilesShareUserEditPanel.superclass.constructor.call(
 				this,
 				e,
 			);
@@ -57,12 +57,12 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserEditPanel = Ext.extend(
 				this.record.set('permissionChange', this.permissionChange.getValue());
 				this.record.set(
 					'permissionCreate',
-					this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER &&
+					this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER &&
 						this.permissionCreate.getValue(),
 				);
 				this.record.set(
 					'permissionDelete',
-					this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER &&
+					this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER &&
 						this.permissionDelete.getValue(),
 				);
 				this.record.endEdit();
@@ -74,12 +74,12 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserEditPanel = Ext.extend(
 					shareWithDisplayname: e.data.display_name,
 					permissionCreate:
 						this.store.fileType ===
-							Zarafa.plugins.files.data.FileTypes.FOLDER &&
+							Grommunio.plugins.files.data.FileTypes.FOLDER &&
 						this.permissionCreate.getValue(),
 					permissionChange: this.permissionChange.getValue(),
 					permissionDelete:
 						this.store.fileType ===
-							Zarafa.plugins.files.data.FileTypes.FOLDER &&
+							Grommunio.plugins.files.data.FileTypes.FOLDER &&
 						this.permissionDelete.getValue(),
 					permissionShare: this.permissionShare.getValue(),
 				});
@@ -100,7 +100,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserEditPanel = Ext.extend(
 				r = this.record.get('permissionShare');
 				a = this.record.get('permissionChange');
 				if (
-					this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER
+					this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER
 				) {
 					i = this.record.get('permissionCreate');
 					s = this.record.get('permissionDelete');
@@ -122,7 +122,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserEditPanel = Ext.extend(
 					checked: a,
 				},
 			];
-			if (this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER) {
+			if (this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER) {
 				n.push(
 					{
 						xtype: 'checkbox',
@@ -179,5 +179,5 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserEditPanel = Ext.extend(
 );
 Ext.reg(
 	'filesplugin.seafile.filesshareusereditpanel',
-	Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserEditPanel,
+	Grommunio.plugins.files.backend.Seafile.ui.FilesShareUserEditPanel,
 );

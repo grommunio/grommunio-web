@@ -1,11 +1,11 @@
-Ext.namespace('Zarafa.plugins.pgp.settings');
+Ext.namespace('Grommunio.plugins.pgp.settings');
 
 /** Keyring operations are immediate; compose defaults use the settings save cycle. */
-Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
+Grommunio.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
 	constructor: function(config)
 	{
 		config = config || {};
-		var utils = Zarafa.plugins.pgp.PgpUtils;
+		var utils = Grommunio.plugins.pgp.PgpUtils;
 		this.keyStore = new Ext.data.JsonStore({idProperty: 'fingerprint', fields: [
 			'fingerprint', 'uids', 'secret', 'can_sign', 'can_encrypt', 'revoked', 'expired', 'disabled',
 			'created', 'expires', 'algorithm', 'bits', 'trusted', 'trusted_emails', 'unlocked'
@@ -14,7 +14,7 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 		this.keyservers = [];
 		this.allowedKeyservers = [];
 		Ext.applyIf(config, {
-			title: _('Personal and public keys'), layout: 'form', cls: 'zarafa-settings-widget pgp-settings', labelWidth: 200,
+			title: _('Personal and public keys'), layout: 'form', cls: 'grommunio-settings-widget pgp-settings', labelWidth: 200,
 			items: [{xtype: 'box', autoEl: {tag: 'p', cls: 'pgp-explanation', html: utils.encode(_('Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately.'))}}, {
 				xtype: 'grid', ref: 'keyGrid', store: this.keyStore, height: 300, border: true,
 				selModel: new Ext.grid.RowSelectionModel({singleSelect: true, listeners: {selectionchange: this.onSelectionChange, scope: this}}),
@@ -58,25 +58,25 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 			{xtype: 'button', text: _('Manage keyservers'), cls: 'pgp-settings-button pgp-keyservers-button', handler: this.manageKeyservers, scope: this},
 			{xtype: 'box', autoEl: {tag: 'p', cls: 'pgp-explanation', html: utils.encode(_('Compose defaults apply to new OpenPGP messages only. S/MIME and OpenPGP cannot be combined on the same message.'))}}]
 		});
-		Zarafa.plugins.pgp.settings.SettingsPgpWidget.superclass.constructor.call(this, config);
+		Grommunio.plugins.pgp.settings.SettingsPgpWidget.superclass.constructor.call(this, config);
 	},
 	update: function(settingsModel)
 	{
-		this.defaultFingerprint = settingsModel.get('zarafa/v1/plugins/pgp/default_key', '');
+		this.defaultFingerprint = settingsModel.get('grommunio/v1/plugins/pgp/default_key', '');
 		this.defaultKey.setValue(this.defaultFingerprint);
-		this.defaultSign.setValue(settingsModel.get('zarafa/v1/plugins/pgp/default_sign', false));
-		this.defaultEncrypt.setValue(settingsModel.get('zarafa/v1/plugins/pgp/default_encrypt', false));
+		this.defaultSign.setValue(settingsModel.get('grommunio/v1/plugins/pgp/default_sign', false));
+		this.defaultEncrypt.setValue(settingsModel.get('grommunio/v1/plugins/pgp/default_encrypt', false));
 		this.reload();
 	},
 	updateSettings: function(settingsModel)
 	{
-		settingsModel.set('zarafa/v1/plugins/pgp/default_key', this.defaultKey.getValue());
-		settingsModel.set('zarafa/v1/plugins/pgp/default_sign', this.defaultSign.getValue());
-		settingsModel.set('zarafa/v1/plugins/pgp/default_encrypt', this.defaultEncrypt.getValue());
+		settingsModel.set('grommunio/v1/plugins/pgp/default_key', this.defaultKey.getValue());
+		settingsModel.set('grommunio/v1/plugins/pgp/default_sign', this.defaultSign.getValue());
+		settingsModel.set('grommunio/v1/plugins/pgp/default_encrypt', this.defaultEncrypt.getValue());
 	},
 	reload: function()
 	{
-		var widget = this, utils = Zarafa.plugins.pgp.PgpUtils;
+		var widget = this, utils = Grommunio.plugins.pgp.PgpUtils;
 		return utils.api('list', {}).then(function(response) {
 			if (widget.isDestroyed) { return; }
 			var unlocked = utils.crypto().unlocked().map(function(key) { return key.fingerprint; });
@@ -100,7 +100,7 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 	{
 		if (this.isDestroyed || !this.operationStatus) { return; }
 		this.operationStatus.show();
-		this.operationStatus.getEl().update(Zarafa.plugins.pgp.PgpUtils.encode(message));
+		this.operationStatus.getEl().update(Grommunio.plugins.pgp.PgpUtils.encode(message));
 		this.operationStatus.getEl()[error ? 'addClass' : 'removeClass']('pgp-operation-error');
 	},
 	complete: function(promise, done, message)
@@ -138,7 +138,7 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 	},
 	generateKey: function()
 	{
-		var widget = this, dialogs = Zarafa.plugins.pgp.dialogs.PgpDialogs, utils = Zarafa.plugins.pgp.PgpUtils;
+		var widget = this, dialogs = Grommunio.plugins.pgp.dialogs.PgpDialogs, utils = Grommunio.plugins.pgp.PgpUtils;
 		var password = dialogs.passwordField();
 		password.minLength = 12;
 		dialogs.form(_('Generate OpenPGP key'), [
@@ -169,8 +169,8 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 	},
 	importKey: function()
 	{
-		var widget = this, utils = Zarafa.plugins.pgp.PgpUtils;
-		Zarafa.plugins.pgp.dialogs.PgpDialogs.form(_('Import OpenPGP key'), [
+		var widget = this, utils = Grommunio.plugins.pgp.PgpUtils;
+		Grommunio.plugins.pgp.dialogs.PgpDialogs.form(_('Import OpenPGP key'), [
 			{xtype: 'box', autoEl: {tag: 'input', type: 'file', accept: '.asc,text/plain,application/pgp-keys', 'aria-label': _('Choose armored OpenPGP key file')},
 				listeners: {afterrender: function(input) {
 					input.getEl().on('change', function() {
@@ -201,13 +201,13 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 		var key = this.selectedKey(false);
 		if (!key) { return; }
 		var widget = this;
-		Zarafa.plugins.pgp.PgpUtils.loadKey(key.fingerprint).then(function(stored) {
-			Zarafa.plugins.pgp.dialogs.PgpDialogs.armored(_('Public OpenPGP key'), stored.public_key, key.fingerprint, false);
+		Grommunio.plugins.pgp.PgpUtils.loadKey(key.fingerprint).then(function(stored) {
+			Grommunio.plugins.pgp.dialogs.PgpDialogs.armored(_('Public OpenPGP key'), stored.public_key, key.fingerprint, false);
 		}).catch(function(error) { widget.feedback(error.message, true); });
 	},
 	exportPrivate: function()
 	{
-		var key = this.selectedKey(true), dialogs = Zarafa.plugins.pgp.dialogs.PgpDialogs, utils = Zarafa.plugins.pgp.PgpUtils;
+		var key = this.selectedKey(true), dialogs = Grommunio.plugins.pgp.dialogs.PgpDialogs, utils = Grommunio.plugins.pgp.PgpUtils;
 		if (!key) { return; }
 		dialogs.form(_('Back up private OpenPGP key'), [dialogs.passwordField()], _('Create backup'), function(values, done) {
 			var passphrase = values.passphrase;
@@ -224,7 +224,7 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 	},
 	changePassphrase: function()
 	{
-		var key = this.selectedKey(true), widget = this, dialogs = Zarafa.plugins.pgp.dialogs.PgpDialogs, utils = Zarafa.plugins.pgp.PgpUtils;
+		var key = this.selectedKey(true), widget = this, dialogs = Grommunio.plugins.pgp.dialogs.PgpDialogs, utils = Grommunio.plugins.pgp.PgpUtils;
 		if (!key) { return; }
 		var oldPassword = dialogs.passwordField();
 		oldPassword.name = 'oldPassphrase';
@@ -249,11 +249,11 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 	},
 	verifyKey: function()
 	{
-		var key = this.selectedKey(false), utils = Zarafa.plugins.pgp.PgpUtils, widget = this;
+		var key = this.selectedKey(false), utils = Grommunio.plugins.pgp.PgpUtils, widget = this;
 		if (!key) { return; }
 		var emails = utils.keyEmails(key).map(function(email) { return [email, email]; });
 		var trusted = key.trusted_emails || [];
-		Zarafa.plugins.pgp.dialogs.PgpDialogs.form(_('Verify OpenPGP fingerprint'), [
+		Grommunio.plugins.pgp.dialogs.PgpDialogs.form(_('Verify OpenPGP fingerprint'), [
 			{xtype: 'displayfield', fieldLabel: _('Fingerprint'), value: utils.encode(utils.formatFingerprint(key.fingerprint)), cls: 'pgp-fingerprint'},
 			{xtype: 'displayfield', fieldLabel: _('Algorithm'), value: utils.encode(utils.algorithmLabel(key))},
 			{xtype: 'displayfield', fieldLabel: _('Verified identities'), value: utils.encode(trusted.join(', ') || _('None'))},
@@ -269,19 +269,19 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 	unlockKey: function()
 	{
 		var key = this.selectedKey(true);
-		if (key) { Zarafa.plugins.pgp.dialogs.PgpDialogs.unlock(key.fingerprint, this.reload, this); }
+		if (key) { Grommunio.plugins.pgp.dialogs.PgpDialogs.unlock(key.fingerprint, this.reload, this); }
 	},
 	lockKeys: function()
 	{
-		Zarafa.plugins.pgp.PgpUtils.crypto().lock();
+		Grommunio.plugins.pgp.PgpUtils.crypto().lock();
 		this.reload();
 		this.feedback(_('All private keys in this browser tab are locked.'));
 	},
 	deleteKey: function()
 	{
-		var key = this.selectedKey(false), widget = this, utils = Zarafa.plugins.pgp.PgpUtils;
+		var key = this.selectedKey(false), widget = this, utils = Grommunio.plugins.pgp.PgpUtils;
 		if (!key) { return; }
-		Zarafa.plugins.pgp.dialogs.PgpDialogs.form(_('Delete OpenPGP key'), [
+		Grommunio.plugins.pgp.dialogs.PgpDialogs.form(_('Delete OpenPGP key'), [
 			{xtype: 'displayfield', fieldLabel: _('Fingerprint'), value: utils.encode(utils.formatFingerprint(key.fingerprint)), cls: 'pgp-fingerprint'},
 			{xtype: 'textfield', name: 'confirm', fieldLabel: _('Confirm fingerprint'), allowBlank: false,
 				validator: function(value) { return utils.fingerprint(value) === key.fingerprint || _('Type the full fingerprint to confirm deletion.'); }}
@@ -295,7 +295,7 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 	manageKeyservers: function()
 	{
 		var widget = this;
-		Zarafa.plugins.pgp.dialogs.PgpDialogs.form(_('Manage OpenPGP keyservers'), [
+		Grommunio.plugins.pgp.dialogs.PgpDialogs.form(_('Manage OpenPGP keyservers'), [
 			{xtype: 'textarea', name: 'servers', fieldLabel: _('HTTPS keyservers'), value: this.keyservers.join('\n'), height: 140,
 				validator: function(value) {
 					var valid = true;
@@ -306,18 +306,18 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 				}}
 		], _('Save keyservers'), function(values, done) {
 			var servers = values.servers.split(/\r?\n/).map(function(server) { return server.trim(); }).filter(function(server) { return !!server; });
-			widget.complete(Zarafa.plugins.pgp.PgpUtils.api('keyservers', {servers: servers}), done, _('Keyservers updated.'));
+			widget.complete(Grommunio.plugins.pgp.PgpUtils.api('keyservers', {servers: servers}), done, _('Keyservers updated.'));
 		}, _('Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically.') +
 			(this.allowedKeyservers.length ? ' ' + _('Approved servers: ') + this.allowedKeyservers.join(', ') : ''));
 	},
 	lookupKey: function()
 	{
-		var widget = this, utils = Zarafa.plugins.pgp.PgpUtils;
+		var widget = this, utils = Grommunio.plugins.pgp.PgpUtils;
 		if (!this.keyservers.length) {
 			this.manageKeyservers();
 			return;
 		}
-		Zarafa.plugins.pgp.dialogs.PgpDialogs.form(_('Find OpenPGP public key'), [
+		Grommunio.plugins.pgp.dialogs.PgpDialogs.form(_('Find OpenPGP public key'), [
 			{xtype: 'combo', name: 'server', hiddenName: 'server', fieldLabel: _('Keyserver'), store: this.keyservers.map(function(server) { return [server, server]; }),
 				mode: 'local', triggerAction: 'all', editable: false, allowBlank: false, value: this.keyservers[0],
 				tpl: '<tpl for="."><div class="x-combo-list-item">{field2:htmlEncode}</div></tpl>'},
@@ -336,4 +336,4 @@ Zarafa.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Zarafa.settings.ui.Se
 	}
 });
 
-Ext.reg('pgp.settingswidget', Zarafa.plugins.pgp.settings.SettingsPgpWidget);
+Ext.reg('pgp.settingswidget', Grommunio.plugins.pgp.settings.SettingsPgpWidget);

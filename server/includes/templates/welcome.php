@@ -44,7 +44,7 @@ echo Theming::getStyles($theme);
 ?>
 	</head>
 
-	<body class="zarafa-welcome theme-<?php echo strtolower((string) $theme ?: 'basic'); ?>">
+	<body class="grommunio-welcome theme-<?php echo strtolower((string) $theme ?: 'basic'); ?>">
 		<div id="loading-mask" role="status" aria-label="<?php echo _("Loading"); ?>">
 			<div id="form-container" class="loading" style="visibility: hidden;">
 				<div id="bg"></div>
@@ -72,7 +72,7 @@ echo Theming::getStyles($theme);
 			version 		= <?php echo json_encode($versionInfo); ?>;
 			serverconfig 		= <?php echo json_encode($serverConfig); ?>;
 
-			Ext.onReady(Zarafa.loadWelcome, Zarafa);
+			Ext.onReady(Grommunio.loadWelcome, Grommunio);
 		</script>
 	</body>
 </html>

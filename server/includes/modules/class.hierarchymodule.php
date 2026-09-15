@@ -297,7 +297,7 @@ class HierarchyModule extends Module {
 							// We're closing a Shared folder, check if we still have other
 							// folders for the same user opened, if not we can safely close
 							// the usrstore.
-							$stores = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores/" . strtolower(bin2hex((string) $action["user_name"])));
+							$stores = $GLOBALS["settings"]->get("grommunio/v1/contexts/hierarchy/shared_stores/" . strtolower(bin2hex((string) $action["user_name"])));
 							if (!isset($stores) || empty($stores) || (count($stores) == 1 && isset($stores[$action["folder_type"]]))) {
 								$entryid = $GLOBALS["mapisession"]->removeUserStore($action["user_name"]);
 							}
@@ -1458,7 +1458,7 @@ class HierarchyModule extends Module {
 		else {
 			$message = $moveFolder ? _('Could not move folder') : _('Could not copy folder');
 			$this->sendFeedback(false, [
-				'type' => ERROR_ZARAFA,
+				'type' => ERROR_GROMMUNIO,
 				'info' => [
 					'display_message' => $message,
 					'original_message' => $message,

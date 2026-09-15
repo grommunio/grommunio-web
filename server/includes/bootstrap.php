@@ -73,8 +73,8 @@ require_once UMAPI_PATH . '/class.baseexception.php';
 require_once UMAPI_PATH . '/class.mapiexception.php';
 require_once UMAPI_PATH . '/class.recurrenceexception.php';
 
-require_once BASE_PATH . 'server/includes/exceptions/class.ZarafaException.php';
-require_once BASE_PATH . 'server/includes/exceptions/class.ZarafaErrorException.php';
+require_once BASE_PATH . 'server/includes/exceptions/class.GrommunioException.php';
+require_once BASE_PATH . 'server/includes/exceptions/class.GrommunioErrorException.php';
 require_once BASE_PATH . 'server/includes/core/class.webappsession.php';
 require_once UMAPI_PATH . '/class.baserecurrence.php';
 require_once UMAPI_PATH . '/class.recurrence.php';

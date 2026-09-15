@@ -92,14 +92,14 @@ body.dark-mode.theme-highcontrast a {
 body.dark-mode.theme-highcontrast a:hover {
 	color: #90caf9;
 }
-body.dark-mode.theme-highcontrast span.zarafa-emailaddress-link {
+body.dark-mode.theme-highcontrast span.grommunio-emailaddress-link {
 	color: #64b5f6 !important;
 }
-body.dark-mode.theme-highcontrast span.zarafa-emailaddress-link:hover {
+body.dark-mode.theme-highcontrast span.grommunio-emailaddress-link:hover {
 	color: #90caf9 !important;
 }
-body.dark-mode.theme-highcontrast .zarafa-hierarchy-node-counter span,
-body.dark-mode.theme-highcontrast .zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter {
+body.dark-mode.theme-highcontrast .grommunio-hierarchy-node-counter span,
+body.dark-mode.theme-highcontrast .grommunio-hierarchy-node-unread-count span.grommunio-hierarchy-node-counter {
 	color: var(--dm-fg) !important;
 }
 body.dark-mode.theme-highcontrast .x-grid3-row .k-conversation-count {
@@ -108,7 +108,7 @@ body.dark-mode.theme-highcontrast .x-grid3-row .k-conversation-count {
 body.dark-mode.theme-highcontrast .x-tree-selected a span {
 	color: var(--dm-fg) !important;
 }
-body.dark-mode.theme-highcontrast .zarafa-hierarchy-node-owner {
+body.dark-mode.theme-highcontrast .grommunio-hierarchy-node-owner {
 	color: var(--dm-fg-secondary) !important;
 }
 
@@ -165,12 +165,12 @@ body.dark-mode.theme-highcontrast .zarafa-hierarchy-node-owner {
 	body.dark-mode-system.theme-highcontrast a {
 		color: #64b5f6;
 	}
-	body.dark-mode-system.theme-highcontrast span.zarafa-emailaddress-link {
+	body.dark-mode-system.theme-highcontrast span.grommunio-emailaddress-link {
 		color: #64b5f6 !important;
 	}
 
 	/* Prevent white flash before JS adds body.dark-mode */
-	body.dark-mode-system.zarafa-webclient,
+	body.dark-mode-system.grommunio-webclient,
 	body.dark-mode-system .ext-el-mask {
 		background-color: var(--dm-bg) !important;
 	}
@@ -179,7 +179,7 @@ body.dark-mode.theme-highcontrast .zarafa-hierarchy-node-owner {
 /*=============================================================================
   Page / Body
 =============================================================================*/
-body.dark-mode.zarafa-webclient,
+body.dark-mode.grommunio-webclient,
 body.dark-mode .ext-el-mask {
 	background-color: var(--dm-bg) !important;
 }
@@ -198,14 +198,14 @@ body.dark-mode a:not([class]):hover {
   These rules counteract the generic dark-mode .x-btn overrides below.
 =============================================================================*/
 /* All mainmenu buttons: transparent, no outline */
-body.dark-mode #zarafa-mainmenu .x-btn {
+body.dark-mode #grommunio-mainmenu .x-btn {
 	background-color: transparent !important;
 	outline: none !important;
 	padding: 0 !important;
 }
 
 /* Inner button tables: transparent, flat */
-body.dark-mode #zarafa-mainmenu .x-btn :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+body.dark-mode #grommunio-mainmenu .x-btn :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
 	background: transparent !important;
 	border: none !important;
 	box-shadow: none !important;
@@ -213,39 +213,39 @@ body.dark-mode #zarafa-mainmenu .x-btn :is(.x-btn-small, .x-btn-medium, .x-btn-l
 	margin: 0 !important;
 }
 
-body.dark-mode #zarafa-mainmenu .x-btn :is(.x-btn-small, .x-btn-medium, .x-btn-large) button {
+body.dark-mode #grommunio-mainmenu .x-btn :is(.x-btn-small, .x-btn-medium, .x-btn-large) button {
 	color: #ffffff !important;
 	background-color: transparent !important;
 }
 
 /* Hover / click */
-body.dark-mode #zarafa-mainmenu .x-btn:is(.x-btn-over, .x-btn-over.x-btn-click) {
+body.dark-mode #grommunio-mainmenu .x-btn:is(.x-btn-over, .x-btn-over.x-btn-click) {
 	background-color: rgba(255, 255, 255, 0.14) !important;
 }
 
 /* Active tab (all states) */
-body.dark-mode #zarafa-mainmenu .zarafa-maintabbar-maintab-active,
-body.dark-mode #zarafa-mainmenu .zarafa-maintabbar-maintab-active:is(.x-btn-over, .x-btn-over.x-btn-click) {
+body.dark-mode #grommunio-mainmenu .grommunio-maintabbar-maintab-active,
+body.dark-mode #grommunio-mainmenu .grommunio-maintabbar-maintab-active:is(.x-btn-over, .x-btn-over.x-btn-click) {
 	background-color: rgba(255, 255, 255, 0.24) !important;
 }
 
-body.dark-mode #zarafa-mainmenu .zarafa-maintabbar-maintab-active button.x-btn-text {
+body.dark-mode #grommunio-mainmenu .grommunio-maintabbar-maintab-active button.x-btn-text {
 	color: #ffffff !important;
 	opacity: 1;
 }
 
 /* Focus — no border or shadow */
-body.dark-mode #zarafa-mainmenu .x-btn.x-btn-focus :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+body.dark-mode #grommunio-mainmenu .x-btn.x-btn-focus :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
 	border: none !important;
 	box-shadow: none !important;
 }
 
 /* Disabled */
-body.dark-mode #zarafa-mainmenu .x-btn.x-item-disabled :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
+body.dark-mode #grommunio-mainmenu .x-btn.x-item-disabled :is(.x-btn-small, .x-btn-medium, .x-btn-large) {
 	background-color: transparent !important;
 }
 
-body.dark-mode #zarafa-mainmenu #mainmenu-logintext {
+body.dark-mode #grommunio-mainmenu #mainmenu-logintext {
 	color: #ffffff !important;
 	opacity: 0.7;
 }
@@ -261,7 +261,7 @@ body.dark-mode button.icon_task_complete span {
 
 /* Logo area dark variant - full grommunio logo from the original dark theme.
    No !important: a theme's own dark logo has the same specificity and comes later. */
-body.dark-mode .zarafa-maintoolbar {
+body.dark-mode .grommunio-maintoolbar {
 	background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MjAgMTQwIj48cGF0aCBmaWxsPSIjZGZkZmRmIiBkPSJNMTg2LjY3IDUzLjE4cS0xMS4xNCAwLTEzLjI4IDE2LjIxLTEuMTEgOC40MiAxLjI4IDEyLjU3YTguMzMgOC4zMyAwIDAgMCA3LjY3IDQuMTUgMTIuMTMgMTIuMTMgMCAwIDAgOC4yMy0zLjI0IDExLjkyIDExLjkyIDAgMCAwIDQuMzQtNy42bDEuNDQtMTFhOS40MyA5LjQzIDAgMCAwLTIuMy03LjkgOS4zMiA5LjMyIDAgMCAwLTcuMzgtMy4yNHptLTkuOTIgNDMuMDZxLTguOTIgMC0xMy42Ni03LjA5VDE2MCA2OS4zOXExLjY3LTEyLjU3IDcuOTQtMTkuNDVhMjAuNjUgMjAuNjUgMCAwIDEgMTUuOC02LjkgMTggMTggMCAwIDEgOC4xOCAxLjczIDE4LjgzIDE4LjgzIDAgMCAxIDYuNDQgNS43Ny4yNC4yNCAwIDAgMCAuMTkuMS4xLjEgMCAwIDAgLjExLS4xbC4xLS43MWE2LjYgNi42IDAgMCAxIDIuMzUtNCA2LjQ0IDYuNDQgMCAwIDEgNC4zOC0xLjcyaDEuMTJhNC41MiA0LjUyIDAgMCAxIDMuNzIgMS43MiA0LjkgNC45IDAgMCAxIDEuMTkgNGwtNS42MyA0Mi44N3EtMy42IDI3LjM2LTMxIDI3LjM2YTY2LjY4IDY2LjY4IDAgMCAxLTEwLjEzLS44MSA1LjM5IDUuMzkgMCAwIDEtMy43My0yLjQzIDYuMzQgNi4zNCAwIDAgMS0uOTQtNC40NiA0LjUzIDQuNTMgMCAwIDEgMi4wNS0zLjI1IDQuODYgNC44NiAwIDAgMSAzLjgzLS42IDM5Ljc2IDM5Ljc2IDAgMCAwIDEwIDEuMjFxNy41IDAgMTEuNDctNCAzLjk3LTQgNS4xMy0xMi43MmwuNDItMy4xNGMwLS4wNyAwLS4xLS4wOS0uMWEuMzMuMzMgMCAwIDAtLjIyLjEgMjIuNzggMjIuNzggMCAwIDEtMTUuOTQgNi4zOHptMzguNjEuNTFhNC44MyA0LjgzIDAgMCAxLTMuODItMS43NSA0LjkxIDQuOTEgMCAwIDEtMS4xOS00bDUuNDItNDEuMTRhNi40IDYuNCAwIDAgMSAyLjI1LTQgNi4zMiA2LjMyIDAgMCAxIDQuMjgtMS43MmgyYTQuODIgNC44MiAwIDAgMSAzLjgyIDEuNzIgNC45IDQuOSAwIDAgMSAxLjE5IDRsLS41NiA0LjI2YzAgLjA3IDAgLjEuMDkuMXMuMjEgMCAuMjItLjFhMjYuODYgMjYuODYgMCAwIDEgOC41Ny02LjU5IDMwLjQzIDMwLjQzIDAgMCAxIDEwLjg2LTMuMjQgMy43MiAzLjcyIDAgMCAxIDMuNTEgMS4zOSA0LjQyIDQuNDIgMCAwIDEgMSAzLjY1IDUuNzUgNS43NSAwIDAgMS0yIDMuNjcgNi43IDYuNyAwIDAgMS0zLjg3IDEuNzNRMjI5IDU2LjExIDIyNi44MSA3Mi45NGwtMi4zOCAxOGE2LjQgNi40IDAgMCAxLTIuMjUgNC4wNiA2LjMyIDYuMzIgMCAwIDEtNC4yOCAxLjcyem02OS40OS0zOS42MnEtMi4zOS00LjI2LTguMzYtNC4yNmExMS45MiAxMS45MiAwIDAgMC05LjU4IDQuMjZxLTMuNDggNC4xNS00LjY4IDEzLjI3LTEuMiA5LjEyIDEuMTggMTMuMzggMi40OSA0LjE2IDguNDcgNC4xNmExMS43IDExLjcgMCAwIDAgOS40Ni00LjE2cTMuNi00LjI2IDQuOC0xMy4zOCAxLjItOS4xMi0xLjI5LTEzLjI3em01LjUyIDMzLjU0cS03LjY0IDcuMS0xOS43OSA3LjA5LTEyLjE1LS4wMS0xOC03LjA5LTUuNzQtNy4yLTQtMjAuMjcgMS43NC0xMy4wNyA5LjM0LTIwLjE2IDcuNzQtNy4yIDE5LjktNy4yIDEyLjE2IDAgMTcuOSA3LjIgNS44NSA3LjA5IDQuMTMgMjAuMTYtMS43MiAxMy4wNy05LjQ4IDIwLjI3em0xNC43NiA2LjA4YTQuODIgNC44MiAwIDAgMS0zLjgyLTEuNzUgNS4xIDUuMSAwIDAgMS0xLjA5LTRsNS40Mi00MS4xNGE2LjU5IDYuNTkgMCAwIDEgMi4xNS00IDYuMzIgNi4zMiAwIDAgMSA0LjI4LTEuNzJoMS40MmE0LjcyIDQuNzIgMCAwIDEgMy43NCAxLjYyIDQuOTIgNC45MiAwIDAgMSAxLjMgNGwtLjA5LjcxYzAgLjA3IDAgLjEuMDkuMXMuMiAwIC4yMS0uMXE2Ljk0LTcuMjkgMTQuNDQtNy4zYTEyLjM3IDEyLjM3IDAgMCAxIDcuMDcgMS43M3EyLjYxIDEuNzEgNC4xNiA2LjA0YzAgLjA2LjA2LjEuMTkuMWEuMzkuMzkgMCAwIDAgLjIyLS4xUTM1Mi4yMyA0MyAzNjAuMjQgNDNxOC40IDAgMTEuNDUgNC41NiAzLjA1IDQuNTYgMS42OCAxNS43MUwzNjkuNzMgOTFhNi40IDYuNCAwIDAgMS0yLjI1IDQgNiA2IDAgMCAxLTQuMTggMS43MmgtMS43M2E0LjgzIDQuODMgMCAwIDEtMy44Mi0xLjcyIDQuOTEgNC45MSAwIDAgMS0xLjE5LTRsMy4zNy0yNS42M2MuNjUtNC45My42MS04LjE4LS4xMy05Ljczcy0yLjQ3LTIuMzMtNS4xNy0yLjMzYTkgOSAwIDAgMC01LjYzIDIuNHEtMyAyLjQzLTMuMjcgNC44NmwtNCAzMC40YTYuNCA2LjQgMCAwIDEtMi4yMiA0LjAzIDYuMzIgNi4zMiAwIDAgMS00LjI4IDEuNzJoLTEuNzNhNC44MyA0LjgzIDAgMCAxLTMuODItMS43MiA1LjE0IDUuMTQgMCAwIDEtMS4wOS00TDMzMiA2NS4zNHExLTcuMzEtLjI2LTkuNjMtMS4yNi0yLjMyLTUuMTUtMi40M2E5IDkgMCAwIDAtNS41OSAyLjQzcS0zIDIuNDMtMy4yNyA0Ljg2bC00IDMwLjRhNi40IDYuNCAwIDAgMS0yLjI5IDQuMDMgNi4zMiA2LjMyIDAgMCAxLTQuMjggMS43MnptNzMuNTEgMGE0LjgyIDQuODIgMCAwIDEtMy44Mi0xLjc1IDUuMSA1LjEgMCAwIDEtMS4wOS00bDUuNDEtNDEuMTRhNi42NSA2LjY1IDAgMCAxIDIuMTYtNCA2LjMyIDYuMzIgMCAwIDEgNC4yOC0xLjcySDM4N2E0LjcyIDQuNzIgMCAwIDEgMy43NCAxLjYyIDQuOTIgNC45MiAwIDAgMSAxLjMgNGwtLjA5LjcxYzAgLjA3IDAgLjEuMDguMXMuMjEgMCAuMjItLjFxNi45NC03LjI5IDE0LjQ0LTcuM2ExMi4zOSAxMi4zOSAwIDAgMSA3LjA3IDEuNzNxMi42MSAxLjcxIDQuMTYgNi4wOGMwIC4wNi4wNi4xLjE5LjFhLjM5LjM5IDAgMCAwIC4yMi0uMVE0MjUuNzQgNDMgNDMzLjc0IDQzcTguNDIgMCAxMS40NiA0LjU2IDMuMDQgNC41NiAxLjY4IDE1LjcxTDQ0My4yNCA5MWE2LjQgNi40IDAgMCAxLTIuMjQgNCA2IDYgMCAwIDEtNC4xOCAxLjcyaC0xLjczYTQuODIgNC44MiAwIDAgMS0zLjgzLTEuNzIgNC45MSA0LjkxIDAgMCAxLTEuMTktNGwzLjM3LTI1LjYzYy42NS00LjkzLjYxLTguMTgtLjE0LTkuNzNzLTIuNDYtMi4zMy01LjE2LTIuMzNhOSA5IDAgMCAwLTUuNTkgMi40M3EtMyAyLjQzLTMuMjcgNC44NmwtNCAzMC40YTYuNCA2LjQgMCAwIDEtMi4yOCA0IDYuMzIgNi4zMiAwIDAgMS00LjI4IDEuNzJINDA3YTQuODIgNC44MiAwIDAgMS0zLjgxLTEuNzIgNS4xNCA1LjE0IDAgMCAxLTEuMDktNGwzLjM4LTI1LjYzcTEtNy4zMS0uMjYtOS42My0xLjI2LTIuMzItNS4xNS0yLjQzYTkgOSAwIDAgMC01LjU5IDIuNDNxLTMgMi40My0zLjI3IDQuODZsLTQgMzAuNGE2LjQgNi40IDAgMCAxLTIuMjEgNCA2LjMyIDYuMzIgMCAwIDEtNC4yOCAxLjcyek00NjMgOTcuNzZxLTguOTEgMC0xMi4zMy00Ljg2dC0xLjg1LTE2LjcybDMuNDctMjYuMzVhNi40MiA2LjQyIDAgMCAxIDIuMjYtNCA2LjMxIDYuMzEgMCAwIDEgNC4yOC0xLjcyaDEuNjJhNC44MiA0LjgyIDAgMCAxIDMuODIgMS43MiA0LjkgNC45IDAgMCAxIDEuMTkgNGwtMy4yOCAyNC45M3EtLjkzIDcuMDkuNjMgOS44M2MxLjA1IDEuODIgMy4wOSAyLjc0IDYuMTMgMi43NCAyLjc3IDAgNS40OS0xLjE5IDguMTctMy41NXM0LjI5LTQuOSA0LjY0LTcuNmwzLjQ3LTI2LjM1YTYuNDYgNi40NiAwIDAgMSAyLjI2LTQgNi4zMiA2LjMyIDAgMCAxIDQuMjgtMS43MmgyYTQuNTQgNC41NCAwIDAgMSAzLjcyIDEuNzIgNC45NCA0Ljk0IDAgMCAxIDEuMTkgNEw0OTMuMjggOTFhNi40IDYuNCAwIDAgMS0yLjI4IDQgNiA2IDAgMCAxLTQuMTggMS43MmgtMS4zMmE1LjE0IDUuMTQgMCAwIDEtMy45NC0xLjYyIDUuNTggNS41OCAwIDAgMS0xLjE1LTQuMXYtLjdjMC0uMDcgMC0uMTEtLjA5LS4xMWEuMzUuMzUgMCAwIDAtLjIyLjExcS03Ljg3IDcuNDktMTcuMSA3LjQ5em0zOC4yMS0xYTQuODIgNC44MiAwIDAgMS0zLjgyLTEuNzYgNC45MSA0LjkxIDAgMCAxLTEuMTktNGw1LjQxLTQxLjE0YTYuNDYgNi40NiAwIDAgMSAyLjI2LTQgNi4zMiA2LjMyIDAgMCAxIDQuMjgtMS43MmgxLjMyYTQuNjQgNC42NCAwIDAgMSAzLjgyIDEuNzIgNSA1IDAgMCAxIDEuMjkgNGwtLjA5LjcxYzAgLjA3IDAgLjEuMDkuMWEuMzEuMzEgMCAwIDAgLjIxLS4xcTcuODktNy41IDE3LjEtNy41dDEyLjY5IDUuMjdxMy41NyA1LjE3IDIgMTcuMzNMNTQzLjIxIDkxYTYuOTEgNi45MSAwIDAgMS02LjUzIDUuNzhINTM1YTQuODcgNC44NyAwIDAgMS0zLjg3LTEuNzggNS4xNCA1LjE0IDAgMCAxLTEuMTMtNGwzLjItMjQuMzJxMS03LjU5LS42Ni0xMC4zM2MtMS0xLjg5LTMuMjQtMi44NC02LjYyLTIuODRxLTQuMTUgMC04LjE3IDMuNTV0LTQuNTUgNy42TDUwOS43NyA5MWE2LjQgNi40IDAgMCAxLTIuMjUgNCA2LjMyIDYuMzIgMCAwIDEtNC4yOCAxLjcyem01MS4xMSAwYTQuODQgNC44NCAwIDAgMS0zLjgzLTEuNzYgNSA1IDAgMCAxLTEuMTktNGw1LjQyLTQxLjE0YTYuNCA2LjQgMCAwIDEgMi4yNS00IDYuMzIgNi4zMiAwIDAgMSA0LjI4LTEuNzJoMi42NGE0LjgyIDQuODIgMCAwIDEgMy44MiAxLjcyIDQuOSA0LjkgMCAwIDEgMS4xOSA0TDU2MS40OSA5MWE2LjQ2IDYuNDYgMCAwIDEtMi4yNiA0IDYuMzIgNi4zMiAwIDAgMS00LjIzIDEuNzV6bTUyLjMyLTM5LjYzcS0yLjM5LTQuMjYtOC4zNi00LjI2YTExLjkxIDExLjkxIDAgMCAwLTkuNTggNC4yNnEtMy40OCA0LjE2LTQuNyAxMy4yNy0xLjIyIDkuMTEgMS4xOCAxMy4zOCAyLjQ5IDQuMTYgOC40NyA0LjE2YTExLjcyIDExLjcyIDAgMCAwIDkuNDctNC4xNnEzLjYtNC4yNiA0LjgtMTMuMzggMS4yLTkuMTItMS4yOC0xMy4yN3ptNS41MSAzMy41NHEtNy42MiA3LjEtMTkuNzggNy4wOS0xMi4xNi0uMDEtMTgtNy4wOS01LjczLTcuMi00LTIwLjI3IDEuNzMtMTMuMDcgOS4zNC0yMC4xNiA3Ljc0LTcuMiAxOS44OS03LjJ0MTcuOSA3LjJxNS44NyA3LjA5IDQuMTQgMjAuMTYtMS43MyAxMy4wNy05LjQ5IDIwLjI3eiIvPjxwYXRoIGZpbGw9IiMyZGNhZmYiIGQ9Im01NTIuNzEgMTkuOTQgNy43MSAxNy4zMyAxMi4yOS0xNy4zM1oiLz48cGF0aCBmaWxsPSIjZGZkZmRmIiBkPSJtMTU5IDcuNjktNDQuMzYgMjAgMTcgMjguMjNMMTU5IDguNnpNNDMuMTQgMzIuODcgNDYuMTIgMEgxLjM1eiIvPjxwYXRoIGZpbGw9IiMyZGNhZmYiIGQ9Im00NC4wOCA3Mi43MSAyNi4xMiAzLTIwLjU4LTIzLjE2em0tMi40OS0yOC40MkwwIDExLjU3bDM0LjI4IDU5LjM3em0xMS4yNi04LjU5TDEwMS43MSAyMiA5NyAwSDU2LjA5em00Ni43My0yLjhMNTYuMjMgNDUuMDZsMjcuNjMgMzEuMDd6bTExLjUyLTE0LjQ0TDE1MS45NCAwaC00NC44MXpNOTUgNzQuNmwyOS4zMi01LjgyIDEuNzMtM0wxMDguNjYgMzd6Ii8+PHBhdGggZmlsbD0iI2RmZGZkZiIgZD0ibTc3LjMxIDg2LjUyLTM2LjQ2LTQuMTlMNzQuMTUgMTQweiIvPjxwYXRoIGZpbGw9IiMyZGNhZmYiIGQ9Im04Ny4wOCA4OS41Ni0yLjg4IDQ4LjY2IDE4LjQyLTMxLjl6TTk2IDg0LjUzbDExLjg2IDEyLjc5IDkuODgtMTcuMTF6Ii8+PC9zdmc+) no-repeat right 12px center;
 	background-size: 115px 26px;
 	background-color: var(--dm-bg-paper);
@@ -270,35 +270,35 @@ body.dark-mode .zarafa-maintoolbar {
 /*=============================================================================
   Navigation Panel (Tree)
 =============================================================================*/
-body.dark-mode #zarafa-navigationpanel > div {
+body.dark-mode #grommunio-navigationpanel > div {
 	border-color: transparent !important;
 	background-color: transparent !important;
 }
 
 /* The header must stay opaque: the panel floats over the tabs when it slides in */
-body.dark-mode #zarafa-navigationpanel > .x-panel-header {
+body.dark-mode #grommunio-navigationpanel > .x-panel-header {
 	background-color: var(--dm-bg-paper) !important;
 	border-bottom-color: var(--dm-border) !important;
 }
 
-body.dark-mode #zarafa-navigationpanel,
-body.dark-mode #zarafa-navigationpanel .zarafa-hierarchy-treepanel,
-body.dark-mode #zarafa-navigationpanel .x-panel,
-body.dark-mode #zarafa-navigationpanel .x-panel-body {
+body.dark-mode #grommunio-navigationpanel,
+body.dark-mode #grommunio-navigationpanel .grommunio-hierarchy-treepanel,
+body.dark-mode #grommunio-navigationpanel .x-panel,
+body.dark-mode #grommunio-navigationpanel .x-panel-body {
 	border-right: none !important;
 }
 
 /* Main panel left border - use dark border color instead of removing */
-body.dark-mode #zarafa-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body > div > .x-panel {
+body.dark-mode #grommunio-mainpanel > .x-tab-panel-bwrap > .x-tab-panel-body > div > .x-panel {
 	border-left-color: var(--dm-border) !important;
 }
 
-body.dark-mode #zarafa-navigationpanel .zarafa-hierarchy-treepanel {
+body.dark-mode #grommunio-navigationpanel .grommunio-hierarchy-treepanel {
 	background-color: var(--dm-bg-paper);
 }
 
-body.dark-mode #zarafa-navigationpanel .zarafa-hierarchy-treepanel .zarafa-hierarchy-treepanel-tbar .x-toolbar,
-body.dark-mode #zarafa-navigationpanel .zarafa-hierarchy-treepanel-bottombar {
+body.dark-mode #grommunio-navigationpanel .grommunio-hierarchy-treepanel .grommunio-hierarchy-treepanel-tbar .x-toolbar,
+body.dark-mode #grommunio-navigationpanel .grommunio-hierarchy-treepanel-bottombar {
 	border-color: var(--dm-border) !important;
 }
 
@@ -310,8 +310,8 @@ body.dark-mode input.x-form-text.k-searchfolder-field {
 /*=============================================================================
   Main Panel
 =============================================================================*/
-body.dark-mode #zarafa-mainpanel .x-toolbar,
-body.dark-mode #zarafa-mainpanel .x-grid3-cell {
+body.dark-mode #grommunio-mainpanel .x-toolbar,
+body.dark-mode #grommunio-mainpanel .x-grid3-cell {
 	border-left-color: transparent !important;
 	border-right-color: transparent !important;
 	border-bottom-color: var(--dm-border) !important;
@@ -339,20 +339,20 @@ body.dark-mode .x-grid3-hd-row td.sort-asc .x-grid3-sort-icon {
 }
 
 /* Icon columns sorted state in dark mode */
-body.dark-mode .x-grid3-hd-row td.zarafa-icon-column.sort-asc .x-grid3-hd-inner,
-body.dark-mode .x-grid3-hd-row td.zarafa-icon-column.sort-desc .x-grid3-hd-inner {
+body.dark-mode .x-grid3-hd-row td.grommunio-icon-column.sort-asc .x-grid3-hd-inner,
+body.dark-mode .x-grid3-hd-row td.grommunio-icon-column.sort-desc .x-grid3-hd-inner {
 	background: transparent !important;
 	border: none !important;
 }
 
 /* Icon column header icons in dark mode */
-body.dark-mode .x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner .zarafa-x-grid3-hd-title p {
+body.dark-mode .x-grid3-hd-row td.grommunio-icon-column .x-grid3-hd-inner .grommunio-x-grid3-hd-title p {
 	filter: invert(0.88);
 }
 
 /* Status bar */
 body.dark-mode .ext-el-mask,
-body.dark-mode #zarafa-mainpanel .k-slider {
+body.dark-mode #grommunio-mainpanel .k-slider {
 	border-color: var(--dm-selected);
 	background-color: var(--dm-selected);
 	color: var(--dm-fg);
@@ -381,7 +381,7 @@ body.dark-mode .grommunio-toast-details-copy {
 /* Panel background - removed broad .x-panel bg override that caused gray input boxes */
 
 /* Text panels */
-body.dark-mode .x-form-textarea.x-form-field.zarafa-contextmenu-enabled[placeholder] {
+body.dark-mode .x-form-textarea.x-form-field.grommunio-contextmenu-enabled[placeholder] {
 	background-color: var(--dm-bg-paper) !important;
 	color: var(--dm-fg) !important;
 }
@@ -389,15 +389,15 @@ body.dark-mode .x-form-textarea.x-form-field.zarafa-contextmenu-enabled[placehol
 /*=============================================================================
   Tabs
 =============================================================================*/
-body.dark-mode #zarafa-mainpanel .x-tab-strip.x-tab-strip-top {
+body.dark-mode #grommunio-mainpanel .x-tab-strip.x-tab-strip-top {
 	background-color: var(--dm-bg) !important;
 }
 
-body.dark-mode #zarafa-mainpanel > .x-tab-panel-header ul.x-tab-strip-top {
+body.dark-mode #grommunio-mainpanel > .x-tab-panel-header ul.x-tab-strip-top {
 	border-bottom-color: var(--dm-bg);
 }
 
-body.dark-mode #zarafa-mainpanel .x-tab-strip-over .x-tab-right {
+body.dark-mode #grommunio-mainpanel .x-tab-strip-over .x-tab-right {
 	background-color: rgba(255, 255, 255, 0.06) !important;
 }
 
@@ -409,8 +409,8 @@ body.dark-mode .x-tab-scroller-right {
 
 
 /* Main panel tabs: icons need invert(1) to flip black icons to white.
-   Only apply to #zarafa-mainpanel tabs, not settings/dialog inner tabs. */
-body.dark-mode #zarafa-mainpanel > .x-tab-panel-header ul.x-tab-strip li .x-tab-strip-text {
+   Only apply to #grommunio-mainpanel tabs, not settings/dialog inner tabs. */
+body.dark-mode #grommunio-mainpanel > .x-tab-panel-header ul.x-tab-strip li .x-tab-strip-text {
 	filter: invert(1) !important;
 	color: #000 !important;
 }
@@ -437,7 +437,7 @@ body.dark-mode ul.x-tab-strip li:not(.x-tab-strip-active):hover .x-tab-right {
 /*=============================================================================
   Search
 =============================================================================*/
-body.dark-mode #zarafa-mainpanel .x-fieldset-header-text {
+body.dark-mode #grommunio-mainpanel .x-fieldset-header-text {
 	color: var(--dm-fg-muted);
 }
 
@@ -448,10 +448,10 @@ body.dark-mode #zarafa-mainpanel .x-fieldset-header-text {
   Content Lists (Grid Rows)
 =============================================================================*/
 /* flagged (follow-up) rows, Outlook-style; hover/selection colors win */
-body.dark-mode #zarafa-mainpanel .x-grid3-row.k-flagged:not(.x-grid3-row-over):not(.x-grid3-row-selected) {
+body.dark-mode #grommunio-mainpanel .x-grid3-row.k-flagged:not(.x-grid3-row-over):not(.x-grid3-row-selected) {
 	background-color: #40382a !important;
 }
-body.dark-mode #zarafa-mainpanel .x-grid3-row.k-flagged.mail_read:not(.x-grid3-row-over):not(.x-grid3-row-selected) > table {
+body.dark-mode #grommunio-mainpanel .x-grid3-row.k-flagged.mail_read:not(.x-grid3-row-over):not(.x-grid3-row-selected) > table {
 	border-left-color: #40382a !important;
 }
 
@@ -459,8 +459,8 @@ body.dark-mode #zarafa-mainpanel .x-grid3-row.k-flagged.mail_read:not(.x-grid3-r
   Message Preview
 =============================================================================*/
 /* Extra info box - use dark tint of theme color */
-body.dark-mode #zarafa-mainpanel .preview-header-extrainfobox,
-body.dark-mode #zarafa-mainpanel .preview-header-extrainfobox-item,
+body.dark-mode #grommunio-mainpanel .preview-header-extrainfobox,
+body.dark-mode #grommunio-mainpanel .preview-header-extrainfobox-item,
 body.dark-mode .preview-header-extrainfobox,
 body.dark-mode .preview-header-extrainfobox-item {
 	background: color-mix(in srgb, var(--theme-primary-color) 25%, #1e1e1e) !important;
@@ -482,7 +482,7 @@ body.dark-mode .preview-body {
    so it inverts to match var(--dm-fg) (#d4d4d4). */
 /* Meeting request buttons with monochrome icons: dark text so filter:invert
    on the button makes both icon and text light */
-body.dark-mode .zarafa-previewpanel-toolbar .x-btn.x-btn-text-icon .x-btn-small button.x-btn-text:not(.icon_calendar_appt_accept):not(.icon_calendar_appt_tentative) {
+body.dark-mode .grommunio-previewpanel-toolbar .x-btn.x-btn-text-icon .x-btn-small button.x-btn-text:not(.icon_calendar_appt_accept):not(.icon_calendar_appt_tentative) {
 	color: #101010 !important;
 }
 /* Meeting request buttons with COLORED icons (accept, tentative): these are
@@ -490,19 +490,19 @@ body.dark-mode .zarafa-previewpanel-toolbar .x-btn.x-btn-text-icon .x-btn-small 
    Use high-specificity selectors and target both button and inner span. */
 body.dark-mode .x-toolbar button.icon_calendar_appt_accept,
 body.dark-mode .x-toolbar button.icon_calendar_appt_tentative,
-body.dark-mode .zarafa-previewpanel-toolbar button.icon_calendar_appt_accept,
-body.dark-mode .zarafa-previewpanel-toolbar button.icon_calendar_appt_tentative,
-body.dark-mode .zarafa-dialogtoolbar button.icon_calendar_appt_accept,
-body.dark-mode .zarafa-dialogtoolbar button.icon_calendar_appt_tentative {
+body.dark-mode .grommunio-previewpanel-toolbar button.icon_calendar_appt_accept,
+body.dark-mode .grommunio-previewpanel-toolbar button.icon_calendar_appt_tentative,
+body.dark-mode .grommunio-dialogtoolbar button.icon_calendar_appt_accept,
+body.dark-mode .grommunio-dialogtoolbar button.icon_calendar_appt_tentative {
 	filter: none !important;
 	color: #d4d4d4 !important;
 }
 body.dark-mode .x-toolbar button.icon_calendar_appt_accept *,
 body.dark-mode .x-toolbar button.icon_calendar_appt_tentative *,
-body.dark-mode .zarafa-previewpanel-toolbar button.icon_calendar_appt_accept *,
-body.dark-mode .zarafa-previewpanel-toolbar button.icon_calendar_appt_tentative *,
-body.dark-mode .zarafa-dialogtoolbar button.icon_calendar_appt_accept *,
-body.dark-mode .zarafa-dialogtoolbar button.icon_calendar_appt_tentative * {
+body.dark-mode .grommunio-previewpanel-toolbar button.icon_calendar_appt_accept *,
+body.dark-mode .grommunio-previewpanel-toolbar button.icon_calendar_appt_tentative *,
+body.dark-mode .grommunio-dialogtoolbar button.icon_calendar_appt_accept *,
+body.dark-mode .grommunio-dialogtoolbar button.icon_calendar_appt_tentative * {
 	color: #d4d4d4 !important;
 }
 
@@ -520,34 +520,34 @@ body.dark-mode .preview-header-sender-initial {
   Calendar
 =============================================================================*/
 /* Calendar tab panel */
-body.dark-mode #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-container-tabarea {
+body.dark-mode #grommunio-mainpanel-contentpanel-calendar .grommunio-calendar-container-tabarea {
 	background-color: var(--dm-bg-paper) !important;
 }
 
-body.dark-mode #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-tab {
+body.dark-mode #grommunio-mainpanel-contentpanel-calendar .grommunio-calendar-tab {
 	border-top-color: transparent !important;
 }
 
-body.dark-mode #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-tabarea-stroke {
+body.dark-mode #grommunio-mainpanel-contentpanel-calendar .grommunio-calendar-tabarea-stroke {
 	border-top-color: transparent !important;
 }
 
-body.dark-mode #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar-tabarea-stroke.zarafa-calendar-tab-selected {
+body.dark-mode #grommunio-mainpanel-contentpanel-calendar .grommunio-calendar-tabarea-stroke.grommunio-calendar-tab-selected {
 	border-top-color: var(--theme-primary-color) !important;
 }
 
 /* Calendar tabs - let each calendar's own color show through from inline styles.
    Use opacity to distinguish active/passive. Don't force text/icon colors -
    the calendar already handles contrast based on its color (isDark logic). */
-body.dark-mode #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar.zarafa-calendar-tab {
+body.dark-mode #grommunio-mainpanel-contentpanel-calendar .grommunio-calendar.grommunio-calendar-tab {
 	opacity: 0.55;
 }
 
-body.dark-mode #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar.zarafa-calendar-tab:hover {
+body.dark-mode #grommunio-mainpanel-contentpanel-calendar .grommunio-calendar.grommunio-calendar-tab:hover {
 	opacity: 0.75;
 }
 
-body.dark-mode #zarafa-mainpanel-contentpanel-calendar .zarafa-calendar.zarafa-with-close-icon.zarafa-calendar-tab-selected {
+body.dark-mode #grommunio-mainpanel-contentpanel-calendar .grommunio-calendar.grommunio-with-close-icon.grommunio-calendar-tab-selected {
 	opacity: 1;
 }
 
@@ -730,11 +730,11 @@ body.dark-mode .k-header {
 }
 
 /* Calendar time strip */
-body.dark-mode .zarafa-calendar-timestrip-line {
+body.dark-mode .grommunio-calendar-timestrip-line {
 	background-color: var(--dm-fg) !important;
 }
 
-body.dark-mode .zarafa-calendar-timestrip-element div {
+body.dark-mode .grommunio-calendar-timestrip-element div {
 	color: var(--dm-fg);
 }
 
@@ -743,13 +743,13 @@ body.dark-mode .k-calendar-timestrip-indicator-line {
 }
 
 /* Calendar current day */
-body.dark-mode .zarafa-calendar-container-header .k-html-header-background .k-today .k-cal-header-title,
-body.dark-mode .zarafa-calendar-boxview .zarafa-calendar-container-body .k-html-body-background .k-today .k-header {
+body.dark-mode .grommunio-calendar-container-header .k-html-header-background .k-today .k-cal-header-title,
+body.dark-mode .grommunio-calendar-boxview .grommunio-calendar-container-body .k-html-body-background .k-today .k-header {
 	background: var(--dm-selected) !important;
 }
 
 /* Calendar borders */
-body.dark-mode .zarafa-calendar.zarafa-calendar-border {
+body.dark-mode .grommunio-calendar.grommunio-calendar-border {
 	border-color: transparent !important;
 }
 
@@ -760,24 +760,24 @@ body.dark-mode .k-appointment-box {
 }
 
 /* Calendar drag selection - gray like in light mode */
-body.dark-mode .zarafa-calendar-selection-dragging {
+body.dark-mode .grommunio-calendar-selection-dragging {
 	background-color: rgba(255, 255, 255, 0.15) !important;
 	color: var(--dm-fg);
 }
 
 /* Calendar header - let inline colors work, just ensure dark mode borders */
-body.dark-mode .zarafa-calendar-container-header .k-html-header-background {
+body.dark-mode .grommunio-calendar-container-header .k-html-header-background {
 	border-color: var(--dm-border) !important;
 }
 
 /* Mute inactive calendar headers in dark mode */
-body.dark-mode .zarafa-calendar-container-header .k-html-header-background.k-inactive-calendar {
+body.dark-mode .grommunio-calendar-container-header .k-html-header-background.k-inactive-calendar {
 	opacity: 0.6;
 }
 
 /* Calendar day/week headers - keep original color scheme colors,
    just ensure date text is always readable with a text shadow for contrast */
-body.dark-mode .zarafa-calendar-container-header .k-html-header-background .k-cal-header-title {
+body.dark-mode .grommunio-calendar-container-header .k-html-header-background .k-cal-header-title {
 	color: #fff !important;
 	text-shadow: 0 0 3px rgba(0, 0, 0, 0.7), 0 0 6px rgba(0, 0, 0, 0.5) !important;
 }
@@ -794,10 +794,10 @@ body.dark-mode .k-html-header-appointment [class*="icon_"] {
 
 /* Calendar private/recurring appointment icons in the grid - these inherit the
    appointment color scheme contrast, don't invert them */
-body.dark-mode .zarafa-calendar-container-body .icon_private,
-body.dark-mode .zarafa-calendar-container-body .icon_recurrence,
-body.dark-mode .zarafa-calendar-container-header .icon_private,
-body.dark-mode .zarafa-calendar-container-header .icon_recurrence {
+body.dark-mode .grommunio-calendar-container-body .icon_private,
+body.dark-mode .grommunio-calendar-container-body .icon_recurrence,
+body.dark-mode .grommunio-calendar-container-header .icon_private,
+body.dark-mode .grommunio-calendar-container-header .icon_recurrence {
 	filter: none !important;
 }
 
@@ -807,8 +807,8 @@ body.dark-mode .k-appointmentcreatetab .k-location-panel a.k-location-open {
 }
 
 /* Calendar extra info */
-body.dark-mode .k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo div,
-body.dark-mode .k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo .k-extrainfo-toggle {
+body.dark-mode .k-appointmentcreatetab .grommunio-calendar-appointment-extrainfo div,
+body.dark-mode .k-appointmentcreatetab .grommunio-calendar-appointment-extrainfo .k-extrainfo-toggle {
 	background: color-mix(in srgb, var(--theme-primary-color) 25%, #1e1e1e) !important;
 	color: var(--dm-fg);
 }
@@ -850,8 +850,8 @@ body.dark-mode .k-taskgeneraltab .x-form-text {
 }
 
 /* Attachment bar - hide visible border/background like in mail compose */
-body.dark-mode .k-appointmentcreatetab .k-field-attachments .zarafa-attachmentfield,
-body.dark-mode .k-taskgeneraltab .k-field-attachments .zarafa-attachmentfield {
+body.dark-mode .k-appointmentcreatetab .k-field-attachments .grommunio-attachmentfield,
+body.dark-mode .k-taskgeneraltab .k-field-attachments .grommunio-attachmentfield {
 	border-color: transparent !important;
 	background-color: transparent !important;
 }
@@ -865,103 +865,103 @@ body.dark-mode .k-taskgeneraltab .k-field-attachments .x-form-field-wrap {
 /*=============================================================================
   Free/Busy Panel
 =============================================================================*/
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-day {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-timeline-day {
 	background-color: var(--dm-bg-paper) !important;
 	color: var(--dm-fg);
 }
 
 /* Day header cells (date labels like "Friday, March 6, 2026") */
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-day table tr.x-freebusy-timeline-day td {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-timeline-day table tr.x-freebusy-timeline-day td {
 	background-color: var(--dm-bg-elevated) !important;
 	color: var(--dm-fg) !important;
 }
 
 /* Hour cells in the header */
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-day table tr.x-freebusy-timeline-hour td {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-timeline-day table tr.x-freebusy-timeline-hour td {
 	border-color: var(--dm-border) !important;
 }
 
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-day {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-timeline-day {
 	border-right-color: var(--dm-border) !important;
 }
 
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header,
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header,
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body {
 	border-color: transparent;
 	background-color: var(--dm-bg-paper) !important;
 }
 
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-day.x-freebusy-timeline-day-current {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-timeline-day.x-freebusy-timeline-day-current {
 	background-color: var(--dm-selected) !important;
 	color: var(--dm-fg);
 }
 
 /* Current day header cells keep accent color */
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-day td {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-day td {
 	background-color: var(--theme-primary-color) !important;
 	color: #fff !important;
 }
 
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-hour {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-timeline-hour {
 	background-color: var(--dm-bg-paper) !important;
 	color: var(--dm-fg);
 }
 
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-day-sum {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-timeline-day-sum {
 	background-color: var(--dm-bg-paper) !important;
 }
 
 /* Body grid area borders */
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day {
 	border-right-color: var(--dm-border) !important;
 	background-image: none !important;
 }
 
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day td {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day td {
 	border-left-color: var(--dm-border) !important;
 }
 
 /* Free status blocks - subtle border instead of solid white */
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-block-free {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-timeline-block-free {
 	background-color: transparent !important;
 	border: 1px solid var(--dm-border-strong) !important;
 }
 
 /* Tentative blocks - adjust stripe pattern for dark mode */
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-block-tentative {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-timeline-block-tentative {
 	background: repeating-linear-gradient(-45deg, #0f70bd 0px, #0f70bd 2.8284px, var(--dm-bg-paper) 2.8284px, var(--dm-bg-paper) 5.65685px) !important;
 }
 
 /* Working Elsewhere blocks - dotted pattern over dark base */
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-timeline-block-workingelsewhere {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-timeline-block-workingelsewhere {
 	background: radial-gradient(#5b9bd5 30%, transparent 31%) 0 0 / 6px 6px, var(--dm-bg-paper) !important;
 }
 
 /* Suggestion list panel header, body, and footer */
-body.dark-mode .zarafa-freebusy-panel .zarafa-freebusy-suggestionlist .x-panel-header {
+body.dark-mode .grommunio-freebusy-panel .grommunio-freebusy-suggestionlist .x-panel-header {
 	background-color: var(--dm-bg-paper) !important;
 	color: var(--dm-fg) !important;
 }
 
-body.dark-mode .zarafa-freebusy-panel .zarafa-freebusy-suggestionlist .x-panel-body,
-body.dark-mode .zarafa-freebusy-panel .zarafa-freebusy-suggestionlist .x-panel-footer {
+body.dark-mode .grommunio-freebusy-panel .grommunio-freebusy-suggestionlist .x-panel-body,
+body.dark-mode .grommunio-freebusy-panel .grommunio-freebusy-suggestionlist .x-panel-footer {
 	background-color: var(--dm-bg-paper) !important;
 }
 
 /* User list panel in freebusy */
-body.dark-mode .zarafa-freebusy-panel .x-freebusy-userlist .x-panel-header {
+body.dark-mode .grommunio-freebusy-panel .x-freebusy-userlist .x-panel-header {
 	background-color: var(--dm-bg-paper) !important;
 	color: var(--dm-fg) !important;
 }
 
-body.dark-mode .zarafa-freebusy-panel .x-panel.suggestionlist .x-btn.zarafa-freebusy-suggestionrow .x-btn-small em button {
+body.dark-mode .grommunio-freebusy-panel .x-panel.suggestionlist .x-btn.grommunio-freebusy-suggestionrow .x-btn-small em button {
 	background-color: var(--dm-bg);
 }
 
 /*=============================================================================
   Contacts
 =============================================================================*/
-body.dark-mode div.zarafa-contact-cardview-card {
+body.dark-mode div.grommunio-contact-cardview-card {
 	border-color: transparent;
 	background-color: transparent !important;
 }
@@ -978,7 +978,7 @@ body.dark-mode #contact-cardview .x-panel-body {
 	background-color: var(--dm-bg-paper) !important;
 }
 
-body.dark-mode #contact-cardview .zarafa-card-body {
+body.dark-mode #contact-cardview .grommunio-card-body {
 	color: var(--dm-fg) !important;
 }
 
@@ -986,19 +986,19 @@ body.dark-mode #contact-cardview .contact-card-label {
 	color: var(--dm-fg-muted) !important;
 }
 
-body.dark-mode #contact-cardview .zarafa-contact-cardview-card:hover .x-panel-header,
-body.dark-mode #contact-cardview .zarafa-contact-cardview-card:hover .x-panel-body {
+body.dark-mode #contact-cardview .grommunio-contact-cardview-card:hover .x-panel-header,
+body.dark-mode #contact-cardview .grommunio-contact-cardview-card:hover .x-panel-body {
 	background-color: var(--dm-hover) !important;
 }
 
-body.dark-mode #contact-cardview .zarafa-contact-cardview-selected .x-panel-body {
+body.dark-mode #contact-cardview .grommunio-contact-cardview-selected .x-panel-body {
 	background-color: var(--dm-selected) !important;
 }
 
 /*=============================================================================
   Sticky Notes
 =============================================================================*/
-body.dark-mode .zarafa-note-iconview-thumb {
+body.dark-mode .grommunio-note-iconview-thumb {
 	border-color: var(--dm-border) !important;
 	background-color: var(--dm-bg-paper) !important;
 	color: var(--dm-fg);
@@ -1026,12 +1026,12 @@ body.dark-mode .k-settings-profile-photo:hover {
 	border-color: #64b5f6 !important;
 }
 body.dark-mode .x-window .x-tab-strip-over .x-tab-right,
-body.dark-mode #zarafa-mainpanel-contentpanel-settings .x-tab-strip-over .x-tab-right {
+body.dark-mode #grommunio-mainpanel-contentpanel-settings .x-tab-strip-over .x-tab-right {
 	background-color: rgba(255, 255, 255, 0.06) !important;
 }
 
 /* Settings category icon */
-body.dark-mode .zarafa-settings-category-tab .k-settings-category-icon {
+body.dark-mode .grommunio-settings-category-tab .k-settings-category-icon {
 	filter: invert(0.88);
 }
 
@@ -1073,18 +1073,18 @@ body.dark-mode .x-btn.x-btn-selected :is(.x-btn-small, .x-btn-medium, .x-btn-lar
 /* Text-icon buttons (non-action): invert(1) flips icon+text together.
    Set text to dark so invert makes it light. Exclude action buttons - they have white icons already.
    Also exclude colored-icon buttons (accept/tentative) which are NOT inverted and need light text. */
-body.dark-mode .x-btn.x-btn-text-icon:not(.zarafa-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text:not(.icon_calendar_appt_accept):not(.icon_calendar_appt_tentative) {
+body.dark-mode .x-btn.x-btn-text-icon:not(.grommunio-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text:not(.icon_calendar_appt_accept):not(.icon_calendar_appt_tentative) {
 	color: #1a1a1a !important;
 }
 
 /* Action text-icon buttons: white text + no invert (icon is already _white variant) */
-body.dark-mode .x-btn.zarafa-action.x-btn-text-icon :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text {
+body.dark-mode .x-btn.grommunio-action.x-btn-text-icon :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text {
 	color: #fff !important;
 	filter: none !important;
 }
 
 /* Action icon-only buttons: no invert - mask-image icons use currentColor which is already light */
-body.dark-mode .x-btn.zarafa-action.x-btn-icon :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text {
+body.dark-mode .x-btn.grommunio-action.x-btn-icon :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text {
 	color: #fff !important;
 	filter: none !important;
 }
@@ -1322,7 +1322,7 @@ body.dark-mode .x-treegrid-col {
 /*=============================================================================
   Reminders and Popout Windows
 =============================================================================*/
-body.dark-mode .x-panel.zarafa-reminder-dialog-active-reminder {
+body.dark-mode .x-panel.grommunio-reminder-dialog-active-reminder {
 	color: var(--dm-fg);
 }
 
@@ -1369,7 +1369,7 @@ body.dark-mode .x-grid3-body .x-grid3-td-numberer {
 }
 
 /* Uploaded attachment */
-body.dark-mode .x-zarafa-boxfield-attachment-item-uploaded {
+body.dark-mode .x-grommunio-boxfield-attachment-item-uploaded {
 	background-color: var(--dm-bg) !important;
 }
 
@@ -1414,7 +1414,7 @@ body.dark-mode .icon_copy,
 body.dark-mode .icon_folder_default_junk,
 body.dark-mode .icon_embed_attachment,
 body.dark-mode .icon_export,
-body.dark-mode .zarafa-settings-category-rules,
+body.dark-mode .grommunio-settings-category-rules,
 body.dark-mode .icon_flag_Reminder,
 body.dark-mode .icon_large_addressbook,
 body.dark-mode .icon_large_refresh,
@@ -1462,8 +1462,8 @@ body.dark-mode .minimize_button,
 body.dark-mode .plus,
 body.dark-mode .x-tab-add,
 body.dark-mode .x-tool.x-tool-plus,
-body.dark-mode .zarafa-rules-add,
-body.dark-mode .x-zarafa-boxfield-item-expand,
+body.dark-mode .grommunio-rules-add,
+body.dark-mode .x-grommunio-boxfield-item-expand,
 body.dark-mode .triangle_left,
 body.dark-mode .x-tbar-page-prev,
 body.dark-mode .triangle_left_outline,
@@ -1556,9 +1556,9 @@ body.dark-mode .files_icon_16_share,
 body.dark-mode .filesplugin_icon_add,
 body.dark-mode .filesplugin_icon_delete,
 body.dark-mode .k-settings-category-icon,
-body.dark-mode .zarafa-rules-sequence-up,
-body.dark-mode .zarafa-rules-sequence-down,
-body.dark-mode .zarafa-files-feature-spacer,
+body.dark-mode .grommunio-rules-sequence-up,
+body.dark-mode .grommunio-rules-sequence-down,
+body.dark-mode .grommunio-files-feature-spacer,
 body.dark-mode .icon_filter,
 body.dark-mode .icon_contact_smtp,
 body.dark-mode .icon_category_add,
@@ -1582,7 +1582,7 @@ body.dark-mode .icon_mail_nondelivery_receipt {
 }
 
 /* Undo history: the range which would be undone (see grommunio.css) */
-body.dark-mode .x-menu .x-menu-list li.x-menu-list-item.zarafa-undo-item-included a {
+body.dark-mode .x-menu .x-menu-list li.x-menu-list-item.grommunio-undo-item-included a {
 	background-color: var(--dm-hover) !important;
 	color: var(--dm-fg) !important;
 }
@@ -1612,7 +1612,7 @@ body.dark-mode .x-grid3-body .x-grid3-td-numberer {
 body.dark-mode.login,
 body.dark-mode #loading-mask,
 body.dark-mode #bg,
-body.dark-mode .zarafa-welcome-body {
+body.dark-mode .grommunio-welcome-body {
 	box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -1622,16 +1622,16 @@ body.dark-mode .k-welcome-header {
 		linear-gradient(135deg, var(--theme-gradient-start, #0067b1), var(--theme-gradient-end, #0098e3)) !important;
 }
 
-body.dark-mode .zarafa-welcome-body > .x-panel-bwrap > .x-panel-body,
-body.dark-mode .zarafa-welcome-body > .x-panel-bwrap .x-panel-footer {
+body.dark-mode .grommunio-welcome-body > .x-panel-bwrap > .x-panel-body,
+body.dark-mode .grommunio-welcome-body > .x-panel-bwrap .x-panel-footer {
 	background: var(--dm-bg-paper) !important;
 }
 
-body.dark-mode .zarafa-welcome-body .zarafa-settings-widget-welcome .x-panel-header {
+body.dark-mode .grommunio-welcome-body .grommunio-settings-widget-welcome .x-panel-header {
 	color: var(--dm-fg-muted);
 }
 
-body.dark-mode.zarafa-welcome,
+body.dark-mode.grommunio-welcome,
 body.dark-mode #loading-mask {
 	background:
 		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIwIDEwODAiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA3Ij48cGF0aCBkPSJNMCAyNjUuMTZzMi41Ny0yLjkzIDIxLjYxIDE1LjkzbDM2NC44NCAzNjEuNTcgMzY0Ljg0IDM2MS41N2MzMC43MSAzMC40MyAyOC4zOCA3NS43NCAyOC4zOCA3NS43NEgwVjI2NS4xNloiLz48cGF0aCBkPSJNMCAwdjYyNGwxMzQuMzkgMTMzLjA3YzE5LjAzIDE4Ljg2IDQzLjk4IDI4LjMgNjguOTMgMjguM3M0OS45LTkuNDMgNjguOTMtMjguM0w2MzcuMDkgMzk1LjVsMzY0Ljg0LTM2MS41OEMxMDI4LjI5IDExLjY2IDEwMjQgMCAxMDI0IDBIMFpNMTkyMCAxMDgwaC0zNzdsLTE0NS43MS0xNDYuMWMtMTguOTQtMTkuMTItMjguNDItNDQuMTctMjguNDItNjkuMjIgMC0yNS4wNSA5LjQ3LTUwLjExIDI4LjQyLTY5LjIyTDE5MjAgMjY4djgxMloiLz48L2c+PC9zdmc+) no-repeat center center / cover,
@@ -1685,7 +1685,7 @@ body.dark-mode #loading-mask #form-container #logo {
   This is NOT dark-mode specific - applies to both light and dark.
 =============================================================================*/
 /* When ::before pseudo-element handles the icon, remove bg-image duplicate */
-.x-btn.zarafa-action.x-btn-text-icon button.x-btn-text {
+.x-btn.grommunio-action.x-btn-text-icon button.x-btn-text {
 	background-image: none !important;
 }
 
@@ -2067,26 +2067,26 @@ body.dark-mode .leaflet-container .leaflet-control {
 }
 
 /* Plugin: Files - account view */
-body.dark-mode .zarafa-files-accountview-container {
+body.dark-mode .grommunio-files-accountview-container {
 	background-color: var(--dm-bg-paper) !important;
 	border-color: var(--dm-border) !important;
 }
 
-body.dark-mode .zarafa-files-accountview-over {
+body.dark-mode .grommunio-files-accountview-over {
 	background-color: var(--ui-surface-3) !important;
 	color: var(--dm-fg) !important;
 }
 
-body.dark-mode .zarafa-files-accountview-selected {
+body.dark-mode .grommunio-files-accountview-selected {
 	background-color: var(--dm-selected) !important;
 	color: var(--dm-fg) !important;
 }
 
-body.dark-mode .zarafa-files-account-info {
+body.dark-mode .grommunio-files-account-info {
 	color: var(--dm-fg) !important;
 }
 
-body.dark-mode .zarafa-files-account-background {
+body.dark-mode .grommunio-files-account-background {
 	border-color: var(--dm-border) !important;
 }
 
@@ -2137,8 +2137,8 @@ body.dark-mode .seafile-treegrid-grouprole {
 =============================================================================*/
 
 /* Search toolbox fieldsets: no border/background, match panel bg */
-body.dark-mode #zarafa-mainpanel .zarafa-search-toolbox .x-fieldset,
-body.dark-mode #zarafa-mainpanel .zarafa-search-toolbox .x-fieldset.x-item-disabled {
+body.dark-mode #grommunio-mainpanel .grommunio-search-toolbox .x-fieldset,
+body.dark-mode #grommunio-mainpanel .grommunio-search-toolbox .x-fieldset.x-item-disabled {
 	background: transparent !important;
 	border: none !important;
 	border-radius: 0 !important;
@@ -2147,16 +2147,16 @@ body.dark-mode #zarafa-mainpanel .zarafa-search-toolbox .x-fieldset.x-item-disab
 	margin: 0 !important;
 }
 
-body.dark-mode #zarafa-mainpanel .zarafa-search-toolbox .x-fieldset legend {
+body.dark-mode #grommunio-mainpanel .grommunio-search-toolbox .x-fieldset legend {
 	color: var(--dm-fg-muted);
 	background: transparent;
 }
 
-body.dark-mode #zarafa-mainpanel .zarafa-search-toolbox .x-fieldset .x-form-check-wrap {
+body.dark-mode #grommunio-mainpanel .grommunio-search-toolbox .x-fieldset .x-form-check-wrap {
 	padding: 3px 0;
 }
 
-body.dark-mode .zarafa-search-toolbox .ext-el-mask {
+body.dark-mode .grommunio-search-toolbox .ext-el-mask {
 	background-color: var(--dm-bg-paper) !important;
 }
 
@@ -2203,15 +2203,15 @@ body.dark-mode .x-fieldset {
 }
 
 /* Fix: Attachment field background */
-body.dark-mode .x-zarafa-boxfield.zarafa-attachmentfield,
-body.dark-mode .zarafa-mailcreatepanel-field-attachments .x-form-text.x-zarafa-boxfield,
-body.dark-mode .k-field-attachments .x-form-text.x-zarafa-boxfield {
+body.dark-mode .x-grommunio-boxfield.grommunio-attachmentfield,
+body.dark-mode .grommunio-mailcreatepanel-field-attachments .x-form-text.x-grommunio-boxfield,
+body.dark-mode .k-field-attachments .x-form-text.x-grommunio-boxfield {
 	background: transparent !important;
 	border: none !important;
 	box-shadow: none !important;
 }
 
-body.dark-mode .zarafa-settings-oof-invalid {
+body.dark-mode .grommunio-settings-oof-invalid {
 	color: #f97066 !important;
 }
 body.dark-mode .k-kbd-level-basic {
@@ -2227,17 +2227,17 @@ body.dark-mode .x-form-strengthmeter-scorebar {
 	background-color: var(--dm-bg) !important;
 }
 
-body.dark-mode .zarafa-settings-about-text a {
+body.dark-mode .grommunio-settings-about-text a {
 	color: #64b5f6 !important;
 }
-body.dark-mode .zarafa-settings-about-text a:hover {
+body.dark-mode .grommunio-settings-about-text a:hover {
 	color: #90caf9 !important;
 }
 
 /* Rule edit links */
-body.dark-mode .k-ruleseditpanel .zarafa-user-link,
-body.dark-mode .k-ruleseditpanel .zarafa-folder-link,
-body.dark-mode .k-ruleseditpanel .zarafa-word-link {
+body.dark-mode .k-ruleseditpanel .grommunio-user-link,
+body.dark-mode .k-ruleseditpanel .grommunio-folder-link,
+body.dark-mode .k-ruleseditpanel .grommunio-word-link {
 	color: #64b5f6 !important;
 }
 
@@ -2251,7 +2251,7 @@ body.dark-mode .files_backend_selector {
 }
 
 /* Settings extrainfo text */
-body.dark-mode .zarafa-settings-widget-extrainfo {
+body.dark-mode .grommunio-settings-widget-extrainfo {
 	color: var(--dm-fg-secondary) !important;
 }
 
@@ -2305,34 +2305,34 @@ body.dark-mode .x-grid3-row.k-conversation-header.k-conversation-open {
 
 /* Conversation preview cards */
 /* The stack background carries the theme accent like in light mode */
-/* The id variants out-rank the generic '#zarafa-mainpanel .x-panel-body' rule */
-body.dark-mode #zarafa-mainpanel .zarafa-mailconversationpanel > .x-panel-bwrap > .x-panel-body,
-body.dark-mode #zarafa-mainpanel .zarafa-mailconversationpanel > .x-panel-body,
-body.dark-mode .zarafa-mailconversationpanel > .x-panel-bwrap > .x-panel-body,
-body.dark-mode .zarafa-mailconversationpanel > .x-panel-body {
+/* The id variants out-rank the generic '#grommunio-mainpanel .x-panel-body' rule */
+body.dark-mode #grommunio-mainpanel .grommunio-mailconversationpanel > .x-panel-bwrap > .x-panel-body,
+body.dark-mode #grommunio-mainpanel .grommunio-mailconversationpanel > .x-panel-body,
+body.dark-mode .grommunio-mailconversationpanel > .x-panel-bwrap > .x-panel-body,
+body.dark-mode .grommunio-mailconversationpanel > .x-panel-body {
 	background: color-mix(in srgb, var(--theme-primary-color) 9%, var(--dm-bg, #1b1b1d)) !important;
 }
-body.dark-mode #zarafa-mainpanel .zarafa-mailconversationpanel .k-conversation-item .x-panel-body,
-body.dark-mode .zarafa-mailconversationpanel .k-conversation-item .x-panel-body {
+body.dark-mode #grommunio-mainpanel .grommunio-mailconversationpanel .k-conversation-item .x-panel-body,
+body.dark-mode .grommunio-mailconversationpanel .k-conversation-item .x-panel-body {
 	background: transparent !important;
 }
-body.dark-mode .zarafa-mailconversationpanel .k-conversation-item {
+body.dark-mode .grommunio-mailconversationpanel .k-conversation-item {
 	background: var(--dm-bg-paper, #232326);
 	border-color: var(--dm-border, #3a3a3e);
 }
-body.dark-mode .zarafa-mailconversationpanel .k-conversation-item.k-own-message {
+body.dark-mode .grommunio-mailconversationpanel .k-conversation-item.k-own-message {
 	background: color-mix(in srgb, var(--theme-primary-color) 14%, var(--dm-bg-paper, #232326));
 }
-body.dark-mode .zarafa-mailconversationpanel .k-conversation-item .x-panel-body {
+body.dark-mode .grommunio-mailconversationpanel .k-conversation-item .x-panel-body {
 	border-top-color: var(--dm-border, #3a3a3e);
 }
 /* Match the subtle header shading of the light mode */
-body.dark-mode .zarafa-mailconversationpanel .k-conversation-item .x-panel-header {
+body.dark-mode .grommunio-mailconversationpanel .k-conversation-item .x-panel-header {
 	background: rgba(255, 255, 255, 0.05) !important;
 }
 /* ... and for the message header (subject/recipients/attachments) of a card */
-body.dark-mode #zarafa-mainpanel .zarafa-mailconversationpanel .k-conversation-item .x-panel.preview-header,
-body.dark-mode .zarafa-mailconversationpanel .k-conversation-item .preview-header {
+body.dark-mode #grommunio-mainpanel .grommunio-mailconversationpanel .k-conversation-item .x-panel.preview-header,
+body.dark-mode .grommunio-mailconversationpanel .k-conversation-item .preview-header {
 	background: rgba(255, 255, 255, 0.04) !important;
 }
 /* The header collapse arrow is a legacy dark image; lighten it (applies to
@@ -2341,11 +2341,11 @@ body.dark-mode .preview-header-collapse {
 	filter: invert(0.88);
 }
 /* The attachment strip inherits the header shade instead of solid paper */
-body.dark-mode #zarafa-mainpanel .zarafa-mailconversationpanel .k-conversation-item .preview-attachment-data,
-body.dark-mode .zarafa-mailconversationpanel .k-conversation-item .preview-attachment-data {
+body.dark-mode #grommunio-mainpanel .grommunio-mailconversationpanel .k-conversation-item .preview-attachment-data,
+body.dark-mode .grommunio-mailconversationpanel .k-conversation-item .preview-attachment-data {
 	background-color: transparent !important;
 }
-body.dark-mode .zarafa-mailconversationpanel .k-date {
+body.dark-mode .grommunio-mailconversationpanel .k-date {
 	color: var(--dm-fg-muted, #9a9aa0);
 }
 
@@ -2374,80 +2374,80 @@ body.dark-mode .k-nav-rail-icon {
 }
 
 /* Two-tone icons are drawn with masks and need no inversion */
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_inbox,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_inbox,
 body.dark-mode .k-nav-rail-icon.icon_folder_default_inbox,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_drafts,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_drafts,
 body.dark-mode .k-nav-rail-icon.icon_folder_default_drafts,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_outbox,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_outbox,
 body.dark-mode .k-nav-rail-icon.icon_folder_default_outbox,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_sent,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_sent,
 body.dark-mode .k-nav-rail-icon.icon_folder_default_sent,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_junk,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_junk,
 body.dark-mode .k-nav-rail-icon.icon_folder_default_junk,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_wastebasket,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_wastebasket,
 body.dark-mode .k-nav-rail-icon.icon_folder_default_wastebasket,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_calendar,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_calendar,
 body.dark-mode .k-nav-rail-icon.icon_folder_default_calendar,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_appointment,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_appointment,
 body.dark-mode .k-nav-rail-icon.icon_folder_appointment,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_shared_calendar,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_shared_calendar,
 body.dark-mode .k-nav-rail-icon.icon_folder_shared_calendar,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_contact,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_contact,
 body.dark-mode .k-nav-rail-icon.icon_folder_default_contact,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_contact,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_contact,
 body.dark-mode .k-nav-rail-icon.icon_folder_contact,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_shared_contact,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_shared_contact,
 body.dark-mode .k-nav-rail-icon.icon_folder_shared_contact,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_task,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_task,
 body.dark-mode .k-nav-rail-icon.icon_folder_default_task,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_task,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_task,
 body.dark-mode .k-nav-rail-icon.icon_folder_task,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_todolist,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_todolist,
 body.dark-mode .k-nav-rail-icon.icon_folder_default_todolist,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_shared_task,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_shared_task,
 body.dark-mode .k-nav-rail-icon.icon_folder_shared_task,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_favorites,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_favorites,
 body.dark-mode .k-nav-rail-icon.icon_favorites,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_favorites,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_default_favorites,
 body.dark-mode .k-nav-rail-icon.icon_folder_default_favorites,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_shared_store,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_shared_store,
 body.dark-mode .k-nav-rail-icon.icon_folder_shared_store,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_public_store,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_public_store,
 body.dark-mode .k-nav-rail-icon.icon_folder_public_store,
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_folder_shared_undefined,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_folder_shared_undefined,
 body.dark-mode .k-nav-rail-icon.icon_folder_shared_undefined {
 	filter: none;
 }
 
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_default_inbox,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_default_drafts,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_default_outbox,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_default_sent,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_default_junk,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_default_wastebasket,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_default_calendar,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_appointment,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_shared_calendar,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_default_contact,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_contact,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_shared_contact,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_default_task,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_task,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_default_todolist,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_shared_task,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_favorites,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_default_favorites,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_shared_store,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_public_store,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_folder_shared_undefined {
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_default_inbox,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_default_drafts,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_default_outbox,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_default_sent,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_default_junk,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_default_wastebasket,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_default_calendar,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_appointment,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_shared_calendar,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_default_contact,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_contact,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_shared_contact,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_default_task,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_task,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_default_todolist,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_shared_task,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_favorites,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_default_favorites,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_shared_store,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_public_store,
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_folder_shared_undefined {
 	filter: none;
 }
 
 /* Yellow note icons in the content tabs keep their colour */
-body.dark-mode #zarafa-mainpanel > .x-tab-panel-header ul.x-tab-strip li .x-tab-strip-text.icon_folder_stickynote,
-body.dark-mode #zarafa-mainpanel > .x-tab-panel-header ul.x-tab-strip li .x-tab-strip-text.icon_folder_default_note,
-body.dark-mode #zarafa-mainpanel > .x-tab-panel-header ul.x-tab-strip li .x-tab-strip-text.icon_folder_shared_note,
-body.dark-mode #zarafa-mainpanel > .x-tab-panel-header ul.x-tab-strip li .x-tab-strip-text.icon_note_yellow {
+body.dark-mode #grommunio-mainpanel > .x-tab-panel-header ul.x-tab-strip li .x-tab-strip-text.icon_folder_stickynote,
+body.dark-mode #grommunio-mainpanel > .x-tab-panel-header ul.x-tab-strip li .x-tab-strip-text.icon_folder_default_note,
+body.dark-mode #grommunio-mainpanel > .x-tab-panel-header ul.x-tab-strip li .x-tab-strip-text.icon_folder_shared_note,
+body.dark-mode #grommunio-mainpanel > .x-tab-panel-header ul.x-tab-strip li .x-tab-strip-text.icon_note_yellow {
 	filter: none !important;
 	color: #fff !important;
 }
@@ -2457,9 +2457,9 @@ body.dark-mode .x-menu-item-icon.icon-select-color {
 	filter: none !important;
 }
 
-body.dark-mode .zarafa-hierarchy-treepanel .x-tree-node-icon.icon_inbox,
+body.dark-mode .grommunio-hierarchy-treepanel .x-tree-node-icon.icon_inbox,
 body.dark-mode .k-nav-rail-icon.icon_inbox,
-body.dark-mode .zarafa-folderproperties .folder-dialog-icon.icon_inbox {
+body.dark-mode .grommunio-folderproperties .folder-dialog-icon.icon_inbox {
 	filter: none;
 }
 

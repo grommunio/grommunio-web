@@ -1,12 +1,12 @@
-Ext.namespace('Zarafa.plugins.mdm.data');
+Ext.namespace('Grommunio.plugins.mdm.data');
 
 /**
- * @class Zarafa.plugins.mdm.data.ProvisioningStatus
- * @extends Zarafa.core.Enum
+ * @class Grommunio.plugins.mdm.data.ProvisioningStatus
+ * @extends Grommunio.core.Enum
  *
  * @singleton
  */
-Zarafa.plugins.mdm.data.ProvisioningStatus = Zarafa.core.Enum.create({
+Grommunio.plugins.mdm.data.ProvisioningStatus = Grommunio.core.Enum.create({
 	/**
 	 * Denotes that the wipe is not applicable.
 	 * @property
@@ -65,27 +65,27 @@ Zarafa.plugins.mdm.data.ProvisioningStatus = Zarafa.core.Enum.create({
 
 	/**
 	 * Return the display name for the given provisioning Status
-	 * @param {Zarafa.plugins.mdm.js.data.ProvisioningStatus} provisioningStatus The given provisioning status
+	 * @param {Grommunio.plugins.mdm.js.data.ProvisioningStatus} provisioningStatus The given provisioning status
 	 * @return {String} The display name for the provisioning status
 	 */
 	getDisplayName : function(provisioningStatus)
 	{
 		switch (provisioningStatus) {
-			case Zarafa.plugins.mdm.data.ProvisioningStatus.NOT_APPLICABLE:
+			case Grommunio.plugins.mdm.data.ProvisioningStatus.NOT_APPLICABLE:
 				return _('Not Applicable');
-			case Zarafa.plugins.mdm.data.ProvisioningStatus.OK:
+			case Grommunio.plugins.mdm.data.ProvisioningStatus.OK:
 				return _('Ok');
-			case Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING:
+			case Grommunio.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING:
 				return _('Wipe Pending');
-			case Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_REQUESTED:
+			case Grommunio.plugins.mdm.data.ProvisioningStatus.WIPE_REQUESTED:
 				return _('Wipe Requested');
-			case Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_EXECUTED:
+			case Grommunio.plugins.mdm.data.ProvisioningStatus.WIPE_EXECUTED:
 				return _('Wipe Executed');
-			case Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING_ACCOUNT_ONLY:
+			case Grommunio.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING_ACCOUNT_ONLY:
 				return _('Account Only Wipe Pending');
-			case Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_REQUESTED_ACCOUNT_ONLY:
+			case Grommunio.plugins.mdm.data.ProvisioningStatus.WIPE_REQUESTED_ACCOUNT_ONLY:
 				return _('Account Only Wipe Requested');
-			case Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_EXECUTED_ACCOUNT_ONLY:
+			case Grommunio.plugins.mdm.data.ProvisioningStatus.WIPE_EXECUTED_ACCOUNT_ONLY:
 				return _('Account Only Wipe Executed');
 			default:
 				return _('Not Available');

@@ -1,15 +1,15 @@
-Ext.namespace('Zarafa.plugins.files.backend.Default.data');
+Ext.namespace('Grommunio.plugins.files.backend.Default.data');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.data.RecipientTypes
- * @extends Zarafa.core.Enum
+ * @class Grommunio.plugins.files.backend.Default.data.RecipientTypes
+ * @extends Grommunio.core.Enum
  *
  * Enum containing the different recipient types that are available in the owncloud backend.
  *
  * @singleton
  */
-Zarafa.plugins.files.backend.Default.data.RecipientTypes =
-	Zarafa.core.Enum.create({
+Grommunio.plugins.files.backend.Default.data.RecipientTypes =
+	Grommunio.core.Enum.create({
 		/**
 		 * RecipientType: user
 		 *

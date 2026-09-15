@@ -16,7 +16,7 @@ class CreateMailItemModule extends ItemModule {
 		parent::__construct($id, $data);
 
 		$this->properties = $GLOBALS['properties']->getMailProperties();
-		$useHtmlPreview = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/use_html_email_preview', USE_HTML_EMAIL_PREVIEW);
+		$useHtmlPreview = $GLOBALS['settings']->get('grommunio/v1/contexts/mail/use_html_email_preview', USE_HTML_EMAIL_PREVIEW);
 		$this->plaintext = !$useHtmlPreview;
 	}
 

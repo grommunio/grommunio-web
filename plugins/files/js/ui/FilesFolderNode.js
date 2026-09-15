@@ -1,14 +1,14 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+Ext.namespace('Grommunio.plugins.files.ui');
 
 /**
- * @class Zarafa.plugins.files.ui.FilesFolderNode
+ * @class Grommunio.plugins.files.ui.FilesFolderNode
  * @extends Ext.tree.AsyncTreeNode
  *
  * This will register itself as 'folder' nodetype in the {@link Ext.tree.TreePanel#nodeTypes} object.
  */
-Zarafa.plugins.files.ui.FilesFolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
+Grommunio.plugins.files.ui.FilesFolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	/**
-	 * @cfg {Zarafa.core.data.IPFRecord} folder the folder for which this tree node will be created
+	 * @cfg {Grommunio.core.data.IPFRecord} folder the folder for which this tree node will be created
 	 */
 	folder : undefined,
 
@@ -42,11 +42,11 @@ Zarafa.plugins.files.ui.FilesFolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 		}
 
 		Ext.applyIf(config, {
-			containerCls : 'zarafa-tree-container',
-			cls: 'zarafa-tree-node'
+			containerCls : 'grommunio-tree-container',
+			cls: 'grommunio-tree-node'
 		});
 
-		Zarafa.plugins.files.ui.FilesFolderNode.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.FilesFolderNode.superclass.constructor.call(this, config);
 
 		if (Ext.isString(this.tpl)) {
 			this.tpl = new Ext.XTemplate(this.tpl, { compiled : true });
@@ -58,7 +58,7 @@ Zarafa.plugins.files.ui.FilesFolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	},
 
 	/**
-	 * @return {Zarafa.core.data.IPFRecord} The folder which is represented by this node
+	 * @return {Grommunio.core.data.IPFRecord} The folder which is represented by this node
 	 */
 	getFolder : function()
 	{
@@ -67,7 +67,7 @@ Zarafa.plugins.files.ui.FilesFolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 
 	/**
 	 * Updates UI of node
-	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder
 	 */
 	updateUI : function(folder)
 	{
@@ -118,7 +118,7 @@ Zarafa.plugins.files.ui.FilesFolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 
 	/**
 	 * Obtain the Display Name for the current {@link #folder}.
-	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder for which the display name is requested
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder for which the display name is requested
 	 * @return {String} The name of the folder which must be shown.
 	 * @protected
 	 */
@@ -147,4 +147,4 @@ Zarafa.plugins.files.ui.FilesFolderNode = Ext.extend(Ext.tree.AsyncTreeNode, {
 	}
 });
 
-Ext.tree.TreePanel.nodeTypes.filesfolder = Zarafa.plugins.files.ui.FilesFolderNode;
+Ext.tree.TreePanel.nodeTypes.filesfolder = Grommunio.plugins.files.ui.FilesFolderNode;

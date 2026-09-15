@@ -1,0 +1,888 @@
+Ext.namespace('Grommunio.common.ui.grid');
+
+/**
+ * @class Grommunio.common.ui.grid.Renderers
+ * Methods of this object can be used as renderers for grid panels, to render
+ * cells in custom format according to data type
+ * @singleton
+ */
+Grommunio.common.ui.grid.Renderers = {
+	/**
+	 * Render the cell as Importance
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	importance: function(value, p, record)
+	{
+		if (value >= 0) {
+			p.css = Grommunio.core.mapi.Importance.getClassName(value);
+		}
+
+		// add extra css class for empty cell
+		p.css += ' grommunio-grid-empty-cell';
+
+		return '';
+	},
+
+	/**
+	 * Render the cell as Icon
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	icon: function(value, p, record)
+	{
+		var conversationCount = record.get('conversation_count');
+		var depth = record.get('depth');
+		var cssClass = '';
+		var result = '';
+
+		if (conversationCount > 0 && depth === 0) {
+			// Conversation header records show the expand/collapse arrow in place
+			// of a message icon. Putting the arrow class on the cell centers it
+			// exactly like any other icon in this column. The item counter is
+			// rendered in the sender column by {@link #sender}.
+			var headerStore = record.getStore();
+			var opened = headerStore && Ext.isFunction(headerStore.isConversationOpened) &&
+				headerStore.isConversationOpened(record);
+			cssClass = 'k-conversation-header-icon ' + (opened ? 'arrow_down_l' : 'arrow_right_l');
+		} else if (depth !== 1) {
+			cssClass = Grommunio.common.ui.IconClass.getIconClass(record);
+		}
+
+		// add extra css class for empty cell
+		cssClass += ' grommunio-grid-empty-cell';
+
+		p.css = cssClass;
+
+		return result;
+	},
+
+	/**
+	 * Render the cell as Attachment
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	attachment: function(value, p, record)
+	{
+		if (Ext.isDefined(record) && record.get('hide_attachments') === true) {
+			return '';
+		}
+
+		// Conversation header records show the paperclip when any item in the
+		// conversation has an attachment.
+		if (Ext.isFunction(record.isConversationHeaderRecord) && record.isConversationHeaderRecord()) {
+			value = Grommunio.common.ui.grid.Renderers.conversationHasAttachment(record);
+		}
+
+		p.css = (value === true) ? 'icon_paperclip' : 'icon_noattachment';
+
+		// add extra css class for empty cell
+		p.css += ' grommunio-grid-empty-cell';
+
+		return '';
+	},
+
+	/**
+	 * Helper function that finds if there is a conversation record that has an attachment
+	 *
+	 * @param {Grommunio.core.data.IPMRecord} headerRecord The header record of a conversation
+	 * @return {Boolean} True if a record with an attachment was found, false otherwise
+	 */
+	conversationHasAttachment: function(headerRecord)
+	{
+		var store = headerRecord.getStore();
+		if (!store || !Ext.isFunction(store.getConversationItemsFromHeaderRecord)) {
+			return false;
+		}
+
+		var conversationRecords = store.getConversationItemsFromHeaderRecord(headerRecord);
+		return conversationRecords.some(function(r) {
+			return r.get('hasattach') && r.get('hide_attachments') !== true;
+		});
+	},
+
+	/**
+	 * Helper function that renders the item counter badge shown on a
+	 * conversation header row in front of the participant names.
+	 *
+	 * @param {Number} count The number of items in the conversation
+	 * @return {String} The formatted counter badge
+	 */
+	conversationCount: function(count)
+	{
+		var cls = 'k-conversation-count';
+		if (count > 9) {
+			cls += ' k-two-digit-counter';
+			if (count > 99) {
+				count = '99+';
+			}
+		}
+		return '<span unselectable="on" class="' + cls + '">' + count + '</span> ';
+	},
+
+	/**
+	 * Render the cell as Recurrence
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	recurrence: function(value, p, record)
+	{
+		p.css = value ? 'icon_recurrence' : 'grommunio-grid-empty-cell';
+		return '';
+	},
+
+	/**
+	 * Renderer for reminder column
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	reminder: function (value, p, record)
+	{
+		p.css = value ? 'icon_reminder' : 'grommunio-grid-empty-cell';
+		if (Ext.isDefined(record) && !Ext.isEmpty(record.get('reminder_time'))) {
+			var reminderTime = record.get('reminder_time');
+			var tooltip = String.format(_('Reminder is set on: {0}, {1}'), reminderTime.format(_('d-m-Y')), reminderTime.formatDefaultTime());
+			p.attr = 'ext:qtip="'+Ext.util.Format.htmlEncode(tooltip)+'"';
+		}
+		return '';
+	},
+
+	/**
+	 * Renders the cell as categories view
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	categories: function(value, p, record)
+	{
+		// Render the categories, resolving colours against the record's own
+		// mailbox category list (per-mailbox, Outlook-compatible).
+		var storeEntryId = record && Ext.isFunction(record.get) ? record.get('store_entryid') : undefined;
+		var categories = Grommunio.common.categories.Util.getCategories(record);
+		return Grommunio.common.categories.Util.getCategoriesHtml(categories, storeEntryId);
+	},
+
+	/**
+	 * Render the cell as Name
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	name: function(value, p, record)
+	{
+		p.css = 'mail_from';
+
+		if(Ext.isEmpty(value)) {
+			// if value is empty then add extra css class for empty cell
+			p.css += ' grommunio-grid-empty-cell';
+		}
+
+		return Ext.util.Format.htmlEncode(value);
+	},
+
+	/**
+	 * Render the cell as Display Name with presence status
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	displayName: function(value, p, record)
+	{
+		var userName = Grommunio.common.ui.grid.Renderers.name(value, p, record);
+		return Grommunio.common.ui.grid.Renderers.presenceStatus(userName, p, record);
+	},
+
+	/**
+	 * Render the full_name cell in the address book respecting the
+	 * configured name display format (first-last vs last-first).
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	fullName: function(value, p, record)
+	{
+		var fmt = container.getSettingsModel().get('grommunio/v1/main/addressbook_name_format');
+		if (fmt === 'firstlast') {
+			var parts = [];
+			var givenName = record.get('given_name');
+			var middleName = record.get('middle_name');
+			var surname = record.get('surname');
+
+			if (!Ext.isEmpty(givenName)) {
+				parts.push(givenName);
+			}
+			if (!Ext.isEmpty(middleName)) {
+				parts.push(middleName);
+			}
+			if (!Ext.isEmpty(surname)) {
+				parts.push(surname);
+			}
+
+			if (parts.length > 0) {
+				return Ext.util.Format.htmlEncode(parts.join(' '));
+			}
+		}
+
+		return Ext.util.Format.htmlEncode(value);
+	},
+
+	/**
+	 * Render the cell as Sender
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	sender: function(value, p, record)
+	{
+		var retVal = '';
+		var userRecord = false;
+		var conversationCount = record.get('conversation_count');
+		var depth = record.get('depth');
+
+		if (conversationCount > 0 && depth === 0) {
+			// Conversation header record: show the item counter followed by the
+			// (unique) first names of all senders that participate in the conversation.
+			var store = record.getStore();
+			if (store && Ext.isFunction(store.getConversationItemsFromHeaderRecord)) {
+				var records = store.getConversationItemsFromHeaderRecord(record);
+
+				var names = records.filter(function(val, index) {
+					for (var i = 0; i < index; i++) {
+						// We use the value of sent_representing_name to find unique senders.
+						// This means that two persons with the same name in a conversation
+						// will be shown as a single name in the header.
+						if (val.get('sent_representing_name') === records[i].get('sent_representing_name')) {
+							return false;
+						}
+					}
+					return true;
+				}).map(function(val) {
+					var name = val ? val.get('sent_representing_name') || '' : '';
+					return Ext.util.Format.htmlEncode(name.split(' ')[0]);
+				}).filter(function(name) {
+					return !Ext.isEmpty(name);
+				}).join(', ');
+
+				if (!Ext.isEmpty(names)) {
+					return Grommunio.common.ui.grid.Renderers.conversationCount(conversationCount) + names;
+				}
+			}
+
+			// No participant names could be determined; fall through to the
+			// normal sender rendering (the header record carries the sender of
+			// the newest conversation item), prefixed with the counter.
+			retVal = Grommunio.common.ui.grid.Renderers.conversationCount(conversationCount);
+		} else if (depth > 0) {
+			// Conversation item: the message icon is rendered in front of the sender
+			// because the icon column shows the thread line instead.
+			retVal = '<span class="k-icon ' + Grommunio.common.ui.IconClass.getIconClass(record) + '"></span>';
+
+			// Own (sent) messages of a conversation show their recipients instead
+			// of the sender, like Outlook does; otherwise sent and received
+			// messages are indistinguishable (especially in a conversation with
+			// yourself).
+			if (record.get('folder_name') === 'sent_items') {
+				var recipients = String(record.get('display_to') || '').split(';').map(function(name) {
+					return Ext.util.Format.htmlEncode(name.trim().split(' ')[0]);
+				}).filter(function(name) {
+					return !Ext.isEmpty(name);
+				}).join(', ');
+
+				// The arrow marks the message as sent (to the shown recipients);
+				// deliberately language-neutral.
+				return retVal + '<span class="k-conversation-sent-to">&rarr; ' + recipients + '</span>';
+			}
+		}
+
+		// Check which of the 2 properties must be used
+		// FIXME: sent representing seems to be always set...
+		value = record.get('sent_representing_name');
+		if ( Ext.isEmpty(value) && Ext.isFunction(Ext.isFunction(record.getSender))) {
+			value = record.get('sender_name');
+			userRecord = record.getSender();
+		} else if (Ext.isFunction(record.getSentRepresenting)) {
+			userRecord = record.getSentRepresenting();
+		}
+		var userName = Grommunio.common.ui.grid.Renderers.name(value, p, record);
+
+		return retVal + Grommunio.common.ui.grid.Renderers.presenceStatus(userName, p, userRecord);
+	},
+
+	/**
+	 * Render the cell as Organizer
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	organizer: function(value, p, record)
+	{
+		// Only render the cell as non-empty if the
+		// record is actually a meeting.
+		if (Ext.isDefined(record.isMeeting) && record.isMeeting()) {
+			return Grommunio.common.ui.grid.Renderers.sender(value, p, record);
+		} else {
+			// if value is empty then add extra css class for empty cell
+			p.css += ' grommunio-grid-empty-cell';
+			return '';
+		}
+	},
+
+	/**
+	 * Render the cell as Subject
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	subject: function(value, p, record)
+	{
+		p.css = 'mail_subject';
+
+		if(Ext.isEmpty(value)) {
+			// if value is empty then add extra css class for empty cell
+			p.css += ' grommunio-grid-empty-cell';
+		}
+
+		return Ext.util.Format.htmlEncode(value);
+	},
+
+	/**
+	 * Renders the cell as Body for conversation item and for header it will render 'normalized_subject'.
+	 * Apart from that it will render default value given in the param.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	body: function(value, p, record)
+	{
+		/**
+		 * @FIXME: value must always be record.get('body').
+		 * Currently we are getting subject as a value for mailGrid in non compact view
+		 * because the dataIndex will remain same for the 'subject' column.
+		 * If the record is non-conversation item then this will return
+		 * default value which is in param.
+		 */
+		p.css = 'mail_body';
+		if(Ext.isEmpty(value)) {
+			// if value is empty then add extra css class for empty cell
+			p.css += ' grommunio-grid-empty-cell';
+		}
+
+		return Ext.util.Format.htmlEncode(value);
+	},
+
+	/**
+	 * Render the cell as text view
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	text: function(value, p, record)
+	{
+		if(Ext.isEmpty(value)) {
+			// if value is empty then add extra css class for empty cell
+			p.css = 'grommunio-grid-empty-cell';
+		}
+
+		return Ext.util.Format.htmlEncode(value);
+	},
+
+	/**
+	 * Render the cell as the recipient list.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	to: function(value, p, record)
+	{
+		p.css = 'mail_to';
+
+		if(Ext.isEmpty(value)) {
+			// if value is empty then add extra css class for empty cell
+			p.css += ' grommunio-grid-empty-cell';
+		}
+
+		return Ext.util.Format.htmlEncode(value);
+	},
+
+	/**
+	 * Render the cell as the message size
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	size: function(value, p, record)
+	{
+		p.css = 'mail_size';
+
+		if(Ext.isEmpty(value)) {
+			// if value is empty then add extra css class for empty cell
+			p.css += ' grommunio-grid-empty-cell';
+		}
+
+		return Ext.util.Format.fileSize(value);
+	},
+
+	/**
+	 * Renderer for percentage column
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	percentage: function (value, p, record)
+	{
+		p.css = 'task_percentage';
+		if ( isNaN(value) ){
+			// 'value' will not be available as there is no 'complete' property while
+			// rendering this column for mail record, using 'flag_status' instead.
+			if ( record.get('flag_status') === Grommunio.core.mapi.FlagStatus.completed ) {
+				return Ext.util.Format.percentage(1, 0);
+			}
+			return '';
+		}
+		return Ext.util.Format.percentage(value, 0);
+	},
+
+	/**
+	 * Render the cell as Date (l d/m/y) string
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 *
+	 * @return {String} The formatted string
+	 */
+	date: function(value, p)
+	{
+		p.css = 'mail_date';
+
+		if ( !Ext.isDate(value) ){
+			return _('None');
+		}
+
+		if ( container.getSettingsModel().get('grommunio/v1/main/datetime_display_format') === 'short' ){
+			return value.getNiceFormat(false);
+		} else {
+			return value.format(_('l d/m/Y'));
+		}
+	},
+
+	/**
+	 * Render the cell as Date (l d/m/y) string, where the Date is should be represented in UTC
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+
+	 * @return {String} The formatted string
+	 */
+	utcdate: function(value, p)
+	{
+		if ( Ext.isDate(value) ){
+			value = value.toUTC();
+		}
+
+		return Grommunio.common.ui.grid.Renderers.date(value, p);
+	},
+
+	/**
+	 * Render the cell as date with time (l d/m/Y G:i) when the user has set the long display format
+	 * or the 'nice' date when the short display format has been set.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @param {Integer} row The row in the grid for which a cell is rendered
+	 * @param {Integer} column The column in the grid for which a cell is rendered
+	 * @param {Grommunio.mail.MailStore} The store of the grid that is being rendered
+	 * @param {Object} meta An object with meta data that can be used by the renderer function
+	 *
+	 * @return {String} The formatted string
+	 */
+	datetime: function(value, p, record, row, column, store, meta)
+	{
+		p.css = 'mail_date';
+
+		if ( meta && meta.css ){
+			p.css += ' ' + meta.css;
+		}
+
+		if ( !Ext.isDate(value) ){
+			return _('None');
+		}
+
+		if ( container.getSettingsModel().get('grommunio/v1/main/datetime_display_format') === 'short' ){
+			// Add one class that the tooltip can use to recognize a 'nice' date.
+			// Add one class so the tooltip can easily get the timestamp of the date.
+			p.css += ' k-date-nice k-ts-'+value.getTime();
+
+			return value.getNiceFormat(true);
+		} else {
+			return value.formatDefaultTime(_('l d/m/Y {0}'));
+		}
+	},
+
+	/**
+	 * Render the cell as date with time (l d/m/Y G:i when the user has set the Long display
+	 * format, or d-m-Y, G:i when the short format has been set) This renderer should be used
+	 * instead of {@link #datetime} when a time should always be shown, e.g. for the reminder time.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 *
+	 * @return {String} The formatted string
+	 */
+	dateWithTime: function(value, p)
+	{
+		p.css = '';
+
+		if ( !Ext.isDate(value) ){
+			return _('None');
+		}
+
+		if ( container.getSettingsModel().get('grommunio/v1/main/datetime_display_format') === 'short' ){
+			// Add one class that the tooltip can use to recognize a 'nice' date.
+			// Add one class so the tooltip can easily get the timestamp of the date.
+			p.css += ' k-date-nice k-ts-'+value.getTime();
+			return value.formatDefaultTime(_('d-m-Y {0}'));
+		} else {
+			return value.formatDefaultTime(_('l d/m/Y {0}'));
+		}
+	},
+
+	/**
+	 * Render the duration field
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	duration: function(value, p, record)
+	{
+		p.css = 'mail_duration';
+
+		return value ? Ext.util.Format.duration(value, 1) : '';
+	},
+
+	/**
+	 * Render the duration field by only using the hours annotation.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	durationHours: function(value, p, record)
+	{
+		p.css = 'mail_duration';
+		if ( !Ext.isDefined(value) ){
+			return '';
+		}
+
+		return String.format(ngettext('{0} hour', '{0} hours', value), value);
+	},
+
+	/**
+	 * Render the folder field (converts entryid into foldername).
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	folder: function(value, p, record)
+	{
+		var folder = container.getHierarchyStore().getFolder(value);
+		if (folder) {
+			return folder.get('display_name');
+		} else {
+			return _('Unknown');
+		}
+	},
+
+	/**
+	 * Render the Busy status.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	busystatus: function(value, p, record)
+	{
+		return Grommunio.core.mapi.BusyStatus.getDisplayName(value);
+	},
+
+	/**
+	 * Render the Appointment label.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	label: function(value, p, record)
+	{
+		return Grommunio.core.mapi.AppointmentLabels.getDisplayName(value);
+	},
+
+	/**
+	 * Render the Sensitivity.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	sensitivity: function(value, p, record)
+	{
+		return Grommunio.core.mapi.Sensitivity.getDisplayName(value);
+	},
+
+	/**
+	 * Render the Meeting status.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	meetingstatus: function(value, p, record)
+	{
+		return Grommunio.core.mapi.MeetingStatus.getDisplayName(value);
+	},
+
+	/**
+	 * Render the Recipient Type.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	recipienttype: function(value, p, record)
+	{
+		switch (value) {
+			case Grommunio.core.mapi.RecipientType.MAPI_TO:
+			case Grommunio.core.mapi.RecipientType.MAPI_ORIG:
+				if(record.isMeetingOrganizer()) {
+					return _('Meeting Organizer');
+				}
+				return _('Required Attendee');
+			case Grommunio.core.mapi.RecipientType.MAPI_BCC:
+				return _('Resource');
+			case Grommunio.core.mapi.RecipientType.MAPI_CC:
+			/* falls through */
+			default:
+				return _('Optional Attendee');
+		}
+	},
+
+	/**
+	 * Render the Response Status.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	responsestatus: function(value, p, record)
+	{
+		return Grommunio.core.mapi.ResponseStatus.getDisplayName(value);
+	},
+
+	/**
+	 * Render the Follow-up Flag Status.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	flag: function(value, p, record)
+	{
+		// add extra css class for empty cell
+		p.css += 'grommunio-grid-empty-cell';
+
+		var flagStatus = record.get('flag_status');
+		var dueDate = record.get('duedate');
+
+		if ( flagStatus === Grommunio.core.mapi.FlagStatus.completed ){
+			p.css += ' icon_flag_complete';
+			return '';
+		}
+
+		if (!record.isMessageClass('IPM.Task') && flagStatus!==Grommunio.core.mapi.FlagStatus.flagged){
+			p.css += ' icon_flag';
+			return '<div class="k-followup-flag" title="' + _('Follow up') + '"></div>';
+		}
+
+		// Now find the color we must show
+
+		if ( !dueDate ){
+			p.css += ' icon_flag_red';
+			return '';
+		}
+
+		// Since we are interested in days and not in the exact time,
+		// we will set all times to 12am so it will be easy to compare days
+		dueDate.setToNoon();
+		var dueDateTimestamp = dueDate.getTime();
+		var today = new Date().setToNoon();
+		var todayTimestamp = today.getTime();
+
+		// If the due date is today or before today we will show a red flag
+		if ( dueDateTimestamp <= todayTimestamp ){
+			p.css += ' icon_flag_red';
+			return '';
+		}
+
+		// If the due date is tomorrow (timestamp difference will be 24 hours),
+		// we will show a dark orange flag
+		if ( dueDateTimestamp-todayTimestamp === 24*60*60*1000 ){
+			p.css += ' icon_flag_orange_dark';
+			return '';
+		}
+
+		if ( dueDate.inSameWeekAs(today) ){
+			p.css += ' icon_flag_orange';
+			return '';
+		}
+
+		if ( today.inNextWeek(dueDate) ){
+			p.css += ' icon_flag_yellow';
+			return '';
+		}
+
+		p.css += ' icon_flag_red';
+		return '';
+	},
+
+	/**
+	 * Render the dueby field
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	dueBy: function(value, p, record)
+	{
+		var result = '';
+
+		/*
+		 * this one is really ugly hack appointments use reminder_time property to show due by time
+		 * and task uses task_duedate property
+		 */
+		if (Grommunio.core.MessageClass.isClass(record.get('message_class'), 'IPM.Task', true)) {
+			value = record.get('task_duedate');
+		}
+
+		if (!Ext.isDate(value)) {
+			// if somehow no reminder_time/task_duedate property is present then we can't do anything here
+			// because showing data from flagdueby property will not be good as it will contain
+			// incorrect value
+			return result;
+		}
+
+		var time1 = value.getTime();
+		var time2 = new Date().getTime();
+
+		// get diff in minutes
+		var diff = Math.floor(Math.abs(time1 - time2)/60000);
+
+		if(diff === 0) { // Now
+			return _('Now');
+		} else {
+			result = Ext.util.Format.duration(diff);
+		}
+
+		if (time1 - time2 < 0){
+			return String.format(_('{0} overdue'), result);
+		}
+
+		return result;
+	},
+
+	/**
+	 * Render the Task Status.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	taskstatus: function(value, p, record)
+	{
+		return Grommunio.core.mapi.TaskStatus.getDisplayName(value);
+	},
+
+	/**
+	 * Render the Colors in textual format.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	colorTextValue: function(value, p, record)
+	{
+		return Grommunio.core.mapi.NoteColor.getColorText(value);
+	},
+
+	/**
+	 * Render the presence status of user along with user name.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	presenceStatus: function (value, p, record)
+	{
+		var presenceStatus = Grommunio.core.data.PresenceStatus.UNKNOWN;
+		if (record !== false) {
+			var user = Grommunio.core.data.UserIdObjectFactory.createFromRecord(record);
+			presenceStatus = Grommunio.core.PresenceManager.getPresenceStatusForUser(user);
+		}
+		return '<span class="grommunio-presence-status ' + Grommunio.core.data.PresenceStatus.getCssClass(presenceStatus) + '">' +
+			'<span class="grommunio-presence-status-icon" aria-hidden="true"></span>' + value + '</span>';
+	}
+};

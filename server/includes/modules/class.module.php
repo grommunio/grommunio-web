@@ -282,11 +282,11 @@ class Module {
 					],
 				];
 			}
-			if ($exception instanceof ZarafaException) {
+			if ($exception instanceof GrommunioException) {
 				$exception->setHandled();
 
 				return [
-					"type" => ERROR_ZARAFA,
+					"type" => ERROR_GROMMUNIO,
 					"info" => [
 						"file" => $exception->getFileLine(),
 						"title" => $exception->getTitle(),
@@ -518,7 +518,7 @@ class Module {
 		$this->sendFeedback(
 			false,
 			[
-				"type" => ERROR_ZARAFA,
+				"type" => ERROR_GROMMUNIO,
 				"info" => [
 					"display_message" => _("Could not process request data properly."),
 					"original_message" => sprintf(_("Unknown action type specified - %s"), $actionType),
@@ -527,7 +527,7 @@ class Module {
 		);
 		Log::Write(
 			LOGLEVEL_ERROR,
-			"Module::handleUnknownActionType(): ERROR_ZARAFA : " . _("Could not process request data properly.")
+			"Module::handleUnknownActionType(): ERROR_GROMMUNIO : " . _("Could not process request data properly.")
 		);
 	}
 

@@ -72,7 +72,7 @@ class AddressbookListModule extends ListModule {
 	}
 
 	/**
-	 * Function which retrieves the list of system users in Zarafa.
+	 * Function which retrieves the list of system users in Grommunio.
 	 *
 	 * @param array  $action     the action data, sent by the client
 	 * @param string $actionType the action type, sent by the client

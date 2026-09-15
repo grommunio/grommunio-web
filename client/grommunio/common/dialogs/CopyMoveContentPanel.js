@@ -1,0 +1,166 @@
+Ext.namespace('Grommunio.common.dialogs');
+
+/**
+ * @class Grommunio.common.dialogs.CopyMoveContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
+ * @xtype grommunio.copymovecontentpanel
+ *
+ * This will display a {@link Grommunio.core.ui.ContentPanel contentpanel}
+ * for copying or moving {@link Grommunio.core.data.MAPIRecord records}
+ * to a different {@link Grommunio.hierarchy.data.MAPIFolderRecord folder}.
+ */
+Grommunio.common.dialogs.CopyMoveContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
+	/**
+	 * @cfg {Grommunio.core.data.MAPIRecord} record The record(s) which are being
+	 * copied or moved through this panel
+	 */
+	record: undefined,
+
+	/**
+	 * The MAPIFolder which was selected the last time this panel was opened.
+	 * This is used when {@link #stateful} is enabled.
+	 * @property
+	 * @type Grommunio.hierarchy.data.MAPIFolderRecord
+	 */
+	last_selected_folder: undefined,
+
+	/**
+	 * @constructor
+	 * @param config Configuration structure
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		var title;
+		var objectType;
+		if (config.record) {
+			if (!Array.isArray(config.record)) {
+				config.record = [ config.record ];
+			}
+
+			objectType = config.record[0].get('object_type');
+			switch (objectType) {
+				case Grommunio.core.mapi.ObjectType.MAPI_FOLDER:
+					title = _('Copy/Move Folder');
+					break;
+				case Grommunio.core.mapi.ObjectType.MAPI_MESSAGE:
+				/* falls through*/
+				default:
+					title = _('Copy/Move Messages');
+					break;
+			}
+		}
+
+		Ext.applyIf(config, {
+			// Override from Ext.Component
+			xtype: 'grommunio.copymovecontentpanel',
+			// We don't need the autofocus plugin since we want the focus on the
+			// selected tree node.
+			useInputAutoFocusPlugin: false,
+			layout: 'fit',
+			title: title,
+			width: 480,
+			height: 520,
+			cls: 'copymove-panel',
+			items: [{
+				xtype: 'grommunio.copymovepanel',
+				ref: 'copyMovePanel',
+				record: config.record,
+				objectType: objectType
+			}]
+		});
+
+		Grommunio.common.dialogs.CopyMoveContentPanel.superclass.constructor.call(this, config);
+
+		this.mon(this.copyMovePanel.hierarchyTree.getSelectionModel(), 'selectionchange', this.onSelectionChange, this);
+	},
+
+	/**
+	 * Event listener for the selectionchange event of the hierarchy tree. Will
+	 * make sure this panel knows which folder is selected.
+	 * @param {Ext.tree.DefaultSelectionModel} selModel The selection model of the tree
+	 * @param {Ext.tree.TreeNode} node The selected tree node
+	 */
+	onSelectionChange: function(selModel, node) {
+		this.selectFolder(node.attributes.folder);
+	},
+
+	/**
+	 * Obtain the {@link Grommunio.hierarchy.data.MAPIFolderRecord folder} which should be selected by
+	 * default. This will use {@link #last_selected_folder} if provided, otherwise will use the
+	 * {@link #record} to obtain the corresponding default folder from the
+	 * {@link Grommunio.core.Container#getHierarchyStore hierarchy}.
+	 * @return {Grommunio.hierarchy.data.MAPIFolderRecord} The default selected folder
+	 */
+	getSelectedFolder: function()
+	{
+		if (!this.last_selected_folder && !Ext.isEmpty(this.record)) {
+			var hierarchy = container.getHierarchyStore();
+			var record = this.record[0];
+
+			if (record.get('container_class')) {
+				this.last_selected_folder = hierarchy.getDefaultFolderFromContainerClass(record.get('container_class'));
+			} else if (record.get('message_class')) {
+				this.last_selected_folder = hierarchy.getDefaultFolderFromMessageClass(record.get('message_class'));
+			}
+		}
+
+		return this.last_selected_folder;
+	},
+
+	/**
+	 * Mark the given folder as selected, this will update {@link #last_selected_folder}
+	 * and will call {@link #saveState} if this panel is {@link #stateful}.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The selected folder
+	 */
+	selectFolder: function(folder)
+	{
+		this.last_selected_folder = folder;
+		if (this.stateful !== false) {
+			this.saveState();
+		}
+	},
+
+	/**
+	 * When {@link #stateful} the State object which should be saved into the
+	 * {@link Ext.state.Manager}.
+	 * @return {Object} The state object
+	 * @protected
+	 */
+	getState: function()
+	{
+		var state = Grommunio.common.dialogs.CopyMoveContentPanel.superclass.getState.call(this);
+
+		if (this.last_selected_folder) {
+			state.last_selected_folder = this.last_selected_folder.get('entryid');
+		}
+
+		return state;
+	},
+
+	/**
+	 * Apply the given state to this object activating the properties which were previously
+	 * saved in {@link Ext.state.Manager}.
+	 * @param {Object} state The state object
+	 * @protected
+	 */
+	applyState: function(state)
+	{
+		if (state && state.last_selected_folder) {
+			this.last_selected_folder = container.getHierarchyStore().getFolder(state.last_selected_folder);
+			delete state.last_selected_folder;
+		}
+
+		// Never restore a size below the one the dialog ships with, the state written
+		// by the earlier and smaller dialog would stick forever
+		if (state) {
+			state.width = Math.max(state.width || 0, this.initialConfig.width);
+			state.height = Math.max(state.height || 0, this.initialConfig.height);
+		}
+
+		Grommunio.common.dialogs.CopyMoveContentPanel.superclass.applyState.call(this, state);
+	}
+});
+
+Ext.reg('grommunio.copymovecontentpanel', Grommunio.common.dialogs.CopyMoveContentPanel);

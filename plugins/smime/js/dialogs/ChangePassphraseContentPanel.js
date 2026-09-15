@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.smime.dialogs');
+Ext.namespace('Grommunio.plugins.smime.dialogs');
 
 /**
- * @class Zarafa.plugins.smime.dialogs.ChangePassphraseContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.smime.dialogs.ChangePassphraseContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  *
  * The content panel for changing a users passphrase.
  * @xtype smime.changepassphrasepanel
  */
-Zarafa.plugins.smime.dialogs.ChangePassphraseContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.smime.dialogs.ChangePassphraseContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
 	/**
 	 * @constructor
 	 * @param config Configuration structure
@@ -37,7 +37,7 @@ Zarafa.plugins.smime.dialogs.ChangePassphraseContentPanel = Ext.extend(Zarafa.co
 			}]
 		});
 
-		Zarafa.plugins.smime.dialogs.ChangePassphraseContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.smime.dialogs.ChangePassphraseContentPanel.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -54,4 +54,4 @@ Zarafa.plugins.smime.dialogs.ChangePassphraseContentPanel = Ext.extend(Zarafa.co
 	}
 });
 
-Ext.reg('smime.changepassphrasecontentpanel', Zarafa.plugins.smime.dialogs.ChangePassphraseContentPanel);
+Ext.reg('smime.changepassphrasecontentpanel', Grommunio.plugins.smime.dialogs.ChangePassphraseContentPanel);

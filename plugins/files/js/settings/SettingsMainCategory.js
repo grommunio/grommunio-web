@@ -1,14 +1,14 @@
-Ext.namespace('Zarafa.plugins.files.settings');
+Ext.namespace('Grommunio.plugins.files.settings');
 
 /**
- * @class Zarafa.plugins.files.settings.SettingsMainCategory
- * @extends Zarafa.settings.ui.SettingsCategory
+ * @class Grommunio.plugins.files.settings.SettingsMainCategory
+ * @extends Grommunio.settings.ui.SettingsCategory
  * @xtype filesplugin.settingsmaincategory
  *
  * The files category for users which will
  * allow the user to configure Files related settings
  */
-Zarafa.plugins.files.settings.SettingsMainCategory = Ext.extend(Zarafa.settings.ui.SettingsCategory, {
+Grommunio.plugins.files.settings.SettingsMainCategory = Ext.extend(Grommunio.settings.ui.SettingsCategory, {
 
 	/**
 	 * @constructor
@@ -32,8 +32,8 @@ Zarafa.plugins.files.settings.SettingsMainCategory = Ext.extend(Zarafa.settings.
 			]
 		});
 
-		Zarafa.plugins.files.settings.SettingsMainCategory.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.settings.SettingsMainCategory.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.settingsmaincategory', Zarafa.plugins.files.settings.SettingsMainCategory);
+Ext.reg('filesplugin.settingsmaincategory', Grommunio.plugins.files.settings.SettingsMainCategory);

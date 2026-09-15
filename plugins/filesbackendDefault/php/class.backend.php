@@ -90,7 +90,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 				"editor" => [
 					"xtype" => "checkbox",
 					"listeners" => [
-						"check" => "Zarafa.plugins.files.data.Actions.onCheckSSL", // this javascript function will be called!
+						"check" => "Grommunio.plugins.files.data.Actions.onCheckSSL", // this javascript function will be called!
 					],
 				],
 			],
@@ -122,7 +122,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 				"editor" => [
 					"xtype" => "checkbox",
 					"listeners" => [
-						"check" => "Zarafa.plugins.files.data.Actions.onCheckCredentials", // this javascript function will be called!
+						"check" => "Grommunio.plugins.files.data.Actions.onCheckCredentials", // this javascript function will be called!
 					],
 				],
 			],

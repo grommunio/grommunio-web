@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.files.data');
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.NavigatorTreeLoader
+ * @class Grommunio.plugins.files.data.NavigatorTreeLoader
  * @extends Ext.tree.TreeLoader
  *
  * Files directory loader. Extends Ext treeloader to use grommunio
  * specific requests.
  */
-Zarafa.plugins.files.data.NavigatorTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
+Grommunio.plugins.files.data.NavigatorTreeLoader = Ext.extend(Ext.tree.TreeLoader, {
 
 	/**
 	 * When {@link #deferredLoading} is true, this property indicates if a call to
@@ -38,7 +38,7 @@ Zarafa.plugins.files.data.NavigatorTreeLoader = Ext.extend(Ext.tree.TreeLoader, 
 	deferredLoadingActiveParent : undefined,
 
 	/**
-	 * @cfg {Object} config option for {@link Zarafa.plugins.files.ui.FilesFolderNode FilesFolderNode}
+	 * @cfg {Object} config option for {@link Grommunio.plugins.files.ui.FilesFolderNode FilesFolderNode}
 	 */
 	nodeConfig : undefined,
 
@@ -53,7 +53,7 @@ Zarafa.plugins.files.data.NavigatorTreeLoader = Ext.extend(Ext.tree.TreeLoader, 
 			directFn : this.directFn.createDelegate(this),
 		});
 
-		Zarafa.plugins.files.data.NavigatorTreeLoader.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.data.NavigatorTreeLoader.superclass.constructor.call(this, config);
 		// If the tree is already rendered, call onTreeAfterRender directly,
 		// otherwise add the event handler.
 		if (this.tree.rendered) {
@@ -98,7 +98,7 @@ Zarafa.plugins.files.data.NavigatorTreeLoader = Ext.extend(Ext.tree.TreeLoader, 
 
 	/**
 	 * Bind a store to this loader. This will initialize all required event handlers.
-	 * @param {Zarafa.plugins.files.data.FilesHierarchyStore} store The store to bind
+	 * @param {Grommunio.plugins.files.data.FilesHierarchyStore} store The store to bind
 	 * @param {Boolean} init True when this is called during initialization.
 	 * @private
 	 */
@@ -324,9 +324,9 @@ Zarafa.plugins.files.data.NavigatorTreeLoader = Ext.extend(Ext.tree.TreeLoader, 
 
 	/**
 	 * This is called when a node in the HierarchyTree is being expanded, this will read
-	 * the {@link Zarafa.plugins.files.data.FilesFolderRecord FilesFolderRecord} to find the child nodes which
+	 * the {@link Grommunio.plugins.files.data.FilesFolderRecord FilesFolderRecord} to find the child nodes which
 	 * are positioned below the expanded node. But if folder is not expanded already then trigger the
-	 * {@link Zarafa.core.Actions#updatelist update list} request to fetch the child folder to selected folder.
+	 * {@link Grommunio.core.Actions#updatelist update list} request to fetch the child folder to selected folder.
 	 *
 	 * @param {String} node The ID of the node which is being expanded
 	 * @param {Function} fn The function which must be called with the JSON data of
@@ -356,7 +356,7 @@ Zarafa.plugins.files.data.NavigatorTreeLoader = Ext.extend(Ext.tree.TreeLoader, 
 				var tree = this.tree;
 				store.load({
 					folder : folder,
-					actionType : Zarafa.core.Actions['updatelist'],
+					actionType : Grommunio.core.Actions['updatelist'],
 					cancelPreviousRequest : false,
 					add:true,
 					callback : function(records, options, success) {
@@ -378,11 +378,11 @@ Zarafa.plugins.files.data.NavigatorTreeLoader = Ext.extend(Ext.tree.TreeLoader, 
 	},
 
 	/**
-	 * Obtain the list of nodes which are positioned below the given {@link Zarafa.plugins.files.data.FilesFolderRecord folder}
+	 * Obtain the list of nodes which are positioned below the given {@link Grommunio.plugins.files.data.FilesFolderRecord folder}
 	 * also subfolder will be used for a recursive call to {@link #getFilteredChildNodes} to see if the sub-subfolders
 	 * do match the filter.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesFolderRecord} folder The folder which is clicked
+	 * @param {Grommunio.plugins.files.data.FilesFolderRecord} folder The folder which is clicked
 	 * @param {String} nodeType The nodeType which must be applied to each node
 	 * @return {Object[]} The array of nodes which must be created as subfolders
 	 * @private
@@ -403,11 +403,11 @@ Zarafa.plugins.files.data.NavigatorTreeLoader = Ext.extend(Ext.tree.TreeLoader, 
 	},
 
 	/**
-	 * Add extra attributes for a new {@link Zarafa.hierarchy.ui.FolderNode folderNode} which is about
-	 * to be created. This will check the {@link Zarafa.hierarchy.ui.FolderNode#folder folder} to
+	 * Add extra attributes for a new {@link Grommunio.hierarchy.ui.FolderNode folderNode} which is about
+	 * to be created. This will check the {@link Grommunio.hierarchy.ui.FolderNode#folder folder} to
 	 * see what properties must be set.
 	 * @param {Object} attr The attributes which will be used to create the node
-	 * @return {Zarafa.hierarchy.ui.FolderNode} The created node
+	 * @return {Grommunio.hierarchy.ui.FolderNode} The created node
 	 */
 	createNode : function(attr)
 	{
@@ -417,10 +417,10 @@ Zarafa.plugins.files.data.NavigatorTreeLoader = Ext.extend(Ext.tree.TreeLoader, 
 			attr.extendedDisplayName = attr.nodeType === 'filesrootfolder';
 		}
 
-		attr.uiProvider = Zarafa.plugins.files.ui.FolderNodeUI;
+		attr.uiProvider = Grommunio.plugins.files.ui.FolderNodeUI;
 		attr.leaf = !folder.get('has_subfolder');
 
-		return Zarafa.plugins.files.data.NavigatorTreeLoader.superclass.createNode.apply(this, arguments);
+		return Grommunio.plugins.files.data.NavigatorTreeLoader.superclass.createNode.apply(this, arguments);
 	},
 
 	/**
@@ -438,6 +438,6 @@ Zarafa.plugins.files.data.NavigatorTreeLoader = Ext.extend(Ext.tree.TreeLoader, 
 	destroy : function()
 	{
 		this.bindStore(null);
-		Zarafa.plugins.files.data.NavigatorTreeLoader.superclass.destroy.apply(this, arguments);
+		Grommunio.plugins.files.data.NavigatorTreeLoader.superclass.destroy.apply(this, arguments);
 	}
 });

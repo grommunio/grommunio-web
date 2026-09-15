@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+Ext.namespace('Grommunio.plugins.files.ui');
 
 /**
- * @class Zarafa.plugins.files.ui.FilesPreviewPanel
+ * @class Grommunio.plugins.files.ui.FilesPreviewPanel
  * @extends Ext.Panel
  * @xtype filesplugin.filespreviewpanel
  *
  * The preview panel container for the files preview.
  */
-Zarafa.plugins.files.ui.FilesPreviewPanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.files.ui.FilesPreviewPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * @constructor
@@ -17,7 +17,7 @@ Zarafa.plugins.files.ui.FilesPreviewPanel = Ext.extend(Ext.Panel, {
 		config = config || {};
 
 		var toolbar = Ext.applyIf(config.tbar || {}, {
-			xtype : 'zarafa.toolbar',
+			xtype : 'grommunio.toolbar',
 			height: 33,
 			hidden: false,
 			items : []
@@ -27,15 +27,15 @@ Zarafa.plugins.files.ui.FilesPreviewPanel = Ext.extend(Ext.Panel, {
 			xtype   : 'filesplugin.filespreviewpanel',
 			layout  : 'fit',
 			stateful: true,
-			cls     : 'zarafa-files-previewpanel',
+			cls     : 'grommunio-files-previewpanel',
 			width   : 300,
 			height  : 300,
 			tbar    : toolbar
 		});
 
-		Zarafa.plugins.files.ui.FilesPreviewPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.FilesPreviewPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.filespreviewpanel', Zarafa.plugins.files.ui.FilesPreviewPanel);
+Ext.reg('filesplugin.filespreviewpanel', Grommunio.plugins.files.ui.FilesPreviewPanel);
 

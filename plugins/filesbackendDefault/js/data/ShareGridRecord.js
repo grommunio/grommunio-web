@@ -1,11 +1,11 @@
-Ext.namespace('Zarafa.plugins.files.backend.Default.data');
+Ext.namespace('Grommunio.plugins.files.backend.Default.data');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.data.ShareGridRecord
+ * @class Grommunio.plugins.files.backend.Default.data.ShareGridRecord
  *
  * This class specifies the ShareGridRecord and it's fields.
  */
-Zarafa.plugins.files.backend.Default.data.ShareGridRecord =
+Grommunio.plugins.files.backend.Default.data.ShareGridRecord =
 	Ext.data.Record.create(
 		{ name: 'id', type: 'string' },
 		{ name: 'shareWith', type: 'string' },

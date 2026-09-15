@@ -123,7 +123,7 @@ class AttachmentState {
 		$this->ensureSessionDir();
 		$attachmentPath = tempnam($this->getAttachmentFolder(), mb_basename($filename));
 		if ($attachmentPath === false) {
-			throw new ZarafaException(_('Could not attach item as an attachment.'));
+			throw new GrommunioException(_('Could not attach item as an attachment.'));
 		}
 
 		// Convert in UTF-8 properly if any Malformed UTF-8 characters.
@@ -261,7 +261,7 @@ class AttachmentState {
 			$sourceStat === false || ($sourceStat['mode'] & 0170000) !== 0100000) {
 			$this->deleteTemporaryFile($filepath);
 
-			throw new ZarafaException(_('Could not attach item as an attachment.'));
+			throw new GrommunioException(_('Could not attach item as an attachment.'));
 		}
 
 		// Move the provided regular file into the session directory. Only register
@@ -269,7 +269,7 @@ class AttachmentState {
 		if (!@rename($sourcefile, $filepath)) {
 			$this->deleteTemporaryFile($filepath);
 
-			throw new ZarafaException(_('Could not attach item as an attachment.'));
+			throw new GrommunioException(_('Could not attach item as an attachment.'));
 		}
 
 		clearstatcache(true, $filepath);
@@ -277,7 +277,7 @@ class AttachmentState {
 		if ($movedFileStat === false || ($movedFileStat['mode'] & 0170000) !== 0100000) {
 			$this->deleteTemporaryFile($filepath);
 
-			throw new ZarafaException(_('Could not attach item as an attachment.'));
+			throw new GrommunioException(_('Could not attach item as an attachment.'));
 		}
 
 		$this->addAttachmentFile($message_id, $tmpname, $fileinfo);

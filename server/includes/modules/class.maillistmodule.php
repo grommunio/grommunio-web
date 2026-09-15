@@ -40,7 +40,7 @@ class MailListModule extends ListModule {
 		// ENABLE_CONVERSATION_VIEW acts as an administrative kill-switch.
 		return
 			(!defined('ENABLE_CONVERSATION_VIEW') || ENABLE_CONVERSATION_VIEW) &&
-			$GLOBALS['settings']->get('zarafa/v1/contexts/mail/enable_conversation_view') === true;
+			$GLOBALS['settings']->get('grommunio/v1/contexts/mail/enable_conversation_view') === true;
 	}
 
 	/**

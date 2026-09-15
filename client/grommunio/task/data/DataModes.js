@@ -1,0 +1,50 @@
+Ext.namespace('Grommunio.task.data');
+
+/**
+ * @class Grommunio.task.data.DataModes
+ * @extends Grommunio.core.Enum
+ *
+ * Enum containing the different data modes of the task context.
+ *
+ * @singleton
+ */
+Grommunio.task.data.DataModes = Grommunio.core.Enum.create({
+	/**
+	 * List all task items from the selected folder(s).
+	 *
+	 * @property
+	 * @type Number
+	 */
+	ALL: 0,
+
+	/**
+	 * List all task items from the selected folder(s) which are not completed.
+	 * @property
+	 * @type Number
+	 */
+	ACTIVE: 1,
+
+	/**
+	 * List all task items from the selected folder(s) from next seven days.
+	 *
+	 * @property
+	 * @type Number
+	 */
+	NEXT_7_DAYS: 2,
+
+	/**
+	 * List all task items from the selected folder(s) which are overdue.
+	 *
+	 * @property
+	 * @type Number
+	 */
+	OVERDUE: 3,
+
+	/**
+	 * List all task items from the selected folder(s) which are completed.
+	 *
+	 * @property
+	 * @type Number
+	 */
+	COMPLETED: 4
+});

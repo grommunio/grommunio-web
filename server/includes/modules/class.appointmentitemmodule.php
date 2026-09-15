@@ -161,7 +161,7 @@ class AppointmentItemModule extends ItemModule {
 						$this->sendFeedback(
 							false,
 							[
-								'type' => ERROR_ZARAFA,
+								'type' => ERROR_GROMMUNIO,
 								'info' => [
 									'original_message' => _('Could not open occurrence.'),
 									'display_message' => _('Could not open occurrence, specific occurrence is probably deleted.'),
@@ -362,7 +362,7 @@ class AppointmentItemModule extends ItemModule {
 		}
 		else {
 			$this->sendFeedback(false, [
-				'type' => ERROR_ZARAFA,
+				'type' => ERROR_GROMMUNIO,
 				'info' => [
 					'display_message' => $errorMsg,
 				],

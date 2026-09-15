@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.files.ui.dialogs');
+Ext.namespace('Grommunio.plugins.files.ui.dialogs');
 
 /**
- * @class Zarafa.plugins.files.ui.dialogs.ShareContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.files.ui.dialogs.ShareContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  * @xtype filesplugin.sharecontentpanel
  *
  * This content panel contains the sharing panel.
  */
-Zarafa.plugins.files.ui.dialogs.ShareContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.files.ui.dialogs.ShareContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
 
 	/**
 	 * @var {Array} records
@@ -30,8 +30,8 @@ Zarafa.plugins.files.ui.dialogs.ShareContentPanel = Ext.extend(Zarafa.core.ui.Co
 			]
 		});
 
-		Zarafa.plugins.files.ui.dialogs.ShareContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.dialogs.ShareContentPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.sharecontentpanel', Zarafa.plugins.files.ui.dialogs.ShareContentPanel);
+Ext.reg('filesplugin.sharecontentpanel', Grommunio.plugins.files.ui.dialogs.ShareContentPanel);

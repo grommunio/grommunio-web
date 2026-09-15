@@ -1033,8 +1033,8 @@ class Pluginsmime extends Plugin {
 		// Apply user settings as fallback when no per-message override was set
 		// by onCertificateCheck (e.g. for sign-only messages).
 		if (!$this->hasMessageOverride && isset($GLOBALS['settings'])) {
-			$userDigest = $GLOBALS['settings']->get('zarafa/v1/plugins/smime/default_digest');
-			$userCipher = $GLOBALS['settings']->get('zarafa/v1/plugins/smime/default_cipher');
+			$userDigest = $GLOBALS['settings']->get('grommunio/v1/plugins/smime/default_digest');
+			$userCipher = $GLOBALS['settings']->get('grommunio/v1/plugins/smime/default_cipher');
 			$allowedDigests = ['sha256', 'sha384', 'sha512'];
 			$allowedCiphers = ['aes-256-gcm', 'aes-128-gcm', 'aes-256-cbc', 'aes-128-cbc'];
 			if ($userDigest && in_array($userDigest, $allowedDigests, true)) {
@@ -1381,7 +1381,7 @@ class Pluginsmime extends Plugin {
 	 * Check whether a public certificate exists for the provided email address.
 	 *
 	 * @param string $emailAddress recipient email address
-	 * @param bool   $gabUser      whether the recipient has PR_ADDRTYPE == ZARAFA
+	 * @param bool   $gabUser      whether the recipient has PR_ADDRTYPE == GROMMUNIO
 	 *
 	 * @return bool true if public certificate exists
 	 */
@@ -1848,7 +1848,7 @@ class Pluginsmime extends Plugin {
 	 */
 	public function onBeforeSettingsInit(&$data) {
 		$data['settingsObj']->addSysAdminDefaults([
-			'zarafa' => [
+			'grommunio' => [
 				'v1' => [
 					'plugins' => [
 						'smime' => [

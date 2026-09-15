@@ -9,11 +9,11 @@
 	if (typeof module === 'object' && module.exports) {
 		module.exports = factory(require('openpgp'));
 	} else {
-		root.Zarafa = root.Zarafa || {};
-		root.Zarafa.plugins = root.Zarafa.plugins || {};
-		root.Zarafa.plugins.pgp = root.Zarafa.plugins.pgp || {};
-		root.Zarafa.plugins.pgp.crypto = root.Zarafa.plugins.pgp.crypto || {};
-		root.Zarafa.plugins.pgp.crypto.BrowserCrypto = factory(root.openpgp);
+		root.Grommunio = root.Grommunio || {};
+		root.Grommunio.plugins = root.Grommunio.plugins || {};
+		root.Grommunio.plugins.pgp = root.Grommunio.plugins.pgp || {};
+		root.Grommunio.plugins.pgp.crypto = root.Grommunio.plugins.pgp.crypto || {};
+		root.Grommunio.plugins.pgp.crypto.BrowserCrypto = factory(root.openpgp);
 	}
 })(typeof globalThis !== 'undefined' ? globalThis : this, function(pgp) {
 	'use strict';

@@ -1,22 +1,22 @@
-Ext.namespace('Zarafa.plugins.mdm.ui');
+Ext.namespace('Grommunio.plugins.mdm.ui');
 
 
 /**
- * @class Zarafa.plugins.mdm.ui.MDMFolderNodeUI
- * @extends Zarafa.hierarchy.ui.FolderNodeUI
+ * @class Grommunio.plugins.mdm.ui.MDMFolderNodeUI
+ * @extends Grommunio.hierarchy.ui.FolderNodeUI
  *
- * {@link Zarafa.hierarchy.ui.FolderNodeUI} has limitation that it can add
+ * {@link Grommunio.hierarchy.ui.FolderNodeUI} has limitation that it can add
  * (@link Ext.form.Checkbox check box} preceded to calendar item only.
  * So, It will add (@link Ext.form.Checkbox check box} preceded to all context items.
  */
-Zarafa.plugins.mdm.ui.MDMFolderNodeUI = Ext.extend(Zarafa.hierarchy.ui.FolderNodeUI, {
+Grommunio.plugins.mdm.ui.MDMFolderNodeUI = Ext.extend(Grommunio.hierarchy.ui.FolderNodeUI, {
 
 	/**
-	 * Function will render {@link Zarafa.hierarchy.ui.FolderNode FolderNode} based on modified template for
+	 * Function will render {@link Grommunio.hierarchy.ui.FolderNode FolderNode} based on modified template for
 	 * our custom needs.
-	 * @param {Zarafa.hierarchy.ui.FolderNode} node tree node.
-	 * @param {Object} config config object of {@link Zarafa.hierarchy.ui.FolderNode FolderNode}.
-	 * @param {Ext.Element} targetNode element in which {@link Zarafa.hierarchy.ui.FolderNode FolderNode} will be rendered.
+	 * @param {Grommunio.hierarchy.ui.FolderNode} node tree node.
+	 * @param {Object} config config object of {@link Grommunio.hierarchy.ui.FolderNode FolderNode}.
+	 * @param {Ext.Element} targetNode element in which {@link Grommunio.hierarchy.ui.FolderNode FolderNode} will be rendered.
 	 * @param {Boolean} bulkRender
 	 */
 	renderElements : function(node, config, targetNode, bulkRender)
@@ -25,7 +25,7 @@ Zarafa.plugins.mdm.ui.MDMFolderNodeUI = Ext.extend(Zarafa.hierarchy.ui.FolderNod
 		this.indentMarkup = node.parentNode ? node.parentNode.ui.getChildIndent() : '';
 
 		var scheme;
-		var cb = Ext.isBoolean(config.checked) && !(node instanceof Zarafa.hierarchy.ui.RootFolderNode);
+		var cb = Ext.isBoolean(config.checked) && !(node instanceof Grommunio.hierarchy.ui.RootFolderNode);
 		var isCalenderNode = config.folder.isCalendarFolder();
 		var calendarSVGIcon = '';
 
@@ -54,15 +54,15 @@ Zarafa.plugins.mdm.ui.MDMFolderNodeUI = Ext.extend(Zarafa.hierarchy.ui.FolderNod
 
 		var checkboxMarkup = '';
 		if (cb) {
-			var checkboxId = Ext.id(null, 'zarafa-mdm-node-cb-');
-			checkboxMarkup = '<input class="x-tree-node-cb zarafa-hierarchy-node-cb" type="checkbox" id="' + checkboxId + '" name="' + checkboxId + '"' + (config.checked ? ' checked="checked"' : '') + ' />';
+			var checkboxId = Ext.id(null, 'grommunio-mdm-node-cb-');
+			checkboxMarkup = '<input class="x-tree-node-cb grommunio-hierarchy-node-cb" type="checkbox" id="' + checkboxId + '" name="' + checkboxId + '"' + (config.checked ? ' checked="checked"' : '') + ' />';
 		}
 
 		var icon = '<img src="' + (config.icon || this.emptyIcon) + '" class="x-tree-node-icon" unselectable="on" alt="" />',
 		nel,
 		href = config.href ? config.href : Ext.isGecko ? "" : "#",
 		buf = '<li class="x-tree-node">' +
-				'<div ext:tree-node-id="' + node.id + '" class="x-tree-node-el x-tree-node-leaf x-unselectable zarafa-hierarchy-node" unselectable="on">' +
+				'<div ext:tree-node-id="' + node.id + '" class="x-tree-node-el x-tree-node-leaf x-unselectable grommunio-hierarchy-node" unselectable="on">' +
 					// indent space
 					'<span class="x-tree-node-indent" aria-hidden="true">' + this.indentMarkup + "</span>" +
 					// expand icon
@@ -72,14 +72,14 @@ Zarafa.plugins.mdm.ui.MDMFolderNodeUI = Ext.extend(Zarafa.hierarchy.ui.FolderNod
 					// node icon
 					(isCalenderNode ? calendarSVGIcon : icon) +
 					// node element (this.elNode)
-					'<a hidefocus="on" class="x-tree-node-anchor zarafa-hierarchy-node-anchor" ' +
+					'<a hidefocus="on" class="x-tree-node-anchor grommunio-hierarchy-node-anchor" ' +
 						'href="' + href + '" tabIndex="0" ' +
 						(config.hrefTarget ? ' target="' + config.hrefTarget + '"' : "") + ">" +
 							// hierarchy node text (this.textNode)
 							'<span unselectable="on">' + (node.tpl ? node.tpl.apply(config) : node.text) + '</span>' +
 							// counter node (this.counterNode)
-							'<span class="zarafa-hierarchy-node-counter" unselectable="on"></span>' +
-							'<span class="zarafa-hierarchy-node-owner" unselectable="on"></span>'+
+							'<span class="grommunio-hierarchy-node-counter" unselectable="on"></span>' +
+							'<span class="grommunio-hierarchy-node-owner" unselectable="on"></span>'+
 					"</a>" +
 				"</div>" +
 				'<ul class="x-tree-node-ct" style="display:none;"></ul>' +
@@ -123,7 +123,7 @@ Zarafa.plugins.mdm.ui.MDMFolderNodeUI = Ext.extend(Zarafa.hierarchy.ui.FolderNod
 		var containerNode = Ext.get(this.wrap);
 		var textNode = Ext.get(this.textNode);
 		if (isCalenderNode) {
-			textNode.addClass('zarafa-hierarchy-node-color');
+			textNode.addClass('grommunio-hierarchy-node-color');
 		}
 		if (!Ext.isEmpty(config.cls)) {
 			elNode.addClass(config.cls);

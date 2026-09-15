@@ -88,7 +88,7 @@ touch $POT_FILE
 
 # Web case
 if [ -d ".git" ]; then
-	create_potfile "client/zarafa client/extjs-mod plugins"
+	create_potfile "client/grommunio client/extjs-mod plugins"
 
 	if [ -n "${newlang}" ]; then
 		new_lang "${newlang}"

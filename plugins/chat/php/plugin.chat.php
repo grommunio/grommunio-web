@@ -40,7 +40,7 @@ class PluginChat extends Plugin {
 		];
 
 		$data['settingsObj']->addSysAdminDefaults([
-			'zarafa' => [
+			'grommunio' => [
 				'v1' => [
 					'plugins' => [
 						'chat' => $pluginData,

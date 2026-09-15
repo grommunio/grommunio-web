@@ -691,7 +691,7 @@ function parse_smime($store, $message) {
  * @return bool true if smime plugin is enabled else false
  */
 function isSmimePluginEnabled() {
-	return $GLOBALS['settings']->get("zarafa/v1/plugins/smime/enable", false);
+	return $GLOBALS['settings']->get("grommunio/v1/plugins/smime/enable", false);
 }
 
 /**

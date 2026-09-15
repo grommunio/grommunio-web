@@ -1,0 +1,333 @@
+Ext.namespace('Grommunio.settings.ui');
+
+/**
+ * @class Grommunio.settings.ui.SettingsPluginsWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
+ * @xtype grommunio.settingspluginswidget
+ *
+ * The grommunio Web available plugins widgets
+ */
+Grommunio.settings.ui.SettingsPluginsWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
+
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		var store = new Ext.data.ArrayStore({
+			fields: [{
+				'name': 'name'
+			},{
+				'name': 'display_name'
+			},{
+				'name': 'version'
+			},{
+				'name': 'enabled',
+				'type': 'boolean'
+			},{
+				'name': 'allow_disable',
+				'type': 'boolean'
+			},{
+				'name': 'settings_base'
+			}]
+		});
+
+		var plugins = container.getPluginsMetaData();
+		var server = container.getServerConfig();
+		var pluginsVersion = server.getPluginsVersion();
+		var versionInfo;
+		for (var i = 0, len = plugins.length; i < len; i++) {
+			var plugin = plugins[i];
+			if (!plugin.isPrivate()) {
+				if( Ext.isEmpty(pluginsVersion[plugin.getName()]) ) {
+					versionInfo = _('Unknown');
+				} else {
+					versionInfo = pluginsVersion[plugin.getName()];
+				}
+
+				store.add(new Ext.data.Record({
+					'name': plugin.getName(),
+					'display_name': plugin.getDisplayName(),
+					'version': versionInfo,
+					'enabled': plugin.isEnabled(),
+					'allow_disable': plugin.allowUserDisable,
+					'settings_base': plugin.getSettingsBase()
+				}));
+			}
+		}
+
+		// Plugins the server did not send to this user cannot register themselves
+		Ext.each(server.getUnloadedPlugins(), function(plugin) {
+			if (container.getPluginMetaDataByName(plugin.name)) {
+				return;
+			}
+			store.add(new Ext.data.Record({
+				'name': plugin.name,
+				'display_name': plugin.display_name,
+				'version': Ext.isEmpty(pluginsVersion[plugin.name]) ? _('Unknown') : pluginsVersion[plugin.name],
+				'enabled': false,
+				'allow_disable': plugin.allow_disable,
+				'settings_base': plugin.settings_base
+			}));
+		});
+
+		store.sort('display_name', 'ASC');
+
+		var model = new Ext.grid.CheckboxSelectionModel({
+			checkOnly: true,
+			header: '&#160;',
+			renderer: this.onEnabledRenderer,
+			// Disable grid traversal using key events because we are using grid selection to
+			// indicate plugin's enable/disable state, so that shouldn't be modified
+			// when traversing using up/down arrow keys
+			onKeyPress: Ext.emptyFn,
+			listeners: {
+				rowselect: this.onRowSelect,
+				rowdeselect: this.onRowDeselect,
+				scope: this
+			}
+		});
+
+		Ext.applyIf(config, {
+			title: _('Available plugins'),
+			layout: 'fit',
+			cls: 'grommunio-settings-widget k-settings-pluginpanel k-settings-nogap',
+			items: [{
+				xtype: 'panel',
+				border: false,
+				cls: 'grommunio-settings-pluginavailable',
+				ref: 'pluginsPanel',
+				layout: {
+					type: 'vbox',
+					align: 'stretch',
+					pack: 'start'
+				},
+				items: [{
+					xtype: 'grid',
+					border: true,
+					flex: 1,
+					enableHdMenu: false,
+					deferRowRender:false,
+					autoExpandColumn: 'display_name',
+					cls: 'k-settings-plugingrid',
+					ref: '../pluginsGrid',
+					viewConfig: {
+						forceFit: true,
+						emptyText: '<div class=\'emptytext\'>' + _('No plugins available') + '</div>'
+					},
+					store: store,
+					columns: [model, {
+						id: 'display_name',
+						header: _('Display Name'),
+						dataIndex: 'display_name',
+						headerCls: 'k-unsortable',
+						sortable: false,
+						renderer: this.onDisplayNameRenderer
+					},{
+						id: 'display_name',
+						header: _('Version'),
+						dataIndex: 'version',
+						headerCls: 'k-unsortable',
+						sortable: false
+					}],
+					selModel: model
+				}],
+				listeners: {
+					scope: this,
+					resize: this.onResizePluginsPanel
+				}
+			}]
+		});
+
+		Grommunio.settings.ui.SettingsPluginsWidget.superclass.constructor.call(this, config);
+		this.pluginsGrid.on('rowclick', this.onRowClick, this);
+	},
+
+	/**
+	 * Event handler for the resize event of the plugins panel and trigger a layout refresh.
+	 * @param {Ext.panel} pluginsPanel The panel that contains the grid
+	 * with the plugins.
+	 */
+	onResizePluginsPanel: function(pluginsPanel)
+	{
+		// Now trigger a layout refresh to have the grid rendered with the correct height
+		pluginsPanel.doLayout();
+	},
+
+	/**
+	 * Event handler is called when user clicks on row of grid.
+	 * Function toggles plugin selection.
+	 * @param {Ext.grid.GridPanel} grid grid panel object.
+	 * @param {Number} rowIndex The index of the row which was double clicked
+	 * @param {Ext.EventObject} eventObj object of the event.
+	 * @private
+	 */
+	onRowClick: function(grid, rowIndex, eventObj)
+	{
+		grid.getView().focusRow(rowIndex);
+
+		var model = grid.getSelectionModel();
+		var store = grid.getStore();
+		var record = store.getAt(rowIndex);
+
+		// Here it will check selected plugins is not default plugin.
+		// user could not disable default plugin.
+		if(!record.get('allow_disable')) {
+			return;
+		}
+
+		if(!record.get('enabled')) {
+			model.selectRow(rowIndex, true);
+		} else {
+			model.deselectRow(rowIndex);
+		}
+	},
+
+	/**
+	 * Called by the {@link Grommunio.settings.ui.SettingsCategory Category} when
+	 * it has been called with {@link grommunio.settings.ui.SettingsCategory#update}.
+	 * This is used to load the latest version of the settings from the
+	 * {@link Grommunio.settings.SettingsModel} into the UI of this category.
+	 * @param {Grommunio.settings.SettingsModel} settingsModel The settings to load
+	 */
+	update: function(settingsModel)
+	{
+		this.model = settingsModel;
+		var selModel = this.pluginsGrid.getSelectionModel();
+		var store = this.pluginsGrid.getStore();
+		var records = [];
+
+		store.each(function(plugin) {
+			// Only update the 'enabled' property if the plugin is allowed
+			// to be disabled. If not, then the 'enabled' flag cannot have
+			// been changed.
+			if (plugin.get('allow_disable')) {
+				plugin.set('enabled', settingsModel.get(plugin.get('settings_base') + '/enable'));
+			}
+
+			// If the plugin is enabled, add it to the list of
+			// records which is going to be selected.
+			if (plugin.get('enabled')) {
+				records.push(plugin);
+			}
+		});
+
+		// Disable events, as we don't want our own
+		// event handlers for 'selectrow' and 'deselectrow'
+		// to be fired during update.
+		selModel.suspendEvents(false);
+		selModel.selectRecords(records);
+		selModel.resumeEvents();
+	},
+
+	/**
+	 * Called by the {@link Grommunio.settings.ui.SettingsCategory Category} when
+	 * it has been called with {@link grommunio.settings.ui.SettingsCategory#updateSettings}.
+	 * This is used to update the settings from the UI into the {@link Grommunio.settings.SettingsModel settings model}.
+	 * @param {Grommunio.settings.SettingsModel} settingsModel The settings to update
+	 */
+	updateSettings: function(settingsModel)
+	{
+		var store = this.pluginsGrid.getStore();
+
+		settingsModel.beginEdit();
+
+		store.each(function(plugin) {
+			if (plugin.get('allow_disable')) {
+				settingsModel.set(plugin.get('settings_base') + '/enable', plugin.get('enabled'));
+			}
+		});
+
+		settingsModel.endEdit();
+	},
+
+	/**
+	 * Render the display name in the cell.
+	 * This will generate an additional <span> element, if this is a non-editable row
+	 * which serves as replacement for the "Enabled" column
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	onDisplayNameRenderer: function(value, p, record)
+	{
+		value = Ext.util.Format.htmlEncode(value);
+
+		if (!record.get('allow_disable')) {
+			// Add CSS class that this plugin cannot be disabled
+			p.css += ' grommunio-settings-pluginavailable-fixed';
+			// Add message that this plugin cannot be disabled
+			if ( record.get('enabled') === true ) {
+				value += ' <span>' + _('This plugin cannot be disabled') + '</span>';
+			} else {
+				value += ' <span>' + _('This plugin cannot be enabled') + '</span>';
+			}
+		}
+
+		return value;
+	},
+
+	/**
+	 * Render the 'enabled' property in the cell.
+	 * This will make itself invisible if this is a non-editable row.
+	 *
+	 * @param {Object} value The data value for the cell.
+	 * @param {Object} p An object with metadata
+	 * @param {Ext.data.record} record The {Ext.data.Record} from which the data was extracted.
+	 * @return {String} The formatted string
+	 */
+	onEnabledRenderer: function(value, p, record)
+	{
+		if (record.get('allow_disable')) {
+			return Ext.grid.CheckboxSelectionModel.prototype.renderer.apply(this, arguments);
+		} else {
+			// Add CSS class that this plugin cannot be disabled
+			p.css += ' grommunio-settings-pluginavailable-fixed';
+			return '';
+		}
+	},
+
+	/**
+	 * Event handler which is fired when the row has been selected by the user.
+	 * This will toggle the 'enabled' property on the passed record, and update
+	 * the {@link #model settings}.
+	 * @param {Ext.grid.CheckboxSelectionModel} model The model which fired the event
+	 * @param {Number} index The index which was selected
+	 * @param {Ext.data.Record} record The record which was selected
+	 * @private
+	 */
+	onRowSelect: function(model, index, record)
+	{
+		record.set('enabled', true);
+		this.model.set(record.get('settings_base') + '/enable', true);
+		this.model.requiresReload = true;
+	},
+
+	/**
+	 * Event handler which is fired when the row has been deselected by the user.
+	 * This will toggle the 'enabled' property on the passed record, and update
+	 * the {@link #model settings}.
+	 * @param {Ext.grid.CheckboxSelectionModel} model The model which fired the event
+	 * @param {Number} index The index which was selected
+	 * @param {Ext.data.Record} record The record which was selected
+	 * @private
+	 */
+	onRowDeselect: function(model, index, record)
+	{
+		record.set('enabled', false);
+		this.model.set(record.get('settings_base') + '/enable', false);
+		// Set notifier values to default after disabling the desktopnotifications plugin
+		if (record.get('settings_base') == 'grommunio/v1/plugins/desktopnotifications') {
+			this.model.set('grommunio/v1/main/notifier/info/newmail/value', 'toast');
+			this.model.set('grommunio/v1/main/notifier/info/reminder/value', 'none');
+		}
+		this.model.requiresReload = true;
+	}
+});
+
+Ext.reg('grommunio.settingspluginswidget', Grommunio.settings.ui.SettingsPluginsWidget);

@@ -40,7 +40,7 @@
 <!-- The attributes for the <plugin> element. -->
 <!ATTLIST plugin version CDATA #REQUIRED>
 
-<!-- The attributes for the <optional> element. The switch is the setting zarafa/v1/plugins/<settingsname>/enable, settingsname defaults to the plugin directory -->
+<!-- The attributes for the <optional> element. The switch is the setting grommunio/v1/plugins/<settingsname>/enable, settingsname defaults to the plugin directory -->
 <!ATTLIST optional settingsname CDATA #IMPLIED>
 
 <!-- The attributes for the <depends> element. -->

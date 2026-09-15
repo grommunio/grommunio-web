@@ -1,14 +1,14 @@
-Ext.namespace('Zarafa.hierarchy.data');
+Ext.namespace('Grommunio.hierarchy.data');
 
 /**
- * @class Zarafa.plugins.mdm.data.MDMHierarchyTreeLoader
- * @extends Zarafa.hierarchy.data.HierarchyTreeLoader
+ * @class Grommunio.plugins.mdm.data.MDMHierarchyTreeLoader
+ * @extends Grommunio.hierarchy.data.HierarchyTreeLoader
  *
- * A Special treeloader to be used by the {@link Zarafa.plugins.mdm.data.MDMHierarchyTreeLoader MDMHierarchyTree}.
+ * A Special treeloader to be used by the {@link Grommunio.plugins.mdm.data.MDMHierarchyTreeLoader MDMHierarchyTree}.
  * This will dynamically load the child nodes for a given node by obtaining the subfolders of
  * the folder related to the given node.
  */
-Zarafa.plugins.mdm.data.MDMHierarchyTreeLoader = Ext.extend(Zarafa.hierarchy.data.HierarchyTreeLoader, {
+Grommunio.plugins.mdm.data.MDMHierarchyTreeLoader = Ext.extend(Grommunio.hierarchy.data.HierarchyTreeLoader, {
 
 	/**
 	 * @constructor
@@ -16,17 +16,17 @@ Zarafa.plugins.mdm.data.MDMHierarchyTreeLoader = Ext.extend(Zarafa.hierarchy.dat
 	 */
 	constructor : function(config)
 	{
-		Zarafa.plugins.mdm.data.MDMHierarchyTreeLoader.superclass.constructor.call(this, config);
+		Grommunio.plugins.mdm.data.MDMHierarchyTreeLoader.superclass.constructor.call(this, config);
 	},
 
 	/**
-	 * Add extra attributes for a new {@link Zarafa.hierarchy.ui.FolderNode folderNode} which is about
-	 * to be created. This will check the {@link Zarafa.hierarchy.ui.FolderNode#folder folder} to
+	 * Add extra attributes for a new {@link Grommunio.hierarchy.ui.FolderNode folderNode} which is about
+	 * to be created. This will check the {@link Grommunio.hierarchy.ui.FolderNode#folder folder} to
 	 * see what properties must be set.
 	 *
-	 * Override to provide (@link Zarafa.plugins.mdm.ui.MDMFolderNodeUI MDMFolderNodeUI} to ui provider
+	 * Override to provide (@link Grommunio.plugins.mdm.ui.MDMFolderNodeUI MDMFolderNodeUI} to ui provider
 	 * @param {Object} attr The attributes which will be used to create the node
-	 * @return {Zarafa.hierarchy.ui.FolderNode} The created node
+	 * @return {Grommunio.hierarchy.ui.FolderNode} The created node
 	 */
 	createNode : function(attr)
 	{
@@ -38,12 +38,12 @@ Zarafa.plugins.mdm.data.MDMHierarchyTreeLoader = Ext.extend(Zarafa.hierarchy.dat
 			}
 
 			attr.leaf = !folder.get('has_subfolder');
-			attr.uiProvider = Zarafa.plugins.mdm.ui.MDMFolderNodeUI;
+			attr.uiProvider = Grommunio.plugins.mdm.ui.MDMFolderNodeUI;
 			attr.expanded = this.tree.isFolderOpened(folder);
 			attr.allowDrag = !folder.isDefaultFolder();
 		}
 
 		// call parent of parent because of parent class will change ui provider
-		return Zarafa.hierarchy.data.HierarchyTreeLoader.superclass.createNode.apply(this, arguments);
+		return Grommunio.hierarchy.data.HierarchyTreeLoader.superclass.createNode.apply(this, arguments);
 	}
 });

@@ -16,6 +16,17 @@ require __DIR__ . '/../exceptions/class.SettingsException.php';
  */
 class Settings {
 	/**
+	 * Root key of the settings tree inside PR_EC_WEBACCESS_SETTINGS_JSON.
+	 */
+	private const SETTINGS_ROOT = 'grommunio';
+
+	/**
+	 * The root key used before the rename. Trees still carrying it are moved
+	 * onto {@link self::SETTINGS_ROOT} by {@link #migrateLegacyRoot}.
+	 */
+	private const LEGACY_SETTINGS_ROOT = 'zarafa';
+
+	/**
 	 * User's default message store where we will be storing all the settings in a property.
 	 */
 	private $store;
@@ -86,6 +97,12 @@ class Settings {
 	 */
 	private $modifiedPersistent;
 
+	/**
+	 * True when the loaded tree still used the legacy root, so the migrated
+	 * tree has to be written back once even if nothing else changed.
+	 */
+	private $legacyRootMigrated;
+
 	public function __construct() {
 		$this->settings = [];
 		$this->persistentSettings = [];
@@ -98,6 +115,7 @@ class Settings {
 		$this->loadFailed = false;
 		$this->settingsLoaded = false;
 		$this->persistentSettingsLoaded = false;
+		$this->legacyRootMigrated = false;
 	}
 
 	/**
@@ -135,6 +153,12 @@ class Settings {
 			$msg = "Settings::Init(): the settings of this store could not be loaded, continuing with defaults for every setting: " . $e->getMessage();
 			error_log($msg);
 			Log::Write(LOGLEVEL_ERROR, $msg);
+		}
+
+		// The tree is already migrated in memory, so every read is correct from
+		// here on. Write it back once so the legacy root leaves the store.
+		if ($this->init && $this->legacyRootMigrated) {
+			$this->saveSettings();
 		}
 	}
 
@@ -310,6 +334,39 @@ class Settings {
 	}
 
 	/**
+	 * Move a settings tree that still uses the legacy root onto the current one.
+	 *
+	 * Runs on every load rather than once, because reloadModifiedSettings()
+	 * throws the in-memory tree away and re-reads the store before replaying
+	 * this request's changes; normalising here keeps both paths on the new
+	 * shape. The legacy subtree is dropped, and since writeSettings()
+	 * serialises the whole tree the first save persists that removal.
+	 *
+	 * @param array $settings the decoded settings tree
+	 *
+	 * @return array the tree rooted at {@link self::SETTINGS_ROOT}
+	 */
+	private function migrateLegacyRoot($settings) {
+		if (!isset($settings[self::LEGACY_SETTINGS_ROOT])) {
+			return $settings;
+		}
+
+		$legacy = $settings[self::LEGACY_SETTINGS_ROOT];
+		unset($settings[self::LEGACY_SETTINGS_ROOT]);
+
+		// Both roots exist when an earlier migration was interrupted, or when
+		// the store saw a downgrade and then this version again. What the newer
+		// root holds is the more recent value, so it wins over the legacy one.
+		$settings[self::SETTINGS_ROOT] = isset($settings[self::SETTINGS_ROOT]) && is_array($settings[self::SETTINGS_ROOT])
+			? array_replace_recursive(is_array($legacy) ? $legacy : [], $settings[self::SETTINGS_ROOT])
+			: (is_array($legacy) ? $legacy : []);
+
+		$this->legacyRootMigrated = true;
+
+		return $settings;
+	}
+
+	/**
 	 * Get settings from store.
 	 *
 	 * This function retrieves the actual settings from the store.
@@ -324,7 +381,7 @@ class Settings {
 		// first check if property exist and we can open that using mapi_openproperty
 		$storeProps = mapi_getprops($this->store, [PR_EC_WEBACCESS_SETTINGS_JSON, PR_EC_USER_LANGUAGE]);
 
-		$settings = ["settings" => ["zarafa" => ["v1" => ["main" => []]]]];
+		$settings = ["settings" => ["grommunio" => ["v1" => ["main" => []]]]];
 		// Check if property exists, if it does not exist then we can continue with empty set of settings
 		if (isset($storeProps[PR_EC_WEBACCESS_SETTINGS_JSON]) || propIsError(PR_EC_WEBACCESS_SETTINGS_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
 			$this->settings_string = streamProperty($this->store, PR_EC_WEBACCESS_SETTINGS_JSON);
@@ -334,12 +391,13 @@ class Settings {
 				if (empty($settings) || empty($settings['settings'])) {
 					throw new SettingsException(_('Error retrieving existing settings'));
 				}
+				$settings['settings'] = $this->migrateLegacyRoot($settings['settings']);
 			}
 			if (isset($storeProps[PR_EC_USER_LANGUAGE])) {
-				$settings["settings"]["zarafa"]["v1"]["main"]["language"] = $storeProps[PR_EC_USER_LANGUAGE];
+				$settings["settings"]["grommunio"]["v1"]["main"]["language"] = $storeProps[PR_EC_USER_LANGUAGE];
 			}
 			elseif (isset($_COOKIE['lang'])) {
-				$settings["settings"]["zarafa"]["v1"]["main"]["language"] = $_COOKIE['lang'];
+				$settings["settings"]["grommunio"]["v1"]["main"]["language"] = $_COOKIE['lang'];
 			}
 			// Get and apply the System Administrator default settings
 			$sysadminSettings = $this->getDefaultSysAdminSettings();
@@ -354,10 +412,10 @@ class Settings {
 			 * while webapp loads.
 			 */
 			if (isset($storeProps[PR_EC_USER_LANGUAGE])) {
-				$settings["settings"]["zarafa"]["v1"]["main"]["language"] = $storeProps[PR_EC_USER_LANGUAGE];
+				$settings["settings"]["grommunio"]["v1"]["main"]["language"] = $storeProps[PR_EC_USER_LANGUAGE];
 			}
 			elseif (isset($_COOKIE['lang'])) {
-				$settings["settings"]["zarafa"]["v1"]["main"]["language"] = $_COOKIE['lang'];
+				$settings["settings"]["grommunio"]["v1"]["main"]["language"] = $_COOKIE['lang'];
 			}
 			$sysadminSettings = $this->getDefaultSysAdminSettings();
 			$this->settings = array_replace_recursive($sysadminSettings, $settings['settings']);
@@ -582,7 +640,7 @@ class Settings {
 
 			return;
 		}
-		if (empty($this->modified)) {
+		if (empty($this->modified) && !$this->legacyRootMigrated) {
 			return;
 		}
 
@@ -604,8 +662,8 @@ class Settings {
 	 * Write the merged regular settings.
 	 */
 	private function writeSettings() {
-		if (isset($this->settings['zarafa']['v1'])) {
-			unset($this->settings['zarafa']['v1']['contexts']['mail']['outofoffice']);
+		if (isset($this->settings['grommunio']['v1'])) {
+			unset($this->settings['grommunio']['v1']['contexts']['mail']['outofoffice']);
 		}
 
 		// Filter out the unchanged default sysadmin settings
@@ -614,13 +672,13 @@ class Settings {
 
 		// Check if the settings have been changed.
 		if ($this->settings_string !== $settings) {
-			if (isset($this->settings['zarafa']['v1']['main']['language'])) {
-				mapi_setprops($this->store, [PR_EC_USER_LANGUAGE => $this->settings['zarafa']['v1']['main']['language']]);
+			if (isset($this->settings['grommunio']['v1']['main']['language'])) {
+				mapi_setprops($this->store, [PR_EC_USER_LANGUAGE => $this->settings['grommunio']['v1']['main']['language']]);
 			}
 
-			if (isset($this->settings['zarafa']['v1']['main']['thumbnail_photo'])) {
-				$thumbnail_photo = $this->settings['zarafa']['v1']['main']['thumbnail_photo'];
-				unset($this->settings['zarafa']['v1']['main']['thumbnail_photo']);
+			if (isset($this->settings['grommunio']['v1']['main']['thumbnail_photo'])) {
+				$thumbnail_photo = $this->settings['grommunio']['v1']['main']['thumbnail_photo'];
+				unset($this->settings['grommunio']['v1']['main']['thumbnail_photo']);
 				if (preg_match('/^data:image\/(?<extension>(?:png|gif|jpg|jpeg));base64,(?<image>.+)$/', $thumbnail_photo, $matchings)) {
 					$imageData = base64_decode($matchings['image']);
 					$extension = $matchings['extension'];
@@ -681,6 +739,7 @@ class Settings {
 
 			// Settings saved, update settings_string.
 			$this->settings_string = $settings;
+			$this->legacyRootMigrated = false;
 		}
 		$this->modified = [];
 	}
@@ -745,7 +804,7 @@ class Settings {
 	 *
 	 * Returns one explicit setting in an associative array:
 	 *
-	 * 'lang' -> setting('zarafa/v1/main/language')
+	 * 'lang' -> setting('grommunio/v1/main/language')
 	 *
 	 * @return array associative array with 'lang' entry
 	 */
@@ -756,7 +815,7 @@ class Settings {
 			$lang = $storeProps[PR_EC_USER_LANGUAGE];
 		}
 		else {
-			$lang = $this->get('zarafa/v1/main/language', LANG);
+			$lang = $this->get('grommunio/v1/main/language', LANG);
 		}
 
 		return [

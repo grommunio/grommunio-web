@@ -52,7 +52,7 @@
 		{
 			// if startDay is not specified through config then use one specified in settings
 			if(!this.initialConfig.startDay) {
-				this.startDay = container.getSettingsModel().get('zarafa/v1/main/week_start');
+				this.startDay = container.getSettingsModel().get('grommunio/v1/main/week_start');
 			}
 
 			// Check for invalid start day

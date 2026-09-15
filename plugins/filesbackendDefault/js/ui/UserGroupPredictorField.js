@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.files.backend.Default.ui');
+Ext.namespace('Grommunio.plugins.files.backend.Default.ui');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField
+ * @class Grommunio.plugins.files.backend.Default.ui.UserGroupPredictorField
  * @extends Ext.form.ComboBox
  * @xtype filesplugin.default.usergrouppredictorfield
  *
  * This ComboBox automatically searches for the correct user/group name.
  */
-Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField = Ext.extend(
+Grommunio.plugins.files.backend.Default.ui.UserGroupPredictorField = Ext.extend(
 	Ext.form.ComboBox,
 	{
 		/**
@@ -47,8 +47,8 @@ Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField = Ext.extend(
 					'<tpl for=".">',
 					'<div class="ugpredic_search_item">',
 					'<h3>',
-					'<tpl if="object_type == Zarafa.plugins.files.backend.Default.data.RecipientTypes.USER"><span><div class="shareicon_16_user">&nbsp;</div></span></tpl>',
-					'<tpl if="object_type == Zarafa.plugins.files.backend.Default.data.RecipientTypes.GROUP"><span><div class="shareicon_16_group">&nbsp;</div></span></tpl>',
+					'<tpl if="object_type == Grommunio.plugins.files.backend.Default.data.RecipientTypes.USER"><span><div class="shareicon_16_user">&nbsp;</div></span></tpl>',
+					'<tpl if="object_type == Grommunio.plugins.files.backend.Default.data.RecipientTypes.GROUP"><span><div class="shareicon_16_group">&nbsp;</div></span></tpl>',
 					'{display_name:htmlEncode}',
 					'</h3>',
 					'</div>',
@@ -62,7 +62,7 @@ Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField = Ext.extend(
 				},
 			});
 
-			Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Default.ui.UserGroupPredictorField.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -77,7 +77,7 @@ Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField = Ext.extend(
 			// also set the group field
 			this.ownerCt['type'].setValue(
 				record.get('object_type') ==
-					Zarafa.plugins.files.backend.Default.data.RecipientTypes.USER
+					Grommunio.plugins.files.backend.Default.data.RecipientTypes.USER
 					? 'user'
 					: 'group',
 			);
@@ -99,5 +99,5 @@ Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField = Ext.extend(
 
 Ext.reg(
 	'filesplugin.default.usergrouppredictorfield',
-	Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField,
+	Grommunio.plugins.files.backend.Default.ui.UserGroupPredictorField,
 );

@@ -1,8 +1,8 @@
 <?php
 
 // required to handle php errors
-require_once __DIR__ . '/exceptions/class.ZarafaErrorException.php';
-require_once __DIR__ . '/exceptions/class.ZarafaException.php';
+require_once __DIR__ . '/exceptions/class.GrommunioErrorException.php';
+require_once __DIR__ . '/exceptions/class.GrommunioException.php';
 
 /**
  * Upload Attachment
@@ -138,10 +138,10 @@ class UploadAttachment {
 						UPLOAD_ERR_NO_TMP_DIR => _('Missing a temporary folder.'),
 						UPLOAD_ERR_CANT_WRITE => _('Failed to write file to disk.'),
 						UPLOAD_ERR_EXTENSION => _('A PHP extension stopped the file upload. PHP does not provide a way to ascertain which extension caused the file upload to stop; examining the list of loaded extensions with phpinfo() may help.'),
-						default => throw new ZarafaException($errorTitle),
+						default => throw new GrommunioException($errorTitle),
 					};
 
-					throw new ZarafaException($errorTitle);
+					throw new GrommunioException($errorTitle);
 				}
 				if (isset($fileSize) && !(isset($_POST['MAX_FILE_SIZE']) && $fileSize > $_POST['MAX_FILE_SIZE'])) {
 					// Parse the filename, strip it from
@@ -227,13 +227,13 @@ class UploadAttachment {
 					$this->sendImportResponse($importStatus);
 				}
 				else {
-					throw new ZarafaException(_("File is not imported successfully"));
+					throw new GrommunioException(_("File is not imported successfully"));
 				}
 			}
 			else {
 				$return = [
 					'success' => true,
-					'zarafa' => [
+					'grommunio' => [
 						sanitizeGetValue('module', '', STRING_REGEX) => [
 							sanitizeGetValue('moduleid', '', STRING_REGEX) => [
 								'update' => [
@@ -262,7 +262,7 @@ class UploadAttachment {
 		$filepath = $this->attachment_state->getAttachmentPath($attachTempName);
 		$handle = fopen($filepath, "rb");
 		if ($handle === false) {
-			throw new ZarafaException(_("File is not imported successfully"));
+			throw new GrommunioException(_("File is not imported successfully"));
 		}
 
 		$attachmentStream = '';
@@ -271,7 +271,7 @@ class UploadAttachment {
 			while (!feof($handle)) {
 				$chunk = fread($handle, BLOCK_SIZE);
 				if ($chunk === false) {
-					throw new ZarafaException(_("File is not imported successfully"));
+					throw new GrommunioException(_("File is not imported successfully"));
 				}
 				$attachmentStream .= $chunk;
 			}
@@ -326,7 +326,7 @@ class UploadAttachment {
 			// Convert vCard 1.0 to a MAPI contact.
 			$contacts = $this->convertVCFContactsToMapi($this->destinationFolder, $attachmentStream);
 		}
-		catch (ZarafaException $e) {
+		catch (GrommunioException $e) {
 			$e->setTitle(_("Import error"));
 
 			throw $e;
@@ -359,7 +359,7 @@ class UploadAttachment {
 				$message = sprintf(_("Unable to import '%s'. "), $filename) . $e->getMessage();
 			}
 
-			$e = new ZarafaException($message);
+			$e = new GrommunioException($message);
 			$e->setTitle(_("Import error"));
 
 			throw $e;
@@ -409,7 +409,7 @@ class UploadAttachment {
 		}
 		else {
 			// Throw error related to multiple vcf as the function is not available for importing multiple vcf file.
-			throw new ZarafaException(_("grommunio Web does not support importing multiple VCF with this version."));
+			throw new GrommunioException(_("grommunio Web does not support importing multiple VCF with this version."));
 		}
 
 		return $contacts;
@@ -516,7 +516,7 @@ class UploadAttachment {
 		try {
 			$events = $this->convertICSToMapi($attachmentStream);
 		}
-		catch (ZarafaException $e) {
+		catch (GrommunioException $e) {
 			$e->setTitle(_("Import error"));
 
 			throw $e;
@@ -551,7 +551,7 @@ class UploadAttachment {
 				$message = sprintf(_("Unable to import '%s'. "), $filename) . $e->getMessage();
 			}
 
-			$e = new ZarafaException($message);
+			$e = new GrommunioException($message);
 			$e->setTitle(_("Import error"));
 
 			throw $e;
@@ -630,7 +630,7 @@ class UploadAttachment {
 		}
 		else {
 			// Throw error related to multiple ics as the function is not available for importing multiple ics file.
-			throw new ZarafaException(_("grommunio Web does not support importing multiple ICS with this version."));
+			throw new GrommunioException(_("grommunio Web does not support importing multiple ICS with this version."));
 		}
 
 		return $events;
@@ -704,7 +704,7 @@ class UploadAttachment {
 		$return = [
 			// 'success' property is needed for Extjs Ext.form.Action.Submit#success handler
 			'success' => true,
-			'zarafa' => [
+			'grommunio' => [
 				sanitizeGetValue('module', '', STRING_REGEX) => [
 					sanitizeGetValue('moduleid', '', STRING_REGEX) => [
 						'delete' => [
@@ -745,7 +745,7 @@ class UploadAttachment {
 		$return = [
 			// 'success' property is needed for Extjs Ext.form.Action.Submit#success handler
 			'success' => true,
-			'zarafa' => [
+			'grommunio' => [
 				sanitizeGetValue('module', '', STRING_REGEX) => [
 					sanitizeGetValue('moduleid', '', STRING_REGEX) => [
 						'update' => [
@@ -765,17 +765,17 @@ class UploadAttachment {
 	public function uploadWhenWendViaOOO() {
 		$attachmentID = $_GET['attachment_id'] ?? null;
 		if (!is_string($attachmentID) || preg_match('/\A[A-Za-z0-9][A-Za-z0-9._-]{0,254}\z/D', $attachmentID) !== 1) {
-			throw new ZarafaException(_('Could not find attachment.'));
+			throw new GrommunioException(_('Could not find attachment.'));
 		}
 
 		$stagingDirectory = realpath(sys_get_temp_dir());
 		if ($stagingDirectory === false) {
-			throw new ZarafaException(_('Could not attach item as an attachment.'));
+			throw new GrommunioException(_('Could not attach item as an attachment.'));
 		}
 
 		$providedFile = $stagingDirectory . DIRECTORY_SEPARATOR . $attachmentID;
 		if (dirname($providedFile) !== $stagingDirectory) {
-			throw new ZarafaException(_('Could not find attachment.'));
+			throw new GrommunioException(_('Could not find attachment.'));
 		}
 
 		// check whether the doc is already moved
@@ -785,12 +785,12 @@ class UploadAttachment {
 			// OOo must provide a regular file directly in the system staging directory.
 			// In particular, do not follow symlinks out of that directory.
 			if (($providedFileStat['mode'] & 0170000) !== 0100000) {
-				throw new ZarafaException(_('Could not find attachment.'));
+				throw new GrommunioException(_('Could not find attachment.'));
 			}
 
 			$providedName = $_GET['name'] ?? '';
 			if (!is_string($providedName)) {
-				throw new ZarafaException(_('Could not find attachment.'));
+				throw new GrommunioException(_('Could not find attachment.'));
 			}
 			$filename = mb_basename(stripslashes($providedName));
 
@@ -821,7 +821,7 @@ class UploadAttachment {
 
 		$return = [
 			'success' => true,
-			'zarafa' => [
+			'grommunio' => [
 				sanitizeGetValue('module', '', STRING_REGEX) => [
 					sanitizeGetValue('moduleid', '', STRING_REGEX) => [
 						'import' => [
@@ -893,7 +893,7 @@ class UploadAttachment {
 		$return = [
 			// 'success' property is needed for Extjs Ext.form.Action.Submit#success handler
 			'success' => false,
-			'zarafa' => [
+			'grommunio' => [
 				'error' => [
 					'type' => ERROR_GENERAL,
 					'info' => [
@@ -947,7 +947,7 @@ try {
 	// upload files
 	$uploadInstance->upload();
 }
-catch (ZarafaException $e) {
+catch (GrommunioException $e) {
 	$uploadInstance->handleUploadException($e, $e->getTitle());
 }
 catch (Exception $e) {

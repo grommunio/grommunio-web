@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+Ext.namespace('Grommunio.plugins.files.ui');
 
 /**
- * @class Zarafa.plugins.files.ui.NavigatorTreePanel
- * @extends Zarafa.plugins.files.ui.Tree
+ * @class Grommunio.plugins.files.ui.NavigatorTreePanel
+ * @extends Grommunio.plugins.files.ui.Tree
  * @xtype filesplugin.navigatortreepanel
  *
  * The hierarchy tree panel implementation for files.
  */
-Zarafa.plugins.files.ui.NavigatorTreePanel = Ext.extend(Zarafa.plugins.files.ui.Tree, {
+Grommunio.plugins.files.ui.NavigatorTreePanel = Ext.extend(Grommunio.plugins.files.ui.Tree, {
 
 	/**
 	 * @property {String} nodeToSelect is the path of the node that should be selected.
@@ -15,8 +15,8 @@ Zarafa.plugins.files.ui.NavigatorTreePanel = Ext.extend(Zarafa.plugins.files.ui.
 	nodeToSelect : null,
 
 	/**
-	 * @cfg {@link Zarafa.plugins.files.data.FilesRecordStore filesStore} which contains
-	 * {@link Zarafa.plugins.files.data.FilesRecord FilesRecord}.
+	 * @cfg {@link Grommunio.plugins.files.data.FilesRecordStore filesStore} which contains
+	 * {@link Grommunio.plugins.files.data.FilesRecord FilesRecord}.
 	 */
 	filesStore : undefined,
 
@@ -34,20 +34,20 @@ Zarafa.plugins.files.ui.NavigatorTreePanel = Ext.extend(Zarafa.plugins.files.ui.
 
 		});
 
-		Zarafa.plugins.files.ui.NavigatorTreePanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.NavigatorTreePanel.superclass.constructor.call(this, config);
 
 		this.mon(this.store, 'removeFolder', this.onFolderRemove, this);
 	},
 
 	/**
 	 * Event handler which is fired when the {@link #store} fires the
-	 * {@link Zarafa.hierarchy.data.HierarchyStore#removeFolder} event handler. This will check
+	 * {@link Grommunio.hierarchy.data.HierarchyStore#removeFolder} event handler. This will check
 	 * if the folder is currently opened, and will deselect that folder.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesHierarchyStore} store The store which fired the event
-	 * @param {Zarafa.plugins.files.data.FilesStoreRecord} storeRecord The store from where the folder is
+	 * @param {Grommunio.plugins.files.data.FilesHierarchyStore} store The store which fired the event
+	 * @param {Grommunio.plugins.files.data.FilesStoreRecord} storeRecord The store from where the folder is
 	 * removed
-	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder which was removed from the store
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder which was removed from the store
 	 * @private
 	 */
 	onFolderRemove : function(store, storeRecord, folder)
@@ -58,13 +58,13 @@ Zarafa.plugins.files.ui.NavigatorTreePanel = Ext.extend(Zarafa.plugins.files.ui.
 	},
 
 	/**
-	 * Function called by Extjs when the {@link Zarafa.plugins.files.ui.Tree TreePanel}
+	 * Function called by Extjs when the {@link Grommunio.plugins.files.ui.Tree TreePanel}
 	 * has been {@link #render rendered}. At this time all events can be registered.
 	 * @private
 	 */
 	initEvents : function()
 	{
-		Zarafa.plugins.files.ui.NavigatorTreePanel.superclass.initEvents.apply(this, arguments);
+		Grommunio.plugins.files.ui.NavigatorTreePanel.superclass.initEvents.apply(this, arguments);
 
 		this.on({
 			"click" : this.onNodeClick,
@@ -95,7 +95,7 @@ Zarafa.plugins.files.ui.NavigatorTreePanel = Ext.extend(Zarafa.plugins.files.ui.
 				record.setDisabled(true);
 			});
 
-			return Zarafa.plugins.files.data.Actions.moveRecords(event.data.selections, event.target.getFolder(), {hierarchyStore : this.store});
+			return Grommunio.plugins.files.data.Actions.moveRecords(event.data.selections, event.target.getFolder(), {hierarchyStore : this.store});
 		}
 	},
 
@@ -148,12 +148,12 @@ Zarafa.plugins.files.ui.NavigatorTreePanel = Ext.extend(Zarafa.plugins.files.ui.
 	},
 
 	/**
-	 * Fires when the {@link Zarafa.core.Container} fires the
-	 * {@link Zarafa.core.Container#folderselect} event. This
+	 * Fires when the {@link Grommunio.core.Container} fires the
+	 * {@link Grommunio.core.Container#folderselect} event. This
 	 * will search for the corresponding node in the tree,
 	 * and will mark the given folder as {@link #selectFolderInTree selected}.
 	 *
-	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord|Array} folder The folder which
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord|Array} folder The folder which
 	 * is currently selected.
 	 * @private
 	 */
@@ -180,7 +180,7 @@ Zarafa.plugins.files.ui.NavigatorTreePanel = Ext.extend(Zarafa.plugins.files.ui.
 	},
 
 	/**
-	 * Event handler triggered when {@link Zarafa.plugins.files.data.FilesHierarchyStore FilesHierarchyStore}.
+	 * Event handler triggered when {@link Grommunio.plugins.files.data.FilesHierarchyStore FilesHierarchyStore}.
 	 * @param {Object} loader TreeLoader object.
 	 * @param {Object} node The {@link Ext.tree.TreeNode} object being loaded.
 	 * @param {Object} response The response object containing the data from the server.
@@ -223,12 +223,12 @@ Zarafa.plugins.files.ui.NavigatorTreePanel = Ext.extend(Zarafa.plugins.files.ui.
 	 */
 	onContextMenu: function (node, event)
 	{
-		var component = Zarafa.core.data.SharedComponentType['zarafa.plugins.files.treecontextmenu'];
-		Zarafa.core.data.UIFactory.openContextMenu(component, node.getFolder(), {
+		var component = Grommunio.core.data.SharedComponentType['grommunio.plugins.files.treecontextmenu'];
+		Grommunio.core.data.UIFactory.openContextMenu(component, node.getFolder(), {
 			position: event.getXY(),
 			model : this.model
 		});
 	}
 });
 
-Ext.reg('filesplugin.navigatortreepanel', Zarafa.plugins.files.ui.NavigatorTreePanel);
+Ext.reg('filesplugin.navigatortreepanel', Grommunio.plugins.files.ui.NavigatorTreePanel);

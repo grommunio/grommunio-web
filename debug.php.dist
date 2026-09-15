@@ -51,7 +51,7 @@ function grommunio_error_handler($errno, $errstr, $errfile, $errline, $errorCont
 	$filterOutErrors = array(E_USER_ERROR, E_USER_WARNING, E_USER_NOTICE, E_WARNING, E_NOTICE);
 
 	if(!in_array($errno, $filterOutErrors))
-		throw new ZarafaErrorException($errstr, $errno, $errfile, $errline, $errorContext);
+		throw new GrommunioErrorException($errstr, $errno, $errfile, $errline, $errorContext);
 }
 
 /**

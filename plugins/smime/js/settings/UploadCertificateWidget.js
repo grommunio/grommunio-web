@@ -1,16 +1,16 @@
-Ext.namespace('Zarafa.plugins.smime.settings');
+Ext.namespace('Grommunio.plugins.smime.settings');
 /*
  * #dependsFile plugins/smime/js/data/SmimeAttachmentStore.js
  */
 
 /**
- * @class Zarafa.plugins.smime.settings.UploadCertificateWidget
- * @extends Zarafa.settings.ui.SettingsWidget
+ * @class Grommunio.plugins.smime.settings.UploadCertificateWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
  * @xtype smime.uploadcertificatewidget
  *
- * The {@link Zarafa.plugins.settings.UploadCertificateWidget widget} for importing S/MIME certificates (public/private)
+ * The {@link Grommunio.plugins.settings.UploadCertificateWidget widget} for importing S/MIME certificates (public/private)
  */
-Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
+Grommunio.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
 	/**
 	 * @cfg {Object} form used to temporarily store the value of form in 
 	 * {@link #selectCertificateCallback} for {@link #uploadCertificate}.
@@ -24,7 +24,7 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 	files: undefined,
 
 	/**
-	 * @cfg {Zarafa.core.data.IPMRecord} record.
+	 * @cfg {Grommunio.core.data.IPMRecord} record.
 	 */
 	record : undefined,
 
@@ -36,7 +36,7 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 		config = config || {};
 
 		if(!config.store) {
-			config.store = new Zarafa.plugins.smime.data.SmimeCertificateStore();
+			config.store = new Grommunio.plugins.smime.data.SmimeCertificateStore();
 		}
 
 		Ext.applyIf(config, {
@@ -73,7 +73,7 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 			}]
 		});
 
-		Zarafa.plugins.smime.settings.UploadCertificateWidget.superclass.constructor.call(this, config);
+		Grommunio.plugins.smime.settings.UploadCertificateWidget.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -82,9 +82,9 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 	 */
 	selectCertificate : function() 
 	{
-		this.record = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_SMIME, {});
+		this.record = Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_SMIME, {});
 
-		var attachComponent = new Zarafa.common.attachment.ui.UploadAttachmentComponent({
+		var attachComponent = new Grommunio.common.attachment.ui.UploadAttachmentComponent({
 			callback : this.selectCertificateCallback,
 			scope : this
 		});
@@ -111,8 +111,8 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 	},
 
 	/**
-	 * Callback function for {@link Zarafa.plugins.smime.settingssmimewidget.selectCertificate}.
-	 * Function is used to set the files and form for {@link Zarafa.plugins.smime.settingsmimewidget.uploadCertificate}
+	 * Callback function for {@link Grommunio.plugins.smime.settingssmimewidget.selectCertificate}.
+	 * Function is used to set the files and form for {@link Grommunio.plugins.smime.settingsmimewidget.uploadCertificate}
 	 * It also sets the certificate upload button's text to the selected filename.
 	 * 
 	 * @param {Object/Array} files The files is contains file information.
@@ -126,7 +126,7 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 	},
 
 	/**
-	 * Function for update event of {@link Zarafa.core.data.IPMAttachmentStore}.
+	 * Function for update event of {@link Grommunio.core.data.IPMAttachmentStore}.
 	 * Displays the information which is stored in the {Ext.data.Record} fields called
 	 * cert_warning and cert_message.
 	 *
@@ -172,8 +172,8 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 	},
 
 	/**
-	 * Called by the {@link Zarafa.settings.ui.SettingsCategory Category} when
-	 * it has been called with {@link zarafa.settings.ui.SettingsCategory#update}.
+	 * Called by the {@link Grommunio.settings.ui.SettingsCategory Category} when
+	 * it has been called with {@link grommunio.settings.ui.SettingsCategory#update}.
 	 * This is being used to reset the textfield and button.
 	 */
 	update : function()
@@ -183,4 +183,4 @@ Zarafa.plugins.smime.settings.UploadCertificateWidget = Ext.extend(Zarafa.settin
 	}	
 });
 
-Ext.reg('smime.uploadcertificatewidget', Zarafa.plugins.smime.settings.UploadCertificateWidget);
+Ext.reg('smime.uploadcertificatewidget', Grommunio.plugins.smime.settings.UploadCertificateWidget);

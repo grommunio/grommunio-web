@@ -1,22 +1,22 @@
-Ext.namespace('Zarafa.plugins.mdm.dialogs');
+Ext.namespace('Grommunio.plugins.mdm.dialogs');
 
 /**
- * @class Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel
+ * @class Grommunio.plugins.mdm.dialogs.MDMManageSharedFolderPanel
  * @extends Ext.Panel
  * @xtype mdm.managesharedfolderpanel
  *
- * Panel for users to show the {@link Zarafa.core.data.IPFRecord folders} which are shared with device
+ * Panel for users to show the {@link Grommunio.core.data.IPFRecord folders} which are shared with device
  */
-Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.mdm.dialogs.MDMManageSharedFolderPanel = Ext.extend(Ext.Panel, {
 
 	/**
-	 * @cfg {Zarafa.plugins.mdm.data.MDMDeviceFolderStore} store contains {@link Zarafa.plugins.mdm.data.MDMDeviceFolderRecord folders} which
+	 * @cfg {Grommunio.plugins.mdm.data.MDMDeviceFolderStore} store contains {@link Grommunio.plugins.mdm.data.MDMDeviceFolderRecord folders} which
 	 * is going to shared with device.
 	 */
 	sharedFoldersStore : undefined,
 
 	/**
-	 * @cfg {Zarafa.core.data.IPMRecord} record The mail which
+	 * @cfg {Grommunio.core.data.IPMRecord} record The mail which
 	 * is being update by this panel.
 	 */
 	record: null,
@@ -41,11 +41,11 @@ Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel = Ext.extend(Ext.Panel, {
 				this.createTreePanel()
 			],
 			buttonAlign: 'right',
-			plugins : ['zarafa.recordcomponentupdaterplugin'],
+			plugins : ['grommunio.recordcomponentupdaterplugin'],
 			buttons: [{
 				text: _('Apply'),
 				handler: this.onApply,
-				cls: 'zarafa-action',
+				cls: 'grommunio-action',
 				scope: this
 			}, {
 				text: _('Cancel'),
@@ -54,12 +54,12 @@ Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel = Ext.extend(Ext.Panel, {
 			}]
 		});
 
-		Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.mdm.dialogs.MDMManageSharedFolderPanel.superclass.constructor.call(this, config);
 	},
 
 	/**
-	 * Creates a {@link Zarafa.hierarchy.ui.Tree treepanel}
-	 * which contains all the {@link Zarafa.hierarchy.data.MAPIFolderRecord folders}
+	 * Creates a {@link Grommunio.hierarchy.ui.Tree treepanel}
+	 * which contains all the {@link Grommunio.hierarchy.data.MAPIFolderRecord folders}
 	 * on which search get perform.
 	 * @return {Object} Configuration object for the tree panel.
 	 * @private
@@ -105,7 +105,7 @@ Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel = Ext.extend(Ext.Panel, {
 	 */
 	initEvents: function ()
 	{
-		Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel.superclass.initEvents.apply(this, arguments);
+		Grommunio.plugins.mdm.dialogs.MDMManageSharedFolderPanel.superclass.initEvents.apply(this, arguments);
 		this.mon(this.hierarchyTree, {
 			expandnode: this.onTreeNodeExpand,
 			checkchange: this.onTreeNodeCheckChange,
@@ -115,7 +115,7 @@ Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Fired when the {@link Zarafa.hierarchy.ui.Tree Tree} fires the {@link Zarafa.hierarchy.ui.Tree#nodeexpand nodeexpand}
+	 * Fired when the {@link Grommunio.hierarchy.ui.Tree Tree} fires the {@link Grommunio.hierarchy.ui.Tree#nodeexpand nodeexpand}
 	 * event.
 	 * It will update the hierarchy by selecting child node if it will shared with device.
 	 * @private
@@ -131,7 +131,7 @@ Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * Updates the panel by loading data from the record.
 	 *
-	 * @param {Zarafa.core.data.IPMRecord} record The record update the panel with.
+	 * @param {Grommunio.core.data.IPMRecord} record The record update the panel with.
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
 	update : function(record, contentReset)
@@ -143,7 +143,7 @@ Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Function will try to select those {@link Ext.tree.TreeNode TreeNode} in
-	 * {@link Zarafa.hierarchy.ui.Tree Tree} which was shared with respective device.
+	 * {@link Grommunio.hierarchy.ui.Tree Tree} which was shared with respective device.
 	 */
 	updateHierarchy : function ()
 	{
@@ -218,4 +218,4 @@ Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel = Ext.extend(Ext.Panel, {
 	}
 });
 
-Ext.reg('mdm.managesharedfolderpanel', Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel);
+Ext.reg('mdm.managesharedfolderpanel', Grommunio.plugins.mdm.dialogs.MDMManageSharedFolderPanel);

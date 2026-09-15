@@ -1067,7 +1067,7 @@ class PluginManager {
 			if ($settingsname === null || in_array($pluginname, $alwaysEnabled, true)) {
 				continue;
 			}
-			if ($GLOBALS['settings']->get('zarafa/v1/plugins/' . $settingsname . '/enable') !== true) {
+			if ($GLOBALS['settings']->get('grommunio/v1/plugins/' . $settingsname . '/enable') !== true) {
 				$this->unloaded[$pluginname] = true;
 			}
 		}
@@ -1108,7 +1108,7 @@ class PluginManager {
 				'name' => $pluginname,
 				'display_name' => _($plugin['title'] ?? $pluginname),
 				'allow_disable' => isset($plugin['optional']),
-				'settings_base' => 'zarafa/v1/plugins/' . ($plugin['optional'] ?? $pluginname),
+				'settings_base' => 'grommunio/v1/plugins/' . ($plugin['optional'] ?? $pluginname),
 			];
 		}
 

@@ -256,7 +256,7 @@ module.exports = {
         ]
     },
     "globals": {
-	    "Zarafa": true,
+	    "Grommunio": true,
 	    "_": true,
 	    "container": true,
 	    "Ext": true,

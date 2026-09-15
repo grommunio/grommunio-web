@@ -214,7 +214,7 @@ async function testBrowserBundle(key) {
 		vm.runInContext(await fs.readFile(path.join(__dirname, '..', filename), 'utf8'), context, {filename, timeout: 10000});
 	}
 	const result = await vm.runInContext(`(async () => {
-		const C = Zarafa.plugins.pgp.crypto.BrowserCrypto, service = new C();
+		const C = Grommunio.plugins.pgp.crypto.BrowserCrypto, service = new C();
 		await service.unlock(testKey.private_key, testPassword);
 		const data = new Uint8Array([0, 255, 128, 13, 10]);
 		const ciphertext = await service.encrypt(data, [testKey.public_key], testKey.fingerprint);

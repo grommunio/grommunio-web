@@ -1,5 +1,5 @@
-Ext.namespace('Zarafa.plugins.meet');
-Zarafa.plugins.meet.SettingsCategory = Ext.extend(Zarafa.settings.ui.SettingsCategory, {
+Ext.namespace('Grommunio.plugins.meet');
+Grommunio.plugins.meet.SettingsCategory = Ext.extend(Grommunio.settings.ui.SettingsCategory, {
 
   constructor: function(config){
     config = config || {};
@@ -13,13 +13,13 @@ Zarafa.plugins.meet.SettingsCategory = Ext.extend(Zarafa.settings.ui.SettingsCat
         settingsContext: config.settingsContext
       }]
     });
-    Zarafa.plugins.meet.SettingsCategory.superclass.constructor.call(this, config);
+    Grommunio.plugins.meet.SettingsCategory.superclass.constructor.call(this, config);
   }
 
 });
-Ext.reg('grommunio.meet.settingscategory', Zarafa.plugins.meet.SettingsCategory);
+Ext.reg('grommunio.meet.settingscategory', Grommunio.plugins.meet.SettingsCategory);
 
-Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
+Grommunio.plugins.meet.SettingsWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
 
   constructor: function(config){
     config = config || {};
@@ -116,7 +116,7 @@ Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidge
           style: 'margin-top: 10px',
           value: _('Invitation template (HTML)') + ': <span class="k-settings-label-minor">(' + _('used when composing in HTML, must contain %url%, empty to reset to default') + ')</span>',
         },{
-          xtype: 'zarafa.editorfield',
+          xtype: 'grommunio.editorfield',
           ref: 'invitationHtmlEditor',
           cls: 'k-meet-html-editor',
           fieldLabel: _('Invitation template'),
@@ -130,52 +130,52 @@ Zarafa.plugins.meet.SettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidge
         }
       ]
     });
-    Zarafa.plugins.meet.SettingsWidget.superclass.constructor.call(this, config);
+    Grommunio.plugins.meet.SettingsWidget.superclass.constructor.call(this, config);
   },
 
   update: function(settingsModel){
-    this.openInRadio.setValue(settingsModel.get('zarafa/v1/plugins/meet/openin') || 'web');
-    this.hideTabbarButtonCheckbox.setValue(settingsModel.get('zarafa/v1/plugins/meet/hidetabbarbutton'));
-    this.locationAddCheckbox.setValue(!settingsModel.get('zarafa/v1/plugins/meet/locationoverride'));
-    this.locationFixCheckbox.setValue(!settingsModel.get('zarafa/v1/plugins/meet/nolocationfix'));
-    this.addInvitationCheckbox.setValue(!settingsModel.get('zarafa/v1/plugins/meet/noinvitation'));
-    this.invitationEditor.setValue(settingsModel.get('zarafa/v1/plugins/meet/invitationmessage') || '');
-    this.invitationHtmlEditor.setValue(settingsModel.get('zarafa/v1/plugins/meet/invitationhtml') || '');
-    this.mnameAddSubject.setValue(!container.getSettingsModel().get('zarafa/v1/plugins/meet/mname_nosubject'));
-    this.mnameAddOrganizer.setValue(!container.getSettingsModel().get('zarafa/v1/plugins/meet/mname_noorganizer'));
+    this.openInRadio.setValue(settingsModel.get('grommunio/v1/plugins/meet/openin') || 'web');
+    this.hideTabbarButtonCheckbox.setValue(settingsModel.get('grommunio/v1/plugins/meet/hidetabbarbutton'));
+    this.locationAddCheckbox.setValue(!settingsModel.get('grommunio/v1/plugins/meet/locationoverride'));
+    this.locationFixCheckbox.setValue(!settingsModel.get('grommunio/v1/plugins/meet/nolocationfix'));
+    this.addInvitationCheckbox.setValue(!settingsModel.get('grommunio/v1/plugins/meet/noinvitation'));
+    this.invitationEditor.setValue(settingsModel.get('grommunio/v1/plugins/meet/invitationmessage') || '');
+    this.invitationHtmlEditor.setValue(settingsModel.get('grommunio/v1/plugins/meet/invitationhtml') || '');
+    this.mnameAddSubject.setValue(!container.getSettingsModel().get('grommunio/v1/plugins/meet/mname_nosubject'));
+    this.mnameAddOrganizer.setValue(!container.getSettingsModel().get('grommunio/v1/plugins/meet/mname_noorganizer'));
   },
 
   updateSettings: function(settingsModel){
     settingsModel.beginEdit();
-    if(settingsModel.get('zarafa/v1/plugins/meet/hidetabbarbutton') != this.hideTabbarButtonCheckbox.checked || settingsModel.get('zarafa/v1/plugins/meet/nolocationfix') == this.locationFixCheckbox.checked){
+    if(settingsModel.get('grommunio/v1/plugins/meet/hidetabbarbutton') != this.hideTabbarButtonCheckbox.checked || settingsModel.get('grommunio/v1/plugins/meet/nolocationfix') == this.locationFixCheckbox.checked){
       settingsModel.requiresReload = true;
     }
-    settingsModel.set('zarafa/v1/plugins/meet/openin', this.openInRadio.getValue().inputValue);
-    settingsModel.set('zarafa/v1/plugins/meet/hidetabbarbutton', this.hideTabbarButtonCheckbox.checked);
-    settingsModel.set('zarafa/v1/plugins/meet/locationoverride', !this.locationAddCheckbox.checked);
-    settingsModel.set('zarafa/v1/plugins/meet/nolocationfix', !this.locationFixCheckbox.checked);
-    settingsModel.set('zarafa/v1/plugins/meet/noinvitation', !this.addInvitationCheckbox.checked);
-    settingsModel.set('zarafa/v1/plugins/meet/mname_nosubject', !this.mnameAddSubject.checked);
-    settingsModel.set('zarafa/v1/plugins/meet/mname_noorganizer', !this.mnameAddOrganizer.checked);
+    settingsModel.set('grommunio/v1/plugins/meet/openin', this.openInRadio.getValue().inputValue);
+    settingsModel.set('grommunio/v1/plugins/meet/hidetabbarbutton', this.hideTabbarButtonCheckbox.checked);
+    settingsModel.set('grommunio/v1/plugins/meet/locationoverride', !this.locationAddCheckbox.checked);
+    settingsModel.set('grommunio/v1/plugins/meet/nolocationfix', !this.locationFixCheckbox.checked);
+    settingsModel.set('grommunio/v1/plugins/meet/noinvitation', !this.addInvitationCheckbox.checked);
+    settingsModel.set('grommunio/v1/plugins/meet/mname_nosubject', !this.mnameAddSubject.checked);
+    settingsModel.set('grommunio/v1/plugins/meet/mname_noorganizer', !this.mnameAddOrganizer.checked);
     if(this.invitationEditor.getValue()){
-      if(this.invitationEditor.getValue() != settingsModel.get('zarafa/v1/plugins/meet/invitationmessage')){
-        settingsModel.set('zarafa/v1/plugins/meet/invitationmessage', this.invitationEditor.getValue())
+      if(this.invitationEditor.getValue() != settingsModel.get('grommunio/v1/plugins/meet/invitationmessage')){
+        settingsModel.set('grommunio/v1/plugins/meet/invitationmessage', this.invitationEditor.getValue())
       }
     }else{
-      settingsModel.remove('zarafa/v1/plugins/meet/invitationmessage');
+      settingsModel.remove('grommunio/v1/plugins/meet/invitationmessage');
       settingsModel.requiresReload = true;
     }
     var htmlVal = this.invitationHtmlEditor.getValue();
     if(htmlVal){
-      if(htmlVal != settingsModel.get('zarafa/v1/plugins/meet/invitationhtml')){
-        settingsModel.set('zarafa/v1/plugins/meet/invitationhtml', htmlVal);
+      if(htmlVal != settingsModel.get('grommunio/v1/plugins/meet/invitationhtml')){
+        settingsModel.set('grommunio/v1/plugins/meet/invitationhtml', htmlVal);
       }
     }else{
-      settingsModel.remove('zarafa/v1/plugins/meet/invitationhtml');
+      settingsModel.remove('grommunio/v1/plugins/meet/invitationhtml');
       settingsModel.requiresReload = true;
     }
     settingsModel.endEdit();
   },
 
 });
-Ext.reg('grommunio.meet.settingswidget', Zarafa.plugins.meet.SettingsWidget);
+Ext.reg('grommunio.meet.settingswidget', Grommunio.plugins.meet.SettingsWidget);

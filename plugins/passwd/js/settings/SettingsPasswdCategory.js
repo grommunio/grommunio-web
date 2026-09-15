@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.passwd.settings');
+Ext.namespace('Grommunio.plugins.passwd.settings');
 
 /**
- * @class Zarafa.plugins.passwd.settings.SettingsPasswdCategory
- * @extends Zarafa.settings.ui.SettingsCategory
- * @xtype zarafa.settingspasswdcategory
+ * @class Grommunio.plugins.passwd.settings.SettingsPasswdCategory
+ * @extends Grommunio.settings.ui.SettingsCategory
+ * @xtype grommunio.settingspasswdcategory
  *
  * The passwd settings category that will allow users to change their passwords
  */
-Zarafa.plugins.passwd.settings.SettingsPasswdCategory = Ext.extend(Zarafa.settings.ui.SettingsCategory, {
+Grommunio.plugins.passwd.settings.SettingsPasswdCategory = Ext.extend(Grommunio.settings.ui.SettingsCategory, {
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -19,18 +19,18 @@ Zarafa.plugins.passwd.settings.SettingsPasswdCategory = Ext.extend(Zarafa.settin
 		Ext.applyIf(config, {
 			title : _('Change Password'),
 			categoryIndex : 9997,
-			iconCls : 'zarafa-settings-category-passwd',
-			xtype : 'zarafa.settingspasswdcategory',
+			iconCls : 'grommunio-settings-category-passwd',
+			xtype : 'grommunio.settingspasswdcategory',
 			items : [{
-				xtype : 'zarafa.settingspasswdwidget',
+				xtype : 'grommunio.settingspasswdwidget',
 				settingsContext : config.settingsContext
 			},
 				container.populateInsertionPoint('context.settings.category.passwd', this)
 			]
 		});
 
-		Zarafa.plugins.passwd.settings.SettingsPasswdCategory.superclass.constructor.call(this, config);
+		Grommunio.plugins.passwd.settings.SettingsPasswdCategory.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('zarafa.settingspasswdcategory', Zarafa.plugins.passwd.settings.SettingsPasswdCategory);
+Ext.reg('grommunio.settingspasswdcategory', Grommunio.plugins.passwd.settings.SettingsPasswdCategory);

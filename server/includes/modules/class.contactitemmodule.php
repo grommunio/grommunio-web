@@ -522,7 +522,7 @@ class ContactItemModule extends ItemModule {
 		// taking leap years into account.
 		$month = self::getMonthOffset($startDate);
 
-		$defAllDayReminder = $GLOBALS['settings']->get('zarafa/v1/contexts/calendar/default_allday_reminder_time', 1080);
+		$defAllDayReminder = $GLOBALS['settings']->get('grommunio/v1/contexts/calendar/default_allday_reminder_time', 1080);
 
 		$props = [
 			'message_class' => 'IPM.Appointment',

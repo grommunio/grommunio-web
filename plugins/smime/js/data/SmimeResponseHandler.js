@@ -1,12 +1,12 @@
-Ext.namespace('Zarafa.plugins.smime.data');
+Ext.namespace('Grommunio.plugins.smime.data');
 
 /**
- * @class Zarafa.plugins.smime.data.SmimeResponseHandler
- * @extends Zarafa.core.data.AbstractResponseHandler
+ * @class Grommunio.plugins.smime.data.SmimeResponseHandler
+ * @extends Grommunio.core.data.AbstractResponseHandler
  *
  * Smime specific response handler.
  */
-Zarafa.plugins.smime.data.SmimeResponseHandler = Ext.extend(Zarafa.core.data.AbstractResponseHandler, {
+Grommunio.plugins.smime.data.SmimeResponseHandler = Ext.extend(Grommunio.core.data.AbstractResponseHandler, {
 
 	/**
 	 * @cfg {Function} successCallback The function which
@@ -36,4 +36,4 @@ Zarafa.plugins.smime.data.SmimeResponseHandler = Ext.extend(Zarafa.core.data.Abs
 	}
 });
 
-Ext.reg('smime.responsehandler', Zarafa.plugins.smime.data.SmimeResponseHandler);
+Ext.reg('smime.responsehandler', Grommunio.plugins.smime.data.SmimeResponseHandler);

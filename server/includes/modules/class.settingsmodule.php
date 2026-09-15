@@ -4,7 +4,7 @@
  * Settings Module.
  */
 class SettingsModule extends Module {
-	private const FILES_ACCOUNT_SETTINGS = 'zarafa/v1/plugins/files/accounts';
+	private const FILES_ACCOUNT_SETTINGS = 'grommunio/v1/plugins/files/accounts';
 
 	/**
 	 * Constructor.

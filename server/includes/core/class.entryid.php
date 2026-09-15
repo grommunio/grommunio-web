@@ -2,7 +2,7 @@
 
 class EntryId {
 	/* Bit definitions for abFlags[3] of ENTRYID */
-	public const ZARAFA_FAVORITE = '01';
+	public const GROMMUNIO_FAVORITE = '01';
 
 	/* GUID of root public folder */
 	public const STATIC_GUID_PUBLICFOLDER = '00000000000000000000000000000003';
@@ -20,11 +20,11 @@ class EntryId {
 	public const MUIDEMSAB = 'DCA740C8C042101AB4B908002B2FE182';
 
 	/* Hardcoded ID used for generating entryid of addressbook container */
-	public const ZARAFA_UID_ADDRESS_BOOK = '00000000';
+	public const GROMMUNIO_UID_ADDRESS_BOOK = '00000000';
 	/* Hardcoded ID used for generating entryid of global addressbook container */
-	public const ZARAFA_UID_GLOBAL_ADDRESS_BOOK = '01000000';
+	public const GROMMUNIO_UID_GLOBAL_ADDRESS_BOOK = '01000000';
 	/* Hardcoded ID used for generating entryid of global addresslists container */
-	public const ZARAFA_UID_GLOBAL_ADDRESS_LISTS = '02000000';
+	public const GROMMUNIO_UID_GLOBAL_ADDRESS_LISTS = '02000000';
 
 	public function __construct() {}
 
@@ -100,7 +100,7 @@ class EntryId {
 	}
 
 	/**
-	 * The entryid from the begin of zarafa till 5.20.
+	 * The entryid from the begin of grommunio till 5.20.
 	 *
 	 * @param mixed $entryid
 	 *
@@ -290,7 +290,7 @@ class EntryId {
 	public function isFavoriteFolder($entryId) {
 		$entryIdObj = $this->createEntryIdObj($entryId);
 
-		return substr((string) $entryIdObj['abFlags'], 6, 8) == self::ZARAFA_FAVORITE;
+		return substr((string) $entryIdObj['abFlags'], 6, 8) == self::GROMMUNIO_FAVORITE;
 	}
 
 	/**

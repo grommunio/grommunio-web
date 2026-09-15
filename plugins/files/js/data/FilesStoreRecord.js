@@ -1,11 +1,11 @@
-Ext.namespace('Zarafa.plugins.files.data');
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.FilesStoreRecord
+ * @class Grommunio.plugins.files.data.FilesStoreRecord
  * Array of {@link Ext.data.Field field} configurations for the
- * {@link Zarafa.core.data.IPFRecord IPFRecord} object.
+ * {@link Grommunio.core.data.IPFRecord IPFRecord} object.
  */
-Zarafa.plugins.files.data.FilesStoreRecordFields = [
+Grommunio.plugins.files.data.FilesStoreRecordFields = [
 	{name: 'path'},
 	{name: 'entryid'},
 	{name: 'store_entryid'},
@@ -24,7 +24,7 @@ Zarafa.plugins.files.data.FilesStoreRecordFields = [
 	{name: 'account_sequence'}
 ];
 
-Zarafa.plugins.files.data.FilesStoreRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
+Grommunio.plugins.files.data.FilesStoreRecord = Ext.extend(Grommunio.core.data.IPFRecord, {
 	/**
 	 * The base array of ID properties which is copied to the {@link #idProperties}
 	 * when the record is being created.
@@ -38,20 +38,20 @@ Zarafa.plugins.files.data.FilesStoreRecord = Ext.extend(Zarafa.core.data.IPFReco
 	 * @constructor
 	 * @param {Object} data The data which must be applied to this record
 	 * @param {Object} id The unique id for this record
-	 * @param {Zarafa.core.data.RecordDefinition} definition The record definition used to
+	 * @param {Grommunio.core.data.RecordDefinition} definition The record definition used to
 	 * construct this record
 	 */
 	constructor : function(data, id, definition)
 	{
 		if (!Ext.isDefined(definition)) {
-			definition = Zarafa.core.data.RecordFactory.getRecordDefinitionByCustomType(Zarafa.core.data.RecordCustomObjectType.FILES_FOLDER_STORE);
+			definition = Grommunio.core.data.RecordFactory.getRecordDefinitionByCustomType(Grommunio.core.data.RecordCustomObjectType.FILES_FOLDER_STORE);
 		}
 
-		Zarafa.plugins.files.data.FilesStoreRecord.superclass.constructor.call(this, data, id, definition);
+		Grommunio.plugins.files.data.FilesStoreRecord.superclass.constructor.call(this, data, id, definition);
 	},
 
 	/**
-	 * @return {Zarafa.plugins.files.data.FilesFolderRecord} subtree folder.
+	 * @return {Grommunio.plugins.files.data.FilesFolderRecord} subtree folder.
 	 */
 	getSubtreeFolder : function()
 	{
@@ -61,7 +61,7 @@ Zarafa.plugins.files.data.FilesStoreRecord = Ext.extend(Zarafa.core.data.IPFReco
 	/**
 	 * Retrieves a folder by MAPI id.
 	 * @param {String} id the id of the folder.
-	 * @return {Zarafa.plugins.files.data.FilesFolderRecord} folder object or undefined if not found.
+	 * @return {Grommunio.plugins.files.data.FilesFolderRecord} folder object or undefined if not found.
 	 */
 	getFolder : function(id)
 	{
@@ -73,8 +73,8 @@ Zarafa.plugins.files.data.FilesStoreRecord = Ext.extend(Zarafa.core.data.IPFReco
 	},
 
 	/**
-	 * Get the Folder store for the {@link Zarafa.plugins.files.data.FilesFolderRecord FilesFolderRecord} (See {@link #getSubStore}).
-	 * @return {Zarafa.plugins.files.data.FilesFoldersSubStore} The Folder store.
+	 * Get the Folder store for the {@link Grommunio.plugins.files.data.FilesFolderRecord FilesFolderRecord} (See {@link #getSubStore}).
+	 * @return {Grommunio.plugins.files.data.FilesFoldersSubStore} The Folder store.
 	 */
 	getFolderStore : function()
 	{
@@ -87,8 +87,8 @@ Zarafa.plugins.files.data.FilesStoreRecord = Ext.extend(Zarafa.core.data.IPFReco
 	}
 });
 
-Zarafa.core.data.RecordCustomObjectType.addProperty('FILES_FOLDER_STORE');
+Grommunio.core.data.RecordCustomObjectType.addProperty('FILES_FOLDER_STORE');
 
-Zarafa.core.data.RecordFactory.addFieldToCustomType(Zarafa.core.data.RecordCustomObjectType.FILES_FOLDER_STORE, Zarafa.plugins.files.data.FilesStoreRecordFields);
-Zarafa.core.data.RecordFactory.setBaseClassToCustomType(Zarafa.core.data.RecordCustomObjectType.FILES_FOLDER_STORE, Zarafa.plugins.files.data.FilesStoreRecord);
-Zarafa.core.data.RecordFactory.setSubStoreToCustomType(Zarafa.core.data.RecordCustomObjectType.FILES_FOLDER_STORE, 'folders',Zarafa.plugins.files.data.FilesFoldersSubStore);
+Grommunio.core.data.RecordFactory.addFieldToCustomType(Grommunio.core.data.RecordCustomObjectType.FILES_FOLDER_STORE, Grommunio.plugins.files.data.FilesStoreRecordFields);
+Grommunio.core.data.RecordFactory.setBaseClassToCustomType(Grommunio.core.data.RecordCustomObjectType.FILES_FOLDER_STORE, Grommunio.plugins.files.data.FilesStoreRecord);
+Grommunio.core.data.RecordFactory.setSubStoreToCustomType(Grommunio.core.data.RecordCustomObjectType.FILES_FOLDER_STORE, 'folders',Grommunio.plugins.files.data.FilesFoldersSubStore);

@@ -96,7 +96,7 @@
 	                '<td class="x-grid3-hd x-grid3-cell x-grid3-td-{id} {css} {cls}" style="{style}" role="columnheader" scope="col">',
 	                    '<div {tooltip} {attr} class="x-grid3-hd-inner x-grid3-hd-{id}" unselectable="on" style="{istyle}">',
 	                        this.grid.enableHdMenu ? '<a class="x-grid3-hd-btn" href="#"></a>' : '',
-	                        '<div class="zarafa-x-grid3-hd-title">{value}</div>',
+	                        '<div class="grommunio-x-grid3-hd-title">{value}</div>',
 	                        '<img alt="" class="x-grid3-sort-icon" src="', Ext.BLANK_IMAGE_URL, '" />',
 	                    '</div>',
 	                '</td>'

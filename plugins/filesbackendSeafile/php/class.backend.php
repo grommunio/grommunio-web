@@ -919,7 +919,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 						"editor" => [
 							"xtype" => "checkbox",
 							"listeners" => [
-								"check" => "Zarafa.plugins.files.data.Actions.onCheckSSL", // this javascript function will be called!
+								"check" => "Grommunio.plugins.files.data.Actions.onCheckSSL", // this javascript function will be called!
 							],
 						],
 					],
@@ -944,7 +944,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 						"editor" => [
 							"xtype" => "checkbox",
 							"listeners" => [
-								"check" => "Zarafa.plugins.files.data.Actions.onCheckCredentials", // this javascript function will be called!
+								"check" => "Grommunio.plugins.files.data.Actions.onCheckCredentials", // this javascript function will be called!
 							],
 						],
 					],

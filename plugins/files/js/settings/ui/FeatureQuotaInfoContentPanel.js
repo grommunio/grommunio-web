@@ -1,11 +1,11 @@
-Ext.namespace('Zarafa.plugins.files.settings.ui');
+Ext.namespace('Grommunio.plugins.files.settings.ui');
 
 /**
- * @class Zarafa.plugins.files.settings.ui.FeatureQuotaInfoContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.files.settings.ui.FeatureQuotaInfoContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  * @xtype filesplugin.featurequotainfocontentpanel
  */
-Zarafa.plugins.files.settings.ui.FeatureQuotaInfoContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.files.settings.ui.FeatureQuotaInfoContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
 
 	/**
 	 * @constructor
@@ -27,8 +27,8 @@ Zarafa.plugins.files.settings.ui.FeatureQuotaInfoContentPanel = Ext.extend(Zaraf
 			}]
 		});
 
-		Zarafa.plugins.files.settings.ui.FeatureQuotaInfoContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.settings.ui.FeatureQuotaInfoContentPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.featurequotainfocontentpanel', Zarafa.plugins.files.settings.ui.FeatureQuotaInfoContentPanel);
+Ext.reg('filesplugin.featurequotainfocontentpanel', Grommunio.plugins.files.settings.ui.FeatureQuotaInfoContentPanel);

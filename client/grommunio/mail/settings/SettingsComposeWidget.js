@@ -1,0 +1,458 @@
+Ext.namespace('Grommunio.mail.settings');
+
+/**
+ * @class Grommunio.mail.settings.SettingsComposeWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
+ * @xtype grommunio.settingscomposewidget
+ *
+ * The {@link Grommunio.settings.ui.SettingsWidget widget} for configuring
+ * the composing mail options in the {@link Grommunio.mail.settings.SettingsMailCategory mail category}.
+ */
+Grommunio.mail.settings.SettingsComposeWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
+
+	/**
+	 * The editor which is currently active in the interface
+	 * @property
+	 * @type String
+	 * @private
+	 */
+	selectedEditor: '',
+
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		var composerStore = {
+			xtype: 'jsonstore',
+			autoDestroy: true,
+			fields: ['name', 'value'],
+			data: [{
+				'name': _('HTML'),
+				'value': 'html'
+			},{
+				'name': _('Plain Text'),
+				'value': 'plain'
+			}]
+		};
+
+		var fontFamilies = Grommunio.common.ui.htmleditor.Fonts.getFontFamilies();
+		var fontData = fontFamilies.split(";").map(function(font) {
+			return {
+				'name': font.split("=")[0],
+				'value': font.split("=")[1].toLowerCase()
+			};
+		});
+
+		var fontStore = {
+			xtype: 'jsonstore',
+			autoDestroy: true,
+			fields: ['name', 'value'],
+			data: fontData
+		};
+
+		var fontSizes = Grommunio.common.ui.htmleditor.Fonts.getFonts();
+		// To understand the sorting of the keys, please read the
+		// comment in Grommunio.common.ui.htmleditor.Fonts.getFonts
+		var fontSizesKeys = Object.keys(fontSizes).sort();
+		var fontSizeData = [];
+		Ext.each(fontSizesKeys, function(key){
+			fontSizeData.push({'name': fontSizes[key] + 'pt', 'value': key });
+		});
+
+		var fontSizeStore = {
+			xtype: 'jsonstore',
+			autoDestroy: true,
+			fields: ['name', 'value'],
+			data: fontSizeData
+		};
+
+		var delegateSentItemsStore = {
+			xtype: 'jsonstore',
+			autoDestroy: true,
+			fields: ['name', 'value'],
+			data: [{
+				'name': _('In both representee\'s and delegate\'s Sent Items'),
+				'value': 'both'
+			},{
+				'name': _('Only in delegate\'s Sent Items'),
+				'value': 'delegate'
+			},{
+				'name': _('Only in representee\'s Sent Items'),
+				'value': 'representee'
+			}]
+		};
+
+		var editorStore = this.createEditorStore();
+
+		Ext.applyIf(config, {
+			title: _('Compose mail settings'),
+			layout: 'form',
+			items: [{
+				xtype: 'combo',
+				name: 'grommunio/v1/contexts/mail/dialogs/mailcreate/use_html_editor',
+				ref: 'composerCombo',
+				fieldLabel: _('Compose mail in this format'),
+				width: 400,
+				store: composerStore,
+				mode: 'local',
+				triggerAction: 'all',
+				displayField: 'name',
+				valueField: 'value',
+				lazyInit: false,
+				forceSelection: true,
+				editable: false,
+				autoSelect: true,
+				listeners: {
+					select: this.onComposerSelect,
+					scope: this
+				}
+			},{
+				xtype: 'combo',
+				name: 'grommunio/v1/contexts/mail/html_editor',
+				fieldLabel: _('Editor'),
+				ref: 'editorCombo',
+				width: 400,
+				store: editorStore,
+				mode: 'local',
+				allowBlank: false,
+				triggerAction: 'all',
+				displayField: 'name',
+				valueField: 'value',
+				lazyInit: false,
+				forceSelection: true,
+				editable: false,
+				autoSelect: true,
+				hidden: editorStore.getCount() <= 1,
+				listeners: {
+					select: this.onSelectComboItem,
+					scope: this
+				}
+			},{
+				xtype: 'combo',
+				name: 'grommunio/v1/main/default_font',
+				cls:'x-font-select',
+				fieldLabel: _('Default font'),
+				width: 400,
+				ref: 'fontCombo',
+				store: fontStore,
+				triggerAction: 'all',
+				mode: 'local',
+				displayField: 'name',
+				valueField: 'value',
+				editable: false,
+				autoSelect: true,
+				forceSelection: true,
+				lazyInit: false,
+				listeners: {
+					select: this.onSelectComboItem,
+					scope: this
+				}
+			},{
+				xtype: 'combo',
+				name: 'grommunio/v1/main/default_font_size',
+				cls:'x-font-select',
+				fieldLabel: _('Default font size'),
+				width: 400,
+				ref: 'fontSizeCombo',
+				store: fontSizeStore,
+				triggerAction: 'all',
+				mode: 'local',
+				displayField: 'name',
+				valueField: 'value',
+				editable: false,
+				autoSelect: true,
+				forceSelection: true,
+				lazyInit: false,
+				listeners: {
+					select: this.onSelectComboItem,
+					scope: this
+				}
+			},{
+				xtype: 'combo',
+				name: 'grommunio/v1/contexts/mail/delegate_sent_items_style',
+				cls:'x-font-select',
+				fieldLabel: _('Save emails sent by delegate'),
+				width: 400,
+				// The options are long sentences; let the list grow past the field
+				plugins: ['grommunio.combolistautowidth'],
+				ref: 'delegateSentItemsStyleCombo',
+				store: delegateSentItemsStore,
+				triggerAction: 'all',
+				mode: 'local',
+				displayField: 'name',
+				valueField: 'value',
+				editable: false,
+				autoSelect: true,
+				forceSelection: true,
+				lazyInit: false,
+				listeners: {
+					select: this.onSelectComboItem,
+					scope: this
+				}
+			},{
+				xtype: 'checkbox',
+				name: 'grommunio/v1/contexts/mail/always_request_readreceipt',
+				ref: 'readBox',
+				boxLabel: _('Always request a read receipt'),
+				hideLabel: true,
+				listeners: {
+					check: this.onFieldChange,
+					scope: this
+				}
+			},{
+				xtype: 'checkbox',
+				name: 'grommunio/v1/contexts/mail/attachment_reminder_enable',
+				ref: 'attachmentReminderBox',
+				boxLabel: _('Activate attachment reminder'),
+				hideLabel: true,
+				listeners: {
+					check: this.onFieldChange,
+					scope: this
+				}
+			},{
+				xtype: 'grommunio.compositefield',
+				defaultMargins: '0 0 0 0',
+				plugins: [ 'grommunio.splitfieldlabeler' ],
+				// # TRANSLATORS: The {A} _must_ always be at the start of the translation
+				// # The '{B}' represents the number of minutes which the user will type in.
+				fieldLabel: _('{A}AutoSave unsent mail every {B} minute(s)'),
+				labelWidth: 250,
+				combineErrors: false,
+				items: [{
+					xtype: 'checkbox',
+					labelSplitter: '{A}',
+					name: 'grommunio/v1/contexts/mail/autosave_enable',
+					ref: '../autoSaveBox',
+					boxLabel: '',
+					hideLabel: true,
+					checked: true,
+					listeners: {
+						check: this.onAutoSaveCheckBoxChange,
+						change: this.onFieldChange,
+						scope: this
+					}
+				},{
+					xtype: 'grommunio.spinnerfield',
+					labelSplitter: '{B}',
+					cls: 'k-settings-spinner-narrow',
+					vtype: 'naturalInteger',
+					name: 'grommunio/v1/contexts/mail/autosave_time',
+					ref: '../autoSaveTimeSpinner',
+					width: 60,
+					incrementValue: 1,
+					defaultValue: 1,
+					minValue: 1,
+					allowBlank: false,
+					allowDecimals: false,
+					allowNegative: false,
+					listeners: {
+						change: this.onFieldChange,
+						scope: this
+					},
+					plugins: ['grommunio.numberspinner']
+				}]
+			},{
+				xtype: 'checkbox',
+				name: 'grommunio/v1/contexts/mail/autosave_encrypted_enable',
+				ref: 'autoSaveEncryptedBox',
+				boxLabel: _('Also autosave while encryption is selected (drafts are stored unencrypted)'),
+				hideLabel: true,
+				listeners: {
+					check: this.onFieldChange,
+					scope: this
+				}
+			}]
+		});
+
+		Grommunio.mail.settings.SettingsComposeWidget.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Create {@link Ext.data.JsonStore JsonStore} which contains the
+	 * editor plugins info.
+	 *
+	 * @returns {Ext.data.JsonStore} JsonStore which contains editor plugins info.
+	 */
+	createEditorStore: function()
+	{
+		return new Ext.data.JsonStore({
+			autoDestroy: true,
+			fields: ['name', 'value'],
+			data: [{
+				name: 'TinyMCE Editor',
+				value: 'full_tinymce'
+			}].concat(this.getHTMLEditorPlugins().map(function(e) {
+				return {
+					name: e.getDisplayName(),
+					value: e.getName()
+				};
+			}))
+		});
+	},
+
+	/**
+	 * Function which is used to get the editor plugins which are
+	 * enabled in webapp.
+	 *
+	 * @return {Array} array of editor plugins.
+	 */
+	getHTMLEditorPlugins: function()
+	{
+		return container.getPlugins().filter(function (htmlEditorPlugin)  {
+			return htmlEditorPlugin instanceof Grommunio.core.HtmlEditorPlugin;
+		});
+	},
+
+	/**
+	 * Called by the {@link Grommunio.settings.ui.SettingsCategory Category} when
+	 * it has been called with {@link grommunio.settings.ui.SettingsCategory#update}.
+	 * This is used to load the latest version of the settings from the
+	 * {@link Grommunio.settings.SettingsModel} into the UI of this category.
+	 * @param {Grommunio.settings.SettingsModel} settingsModel The settings to load
+	 */
+	update: function(settingsModel)
+	{
+		this.model = settingsModel;
+
+		// If not defined, we have a fallback setting
+		var useHtml = settingsModel.get(this.composerCombo.name);
+
+		this.composerCombo.setValue(useHtml ? 'html' : 'plain');
+
+		var editorName = settingsModel.get(this.editorCombo.name);
+		var isExistEditor = this.getHTMLEditorPlugins().some(function (editor){
+			return editor.getName() === editorName;
+		});
+		this.selectedEditor = isExistEditor ? editorName : 'full_tinymce';
+		this.editorCombo.setValue(this.selectedEditor);
+		this.editorCombo.setDisabled(useHtml !== true);
+
+		this.fontCombo.setValue(settingsModel.get(this.fontCombo.name));
+		this.fontSizeCombo.setValue(settingsModel.get(this.fontSizeCombo.name));
+
+		// disable font and font size combos for plain text compose option
+		this.fontCombo.setDisabled(useHtml !== true);
+		this.fontSizeCombo.setDisabled(useHtml !== true);
+
+		this.delegateSentItemsStyleCombo.setValue(settingsModel.get(this.delegateSentItemsStyleCombo.name));
+
+		this.readBox.setValue(settingsModel.get(this.readBox.name));
+		this.attachmentReminderBox.setValue(settingsModel.get(this.attachmentReminderBox.name));
+
+		// Set values in autoSave checkbox and textfield.
+		var enabled = settingsModel.get(this.autoSaveBox.name);
+
+		this.autoSaveBox.setValue(enabled);
+		this.autoSaveTimeSpinner.setValue(settingsModel.get(this.autoSaveTimeSpinner.name) / 60);
+		this.autoSaveEncryptedBox.setValue(settingsModel.get(this.autoSaveEncryptedBox.name));
+		this.autoSaveEncryptedBox.setDisabled(enabled !== true);
+
+	},
+
+	/**
+	 * Called by the {@link Grommunio.settings.ui.SettingsCategory Category} when
+	 * it has been called with {@link grommunio.settings.ui.SettingsCategory#updateSettings}.
+	 * This is used to update the settings from the UI into the {@link Grommunio.settings.SettingsModel settings model}.
+	 * @param {Grommunio.settings.SettingsModel} settingsModel The settings to update
+	 */
+	updateSettings: function(settingsModel)
+	{
+		var spinnerValue = this.autoSaveTimeSpinner.getValue();
+
+		if(spinnerValue === 0 || !Ext.isDefined(spinnerValue))  {
+			spinnerValue = settingsModel.get('grommunio/v1/contexts/mail/autosave_time', false, true);
+		}
+		else {
+			spinnerValue *= 60;
+		}
+		settingsModel.beginEdit();
+		settingsModel.set(this.composerCombo.name, this.composerCombo.getValue() === 'html');
+		settingsModel.set(this.editorCombo.name, this.editorCombo.getValue());
+		settingsModel.set(this.readBox.name, this.readBox.getValue());
+		settingsModel.set(this.autoSaveTimeSpinner.name, spinnerValue);
+		settingsModel.set(this.autoSaveEncryptedBox.name, this.autoSaveEncryptedBox.getValue());
+		settingsModel.endEdit();
+
+	},
+
+	/**
+	 * Event handler which is called when a selection has been made in the
+	 * Composer type {@link Ext.form.ComboBox combobox}.
+	 * @param {Ext.form.ComboBox} field The field which fired the event
+	 * @param {Ext.data.Record} record The selected record
+	 */
+	onComposerSelect: function(field, record)
+	{
+		if (this.model) {
+			var set = record.get(field.valueField);
+
+			// FIXME: The settings model should be able to detect if
+			// a change was applied
+			if (this.model.get(field.name) !== set) {
+				this.model.set(field.name, set === 'html');
+			}
+
+			// disable font and font size combos for plain text compose option
+			this.fontCombo.setDisabled(set !== 'html');
+			this.fontSizeCombo.setDisabled(set !== 'html');
+			this.editorCombo.setDisabled(set !== 'html');
+		}
+	},
+
+	/**
+	 * Event handler which is called when one of the textfields has been changed.
+	 * This will apply the new value to the settings.
+	 * @param {Ext.form.Field} field The field which has fired the event
+	 * @param {String} value The new value
+	 * @private
+	 */
+	onFieldChange: function(field, value)
+	{
+		if (this.model) {
+			// FIXME: The settings model should be able to detect if
+			// a change was applied
+			if (this.model.get(field.name) !== value) {
+				this.model.set(field.name, value);
+			}
+		}
+	},
+
+	/**
+	 * Event handler which is fired when the {@link Ext.form.Checkbox Checkbox} has been clicked.
+	 * @param {Ext.form.Checkbox} checkbox The checkbox which fired the event
+	 * @param {Boolean} check True if the checkbox is currently checked
+	 * @private
+	 */
+	onAutoSaveCheckBoxChange: function(checkbox, check)
+	{
+		// Checkbox's check event doesn't fire change event on element in
+		// chrome and IE browser, so calling onFieldChange event manually.
+		this.onFieldChange(checkbox, check);
+		this.autoSaveTimeSpinner.setDisabled(!check);
+		this.autoSaveEncryptedBox.setDisabled(!check);
+	},
+
+	/**
+	 * Event handler which is called when a selection has been made in the
+	 * Font or editor selection {@link Ext.form.ComboBox combobox}.
+	 * @param {Ext.form.ComboBox} field The field which fired the event
+	 * @param {Ext.data.Record} record The selected record
+	 */
+	onSelectComboItem: function(field, record)
+	{
+		if (this.model) {
+			var value = record.get(field.valueField);
+			// FIXME: The settings model should be able to detect if
+			// a change was applied
+			if(this.model.get(field.name) !== value) {
+				this.model.set(field.name, value);
+			}
+		}
+	}
+});
+
+Ext.reg('grommunio.settingscomposewidget', Grommunio.mail.settings.SettingsComposeWidget);

@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.files.settings.ui');
+Ext.namespace('Grommunio.plugins.files.settings.ui');
 
 /**
- * @class Zarafa.plugins.files.settings.ui.FeatureQuotaInfoPanel
+ * @class Grommunio.plugins.files.settings.ui.FeatureQuotaInfoPanel
  * @extends Ext.Panel
  * @xtype filesplugin.featurequotainfopanel
  *
- * Will generate UI for {@link Zarafa.plugins.files.settings.ui.FeatureQuotaInfoContentPanel FeatureQuotaInfoContentPanel}.
+ * Will generate UI for {@link Grommunio.plugins.files.settings.ui.FeatureQuotaInfoContentPanel FeatureQuotaInfoContentPanel}.
  */
-Zarafa.plugins.files.settings.ui.FeatureQuotaInfoPanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.files.settings.ui.FeatureQuotaInfoPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * @cfg {Object} The current loaded account record.
@@ -39,7 +39,7 @@ Zarafa.plugins.files.settings.ui.FeatureQuotaInfoPanel = Ext.extend(Ext.Panel, {
 			}]
 		});
 
-		Zarafa.plugins.files.settings.ui.FeatureQuotaInfoPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.settings.ui.FeatureQuotaInfoPanel.superclass.constructor.call(this, config);
 
 		this.doReload();
 	},
@@ -55,7 +55,7 @@ Zarafa.plugins.files.settings.ui.FeatureQuotaInfoPanel = Ext.extend(Ext.Panel, {
 	 * Reload the quota store.
 	 */
 	doReload: function () {
-		var responseHandler = new Zarafa.core.data.AbstractResponseHandler({
+		var responseHandler = new Grommunio.core.data.AbstractResponseHandler({
 			doGetquota: this.gotQuotaValues.createDelegate(this)
 		});
 
@@ -100,7 +100,7 @@ Zarafa.plugins.files.settings.ui.FeatureQuotaInfoPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Function will create panel items for {@link Zarafa.plugins.files.settings.ui.FeatureQuotaInfoPanel FeatureQuotaInfoPanel}.
+	 * Function will create panel items for {@link Grommunio.plugins.files.settings.ui.FeatureQuotaInfoPanel FeatureQuotaInfoPanel}.
 	 * @return {Array} array of items that should be added to panel.
 	 * @private
 	 */
@@ -130,4 +130,4 @@ Zarafa.plugins.files.settings.ui.FeatureQuotaInfoPanel = Ext.extend(Ext.Panel, {
 	}
 });
 
-Ext.reg('filesplugin.featurequotainfopanel', Zarafa.plugins.files.settings.ui.FeatureQuotaInfoPanel);
+Ext.reg('filesplugin.featurequotainfopanel', Grommunio.plugins.files.settings.ui.FeatureQuotaInfoPanel);

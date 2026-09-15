@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.desktopnotifications.js.settings');
+Ext.namespace('Grommunio.plugins.desktopnotifications.js.settings');
 
 /**
- * @class Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsCategory
- * @extends Zarafa.settings.ui.SettingsCategory
- * @xtype zarafa.settingspasswdcategory
+ * @class Grommunio.plugins.desktopnotifications.js.settings.SettingsNotificationsCategory
+ * @extends Grommunio.settings.ui.SettingsCategory
+ * @xtype grommunio.settingspasswdcategory
  *
  * The desktop notification settings category that will allow users to enable/disable desktop notifications
  */
-Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsCategory = Ext.extend(Zarafa.settings.ui.SettingsCategory, {
+Grommunio.plugins.desktopnotifications.js.settings.SettingsNotificationsCategory = Ext.extend(Grommunio.settings.ui.SettingsCategory, {
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -19,16 +19,16 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsCategory = 
 		Ext.applyIf(config, {
 			title : _('Desktop Notifications'),
 			categoryIndex : 9996,
-			xtype : 'zarafa.settingsdesktopnotificationscategory',
+			xtype : 'grommunio.settingsdesktopnotificationscategory',
 			iconCls : 'icon_desktopnotifications_settings',
 			items : [{
-				xtype : 'zarafa.settingsdesktopnotificationswidget',
+				xtype : 'grommunio.settingsdesktopnotificationswidget',
 				settingsContext : config.settingsContext
 			}]
 		});
 
-		Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsCategory.superclass.constructor.call(this, config);
+		Grommunio.plugins.desktopnotifications.js.settings.SettingsNotificationsCategory.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('zarafa.settingsdesktopnotificationscategory', Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsCategory);
+Ext.reg('grommunio.settingsdesktopnotificationscategory', Grommunio.plugins.desktopnotifications.js.settings.SettingsNotificationsCategory);

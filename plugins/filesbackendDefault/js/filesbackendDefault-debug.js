@@ -1,18 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.backend.Default.data.singleton');
+Ext.namespace('Grommunio.plugins.files.backend.Default.data.singleton');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.data.singleton.ShareStore
+ * @class Grommunio.plugins.files.backend.Default.data.singleton.ShareStore
  * @extends Object
  *
- * This singleton provides access to the {@link Zarafa.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
+ * This singleton provides access to the {@link Grommunio.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
  * It must be initialized once by calling the init method.
  */
-Zarafa.plugins.files.backend.Default.data.singleton.ShareStore = Ext.extend(
+Grommunio.plugins.files.backend.Default.data.singleton.ShareStore = Ext.extend(
 	Object,
 	{
 		/**
 		 * @property
-		 * @type Zarafa.plugins.files.data.AccountStore
+		 * @type Grommunio.plugins.files.data.AccountStore
 		 * @private
 		 */
 		store: undefined,
@@ -22,7 +22,7 @@ Zarafa.plugins.files.backend.Default.data.singleton.ShareStore = Ext.extend(
 		 * @param {Number} fileType folder or file
 		 */
 		init: function (fileType) {
-			this.store = new Zarafa.plugins.files.backend.Default.data.ShareGridStore(
+			this.store = new Grommunio.plugins.files.backend.Default.data.ShareGridStore(
 				fileType,
 			);
 		},
@@ -36,7 +36,7 @@ Zarafa.plugins.files.backend.Default.data.singleton.ShareStore = Ext.extend(
 		 * - shareWith: ownclouds internal user identifier
 		 * - shareWithDisplayname: the shareusers displayname
 		 * - permissions: bytecode presentation of the chare permissions
-		 * - shareType: type of the share, one of Zarafa.plugins.files.backend.Default.data.RecipientTypes
+		 * - shareType: type of the share, one of Grommunio.plugins.files.backend.Default.data.RecipientTypes
 		 */
 		addUser: function (shareOpts) {
 			var permissionCreate = false;
@@ -84,7 +84,7 @@ Zarafa.plugins.files.backend.Default.data.singleton.ShareStore = Ext.extend(
 		 * - shareWith: ownclouds internal user identifier
 		 * - shareWithDisplayname: the shareusers displayname
 		 * - permissions: bytecode presentation of the chare permissions
-		 * - shareType: type of the share, one of Zarafa.plugins.files.backend.Default.data.RecipientTypes
+		 * - shareType: type of the share, one of Grommunio.plugins.files.backend.Default.data.RecipientTypes
 		 */
 		addGroup: function (shareOpts) {
 			var permissionCreate = false;
@@ -124,8 +124,8 @@ Zarafa.plugins.files.backend.Default.data.singleton.ShareStore = Ext.extend(
 		},
 
 		/**
-		 * Get instance of the {@link Zarafa.plugins.files.data.AccountStore Accountstore}
-		 * @return {Zarafa.plugins.files.data.AccountStore} the account store
+		 * Get instance of the {@link Grommunio.plugins.files.data.AccountStore Accountstore}
+		 * @return {Grommunio.plugins.files.data.AccountStore} the account store
 		 */
 		getStore: function () {
 			return this.store;
@@ -134,26 +134,26 @@ Zarafa.plugins.files.backend.Default.data.singleton.ShareStore = Ext.extend(
 );
 
 // Make it a Singleton
-Zarafa.plugins.files.backend.Default.data.singleton.ShareStore =
-	new Zarafa.plugins.files.backend.Default.data.singleton.ShareStore();
-Ext.namespace('Zarafa.plugins.files.backend.Default.data');
+Grommunio.plugins.files.backend.Default.data.singleton.ShareStore =
+	new Grommunio.plugins.files.backend.Default.data.singleton.ShareStore();
+Ext.namespace('Grommunio.plugins.files.backend.Default.data');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.data.ShareGridStore
+ * @class Grommunio.plugins.files.backend.Default.data.ShareGridStore
  * @extends Ext.data.ArrayStore
  * @xtype filesplugin.default.sharegridstore
  *
  * This simple array store holds all group and user shares. Do not use the save or commit method as
  * the store does not implement a writer.
  */
-Zarafa.plugins.files.backend.Default.data.ShareGridStore = Ext.extend(
+Grommunio.plugins.files.backend.Default.data.ShareGridStore = Ext.extend(
 	Ext.data.ArrayStore,
 	{
 		/**
 		 * @constructor
 		 */
 		constructor: function (fileType) {
-			Zarafa.plugins.files.backend.Default.data.ShareGridStore.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Default.data.ShareGridStore.superclass.constructor.call(
 				this,
 				{
 					fields: [
@@ -175,20 +175,20 @@ Zarafa.plugins.files.backend.Default.data.ShareGridStore = Ext.extend(
 
 Ext.reg(
 	'filesplugin.default.sharegridstore',
-	Zarafa.plugins.files.backend.Default.data.ShareGridStore,
+	Grommunio.plugins.files.backend.Default.data.ShareGridStore,
 );
-Ext.namespace('Zarafa.plugins.files.backend.Default.data');
+Ext.namespace('Grommunio.plugins.files.backend.Default.data');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.data.RecipientTypes
- * @extends Zarafa.core.Enum
+ * @class Grommunio.plugins.files.backend.Default.data.RecipientTypes
+ * @extends Grommunio.core.Enum
  *
  * Enum containing the different recipient types that are available in the owncloud backend.
  *
  * @singleton
  */
-Zarafa.plugins.files.backend.Default.data.RecipientTypes =
-	Zarafa.core.Enum.create({
+Grommunio.plugins.files.backend.Default.data.RecipientTypes =
+	Grommunio.core.Enum.create({
 		/**
 		 * RecipientType: user
 		 *
@@ -213,17 +213,17 @@ Zarafa.plugins.files.backend.Default.data.RecipientTypes =
 		 */
 		LINK: 3,
 	});
-Ext.namespace('Zarafa.plugins.files.backend.Default.data');
+Ext.namespace('Grommunio.plugins.files.backend.Default.data');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.data.ResponseHandler
- * @extends Zarafa.core.data.AbstractResponseHandler
+ * @class Grommunio.plugins.files.backend.Default.data.ResponseHandler
+ * @extends Grommunio.core.data.AbstractResponseHandler
  * @xtype filesplugin.default.responsehandler
  *
  * Files plugin specific response handler.
  */
-Zarafa.plugins.files.backend.Default.data.ResponseHandler = Ext.extend(
-	Zarafa.core.data.AbstractResponseHandler,
+Grommunio.plugins.files.backend.Default.data.ResponseHandler = Ext.extend(
+	Grommunio.core.data.AbstractResponseHandler,
 	{
 		/**
 		 * @cfg {Function} successCallback The function which
@@ -288,16 +288,16 @@ Zarafa.plugins.files.backend.Default.data.ResponseHandler = Ext.extend(
 
 Ext.reg(
 	'filesplugin.default.responsehandler',
-	Zarafa.plugins.files.backend.Default.data.ResponseHandler,
+	Grommunio.plugins.files.backend.Default.data.ResponseHandler,
 );
-Ext.namespace('Zarafa.plugins.files.backend.Default.data');
+Ext.namespace('Grommunio.plugins.files.backend.Default.data');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.data.ShareGridRecord
+ * @class Grommunio.plugins.files.backend.Default.data.ShareGridRecord
  *
  * This class specifies the ShareGridRecord and it's fields.
  */
-Zarafa.plugins.files.backend.Default.data.ShareGridRecord =
+Grommunio.plugins.files.backend.Default.data.ShareGridRecord =
 	Ext.data.Record.create(
 		{ name: 'id', type: 'string' },
 		{ name: 'shareWith', type: 'string' },
@@ -308,17 +308,17 @@ Zarafa.plugins.files.backend.Default.data.ShareGridRecord =
 		{ name: 'permissionDelete', type: 'bool' },
 		{ name: 'permissionShare', type: 'bool' },
 	);
-Ext.namespace('Zarafa.plugins.files.backend.Default');
+Ext.namespace('Grommunio.plugins.files.backend.Default');
 
 /**
  *
- * @class Zarafa.plugins.files.backend.Default.DefaultBackend
- * @extends Zarafa.core.Plugin
+ * @class Grommunio.plugins.files.backend.Default.DefaultBackend
+ * @extends Grommunio.core.Plugin
  *
  * Plugin for the default WebDAV backend. It requires the main files plugin.
  */
-Zarafa.plugins.files.backend.Default.DefaultBackend = Ext.extend(
-	Zarafa.core.Plugin,
+Grommunio.plugins.files.backend.Default.DefaultBackend = Ext.extend(
+	Grommunio.core.Plugin,
 	{
 		/**
 		 * Constructor
@@ -327,7 +327,7 @@ Zarafa.plugins.files.backend.Default.DefaultBackend = Ext.extend(
 		constructor: function (config) {
 			config = config || {};
 
-			Zarafa.plugins.files.backend.Default.DefaultBackend.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Default.DefaultBackend.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -337,7 +337,7 @@ Zarafa.plugins.files.backend.Default.DefaultBackend = Ext.extend(
 		 * Initialize all insertion points.
 		 */
 		initPlugin: function () {
-			Zarafa.plugins.files.backend.Default.DefaultBackend.superclass.initPlugin.apply(
+			Grommunio.plugins.files.backend.Default.DefaultBackend.superclass.initPlugin.apply(
 				this,
 				arguments,
 			);
@@ -349,7 +349,7 @@ Zarafa.plugins.files.backend.Default.DefaultBackend = Ext.extend(
 			);
 
 			// Register common specific dialog types
-			Zarafa.core.data.SharedComponentType.addProperty(
+			Grommunio.core.data.SharedComponentType.addProperty(
 				'filesplugin.default.useredit',
 			);
 		},
@@ -368,14 +368,14 @@ Zarafa.plugins.files.backend.Default.DefaultBackend = Ext.extend(
 		/**
 		 * Bid for the type of shared component
 		 * and the given record.
-		 * @param {Zarafa.core.data.SharedComponentType} type Type of component a context can bid for.
+		 * @param {Grommunio.core.data.SharedComponentType} type Type of component a context can bid for.
 		 * @param {Ext.data.Record} record Optionally passed record.
 		 * @return {Number} The bid for the shared component
 		 */
 		bidSharedComponent: function (type, record) {
 			var bid = -1;
 			switch (type) {
-				case Zarafa.core.data.SharedComponentType[
+				case Grommunio.core.data.SharedComponentType[
 					'filesplugin.default.useredit'
 				]:
 					bid = 1;
@@ -387,18 +387,18 @@ Zarafa.plugins.files.backend.Default.DefaultBackend = Ext.extend(
 		/**
 		 * Will return the reference to the shared component.
 		 * Based on the type of component requested a component is returned.
-		 * @param {Zarafa.core.data.SharedComponentType} type Type of component a context can bid for.
+		 * @param {Grommunio.core.data.SharedComponentType} type Type of component a context can bid for.
 		 * @param {Ext.data.Record} record Optionally passed record.
 		 * @return {Ext.Component} Component
 		 */
 		getSharedComponent: function (type, record) {
 			var component;
 			switch (type) {
-				case Zarafa.core.data.SharedComponentType[
+				case Grommunio.core.data.SharedComponentType[
 					'filesplugin.default.useredit'
 				]:
 					component =
-						Zarafa.plugins.files.backend.Default.ui
+						Grommunio.plugins.files.backend.Default.ui
 							.FilesShareUserEditContentPanel;
 					break;
 			}
@@ -409,26 +409,26 @@ Zarafa.plugins.files.backend.Default.DefaultBackend = Ext.extend(
 );
 
 // Register plugin
-Zarafa.onReady(function () {
+Grommunio.onReady(function () {
 	container.registerPlugin(
-		new Zarafa.core.PluginMetaData({
+		new Grommunio.core.PluginMetaData({
 			name: 'filesbackendDefault', // this name must be in format "filesbackend<Backendname>"
 			displayName: _('Files: Default plugin'),
 			allowUserDisable: false, // don't allow to disable this plugin - files will get confused if it is disabled
-			pluginConstructor: Zarafa.plugins.files.backend.Default.DefaultBackend,
+			pluginConstructor: Grommunio.plugins.files.backend.Default.DefaultBackend,
 		}),
 	);
 });
-Ext.namespace('Zarafa.plugins.files.backend.Default.ui');
+Ext.namespace('Grommunio.plugins.files.backend.Default.ui');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.ui.FilesShareUserGrid
+ * @class Grommunio.plugins.files.backend.Default.ui.FilesShareUserGrid
  * @extends Ext.grid.GridPanel
  * @xtype filesplugin.default.filesshareusergrid
  *
  * The main gridpanel for our share list. It will display user and group shares.
  */
-Zarafa.plugins.files.backend.Default.ui.FilesShareUserGrid = Ext.extend(
+Grommunio.plugins.files.backend.Default.ui.FilesShareUserGrid = Ext.extend(
 	Ext.grid.GridPanel,
 	{
 		/**
@@ -449,7 +449,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGrid = Ext.extend(
 			config = config || {};
 
 			this.store =
-				Zarafa.plugins.files.backend.Default.data.singleton.ShareStore.getStore();
+				Grommunio.plugins.files.backend.Default.data.singleton.ShareStore.getStore();
 
 			Ext.applyIf(config, {
 				xtype: 'filesplugin.default.filesshareusergrid',
@@ -483,7 +483,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGrid = Ext.extend(
 				],
 			});
 
-			Zarafa.plugins.files.backend.Default.ui.FilesShareUserGrid.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Default.ui.FilesShareUserGrid.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -552,7 +552,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGrid = Ext.extend(
 		 * @private
 		 */
 		initColumnModel: function () {
-			return new Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel(
+			return new Grommunio.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel(
 				{ fileType: this.store.fileType },
 			);
 		},
@@ -575,8 +575,8 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGrid = Ext.extend(
 		 * @param rowIndex index of the currently selected record
 		 */
 		onRowDblClick: function (grid, rowIndex) {
-			Zarafa.core.data.UIFactory.openLayerComponent(
-				Zarafa.core.data.SharedComponentType['filesplugin.default.useredit'],
+			Grommunio.core.data.UIFactory.openLayerComponent(
+				Grommunio.core.data.SharedComponentType['filesplugin.default.useredit'],
 				undefined,
 				{
 					store: grid.getStore(),
@@ -596,8 +596,8 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGrid = Ext.extend(
 		 * @private
 		 */
 		onAdd: function (btn, event) {
-			Zarafa.core.data.UIFactory.openLayerComponent(
-				Zarafa.core.data.SharedComponentType['filesplugin.default.useredit'],
+			Grommunio.core.data.UIFactory.openLayerComponent(
+				Grommunio.core.data.SharedComponentType['filesplugin.default.useredit'],
 				undefined,
 				{
 					store: this.store,
@@ -626,18 +626,18 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGrid = Ext.extend(
 
 Ext.reg(
 	'filesplugin.default.filesshareusergrid',
-	Zarafa.plugins.files.backend.Default.ui.FilesShareUserGrid,
+	Grommunio.plugins.files.backend.Default.ui.FilesShareUserGrid,
 );
-Ext.namespace('Zarafa.plugins.files.backend.Default.ui');
+Ext.namespace('Grommunio.plugins.files.backend.Default.ui');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel
- * @extends Zarafa.common.ui.grid.ColumnModel
+ * @class Grommunio.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel
+ * @extends Grommunio.common.ui.grid.ColumnModel
  *
  * The Column model for the share grid.
  */
-Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel =
-	Ext.extend(Zarafa.common.ui.grid.ColumnModel, {
+Grommunio.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel =
+	Ext.extend(Grommunio.common.ui.grid.ColumnModel, {
 		/**
 		 * @constructor
 		 * @param config Configuration structure
@@ -655,7 +655,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel =
 			});
 			Ext.apply(this, config);
 
-			Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -664,7 +664,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel =
 		/**
 		 * Create an array of {@link Ext.grid.Column columns} which must be visible within
 		 * the default view of this {@link Ext.grid.ColumnModel ColumnModel}.
-		 * @param {Zarafa.plugins.files.data.FileTypes} fileType folder or file
+		 * @param {Grommunio.plugins.files.data.FileTypes} fileType folder or file
 		 * @return {Ext.grid.Column[]} The array of columns
 		 * @private
 		 */
@@ -703,7 +703,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel =
 					renderer: this.yesNoRenderer,
 				},
 			];
-			if (fileType === Zarafa.plugins.files.data.FileTypes.FOLDER) {
+			if (fileType === Grommunio.plugins.files.data.FileTypes.FOLDER) {
 				columns.push(
 					{
 						header: _('Create'),
@@ -738,7 +738,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel =
 			p.css = 'shareicon_16_' + value;
 
 			// add extra css class for empty cell
-			p.css += ' zarafa-grid-empty-cell';
+			p.css += ' grommunio-grid-empty-cell';
 
 			return '';
 		},
@@ -760,21 +760,21 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel =
 			}
 
 			// add extra css class for empty cell
-			p.css += ' zarafa-grid-empty-cell';
+			p.css += ' grommunio-grid-empty-cell';
 
 			return '';
 		},
 	});
-Ext.namespace('Zarafa.plugins.files.backend.Default.ui');
+Ext.namespace('Grommunio.plugins.files.backend.Default.ui');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel
+ * @class Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditPanel
  * @extends Ext.form.FormPanel
  * @xtype filesplugin.default.filesshareusereditpanel
  *
  * This content panel contains the sharing edit panel.
  */
-Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
+Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 	Ext.form.FormPanel,
 	{
 		/**
@@ -827,7 +827,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 				],
 			});
 
-			Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditPanel.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -864,13 +864,13 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 				this.record.set('permissionChange', this.permissionChange.getValue());
 				this.record.set(
 					'permissionCreate',
-					this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER
+					this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER
 						? this.permissionCreate.getValue()
 						: false,
 				);
 				this.record.set(
 					'permissionDelete',
-					this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER
+					this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER
 						? this.permissionDelete.getValue()
 						: false,
 				);
@@ -882,12 +882,12 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 					shareWith: recipientRecord.data.shareWith,
 					shareWithDisplayname: recipientRecord.data.display_name,
 					permissionCreate:
-						this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER
+						this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER
 							? this.permissionCreate.getValue()
 							: false,
 					permissionChange: this.permissionChange.getValue(),
 					permissionDelete:
-						this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER
+						this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER
 							? this.permissionDelete.getValue()
 							: false,
 					permissionShare: this.permissionShare.getValue(),
@@ -898,7 +898,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 		},
 
 		/**
-		 * Function will create panel items for {@link Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel FilesShareUserEditPanel}
+		 * Function will create panel items for {@link Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditPanel FilesShareUserEditPanel}
 		 * @return {Array} array of items that should be added to panel.
 		 * @private
 		 */
@@ -915,7 +915,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 				permissionShare = this.record.get('permissionShare');
 				permissionChange = this.record.get('permissionChange');
 				if (
-					this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER
+					this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER
 				) {
 					permissionCreate = this.record.get('permissionCreate');
 					permissionDelete = this.record.get('permissionDelete');
@@ -938,7 +938,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 					checked: permissionChange,
 				},
 			];
-			if (this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER) {
+			if (this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER) {
 				permissionItems.push(
 					{
 						xtype: 'checkbox',
@@ -997,19 +997,19 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 
 Ext.reg(
 	'filesplugin.default.filesshareusereditpanel',
-	Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel,
+	Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditPanel,
 );
-Ext.namespace('Zarafa.plugins.files.backend.Default.ui');
+Ext.namespace('Grommunio.plugins.files.backend.Default.ui');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  * @xtype filesplugin.default.filesshareusereditcontentpanel
  *
  * This content panel contains the sharing edit panel.
  */
-Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel =
-	Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel =
+	Ext.extend(Grommunio.core.ui.ContentPanel, {
 		/**
 		 * The load mask for this content panel
 		 * @property
@@ -1037,7 +1037,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel =
 					recordId: config.recordId,
 				},
 			});
-			Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -1046,18 +1046,18 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel =
 
 Ext.reg(
 	'filesplugin.default.filesshareusereditcontentpanel',
-	Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel,
+	Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel,
 );
-Ext.namespace('Zarafa.plugins.files.backend.Default.ui');
+Ext.namespace('Grommunio.plugins.files.backend.Default.ui');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField
+ * @class Grommunio.plugins.files.backend.Default.ui.UserGroupPredictorField
  * @extends Ext.form.ComboBox
  * @xtype filesplugin.default.usergrouppredictorfield
  *
  * This ComboBox automatically searches for the correct user/group name.
  */
-Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField = Ext.extend(
+Grommunio.plugins.files.backend.Default.ui.UserGroupPredictorField = Ext.extend(
 	Ext.form.ComboBox,
 	{
 		/**
@@ -1097,8 +1097,8 @@ Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField = Ext.extend(
 					'<tpl for=".">',
 					'<div class="ugpredic_search_item">',
 					'<h3>',
-					'<tpl if="object_type == Zarafa.plugins.files.backend.Default.data.RecipientTypes.USER"><span><div class="shareicon_16_user">&nbsp;</div></span></tpl>',
-					'<tpl if="object_type == Zarafa.plugins.files.backend.Default.data.RecipientTypes.GROUP"><span><div class="shareicon_16_group">&nbsp;</div></span></tpl>',
+					'<tpl if="object_type == Grommunio.plugins.files.backend.Default.data.RecipientTypes.USER"><span><div class="shareicon_16_user">&nbsp;</div></span></tpl>',
+					'<tpl if="object_type == Grommunio.plugins.files.backend.Default.data.RecipientTypes.GROUP"><span><div class="shareicon_16_group">&nbsp;</div></span></tpl>',
 					'{display_name:htmlEncode}',
 					'</h3>',
 					'</div>',
@@ -1112,7 +1112,7 @@ Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField = Ext.extend(
 				},
 			});
 
-			Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Default.ui.UserGroupPredictorField.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -1127,7 +1127,7 @@ Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField = Ext.extend(
 			// also set the group field
 			this.ownerCt['type'].setValue(
 				record.get('object_type') ==
-					Zarafa.plugins.files.backend.Default.data.RecipientTypes.USER
+					Grommunio.plugins.files.backend.Default.data.RecipientTypes.USER
 					? 'user'
 					: 'group',
 			);
@@ -1149,19 +1149,19 @@ Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField = Ext.extend(
 
 Ext.reg(
 	'filesplugin.default.usergrouppredictorfield',
-	Zarafa.plugins.files.backend.Default.ui.UserGroupPredictorField,
+	Grommunio.plugins.files.backend.Default.ui.UserGroupPredictorField,
 );
-Ext.namespace('Zarafa.plugins.files.backend.Default.ui');
+Ext.namespace('Grommunio.plugins.files.backend.Default.ui');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel
- * @extends Zarafa.plugins.files.ui.dialogs.SharePanel
+ * @class Grommunio.plugins.files.backend.Default.ui.FilesShareDialogPanel
+ * @extends Grommunio.plugins.files.ui.dialogs.SharePanel
  * @xtype filesplugin.default.filessharedialogpanel
  *
  * The panel contains all logic and UI elements that are needed for the OCS sharing functionality.
  */
-Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
-	Zarafa.plugins.files.ui.dialogs.SharePanel,
+Grommunio.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
+	Grommunio.plugins.files.ui.dialogs.SharePanel,
 	{
 		/**
 		 * The loading mask of this panel
@@ -1224,7 +1224,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 			this.recordId = config.ownerCt.records[0].get('folder_id');
 			this.parentRecord = config.ownerCt.records[0];
 			var shares = this.parentRecord.get('sharedid');
-			Zarafa.plugins.files.backend.Default.data.singleton.ShareStore.init(type);
+			Grommunio.plugins.files.backend.Default.data.singleton.ShareStore.init(type);
 			this.setupGridStoreListeners();
 
 			Ext.applyIf(config, {
@@ -1387,26 +1387,26 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 				],
 			});
 
-			Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Default.ui.FilesShareDialogPanel.superclass.constructor.call(
 				this,
 				config,
 			);
 		},
 
 		/**
-		 * Create the onUpdate and onRemove listeners for the {@link Zarafa.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
+		 * Create the onUpdate and onRemove listeners for the {@link Grommunio.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
 		 * @private
 		 */
 		setupGridStoreListeners: function () {
 			var store =
-				Zarafa.plugins.files.backend.Default.data.singleton.ShareStore.getStore();
+				Grommunio.plugins.files.backend.Default.data.singleton.ShareStore.getStore();
 			store.on('add', this.onGridStoreAdd, this);
 			store.on('update', this.onGridStoreUpdate, this);
 			store.on('remove', this.onGridStoreRemove, this);
 		},
 
 		/**
-		 * Eventhandler for the remove event of the {@link Zarafa.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
+		 * Eventhandler for the remove event of the {@link Grommunio.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
 		 * If the shareid is set, it will remove the share from the backend.
 		 *
 		 * @param store the grid store holding share records
@@ -1421,7 +1421,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 		},
 
 		/**
-		 * Eventhandler for the update event of the {@link Zarafa.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
+		 * Eventhandler for the update event of the {@link Grommunio.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
 		 * This will first remove the new dirty record and then create a new one. So the save function of the store is not used :)
 		 *
 		 * @param store the grid store holding share records
@@ -1433,7 +1433,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 		},
 
 		/**
-		 * Eventhandler for the add event of the {@link Zarafa.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
+		 * Eventhandler for the add event of the {@link Grommunio.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
 		 * This will add a new entry to the gridstore.
 		 *
 		 * @param store the grid store holding share records
@@ -1544,7 +1544,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 		 */
 		closeDialog: function () {
 			var store =
-				Zarafa.plugins.files.backend.Default.data.singleton.ShareStore.getStore();
+				Grommunio.plugins.files.backend.Default.data.singleton.ShareStore.getStore();
 
 			store.un('update', this.onGridStoreUpdate, this);
 			store.un('remove', this.onGridStoreRemove, this);
@@ -1571,7 +1571,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 				// we have a link share
 				// check if we have to update the share
 				this.updateExistingShare();
-				Zarafa.plugins.files.data.Actions.updateCache(this.recordId);
+				Grommunio.plugins.files.data.Actions.updateCache(this.recordId);
 			} else {
 				// we have a user/group share
 				this.closeDialog();
@@ -1604,7 +1604,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 				// enable the edit checkbox if we have a folder record
 				if (
 					this.parentRecord.get('type') ===
-					Zarafa.plugins.files.data.FileTypes.FOLDER
+					Grommunio.plugins.files.data.FileTypes.FOLDER
 				) {
 					this.editcheckbox.show();
 				}
@@ -1630,7 +1630,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 				{
 					records: recIds,
 				},
-				new Zarafa.plugins.files.backend.Default.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Default.data.ResponseHandler({
 					successCallback: this.initGuiFromSharedRecord.createDelegate(this),
 				}),
 			);
@@ -1650,7 +1650,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 				var share = shares[shareid];
 				if (
 					share.shareType ===
-					Zarafa.plugins.files.backend.Default.data.RecipientTypes.LINK
+					Grommunio.plugins.files.backend.Default.data.RecipientTypes.LINK
 				) {
 					// store the id of this share
 					this.linkShareID = shareid;
@@ -1683,13 +1683,13 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 					}
 				} else if (
 					share.shareType ===
-					Zarafa.plugins.files.backend.Default.data.RecipientTypes.GROUP
+					Grommunio.plugins.files.backend.Default.data.RecipientTypes.GROUP
 				) {
-					Zarafa.plugins.files.backend.Default.data.singleton.ShareStore.addGroup(
+					Grommunio.plugins.files.backend.Default.data.singleton.ShareStore.addGroup(
 						share,
 					);
 				} else {
-					Zarafa.plugins.files.backend.Default.data.singleton.ShareStore.addUser(
+					Grommunio.plugins.files.backend.Default.data.singleton.ShareStore.addUser(
 						share,
 					);
 				}
@@ -1711,7 +1711,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 
 			var shareOpts = {
 				shareType:
-					Zarafa.plugins.files.backend.Default.data.RecipientTypes.LINK,
+					Grommunio.plugins.files.backend.Default.data.RecipientTypes.LINK,
 			};
 
 			container.getRequest().singleRequest(
@@ -1721,7 +1721,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 					records: recIds,
 					options: shareOpts,
 				},
-				new Zarafa.plugins.files.backend.Default.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Default.data.ResponseHandler({
 					successCallback: this.shareByLinkCreated.createDelegate(this),
 					failureCallback: this.closeDialog.createDelegate(this),
 				}),
@@ -1752,7 +1752,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 			this.doneButton.setDisabled(false);
 
 			// Reload file in view to show "attack as link" button
-			Zarafa.plugins.files.data.Actions.updateCache(this.recordId);
+			Grommunio.plugins.files.data.Actions.updateCache(this.recordId);
 
 			this.loadMask.hide();
 		},
@@ -1772,7 +1772,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 					records: [id],
 					accountid: accId,
 				},
-				new Zarafa.plugins.files.backend.Default.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Default.data.ResponseHandler({
 					successCallback: this.shareByIDRemoved.createDelegate(
 						this,
 						[id],
@@ -1808,7 +1808,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 			}
 
 			// Reload file in view to show "attack as link" button
-			Zarafa.plugins.files.data.Actions.updateCache(this.recordId);
+			Grommunio.plugins.files.data.Actions.updateCache(this.recordId);
 
 			this.loadMask.hide();
 		},
@@ -1827,8 +1827,8 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 			var shareOpts = {
 				shareType:
 					record.get('type') === 'user'
-						? Zarafa.plugins.files.backend.Default.data.RecipientTypes.USER
-						: Zarafa.plugins.files.backend.Default.data.RecipientTypes.GROUP,
+						? Grommunio.plugins.files.backend.Default.data.RecipientTypes.USER
+						: Grommunio.plugins.files.backend.Default.data.RecipientTypes.GROUP,
 				shareWith: record.get('shareWith'),
 				permissions: permissions,
 				shareWithDisplayname: record.get('shareWithDisplayname'),
@@ -1841,7 +1841,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 					records: recIds,
 					options: shareOpts,
 				},
-				new Zarafa.plugins.files.backend.Default.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Default.data.ResponseHandler({
 					successCallback: this.shareCreated.createDelegate(
 						this,
 						[shareOpts, record],
@@ -1933,7 +1933,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 					accountid: this.parentRecord.getAccount().get('id'),
 					options: shareOpts,
 				},
-				new Zarafa.plugins.files.backend.Default.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Default.data.ResponseHandler({
 					successCallback: this.shareByLinkUpdated.createDelegate(this, [
 						record,
 					]),
@@ -1983,5 +1983,5 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 
 Ext.reg(
 	'filesplugin.default.filessharedialogpanel',
-	Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel,
+	Grommunio.plugins.files.backend.Default.ui.FilesShareDialogPanel,
 );

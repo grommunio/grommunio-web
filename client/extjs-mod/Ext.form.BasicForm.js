@@ -28,7 +28,7 @@
 						// we use Composite fields for returning a single values based on combining the
 						// values from the individual components. To keep supporting this feature without
 						// requiring a completely new component support for the config option 'isSingleValued'
-						// has been added (defined in Zarafa.common.ui.CompositeField).
+						// has been added (defined in Grommunio.common.ui.CompositeField).
 					} else if (field.isSingleValued !== true && field.eachItem) {
 						value = [];
 						field.eachItem(function(item) {

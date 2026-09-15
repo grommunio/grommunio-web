@@ -1,7 +1,7 @@
 <?php
 
 // required to handle php errors
-require_once __DIR__ . '/exceptions/class.ZarafaErrorException.php';
+require_once __DIR__ . '/exceptions/class.GrommunioErrorException.php';
 require_once __DIR__ . '/download_base.php';
 
 /**

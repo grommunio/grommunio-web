@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.files.ui.dialogs');
+Ext.namespace('Grommunio.plugins.files.ui.dialogs');
 
 /**
- * @class Zarafa.plugins.files.ui.dialogs.UploadStatusContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.files.ui.dialogs.UploadStatusContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  * @xtype filesplugin.uploadstatuscontentpanel
  *
  * The content panel for the main upload status panel.
  */
-Zarafa.plugins.files.ui.dialogs.UploadStatusContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.files.ui.dialogs.UploadStatusContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
 
 	/**
 	 * @constructor
@@ -17,7 +17,7 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusContentPanel = Ext.extend(Zarafa.cor
 		config = config || {};
 		Ext.applyIf(config, {
 			layout : 'fit',
-			title : _('Uploading files to ') + Zarafa.plugins.files.data.Utils.File.stripAccountId(config.destination) + ' &hellip;',
+			title : _('Uploading files to ') + Grommunio.plugins.files.data.Utils.File.stripAccountId(config.destination) + ' &hellip;',
 			closeOnSave : true,
 			width : 480,
 			height : 445,
@@ -33,8 +33,8 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusContentPanel = Ext.extend(Zarafa.cor
 			}]
 		});
 
-		Zarafa.plugins.files.ui.dialogs.UploadStatusContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.dialogs.UploadStatusContentPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.uploadstatuscontentpanel', Zarafa.plugins.files.ui.dialogs.UploadStatusContentPanel);
+Ext.reg('filesplugin.uploadstatuscontentpanel', Grommunio.plugins.files.ui.dialogs.UploadStatusContentPanel);

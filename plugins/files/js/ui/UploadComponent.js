@@ -1,10 +1,10 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+Ext.namespace('Grommunio.plugins.files.ui');
 /**
- * @class Zarafa.plugins.files.ui.UploadComponent
+ * @class Grommunio.plugins.files.ui.UploadComponent
  * @extends Ext.Component
  * @xtype filesplugin.uploadcomponent
  */
-Zarafa.plugins.files.ui.UploadComponent = Ext.extend(Ext.Component, {
+Grommunio.plugins.files.ui.UploadComponent = Ext.extend(Ext.Component, {
 	/**
 	 * @cfg {Function} callback The callback function which must be called when the
 	 * file has be selected from Browser's file selection dialog.
@@ -39,7 +39,7 @@ Zarafa.plugins.files.ui.UploadComponent = Ext.extend(Ext.Component, {
 			xtype: 'filesplugin.uploadcomponent'
 		});
 
-		Zarafa.plugins.files.ui.UploadComponent.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.UploadComponent.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -66,7 +66,7 @@ Zarafa.plugins.files.ui.UploadComponent = Ext.extend(Ext.Component, {
 	 * @private
 	 */
 	getUploadEl: function () {
-		var uploadInputId = Ext.id(null, 'zarafa-files-upload-input-');
+		var uploadInputId = Ext.id(null, 'grommunio-files-upload-input-');
 		var uploadEl = Ext.DomHelper.append(Ext.getBody(), {
 			cls : 'x-hidden',
 			tag : 'input',
@@ -106,4 +106,4 @@ Zarafa.plugins.files.ui.UploadComponent = Ext.extend(Ext.Component, {
 	}
 });
 
-Ext.reg('filesplugin.uploadcomponent', Zarafa.plugins.files.ui.UploadComponent);
+Ext.reg('filesplugin.uploadcomponent', Grommunio.plugins.files.ui.UploadComponent);

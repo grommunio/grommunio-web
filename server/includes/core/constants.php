@@ -28,7 +28,7 @@ define("HIERARCHY_GET_ONE", 2);
 
 // Constants are used to indicate error type on client
 define("ERROR_MAPI", 1);
-define("ERROR_ZARAFA", 2);
+define("ERROR_GROMMUNIO", 2);
 define("ERROR_GENERAL", 3);
 
 define("LOGLEVEL_OFF", 0);

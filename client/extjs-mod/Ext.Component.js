@@ -131,15 +131,15 @@
 		 * @cfg {Boolean} statefulRelativeDimensions True if the 'width' and 'height' of the {@link #field} must be
 		 * converted to relative values before saving it to the settings. This will ensure the dimensions
 		 * of the field will always depend on the current size of the {@link Ext#getBody body}.
-		 * This option is only used when the {@link Zarafa.core.data.SettingsStateProvider SettingsStateProvider} is
+		 * This option is only used when the {@link Grommunio.core.data.SettingsStateProvider SettingsStateProvider} is
 		 * used in the {@link Ext.state.Manager}.
 		 */
 		statefulRelativeDimensions: true,
 
 		/**
 		 * @cfg {String} statefulName The unique name for this component by which the {@link #getState state}
-		 * must be saved into the {@link Zarafa.settings.SettingsModel settings}.
-		 * This option is only used when the {@link Zarafa.core.data.SettingsStateProvider SettingsStateProvider} is
+		 * must be saved into the {@link Grommunio.settings.SettingsModel settings}.
+		 * This option is only used when the {@link Grommunio.core.data.SettingsStateProvider SettingsStateProvider} is
 		 * used in the {@link Ext.state.Manager}.
 		 */
 		statefulName: undefined,
@@ -160,7 +160,7 @@
 
 		/**
 		 * Obtain the path in which the {@link #getState state} must be saved.
-		 * This option is only used when the {@link Zarafa.core.data.SettingsStateProvider SettingsStateProvider} is
+		 * This option is only used when the {@link Grommunio.core.data.SettingsStateProvider SettingsStateProvider} is
 		 * used in the {@link Ext.state.Manager}. This returns {@link #statefulName} if provided, or else generates
 		 * a custom name.
 		 * @return {String} The unique name for this component by which the {@link #getState state} must be saved.
@@ -169,7 +169,7 @@
 		{
 			var name = this.statefulName;
 			if (!name) {
-				name = this.getXType().match(/(?:zarafa\.)?(.*)/)[1];
+				name = this.getXType().match(/(?:grommunio\.)?(.*)/)[1];
 			}
 
 			return name;

@@ -7,7 +7,7 @@
 	'use strict';
 	window._ = function(text) { return text === 'options' ? 'Optionen für diese Nachricht' : text; };
 	Ext.BLANK_IMAGE_URL = '../../../client/extjs/resources/images/default/s.gif';
-	Ext.namespace('Zarafa.plugins.pgp');
+	Ext.namespace('Grommunio.plugins.pgp');
 	var fakeKey = {
 		fingerprint: '1111222233334444555566667777888899990000',
 		uids: ['UI Fixture <fixture@example.invalid>'], secret: true, can_sign: true, can_encrypt: true,
@@ -17,7 +17,7 @@
 	var servers = ['https://keys.example.invalid'];
 	window.container = {getUser: function() { return {getSMTPAddress: function() { return 'fixture@example.invalid'; }}; }};
 	function disabledOperation() { return Promise.reject(new Error('Fixture only: cryptographic and server operations are disabled.')); }
-	Zarafa.plugins.pgp.PgpUtils = {
+	Grommunio.plugins.pgp.PgpUtils = {
 		encode: Ext.util.Format.htmlEncode,
 		keyEmails: function() { return ['fixture@example.invalid']; },
 		formatFingerprint: function(value) { return value.replace(/(.{4})/g, '$1 ').trim(); },
@@ -39,8 +39,8 @@
 	// There is no mail-record lifecycle or application QuickTip registry in this page.
 	function FixturePlugin() {}
 	FixturePlugin.prototype.init = Ext.emptyFn;
-	Ext.preg('zarafa.recordcomponentupdaterplugin', FixturePlugin);
-	Ext.preg('zarafa.menuitemtooltipplugin', FixturePlugin);
+	Ext.preg('grommunio.recordcomponentupdaterplugin', FixturePlugin);
+	Ext.preg('grommunio.menuitemtooltipplugin', FixturePlugin);
 	Ext.Ajax.request = function() { throw new Error('Network API requests are forbidden in this fixture.'); };
 	window.fetch = disabledOperation;
 	window.addEventListener('error', function(event) {
@@ -51,7 +51,7 @@
 	Ext.onReady(function() {
 		Ext.QuickTips.init();
 		document.getElementById('fixture-category-icon').src = Ext.BLANK_IMAGE_URL;
-		var manager = Zarafa.common.ui.SecurityButtons, buttons = [], record = {};
+		var manager = Grommunio.common.ui.SecurityButtons, buttons = [], record = {};
 		var dialog = {record: record};
 		function refreshButtons() { buttons.forEach(function(button) { manager.updateButton(button, record); }); }
 		['smime', 'pgp'].forEach(function(id, index) {
@@ -59,13 +59,13 @@
 				isSelected: function(item, action) { return !!item[id + '_' + action]; },
 				setAction: function(owner, action, enabled) { owner.record[id + '_' + action] = enabled; refreshButtons(); },
 				getOptions: function() { return [{text: 'Choose private key…', iconCls: 'icon_pgp_key', handler: function() {
-					Zarafa.plugins.pgp.dialogs.PgpDialogs.chooseKey([fakeKey], fakeKey.fingerprint, Ext.emptyFn);
+					Grommunio.plugins.pgp.dialogs.PgpDialogs.chooseKey([fakeKey], fakeKey.fingerprint, Ext.emptyFn);
 				}}, {text: 'A longer translated option to exercise automatic menu sizing', handler: Ext.emptyFn}]; }
 			});
 		});
 		var compose = new Ext.Panel({renderTo: 'fixture-compose', title: 'Compose protection controls', border: true,
 			bodyStyle: 'padding: 12px', html: 'Open either dropdown to inspect the protocol options and submenu arrows.',
-			tbar: {cls: 'zarafa-dialogtoolbar', items: manager.createButtons().map(function(config) {
+			tbar: {cls: 'grommunio-dialogtoolbar', items: manager.createButtons().map(function(config) {
 				config.securityDialog = dialog;
 				return config;
 			})}});
@@ -73,12 +73,12 @@
 		refreshButtons();
 		var iconGrid = new Ext.grid.GridPanel({renderTo: 'fixture-icon-grid', title: 'Mail-column icon context', height: 100, stateful: false,
 			store: new Ext.data.ArrayStore({fields: ['subject'], data: [['Synthetic protected message']]}),
-			columns: [{id: 'pgp', header: '<p class="icon_pgp_key"><span class="title">OpenPGP</span></p>', headerCls: 'zarafa-icon-column', width: 45,
+			columns: [{id: 'pgp', header: '<p class="icon_pgp_key"><span class="title">OpenPGP</span></p>', headerCls: 'grommunio-icon-column', width: 45,
 				renderer: function() { return '<div class="icon_pgp_encrypt" style="width:20px;height:20px" title="OpenPGP encrypted"></div>'; }},
 				{header: 'Subject', dataIndex: 'subject', width: 500}], viewConfig: {forceFit: true}, enableHdMenu: false});
-		var reference = new Zarafa.settings.ui.SettingsWidget({renderTo: 'fixture-settings', title: 'Native settings spacing reference',
+		var reference = new Grommunio.settings.ui.SettingsWidget({renderTo: 'fixture-settings', title: 'Native settings spacing reference',
 			items: [{xtype: 'displayfield', fieldLabel: 'Example setting', value: 'Unmodified SettingsWidget padding'}]});
-		var widget = new Zarafa.plugins.pgp.settings.SettingsPgpWidget({renderTo: 'fixture-settings'});
+		var widget = new Grommunio.plugins.pgp.settings.SettingsPgpWidget({renderTo: 'fixture-settings'});
 		widget.update({get: function(name, fallback) { return fallback; }});
 		function selected(value) { if (value) { widget.keyGrid.getSelectionModel().selectFirstRow(); } else { widget.keyGrid.getSelectionModel().clearSelections(); } }
 		function dark(value) { document.body.classList.toggle('dark-mode', value); }
@@ -110,7 +110,7 @@
 			// Theme changes animate text, surfaces and borders on different descendants.
 			// Disable those transitions only during measurements, then remove the rule.
 			var transitionReset = document.createElement('style');
-			transitionReset.textContent = 'body.zarafa-webclient *, body.zarafa-webclient *::before, body.zarafa-webclient *::after { transition: none !important; }';
+			transitionReset.textContent = 'body.grommunio-webclient *, body.grommunio-webclient *::before, body.grommunio-webclient *::after { transition: none !important; }';
 			document.head.appendChild(transitionReset);
 			function check(condition, label, actual) {
 				if (!condition) { failures++; }

@@ -1,9 +1,9 @@
-Ext.namespace('Zarafa.plugins.files.backend.Seafile.data');
+Ext.namespace('Grommunio.plugins.files.backend.Seafile.data');
 
 /**
  * Record definition representing a single share recipient entry.
  */
-Zarafa.plugins.files.backend.Seafile.data.ShareGridRecord =
+Grommunio.plugins.files.backend.Seafile.data.ShareGridRecord =
 	Ext.data.Record.create(
 		{
 			name: 'id',

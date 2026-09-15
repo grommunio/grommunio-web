@@ -40,7 +40,7 @@ class PluginFilesbackendDefault extends Plugin {
 	 */
 	public function onBeforeSettingsInit(&$data) {
 		$data['settingsObj']->addSysAdminDefaults([
-			'zarafa' => [
+			'grommunio' => [
 				'v1' => [
 					'plugins' => [
 						'filesbackendDefault' => [

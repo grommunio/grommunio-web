@@ -1,11 +1,11 @@
-Ext.namespace('Zarafa.plugins.chat.settings');
+Ext.namespace('Grommunio.plugins.chat.settings');
 
 /**
- * @class Zarafa.plugins.chat.settings.GeneralSettingsWidget
- * @extends Zarafa.settings.ui.SettingsWidget
- * @xtype zarafa.plugins.chat.settings.generalsettingswidget
+ * @class Grommunio.plugins.chat.settings.GeneralSettingsWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
+ * @xtype grommunio.plugins.chat.settings.generalsettingswidget
  */
-Zarafa.plugins.chat.settings.GeneralSettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
+Grommunio.plugins.chat.settings.GeneralSettingsWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -15,7 +15,7 @@ Zarafa.plugins.chat.settings.GeneralSettingsWidget = Ext.extend(Zarafa.settings.
 		config = config || {};
 
 		Ext.applyIf(config, {
-			cls: 'chat-settings-panel zarafa-settings-widget',
+			cls: 'chat-settings-panel grommunio-settings-widget',
 			title: _('Chat'),
 			items: [{
 				xtype: 'checkbox',
@@ -29,7 +29,7 @@ Zarafa.plugins.chat.settings.GeneralSettingsWidget = Ext.extend(Zarafa.settings.
 			}]
 		});
 
-		Zarafa.plugins.chat.settings.GeneralSettingsWidget.superclass.constructor.call(this, config);
+		Grommunio.plugins.chat.settings.GeneralSettingsWidget.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -46,31 +46,31 @@ Zarafa.plugins.chat.settings.GeneralSettingsWidget = Ext.extend(Zarafa.settings.
 	},
 
 	/**
-	 * Called by the {@link Zarafa.settings.ui.SettingsCategoryWidgetPanel widget panel}
+	 * Called by the {@link Grommunio.settings.ui.SettingsCategoryWidgetPanel widget panel}
 	 * to load the latest version of the settings from the
-	 * {@link Zarafa.settings.SettingsModel} into the UI of this category.
-	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to load
+	 * {@link Grommunio.settings.SettingsModel} into the UI of this category.
+	 * @param {Grommunio.settings.SettingsModel} settingsModel The settings to load
 	 */
 	update : function(settingsModel)
 	{
 		this.updating = true;
 		this.settingsModel = settingsModel;
 
-		var autostart = settingsModel.get('zarafa/v1/plugins/chat/autostart')===true;
+		var autostart = settingsModel.get('grommunio/v1/plugins/chat/autostart')===true;
 		this.autostart.setValue(autostart);
 
 		this.updating = false;
 	},
 
 	/**
-	 * Called by the {@link Zarafa.settings.ui.SettingsCategoryWidgetPanel widget panel}
-	 * to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
-	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
+	 * Called by the {@link Grommunio.settings.ui.SettingsCategoryWidgetPanel widget panel}
+	 * to update the settings from the UI into the {@link Grommunio.settings.SettingsModel settings model}.
+	 * @param {Grommunio.settings.SettingsModel} settingsModel The settings to update
 	 */
 	updateSettings : function(settingsModel)
 	{
-		settingsModel.set('zarafa/v1/plugins/chat/autostart', this.autostart.getValue());
+		settingsModel.set('grommunio/v1/plugins/chat/autostart', this.autostart.getValue());
 	}
 });
 
-Ext.reg('zarafa.plugins.chat.settings.generalsettingswidget', Zarafa.plugins.chat.settings.GeneralSettingsWidget);
+Ext.reg('grommunio.plugins.chat.settings.generalsettingswidget', Grommunio.plugins.chat.settings.GeneralSettingsWidget);

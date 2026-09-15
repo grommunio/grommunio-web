@@ -168,7 +168,7 @@ class ListModule extends Module {
 			$limit = $action['restriction']['limit'];
 		}
 		else {
-			$limit = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
+			$limit = $GLOBALS['settings']->get('grommunio/v1/main/page_size', 50);
 		}
 
 		$isSearchFolder = isset($action['search_folder_entryid']);
@@ -460,7 +460,7 @@ class ListModule extends Module {
 			mapi_table_sort($table, $this->sort, TBL_BATCH);
 		}
 
-		$rowCount = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
+		$rowCount = $GLOBALS['settings']->get('grommunio/v1/main/page_size', 50);
 
 		$searchResults = [];
 		$entryid = bin2hex($entryid);

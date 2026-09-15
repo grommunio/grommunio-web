@@ -1,17 +1,17 @@
-Ext.namespace('Zarafa.plugins.mdm.data');
+Ext.namespace('Grommunio.plugins.mdm.data');
 
 /**
- * @class Zarafa.plugins.mdm.data.MDMDeviceResponseHandler
- * @extends Zarafa.core.data.ProxyResponseHandler
+ * @class Grommunio.plugins.mdm.data.MDMDeviceResponseHandler
+ * @extends Grommunio.core.data.ProxyResponseHandler
  *
- * A Simple implementation for a {@link Zarafa.plugins.mdm.data.MDMDeviceResponseHandler ResponseHandler}.
+ * A Simple implementation for a {@link Grommunio.plugins.mdm.data.MDMDeviceResponseHandler ResponseHandler}.
  * This one can only be used by {@link Ext.data.DataProxy proxies} which wish to handle a Response
  * to their Request.
  *
  * This implementation limits itself to firing an {@link Ext.data.DataProxy#exception exception}
  * on error, and calling a callback function when all processing has been completed.
  */
-Zarafa.plugins.mdm.data.MDMDeviceResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseHandler, {
+Grommunio.plugins.mdm.data.MDMDeviceResponseHandler = Ext.extend(Grommunio.core.data.ProxyResponseHandler, {
 
 	/**
 	 * Handles the 'open' response. Gathers the records from the response data,

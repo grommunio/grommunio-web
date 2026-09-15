@@ -1,14 +1,14 @@
-Ext.namespace('Zarafa.plugins.files.backend.Default.ui');
+Ext.namespace('Grommunio.plugins.files.backend.Default.ui');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel
- * @extends Zarafa.plugins.files.ui.dialogs.SharePanel
+ * @class Grommunio.plugins.files.backend.Default.ui.FilesShareDialogPanel
+ * @extends Grommunio.plugins.files.ui.dialogs.SharePanel
  * @xtype filesplugin.default.filessharedialogpanel
  *
  * The panel contains all logic and UI elements that are needed for the OCS sharing functionality.
  */
-Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
-	Zarafa.plugins.files.ui.dialogs.SharePanel,
+Grommunio.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
+	Grommunio.plugins.files.ui.dialogs.SharePanel,
 	{
 		/**
 		 * The loading mask of this panel
@@ -71,7 +71,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 			this.recordId = config.ownerCt.records[0].get('folder_id');
 			this.parentRecord = config.ownerCt.records[0];
 			var shares = this.parentRecord.get('sharedid');
-			Zarafa.plugins.files.backend.Default.data.singleton.ShareStore.init(type);
+			Grommunio.plugins.files.backend.Default.data.singleton.ShareStore.init(type);
 			this.setupGridStoreListeners();
 
 			Ext.applyIf(config, {
@@ -234,26 +234,26 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 				],
 			});
 
-			Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Default.ui.FilesShareDialogPanel.superclass.constructor.call(
 				this,
 				config,
 			);
 		},
 
 		/**
-		 * Create the onUpdate and onRemove listeners for the {@link Zarafa.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
+		 * Create the onUpdate and onRemove listeners for the {@link Grommunio.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
 		 * @private
 		 */
 		setupGridStoreListeners: function () {
 			var store =
-				Zarafa.plugins.files.backend.Default.data.singleton.ShareStore.getStore();
+				Grommunio.plugins.files.backend.Default.data.singleton.ShareStore.getStore();
 			store.on('add', this.onGridStoreAdd, this);
 			store.on('update', this.onGridStoreUpdate, this);
 			store.on('remove', this.onGridStoreRemove, this);
 		},
 
 		/**
-		 * Eventhandler for the remove event of the {@link Zarafa.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
+		 * Eventhandler for the remove event of the {@link Grommunio.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
 		 * If the shareid is set, it will remove the share from the backend.
 		 *
 		 * @param store the grid store holding share records
@@ -268,7 +268,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 		},
 
 		/**
-		 * Eventhandler for the update event of the {@link Zarafa.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
+		 * Eventhandler for the update event of the {@link Grommunio.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
 		 * This will first remove the new dirty record and then create a new one. So the save function of the store is not used :)
 		 *
 		 * @param store the grid store holding share records
@@ -280,7 +280,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 		},
 
 		/**
-		 * Eventhandler for the add event of the {@link Zarafa.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
+		 * Eventhandler for the add event of the {@link Grommunio.plugins.files.backend.Default.data.ShareGridStore ShareGridStore}.
 		 * This will add a new entry to the gridstore.
 		 *
 		 * @param store the grid store holding share records
@@ -391,7 +391,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 		 */
 		closeDialog: function () {
 			var store =
-				Zarafa.plugins.files.backend.Default.data.singleton.ShareStore.getStore();
+				Grommunio.plugins.files.backend.Default.data.singleton.ShareStore.getStore();
 
 			store.un('update', this.onGridStoreUpdate, this);
 			store.un('remove', this.onGridStoreRemove, this);
@@ -418,7 +418,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 				// we have a link share
 				// check if we have to update the share
 				this.updateExistingShare();
-				Zarafa.plugins.files.data.Actions.updateCache(this.recordId);
+				Grommunio.plugins.files.data.Actions.updateCache(this.recordId);
 			} else {
 				// we have a user/group share
 				this.closeDialog();
@@ -451,7 +451,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 				// enable the edit checkbox if we have a folder record
 				if (
 					this.parentRecord.get('type') ===
-					Zarafa.plugins.files.data.FileTypes.FOLDER
+					Grommunio.plugins.files.data.FileTypes.FOLDER
 				) {
 					this.editcheckbox.show();
 				}
@@ -477,7 +477,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 				{
 					records: recIds,
 				},
-				new Zarafa.plugins.files.backend.Default.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Default.data.ResponseHandler({
 					successCallback: this.initGuiFromSharedRecord.createDelegate(this),
 				}),
 			);
@@ -497,7 +497,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 				var share = shares[shareid];
 				if (
 					share.shareType ===
-					Zarafa.plugins.files.backend.Default.data.RecipientTypes.LINK
+					Grommunio.plugins.files.backend.Default.data.RecipientTypes.LINK
 				) {
 					// store the id of this share
 					this.linkShareID = shareid;
@@ -530,13 +530,13 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 					}
 				} else if (
 					share.shareType ===
-					Zarafa.plugins.files.backend.Default.data.RecipientTypes.GROUP
+					Grommunio.plugins.files.backend.Default.data.RecipientTypes.GROUP
 				) {
-					Zarafa.plugins.files.backend.Default.data.singleton.ShareStore.addGroup(
+					Grommunio.plugins.files.backend.Default.data.singleton.ShareStore.addGroup(
 						share,
 					);
 				} else {
-					Zarafa.plugins.files.backend.Default.data.singleton.ShareStore.addUser(
+					Grommunio.plugins.files.backend.Default.data.singleton.ShareStore.addUser(
 						share,
 					);
 				}
@@ -558,7 +558,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 
 			var shareOpts = {
 				shareType:
-					Zarafa.plugins.files.backend.Default.data.RecipientTypes.LINK,
+					Grommunio.plugins.files.backend.Default.data.RecipientTypes.LINK,
 			};
 
 			container.getRequest().singleRequest(
@@ -568,7 +568,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 					records: recIds,
 					options: shareOpts,
 				},
-				new Zarafa.plugins.files.backend.Default.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Default.data.ResponseHandler({
 					successCallback: this.shareByLinkCreated.createDelegate(this),
 					failureCallback: this.closeDialog.createDelegate(this),
 				}),
@@ -599,7 +599,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 			this.doneButton.setDisabled(false);
 
 			// Reload file in view to show "attack as link" button
-			Zarafa.plugins.files.data.Actions.updateCache(this.recordId);
+			Grommunio.plugins.files.data.Actions.updateCache(this.recordId);
 
 			this.loadMask.hide();
 		},
@@ -619,7 +619,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 					records: [id],
 					accountid: accId,
 				},
-				new Zarafa.plugins.files.backend.Default.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Default.data.ResponseHandler({
 					successCallback: this.shareByIDRemoved.createDelegate(
 						this,
 						[id],
@@ -655,7 +655,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 			}
 
 			// Reload file in view to show "attack as link" button
-			Zarafa.plugins.files.data.Actions.updateCache(this.recordId);
+			Grommunio.plugins.files.data.Actions.updateCache(this.recordId);
 
 			this.loadMask.hide();
 		},
@@ -674,8 +674,8 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 			var shareOpts = {
 				shareType:
 					record.get('type') === 'user'
-						? Zarafa.plugins.files.backend.Default.data.RecipientTypes.USER
-						: Zarafa.plugins.files.backend.Default.data.RecipientTypes.GROUP,
+						? Grommunio.plugins.files.backend.Default.data.RecipientTypes.USER
+						: Grommunio.plugins.files.backend.Default.data.RecipientTypes.GROUP,
 				shareWith: record.get('shareWith'),
 				permissions: permissions,
 				shareWithDisplayname: record.get('shareWithDisplayname'),
@@ -688,7 +688,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 					records: recIds,
 					options: shareOpts,
 				},
-				new Zarafa.plugins.files.backend.Default.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Default.data.ResponseHandler({
 					successCallback: this.shareCreated.createDelegate(
 						this,
 						[shareOpts, record],
@@ -780,7 +780,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 					accountid: this.parentRecord.getAccount().get('id'),
 					options: shareOpts,
 				},
-				new Zarafa.plugins.files.backend.Default.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Default.data.ResponseHandler({
 					successCallback: this.shareByLinkUpdated.createDelegate(this, [
 						record,
 					]),
@@ -830,5 +830,5 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel = Ext.extend(
 
 Ext.reg(
 	'filesplugin.default.filessharedialogpanel',
-	Zarafa.plugins.files.backend.Default.ui.FilesShareDialogPanel,
+	Grommunio.plugins.files.backend.Default.ui.FilesShareDialogPanel,
 );

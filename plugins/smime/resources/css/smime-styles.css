@@ -69,7 +69,7 @@
   min-width: 50px !important;
 }
 
-.x-grid3-hd-row td.zarafa-icon-column .x-grid3-hd-inner p.icon_smime_settings {
+.x-grid3-hd-row td.grommunio-icon-column .x-grid3-hd-inner p.icon_smime_settings {
   background-position: center;
   width: 16px;
 }
@@ -134,7 +134,7 @@
 	padding-right: 0;
 }
 
-.zarafa-smime-invalid-text {
+.grommunio-smime-invalid-text {
 	color: #e40023;
 }
 

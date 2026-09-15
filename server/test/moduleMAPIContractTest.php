@@ -10,8 +10,8 @@ defined('BASE_PATH') || define('BASE_PATH', dirname(__DIR__, 2) . '/');
 defined('PR_MDB_PROVIDER') || define('PR_MDB_PROVIDER', 0x34140102);
 defined('ZARAFA_STORE_DELEGATE_GUID') || define('ZARAFA_STORE_DELEGATE_GUID', 'delegate-provider');
 
-if (!class_exists('ZarafaException')) {
-	class ZarafaException extends Exception {}
+if (!class_exists('GrommunioException')) {
+	class GrommunioException extends Exception {}
 }
 if (!class_exists('SQLite3')) {
 	class SQLite3 {}

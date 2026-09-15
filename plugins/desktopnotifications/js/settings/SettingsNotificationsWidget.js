@@ -1,17 +1,17 @@
-Ext.namespace('Zarafa.plugins.desktopnotifications.js.settings');
+Ext.namespace('Grommunio.plugins.desktopnotifications.js.settings');
 
 /**
- * @class Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget
- * @extends Zarafa.settings.ui.SettingsWidget
- * @xtype zarafa.settingsdesktopnotificationswidget
+ * @class Grommunio.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
+ * @xtype grommunio.settingsdesktopnotificationswidget
  *
- * The {@link Zarafa.settings.ui.SettingsWidget widget} for enable/disable desktop notifications
- * in the {@link Zarafa.plugins.desktopnotifications.js.settings.SettingsDesktopNotificationsCategory desktop notification category}.
+ * The {@link Grommunio.settings.ui.SettingsWidget widget} for enable/disable desktop notifications
+ * in the {@link Grommunio.plugins.desktopnotifications.js.settings.SettingsDesktopNotificationsCategory desktop notification category}.
  */
-Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
+Grommunio.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
 
 	/**
-	 * @cfg {Zarafa.plugins.desktopnotifications.js.DesktopNotificationsPlugin} plugin The plugin which has registered this
+	 * @cfg {Grommunio.plugins.desktopnotifications.js.DesktopNotificationsPlugin} plugin The plugin which has registered this
 	 * settings widget.
 	 */
 	plugin : undefined,
@@ -19,7 +19,7 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ex
 	/**
 	 * Settings model instance which will be used to get current settings
 	 * @property
-	 * @type Zarafa.settings.SettingsModel
+	 * @type Grommunio.settings.SettingsModel
 	 */
 	model : undefined,
 
@@ -33,7 +33,7 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ex
 
 		Ext.applyIf(config, {
 			title : _('Desktop Notifications Settings'),
-			xtype : 'zarafa.settingsdesktopnotificationswidget',
+			xtype : 'grommunio.settingsdesktopnotificationswidget',
 			layout : {
 				// override from SettingsWidget
 				type : 'fit'
@@ -41,7 +41,7 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ex
 			items : this.createPanelItems()
 		});
 
-		Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget.superclass.constructor.call(this, config);
+		Grommunio.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -70,7 +70,7 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ex
 			}, {
 				xtype : 'checkbox',
 				boxLabel : _('Enable desktop notifications for new mail'),
-				name : 'zarafa/v1/main/notifier/info/newmail/value',
+				name : 'grommunio/v1/main/notifier/info/newmail/value',
 				handler : this.onChangeCheckbox,
 				scope : this,
 				hideLabel : true,
@@ -78,21 +78,21 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ex
 			}, {
 				xtype : 'checkbox',
 				boxLabel : _('Enable desktop notifications for reminders'),
-				name : 'zarafa/v1/main/notifier/info/reminder/value',
+				name : 'grommunio/v1/main/notifier/info/reminder/value',
 				handler : this.onChangeCheckbox,
 				scope : this,
 				hideLabel : true,
 				ref : '../reminderNotificationsCheck'
 			}, {
-				xtype: 'zarafa.compositefield',
-				plugins: [ 'zarafa.splitfieldlabeler' ],
+				xtype: 'grommunio.compositefield',
+				plugins: [ 'grommunio.splitfieldlabeler' ],
 				fieldLabel: _('{A} Auto-hide desktop notification after second(s) {B}'),
 				labelWidth: 300,
 				combineErrors: false,
 				items: [{
 					xtype : 'checkbox',
 					labelSplitter: '{A}',
-					name : 'zarafa/v1/plugins/desktopnotifications/autohide_enable',
+					name : 'grommunio/v1/plugins/desktopnotifications/autohide_enable',
 					ref : '../../autoHideBox',
 					boxLabel : '',
 					hideLabel : true,
@@ -103,10 +103,10 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ex
 						scope : this
 					}
 				}, {
-					xtype: 'zarafa.spinnerfield',
+					xtype: 'grommunio.spinnerfield',
 					labelSplitter: '{B}',
 					vtype: 'naturalInteger',
-					name : 'zarafa/v1/plugins/desktopnotifications/autohide_time',
+					name : 'grommunio/v1/plugins/desktopnotifications/autohide_time',
 					ref : '../../autoHideTimeSpinner',
 					incrementValue: 1,
 					defaultValue: 1,
@@ -119,12 +119,12 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ex
 						change: this.onFieldChange,
 						scope: this
 					},
-					plugins: ['zarafa.numberspinner']
+					plugins: ['grommunio.numberspinner']
 				}]
 			}, {
 				xtype: 'checkbox',
 				boxLabel: _('Disable sound'),
-				name: 'zarafa/v1/main/desktop_notification/disable_sound',
+				name: 'grommunio/v1/main/desktop_notification/disable_sound',
 				handler: this.onFieldChange,
 				scope: this,
 				hideLabel: true,
@@ -139,7 +139,7 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ex
 	 */
 	requestPermission : function()
 	{
-		Zarafa.plugins.desktopnotifications.js.DesktopNotification.authorize(function(perm) {
+		Grommunio.plugins.desktopnotifications.js.DesktopNotification.authorize(function(perm) {
 			if (perm === 'granted') {
 				// update ui
 				this.update(this.model);
@@ -176,14 +176,14 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ex
 	 * model. Called when opening the settings widget or when a new
 	 * folder is selected.
 	 *
-	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to display.
+	 * @param {Grommunio.settings.SettingsModel} settingsModel The settings to display.
 	 */
 	update : function(settingsModel)
 	{
 		this.model = settingsModel;
 
 		// enable/disable request permission button
-		var hasPermission = Zarafa.plugins.desktopnotifications.js.DesktopNotification.hasPermission();
+		var hasPermission = Grommunio.plugins.desktopnotifications.js.DesktopNotification.hasPermission();
 
 		this.requestPermissionBtn.setDisabled(hasPermission);
 
@@ -221,10 +221,10 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ex
 	},
 
 	/**
-	 * Called by the {@link Zarafa.settings.ui.SettingsCategory Category} when
-	 * it has been called with {@link zarafa.settings.ui.SettingsCategory#updateSettings}.
-	 * This is used to update the settings from the UI into the {@link Zarafa.settings.SettingsModel settings model}.
-	 * @param {Zarafa.settings.SettingsModel} settingsModel The settings to update
+	 * Called by the {@link Grommunio.settings.ui.SettingsCategory Category} when
+	 * it has been called with {@link grommunio.settings.ui.SettingsCategory#updateSettings}.
+	 * This is used to update the settings from the UI into the {@link Grommunio.settings.SettingsModel settings model}.
+	 * @param {Grommunio.settings.SettingsModel} settingsModel The settings to update
 	 */
 	updateSettings : function(settingsModel)
 	{
@@ -258,4 +258,4 @@ Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget = Ex
 	}
 });
 
-Ext.reg('zarafa.settingsdesktopnotificationswidget', Zarafa.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget);
+Ext.reg('grommunio.settingsdesktopnotificationswidget', Grommunio.plugins.desktopnotifications.js.settings.SettingsNotificationsWidget);

@@ -1,12 +1,12 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+Ext.namespace('Grommunio.plugins.files.ui');
 
 /**
- * @class Zarafa.plugins.files.ui.FilesRootFolderNode
- * @extends Zarafa.plugins.files.ui.FilesFolderNode
+ * @class Grommunio.plugins.files.ui.FilesRootFolderNode
+ * @extends Grommunio.plugins.files.ui.FilesFolderNode
  *
  * This will register itself as 'rootfolder' nodetype in the {@link Ext.tree.TreePanel#nodeTypes} object.
  */
-Zarafa.plugins.files.ui.FilesRootFolderNode = Ext.extend(Zarafa.plugins.files.ui.FilesFolderNode, {
+Grommunio.plugins.files.ui.FilesRootFolderNode = Ext.extend(Grommunio.plugins.files.ui.FilesFolderNode, {
 	/*
 	 * @constructor
 	 * @param {Object} config configuration object
@@ -15,13 +15,13 @@ Zarafa.plugins.files.ui.FilesRootFolderNode = Ext.extend(Zarafa.plugins.files.ui
 	{
 		config = config || {};
 
-		var containerCls = 'zarafa-tree-root-container';
-		var nodeCls = 'zarafa-tree-root-node';
+		var containerCls = 'grommunio-tree-root-container';
+		var nodeCls = 'grommunio-tree-root-node';
 
 		config.folder.isSubTreeFolder();
 		if (config.folder) {
-			containerCls += ' zarafa-tree-ipm-subtree-container';
-			nodeCls += ' zarafa-tree-ipm-subtree-node';
+			containerCls += ' grommunio-tree-ipm-subtree-container';
+			nodeCls += ' grommunio-tree-ipm-subtree-node';
 			config.id = config.folder.get('id');
 		}
 
@@ -33,8 +33,8 @@ Zarafa.plugins.files.ui.FilesRootFolderNode = Ext.extend(Zarafa.plugins.files.ui
 			draggable : false
 		});
 
-		Zarafa.plugins.files.ui.FilesRootFolderNode.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.FilesRootFolderNode.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.tree.TreePanel.nodeTypes.filesrootfolder = Zarafa.plugins.files.ui.FilesRootFolderNode;
+Ext.tree.TreePanel.nodeTypes.filesrootfolder = Grommunio.plugins.files.ui.FilesRootFolderNode;

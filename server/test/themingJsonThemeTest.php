@@ -94,7 +94,7 @@ if (!str_contains($css, '--theme-spinner-image: url(plugins/' . $theme . '/img/w
 // The dark mode logo rule must be answered, or darkmode.css keeps the stock logo.
 $theme = makeTheme(['logo-small' => 'img/logo.svg']);
 $css = Theming::getStyles($theme);
-if (!str_contains($css, 'body.dark-mode .zarafa-maintoolbar')) {
+if (!str_contains($css, 'body.dark-mode .grommunio-maintoolbar')) {
 	throw new RuntimeException('A theme logo is not applied in dark mode.');
 }
 if (substr_count($css, 'plugins/' . $theme . '/img/logo.svg') !== 2) {

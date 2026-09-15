@@ -1,12 +1,12 @@
-Ext.namespace('Zarafa.plugins.templatesnippets');
+Ext.namespace('Grommunio.plugins.templatesnippets');
 
 /**
- * @class Zarafa.plugins.templatesnippets.TemplateSnippetsResponseHandler
- * @extends Zarafa.core.data.AbstractResponseHandler
+ * @class Grommunio.plugins.templatesnippets.TemplateSnippetsResponseHandler
+ * @extends Grommunio.core.data.AbstractResponseHandler
  *
  * Response handler for system template CRUD operations (admin only).
  */
-Zarafa.plugins.templatesnippets.TemplateSnippetsResponseHandler = Ext.extend(Zarafa.core.data.AbstractResponseHandler, {
+Grommunio.plugins.templatesnippets.TemplateSnippetsResponseHandler = Ext.extend(Grommunio.core.data.AbstractResponseHandler, {
 
 	/**
 	 * @cfg {Function} successCallback Called on success with (response).

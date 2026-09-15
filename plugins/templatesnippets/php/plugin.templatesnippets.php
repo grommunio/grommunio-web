@@ -47,7 +47,7 @@ class Plugintemplatesnippets extends Plugin {
 		];
 
 		$data['settingsObj']->addSysAdminDefaults([
-			'zarafa' => [
+			'grommunio' => [
 				'v1' => [
 					'plugins' => [
 						'templatesnippets' => $defaults,

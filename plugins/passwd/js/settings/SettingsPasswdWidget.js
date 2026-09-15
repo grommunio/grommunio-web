@@ -1,14 +1,14 @@
-Ext.namespace('Zarafa.plugins.passwd.settings');
+Ext.namespace('Grommunio.plugins.passwd.settings');
 
 /**
- * @class Zarafa.plugins.passwd.settings.SettingsPasswdWidget
- * @extends Zarafa.settings.ui.SettingsWidget
- * @xtype zarafa.settingspasswdwidget
+ * @class Grommunio.plugins.passwd.settings.SettingsPasswdWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
+ * @xtype grommunio.settingspasswdwidget
  *
- * The {@link Zarafa.settings.ui.SettingsWidget widget} for changing password
- * in the {@link Zarafa.plugins.passwd.settings.SettingsPasswdCategory password category}.
+ * The {@link Grommunio.settings.ui.SettingsWidget widget} for changing password
+ * in the {@link Grommunio.plugins.passwd.settings.SettingsPasswdCategory password category}.
  */
-Zarafa.plugins.passwd.settings.SettingsPasswdWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
+Grommunio.plugins.passwd.settings.SettingsPasswdWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
 
 	/**
 	 * @constructor
@@ -20,10 +20,10 @@ Zarafa.plugins.passwd.settings.SettingsPasswdWidget = Ext.extend(Zarafa.settings
 
 		Ext.applyIf(config, {
 			title : _('Change Password'),
-			xtype : 'zarafa.settingspasswdwidget',
+			xtype : 'grommunio.settingspasswdwidget',
 			layout: 'form',
 			items : [{
-				xtype : 'zarafa.passwdpanel',
+				xtype : 'grommunio.passwdpanel',
 				ref : 'passwdPanel',
 				listeners : {
 					userchange : this.setModelDirty,
@@ -32,16 +32,16 @@ Zarafa.plugins.passwd.settings.SettingsPasswdWidget = Ext.extend(Zarafa.settings
 			}]
 		});
 
-		Zarafa.plugins.passwd.settings.SettingsPasswdWidget.superclass.constructor.call(this, config);
+		Grommunio.plugins.passwd.settings.SettingsPasswdWidget.superclass.constructor.call(this, config);
 	},
 
 	/**
-	 * initialize events for the {@link Zarafa.plugins.passwd.settings.SettingsPasswdWidget SettingsPasswdWidget}.
+	 * initialize events for the {@link Grommunio.plugins.passwd.settings.SettingsPasswdWidget SettingsPasswdWidget}.
 	 * @private
 	 */
 	initEvents : function()
 	{
-		Zarafa.plugins.passwd.settings.SettingsPasswdWidget.superclass.initEvents.call(this);
+		Grommunio.plugins.passwd.settings.SettingsPasswdWidget.superclass.initEvents.call(this);
 
 		// listen to savesettings and discardsettings to save/discard delegation data
 		var contextModel = this.settingsContext.getModel();
@@ -52,7 +52,7 @@ Zarafa.plugins.passwd.settings.SettingsPasswdWidget = Ext.extend(Zarafa.settings
 	},
 
 	/**
-	 * Event handler will be called when {@link Zarafa.settings.SettingsContextModel#beforesavesettings} event is fired.
+	 * Event handler will be called when {@link Grommunio.settings.SettingsContextModel#beforesavesettings} event is fired.
 	 * This function will validate the formdata.
 	 *
 	 * @private
@@ -75,7 +75,7 @@ Zarafa.plugins.passwd.settings.SettingsPasswdWidget = Ext.extend(Zarafa.settings
 		} else if(!this.passwdPanel.getForm().isValid()) {
 			container.getNotifier().notify('warning.passwd', _('Error'), _('One or more fields does contain errors.'));
 			return false;
-		} else if (container.getSettingsModel().get("zarafa/v1/plugins/passwd/enable_strict_check")) {
+		} else if (container.getSettingsModel().get("grommunio/v1/plugins/passwd/enable_strict_check")) {
 			// do a quick score check:
 			if(this.passwdPanel.new_password.getScore() < 70) {
 				container.getNotifier().notify('warning.passwd', _('Error'), _('Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters.'));
@@ -87,8 +87,8 @@ Zarafa.plugins.passwd.settings.SettingsPasswdWidget = Ext.extend(Zarafa.settings
 	},
 
 	/**
-	 * Event handler will be called when {@link Zarafa.settings.SettingsContextModel#savesettings} event is fired.
-	 * This will relay this event to {@link Zarafa.plugins.passwd.settings.PasswdPanel PasswdPanel} so it can
+	 * Event handler will be called when {@link Grommunio.settings.SettingsContextModel#savesettings} event is fired.
+	 * This will relay this event to {@link Grommunio.plugins.passwd.settings.PasswdPanel PasswdPanel} so it can
 	 * save data.
 	 * @private
 	 */
@@ -101,7 +101,7 @@ Zarafa.plugins.passwd.settings.SettingsPasswdWidget = Ext.extend(Zarafa.settings
 			var data = this.passwdPanel.getForm().getFieldValues();
 
 			// send request
-			container.getRequest().singleRequest('passwdmodule', 'save', data, new Zarafa.plugins.passwd.data.PasswdResponseHandler({
+			container.getRequest().singleRequest('passwdmodule', 'save', data, new Grommunio.plugins.passwd.data.PasswdResponseHandler({
 				callbackFn: function (success, response) {
 					this.ownerCt.hideSavingMask(success);
 					if(success) {
@@ -114,8 +114,8 @@ Zarafa.plugins.passwd.settings.SettingsPasswdWidget = Ext.extend(Zarafa.settings
 	},
 
 	/**
-	 * Event handler will be called when {@link Zarafa.settings.SettingsContextModel#discardsettings} event is fired.
-	 * This will relay this event to {@link Zarafa.plugins.passwd.settings.PasswdPanel PasswdPanel} so it can
+	 * Event handler will be called when {@link Grommunio.settings.SettingsContextModel#discardsettings} event is fired.
+	 * This will relay this event to {@link Grommunio.plugins.passwd.settings.PasswdPanel PasswdPanel} so it can
 	 * discard current changes.
 	 * @private
 	 */
@@ -125,7 +125,7 @@ Zarafa.plugins.passwd.settings.SettingsPasswdWidget = Ext.extend(Zarafa.settings
 	},
 
 	/**
-	 * Function will be called when any field in {@link Zarafa.plugins.passwd.settings.PasswdPanel}
+	 * Function will be called when any field in {@link Grommunio.plugins.passwd.settings.PasswdPanel}
 	 * is changed and we need to mark settings model as dirty.
 	 * @private
 	 */
@@ -139,4 +139,4 @@ Zarafa.plugins.passwd.settings.SettingsPasswdWidget = Ext.extend(Zarafa.settings
 	}
 });
 
-Ext.reg('zarafa.settingspasswdwidget', Zarafa.plugins.passwd.settings.SettingsPasswdWidget);
+Ext.reg('grommunio.settingspasswdwidget', Grommunio.plugins.passwd.settings.SettingsPasswdWidget);

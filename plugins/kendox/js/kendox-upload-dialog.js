@@ -1,13 +1,13 @@
-Ext.namespace("Zarafa.plugins.kendox.data");
+Ext.namespace("Grommunio.plugins.kendox.data");
 
 /**
- * @class Zarafa.plugins.kendox.data.AttachmentInfoResponseHandler
- * @extends Zarafa.core.data.AbstractResponseHandler
+ * @class Grommunio.plugins.kendox.data.AttachmentInfoResponseHandler
+ * @extends Grommunio.core.data.AbstractResponseHandler
  *
  * Attachment info specific response handler.
  */
-Zarafa.plugins.kendox.data.AttachmentInfoResponseHandler = Ext.extend(
-	Zarafa.core.data.AbstractResponseHandler,
+Grommunio.plugins.kendox.data.AttachmentInfoResponseHandler = Ext.extend(
+	Grommunio.core.data.AbstractResponseHandler,
 	{
 		/**
 		 * @cfg {Function} successCallback The function which
@@ -31,13 +31,13 @@ Zarafa.plugins.kendox.data.AttachmentInfoResponseHandler = Ext.extend(
 );
 
 /**
- * @class Zarafa.plugins.kendox.data.UploadResponseHandler
- * @extends Zarafa.core.data.AbstractResponseHandler
+ * @class Grommunio.plugins.kendox.data.UploadResponseHandler
+ * @extends Grommunio.core.data.AbstractResponseHandler
  *
  * Upload specific response handler.
  */
-Zarafa.plugins.kendox.data.UploadResponseHandler = Ext.extend(
-	Zarafa.core.data.AbstractResponseHandler,
+Grommunio.plugins.kendox.data.UploadResponseHandler = Ext.extend(
+	Grommunio.core.data.AbstractResponseHandler,
 	{
 		/**
 		 * @cfg {Function} successCallback The function which
@@ -62,23 +62,23 @@ Zarafa.plugins.kendox.data.UploadResponseHandler = Ext.extend(
 
 Ext.reg(
 	"kendox.attachmentinforesponsehandler",
-	Zarafa.plugins.kendox.data.AttachmentInfoResponseHandler,
+	Grommunio.plugins.kendox.data.AttachmentInfoResponseHandler,
 );
 Ext.reg(
 	"kendox.uploadresponsehandler",
-	Zarafa.plugins.kendox.data.UploadResponseHandler,
+	Grommunio.plugins.kendox.data.UploadResponseHandler,
 );
 
-Ext.namespace("Zarafa.plugins.kendox");
+Ext.namespace("Grommunio.plugins.kendox");
 
 /**
- * @class Zarafa.plugins.kendox.UploadDialog
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.kendox.UploadDialog
+ * @extends Grommunio.core.ui.ContentPanel
  *
  * Kendox InfoShare upload dialog
  * @xtype simpledialog
  */
-Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.kendox.UploadDialog = Ext.extend(Grommunio.core.ui.ContentPanel, {
 	/**
 	 * Loading mask
 	 */
@@ -271,7 +271,7 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 			},
 		});
 		//Call superclass constructor
-		Zarafa.plugins.kendox.UploadDialog.superclass.constructor.call(
+		Grommunio.plugins.kendox.UploadDialog.superclass.constructor.call(
 			this,
 			config,
 		);
@@ -374,7 +374,7 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 			"kendoxmodule",
 			"attachmentinfo",
 			payload,
-			new Zarafa.plugins.kendox.data.AttachmentInfoResponseHandler({
+			new Grommunio.plugins.kendox.data.AttachmentInfoResponseHandler({
 				successCallback: this.onAttachmentInfoCallback.createDelegate(this),
 				failureCallback: this.onErrorCallback.createDelegate(this),
 			}),
@@ -469,7 +469,7 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 			"kendoxmodule",
 			"upload",
 			payload,
-			new Zarafa.plugins.kendox.data.UploadResponseHandler({
+			new Grommunio.plugins.kendox.data.UploadResponseHandler({
 				successCallback: this.onUploadCallback.createDelegate(this),
 				failureCallback: this.onErrorCallback.createDelegate(this),
 			}),
@@ -581,7 +581,7 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	getEnv: function () {
 		var env = container
 			.getSettingsModel()
-			.get("zarafa/v1/plugins/kendox/environment");
+			.get("grommunio/v1/plugins/kendox/environment");
 		return env;
 	},
 
@@ -595,11 +595,11 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 		var environment = this.getEnv();
 		var value = container
 			.getSettingsModel()
-			.get("zarafa/v1/plugins/kendox/" + settingName);
+			.get("grommunio/v1/plugins/kendox/" + settingName);
 		if (environment !== "prod") {
 			value = container
 				.getSettingsModel()
-				.get("zarafa/v1/plugins/kendox/" + settingName + "_" + environment);
+				.get("grommunio/v1/plugins/kendox/" + settingName + "_" + environment);
 		}
 		return value;
 	},
@@ -613,7 +613,7 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 	getSettingValue: function (settingName, defaultOnUndefined) {
 		var value = container
 			.getSettingsModel()
-			.get("zarafa/v1/plugins/kendox/" + settingName);
+			.get("grommunio/v1/plugins/kendox/" + settingName);
 		if (value === undefined) {
 			value = defaultOnUndefined;
 		}
@@ -622,4 +622,4 @@ Zarafa.plugins.kendox.UploadDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
 });
 
 // Register the dialog xtype
-Ext.reg("zarafa.kendoxuploaddialog", Zarafa.plugins.kendox.UploadDialog);
+Ext.reg("grommunio.kendoxuploaddialog", Grommunio.plugins.kendox.UploadDialog);

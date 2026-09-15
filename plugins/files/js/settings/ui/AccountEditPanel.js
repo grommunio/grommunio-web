@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.files.settings.ui');
+Ext.namespace('Grommunio.plugins.files.settings.ui');
 
 /**
- * @class Zarafa.plugins.files.settings.ui.AccountEditPanel
+ * @class Grommunio.plugins.files.settings.ui.AccountEditPanel
  * @extends Ext.Panel
  * @xtype filesplugin.accounteditpanel
  *
- * Will generate UI for {@link Zarafa.plugins.files.settings.ui.AccountEditContentPanel AccountEditContentPanel}.
+ * Will generate UI for {@link Grommunio.plugins.files.settings.ui.AccountEditContentPanel AccountEditContentPanel}.
  */
-Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @cfg {Object} The current loaded account record.
 	 */
@@ -24,7 +24,7 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 			this.currentItem = config.item;
 		}
 
-		this.backendStore = new Zarafa.plugins.files.data.BackendStore();
+		this.backendStore = new Grommunio.plugins.files.data.BackendStore();
 		this.currentBackend = this.normalizeBackendName(
 			this.currentItem ? this.currentItem.get('backend') : null,
 		);
@@ -39,7 +39,7 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 				{
 					text: _('Save'),
 					ref: '../saveBtn',
-					cls: 'zarafa-action',
+					cls: 'grommunio-action',
 					handler: this.doSave,
 					scope: this,
 				},
@@ -51,7 +51,7 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 			],
 		});
 
-		Zarafa.plugins.files.settings.ui.AccountEditPanel.superclass.constructor.call(
+		Grommunio.plugins.files.settings.ui.AccountEditPanel.superclass.constructor.call(
 			this,
 			config,
 		);
@@ -65,7 +65,7 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * If there is no existing record, this function will create a new @see Zarafa.plugins.files.data.AccountRecord
+	 * If there is no existing record, this function will create a new @see Grommunio.plugins.files.data.AccountRecord
 	 * and fill it with the form values.
 	 * Afterwards the record will be saved to the server-backend.
 	 */
@@ -100,7 +100,7 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 				this.currentItem = new store.recordType({
 					id: -1,
 					name: accountName.getValue(),
-					status: Zarafa.plugins.files.data.AccountRecordStatus.NEW,
+					status: Grommunio.plugins.files.data.AccountRecordStatus.NEW,
 					backend: accountBackend,
 					backend_config: backendConfig,
 				});
@@ -112,7 +112,7 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 				this.currentItem.set('name', accountName.getValue());
 				this.currentItem.set(
 					'status',
-					Zarafa.plugins.files.data.AccountRecordStatus.NEW,
+					Grommunio.plugins.files.data.AccountRecordStatus.NEW,
 				);
 				this.currentItem.set('backend', accountBackend);
 				this.currentItem.set('backend_config', backendConfig);
@@ -127,7 +127,7 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Function will create panel items for {@link Zarafa.plugins.files.settings.ui.AccountEditPanel AccountEditPanel}.
+	 * Function will create panel items for {@link Grommunio.plugins.files.settings.ui.AccountEditPanel AccountEditPanel}.
 	 *
 	 * @param {Object} config
 	 * @return {Array} array of items that should be added to panel.
@@ -344,5 +344,5 @@ Zarafa.plugins.files.settings.ui.AccountEditPanel = Ext.extend(Ext.Panel, {
 
 Ext.reg(
 	'filesplugin.accounteditpanel',
-	Zarafa.plugins.files.settings.ui.AccountEditPanel,
+	Grommunio.plugins.files.settings.ui.AccountEditPanel,
 );

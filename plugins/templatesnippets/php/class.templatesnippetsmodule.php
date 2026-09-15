@@ -18,7 +18,7 @@ class TemplateSnippetsModule extends Module {
 				try {
 					if (!$this->isAdmin()) {
 						$this->sendFeedback(false, [
-							'type' => ERROR_ZARAFA,
+							'type' => ERROR_GROMMUNIO,
 							'info' => [
 								'display_message' => _('You do not have permission to manage system templates.'),
 							],
@@ -96,7 +96,7 @@ class TemplateSnippetsModule extends Module {
 	public function saveTemplate($data) {
 		if (empty($data['name'])) {
 			$this->sendFeedback(false, [
-				'type' => ERROR_ZARAFA,
+				'type' => ERROR_GROMMUNIO,
 				'info' => ['display_message' => _('Template name is required.')],
 			]);
 
@@ -106,7 +106,7 @@ class TemplateSnippetsModule extends Module {
 		$dir = $this->getTemplateDir();
 		if ($dir === false) {
 			$this->sendFeedback(false, [
-				'type' => ERROR_ZARAFA,
+				'type' => ERROR_GROMMUNIO,
 				'info' => ['display_message' => _('Cannot create template directory.')],
 			]);
 
@@ -127,7 +127,7 @@ class TemplateSnippetsModule extends Module {
 
 		if ($result === false) {
 			$this->sendFeedback(false, [
-				'type' => ERROR_ZARAFA,
+				'type' => ERROR_GROMMUNIO,
 				'info' => ['display_message' => _('Failed to write template file.')],
 			]);
 
@@ -152,7 +152,7 @@ class TemplateSnippetsModule extends Module {
 	public function deleteTemplate($data) {
 		if (empty($data['key'])) {
 			$this->sendFeedback(false, [
-				'type' => ERROR_ZARAFA,
+				'type' => ERROR_GROMMUNIO,
 				'info' => ['display_message' => _('Template key is required.')],
 			]);
 
@@ -162,7 +162,7 @@ class TemplateSnippetsModule extends Module {
 		$dir = $this->getTemplateDir();
 		if ($dir === false) {
 			$this->sendFeedback(false, [
-				'type' => ERROR_ZARAFA,
+				'type' => ERROR_GROMMUNIO,
 				'info' => ['display_message' => _('Template directory not found.')],
 			]);
 
@@ -174,7 +174,7 @@ class TemplateSnippetsModule extends Module {
 
 		if (!is_file($file)) {
 			$this->sendFeedback(false, [
-				'type' => ERROR_ZARAFA,
+				'type' => ERROR_GROMMUNIO,
 				'info' => ['display_message' => _('Template file not found.')],
 			]);
 
@@ -183,7 +183,7 @@ class TemplateSnippetsModule extends Module {
 
 		if (!@unlink($file)) {
 			$this->sendFeedback(false, [
-				'type' => ERROR_ZARAFA,
+				'type' => ERROR_GROMMUNIO,
 				'info' => ['display_message' => _('Failed to delete template file.')],
 			]);
 

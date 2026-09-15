@@ -1,15 +1,15 @@
-Ext.namespace('Zarafa.plugins.files.backend.Seafile');
+Ext.namespace('Grommunio.plugins.files.backend.Seafile');
 
 /**
  * Entry point used to register the Seafile backend with the Files plugin.
  * Mirrors the approach taken by the other bundled backends so the plugin
  * manager can construct all required UI components on demand.
  *
- * @class Zarafa.plugins.files.backend.Seafile.SeafileBackend
- * @extends Zarafa.core.Plugin
+ * @class Grommunio.plugins.files.backend.Seafile.SeafileBackend
+ * @extends Grommunio.core.Plugin
  */
-Zarafa.plugins.files.backend.Seafile.SeafileBackend = Ext.extend(
-	Zarafa.core.Plugin,
+Grommunio.plugins.files.backend.Seafile.SeafileBackend = Ext.extend(
+	Grommunio.core.Plugin,
 	{
 		/**
 		 * Initialise the plugin with sane defaults and register for upcoming hooks.
@@ -18,7 +18,7 @@ Zarafa.plugins.files.backend.Seafile.SeafileBackend = Ext.extend(
 		 */
 		constructor: function (config) {
 			config = config || {};
-			Zarafa.plugins.files.backend.Seafile.SeafileBackend.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Seafile.SeafileBackend.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -28,7 +28,7 @@ Zarafa.plugins.files.backend.Seafile.SeafileBackend = Ext.extend(
 		 * Register all Ext insertion points and shared components consumed by this backend.
 		 */
 		initPlugin: function () {
-			Zarafa.plugins.files.backend.Seafile.SeafileBackend.superclass.initPlugin.apply(
+			Grommunio.plugins.files.backend.Seafile.SeafileBackend.superclass.initPlugin.apply(
 				this,
 				arguments,
 			);
@@ -37,7 +37,7 @@ Zarafa.plugins.files.backend.Seafile.SeafileBackend = Ext.extend(
 				this.createShareDialogInsertionPoint,
 				this,
 			);
-			Zarafa.core.data.SharedComponentType.addProperty(
+			Grommunio.core.data.SharedComponentType.addProperty(
 				'filesplugin.seafile.useredit',
 			);
 		},
@@ -62,7 +62,7 @@ Zarafa.plugins.files.backend.Seafile.SeafileBackend = Ext.extend(
 		bidSharedComponent: function (componentType) {
 			var i = -1;
 			switch (componentType) {
-				case Zarafa.core.data.SharedComponentType[
+				case Grommunio.core.data.SharedComponentType[
 					'filesplugin.seafile.useredit'
 				]:
 					i = 1;
@@ -79,24 +79,24 @@ Zarafa.plugins.files.backend.Seafile.SeafileBackend = Ext.extend(
 		getSharedComponent: function (componentType) {
 			var i;
 			switch (componentType) {
-				case Zarafa.core.data.SharedComponentType[
+				case Grommunio.core.data.SharedComponentType[
 					'filesplugin.seafile.useredit'
 				]:
 					i =
-						Zarafa.plugins.files.backend.Seafile.ui
+						Grommunio.plugins.files.backend.Seafile.ui
 							.FilesShareUserEditContentPanel;
 			}
 			return i;
 		},
 	},
 );
-Zarafa.onReady(function () {
+Grommunio.onReady(function () {
 	container.registerPlugin(
-		new Zarafa.core.PluginMetaData({
+		new Grommunio.core.PluginMetaData({
 			name: 'filesbackendSeafile',
 			displayName: _('Files: Seafile Backend'),
 			allowUserDisable: false,
-			pluginConstructor: Zarafa.plugins.files.backend.Seafile.SeafileBackend,
+			pluginConstructor: Grommunio.plugins.files.backend.Seafile.SeafileBackend,
 		}),
 	);
 });

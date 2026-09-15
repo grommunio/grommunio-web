@@ -1,7 +1,7 @@
-Ext.namespace('Zarafa.plugins.pgp');
+Ext.namespace('Grommunio.plugins.pgp');
 
 /** Presentation, mailbox persistence, and access to the browser-only crypto service. */
-Zarafa.plugins.pgp.PgpUtils = {
+Grommunio.plugins.pgp.PgpUtils = {
 	encode: function(value)
 	{
 		return Ext.util.Format.htmlEncode(String(value === undefined || value === null ? '' : value));
@@ -20,7 +20,7 @@ Zarafa.plugins.pgp.PgpUtils = {
 	},
 	crypto: function()
 	{
-		var namespace = Zarafa.plugins.pgp.crypto;
+		var namespace = Grommunio.plugins.pgp.crypto;
 		if (!namespace.browserCrypto) { namespace.browserCrypto = new namespace.BrowserCrypto(); }
 		return namespace.browserCrypto;
 	},
@@ -29,12 +29,12 @@ Zarafa.plugins.pgp.PgpUtils = {
 		return new Promise(function(resolve, reject) {
 			container.getRequest().singleRequest('pluginpgpmodule', 'request',
 				Ext.apply({operation: operation}, payload || {}),
-				new Zarafa.plugins.pgp.data.PgpResponseHandler({callback: function(response) {
+				new Grommunio.plugins.pgp.data.PgpResponseHandler({callback: function(response) {
 					if (response.success !== true) { reject(new Error(response.message || _('The OpenPGP operation failed.'))); }
 					else {
-						if (operation === 'list' && response.unlock_ttl) { Zarafa.plugins.pgp.PgpUtils.unlockTtl = Number(response.unlock_ttl); }
-						if (operation === 'list' && response.max_envelope_bytes) { Zarafa.plugins.pgp.PgpUtils.maxEnvelopeBytes = Number(response.max_envelope_bytes); }
-						var transport = Zarafa.plugins.pgp.PgpTransport;
+						if (operation === 'list' && response.unlock_ttl) { Grommunio.plugins.pgp.PgpUtils.unlockTtl = Number(response.unlock_ttl); }
+						if (operation === 'list' && response.max_envelope_bytes) { Grommunio.plugins.pgp.PgpUtils.maxEnvelopeBytes = Number(response.max_envelope_bytes); }
+						var transport = Grommunio.plugins.pgp.PgpTransport;
 						if (['put', 'delete', 'trust', 'keyservers'].indexOf(operation) !== -1 && transport && transport.keysChanged) {
 							transport.keysChanged();
 						}
@@ -84,7 +84,7 @@ Zarafa.plugins.pgp.PgpUtils = {
 		context.defaultActiveTab = 'pgp';
 		container.switchContext(context);
 		context.setView('pgp');
-		container.getTabPanel().setActiveTab('zarafa-mainpanel-content');
+		container.getTabPanel().setActiveTab('grommunio-mainpanel-content');
 	},
 	isSmime: function(record)
 	{

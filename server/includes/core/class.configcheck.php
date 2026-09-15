@@ -350,7 +350,7 @@ class ConfigCheck {
 					$this->error('<strong>LOAD_RELEASE configured, but no release files found</strong>', $help_msg);
 					$result = false;
 				}
-				elseif (is_dir(BASE_PATH . '/client/zarafa')) {
+				elseif (is_dir(BASE_PATH . '/client/grommunio')) {
 					$this->error('<strong>LOAD_RELEASE configured, but source files were found</strong>', $help_msg);
 					$result = false;
 				}
@@ -361,14 +361,14 @@ class ConfigCheck {
 					$this->error('<strong>LOAD_DEBUG configured, but no debug files found</strong>', $help_msg);
 					$result = false;
 				}
-				elseif (is_dir(BASE_PATH . '/client/zarafa')) {
+				elseif (is_dir(BASE_PATH . '/client/grommunio')) {
 					$this->error('<strong>LOAD_DEBUG configured, but source files were found</strong>', $help_msg);
 					$result = false;
 				}
 				break;
 
 			case LOAD_SOURCE:
-				if (!is_dir(BASE_PATH . '/client/zarafa')) {
+				if (!is_dir(BASE_PATH . '/client/grommunio')) {
 					$this->error('<strong>LOAD_SOURCE configured, but no source files found</strong>', $help_msg);
 					$result = false;
 				}

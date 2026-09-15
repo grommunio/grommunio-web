@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.files.data');
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.AccountStore
- * @extends Zarafa.core.data.ListModuleStore
+ * @class Grommunio.plugins.files.data.AccountStore
+ * @extends Grommunio.core.data.ListModuleStore
  * @xtype filesplugin.accountstore
  *
  * This store will hold all Files accounts that a user owns.
  */
-Zarafa.plugins.files.data.AccountStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
+Grommunio.plugins.files.data.AccountStore = Ext.extend(Grommunio.core.data.ListModuleStore, {
 
 	/**
 	 * @constructor
@@ -24,20 +24,20 @@ Zarafa.plugins.files.data.AccountStore = Ext.extend(Zarafa.core.data.ListModuleS
 			}
 		});
 
-		Zarafa.plugins.files.data.AccountStore.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.data.AccountStore.superclass.constructor.call(this, config);
 
 		this.addEvents(
 			/**
 			 * @event reorder
 			 * Fires when order of a configured account is changed in
-			 * {@link Zarafa.plugins.files.settings.ui.AccountGrid AccountGrid}
+			 * {@link Grommunio.plugins.files.settings.ui.AccountGrid AccountGrid}
 			 *
-			 * @param {Zarafa.plugins.files.data.AccountRecord} firstAccount which reorder.
-			 * @param {Zarafa.plugins.files.data.AccountRecord} secondAccount which reorder.
+			 * @param {Grommunio.plugins.files.data.AccountRecord} firstAccount which reorder.
+			 * @param {Grommunio.plugins.files.data.AccountRecord} secondAccount which reorder.
 			 */
 			'reorder'
 		);
 	}
 });
 
-Ext.reg('filesplugin.accountstore', Zarafa.plugins.files.data.AccountStore);
+Ext.reg('filesplugin.accountstore', Grommunio.plugins.files.data.AccountStore);

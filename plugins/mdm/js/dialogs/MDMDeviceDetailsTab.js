@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.mdm.dialogs');
+Ext.namespace('Grommunio.plugins.mdm.dialogs');
 
 /**
- * @class Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab
+ * @class Grommunio.plugins.mdm.dialogs.MDMDeviceDetailsTab
  * @extends Ext.form.FormPanel
  * @xtype mdmplugin.mdmdevicedetailstab
  *
- * General tab in the {@link Zarafa.plugins.mdm.dialogs.MDMDeviceContentPanel}
+ * General tab in the {@link Grommunio.plugins.mdm.dialogs.MDMDeviceContentPanel}
  */
-Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, {
+Grommunio.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, {
 
 	/**
 	 * @constructor
@@ -27,14 +27,14 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 				layout: 'form',
 				labelWidth: 150
 			},
-			plugins : ['zarafa.recordcomponentupdaterplugin'],
+			plugins : ['grommunio.recordcomponentupdaterplugin'],
 			items: [
 				this.createDeviceInfoPanel(),
 				this.createVersionInfoPanel()
 			]
 		});
 
-		Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab.superclass.constructor.call(this, config);
+		Grommunio.plugins.mdm.dialogs.MDMDeviceDetailsTab.superclass.constructor.call(this, config);
 	},
 	/**
 	 * Function which is use to create device information panel
@@ -94,7 +94,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 				name: 'asversion'
 			}, {
 				fieldLabel: _('grommunio-sync Version'),
-				value: container.getSettingsModel().get('zarafa/v1/plugins/mdm/zpush-server-version', true)
+				value: container.getSettingsModel().get('grommunio/v1/plugins/mdm/zpush-server-version', true)
 			}, {
 				fieldLabel: _('Policy name'),
 				name: 'policyname'
@@ -105,7 +105,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 	/**
 	 * Updates the panel by loading data from the record.
 	 *
-	 * @param {Zarafa.core.data.IPMRecord} record The record update the panel with.
+	 * @param {Grommunio.core.data.IPMRecord} record The record update the panel with.
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
 	update : function(record, contentReset)
@@ -114,4 +114,4 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab = Ext.extend(Ext.form.FormPanel, 
 	}
 });
 
-Ext.reg('mdmplugin.mdmdevicedetailstab', Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsTab);
+Ext.reg('mdmplugin.mdmdevicedetailstab', Grommunio.plugins.mdm.dialogs.MDMDeviceDetailsTab);

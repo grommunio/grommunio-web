@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.files.ui.dialogs');
+Ext.namespace('Grommunio.plugins.files.ui.dialogs');
 
 /**
- * @class Zarafa.plugins.files.ui.dialogs.FilesRecordContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.files.ui.dialogs.FilesRecordContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  * @xtype filesplugin.filesrecordcontentpanel
  *
  * This content panel contains the record information panel.
  */
-Zarafa.plugins.files.ui.dialogs.FilesRecordContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.files.ui.dialogs.FilesRecordContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
 
 	/**
 	 * @constructor
@@ -25,11 +25,11 @@ Zarafa.plugins.files.ui.dialogs.FilesRecordContentPanel = Ext.extend(Zarafa.core
 			items : [this.createPanel(config)]
 		});
 
-		Zarafa.plugins.files.ui.dialogs.FilesRecordContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.dialogs.FilesRecordContentPanel.superclass.constructor.call(this, config);
 	},
 
 	/**
-	 * This creates the {@link Zarafa.plugins.files.ui.FilesRecordDetailsPanel}
+	 * This creates the {@link Grommunio.plugins.files.ui.FilesRecordDetailsPanel}
 	 * @param config
 	 * @returns {object}
 	 */
@@ -42,4 +42,4 @@ Zarafa.plugins.files.ui.dialogs.FilesRecordContentPanel = Ext.extend(Zarafa.core
 	}
 });
 
-Ext.reg('filesplugin.filesrecordcontentpanel', Zarafa.plugins.files.ui.dialogs.FilesRecordContentPanel);
+Ext.reg('filesplugin.filesrecordcontentpanel', Grommunio.plugins.files.ui.dialogs.FilesRecordContentPanel);

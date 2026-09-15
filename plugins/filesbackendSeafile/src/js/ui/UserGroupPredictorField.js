@@ -1,9 +1,9 @@
-Ext.namespace('Zarafa.plugins.files.backend.Seafile.ui');
+Ext.namespace('Grommunio.plugins.files.backend.Seafile.ui');
 
 /**
  * Auto-complete combo box that offers user and group recipients from Seafile.
  */
-Zarafa.plugins.files.backend.Seafile.ui.UserGroupPredictorField = Ext.extend(
+Grommunio.plugins.files.backend.Seafile.ui.UserGroupPredictorField = Ext.extend(
 	Ext.form.ComboBox,
 	{
 		constructor: function (e) {
@@ -39,8 +39,8 @@ Zarafa.plugins.files.backend.Seafile.ui.UserGroupPredictorField = Ext.extend(
 					'<tpl for=".">',
 					'<div class="ugpredic_search_item">',
 					'<h3>',
-					'<tpl if="object_type == Zarafa.plugins.files.backend.Seafile.data.RecipientTypes.USER"><span><div class="shareicon_16_user">&nbsp;</div></span></tpl>',
-					'<tpl if="object_type == Zarafa.plugins.files.backend.Seafile.data.RecipientTypes.GROUP"><span><div class="shareicon_16_group">&nbsp;</div></span></tpl>',
+					'<tpl if="object_type == Grommunio.plugins.files.backend.Seafile.data.RecipientTypes.USER"><span><div class="shareicon_16_user">&nbsp;</div></span></tpl>',
+					'<tpl if="object_type == Grommunio.plugins.files.backend.Seafile.data.RecipientTypes.GROUP"><span><div class="shareicon_16_group">&nbsp;</div></span></tpl>',
 					'{display_name:htmlEncode}',
 					'</h3>',
 					'</div>',
@@ -53,7 +53,7 @@ Zarafa.plugins.files.backend.Seafile.ui.UserGroupPredictorField = Ext.extend(
 					scope: this,
 				},
 			});
-			Zarafa.plugins.files.backend.Seafile.ui.UserGroupPredictorField.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Seafile.ui.UserGroupPredictorField.superclass.constructor.call(
 				this,
 				e,
 			);
@@ -62,7 +62,7 @@ Zarafa.plugins.files.backend.Seafile.ui.UserGroupPredictorField = Ext.extend(
 			this.setRawValue(e.get('display_name'));
 			this.ownerCt.type.setValue(
 				e.get('object_type') ==
-					Zarafa.plugins.files.backend.Seafile.data.RecipientTypes.USER
+					Grommunio.plugins.files.backend.Seafile.data.RecipientTypes.USER
 					? 'user'
 					: 'group',
 			);
@@ -78,5 +78,5 @@ Zarafa.plugins.files.backend.Seafile.ui.UserGroupPredictorField = Ext.extend(
 );
 Ext.reg(
 	'filesplugin.seafile.usergrouppredictorfield',
-	Zarafa.plugins.files.backend.Seafile.ui.UserGroupPredictorField,
+	Grommunio.plugins.files.backend.Seafile.ui.UserGroupPredictorField,
 );

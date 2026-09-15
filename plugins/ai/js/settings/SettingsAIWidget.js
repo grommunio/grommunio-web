@@ -1,9 +1,9 @@
-Ext.namespace('Zarafa.plugins.ai.settings');
+Ext.namespace('Grommunio.plugins.ai.settings');
 
 /**
- * @class Zarafa.plugins.ai.settings.SettingsAIWidget
- * @extends Zarafa.settings.ui.SettingsWidget
- * @xtype zarafa.settingsaiwidget
+ * @class Grommunio.plugins.ai.settings.SettingsAIWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
+ * @xtype grommunio.settingsaiwidget
  *
  * User-facing settings for the AI Assistant. The provider, model and API key
  * are configured centrally by the administrator and are NOT editable here; this
@@ -11,10 +11,10 @@ Ext.namespace('Zarafa.plugins.ai.settings');
  * preferences: language, tone, summary length, streaming, and which enabled
  * features and smart actions to use.
  */
-Zarafa.plugins.ai.settings.SettingsAIWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
+Grommunio.plugins.ai.settings.SettingsAIWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
 
 	/**
-	 * @property {Zarafa.settings.SettingsModel} the model being edited.
+	 * @property {Grommunio.settings.SettingsModel} the model being edited.
 	 */
 	model: undefined,
 
@@ -26,7 +26,7 @@ Zarafa.plugins.ai.settings.SettingsAIWidget = Ext.extend(Zarafa.settings.ui.Sett
 			layout: { type: 'fit' },
 			items: this.createPanelItems()
 		});
-		Zarafa.plugins.ai.settings.SettingsAIWidget.superclass.constructor.call(this, config);
+		Grommunio.plugins.ai.settings.SettingsAIWidget.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -36,7 +36,7 @@ Zarafa.plugins.ai.settings.SettingsAIWidget = Ext.extend(Zarafa.settings.ui.Sett
 	 */
 	createPanelItems: function()
 	{
-		var path = 'zarafa/v1/plugins/ai/';
+		var path = 'grommunio/v1/plugins/ai/';
 
 		var lengthStore = new Ext.data.SimpleStore({
 			fields: ['value', 'text'],
@@ -185,12 +185,12 @@ Zarafa.plugins.ai.settings.SettingsAIWidget = Ext.extend(Zarafa.settings.ui.Sett
 
 	/**
 	 * Load the settings into the fields.
-	 * @param {Zarafa.settings.SettingsModel} settingsModel
+	 * @param {Grommunio.settings.SettingsModel} settingsModel
 	 */
 	update: function(settingsModel)
 	{
 		this.model = settingsModel;
-		var client = Zarafa.plugins.ai.AIClient;
+		var client = Grommunio.plugins.ai.AIClient;
 		var server = client.getServerInfo();
 
 		// Provider status (read-only, no key).
@@ -228,7 +228,7 @@ Zarafa.plugins.ai.settings.SettingsAIWidget = Ext.extend(Zarafa.settings.ui.Sett
 	 * Set a toggle's value from settings and disable it when the administrator
 	 * has switched the capability off.
 	 * @param {Ext.form.Checkbox} checkbox
-	 * @param {Zarafa.settings.SettingsModel} settingsModel
+	 * @param {Grommunio.settings.SettingsModel} settingsModel
 	 * @param {Boolean} adminAllowed
 	 * @private
 	 */
@@ -245,7 +245,7 @@ Zarafa.plugins.ai.settings.SettingsAIWidget = Ext.extend(Zarafa.settings.ui.Sett
 
 	/**
 	 * Persist field values that are not written immediately on change.
-	 * @param {Zarafa.settings.SettingsModel} settingsModel
+	 * @param {Grommunio.settings.SettingsModel} settingsModel
 	 */
 	updateSettings: function(settingsModel)
 	{
@@ -295,7 +295,7 @@ Zarafa.plugins.ai.settings.SettingsAIWidget = Ext.extend(Zarafa.settings.ui.Sett
 			'pluginaimodule',
 			'test_connection',
 			{},
-			new Zarafa.plugins.ai.data.AIResponseHandler({
+			new Grommunio.plugins.ai.data.AIResponseHandler({
 				successCallback: function(response) {
 					this.statusField.setValue('<span class="k-ai-status-dot k-ai-ok"></span>' +
 						Ext.util.Format.htmlEncode(String.format(
@@ -312,4 +312,4 @@ Zarafa.plugins.ai.settings.SettingsAIWidget = Ext.extend(Zarafa.settings.ui.Sett
 	}
 });
 
-Ext.reg('zarafa.settingsaiwidget', Zarafa.plugins.ai.settings.SettingsAIWidget);
+Ext.reg('grommunio.settingsaiwidget', Grommunio.plugins.ai.settings.SettingsAIWidget);

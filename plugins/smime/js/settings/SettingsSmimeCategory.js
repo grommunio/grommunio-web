@@ -1,19 +1,19 @@
-Ext.namespace('Zarafa.plugins.smime.settings');
+Ext.namespace('Grommunio.plugins.smime.settings');
 
 /**
- * @class Zarafa.plugins.smime.settings.SettingsSmimeCategory
- * @extends Zarafa.settings.ui.SettingsCategory
+ * @class Grommunio.plugins.smime.settings.SettingsSmimeCategory
+ * @extends Grommunio.settings.ui.SettingsCategory
  * @xtype smime.settingssmimecategory
  *
  * The smime category for users which will
  * allow the user to upload public/private certificates
  */
-Zarafa.plugins.smime.settings.SettingsSmimeCategory = Ext.extend(Zarafa.settings.ui.SettingsCategory, {
+Grommunio.plugins.smime.settings.SettingsSmimeCategory = Ext.extend(Grommunio.settings.ui.SettingsCategory, {
         /**
          * @insert context.settings.category.smime
-         * Insertion point to register new {@link Zarafa.settings.settingssmimewidget widgets}
-         * for the {@link Zarafa.smime.settings.settingssmimecategory}.
-         * @param {Zarafa.smime.settings.settingssmimecategory} category The smime
+         * Insertion point to register new {@link Grommunio.settings.settingssmimewidget widgets}
+         * for the {@link Grommunio.smime.settings.settingssmimecategory}.
+         * @param {Grommunio.smime.settings.settingssmimecategory} category The smime
          * category to which the widgets will be added.
          */
 
@@ -23,7 +23,7 @@ Zarafa.plugins.smime.settings.SettingsSmimeCategory = Ext.extend(Zarafa.settings
          */
         constructor : function(config) {
                 config = config || {};
-		this.store = new Zarafa.plugins.smime.data.SmimeCertificateStore();
+		this.store = new Grommunio.plugins.smime.data.SmimeCertificateStore();
 
                 Ext.applyIf(config, {
 			title : _('S/MIME'),
@@ -42,7 +42,7 @@ Zarafa.plugins.smime.settings.SettingsSmimeCategory = Ext.extend(Zarafa.settings
 			}]
                 });
 
-                Zarafa.plugins.smime.settings.SettingsSmimeCategory.superclass.constructor.call(this, config);
+                Grommunio.plugins.smime.settings.SettingsSmimeCategory.superclass.constructor.call(this, config);
         },
 
 	/**
@@ -52,7 +52,7 @@ Zarafa.plugins.smime.settings.SettingsSmimeCategory = Ext.extend(Zarafa.settings
 	 */
 	onHide : function()
 	{
-                Zarafa.plugins.smime.settings.SettingsSmimeCategory.superclass.onHide.apply(this, arguments);
+                Grommunio.plugins.smime.settings.SettingsSmimeCategory.superclass.onHide.apply(this, arguments);
 
 		// Unregister the 'beforesave' event. This could be lingering when
 		// 'savesettings' was fired but it was cancelled by one of the
@@ -62,20 +62,20 @@ Zarafa.plugins.smime.settings.SettingsSmimeCategory = Ext.extend(Zarafa.settings
 
 	/**
 	 * Event handler for the
-	 * {@link Zarafa.settings.SettingsContextModel ContextModel}#{@link Zarafa.settings.SettingsContextModel#beforesavesettings beforesavesettings}
+	 * {@link Grommunio.settings.SettingsContextModel ContextModel}#{@link Grommunio.settings.SettingsContextModel#beforesavesettings beforesavesettings}
 	 * event. It will reset the {@link #savingElCounter} and his will register the event handler for
-	 * {@link Zarafa.settings.SettingsModel#beforesave beforesave} event.
+	 * {@link Grommunio.settings.SettingsModel#beforesave beforesave} event.
 	 * @private
 	 */
 	onBeforeSaveSettingsModel : function()
 	{
-		Zarafa.plugins.smime.settings.SettingsSmimeCategory.superclass.onBeforeSaveSettingsModel.apply(this, arguments);
+		Grommunio.plugins.smime.settings.SettingsSmimeCategory.superclass.onBeforeSaveSettingsModel.apply(this, arguments);
 
 		this.mon(this.store, 'beforesave', this.onBeforeSaveCertificate, this, { single : true });
 	},
 	
 	/**
-	 * Event handler which is fired when the {@link Zarafa.plugins.smime.data.SmimeCertificateStore SmimeCertificateStore}
+	 * Event handler which is fired when the {@link Grommunio.plugins.smime.data.SmimeCertificateStore SmimeCertificateStore}
 	 * fires the 'beforesave' event. This will {@link #displaySavingMask show a notification} and register the
 	 * event handlers for the completion of the save.
 	 * @private
@@ -88,7 +88,7 @@ Zarafa.plugins.smime.settings.SettingsSmimeCategory = Ext.extend(Zarafa.settings
 	},
 
 	/**
-	 * Event handler which is fired when the {@link Zarafa.plugins.smime.data.SmimeCertificateStore SmimeCertificateStore}
+	 * Event handler which is fired when the {@link Grommunio.plugins.smime.data.SmimeCertificateStore SmimeCertificateStore}
 	 * fires the 'save' event indicating the successful save of the delegates. This will
 	 * {@link #hideSavingMask hide the notification}.
 	 * @private
@@ -101,4 +101,4 @@ Zarafa.plugins.smime.settings.SettingsSmimeCategory = Ext.extend(Zarafa.settings
 	}
 });
 
-Ext.reg('smime.settingssmimecategory', Zarafa.plugins.smime.settings.SettingsSmimeCategory); 
+Ext.reg('smime.settingssmimecategory', Grommunio.plugins.smime.settings.SettingsSmimeCategory); 

@@ -1,7 +1,7 @@
-Ext.namespace('Zarafa.plugins.ai');
+Ext.namespace('Grommunio.plugins.ai');
 
 /**
- * @class Zarafa.plugins.ai.AIClient
+ * @class Grommunio.plugins.ai.AIClient
  * @singleton
  *
  * Central helper for talking to the server-side AI module. Owns the settings
@@ -9,7 +9,7 @@ Ext.namespace('Zarafa.plugins.ai');
  * the request payload construction. The API key lives only on the server, so
  * nothing secret passes through here.
  */
-Zarafa.plugins.ai.AIClient = {
+Grommunio.plugins.ai.AIClient = {
 
 	/**
 	 * @property {String} MODULE The server module name.
@@ -18,13 +18,13 @@ Zarafa.plugins.ai.AIClient = {
 
 	/**
 	 * Read a plugin setting.
-	 * @param {String} key Key below zarafa/v1/plugins/ai/.
+	 * @param {String} key Key below grommunio/v1/plugins/ai/.
 	 * @param {Mixed} defaultValue Returned when unset.
 	 * @return {Mixed}
 	 */
 	getSetting: function(key, defaultValue)
 	{
-		var value = container.getSettingsModel().get('zarafa/v1/plugins/ai/' + key, true);
+		var value = container.getSettingsModel().get('grommunio/v1/plugins/ai/' + key, true);
 		return Ext.isDefined(value) ? value : defaultValue;
 	},
 
@@ -121,7 +121,7 @@ Zarafa.plugins.ai.AIClient = {
 	 */
 	uiLanguageName: function()
 	{
-		var lang = container.getSettingsModel().get('zarafa/v1/main/language') || '';
+		var lang = container.getSettingsModel().get('grommunio/v1/main/language') || '';
 		return this.codeToLanguage(lang);
 	},
 
@@ -204,7 +204,7 @@ Zarafa.plugins.ai.AIClient = {
 
 	/**
 	 * Build the request payload identifying a message plus feature options.
-	 * @param {Zarafa.core.data.IPMRecord} record
+	 * @param {Grommunio.core.data.IPMRecord} record
 	 * @param {Object} opts Extra fields (scope, length, target, language).
 	 * @return {Object}
 	 */
@@ -220,9 +220,9 @@ Zarafa.plugins.ai.AIClient = {
 	/**
 	 * Run a feature against a message, delivering output into the given panel.
 	 * @param {String} feature
-	 * @param {Zarafa.core.data.IPMRecord} record
+	 * @param {Grommunio.core.data.IPMRecord} record
 	 * @param {Object} opts Request options.
-	 * @param {Zarafa.plugins.ai.ui.AIAssistantPanel} panel
+	 * @param {Grommunio.plugins.ai.ui.AIAssistantPanel} panel
 	 */
 	run: function(feature, record, opts, panel)
 	{
@@ -237,7 +237,7 @@ Zarafa.plugins.ai.AIClient = {
 	/**
 	 * Run the compose feature on draft text (no stored message involved).
 	 * @param {Object} opts operation, text, tone/target
-	 * @param {Zarafa.plugins.ai.ui.AIAssistantPanel} panel
+	 * @param {Grommunio.plugins.ai.ui.AIAssistantPanel} panel
 	 */
 	runCompose: function(opts, panel)
 	{
@@ -253,9 +253,9 @@ Zarafa.plugins.ai.AIClient = {
 	 * Request suggested smart actions for a message (always buffered — the
 	 * response is structured JSON, not streamed). Renders chips into the window
 	 * on success.
-	 * @param {Zarafa.core.data.IPMRecord} record
-	 * @param {Zarafa.plugins.ai.ui.AIAssistantPanel} panel
-	 * @param {Zarafa.plugins.ai.ui.AIAssistantWindow} win
+	 * @param {Grommunio.core.data.IPMRecord} record
+	 * @param {Grommunio.plugins.ai.ui.AIAssistantPanel} panel
+	 * @param {Grommunio.plugins.ai.ui.AIAssistantWindow} win
 	 */
 	suggestActions: function(record, panel, win)
 	{
@@ -266,7 +266,7 @@ Zarafa.plugins.ai.AIClient = {
 			this.MODULE,
 			'suggest_actions',
 			data,
-			new Zarafa.plugins.ai.data.AIResponseHandler({
+			new Grommunio.plugins.ai.data.AIResponseHandler({
 				successCallback: function(response) {
 					var actions = (response && response.actions) || [];
 					actions = actions.filter(function(action) {
@@ -304,7 +304,7 @@ Zarafa.plugins.ai.AIClient = {
 	 * or an empty stream).
 	 * @param {String} feature
 	 * @param {Object} data Request payload (without feature).
-	 * @param {Zarafa.plugins.ai.ui.AIAssistantPanel} panel
+	 * @param {Grommunio.plugins.ai.ui.AIAssistantPanel} panel
 	 */
 	streamRequest: function(feature, data, panel)
 	{
@@ -383,7 +383,7 @@ Zarafa.plugins.ai.AIClient = {
 	/**
 	 * Parse one raw SSE event block and apply it to the panel.
 	 * @param {String} raw The text between event boundaries.
-	 * @param {Zarafa.plugins.ai.ui.AIAssistantPanel} panel
+	 * @param {Grommunio.plugins.ai.ui.AIAssistantPanel} panel
 	 * @param {Object} state Streaming state flags.
 	 * @private
 	 */
@@ -427,7 +427,7 @@ Zarafa.plugins.ai.AIClient = {
 	 * Perform a buffered (non-streaming) module request.
 	 * @param {String} feature
 	 * @param {Object} data Request payload.
-	 * @param {Zarafa.plugins.ai.ui.AIAssistantPanel} panel
+	 * @param {Grommunio.plugins.ai.ui.AIAssistantPanel} panel
 	 */
 	moduleRequest: function(feature, data, panel)
 	{
@@ -435,7 +435,7 @@ Zarafa.plugins.ai.AIClient = {
 			this.MODULE,
 			feature,
 			data,
-			new Zarafa.plugins.ai.data.AIResponseHandler({
+			new Grommunio.plugins.ai.data.AIResponseHandler({
 				successCallback: function(response) {
 					panel.setResult(response.text || '');
 					if (response.truncated) {

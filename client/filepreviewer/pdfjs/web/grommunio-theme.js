@@ -29,8 +29,8 @@
         for (i = 0; i < candidates.length; i += 1) {
             try {
                 if (candidates[i] && candidates[i] !== window &&
-                        candidates[i].Zarafa && candidates[i].Zarafa.core &&
-                        candidates[i].Zarafa.core.DarkMode) {
+                        candidates[i].Grommunio && candidates[i].Grommunio.core &&
+                        candidates[i].Grommunio.core.DarkMode) {
                     return candidates[i];
                 }
             } catch (e) {
@@ -55,7 +55,7 @@
         function apply() {
             try {
                 document.documentElement.style.colorScheme =
-                    host.Zarafa.core.DarkMode.isDark() ? 'dark' : 'light';
+                    host.Grommunio.core.DarkMode.isDark() ? 'dark' : 'light';
             } catch (e) {
                 // The window went away while the preview was open.
             }

@@ -1,12 +1,12 @@
-Ext.namespace('Zarafa.plugins.maps');
+Ext.namespace('Grommunio.plugins.maps');
 
 /**
-* @class Zarafa.plugins.maps.MapsPlugin
-* @extends Zarafa.core.Plugin
+* @class Grommunio.plugins.maps.MapsPlugin
+* @extends Grommunio.core.Plugin
 *
 * Maps plugin for showing contact addresses locations on openstreetmap.
 */
-Zarafa.plugins.maps.MapsPlugin = Ext.extend(Zarafa.core.Plugin, {
+Grommunio.plugins.maps.MapsPlugin = Ext.extend(Grommunio.core.Plugin, {
 
 	/**
 	 * Initialize the plugin by calling {@link #registerInsertionPoint}.
@@ -14,7 +14,7 @@ Zarafa.plugins.maps.MapsPlugin = Ext.extend(Zarafa.core.Plugin, {
 	 */
 	initPlugin: function()
 	{
-		Zarafa.plugins.maps.MapsPlugin.superclass.initPlugin.apply(this, arguments);
+		Grommunio.plugins.maps.MapsPlugin.superclass.initPlugin.apply(this, arguments);
 
 		this.registerInsertionPoint('context.contact.contactcontentpanel.tabs',this.showContactLocation, this);
 		this.registerInsertionPoint('context.addressbook.abuserdetailcontentpanel.tabs',this.showABUserLocation, this);
@@ -44,10 +44,10 @@ Zarafa.plugins.maps.MapsPlugin = Ext.extend(Zarafa.core.Plugin, {
 	}
 });
 
-Zarafa.onReady(function() {
-	container.registerPlugin(new Zarafa.core.PluginMetaData({
+Grommunio.onReady(function() {
+	container.registerPlugin(new Grommunio.core.PluginMetaData({
 		name: 'maps',
 		displayName: _('Openstreetmap'),
-		pluginConstructor: Zarafa.plugins.maps.MapsPlugin
+		pluginConstructor: Grommunio.plugins.maps.MapsPlugin
 	}));
 });

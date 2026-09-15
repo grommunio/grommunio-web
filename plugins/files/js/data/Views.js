@@ -1,14 +1,14 @@
-Ext.namespace('Zarafa.plugins.files.data');
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.Views
- * @extends Zarafa.core.Enum
+ * @class Grommunio.plugins.files.data.Views
+ * @extends Grommunio.core.Enum
  *
  * Enum containing the different views of the files context.
  *
  * @singleton
  */
-Zarafa.plugins.files.data.Views = Zarafa.core.Enum.create({
+Grommunio.plugins.files.data.Views = Grommunio.core.Enum.create({
 
 	/**
 	 * View all files items from the selected folder(s) in the 'list' view.

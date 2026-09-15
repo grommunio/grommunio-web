@@ -1,18 +1,18 @@
-Ext.namespace('Zarafa.plugins.ai');
+Ext.namespace('Grommunio.plugins.ai');
 
 /**
- * @class Zarafa.plugins.ai.AIPlugin
- * @extends Zarafa.core.Plugin
+ * @class Grommunio.plugins.ai.AIPlugin
+ * @extends Grommunio.core.Plugin
  *
  * The AI Assistant plugin. Adds AI entry points to the mail reading surfaces
  * (preview toolbar, open-mail toolbar, right-click menu) and the settings, and
- * routes each request into the shared {@link Zarafa.plugins.ai.ui.AIAssistantWindow}.
+ * routes each request into the shared {@link Grommunio.plugins.ai.ui.AIAssistantWindow}.
  */
-Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
+Grommunio.plugins.ai.AIPlugin = Ext.extend(Grommunio.core.Plugin, {
 
 	initPlugin: function()
 	{
-		Zarafa.plugins.ai.AIPlugin.superclass.initPlugin.apply(this, arguments);
+		Grommunio.plugins.ai.AIPlugin.superclass.initPlugin.apply(this, arguments);
 
 		// Reading pane toolbar (current previewed message).
 		this.registerInsertionPoint('previewpanel.toolbar.right', this.createPreviewButton, this);
@@ -32,10 +32,10 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 	 */
 	createComposeButton: function()
 	{
-		if (!Zarafa.plugins.ai.AIClient.isFeatureEnabled('compose')) {
+		if (!Grommunio.plugins.ai.AIClient.isFeatureEnabled('compose')) {
 			return undefined;
 		}
-		return Zarafa.plugins.ai.ui.AIComposeMenu.createButton(this);
+		return Grommunio.plugins.ai.ui.AIComposeMenu.createButton(this);
 	},
 
 	/**
@@ -60,14 +60,14 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 	 * Run a compose operation against the editor's current text and present the
 	 * result with Insert/Replace actions.
 	 * @param {Object} aiOpts operation, tone/target
-	 * @param {Zarafa.common.ui.EditorField} editor
+	 * @param {Grommunio.common.ui.EditorField} editor
 	 */
 	runCompose: function(aiOpts, editor)
 	{
-		var client = Zarafa.plugins.ai.AIClient;
+		var client = Grommunio.plugins.ai.AIClient;
 		var isHtml = Ext.isFunction(editor.isHtmlEditor) && editor.isHtmlEditor();
 		var raw = editor.getValue() || '';
-		var text = isHtml ? Zarafa.core.HTMLParser.convertHTMLToPlain(raw) : raw;
+		var text = isHtml ? Grommunio.core.HTMLParser.convertHTMLToPlain(raw) : raw;
 
 		if (!text.replace(/\s+/g, '')) {
 			container.getNotifier().notify('warning.ai', _('AI Assistant'), _('Write some text in the message first.'));
@@ -106,7 +106,7 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 			container.getNotifier().notify('warning.ai', _('AI Assistant'), _('The message you were composing is no longer open.'));
 		};
 
-		Zarafa.plugins.ai.ui.AIAssistantWindow.showFeature({
+		Grommunio.plugins.ai.ui.AIAssistantWindow.showFeature({
 			title: titles[operation] || _('AI Assistant'),
 			model: client.getModelName(),
 			onInsert: function(value) {
@@ -134,15 +134,15 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 	 * Build the AI split-button for the preview toolbar. The current record is
 	 * read live from the context model.
 	 * @param {String} insertionPoint
-	 * @param {Object} options Contains the {Zarafa.core.ContextModel} model.
+	 * @param {Object} options Contains the {Grommunio.core.ContextModel} model.
 	 * @return {Object|undefined}
 	 */
 	createPreviewButton: function(insertionPoint, options)
 	{
-		if (!Zarafa.plugins.ai.AIClient.isPluginEnabled()) {
+		if (!Grommunio.plugins.ai.AIClient.isPluginEnabled()) {
 			return undefined;
 		}
-		var model = (options && options.model instanceof Zarafa.core.ContextModel) ? options.model : null;
+		var model = (options && options.model instanceof Grommunio.core.ContextModel) ? options.model : null;
 		return this.createAIButton(model ? function() {
 			return model.getPreviewRecord();
 		} : null);
@@ -155,7 +155,7 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 	 */
 	createShowMailButton: function()
 	{
-		if (!Zarafa.plugins.ai.AIClient.isPluginEnabled()) {
+		if (!Grommunio.plugins.ai.AIClient.isPluginEnabled()) {
 			return undefined;
 		}
 		return this.createAIButton(null);
@@ -193,7 +193,7 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 			overflowText: _('AI Assistant'),
 			iconCls: 'icon_ai',
 			cls: 'k-ai-toolbar-btn',
-			plugins: ['zarafa.recordcomponentupdaterplugin'],
+			plugins: ['grommunio.recordcomponentupdaterplugin'],
 			menu: this.buildAIMenu(getRecord),
 			handler: function() {
 				this.showMenu();
@@ -213,7 +213,7 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 	 */
 	buildAIMenu: function(getRecord)
 	{
-		var client = Zarafa.plugins.ai.AIClient;
+		var client = Grommunio.plugins.ai.AIClient;
 		var items = [];
 
 		if (client.isFeatureEnabled('summarize')) {
@@ -319,12 +319,12 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 
 	/**
 	 * Request and present confirm-first smart actions for a message.
-	 * @param {Zarafa.core.data.IPMRecord} record
+	 * @param {Grommunio.core.data.IPMRecord} record
 	 */
 	runSuggestActions: function(record)
 	{
-		var client = Zarafa.plugins.ai.AIClient;
-		Zarafa.plugins.ai.ui.AIAssistantWindow.showFeature({
+		var client = Grommunio.plugins.ai.AIClient;
+		Grommunio.plugins.ai.ui.AIAssistantWindow.showFeature({
 			title: _('Suggested actions'),
 			model: client.getModelName(),
 			runner: function(panel, win) {
@@ -337,12 +337,12 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 	/**
 	 * Build the right-click context-menu items.
 	 * @param {String} insertionPoint
-	 * @param {Zarafa.mail.ui.MailGridContextMenu} contextMenu
+	 * @param {Grommunio.mail.ui.MailGridContextMenu} contextMenu
 	 * @return {Array|undefined}
 	 */
 	createContextMenuItems: function(insertionPoint, contextMenu)
 	{
-		var client = Zarafa.plugins.ai.AIClient;
+		var client = Grommunio.plugins.ai.AIClient;
 		if (!client.isPluginEnabled()) {
 			return undefined;
 		}
@@ -355,7 +355,7 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 		var items = [];
 		if (client.isFeatureEnabled('summarize')) {
 			items.push({
-				xtype: 'zarafa.conditionalitem',
+				xtype: 'grommunio.conditionalitem',
 				text: _('Summarize with AI'),
 				iconCls: 'icon_ai',
 				scope: this,
@@ -369,7 +369,7 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 		}
 		if (client.isFeatureEnabled('translate')) {
 			items.push({
-				xtype: 'zarafa.conditionalitem',
+				xtype: 'grommunio.conditionalitem',
 				text: _('Translate with AI'),
 				iconCls: 'icon_ai',
 				scope: this,
@@ -388,13 +388,13 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 	/**
 	 * Run a reading-side feature for a record in the shared assistant window.
 	 * @param {String} feature
-	 * @param {Zarafa.core.data.IPMRecord} record
+	 * @param {Grommunio.core.data.IPMRecord} record
 	 * @param {Object} opts
 	 */
 	runFeature: function(feature, record, opts)
 	{
 		opts = opts || {};
-		var client = Zarafa.plugins.ai.AIClient;
+		var client = Grommunio.plugins.ai.AIClient;
 		var requestOpts = {};
 		var title;
 
@@ -413,7 +413,7 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 			title = _('AI Assistant');
 		}
 
-		Zarafa.plugins.ai.ui.AIAssistantWindow.showFeature({
+		Grommunio.plugins.ai.ui.AIAssistantWindow.showFeature({
 			title: title,
 			model: client.getModelName(),
 			runner: function(panel) {
@@ -430,16 +430,16 @@ Zarafa.plugins.ai.AIPlugin = Ext.extend(Zarafa.core.Plugin, {
 	createSettingsCategory: function()
 	{
 		return {
-			xtype: 'zarafa.settingsaicategory',
+			xtype: 'grommunio.settingsaicategory',
 			settingsContext: arguments[2]
 		};
 	}
 });
 
-Zarafa.onReady(function() {
-	container.registerPlugin(new Zarafa.core.PluginMetaData({
+Grommunio.onReady(function() {
+	container.registerPlugin(new Grommunio.core.PluginMetaData({
 		name: 'ai',
 		displayName: _('AI Assistant'),
-		pluginConstructor: Zarafa.plugins.ai.AIPlugin
+		pluginConstructor: Grommunio.plugins.ai.AIPlugin
 	}));
 });

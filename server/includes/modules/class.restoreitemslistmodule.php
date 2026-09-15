@@ -265,7 +265,7 @@ class RestoreItemsListModule extends ListModule {
 			$limit = $action['restriction']['limit'];
 		}
 		else {
-			$limit = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
+			$limit = $GLOBALS['settings']->get('grommunio/v1/main/page_size', 50);
 		}
 
 		$getHierarchy = isset($action["itemType"]) && $action["itemType"] == "folder";

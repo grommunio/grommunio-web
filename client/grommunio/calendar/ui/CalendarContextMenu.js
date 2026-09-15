@@ -1,0 +1,860 @@
+Ext.namespace('Grommunio.calendar.ui');
+
+/**
+ * @class Grommunio.calendar.ui.CalendarContextMenu
+ * @extends Grommunio.core.ui.menu.ConditionalMenu
+ * @xtype grommunio.calendarcontextmenu
+ *
+ * Extend {@link Grommunio.core.ui.menu.ConditionalMenu ConditionalMenu} to add the
+ * {@link Grommunio.core.ui.menu.ConditionalItems ConditionalItems} for the
+ * CalendarContext.
+ */
+Grommunio.calendar.ui.CalendarContextMenu = Ext.extend(Grommunio.core.ui.menu.ConditionalMenu, {
+	// Insertion points for this class
+	/**
+	 * @insert context.calendar.contextmenu.actions
+	 * Insertion point for adding actions menu items into the context menu
+	 * @param {Grommunio.calendar.ui.CalendarContextMenu} contextmenu This contextmenu
+	 */
+	/**
+	 * @insert context.calendar.contextmenu.options
+	 * Insertion point for adding options menu items into the context menu
+	 * @param {Grommunio.calendar.ui.CalendarContextMenu} contextmenu This contextmenu
+	 */
+
+	/**
+	 * @cfg {Grommunio.calendar.ui.CalendarPanel} The calendar panel for which this context
+	 * menu is shown
+	 */
+	calendarPanel: null,
+
+	/**
+	 * @cfg {Grommunio.core.data.IPMRecord[]} The records on which this context menu acts
+	 */
+	records: undefined,
+
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		if (Ext.isDefined(config.records) && !Array.isArray(config.records)) {
+			config.records = [ config.records ];
+		}
+
+		config = Ext.applyIf(config, {
+			items: [
+				this.createContextActionItems(),
+				{ xtype: 'menuseparator' },
+				container.populateInsertionPoint('context.calendar.contextmenu.actions', this),
+				{ xtype: 'menuseparator' },
+				this.createContextOptionsItems(config.records),
+				{ xtype: 'menuseparator' },
+				container.populateInsertionPoint('context.calendar.contextmenu.options', this),
+				{ xtype: 'menuseparator' },
+				this.createOptionsMenuItem()
+			],
+			listeners: {
+				scope: this,
+				mouseover: this.onMouseover
+			}
+		});
+
+		Grommunio.calendar.ui.CalendarContextMenu.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Create the Action context menu items
+	 * @return {Grommunio.core.ui.menu.ConditionalItem[]} The list of Action context menu items
+	 * @private
+	 */
+	createContextActionItems: function()
+	{
+		return [{
+			xtype: 'grommunio.conditionalitem',
+			iconCls: 'icon_new_appointment',
+			text: _('New Appointment'),
+			beforeShow: this.beforeShowPhantom,
+			meetingRequest: false,
+			handler: this.onCreate,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			iconCls: 'icon_new_meeting_request',
+			text: _('New Meeting Request'),
+			beforeShow: this.beforeShowPhantom,
+			meetingRequest: true,
+			handler: this.onCreate,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			iconCls: 'icon_open',
+			text: _('Open'),
+			beforeShow: this.beforeShowNonPhantom,
+			handler: this.onOpen,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			text: _('Copy/Move'),
+			iconCls: 'icon_copy',
+			beforeShow: this.beforeShowNonPhantom,
+			hideOnDisabled: false,
+			handler: this.onCopyMove,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			iconCls: 'icon_delete',
+			text: _('Delete'),
+			beforeShow: this.beforeShowNonPhantom,
+			handler: this.onDelete,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			text: _('Mark Read'),
+			name: 'mark_read',
+			iconCls: 'icon_mail icon_mail_read',
+			beforeShow: this.onReadFlagItemBeforeShow,
+			handler: this.onReadFlagItemClicked,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			text: _('Mark Unread'),
+			name: 'mark_unread',
+			iconCls: 'icon_mail icon_mail_unread',
+			beforeShow: this.onReadFlagItemBeforeShow,
+			handler: this.onReadFlagItemClicked,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			text: _('Reply'),
+			iconCls: 'icon_reply',
+			singleSelectOnly: true,
+			beforeShow: this.beforeShowOnMeetingForward,
+			responseMode: Grommunio.mail.data.ActionTypes.REPLY,
+			handler: this.onReplyMeeting,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			text: _('Reply All'),
+			iconCls: 'icon_reply_all',
+			singleSelectOnly: true,
+			beforeShow: this.beforeShowOnMeetingForward,
+			responseMode: Grommunio.mail.data.ActionTypes.REPLYALL,
+			handler: this.onReplyMeeting,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			text: _('Forward'),
+			iconCls: 'icon_forward',
+			singleSelectOnly: true,
+			beforeShow: this.beforeShowOnMeetingForward,
+			handler: this.onForwardMeeting,
+			scope: this
+		},{
+			xtype: 'menuseparator'
+		},{
+			xtype: 'grommunio.conditionalitem',
+			ref: 'acceptButton',
+			text: _('Accept'),
+			hidden: true,
+			iconCls: 'icon_calendar_appt_accept',
+			beforeShow: this.beforeShowOnMeeting,
+			responseStatus: Grommunio.core.mapi.ResponseStatus.RESPONSE_ACCEPTED,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			ref: 'tentativeButton',
+			text: _('Tentative'),
+			hidden: true,
+			iconCls: 'icon_calendar_appt_tentative',
+			beforeShow: this.beforeShowOnMeeting,
+			responseStatus: Grommunio.core.mapi.ResponseStatus.RESPONSE_TENTATIVE,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			ref: 'declineButton',
+			text: _('Decline'),
+			iconCls: 'icon_calendar_appt_cancelled',
+			hidden: true,
+			beforeShow: this.beforeShowOnMeeting,
+			responseStatus: Grommunio.core.mapi.ResponseStatus.RESPONSE_DECLINED,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			ref: 'proposeNewTimeButton',
+			text: _('Propose New Time'),
+			proposeNewTime: true,
+			hidden: true,
+			iconCls: 'icon_calendar_appt_newtime',
+			beforeShow: this.beforeShowOnMeeting,
+			scope: this
+		}];
+	},
+
+	/**
+	 * Create the Option context menu items
+	 * @param {Grommunio.core.data.IPMRecord[]} records The records on which this menu acts
+	 * @return {Grommunio.core.ui.menu.ConditionalItem[]} The list of Option context menu items
+	 * @private
+	 */
+	createContextOptionsItems: function(records)
+	{
+		return [{
+			xtype: 'grommunio.conditionalitem',
+			cls: 'k-unclickable',
+			iconCls: 'icon_categories',
+			text: _('Categories'),
+			hideOnClick: false,
+			beforeShow: this.beforeShowNonPhantom,
+			menu: this.createSubCategories(records)
+		},{
+			xtype: 'grommunio.conditionalitem',
+			iconCls: 'icon_busystatus',
+			text: _('Show as'),
+			beforeShow: this.beforeShowNonPhantom,
+			menu: {
+				xtype: 'grommunio.conditionalmenu',
+				items: this.createBusyStatusItems()
+			}
+		},{
+			xtype: 'grommunio.conditionalitem',
+			text: _('Send to…'),
+			iconCls: 'icon_embedded_attachment',
+			singleSelectOnly: true,
+			beforeShow: this.beforeShowItem,
+			responseMode: Grommunio.mail.data.ActionTypes.FORWARD_ATTACH,
+			handler: this.onContextItemResponse,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			text: _('Export as'),
+			cls: 'k-unclickable',
+			iconCls: 'icon_export',
+			hideOnClick: false,
+			beforeShow: this.beforeShowItem,
+			scope: this,
+			menu: {
+				xtype: 'grommunio.exportitemcontextmenu',
+				records: records
+			}
+		}];
+	},
+
+	/**
+	 * Create the sub context menu items for categories only if records are supplied.
+	 * @param {Grommunio.core.data.IPMRecord[]} records The records on which this menu acts
+	 * @return {Object} The object of Options containing {@link Grommunio.common.categories.ui.CategoriesContextMenu}
+	 * @private
+	 */
+	createSubCategories: function(records)
+	{
+		if (records) {
+			return {
+				xtype: 'grommunio.categoriescontextmenu',
+				records: records
+			};
+		}
+	},
+
+	/**
+	 * Create the Busy status context submenu items
+	 * @return {Grommunio.core.ui.menu.ConditionalItem[]} The list of Busy status context submenu items
+	 * @private
+	 */
+	createBusyStatusItems: function()
+	{
+		return [{
+			xtype: 'grommunio.conditionalitem',
+			iconCls: 'icon_busystatus_free',
+			text: Grommunio.core.mapi.BusyStatus.getDisplayName(Grommunio.core.mapi.BusyStatus.FREE),
+			busyStatus: Grommunio.core.mapi.BusyStatus.FREE,
+			handler: this.onSetBusyStatus,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			iconCls: 'icon_busystatus_tentative',
+			text: Grommunio.core.mapi.BusyStatus.getDisplayName(Grommunio.core.mapi.BusyStatus.TENTATIVE),
+			busyStatus: Grommunio.core.mapi.BusyStatus.TENTATIVE,
+			handler: this.onSetBusyStatus,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			iconCls: 'icon_busystatus_busy',
+			text: Grommunio.core.mapi.BusyStatus.getDisplayName(Grommunio.core.mapi.BusyStatus.BUSY),
+			busyStatus: Grommunio.core.mapi.BusyStatus.BUSY,
+			handler: this.onSetBusyStatus,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			iconCls: 'icon_busystatus_outofoffice',
+			text: Grommunio.core.mapi.BusyStatus.getDisplayName(Grommunio.core.mapi.BusyStatus.OUTOFOFFICE),
+			busyStatus: Grommunio.core.mapi.BusyStatus.OUTOFOFFICE,
+			handler: this.onSetBusyStatus,
+			scope: this
+		},{
+			xtype: 'grommunio.conditionalitem',
+			iconCls: 'icon_busystatus_workingelsewhere',
+			text: Grommunio.core.mapi.BusyStatus.getDisplayName(Grommunio.core.mapi.BusyStatus.WORKINGELSEWHERE),
+			busyStatus: Grommunio.core.mapi.BusyStatus.WORKINGELSEWHERE,
+			handler: this.onSetBusyStatus,
+			scope: this
+		}];
+	},
+
+	/**
+	 * Open the {@link Grommunio.common.dialogs.CopyMoveContentPanel CopyMoveContentPanel} for copying
+	 * or moving the currently selected appointment/meeting requests.
+	 * @private
+	 */
+	onCopyMove: function()
+	{
+		Grommunio.common.Actions.openCopyMoveContent(this.records);
+	},
+
+	/**
+	 * Makes the given menuitem invisible when any of the records is not a phantom record.
+	 * @param {Grommunio.core.ui.menu.MenuItem} item The item which is being tested
+	 * @param {Grommunio.core.data.MAPIRecord[]} records The records on which this context
+	 * menu is operating.
+	 * @private
+	 */
+	beforeShowPhantom: function(item, records)
+	{
+		var hasNonPhantoms = false;
+		if (records) {
+			for (var i = 0, len = records.length; i < len; i++) {
+				if (records[i].phantom === false) {
+					hasNonPhantoms = true;
+				}
+			}
+		}
+		item.setVisible(!hasNonPhantoms);
+	},
+
+	/**
+	 * Makes the given menuitem invisible when any of the records is a phantom record.
+	 * @param {Grommunio.core.ui.menu.MenuItem} item The item which is being tested
+	 * @param {Grommunio.core.data.MAPIRecord[]} records The records on which this context
+	 * menu is operating.
+	 * @private
+	 */
+	beforeShowNonPhantom: function(item, records)
+	{
+		if (!Ext.isEmpty(records)) {
+			item.setVisible(!records.some(function (record) {
+				return record.phantom === true;
+			}));
+		} else {
+			item.setVisible(false);
+		}
+	},
+
+	/**
+	 * Makes the given menuitem invisible for a phantom record, and disables it when none
+	 * of the records is in the read state it would change (Mark Read and Mark Unread).
+	 *
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item The item to enable/disable
+	 * @param {Grommunio.core.data.IPMRecord[]} records The records which must be checked
+	 * @private
+	 */
+	onReadFlagItemBeforeShow: function(item, records)
+	{
+		this.beforeShowNonPhantom(item, records);
+
+		var read = item.name !== 'mark_read';
+		item.setDisabled(!records.some(function(record) {
+			return record.isRead() === read;
+		}));
+	},
+
+	/**
+	 * Event handler which is called when the item has been clicked.
+	 * This will mark all selected records as read or unread.
+	 *
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item The item which has been clicked
+	 * @private
+	 */
+	onReadFlagItemClicked: function(item)
+	{
+		Grommunio.common.Actions.markAsRead(this.records, item.name === 'mark_read');
+	},
+
+	/**
+	 * Makes the given menuitem invisible when any of the records has read
+	 * only access or is a phantom record.
+	 *
+	 * @param {Grommunio.core.ui.menu.MenuItem} item The item which is being tested
+	 * @param {Grommunio.core.data.MAPIRecord[]} records The records on which this context
+	 * menu is operating.
+	 * @private
+	 */
+	beforeShowItem: function(item, records)
+	{
+		if(!Ext.isEmpty(records)) {
+			item.setVisible(!records.some(function (record) {
+				return record.get('access') === Grommunio.core.mapi.Access.ACCESS_READ || record.phantom === true;
+			}));
+		} else {
+			item.setVisible(false);
+		}
+	},
+
+	/**
+	 * Makes the given menuitem invisible when record is appointment or login user is organizer of meeting.
+	 * @param {Grommunio.core.ui.menu.MenuItem} item The item which is being tested
+	 * @param {Grommunio.core.data.MAPIRecord[]} records The records on which this context
+	 * menu is operating.
+	 * @private
+	 */
+	beforeShowOnMeeting: function(item, records)
+	{
+		// If user has select more then one record then we should not have to show the menu items.
+		if(!records || records.length > 1){
+			return;
+		}
+
+		var record = records[0];
+		var isProposeButton = Ext.isDefined(item.proposeNewTime) && item.proposeNewTime;
+
+		// if record is received meeting then show all buttons (accept/decline/ tentatively accept) in context menu
+		if(record.isMeetingReceived()) {
+			item.setVisible(true);
+		}
+
+		// if selected record is received simple meeting request then set the handler on each button.
+		if(record.isMeetingReceived() && !(record.isRecurringOccurrence() || record.get('recurring'))) {
+			if(isProposeButton) {
+				item.setHandler(this.openProposeNewTimeContent, this);
+			} else {
+				item.setHandler(this.openSendConfirmationContent, this);
+			}
+		}
+
+		if(record.isMeetingReceived() && (record.isRecurringOccurrence() || record.get('recurring'))) {
+			// Add sub menu item while selected received meeting request is recurring.
+			// it will show the two sub menu items which provide facility to user to accept, tentatively accept,
+			// decline recurring series or occurrence and allow user to propose new time for single occurrence
+			// of recurring meeting request.
+			item.menu = new Ext.menu.Menu({
+				items: [{
+					xtype: 'grommunio.conditionalitem',
+					text: item.text +' '+ _('Occurrence'),
+					responseStatus: item.responseStatus,
+					beforeShow: function(item, records) {
+						if(isProposeButton) {
+							item.setHandler(this.openProposeNewTimeContent, this);
+						} else {
+							item.setHandler(this.openSendConfirmationContent, this);
+						}
+					},
+					scope: this
+				},{
+					xtype: 'grommunio.conditionalitem',
+					text: item.text +' '+ _('Series'),
+					name: 'recurring',
+					beforeShow: function(item, records) {
+						if(isProposeButton) {
+							item.setVisible(false);
+						} else {
+							item.setHandler(this.openSendConfirmationContent, this);
+						}
+					},
+					responseStatus: item.responseStatus,
+					isProposeButton: isProposeButton,
+					scope: this
+				}],
+				scope: this
+			});
+		}
+	},
+
+	/**
+	 * Event handler for the mouseover event of this menu. Will make sure that any
+	 * open tooltip is closed.
+	 */
+	onMouseover: function()
+	{
+		// In the list view there is no calendarPanel (and no tooltip)
+		if ( this.calendarPanel ){
+			this.calendarPanel.getView().getTooltipInstance().hide(0);
+		}
+	},
+
+	/**
+	 * Opens the Propose New Time Content Panel
+	 * @param {Ext.Button} button The clicked button
+	 * @param {EventObject} eventObject The click event object
+	 * @private
+	 */
+	openProposeNewTimeContent: function(button, eventObject)
+	{
+		var record;
+		if(Array.isArray(this.records)) {
+			record = this.records[0];
+		}
+
+		if (record.get('appointment_not_found')) {
+			Ext.MessageBox.show({
+				title: _('Appointment not found'),
+				msg:_('This appointment has been moved or deleted, do you want to continue?'),
+				cls: Ext.MessageBox.WARNING_CLS,
+				record: record,
+				fn: this.onProposeNewTimeAppointmentNotFoundConfirmation.createDelegate(this, [record], 1),
+				scope: this,
+				buttons: Ext.MessageBox.YESNO
+			});
+		} else {
+			Grommunio.calendar.Actions.openProposeNewTimeContent(record);
+		}
+	},
+
+	/**
+	 * Callback function for {@link #openProposeNewTimeContent}, which opens a {@link Ext.MessageBox} if
+	 * the appointment is not found in the calendar, but we still wants to propose a new time.
+	 * @param {String} button The button which was clicked by the user
+	 * @param {Grommunio.core.data.MAPIRecord} record The record on which this context
+	 * @private
+	 */
+	onProposeNewTimeAppointmentNotFoundConfirmation: function(button, record)
+	{
+		if (button === 'yes') {
+			Grommunio.calendar.Actions.openProposeNewTimeContent(record);
+		}
+	},
+
+	/**
+	 * Opens a {@link Grommunio.calendar.dialogs.SendMeetingRequestConfirmationContentPanel SendMeetingRequestConfirmationContentPanel}
+	 * if meeting was recurring occurrence then remove the basedate.
+	 * @param {Ext.Button} button button object.
+	 * @param {EventObject} eventObject The click event object.
+	 * @private
+	 */
+	openSendConfirmationContent: function(button, eventObject)
+	{
+		var record;
+		if(Array.isArray(this.records)) {
+			record = this.records[0];
+		} else {
+			return;
+		}
+
+		if (record.get('appointment_not_found')) {
+			Ext.MessageBox.show({
+				title: _('Appointment not found'),
+				msg:_('This appointment has been moved or deleted, do you want to continue?'),
+				cls: Ext.MessageBox.WARNING_CLS,
+				record: record,
+				fn: this.onRespondAppointmentNotFoundConfirmation.createDelegate(this, [ button.responseStatus, record ], 1),
+				scope: this,
+				buttons: Ext.MessageBox.YESNO
+			});
+		} else {
+			Grommunio.calendar.Actions.openSendConfirmationContent(record, {
+					responseType: button.responseStatus,
+					buttonName: button.name
+			});
+		}
+	},
+
+	/**
+	 * Callback function for {@link #openSendConfirmationContent}, which opens a {@link Ext.MessageBox} if
+	 * the appointment is not found in the calendar, but we still want to accept it.
+	 * @param {String} button The button which was clicked by the user
+	 * @param {Grommunio.core.mapi.ResponseStatus} responseType The response type which was selected by the user
+	 * @param {Grommunio.core.data.MAPIRecord} record The record on which this context
+	 * @private
+	 */
+	onRespondAppointmentNotFoundConfirmation: function(button, responseType, record)
+	{
+		if (button === 'yes') {
+			Grommunio.calendar.Actions.openSendConfirmationContent(record, { responseType: responseType });
+		}
+	},
+
+	/**
+	 * Open the categories dialog for all selected records
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} button The selected menuitem
+	 */
+	onCategories: function(button)
+	{
+		Grommunio.common.Actions.openCategoriesContent(this.records);
+	},
+
+	/**
+	 * Set the busy state for all selected records
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} button The selected menuitem
+	 */
+	onSetBusyStatus: function(button)
+	{
+		var store;
+		var records = this.records;
+
+		Ext.each(records, function(record) {
+			store = record.getStore();
+			record.set('busystatus', button.busyStatus);
+		}, this);
+
+		store.save(records);
+	},
+
+	/**
+	 * Open the selected record
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} button The selected menuitem
+	 */
+	onOpen: function(open)
+	{
+		Grommunio.calendar.Actions.openAppointmentContent(this.records);
+	},
+
+	/**
+	 * Delete all selected records
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} button The selected menuitem
+	 */
+	onDelete: function(button)
+	{
+		Grommunio.common.Actions.deleteRecords(this.records);
+	},
+
+	/**
+	 * Create a new appointment / meeting request
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} button The selected menuitem
+	 */
+	onCreate: function(button)
+	{
+		if (!this.records) {
+			var model = this.calendarPanel.model;
+			var calendarView = this.calendarPanel.getView();
+			var activeCalendar = calendarView.rangeSelectionModel.calendarView;
+			var rangeModel = this.calendarPanel.getRangeSelectionModel();
+
+			model.createRecord(function(record){
+				this.openContent(button, [record]);
+			}.createDelegate(this, [button], true), activeCalendar.getSelectedFolder(), rangeModel.dateRange);
+		} else {
+			this.openContent(button, this.records);
+		}
+	},
+
+	/**
+	 * Helper function to open dialog for new appointment / meeting request.
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} button The selected menuitem
+	 * @param {Grommunio.core.data.MAPIRecord[]} records The records on which this contextmenu gets opened
+	 */
+	openContent: function(button, records)
+	{
+		if (button.meetingRequest) {
+			for (var i = 0, len = records.length; i < len; i++) {
+				var record = records[i];
+				// Change meeting status only if it is not a meeting, otherwise leave as it is (in order not to overwrite old meeting status)
+				if (record.get('meeting') === Grommunio.core.mapi.MeetingStatus.NONMEETING) {
+					record.convertToMeeting();
+				}
+			}
+			Grommunio.calendar.Actions.openMeetingRequestContent(records);
+		} else {
+			Grommunio.calendar.Actions.openAppointmentContent(records);
+		}
+	},
+
+	/**
+	 * Makes the Forward menu item visible only when a single meeting
+	 * record (organized or received) is selected.
+	 * @param {Grommunio.core.ui.menu.MenuItem} item The item which is being tested
+	 * @param {Grommunio.core.data.MAPIRecord[]} records The records on which this context
+	 * menu is operating.
+	 * @private
+	 */
+	beforeShowOnMeetingForward: function(item, records)
+	{
+		if (!records || records.length !== 1) {
+			item.setVisible(false);
+			return;
+		}
+
+		var record = records[0];
+		item.setVisible(record.isMeeting() && !record.isMeetingCanceled() && !record.phantom);
+	},
+
+	/**
+	 * Called when the "Forward" menu item is clicked. Opens the
+	 * forward meeting request dialog for the selected appointment.
+	 * @private
+	 */
+	onForwardMeeting: function()
+	{
+		if (Array.isArray(this.records) && this.records.length > 0) {
+			Grommunio.calendar.Actions.openForwardMeetingRequestContent(this.records[0]);
+		}
+	},
+
+	/**
+	 * Called when "Reply" or "Reply All" is clicked on a calendar
+	 * meeting. AppointmentRecords lack the 'reply-to' sub-store
+	 * that the mail model's createResponseRecord expects, so we
+	 * build the reply manually from the appointment's properties.
+	 * @param {Ext.Button} button The button which was clicked
+	 * @private
+	 */
+	onReplyMeeting: function(button)
+	{
+		if (!Array.isArray(this.records) || this.records.length === 0) {
+			return;
+		}
+
+		var record = this.records[0];
+		var isReplyAll = (button.responseMode === Grommunio.mail.data.ActionTypes.REPLYALL);
+
+		var buildReply = function(rec) {
+			var iAmOrganizer = rec.isMeetingOrganized && rec.isMeetingOrganized();
+
+			// Reply (not All) as organizer is replying to yourself
+			if (!isReplyAll && iAmOrganizer) {
+				container.getNotifier().notify('info.meeting',
+					pgettext('calendar.contextmenu', 'Use Reply All to reply to all attendees of your meeting.'));
+				return;
+			}
+
+			var mailModel = container.getContextByName('mail').getModel();
+			var responseRecord = mailModel.createRecord();
+
+			// Use the RFC 5322 prefix setting
+			var prefix = container.getSettingsModel().get('grommunio/v1/contexts/mail/use_english_abbreviations')
+				? 'Re' : _('Re');
+			var subject = rec.get('normalized_subject') || rec.get('subject') || '';
+			responseRecord.set('subject', prefix + ': ' + subject);
+
+			var recipientStore = responseRecord.getRecipientStore();
+			var loggedInEntryId = container.getUser().getEntryId();
+
+			var addRecipient = function(name, email, addrType, entryId, type) {
+				if (!email) {
+					return;
+				}
+				if (loggedInEntryId && entryId &&
+					Grommunio.core.EntryId.compareABEntryIds(entryId, loggedInEntryId)) {
+					return;
+				}
+				recipientStore.add(Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(
+					Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_RECIPIENT, {
+						display_name: name || '',
+						smtp_address: email,
+						address_type: addrType || 'SMTP',
+						entryid: entryId || '',
+						recipient_type: type
+					}));
+			};
+
+			if (iAmOrganizer) {
+				// Reply All as organizer: all attendees → To
+				var apptRecipientStore = rec.getRecipientStore();
+				if (apptRecipientStore) {
+					apptRecipientStore.each(function(r) {
+						if (r.isMeetingOrganizer()) {
+							return;
+						}
+						addRecipient(
+							r.get('display_name'),
+							r.get('smtp_address') || r.get('email_address'),
+							r.get('address_type'),
+							r.get('entryid'),
+							Grommunio.core.mapi.RecipientType.MAPI_TO
+						);
+					});
+				}
+			} else {
+				// Attendee: organizer → To
+				addRecipient(
+					rec.get('sent_representing_name') || rec.get('sender_name'),
+					rec.get('sent_representing_email_address') || rec.get('sender_email_address'),
+					rec.get('sent_representing_address_type') || rec.get('sender_address_type'),
+					rec.get('sent_representing_entryid') || rec.get('sender_entryid'),
+					Grommunio.core.mapi.RecipientType.MAPI_TO
+				);
+
+				// Reply All as attendee: other attendees → CC
+				if (isReplyAll) {
+					var apptRecipientStore = rec.getRecipientStore();
+					if (apptRecipientStore) {
+						apptRecipientStore.each(function(r) {
+							if (r.isMeetingOrganizer()) {
+								return;
+							}
+							addRecipient(
+								r.get('display_name'),
+								r.get('smtp_address') || r.get('email_address'),
+								r.get('address_type'),
+								r.get('entryid'),
+								Grommunio.core.mapi.RecipientType.MAPI_CC
+							);
+						});
+					}
+				}
+			}
+
+			Grommunio.core.data.UIFactory.openCreateRecord(responseRecord);
+		};
+
+		// We need the recipient store for Reply All, and also for
+		// Reply as organizer (to show the notification after checking).
+		var needRecipients = isReplyAll;
+		if (needRecipients && !(record.getRecipientStore && record.getRecipientStore())) {
+			var store = record.getStore();
+			var openHandler = function(s, r) {
+				if (record !== r) {
+					return;
+				}
+				store.un('open', openHandler, record);
+				buildReply(r);
+			};
+			store.on('open', openHandler, record);
+			record.open();
+		} else {
+			buildReply(record);
+		}
+	},
+
+	/**
+	 * Called when one of the "Send to" menuitems are clicked.
+	 * @param {Ext.Button} button The button which was clicked
+	 * @private
+	 */
+	onContextItemResponse: function(button)
+	{
+		var mailModel = container.getContextByName('mail').getModel();
+		Grommunio.mail.Actions.openCreateMailResponseContent(this.records, mailModel, button.responseMode, {"attachAsIcs":true});
+	},
+
+	/**
+	 * Create the Options menu entry.
+	 * @return {Object} Menu item configuration
+	 * @private
+	 */
+	createOptionsMenuItem: function()
+	{
+		return {
+			xtype: 'grommunio.conditionalitem',
+			text: _('Options'),
+			iconCls: 'icon_cogwheel',
+			beforeShow: this.beforeShowNonPhantom,
+			singleSelectOnly: true,
+			handler: this.onContextItemOptions,
+			scope: this
+		};
+	},
+
+	/**
+	 * Open the options dialog for the selected record.
+	 * @private
+	 */
+	onContextItemOptions: function()
+	{
+		Grommunio.calendar.Actions.openOptionsContent(this.records, {
+			autoSave: true
+		});
+	}
+});
+
+Ext.reg('grommunio.calendarcontextmenu', Grommunio.calendar.ui.CalendarContextMenu);

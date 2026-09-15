@@ -1,12 +1,12 @@
-Ext.namespace('Zarafa.plugins.passwd.settings');
+Ext.namespace('Grommunio.plugins.passwd.settings');
 
 /**
- * @class Zarafa.plugins.passwd.settings.PasswdPanel
+ * @class Grommunio.plugins.passwd.settings.PasswdPanel
  * @extends Ext.form.FormPanel
  *
  * Panel which holds a form that will be used to change the password
  */
-Zarafa.plugins.passwd.settings.PasswdPanel = Ext.extend(Ext.form.FormPanel, {
+Grommunio.plugins.passwd.settings.PasswdPanel = Ext.extend(Ext.form.FormPanel, {
 
 	/**
 	 * @constructor
@@ -17,7 +17,7 @@ Zarafa.plugins.passwd.settings.PasswdPanel = Ext.extend(Ext.form.FormPanel, {
 		config = config || {};
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.passwdpanel',
+			xtype : 'grommunio.passwdpanel',
 			labelWidth : 200,
 			defaults : {
 				width : 200
@@ -69,7 +69,7 @@ Zarafa.plugins.passwd.settings.PasswdPanel = Ext.extend(Ext.form.FormPanel, {
 			'userchange'
 		);
 
-		Zarafa.plugins.passwd.settings.PasswdPanel.superclass.constructor.apply(this, arguments);
+		Grommunio.plugins.passwd.settings.PasswdPanel.superclass.constructor.apply(this, arguments);
 
 		this.on('afterrender', this.initialize, this);
 	},
@@ -96,4 +96,4 @@ Zarafa.plugins.passwd.settings.PasswdPanel = Ext.extend(Ext.form.FormPanel, {
 	}
 });
 
-Ext.reg('zarafa.passwdpanel', Zarafa.plugins.passwd.settings.PasswdPanel);
+Ext.reg('grommunio.passwdpanel', Grommunio.plugins.passwd.settings.PasswdPanel);

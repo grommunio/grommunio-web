@@ -1,11 +1,11 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+Ext.namespace('Grommunio.plugins.files.ui');
 
 /**
- * @class Zarafa.plugins.files.ui.FilesMainPanel
- * @extends Zarafa.common.ui.ContextMainPanel
+ * @class Grommunio.plugins.files.ui.FilesMainPanel
+ * @extends Grommunio.common.ui.ContextMainPanel
  * @xtype filesplugin.filesmainpanel
  */
-Zarafa.plugins.files.ui.FilesMainPanel = Ext.extend(Zarafa.common.ui.ContextMainPanel, {
+Grommunio.plugins.files.ui.FilesMainPanel = Ext.extend(Grommunio.common.ui.ContextMainPanel, {
 
 	/**
 	 * @constructor
@@ -16,7 +16,7 @@ Zarafa.plugins.files.ui.FilesMainPanel = Ext.extend(Zarafa.common.ui.ContextMain
 
 		Ext.applyIf(config, {
 			xtype : 'filesplugin.filesmainpanel',
-			layout: 'zarafa.switchborder',
+			layout: 'grommunio.switchborder',
 			header : false,
 			iconCls : 'icon_files',
 			items: [
@@ -30,29 +30,29 @@ Zarafa.plugins.files.ui.FilesMainPanel = Ext.extend(Zarafa.common.ui.ContextMain
 			}
 		});
 
-		Zarafa.plugins.files.ui.FilesMainPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.FilesMainPanel.superclass.constructor.call(this, config);
 	},
 
 	/**
 	 * Initializes the different views for the files plugin.
 	 *
 	 * @param {Object} config Configuration object
-	 * @return {Zarafa.mail.ui.MailGrid}
+	 * @return {Grommunio.mail.ui.MailGrid}
 	 * @private
 	 */
 	initMainItems: function (config)
 	{
 		return {
 			xtype : 'panel',
-			layout : 'zarafa.collapsible',
-			cls : 'zarafa-files-context-mainpanel',
+			layout : 'grommunio.collapsible',
+			cls : 'grommunio-files-context-mainpanel',
 			minWidth : 200,
 			minHeight : 200,
 			region : 'center',
 			border: false,
 			split : true,
 			items : [{
-				xtype : 'zarafa.switchviewcontentcontainer',
+				xtype : 'grommunio.switchviewcontentcontainer',
 				ref : '../viewPanel',
 				layout   : 'card',
 				lazyItems: this.initViews(config.context)
@@ -69,7 +69,7 @@ Zarafa.plugins.files.ui.FilesMainPanel = Ext.extend(Zarafa.common.ui.ContextMain
 	/**
 	 * Function will initialize all views associated with files context
 	 * it will also get views added through 3rd party plugins and add it here
-	 * @param {Zarafa.plugins.files.FilesContext} context The Files Context
+	 * @param {Grommunio.plugins.files.FilesContext} context The Files Context
 	 * @return {Array} array of config objects of different views
 	 * @private
 	 */
@@ -102,9 +102,9 @@ Zarafa.plugins.files.ui.FilesMainPanel = Ext.extend(Zarafa.common.ui.ContextMain
 	},
 
 	/**
-	 * Initializes the {@link Zarafa.plugins.files.ui.FilesPreviewPanel PreviewPanel}
+	 * Initializes the {@link Grommunio.plugins.files.ui.FilesPreviewPanel PreviewPanel}
 	 *
-	 * @return {Zarafa.plugins.files.ui.FilesPreviewPanel}
+	 * @return {Grommunio.plugins.files.ui.FilesPreviewPanel}
 	 * @private
 	 */
 	initPreviewPanel: function() {
@@ -130,43 +130,43 @@ Zarafa.plugins.files.ui.FilesMainPanel = Ext.extend(Zarafa.common.ui.ContextMain
 			this.onViewModeChange(this.context, this.context.getCurrentViewMode());
 		}
 
-		Zarafa.plugins.files.ui.FilesMainPanel.superclass.initEvents.apply(this, arguments);
+		Grommunio.plugins.files.ui.FilesMainPanel.superclass.initEvents.apply(this, arguments);
 	},
 
 	/**
 	 * Event handler which is fired when the currently active view inside the {@link #context}
 	 * has been updated. This will update the call
-	 * {@link #viewPanel}#{@link Zarafa.core.ui.SwitchViewContentContainer#switchView}
+	 * {@link #viewPanel}#{@link Grommunio.core.ui.SwitchViewContentContainer#switchView}
 	 * to make the requested view active.
 	 *
-	 * @param {Zarafa.core.Context} context The context which fired the event.
-	 * @param {Zarafa.common.data.Views} newView The ID of the selected view.
-	 * @param {Zarafa.common.data.Views} oldView The ID of the previously selected view.
+	 * @param {Grommunio.core.Context} context The context which fired the event.
+	 * @param {Grommunio.common.data.Views} newView The ID of the selected view.
+	 * @param {Grommunio.common.data.Views} oldView The ID of the previously selected view.
 	 */
 	onViewChange: function (context, newView, oldView)
 	{
 		var store = context.getModel().getStore();
 		switch (newView) {
-			case Zarafa.plugins.files.data.Views.LIST:
+			case Grommunio.plugins.files.data.Views.LIST:
 				this.viewPanel.switchView(store.getPath() === "#R#" ? 'files-accountview' : 'files-gridview');
 				break;
-			case Zarafa.plugins.files.data.Views.ICON:
+			case Grommunio.plugins.files.data.Views.ICON:
 				this.viewPanel.switchView('files-iconview');
 				break;
 		}
 	},
 
 	/**
-	 * Event handler which is fired when the {@link Zarafa.core.Context} fires the
-	 * {@link Zarafa.core.Context#viewmodechange viewmodechange} event. This will
-	 * convert the configured {@link Zarafa.common.data.ViewModes mode} to a
-	 * {@link Zarafa.common.ui.layout.SwitchBorderLayout.Orientation orientation}
-	 * to be {@link Zarafa.common.ui.layout.SwitchBorderLayout.setOrientation applied}
+	 * Event handler which is fired when the {@link Grommunio.core.Context} fires the
+	 * {@link Grommunio.core.Context#viewmodechange viewmodechange} event. This will
+	 * convert the configured {@link Grommunio.common.data.ViewModes mode} to a
+	 * {@link Grommunio.common.ui.layout.SwitchBorderLayout.Orientation orientation}
+	 * to be {@link Grommunio.common.ui.layout.SwitchBorderLayout.setOrientation applied}
 	 * to the {@link #layout}.
 	 *
-	 * @param {Zarafa.core.Context} context The context which fired the event
-	 * @param {Zarafa.common.data.ViewModes} newViewMode The new active mode
-	 * @param {Zarafa.common.data.ViewModes} oldViewMode The previous mode
+	 * @param {Grommunio.core.Context} context The context which fired the event
+	 * @param {Grommunio.common.data.ViewModes} newViewMode The new active mode
+	 * @param {Grommunio.common.data.ViewModes} oldViewMode The previous mode
 	 * @private
 	 */
 	onViewModeChange: function (context, newViewMode, oldViewMode)
@@ -174,16 +174,16 @@ Zarafa.plugins.files.ui.FilesMainPanel = Ext.extend(Zarafa.common.ui.ContextMain
 		var orientation;
 
 		switch (newViewMode) {
-			case Zarafa.plugins.files.data.ViewModes.NO_PREVIEW:
-				orientation = Zarafa.common.ui.layout.SwitchBorderLayout.Orientation.OFF;
+			case Grommunio.plugins.files.data.ViewModes.NO_PREVIEW:
+				orientation = Grommunio.common.ui.layout.SwitchBorderLayout.Orientation.OFF;
 				break;
-			case Zarafa.plugins.files.data.ViewModes.RIGHT_PREVIEW:
-				orientation = Zarafa.common.ui.layout.SwitchBorderLayout.Orientation.HORIZONTAL;
+			case Grommunio.plugins.files.data.ViewModes.RIGHT_PREVIEW:
+				orientation = Grommunio.common.ui.layout.SwitchBorderLayout.Orientation.HORIZONTAL;
 				break;
-			case Zarafa.plugins.files.data.ViewModes.BOTTOM_PREVIEW:
-				orientation = Zarafa.common.ui.layout.SwitchBorderLayout.Orientation.VERTICAL;
+			case Grommunio.plugins.files.data.ViewModes.BOTTOM_PREVIEW:
+				orientation = Grommunio.common.ui.layout.SwitchBorderLayout.Orientation.VERTICAL;
 				break;
-			case Zarafa.plugins.files.data.ViewModes.SEARCH:
+			case Grommunio.plugins.files.data.ViewModes.SEARCH:
 				return;
 		}
 
@@ -200,4 +200,4 @@ Zarafa.plugins.files.ui.FilesMainPanel = Ext.extend(Zarafa.common.ui.ContextMain
 	}
 });
 
-Ext.reg('filesplugin.filesmainpanel', Zarafa.plugins.files.ui.FilesMainPanel);
+Ext.reg('filesplugin.filesmainpanel', Grommunio.plugins.files.ui.FilesMainPanel);

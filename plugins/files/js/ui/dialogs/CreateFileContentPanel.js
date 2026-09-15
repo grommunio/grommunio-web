@@ -1,14 +1,14 @@
-Ext.namespace('Zarafa.plugins.files.ui.dialogs');
+Ext.namespace('Grommunio.plugins.files.ui.dialogs');
 
 /**
- * @class Zarafa.plugins.files.ui.dialogs.CreateFileContentPanel
- * @extends Zarafa.core.ui.RecordContentPanel
+ * @class Grommunio.plugins.files.ui.dialogs.CreateFileContentPanel
+ * @extends Grommunio.core.ui.RecordContentPanel
  * @xtype filesplugin.createfilecontentpanel
  *
- * Create file content panel provide the {@link Zarafa.plugins.files.ui.Tree Tree} to create
+ * Create file content panel provide the {@link Grommunio.plugins.files.ui.Tree Tree} to create
  * the new file in that.
  */
-Zarafa.plugins.files.ui.dialogs.CreateFileContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPanel, {
+Grommunio.plugins.files.ui.dialogs.CreateFileContentPanel = Ext.extend(Grommunio.core.ui.RecordContentPanel, {
 
 	/**
 	 * @constructor
@@ -20,7 +20,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFileContentPanel = Ext.extend(Zarafa.core.
 		const filetypeTitle = config.button.text || 'Document';
 
 		Ext.applyIf(config, {
-			xtype : 'zarafa.createfilecontentpanel',
+			xtype : 'grommunio.createfilecontentpanel',
 			layout: 'fit',
 			title : _('Create New ' + filetypeTitle),
 			showLoadMask: false,
@@ -36,8 +36,8 @@ Zarafa.plugins.files.ui.dialogs.CreateFileContentPanel = Ext.extend(Zarafa.core.
 			}]
 		});
 
-		Zarafa.plugins.files.ui.dialogs.CreateFileContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.dialogs.CreateFileContentPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.createfilecontentpanel', Zarafa.plugins.files.ui.dialogs.CreateFileContentPanel);
+Ext.reg('filesplugin.createfilecontentpanel', Grommunio.plugins.files.ui.dialogs.CreateFileContentPanel);

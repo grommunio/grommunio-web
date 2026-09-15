@@ -1,11 +1,11 @@
-Ext.namespace('Zarafa.plugins.files.data');
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.FilesBackendRecordFields
+ * @class Grommunio.plugins.files.data.FilesBackendRecordFields
  *
  * These fields will be available in all 'IPM.FilesBackend' type messages.
  */
-Zarafa.plugins.files.data.FilesBackendRecordFields = [
+Grommunio.plugins.files.data.FilesBackendRecordFields = [
 	{name: 'id'},
 	{name: 'name'},
 	{name: 'backend', mapping: 'name'},
@@ -13,6 +13,6 @@ Zarafa.plugins.files.data.FilesBackendRecordFields = [
 	{name: 'message_class'}
 ];
 
-Zarafa.core.data.RecordFactory.addFieldToMessageClass('IPM.FilesBackend', Zarafa.plugins.files.data.FilesBackendRecordFields);
-Zarafa.core.data.RecordFactory.setBaseClassToMessageClass('IPM.FilesBackend', Zarafa.core.data.IPMRecord);
+Grommunio.core.data.RecordFactory.addFieldToMessageClass('IPM.FilesBackend', Grommunio.plugins.files.data.FilesBackendRecordFields);
+Grommunio.core.data.RecordFactory.setBaseClassToMessageClass('IPM.FilesBackend', Grommunio.core.data.IPMRecord);
 

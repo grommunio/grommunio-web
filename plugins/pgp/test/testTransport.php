@@ -367,7 +367,7 @@ foreach (['draft', 'note', 'meeting', 'bad_sender', 'user_off', 'user_off_plain'
 		$item = attachment($envelope); $item->props[PR_ATTACH_MIME_TAG] = 'multipart/signed'; $message->attachments = [$item];
 	}
 	if ($case === 'bad_sender') { $message->props[PR_SENT_REPRESENTING_SMTP_ADDRESS] = 'not an address'; }
-	$GLOBALS['settings']->values['zarafa/v1/plugins/pgp/enable'] = $case === 'user_on';
+	$GLOBALS['settings']->values['grommunio/v1/plugins/pgp/enable'] = $case === 'user_on';
 	$event = ['message' => $message, 'handled' => false];
 	$bodyReadsBefore = $GLOBALS['bodyReads'] ?? 0;
 	if (str_starts_with($case, 'user_')) { $plugin->execute('server.util.parse_secure.before', $event); } else { $plugin->open($event); }
@@ -381,7 +381,7 @@ foreach (['draft', 'note', 'meeting', 'bad_sender', 'user_off', 'user_off_plain'
 	if ($case === 'user_off') { transportCheck($opened['data']['item']['props']['body'] === 'stored' && $opened['data']['item']['attachments']['item'] === [['old' => true]], 'Envelope renders as stored for a user without the plugin'); }
 	if ($case === 'bad_sender') { transportCheck($opened['data']['item']['props']['pgp']['sender'] === '' && $opened['data']['item']['props']['pgp']['pending'], 'A malformed From address does not fail the open'); }
 }
-unset($GLOBALS['settings']->values['zarafa/v1/plugins/pgp/enable']);
+unset($GLOBALS['settings']->values['grommunio/v1/plugins/pgp/enable']);
 transportCheck(($GLOBALS['deleteprops'] ?? 0) === $deletesBefore, 'Opening never deletes properties on the stored message');
 $module = new PluginPgpModule();
 foreach (['passphrase', 'password', 'unlocked_key', 'private_key'] as $field) {

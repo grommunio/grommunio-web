@@ -1,0 +1,146 @@
+Ext.namespace('Grommunio.core.data');
+
+/**
+ * @class Grommunio.core.data.UIFactoryWindowLayer
+ * @extends Grommunio.core.data.UIFactoryLayer
+ *
+ * This layer supports placing {@link Grommunio.core.ui.ContentPanel Content Panels}
+ * to be placed inside a {@link Ext.Window} instance.
+ */
+Grommunio.core.data.UIFactoryWindowLayer = Ext.extend(Grommunio.core.data.UIFactoryLayer, {
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		Ext.applyIf(config, {
+			type: 'dialogs',
+			index: 10,
+			allowModal: true,
+			manager: Ext.WindowMgr,
+			plugins: [ 'grommunio.contentwindowlayerplugin' ]
+		});
+
+		Grommunio.core.data.UIFactoryWindowLayer.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * The create function which is invoked when a component needs to be added to the Container using
+	 * this Layer.
+	 * @param {Function} Constructor The constructor of the component which has to be created in the container layer.
+	 * @param {Object} config The configuration object which must be
+	 * passed to the constructor when creating the component
+	 * @protected
+	 */
+	create: function(component, config)
+	{
+		Ext.applyIf(config, {
+			statefulRelativeDimensions: false
+		});
+
+		var panel = new component(config);
+
+		var sm = container.getSettingsModel();
+		var stateWidth = sm.get('grommunio/v1/state/' + panel.getStateName() + '/width');
+		if ( stateWidth && stateWidth<1 ){
+			// dimensions are stored relatively, but we changed it to absolutely,
+			// so we will delete these state settings and recreate the panel with
+			// the default size.
+			sm.remove('grommunio/v1/state/' + panel.getStateName() + '/width');
+			sm.remove('grommunio/v1/state/' + panel.getStateName() + '/height');
+			panel = new component(config);
+		}
+
+		var windowCfg = {
+			modal: panel.modal,
+			manager: panel.manager,
+			iconCls: Ext.isDefined(config.iconCls) ? config.iconCls : '',
+			constrainHeader: true,
+			resizable: Ext.isDefined(panel.resizable)? panel.resizable : true,
+			minimizable: Ext.isDefined(panel.minimizable)? panel.minimizable : false,
+			closable: config.closable,
+			headerCfg: {
+				tag: 'div',
+				cls: 'grommunio-window-header x-window-header x-unselectable x-window-draggable'
+			},
+			layout: 'fit',
+			items: [
+				panel
+			],
+
+			listeners: {
+				// We want to give fade effect when subjecttext is longer than window width
+				// NOTE: Removing this breaks logon when webmeetings is enabled
+				'afterrender': function(win) {
+					if (Ext.isDefined(win.header) && Ext.isElement(win.header.dom)) {
+						Ext.DomHelper.append(win.header.dom, "<span class='fade'>&nbsp;</span>");
+					}
+				}
+			},
+			title: panel.title
+		};
+
+		// If the component has listeners defined add them to the containing window
+			Ext.applyIf(windowCfg.listeners, config.listeners);
+
+		if(panel.closeAction) {
+			// add a custom closeAction config to properly fire close events when closing
+			// dialogs using closeAction config
+			windowCfg.closeAction = panel.closeAction;
+			windowCfg[panel.closeAction] = panel[panel.closeAction].createDelegate(panel);
+		}
+
+		// Get active focus element before opening the window,
+		// So we will set focus on that element after the window close
+		var activeElement = document.activeElement;
+		var window = new Ext.Window(windowCfg);
+		window.on('close', this.onWindowClose.createDelegate(this, [activeElement]));
+
+		// Verify if window should open on main browser window then,
+		// Render it on main browser window first.
+		if (panel.forceFullyOpenInMainWindow && !Grommunio.core.BrowserWindowMgr.isMainWindowActive()) {
+			window.render(Grommunio.core.BrowserWindowMgr.getMainBrowserWindowBody());
+		}
+
+		window.show();
+		this.keepBelowTopBar(window);
+	},
+
+	/**
+	 * A window taller than the space under the main tab bar is centered over
+	 * the bar; shrink it to the space and move it below the bar.
+	 * @param {Ext.Window} window The shown window
+	 * @private
+	 */
+	keepBelowTopBar: function(window)
+	{
+		var bar = window.el.dom.ownerDocument.getElementById('grommunio-mainmenu');
+		var minY = (bar ? bar.getBoundingClientRect().bottom : 0) + 8;
+		var box = window.getBox();
+		var maxHeight = Ext.lib.Dom.getViewHeight() - minY - 8;
+
+		if (box.height > maxHeight) {
+			window.setHeight(maxHeight);
+		}
+		if (box.y < minY) {
+			window.setPosition(box.x, minY);
+		}
+	},
+
+	/**
+	 * Event handler for the close event of the {@link Ext.Window}
+	 * It will set the focus on element which was previously focused before window open
+	 * @param {Ext.Element} activeElement which was previously focused
+   */
+	onWindowClose: function(activeElement)
+	{
+		if (activeElement) {
+			activeElement.focus();
+		}
+	}
+});
+
+Grommunio.core.data.UIFactory.registerLayer(new Grommunio.core.data.UIFactoryWindowLayer());

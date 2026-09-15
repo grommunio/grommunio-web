@@ -1,12 +1,12 @@
-Ext.namespace('Zarafa.plugins.files.settings.ui');
+Ext.namespace('Grommunio.plugins.files.settings.ui');
 
 /**
- * @class Zarafa.plugins.files.settings.ui.AccountPanel
+ * @class Grommunio.plugins.files.settings.ui.AccountPanel
  * @extends Ext.grid.GridPanel
  * @xtype filesplugin.accountpanel
  * The main gridpanel for our data
  */
-Zarafa.plugins.files.settings.ui.AccountPanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.files.settings.ui.AccountPanel = Ext.extend(Ext.Panel, {
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -23,7 +23,7 @@ Zarafa.plugins.files.settings.ui.AccountPanel = Ext.extend(Ext.Panel, {
 			}]
 		});
 
-		Zarafa.plugins.files.settings.ui.AccountPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.settings.ui.AccountPanel.superclass.constructor.call(this, config);
 	}
 });
-Ext.reg('filesplugin.accountpanel', Zarafa.plugins.files.settings.ui.AccountPanel);
+Ext.reg('filesplugin.accountpanel', Grommunio.plugins.files.settings.ui.AccountPanel);

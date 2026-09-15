@@ -5,8 +5,8 @@ defined('ecLoginPerm') || define('ecLoginPerm', 1);
 defined('MAPI_E_CALL_FAILED') || define('MAPI_E_CALL_FAILED', 2);
 defined('MAPI_E_NOT_FOUND') || define('MAPI_E_NOT_FOUND', 3);
 
-if (!class_exists('ZarafaException')) {
-	class ZarafaException extends Exception {}
+if (!class_exists('GrommunioException')) {
+	class GrommunioException extends Exception {}
 }
 
 require_once dirname(__DIR__) . '/includes/core/class.operations.php';

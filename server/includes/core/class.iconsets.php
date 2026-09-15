@@ -76,7 +76,7 @@ class Iconsets {
 				$iconset = ICONSET !== "" ? ICONSET : 'breeze';
 			}
 			else {
-				$iconset = $GLOBALS['settings']->get('zarafa/v1/main/active_iconset');
+				$iconset = $GLOBALS['settings']->get('grommunio/v1/main/active_iconset');
 			}
 
 			if (!isset($iconset) || empty($iconset) || !array_key_exists($iconset, $installedIconsets)) {

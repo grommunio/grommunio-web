@@ -1,12 +1,12 @@
-Ext.namespace('Zarafa.plugins.files.settings.data');
+Ext.namespace('Grommunio.plugins.files.settings.data');
 
 /**
- * @class Zarafa.plugins.files.settings.data.AccountRenderUtil
+ * @class Grommunio.plugins.files.settings.data.AccountRenderUtil
  * @singleton
  *
  * This class offers some basic utils for rendering account specific values.
  */
-Zarafa.plugins.files.settings.data.AccountRenderUtil = {
+Grommunio.plugins.files.settings.data.AccountRenderUtil = {
 	/**
 	 * Renderer for the status column of the accountgrid
 	 * @param {Object} value The data value for the cell.
@@ -16,24 +16,24 @@ Zarafa.plugins.files.settings.data.AccountRenderUtil = {
 	 */
 	statusRenderer: function (value, p, record) {
 		switch (value) {
-			case Zarafa.plugins.files.data.AccountRecordStatus.OK:
-				p.css = 'zarafa-files-listview-icon zarafa-files-account-ok';
+			case Grommunio.plugins.files.data.AccountRecordStatus.OK:
+				p.css = 'grommunio-files-listview-icon grommunio-files-account-ok';
 				break;
-			case Zarafa.plugins.files.data.AccountRecordStatus.NEW:
-				p.css = 'zarafa-files-listview-icon zarafa-files-account-new';
+			case Grommunio.plugins.files.data.AccountRecordStatus.NEW:
+				p.css = 'grommunio-files-listview-icon grommunio-files-account-new';
 				break;
-			case Zarafa.plugins.files.data.AccountRecordStatus.ERROR:
-				p.css = 'zarafa-files-listview-icon zarafa-files-account-error';
+			case Grommunio.plugins.files.data.AccountRecordStatus.ERROR:
+				p.css = 'grommunio-files-listview-icon grommunio-files-account-error';
 				break;
-			case Zarafa.plugins.files.data.AccountRecordStatus.UNKNOWN:
-				p.css = 'zarafa-files-listview-icon zarafa-files-account-unknown';
+			case Grommunio.plugins.files.data.AccountRecordStatus.UNKNOWN:
+				p.css = 'grommunio-files-listview-icon grommunio-files-account-unknown';
 				break;
 			default:
 				break;
 		}
 
 		// add extra css class for empty cell
-		p.css += ' zarafa-grid-empty-cell';
+		p.css += ' grommunio-grid-empty-cell';
 		p.attr = 'ext:qtip="' + record.get('status_description') + '"';
 
 		return '';
@@ -65,14 +65,14 @@ Zarafa.plugins.files.settings.data.AccountRenderUtil = {
 		if (
 			!Ext.isDefined(availableFeatures) ||
 			availableFeatures === null ||
-			!Zarafa.plugins.files.settings.data.AccountRenderUtil.arrayContains(
+			!Grommunio.plugins.files.settings.data.AccountRenderUtil.arrayContains(
 				availableFeatures,
 				feature,
 			)
 		) {
 			return 'x-hide-display';
 		}
-		return 'zarafa-files-feature-spacer';
+		return 'grommunio-files-feature-spacer';
 	},
 
 	/**

@@ -1,10 +1,10 @@
-Ext.namespace('Zarafa.plugins.archive.ui');
+Ext.namespace('Grommunio.plugins.archive.ui');
 
 /**
- * @class Zarafa.plugins.archive.ui.Panel
+ * @class Grommunio.plugins.archive.ui.Panel
  * @extends Ext.Panel
  */
-Zarafa.plugins.archive.ui.Panel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.archive.ui.Panel = Ext.extend(Ext.Panel, {
 	/**
 	 * The id of the iframe element inside this panel
 	 */
@@ -20,7 +20,7 @@ Zarafa.plugins.archive.ui.Panel = Ext.extend(Ext.Panel, {
 	 * the dialog is waiting for the server to respond with the desired data. This will only
 	 * be set if {@link #showLoadMask} is true.
 	 * @property
-	 * @type Zarafa.common.ui.LoadMask
+	 * @type Grommunio.common.ui.LoadMask
 	 */
 	loadMask : undefined,
 
@@ -36,7 +36,7 @@ Zarafa.plugins.archive.ui.Panel = Ext.extend(Ext.Panel, {
 
 		Ext.applyIf(config, {
 			// Overridden from Ext.Component
-			xtype: 'zarafa.plugins.archive.ui.panel',
+			xtype: 'grommunio.plugins.archive.ui.panel',
 			layout : 'fit',
 			header: false,
 			html : {
@@ -53,7 +53,7 @@ Zarafa.plugins.archive.ui.Panel = Ext.extend(Ext.Panel, {
 			}
 		});
 
-		Zarafa.plugins.archive.ui.Panel.superclass.constructor.call(this, config);
+		Grommunio.plugins.archive.ui.Panel.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -196,7 +196,7 @@ Zarafa.plugins.archive.ui.Panel = Ext.extend(Ext.Panel, {
 			return;
 		}
 		if (!this.loadMask) {
-			this.loadMask = new Zarafa.common.ui.LoadMask(this.ownerCt.el);
+			this.loadMask = new Grommunio.common.ui.LoadMask(this.ownerCt.el);
 		}
 
 		if (errorMask) {
@@ -227,4 +227,4 @@ Zarafa.plugins.archive.ui.Panel = Ext.extend(Ext.Panel, {
 
 });
 
-Ext.reg('zarafa.plugins.archive.ui.panel', Zarafa.plugins.archive.ui.Panel);
+Ext.reg('grommunio.plugins.archive.ui.panel', Grommunio.plugins.archive.ui.Panel);

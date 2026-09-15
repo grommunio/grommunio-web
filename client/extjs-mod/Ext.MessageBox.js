@@ -190,7 +190,7 @@ Ext.MessageBox = Ext.extend(Object, {
 
 	// private
 	handleButton: function(button) {
-		var activeWindow = Zarafa.core.BrowserWindowMgr.getActive();
+		var activeWindow = Grommunio.core.BrowserWindowMgr.getActive();
 		this.buttons[button].blur();
 		if(this.dlg.isVisible()) {
 			this.dlg.hide();
@@ -268,7 +268,7 @@ Ext.MessageBox = Ext.extend(Object, {
 		}, this);
 
 		// Get proper browser window to render the message box into body element of the same.
-		var activeWindow = Zarafa.core.BrowserWindowMgr.getActive();
+		var activeWindow = Grommunio.core.BrowserWindowMgr.getActive();
 
 		this.dlg = new Ext.Window({
 			autoCreate: true,
@@ -501,7 +501,7 @@ icon: Ext.MessageBox.INFO
 		this.opt = options;
 		var d = this.getDialog(this.opt.title || "&#160;");
 		if ( !this.opt.maxWidth ) {
-			this.opt.maxWidth = Math.max(Zarafa.core.BrowserWindowMgr.getOwnerWindow(d).innerWidth - 20, 200);
+			this.opt.maxWidth = Math.max(Grommunio.core.BrowserWindowMgr.getOwnerWindow(d).innerWidth - 20, 200);
 		}
 
 		d.setTitle(this.opt.title || "&#160;");
@@ -591,7 +591,7 @@ icon: Ext.MessageBox.INFO
 		if (!d.isVisible()) {
 			// force it to the end of the z-index stack so it gets a cursor in FF
 			// Get proper browser window to render the message box into body element of the same.
-			var activeWindow = Zarafa.core.BrowserWindowMgr.getActive();
+			var activeWindow = Grommunio.core.BrowserWindowMgr.getActive();
 			activeWindow.document.body.appendChild(this.dlg.el.dom);
 			d.setAnimateTarget(this.opt.animEl);
 			//workaround for window internally enabling keymap in afterShow

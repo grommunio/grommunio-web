@@ -43,7 +43,7 @@ class PluginArchive extends Plugin {
 		];
 
 		$data['settingsObj']->addSysAdminDefaults([
-			'zarafa' => [
+			'grommunio' => [
 				'v1' => [
 					'plugins' => [
 						'archive' => $pluginData,

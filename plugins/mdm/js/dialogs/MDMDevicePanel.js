@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.mdm.dialogs');
+Ext.namespace('Grommunio.plugins.mdm.dialogs');
 
 /**
- * @class Zarafa.plugins.mdm.dialogs.MDMDevicePanel
+ * @class Grommunio.plugins.mdm.dialogs.MDMDevicePanel
  * @extends Ext.Panel
  * @xtype mdmplugin.mdmdevicepanel
  *
  * This class is used as wrapper class for all tabs, individual tab will have its own class.
  */
-Zarafa.plugins.mdm.dialogs.MDMDevicePanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.mdm.dialogs.MDMDevicePanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * @constructor
@@ -38,8 +38,8 @@ Zarafa.plugins.mdm.dialogs.MDMDevicePanel = Ext.extend(Ext.Panel, {
 			}]
 		});
 
-		Zarafa.plugins.mdm.dialogs.MDMDevicePanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.mdm.dialogs.MDMDevicePanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('mdmplugin.mdmdevicepanel', Zarafa.plugins.mdm.dialogs.MDMDevicePanel);
+Ext.reg('mdmplugin.mdmdevicepanel', Grommunio.plugins.mdm.dialogs.MDMDevicePanel);

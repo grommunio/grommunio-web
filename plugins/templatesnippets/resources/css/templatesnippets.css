@@ -26,7 +26,7 @@ body.dark-mode .icon_templatesnippets_user {
 /* ================================================================
  * Settings widget
  *
- * cls includes "zarafa-settings-widget" so it inherits rounded
+ * cls includes "grommunio-settings-widget" so it inherits rounded
  * borders, box-shadow, body padding (14px 16px) from grommunio.css.
  * ================================================================ */
 

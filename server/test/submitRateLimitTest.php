@@ -24,8 +24,8 @@ if (!class_exists('BaseException')) {
 	}
 }
 
-if (!class_exists('ZarafaException')) {
-	class ZarafaException extends BaseException {}
+if (!class_exists('GrommunioException')) {
+	class GrommunioException extends BaseException {}
 }
 
 if (!function_exists('_')) {
@@ -76,7 +76,7 @@ $send = static function (): bool {
 
 		return true;
 	}
-	catch (ZarafaException $e) {
+	catch (GrommunioException $e) {
 		$GLOBALS['rateLastError'] = $e;
 
 		return false;

@@ -1,15 +1,15 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+Ext.namespace('Grommunio.plugins.files.ui');
 
-Zarafa.plugins.files.ui.FilesRecordGridView = Ext.extend(Zarafa.common.ui.grid.GridPanel, {
+Grommunio.plugins.files.ui.FilesRecordGridView = Ext.extend(Grommunio.common.ui.grid.GridPanel, {
 	/**
-	 * @cfg {Zarafa.plugins.files.FilesContext} context The context to which this context menu belongs.
+	 * @cfg {Grommunio.plugins.files.FilesContext} context The context to which this context menu belongs.
 	 */
 	context : undefined,
 
 	/**
-	 * The {@link Zarafa.plugins.files.FilesContextModel} which is obtained from the {@link #context}.
+	 * The {@link Grommunio.plugins.files.FilesContextModel} which is obtained from the {@link #context}.
 	 * @property
-	 * @type Zarafa.plugins.files.FilesContextModel
+	 * @type Grommunio.plugins.files.FilesContextModel
 	 */
 	model: undefined,
 
@@ -46,12 +46,12 @@ Zarafa.plugins.files.ui.FilesRecordGridView = Ext.extend(Zarafa.common.ui.grid.G
 				scope  : this
 			}
 		});
-		Zarafa.plugins.files.ui.FilesRecordGridView.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.FilesRecordGridView.superclass.constructor.call(this, config);
 
 	},
 
 	initEvents: function () {
-		Zarafa.plugins.files.ui.FilesRecordGridView.superclass.initEvents.call(this);
+		Grommunio.plugins.files.ui.FilesRecordGridView.superclass.initEvents.call(this);
 
 		this.mon(this, 'cellcontextmenu', this.onCellContextMenu, this);
 		this.mon(this, 'rowbodycontextmenu', this.onRowBodyContextMenu, this);
@@ -86,7 +86,7 @@ Zarafa.plugins.files.ui.FilesRecordGridView = Ext.extend(Zarafa.common.ui.grid.G
 	},
 
 	initColumnModel: function () {
-		return new Zarafa.plugins.files.ui.FilesRecordGridColumnModel();
+		return new Grommunio.plugins.files.ui.FilesRecordGridColumnModel();
 	},
 
 	initDropTarget: function () {
@@ -103,13 +103,13 @@ Zarafa.plugins.files.ui.FilesRecordGridView = Ext.extend(Zarafa.common.ui.grid.G
 
 				var cellindex = ddSource.getDragData(e).rowIndex;
 				var dropTarget = this.gridStore.getAt(cellindex);
-				if (Ext.isDefined(cellindex) && dropTarget.get('type') === Zarafa.plugins.files.data.FileTypes.FOLDER) {
+				if (Ext.isDefined(cellindex) && dropTarget.get('type') === Grommunio.plugins.files.data.FileTypes.FOLDER) {
 
 					Ext.each(data.selections, function (record) {
 						record.setDisabled(true);
 					});
 
-					return Zarafa.plugins.files.data.Actions.moveRecords(data.selections, dropTarget, {hierarchyStore: this.gridStore.hierarchyStore});
+					return Grommunio.plugins.files.data.Actions.moveRecords(data.selections, dropTarget, {hierarchyStore: this.gridStore.hierarchyStore});
 				} else {
 					return false;
 				}
@@ -121,7 +121,7 @@ Zarafa.plugins.files.ui.FilesRecordGridView = Ext.extend(Zarafa.common.ui.grid.G
 				if (Ext.isDefined(cellindex)) {
 					var dropTarget = this.gridStore.getAt(cellindex);
 
-					if (dropTarget.get('type') === Zarafa.plugins.files.data.FileTypes.FOLDER) {
+					if (dropTarget.get('type') === Grommunio.plugins.files.data.FileTypes.FOLDER) {
 						ret = this.dropAllowed;
 					}
 
@@ -183,11 +183,11 @@ Zarafa.plugins.files.ui.FilesRecordGridView = Ext.extend(Zarafa.common.ui.grid.G
 		event.preventDefault();
 
 		var files = event.browserEvent.target.files || event.browserEvent.dataTransfer.files;
-		Zarafa.plugins.files.data.Actions.uploadAsyncItems(files, this.getStore());
+		Grommunio.plugins.files.data.Actions.uploadAsyncItems(files, this.getStore());
 	},
 
 	onContextViewModeChange: function (context, newViewMode, oldViewMode) {
-		var compact = newViewMode === Zarafa.plugins.files.data.ViewModes.RIGHT_PREVIEW;
+		var compact = newViewMode === Grommunio.plugins.files.data.ViewModes.RIGHT_PREVIEW;
 		this.getColumnModel().setCompactView(compact);
 	},
 
@@ -208,7 +208,7 @@ Zarafa.plugins.files.ui.FilesRecordGridView = Ext.extend(Zarafa.common.ui.grid.G
 		}, this);
 
 		if (show) {
-			Zarafa.core.data.UIFactory.openDefaultContextMenu(records, {
+			Grommunio.core.data.UIFactory.openDefaultContextMenu(records, {
 				position: event.getXY(),
 				context : this.context
 			});
@@ -229,17 +229,17 @@ Zarafa.plugins.files.ui.FilesRecordGridView = Ext.extend(Zarafa.common.ui.grid.G
 	{
 		var store = this.getStore();
 		var record = store.getAt(rowIndex);
-		if (record.get('type') === Zarafa.plugins.files.data.FileTypes.FOLDER) {
-			Zarafa.plugins.files.data.Actions.openFolder(this.model, record.get('entryid'));
+		if (record.get('type') === Grommunio.plugins.files.data.FileTypes.FOLDER) {
+			Grommunio.plugins.files.data.Actions.openFolder(this.model, record.get('entryid'));
 		} else {
-			Zarafa.plugins.files.data.Actions.openFile(record);
+			Grommunio.plugins.files.data.Actions.openFile(record);
 		}
 	},
 
 	onKeyDelete: function (key, event)
 	{
 		var selections = this.getSelectionModel().getSelections();
-		Zarafa.plugins.files.data.Actions.deleteRecords(selections);
+		Grommunio.plugins.files.data.Actions.deleteRecords(selections);
 	},
 
 	/**
@@ -249,17 +249,17 @@ Zarafa.plugins.files.ui.FilesRecordGridView = Ext.extend(Zarafa.common.ui.grid.G
 	 *
 	 * @param {Ext.grid.RowSelectionModel} selectionModel The selection model used by the grid.
 	 * @param {Number} rowNumber The index of selected row.
-	 * @param {Zarafa.plugins.files.data.FilesRecord} record The record which is selected.
+	 * @param {Grommunio.plugins.files.data.FilesRecord} record The record which is selected.
 	 */
 	onRowSelect: function (selectionModel, rowNumber, record)
 	{
 		var viewMode = this.context.getCurrentViewMode();
 		var count = selectionModel.getCount();
-		if (viewMode === Zarafa.plugins.files.data.ViewModes.NO_PREVIEW || count > 1 || record.getDisabled()) {
+		if (viewMode === Grommunio.plugins.files.data.ViewModes.NO_PREVIEW || count > 1 || record.getDisabled()) {
 			return;
 		}
 		if (count === 1) {
-			var id = container.getSettingsModel().get('zarafa/v1/contexts/files/files_path') + "/";
+			var id = container.getSettingsModel().get('grommunio/v1/contexts/files/files_path') + "/";
 			if (record.get('folder_id') !== id) {
 				this.model.setPreviewRecord(record);
 			}
@@ -283,4 +283,4 @@ Zarafa.plugins.files.ui.FilesRecordGridView = Ext.extend(Zarafa.common.ui.grid.G
 	}
 });
 
-Ext.reg('filesplugin.filesrecordgridview', Zarafa.plugins.files.ui.FilesRecordGridView);
+Ext.reg('filesplugin.filesrecordgridview', Grommunio.plugins.files.ui.FilesRecordGridView);

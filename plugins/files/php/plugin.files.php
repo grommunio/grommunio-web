@@ -96,7 +96,7 @@ class Pluginfiles extends Plugin {
 	 */
 	public function injectPluginSettings(&$data) {
 		$data['settingsObj']->addSysAdminDefaults([
-			'zarafa' => [
+			'grommunio' => [
 				'v1' => [
 					'contexts' => [
 						'files' => [

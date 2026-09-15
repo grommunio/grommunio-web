@@ -1,14 +1,14 @@
-Ext.namespace('Zarafa.plugins.mdm.ui');
+Ext.namespace('Grommunio.plugins.mdm.ui');
 
 /**
- * @class Zarafa.plugins.mdm.ui.MDMHierarchyTreePanel
- * @extends Zarafa.hierarchy.ui.Tree
+ * @class Grommunio.plugins.mdm.ui.MDMHierarchyTreePanel
+ * @extends Grommunio.hierarchy.ui.Tree
  * @xtype mdm.hierarchytree
  *
  * MDMHierarchyTreePanel for hierarchy list in the
- * {@link Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel manageSharedFolderPanel}.
+ * {@link Grommunio.plugins.mdm.dialogs.MDMManageSharedFolderPanel manageSharedFolderPanel}.
  */
-Zarafa.plugins.mdm.ui.MDMHierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tree, {
+Grommunio.plugins.mdm.ui.MDMHierarchyTreePanel = Ext.extend(Grommunio.hierarchy.ui.Tree, {
 
 	/**
 	 * @constructor
@@ -16,19 +16,19 @@ Zarafa.plugins.mdm.ui.MDMHierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tre
 	 */
 	constructor : function(config)
 	{
-		Zarafa.plugins.mdm.ui.MDMHierarchyTreePanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.mdm.ui.MDMHierarchyTreePanel.superclass.constructor.call(this, config);
 	},
 
 	/**
-	 * Function will initialize {@link Zarafa.hierarchy.ui.Tree Tree} and creates a
-	 * {@link Zarafa.common.ui.LoadMask} if {@link Zarafa.hierarchy.ui.Tree Tree} is instantiated as full tree.
+	 * Function will initialize {@link Grommunio.hierarchy.ui.Tree Tree} and creates a
+	 * {@link Grommunio.common.ui.LoadMask} if {@link Grommunio.hierarchy.ui.Tree Tree} is instantiated as full tree.
 	 * @protected
 	 */
 	initComponent : function()
 	{
 		// Initialize the loader
 		if (!this.loader) {
-			this.loader = new Zarafa.plugins.mdm.data.MDMHierarchyTreeLoader({
+			this.loader = new Grommunio.plugins.mdm.data.MDMHierarchyTreeLoader({
 				tree : this,
 				store : this.store,
 				nodeConfig : this.nodeConfig,
@@ -37,12 +37,12 @@ Zarafa.plugins.mdm.ui.MDMHierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tre
 		}
 
 		// call parent
-		Zarafa.plugins.mdm.ui.MDMHierarchyTreePanel.superclass.initComponent.apply(this, arguments);
+		Grommunio.plugins.mdm.ui.MDMHierarchyTreePanel.superclass.initComponent.apply(this, arguments);
 	},
 
 	/**
 	 * The filter which is applied for filtering nodes from the
-	 * {@link Zarafa.hierarchy.ui.Tree HierarchyTree}.
+	 * {@link Grommunio.hierarchy.ui.Tree HierarchyTree}.
 	 * It will hide own user store.
 	 *
 	 * @param {Object} folder the folder to filter
@@ -50,7 +50,7 @@ Zarafa.plugins.mdm.ui.MDMHierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tre
 	 */
 	nodeFilter: function (folder)
 	{
-		var hide = Zarafa.plugins.mdm.ui.MDMHierarchyTreePanel.superclass.nodeFilter.apply(this, arguments);
+		var hide = Grommunio.plugins.mdm.ui.MDMHierarchyTreePanel.superclass.nodeFilter.apply(this, arguments);
 
 		if(hide && this.hideOwnTree) {
 			hide = !folder.getMAPIStore().isDefaultStore();
@@ -60,4 +60,4 @@ Zarafa.plugins.mdm.ui.MDMHierarchyTreePanel = Ext.extend(Zarafa.hierarchy.ui.Tre
 	}
 });
 
-Ext.reg('mdm.hierarchytree', Zarafa.plugins.mdm.ui.MDMHierarchyTreePanel);
+Ext.reg('mdm.hierarchytree', Grommunio.plugins.mdm.ui.MDMHierarchyTreePanel);

@@ -310,7 +310,7 @@ class NewMailNotifier extends Notifier {
 	/**
 	 * Check whether the client suppresses new mail notifications for a folder,
 	 * so no message details have to be looked up for it. The same exclusion
-	 * list as in Zarafa.hierarchy.data.HierarchyStore#onNotifyNewmail is used.
+	 * list as in Grommunio.hierarchy.data.HierarchyStore#onNotifyNewmail is used.
 	 *
 	 * @param mixed  $store        the store containing the folder
 	 * @param string $storeEntryid hex entryid of that store

@@ -1,4 +1,4 @@
-Ext.namespace('Zarafa.plugins.chat');
+Ext.namespace('Grommunio.plugins.chat');
 
 /**
  * This object is used to relay browser notifications from the Chat iframe
@@ -6,7 +6,7 @@ Ext.namespace('Zarafa.plugins.chat');
  * and activated.
  * @type {Object}
  */
-Zarafa.plugins.chat.Notifications = {
+Grommunio.plugins.chat.Notifications = {
 	/**
 	 * Reference to the iframe element where Chat is loaded
 	 * @type {HTMLElement}

@@ -16,7 +16,7 @@ Ext.QuickTips = Ext.extend(Object, {
 
 	/**
 	 * The {@link Ext.QuickTip} instance belongs to specific browser window which
-	 * is currently {@link Zarafa.core.BrowserWindowMgr.activeBrowserWindow active}.
+	 * is currently {@link Grommunio.core.BrowserWindowMgr.activeBrowserWindow active}.
 	 * @property
 	 * @type String
 	 * @private
@@ -60,7 +60,7 @@ Ext.QuickTips = Ext.extend(Object, {
 			this.tip.render(Ext.getBody());
 		}
 
-		this.browserQuickTips.add(Zarafa.core.BrowserWindowMgr.getOwnerWindow(this.tip).name, this.tip);
+		this.browserQuickTips.add(Grommunio.core.BrowserWindowMgr.getOwnerWindow(this.tip).name, this.tip);
 	},
 
 	// Protected method called by the dd classes

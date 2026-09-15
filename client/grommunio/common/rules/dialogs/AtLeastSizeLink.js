@@ -1,0 +1,243 @@
+/**
+ * @class Grommunio.common.rules.dialogs.AtLeatSizeLink
+ * @extends Grommunio.common.rules.dialogs.BaseLink
+ * @xtype grommunio.atleatsizelink
+ *
+ * Condition component for the {@link Grommunio.common.rules.data.ConditionFlags#ATLEAST_SIZE}
+ * condition. This will allow the user to input a message size and select a size unit. This will generate a proper
+ * condition for it and set 'rule_msg_atleast_size_unit' record property.
+ */
+Grommunio.common.rules.dialogs.AtLeatSizeLink = Ext.extend(Grommunio.common.rules.dialogs.BaseLink, {
+  /**
+   * Size value for the message size for this condition which is '5' by default.
+   * This is changed during {@link #getCondition} if user has changed input value.
+   * @property
+   * @type Number
+   */
+  sizeValue: 5,
+
+  /**
+   * Size unit value for the message size for this condition which is 'MB' by default.
+   * This is changed during {@link #getCondition} if user has selected another value from combobox.
+   * @property
+   * @type String
+   */
+  comboValue: Grommunio.common.data.SizeUnits.MB,
+
+  /**
+   * @constructor
+   * @param {Object} config Configuration object
+   */
+  constructor: function(config)
+  {
+    config = config || {};
+
+    Ext.applyIf(config, {
+      xtype: 'container',
+      style: {
+        height: '100%',
+        display: 'flex'
+      },
+      width: 600,
+      items: [{
+        xtype: 'grommunio.spinnerfield',
+        plugins: [ 'grommunio.numberspinner' ],
+        fieldLabel: _('Message size'),
+        width: 60,
+        minValue: 0,
+        defaultValue: 5,
+        ref: 'msgSize',
+        listeners: {
+          change: this.setModified,
+          scope: this
+        }
+      },{
+        xtype: 'combo',
+        ref: 'sizeCombo',
+        fieldLabel: _('Size unit'),
+        typeAhead: true,
+        editable: false,
+        triggerAction: 'all',
+        lazyRender: true,
+        mode: 'local',
+        width: 80,
+        style: {
+          margin: '0 0 0 5px'
+        },
+        store: {
+          xtype: 'jsonstore',
+          fields: [ 'id', 'size' ],
+          data: this.createComboData()
+        },
+        valueField: 'size',
+        displayField: 'size',
+        listeners: {
+          select: this.setModified,
+          scope: this
+        }
+      }]
+    });
+
+    Grommunio.common.rules.dialogs.AtLeatSizeLink.superclass.constructor.call(this, config);
+  },
+
+  /**
+   * Function returns Data for store of size unit combo box.
+   **/
+  createComboData: function ()
+  {
+    return [{
+      id: 0,
+      size: Grommunio.common.data.SizeUnits.MB
+    },{
+      id: 1,
+      size: Grommunio.common.data.SizeUnits.KB
+    },{
+      id: 2,
+      size: Grommunio.common.data.SizeUnits.BYTES
+    }];
+  },
+
+  /**
+   * Handler for input box and combo box value change. It will set component's isModified to true.
+   */
+  setModified: function()
+  {
+    this.isModified = true;
+  },
+
+  /**
+   * Apply an action onto the DataView, this will parse the condition and show
+   * the contents in a user-friendly way to the user.
+   * @param {Grommunio.common.rules.data.ConditionFlags} conditionFlag The condition type
+   * which identifies the exact type of the condition.
+   * @param {Object} condition The condition to apply
+   * @param {String} sizeUnit which user selected for this condition
+   */
+  setCondition: function(conditionFlag, condition, sizeUnit)
+  {
+    if (condition) {
+      var conditionSizeValue = condition[1][Grommunio.core.mapi.Restrictions.VALUE]['PR_MESSAGE_SIZE'];
+      // If Condition/Exception were added from OUTLOOK, sizeUnit param will be undefined.
+      // For that case select 'KB' as default unit like in OUTLOOK.
+      sizeUnit = sizeUnit ? sizeUnit : Grommunio.common.data.SizeUnits.KB;
+      this.sizeValue = Grommunio.core.Util.convertBytesToKBorMB(conditionSizeValue, sizeUnit);
+      this.comboValue = sizeUnit;
+    }
+
+    this.msgSize.setValue(this.sizeValue);
+    this.sizeCombo.setValue(this.comboValue);
+
+    Grommunio.common.rules.dialogs.AtLeatSizeLink.superclass.setCondition.apply(this, arguments);
+  },
+
+  /**
+   * Obtain the condition as configured by the user
+   * @return {Object} The condition
+   */
+  getCondition: function()
+  {
+    if (this.isModified !== true) {
+      return this.condition;
+    }
+
+    var useInpSize = this.msgSize.getValue();
+    //If user has not selected any value then set default value.
+    useInpSize = useInpSize ? useInpSize : this.sizeValue;
+
+    this.sizeValue = Number(useInpSize);
+    this.comboValue = this.sizeCombo.getValue();
+
+    var isValidInput = this.isSafeToConvertIntoBytes(this.sizeValue, this.comboValue);
+
+    // To avoid Integer range problem while converting to bytes,
+    // check if user input is valid according to selected size unit.
+    // If not than return rule as false.
+    if (!isValidInput) {
+      this.msgSize.markInvalid();
+      return false;
+    }
+
+    var convertedSizeValue = Grommunio.core.Util.convertToBytes(this.sizeValue, this.comboValue);
+    var conditionFactory = container.getRulesFactoryByType(Grommunio.common.data.RulesFactoryType.CONDITION);
+    var conditionDefinition = conditionFactory.getConditionById(this.conditionFlag);
+    return conditionDefinition({value: convertedSizeValue});
+  },
+
+  /**
+   * This function set 'rule_msg_atleast_size_unit' / 'rule_msg_atmost_size_unit' or
+   * 'rule_exception_atmost_size_unit' / 'rule_exception_atleast_size_unit' record property
+   * with currently selected size unit comboValue.
+   * @param {Grommunio.common.rules.data.RulesRecord} record which needs to be updated.
+   * @param {Boolean} overwrite should be true to reset 'rule_msg_atleast_size_unit' / 'rule_msg_atmost_size_unit' or
+   * rule_exception_atmost_size_unit' / 'rule_exception_atleast_size_unit' property in record.
+   * @param {Boolean} isException which will indicate whether this is Exception component or Condition component.
+   * */
+  setSizeUnit: function(record, overwrite, isException)
+  {
+    var sizeunit, atleastSizeProp, atmostSizeProp;
+
+    if (isException) {
+      atleastSizeProp = 'rule_exception_atleast_size_unit';
+      atmostSizeProp = 'rule_exception_atmost_size_unit';
+    } else {
+      atleastSizeProp = 'rule_msg_atleast_size_unit';
+      atmostSizeProp = 'rule_msg_atmost_size_unit';
+    }
+
+    sizeunit = this.atMostSizeLink ? record.get(atmostSizeProp) : record.get(atleastSizeProp);
+
+    // For the case where we have multiple at least or at most size condition,
+    // if value already exists than concat that value with ";" and new value.
+    if (sizeunit && !overwrite) {
+      sizeunit = sizeunit +';'+ this.comboValue;
+    } else {
+      sizeunit = this.comboValue;
+    }
+
+    if (this.atMostSizeLink) {
+		record.set(atmostSizeProp, sizeunit);
+	} else {
+		record.set(atleastSizeProp, sizeunit);
+	}
+  },
+
+  /**
+   * Function which will check if given input is safe to convert into Bytes size unit
+   * from MB/KB size unit.
+   * @param {Number} input the number in KB/MB/Bytes size unit which needs to be checked for compatibility.
+   * @param {Grommunio.common.data.SizeUnits} sizeUnit string which should indicate size unit of an input.
+   * @return {Boolean} true if input is valid to convert into Bytes else false.
+   */
+  isSafeToConvertIntoBytes: function (input, sizeUnit)
+  {
+    var maxNumber = Math.pow(2,31)-1;
+
+    switch (sizeUnit) {
+      case Grommunio.common.data.SizeUnits.MB:
+        var maxMB = parseInt(maxNumber / Math.pow(1024,2), 10);
+        if (input > maxMB) {
+          return false;
+        }
+        break;
+      case Grommunio.common.data.SizeUnits.KB:
+        var maxKB = parseInt(maxNumber / 1024, 10);
+        if (input > maxKB) {
+          return false;
+        }
+        break;
+      case Grommunio.common.data.SizeUnits.BYTES:
+        if (this.sizeValue > maxNumber) {
+          this.msgSize.markInvalid();
+          return false;
+        }
+        break;
+      default: return false;
+    }
+
+    return true;
+  }
+
+});
+
+Ext.reg('grommunio.atleatsizelink', Grommunio.common.rules.dialogs.AtLeatSizeLink);

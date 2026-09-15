@@ -1,13 +1,13 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+Ext.namespace('Grommunio.plugins.files.ui');
 
 /**
- * @class Zarafa.plugins.files.ui.MultipleFileUploadField
+ * @class Grommunio.plugins.files.ui.MultipleFileUploadField
  * @extends Ext.ux.form.FileUploadField
  * @xtype filesplugin.multiplefileuploadfield
  *
  * Creates a file upload field.
  */
-Zarafa.plugins.files.ui.MultipleFileUploadField = Ext.extend(Ext.ux.form.FileUploadField, {
+Grommunio.plugins.files.ui.MultipleFileUploadField = Ext.extend(Ext.ux.form.FileUploadField, {
 	// override
 	createFileInput: function () {
 		var opt = {
@@ -51,4 +51,4 @@ Zarafa.plugins.files.ui.MultipleFileUploadField = Ext.extend(Ext.ux.form.FileUpl
 	}
 });
 
-Ext.reg('filesplugin.multiplefileuploadfield', Zarafa.plugins.files.ui.MultipleFileUploadField);
+Ext.reg('filesplugin.multiplefileuploadfield', Grommunio.plugins.files.ui.MultipleFileUploadField);

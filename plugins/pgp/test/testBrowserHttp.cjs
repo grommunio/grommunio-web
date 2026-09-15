@@ -56,15 +56,15 @@ class Session {
 		if (response.headers.has('Location')) { await this.fetch(new URL(response.headers.get('Location'), base)); }
 	}
 	async rpc(module, action, data) {
-		const wire = JSON.stringify({zarafa: {[module]: {pgpqa: {[action]: data}}}});
+		const wire = JSON.stringify({grommunio: {[module]: {pgpqa: {[action]: data}}}});
 		if (wire.includes(localPassphrase)) { throw new Error('A private-key passphrase was about to leave the browser.'); }
 		const response = await this.fetch(new URL('grommunio.php?subsystem=openpgp_browser_http_test', base), {
 			method: 'POST', headers: {'Content-Type': 'application/json'}, body: wire
 		});
 		let payload;
 		try { payload = await response.json(); } catch (error) { throw new Error('Expected an authenticated JSON response; login or server configuration failed.'); }
-		if (payload.zarafa && payload.zarafa.error) { return {error: payload.zarafa.error}; }
-		return payload.zarafa && payload.zarafa[module] ? payload.zarafa[module].pgpqa || {} : {};
+		if (payload.grommunio && payload.grommunio.error) { return {error: payload.grommunio.error}; }
+		return payload.grommunio && payload.grommunio[module] ? payload.grommunio[module].pgpqa || {} : {};
 	}
 	async request(operation, data = {}, success = true) {
 		const response = await this.rpc('pluginpgpmodule', 'request', {operation, ...data});
@@ -99,7 +99,7 @@ async function upload(draftId, filename, content, type) {
 	const response = await session.fetch(new URL('?load=upload_attachment&module=attachments&moduleid=pgpqa', base), {method: 'POST', body: form});
 	const result = await response.json();
 	check(result.success === true, 'Normal authenticated browser attachment upload succeeds');
-	const attachment = first(result.zarafa && result.zarafa.attachments && result.zarafa.attachments.pgpqa.update.item);
+	const attachment = first(result.grommunio && result.grommunio.attachments && result.grommunio.attachments.pgpqa.update.item);
 	check(attachment && attachment.props && attachment.props.tmpname, 'Upload returns a correlated temporary attachment');
 	return attachment.props;
 }

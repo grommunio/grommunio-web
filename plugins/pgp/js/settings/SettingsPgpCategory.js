@@ -1,6 +1,6 @@
-Ext.namespace('Zarafa.plugins.pgp.settings');
+Ext.namespace('Grommunio.plugins.pgp.settings');
 
-Zarafa.plugins.pgp.settings.SettingsPgpCategory = Ext.extend(Zarafa.settings.ui.SettingsCategory, {
+Grommunio.plugins.pgp.settings.SettingsPgpCategory = Ext.extend(Grommunio.settings.ui.SettingsCategory, {
 	constructor: function(config)
 	{
 		config = config || {};
@@ -8,8 +8,8 @@ Zarafa.plugins.pgp.settings.SettingsPgpCategory = Ext.extend(Zarafa.settings.ui.
 			id: 'pgp', title: _('OpenPGP'), categoryIndex: 2, iconCls: 'icon_pgp_key',
 			items: [{xtype: 'pgp.settingswidget', settingsContext: config.settingsContext}]
 		});
-		Zarafa.plugins.pgp.settings.SettingsPgpCategory.superclass.constructor.call(this, config);
+		Grommunio.plugins.pgp.settings.SettingsPgpCategory.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('pgp.settingscategory', Zarafa.plugins.pgp.settings.SettingsPgpCategory);
+Ext.reg('pgp.settingscategory', Grommunio.plugins.pgp.settings.SettingsPgpCategory);

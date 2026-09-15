@@ -1,0 +1,239 @@
+Ext.namespace('Grommunio.note.dialogs');
+
+/**
+ * @class Grommunio.note.dialogs.NoteEditPanel
+ * @extends Ext.form.FormPanel
+ * @xtype grommunio.noteeditpanel
+ *
+ * this class is used to provide ui for note dialog
+ */
+Grommunio.note.dialogs.NoteEditPanel = Ext.extend(Ext.FormPanel, {
+	/**
+	 * The current CSS class which is applied for
+	 * determining the background color for this panel.
+	 * @property
+	 * @type String
+	 */
+	currentColorCss: undefined,
+
+	/**
+	 * @cfg {Ext.Template/String} linkedMailTemplate The template for the bar naming the
+	 * mail this note annotates, shown only when it is linked to one.
+	 */
+	linkedMailTemplate:
+			'<span class="stickynote_linkedmail_link">' +
+				/* # TRANSLATORS: Names the mail a note is attached to, e.g. "Note on: Re: invoice" */
+				pgettext('note.dialog', 'Note on') + ': ' +
+				'<tpl if="!Ext.isEmpty(values.note_link_subject)">{note_link_subject:htmlEncode}</tpl>' +
+				'<tpl if="Ext.isEmpty(values.note_link_subject)">' + _('(no subject)') + '</tpl>' +
+			'</span>',
+
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration structure
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		config.plugins = Ext.value(config.plugins, []);
+		config.plugins.push('grommunio.recordcomponentupdaterplugin');
+
+		Ext.applyIf(config,{
+			xtype	: 'grommunio.noteeditpanel',
+			layout	: { type: 'vbox', align: 'stretch' },
+			border	: false,
+			items : [{
+				xtype: 'container',
+				ref: 'linkedMailBar',
+				cls: 'stickynote_linkedmail',
+				hidden: true,
+				autoHeight: true,
+				listeners: {
+					// the record usually arrives before this bar is rendered
+					afterrender: this.onLinkedMailBarRender,
+					scope: this
+				}
+			}, {
+				xtype: 'grommunio.editorfield',
+				useHtml: false,
+				ref: 'noteText',
+				plaintextName: 'body',
+				flex: 1,
+				listeners: {
+					change: this.onTextareaChange,
+					scope: this
+				}
+			}]
+		});
+
+		Grommunio.note.dialogs.NoteEditPanel.superclass.constructor.call(this,config);
+
+		if (Ext.isString(this.linkedMailTemplate)) {
+			this.linkedMailTemplate = new Ext.XTemplate(this.linkedMailTemplate, {
+				compiled: true
+			});
+		}
+	},
+
+	/**
+	 * Binds the click handler which opens the mail this note annotates.
+	 * @private
+	 */
+	afterRender: function()
+	{
+		Grommunio.note.dialogs.NoteEditPanel.superclass.afterRender.apply(this, arguments);
+
+		// delegated from the panel; the bar is not rendered yet
+		this.mon(this.el, 'click', this.onLinkedMailClick, this, {
+			delegate: '.stickynote_linkedmail_link'
+		});
+	},
+
+	/**
+	 * Fills in the linked-mail bar once it has an element to render into.
+	 * @private
+	 */
+	onLinkedMailBarRender: function()
+	{
+		this.updateLinkedMailBar(this.record);
+	},
+
+	/**
+	 * Opens the mail this note annotates.
+	 * @private
+	 */
+	onLinkedMailClick: function()
+	{
+		if (this.record) {
+			Grommunio.note.Actions.openLinkedMail(this.record);
+		}
+	},
+
+	/**
+	 * Shows which mail this note annotates, or hides the bar when it annotates none.
+	 * The mail can only be opened from here if its entryid was recorded, which notes
+	 * made before this feature existed do not have.
+	 *
+	 * @param {Grommunio.core.data.IPMRecord} record The note record
+	 * @private
+	 */
+	updateLinkedMailBar: function(record)
+	{
+		var bar = this.linkedMailBar;
+
+		if (!bar || !bar.rendered) {
+			return;
+		}
+
+		if (!record || Ext.isEmpty(record.get('note_link_id'))) {
+			bar.setVisible(false);
+			return;
+		}
+
+		this.linkedMailTemplate.overwrite(bar.getEl(), record.data);
+		// toggle only our class; overwriting className would drop Ext's
+		bar.getEl()[Grommunio.note.Actions.getLinkedMailRecord(record) ? 'removeClass' : 'addClass'](
+			'stickynote_linkedmail_unopenable'
+		);
+		bar.setVisible(true);
+		this.doLayout();
+	},
+
+	/**
+	 * handler for change event of text area in note dialog
+	 * @param {Object} textarea object
+	 * @private
+	 */
+	onTextareaChange:function(textarea)
+	{
+		var body = textarea.getValue();
+		this.record.beginEdit();
+		this.record.set('body',body);
+		this.record.generateSubject();
+		this.record.endEdit();
+	},
+
+	/**
+	 * Returns the CSS class for the icon index used to set the note editor's background color.
+	 *
+	 * @param {String/Number} iconIndex The icon index.
+	 * @return {String} The CSS class name.
+	 * @private
+	 */
+	getTextAreaColor: function(iconIndex)
+	{
+		var textAreaCSSClass = "";
+
+		switch(parseInt(iconIndex, 10))
+		{
+			case Grommunio.core.mapi.IconIndex['note_blue']:
+				textAreaCSSClass = "stickynote_dialog_blue";
+				break;
+			case Grommunio.core.mapi.IconIndex['note_green']:
+				textAreaCSSClass = "stickynote_dialog_green";
+				break;
+			case Grommunio.core.mapi.IconIndex['note_pink']:
+				textAreaCSSClass = "stickynote_dialog_pink";
+				break;
+			case Grommunio.core.mapi.IconIndex['note_yellow']:
+			/* falls through */
+			default:
+				textAreaCSSClass = "stickynote_dialog_yellow";
+				break;
+			case Grommunio.core.mapi.IconIndex['note_white']:
+				textAreaCSSClass = "stickynote_dialog_white";
+				break;
+		}
+
+		return textAreaCSSClass;
+	},
+
+	/**
+	 * Function is used to update values of form fields when ever
+	 * an updated {@link Grommunio.core.data.IPMRecord record} is received
+	 * @param {Grommunio.core.data.IPMRecord} record The record update the panel with.
+	 * @param {Boolean} contentReset force the component to perform a full update of the data.
+	 * @private
+	 */
+	update: function(record, contentReset)
+	{
+		var textArea = this.noteText.getEditor();
+
+		this.updateLinkedMailBar(record);
+
+		if (record) {
+			this.record = record;
+			if (contentReset || record.isModifiedSinceLastUpdate('body')) {
+				this.noteText.setValue(record.get('body') || '');
+			}
+
+			if (contentReset || record.isModifiedSinceLastUpdate('icon_index')) {
+				textArea.removeClass(this.currentColorCss);
+				var currentColor = this.getTextAreaColor(record.get('icon_index'));
+				this.currentColorCss = currentColor;
+				textArea.addClass(currentColor);
+			}
+		} else {
+			this.noteText.setValue('');
+			textArea.removeClass(this.currentColorCss);
+		}
+	},
+
+	/**
+	 * Function to update the record whenever form fields are modified
+	 * @param {Grommunio.core.data.IPMRecord} the record to update
+	 * @private
+	 */
+	updateRecord: function(record)
+	{
+		var body = this.noteText.getValue();
+		this.record.beginEdit();
+		this.record.set('body',body);
+		this.record.generateSubject();
+		this.record.endEdit();
+	}
+});
+
+//Register note dialog edit panel xtype
+Ext.reg('grommunio.noteeditpanel',Grommunio.note.dialogs.NoteEditPanel);

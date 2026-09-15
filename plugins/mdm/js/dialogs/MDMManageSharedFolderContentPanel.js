@@ -1,14 +1,14 @@
-Ext.namespace('Zarafa.plugins.mdm.dialogs');
+Ext.namespace('Grommunio.plugins.mdm.dialogs');
 
 /**
- * @class Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderContentPanel
- * @extends Zarafa.core.ui.RecordContentPanel
- * @xtype zarafa.managesharedfoldercontentpanel
+ * @class Grommunio.plugins.mdm.dialogs.MDMManageSharedFolderContentPanel
+ * @extends Grommunio.core.ui.RecordContentPanel
+ * @xtype grommunio.managesharedfoldercontentpanel
  *
- * This will display a {@link Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderPanel contentpanel}
- * to show {@link Zarafa.core.data.IPFRecord folders} which are shared with device.
+ * This will display a {@link Grommunio.plugins.mdm.dialogs.MDMManageSharedFolderPanel contentpanel}
+ * to show {@link Grommunio.core.data.IPFRecord folders} which are shared with device.
  */
-Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPanel, {
+Grommunio.plugins.mdm.dialogs.MDMManageSharedFolderContentPanel = Ext.extend(Grommunio.core.ui.RecordContentPanel, {
 
 	/**
 	 * @constructor
@@ -34,8 +34,8 @@ Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderContentPanel = Ext.extend(Zarafa
 			}]
 		});
 
-		Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.mdm.dialogs.MDMManageSharedFolderContentPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('mdm.managesharedfoldercontentpanel', Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderContentPanel);
+Ext.reg('mdm.managesharedfoldercontentpanel', Grommunio.plugins.mdm.dialogs.MDMManageSharedFolderContentPanel);

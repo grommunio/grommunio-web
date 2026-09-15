@@ -1,16 +1,16 @@
-Ext.namespace('Zarafa.plugins.templatesnippets.settings');
+Ext.namespace('Grommunio.plugins.templatesnippets.settings');
 
 /**
- * @class Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget
- * @extends Zarafa.settings.ui.SettingsWidget
- * @xtype zarafa.settingstemplatesnippetswidget
+ * @class Grommunio.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
+ * @xtype grommunio.settingstemplatesnippetswidget
  *
  * Widget for managing user-defined and viewing system-provided template snippets.
  *
  * ref semantics in ExtJS 3: each path segment (incl. name) traverses one ownerCt.
  *   'foo' = parent,  '../foo' = grandparent,  '../../foo' = great-grandparent
  */
-Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
+Grommunio.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
 
 	dirtySelectedTemplate: false,
 	selectedTemplate: undefined,
@@ -22,7 +22,7 @@ Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.ex
 	constructor: function(config) {
 		config = config || {};
 
-		this.isAdmin = container.getSettingsModel().get('zarafa/v1/plugins/templatesnippets/is_admin') === true;
+		this.isAdmin = container.getSettingsModel().get('grommunio/v1/plugins/templatesnippets/is_admin') === true;
 
 		var systemStore = {
 			xtype: 'jsonstore',
@@ -61,7 +61,7 @@ Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.ex
 		Ext.applyIf(config, {
 			title: _('Template Snippets'),
 			// Keep the base class so we inherit rounded borders, padding, shadow
-			cls: 'zarafa-settings-widget k-settings-templatesnippets-widget',
+			cls: 'grommunio-settings-widget k-settings-templatesnippets-widget',
 			items: [{
 				xtype: 'displayfield',
 				cls: 'k-templatesnippets-section-title',
@@ -169,7 +169,7 @@ Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.ex
 					cls: 'k-templatesnippets-section-title',
 					value: _('HTML Content')
 				},{
-					xtype: 'zarafa.editorfield',
+					xtype: 'grommunio.editorfield',
 					ref: '../htmlEditorField',
 					cls: 'k-templatesnippets-html-editor',
 					hideLabel: true,
@@ -218,7 +218,7 @@ Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.ex
 			}]
 		});
 
-		Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget.superclass.constructor.call(this, config);
+		Grommunio.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget.superclass.constructor.call(this, config);
 	},
 
 	getGridButton: function(grid, itemId) {
@@ -266,9 +266,9 @@ Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.ex
 		}
 		var settingsModel = container.getSettingsModel();
 		if (records.length > 0) {
-			settingsModel.set('zarafa/v1/plugins/templatesnippets/system_templates', data);
+			settingsModel.set('grommunio/v1/plugins/templatesnippets/system_templates', data);
 		} else {
-			settingsModel.remove('zarafa/v1/plugins/templatesnippets/system_templates');
+			settingsModel.remove('grommunio/v1/plugins/templatesnippets/system_templates');
 		}
 	},
 
@@ -282,7 +282,7 @@ Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.ex
 		// The settings model snapshot is stale after admin edits and must not
 		// overwrite the grid.
 		if (!this._systemTemplatesLoaded) {
-			var systemTemplates = settingsModel.get('zarafa/v1/plugins/templatesnippets/system_templates', true) || {};
+			var systemTemplates = settingsModel.get('grommunio/v1/plugins/templatesnippets/system_templates', true) || {};
 			var systemArray = [];
 			for (var skey in systemTemplates) {
 				if (systemTemplates.hasOwnProperty(skey)) {
@@ -295,7 +295,7 @@ Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.ex
 
 		// User templates: always reload from settings (they are persisted
 		// through the normal settings save cycle via updateSettings).
-		var userTemplates = settingsModel.get('zarafa/v1/plugins/templatesnippets/user_templates', true) || {};
+		var userTemplates = settingsModel.get('grommunio/v1/plugins/templatesnippets/user_templates', true) || {};
 		var userArray = [];
 		for (var ukey in userTemplates) {
 			if (userTemplates.hasOwnProperty(ukey)) {
@@ -320,9 +320,9 @@ Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.ex
 			};
 		}
 		if (sysRecords.length > 0) {
-			settingsModel.set('zarafa/v1/plugins/templatesnippets/system_templates', sysTemplates);
+			settingsModel.set('grommunio/v1/plugins/templatesnippets/system_templates', sysTemplates);
 		} else {
-			settingsModel.remove('zarafa/v1/plugins/templatesnippets/system_templates');
+			settingsModel.remove('grommunio/v1/plugins/templatesnippets/system_templates');
 		}
 
 		// User templates
@@ -335,9 +335,9 @@ Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.ex
 			};
 		}
 		if (records.length > 0) {
-			settingsModel.set('zarafa/v1/plugins/templatesnippets/user_templates', userTemplates);
+			settingsModel.set('grommunio/v1/plugins/templatesnippets/user_templates', userTemplates);
 		} else {
-			settingsModel.remove('zarafa/v1/plugins/templatesnippets/user_templates');
+			settingsModel.remove('grommunio/v1/plugins/templatesnippets/user_templates');
 		}
 		settingsModel.endEdit();
 	},
@@ -555,7 +555,7 @@ Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.ex
 				if (btn !== 'yes') { return; }
 				container.getRequest().singleRequest(
 					'templatesnippetsmodule', 'delete', { key: record.get('key') },
-					new Zarafa.plugins.templatesnippets.TemplateSnippetsResponseHandler({
+					new Grommunio.plugins.templatesnippets.TemplateSnippetsResponseHandler({
 						successCallback: function() {
 							this.systemTemplatesGrid.getStore().remove(record);
 							this.doDeselectTemplate();
@@ -588,7 +588,7 @@ Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.ex
 			container.getRequest().singleRequest(
 				'templatesnippetsmodule', 'save',
 				{ key: record.get('key'), name: name, html: htmlContent, text: textContent },
-				new Zarafa.plugins.templatesnippets.TemplateSnippetsResponseHandler({
+				new Grommunio.plugins.templatesnippets.TemplateSnippetsResponseHandler({
 					successCallback: function(response) {
 						if (response && response.item && response.item[0] && response.item[0].key) {
 							var updatedKey = response.item[0].key;
@@ -608,7 +608,7 @@ Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.ex
 	onConvertHtmlToText: function() {
 		var v = this.htmlEditorField.getValue();
 		if (v) {
-			this.textEditorField.setValue(Zarafa.core.HTMLParser.convertHTMLToPlain(v));
+			this.textEditorField.setValue(Grommunio.core.HTMLParser.convertHTMLToPlain(v));
 			this.dirtySelectedTemplate = true;
 		}
 	},
@@ -616,10 +616,10 @@ Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget = Ext.ex
 	onConvertTextToHtml: function() {
 		var v = this.textEditorField.getValue();
 		if (v) {
-			this.htmlEditorField.setValue(Zarafa.core.HTMLParser.convertPlainToHTML(v));
+			this.htmlEditorField.setValue(Grommunio.core.HTMLParser.convertPlainToHTML(v));
 			this.dirtySelectedTemplate = true;
 		}
 	}
 });
 
-Ext.reg('zarafa.settingstemplatesnippetswidget', Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget);
+Ext.reg('grommunio.settingstemplatesnippetswidget', Grommunio.plugins.templatesnippets.settings.SettingsTemplateSnippetsWidget);

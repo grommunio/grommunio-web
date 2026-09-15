@@ -52,7 +52,7 @@ class Pluginintranet extends Plugin {
 		}
 
 		$data['settingsObj']->addSysAdminDefaults([
-			'zarafa' => [
+			'grommunio' => [
 				'v1' => [
 					'plugins' => [
 						'intranet' => $pluginData,

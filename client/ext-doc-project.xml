@@ -55,7 +55,7 @@
         <source src="extjs/ux" match="*.js"/>
         <source src="extjs-mod" match="*.js"/>
         <source src="third-party" match="*.js"/>
-        <source src="zarafa" match="*.js"/>
+        <source src="grommunio" match="*.js"/>
     </sources>
     <tags>
         <tag name="author" title="Author"/>

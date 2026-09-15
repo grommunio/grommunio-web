@@ -1,11 +1,11 @@
-Ext.namespace('Zarafa.plugins.files.data');
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.FilesStoreRecord
+ * @class Grommunio.plugins.files.data.FilesStoreRecord
  * Array of {@link Ext.data.Field field} configurations for the
- * {@link Zarafa.core.data.IPFRecord IPFRecord} object.
+ * {@link Grommunio.core.data.IPFRecord IPFRecord} object.
  */
-Zarafa.plugins.files.data.FilesFolderRecordFields = [
+Grommunio.plugins.files.data.FilesFolderRecordFields = [
 	{name: 'path'},
 	{name: 'folder_id'},
 	// TODO: try to remove id property.
@@ -24,7 +24,7 @@ Zarafa.plugins.files.data.FilesFolderRecordFields = [
 	{name: 'has_subfolder', defaultValue: false}
 ];
 
-Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRecord, {
+Grommunio.plugins.files.data.FilesFolderRecord = Ext.extend(Grommunio.core.data.IPFRecord, {
 
 	// TODO: Try to remove id property from baseIdProperties list.
 	/**
@@ -40,16 +40,16 @@ Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRec
 	 * @constructor
 	 * @param {Object} data The data which must be applied to this record
 	 * @param {Object} id The unique id for this record
-	 * @param {Zarafa.core.data.RecordDefinition} definition The record definition used to
+	 * @param {Grommunio.core.data.RecordDefinition} definition The record definition used to
 	 * construct this record
 	 */
 	constructor : function(data, id, definition)
 	{
 		if (!Ext.isDefined(definition)) {
-			definition = Zarafa.core.data.RecordFactory.getRecordDefinitionByCustomType(Zarafa.core.data.RecordCustomObjectType.FILES_FOLDER);
+			definition = Grommunio.core.data.RecordFactory.getRecordDefinitionByCustomType(Grommunio.core.data.RecordCustomObjectType.FILES_FOLDER);
 		}
 
-		Zarafa.plugins.files.data.FilesFolderRecord.superclass.constructor.call(this, data, id, definition);
+		Grommunio.plugins.files.data.FilesFolderRecord.superclass.constructor.call(this, data, id, definition);
 	},
 
 	/**
@@ -64,11 +64,11 @@ Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRec
 	{
 		// Check if the parent folder still is correct.
 		if (this.cacheParentFolder) {
-			if (!Zarafa.core.EntryId.compareEntryIds(this.get('parent_entryid'), this.cacheParentFolder.get('entryid'))) {
+			if (!Grommunio.core.EntryId.compareEntryIds(this.get('parent_entryid'), this.cacheParentFolder.get('entryid'))) {
 				delete this.cacheParentFolder;
 			}
 		}
-		Zarafa.plugins.files.data.FilesFolderRecord.superclass.commit.apply(this, arguments);
+		Grommunio.plugins.files.data.FilesFolderRecord.superclass.commit.apply(this, arguments);
 	},
 
 	/**
@@ -81,7 +81,7 @@ Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRec
 	},
 
 	/**
-	 * Helper function to get display name of {@link Zarafa.plugins.files.data.FilesFolderRecord FilesFolderRecord}.
+	 * Helper function to get display name of {@link Grommunio.plugins.files.data.FilesFolderRecord FilesFolderRecord}.
 	 * it will get it from display_name property.
 	 * @return {String} name of the folder.
 	 */
@@ -96,21 +96,21 @@ Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRec
 	{
 		var FilesFolderStore = this.getFilesStore();
 		if (FilesFolderStore) {
-			return Zarafa.core.EntryId.compareEntryIds(this.get('entryid'), FilesFolderStore.get('subtree_id'));
+			return Grommunio.core.EntryId.compareEntryIds(this.get('entryid'), FilesFolderStore.get('subtree_id'));
 		}
 
 		return false;
 	},
 
 	/**
-	 * Returns a {@link Zarafa.plugins.files.data.FilesStoreRecord FilesStoreRecord} for the record
-	 * @return {Zarafa.plugins.files.data.FilesStoreRecord} FilesStoreRecord or false if
-	 * {@link Zarafa.plugins.files.data.FilesFoldersSubStore FilesFoldersSubStore} is not defined.
+	 * Returns a {@link Grommunio.plugins.files.data.FilesStoreRecord FilesStoreRecord} for the record
+	 * @return {Grommunio.plugins.files.data.FilesStoreRecord} FilesStoreRecord or false if
+	 * {@link Grommunio.plugins.files.data.FilesFoldersSubStore FilesFoldersSubStore} is not defined.
 	 */
 	getFilesStore: function ()
 	{
 		var store = this.getStore();
-		if (store && store instanceof Zarafa.plugins.files.data.FilesFoldersSubStore) {
+		if (store && store instanceof Grommunio.plugins.files.data.FilesFoldersSubStore) {
 			return store.getParentRecord();
 		}
 
@@ -120,7 +120,7 @@ Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRec
 	/**
 	 * Returns all child folders of given folder.
 	 *
-	 * @return {Array} array of child {@link Zarafa.plugins.files.data.FilesFolderRecord folders}
+	 * @return {Array} array of child {@link Grommunio.plugins.files.data.FilesFolderRecord folders}
 	 */
 	getChildren : function ()
 	{
@@ -136,9 +136,9 @@ Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRec
 	},
 
 	/**
-	 * Function will return parent {@link Zarafa.plugins.files.data.FilesFolderRecord FilesFolderRecord}
-	 * of this {@link Zarafa.plugins.files.data.FilesFolderRecord FilesFolderRecord}.
-	 * @return {Zarafa.plugins.files.data.FilesFolderRecord} parent {@link Zarafa.plugins.files.data.FilesFolderRecord FilesFolderRecord} or
+	 * Function will return parent {@link Grommunio.plugins.files.data.FilesFolderRecord FilesFolderRecord}
+	 * of this {@link Grommunio.plugins.files.data.FilesFolderRecord FilesFolderRecord}.
+	 * @return {Grommunio.plugins.files.data.FilesFolderRecord} parent {@link Grommunio.plugins.files.data.FilesFolderRecord FilesFolderRecord} or
 	 * false if parent folder doesn't exist.
 	 */
 	getParentFolder : function() {
@@ -150,8 +150,8 @@ Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRec
 
 			// Guarantee that the parent folder knows it has children...
 			// Don't use record::set() as we don't want to trigger updates.
-			if (this.cacheParentFolder && this.get('object_type') === Zarafa.plugins.files.data.FileTypes.FOLDER) {
-				this.cacheParentFolder.data.has_subfolder = this.get("object_type") === Zarafa.plugins.files.data.FileTypes.FOLDER;
+			if (this.cacheParentFolder && this.get('object_type') === Grommunio.plugins.files.data.FileTypes.FOLDER) {
+				this.cacheParentFolder.data.has_subfolder = this.get("object_type") === Grommunio.plugins.files.data.FileTypes.FOLDER;
 			}
 		}
 
@@ -159,11 +159,11 @@ Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRec
 	},
 
 	/**
-	 * Returns the {@link Zarafa.hierarchy.data.IPFSubStore} which contains all folders
+	 * Returns the {@link Grommunio.hierarchy.data.IPFSubStore} which contains all folders
 	 * of the store in which the current store is located. This is safer then using {@link #getStore},
-	 * as this function will use {@link #getMAPIStore} to obtain the parent {@link Zarafa.hierarchy.data.MAPIStoreRecord}
-	 * and is thus safe when the current record is located in the {@link Zarafa.core.data.ShadowStore}.
-	 * @return {Zarafa.hierarchy.data.IPFSubStore} The substore containing all folders
+	 * as this function will use {@link #getMAPIStore} to obtain the parent {@link Grommunio.hierarchy.data.MAPIStoreRecord}
+	 * and is thus safe when the current record is located in the {@link Grommunio.core.data.ShadowStore}.
+	 * @return {Grommunio.hierarchy.data.IPFSubStore} The substore containing all folders
 	 */
 	getFilesFolderStore : function ()
 	{
@@ -176,13 +176,13 @@ Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRec
 	},
 
 	/**
-	 * Copy the {@link Zarafa.core.data.MAPIRecord Record} to a new instance
+	 * Copy the {@link Grommunio.core.data.MAPIRecord Record} to a new instance
 	 * @param {String} newId (optional) A new Record id, defaults to the id of the record being copied. See id.
-	 * @return {Zarafa.core.data.MAPIRecord} The copy of the record.
+	 * @return {Grommunio.core.data.MAPIRecord} The copy of the record.
 	 */
 	copy : function(newId)
 	{
-		var copy = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.FILES_FOLDER, this.data, newId || this.id);
+		var copy = Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(Grommunio.core.data.RecordCustomObjectType.FILES_FOLDER, this.data, newId || this.id);
 
 		copy.idProperties = this.idProperties.clone();
 		copy.phantom = this.phantom;
@@ -204,7 +204,7 @@ Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRec
 			return "icon_folder_note";
 		}
 
-		return Zarafa.plugins.files.data.Utils.File.getIconClass(this.get('display_name'), "16");
+		return Grommunio.plugins.files.data.Utils.File.getIconClass(this.get('display_name'), "16");
 	},
 
 	/**
@@ -215,12 +215,12 @@ Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRec
 	 */
 	isFolder : function ()
 	{
-		return this.get('object_type') === Zarafa.plugins.files.data.FileTypes.FOLDER;
+		return this.get('object_type') === Grommunio.plugins.files.data.FileTypes.FOLDER;
 	},
 
 	/**
 	 * @return {boolean} true if folder is home folder. home folder is dummy and hidden folder
-	 * in {@link Zarafa.plugins.files.data.FilesHierarchyStore FilesHierarchyStore} else false.
+	 * in {@link Grommunio.plugins.files.data.FilesHierarchyStore FilesHierarchyStore} else false.
 	 */
 	isHomeFolder : function()
 	{
@@ -240,7 +240,7 @@ Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRec
 	/**
 	 * Helper function which used to check user is trying to delete the parent folder of currently selected folder or not.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesFolderRecord} folder The folder which can be either {@link #getDefaultFolder default folder} or
+	 * @param {Grommunio.plugins.files.data.FilesFolderRecord} folder The folder which can be either {@link #getDefaultFolder default folder} or
 	 * parent folder of currently deleted folder
 	 * @returns {boolean} return true if deleted folder is parent folder of currently selected folder in hierarchy else false.
 	 */
@@ -261,10 +261,10 @@ Zarafa.plugins.files.data.FilesFolderRecord = Ext.extend(Zarafa.core.data.IPFRec
 	}
 });
 
-Zarafa.core.data.RecordCustomObjectType.addProperty('FILES_FOLDER');
-Zarafa.core.data.RecordFactory.addFieldToCustomType(Zarafa.core.data.RecordCustomObjectType.FILES_FOLDER, Zarafa.plugins.files.data.FilesFolderRecordFields);
-Zarafa.core.data.RecordFactory.setBaseClassToCustomType(Zarafa.core.data.RecordCustomObjectType.FILES_FOLDER, Zarafa.plugins.files.data.FilesFolderRecord);
-Zarafa.core.data.RecordFactory.addListenerToObjectType(Zarafa.core.data.RecordCustomObjectType.FILES_FOLDER, 'createphantom', function(record) {
+Grommunio.core.data.RecordCustomObjectType.addProperty('FILES_FOLDER');
+Grommunio.core.data.RecordFactory.addFieldToCustomType(Grommunio.core.data.RecordCustomObjectType.FILES_FOLDER, Grommunio.plugins.files.data.FilesFolderRecordFields);
+Grommunio.core.data.RecordFactory.setBaseClassToCustomType(Grommunio.core.data.RecordCustomObjectType.FILES_FOLDER, Grommunio.plugins.files.data.FilesFolderRecord);
+Grommunio.core.data.RecordFactory.addListenerToObjectType(Grommunio.core.data.RecordCustomObjectType.FILES_FOLDER, 'createphantom', function(record) {
 	// Phantom records must always be marked as opened (they contain the full set of data)
 	record.afterOpen();
 });

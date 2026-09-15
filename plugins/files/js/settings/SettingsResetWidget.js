@@ -1,18 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.settings');
+Ext.namespace('Grommunio.plugins.files.settings');
 
 /**
- * @class Zarafa.plugins.files.settings.SettingsResetWidget
- * @extends Zarafa.settings.ui.SettingsWidget
+ * @class Grommunio.plugins.files.settings.SettingsResetWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
  * @xtype filesplugin.settingsresetwidget
  *
  * The Reset Settings widget
  */
-Zarafa.plugins.files.settings.SettingsResetWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
+Grommunio.plugins.files.settings.SettingsResetWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
 
 	/**
 	 * The loadMask object which will be shown when reset request is being sent to the server.
 	 * @property
-	 * @type Zarafa.common.ui.LoadMask
+	 * @type Grommunio.common.ui.LoadMask
 	 */
 	loadMask: undefined,
 
@@ -39,13 +39,13 @@ Zarafa.plugins.files.settings.SettingsResetWidget = Ext.extend(Zarafa.settings.u
 			}]
 		});
 
-		Zarafa.plugins.files.settings.SettingsResetWidget.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.settings.SettingsResetWidget.superclass.constructor.call(this, config);
 	},
 
 	/**
 	 * Event handler when the "Reset Files Settings" button was clicked.
-	 * This will {@link Zarafa.settings.SettingsModel#reset reset} the
-	 * {@link Zarafa.settings.data.SettingsDefaultValue values} of the settings.
+	 * This will {@link Grommunio.settings.SettingsModel#reset reset} the
+	 * {@link Grommunio.settings.data.SettingsDefaultValue values} of the settings.
 	 * @private
 	 */
 	onResetSettings: function () {
@@ -56,7 +56,7 @@ Zarafa.plugins.files.settings.SettingsResetWidget = Ext.extend(Zarafa.settings.u
 		message += _('grommunio Web will automatically restart in order for these changes to take effect.');
 		message += '<br/>';
 
-		Zarafa.common.dialogs.MessageBox.addCustomButtons({
+		Grommunio.common.dialogs.MessageBox.addCustomButtons({
 			title       : _('Reset Files settings'),
 			msg         : message,
 			fn          : this.resetDefaultSettings,
@@ -81,16 +81,16 @@ Zarafa.plugins.files.settings.SettingsResetWidget = Ext.extend(Zarafa.settings.u
 	resetDefaultSettings: function (button) {
 		if (button === 'reset') {
 			var settingsModel = container.getSettingsModel();
-			var accounts = settingsModel.getSettingsObject('zarafa/v1/plugins/files/accounts');
+			var accounts = settingsModel.getSettingsObject('grommunio/v1/plugins/files/accounts');
 			for (var account in accounts) {
 				if (accounts[account].cannot_change !== true) {
-					settingsModel.reset('zarafa/v1/plugins/files/accounts/' + account);
+					settingsModel.reset('grommunio/v1/plugins/files/accounts/' + account);
 				}
 			}
-			settingsModel.reset('zarafa/v1/contexts/files');
+			settingsModel.reset('grommunio/v1/contexts/files');
 			settingsModel.save();
 
-			this.loadMask = new Zarafa.common.ui.LoadMask(Ext.getBody(), {
+			this.loadMask = new Grommunio.common.ui.LoadMask(Ext.getBody(), {
 				msg: '<b>' + _('grommunio Web is reloading, Please wait.') + '</b>'
 			});
 
@@ -103,25 +103,25 @@ Zarafa.plugins.files.settings.SettingsResetWidget = Ext.extend(Zarafa.settings.u
 	},
 
 	/**
-	 * Called when the {@link Zarafa.settings.SettingsModel} fires the {@link Zarafa.settings.SettingsModel#save save}
+	 * Called when the {@link Grommunio.settings.SettingsModel} fires the {@link Grommunio.settings.SettingsModel#save save}
 	 * event to indicate the settings were successfully saved and it will forcefully reload grommunio Web.
-	 * @param {Zarafa.settings.SettingsModel} model The model which fired the event.
+	 * @param {Grommunio.settings.SettingsModel} model The model which fired the event.
 	 * @param {Object} parameters The key-value object containing the action and the corresponding
 	 * settings which were saved to the server.
 	 * @private
 	 */
 	onSettingsSave: function (model, parameters) {
-		if (parameters.action === Zarafa.core.Actions['reset']) {
+		if (parameters.action === Grommunio.core.Actions['reset']) {
 			this.mun(model, 'save', this.onSettingsSave, this);
 			this.mun(model, 'exception', this.onSettingsException, this);
-			Zarafa.core.Util.reloadWebapp();
+			Grommunio.core.Util.reloadWebapp();
 		}
 	},
 
 	/**
-	 * Called when the {@link Zarafa.settings.SettingsModel} fires the {@link Zarafa.settings.SettingsModel#exception exception}
+	 * Called when the {@link Grommunio.settings.SettingsModel} fires the {@link Grommunio.settings.SettingsModel#exception exception}
 	 * event to indicate the settings were not successfully saved.
-	 * @param {Zarafa.settings.SettingsModel} model The settings model which fired the event
+	 * @param {Grommunio.settings.SettingsModel} model The settings model which fired the event
 	 * @param {String} type The value of this parameter will be either 'response' or 'remote'.
 	 * @param {String} action Name of the action (see {@link Ext.data.Api#actions}).
 	 * @param {Object} options The object containing a 'path' and 'value' field indicating
@@ -130,7 +130,7 @@ Zarafa.plugins.files.settings.SettingsResetWidget = Ext.extend(Zarafa.settings.u
 	 * @private
 	 */
 	onSettingsException: function (model, type, action, options, response) {
-		if (options.action === Zarafa.core.Actions['reset']) {
+		if (options.action === Grommunio.core.Actions['reset']) {
 			this.loadMask.hide();
 
 			this.mun(model, 'save', this.onSettingsSave, this);
@@ -139,4 +139,4 @@ Zarafa.plugins.files.settings.SettingsResetWidget = Ext.extend(Zarafa.settings.u
 	}
 });
 
-Ext.reg('filesplugin.settingsresetwidget', Zarafa.plugins.files.settings.SettingsResetWidget);
+Ext.reg('filesplugin.settingsresetwidget', Grommunio.plugins.files.settings.SettingsResetWidget);

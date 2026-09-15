@@ -72,7 +72,7 @@ class Pluginai extends Plugin {
 		];
 
 		$data['settingsObj']->addSysAdminDefaults([
-			'zarafa' => [
+			'grommunio' => [
 				'v1' => [
 					'plugins' => [
 						'ai' => $defaults,

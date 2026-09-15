@@ -1,15 +1,15 @@
-Ext.namespace('Zarafa.plugins.smime.settings');
+Ext.namespace('Grommunio.plugins.smime.settings');
 /**
- * @class Zarafa.plugins.smime.settings.SettingsSmimeWidget
- * @extends Zarafa.settings.ui.SettingsWidget
+ * @class Grommunio.plugins.smime.settings.SettingsSmimeWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
  * @xtype smime.settingssmimewidget
  *
- * The {@link Zarafa.plugins.settings.SettingsSmimeWidget widget} for importing S/MIME certificates (public/private)
+ * The {@link Grommunio.plugins.settings.SettingsSmimeWidget widget} for importing S/MIME certificates (public/private)
  */
-Zarafa.plugins.smime.settings.SettingsSmimeWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
+Grommunio.plugins.smime.settings.SettingsSmimeWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
 
 	/**
-	 * @cfg {Zarafa.core.data.IPMRecord} record.
+	 * @cfg {Grommunio.core.data.IPMRecord} record.
 	 */
 	record : undefined,
 
@@ -28,7 +28,7 @@ Zarafa.plugins.smime.settings.SettingsSmimeWidget = Ext.extend(Zarafa.settings.u
 		config = config || {};
 
 		if(!config.store) {
-			config.store = new Zarafa.plugins.smime.data.SmimeCertificateStore();
+			config.store = new Grommunio.plugins.smime.data.SmimeCertificateStore();
 		}
 
 		Ext.applyIf(config, {
@@ -61,10 +61,10 @@ Zarafa.plugins.smime.settings.SettingsSmimeWidget = Ext.extend(Zarafa.settings.u
 				mode: 'local',
 				triggerAction: 'all',
 				editable: false,
-				value: container.getSettingsModel().get('zarafa/v1/plugins/smime/default_cipher', 'aes-256-gcm'),
+				value: container.getSettingsModel().get('grommunio/v1/plugins/smime/default_cipher', 'aes-256-gcm'),
 				listeners: {
 					select: function(combo, record) {
-						container.getSettingsModel().set('zarafa/v1/plugins/smime/default_cipher', record.get('value'));
+						container.getSettingsModel().set('grommunio/v1/plugins/smime/default_cipher', record.get('value'));
 					}
 				}
 			},{
@@ -84,16 +84,16 @@ Zarafa.plugins.smime.settings.SettingsSmimeWidget = Ext.extend(Zarafa.settings.u
 				mode: 'local',
 				triggerAction: 'all',
 				editable: false,
-				value: container.getSettingsModel().get('zarafa/v1/plugins/smime/default_digest', 'sha256'),
+				value: container.getSettingsModel().get('grommunio/v1/plugins/smime/default_digest', 'sha256'),
 				listeners: {
 					select: function(combo, record) {
-						container.getSettingsModel().set('zarafa/v1/plugins/smime/default_digest', record.get('value'));
+						container.getSettingsModel().set('grommunio/v1/plugins/smime/default_digest', record.get('value'));
 					}
 				}
 			}]
 		});
 
-		Zarafa.plugins.smime.settings.SettingsSmimeWidget.superclass.constructor.call(this, config);
+		Grommunio.plugins.smime.settings.SettingsSmimeWidget.superclass.constructor.call(this, config);
 	},
 
 
@@ -103,7 +103,7 @@ Zarafa.plugins.smime.settings.SettingsSmimeWidget = Ext.extend(Zarafa.settings.u
 	 */
 	initEvents : function()
 	{
-		Zarafa.plugins.smime.settings.SettingsSmimeWidget.superclass.initEvents.call(this);
+		Grommunio.plugins.smime.settings.SettingsSmimeWidget.superclass.initEvents.call(this);
 		this.mon(this.store, 'load', this.onStoreReady, this);
 		this.mon(this.store, 'remove', this.onStoreReady, this);
 		this.onStoreReady();
@@ -146,8 +146,8 @@ Zarafa.plugins.smime.settings.SettingsSmimeWidget = Ext.extend(Zarafa.settings.u
 	 */
 	changePassphrase : function()
 	{
-		Zarafa.core.data.UIFactory.openLayerComponent(Zarafa.core.data.SharedComponentType['plugin.smime.dialog.changepassphrasecontentpanel'], undefined, {modal: true});
+		Grommunio.core.data.UIFactory.openLayerComponent(Grommunio.core.data.SharedComponentType['plugin.smime.dialog.changepassphrasecontentpanel'], undefined, {modal: true});
 	}
 });
 
-Ext.reg('smime.settingssmimewidget', Zarafa.plugins.smime.settings.SettingsSmimeWidget);
+Ext.reg('smime.settingssmimewidget', Grommunio.plugins.smime.settings.SettingsSmimeWidget);

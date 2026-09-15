@@ -30,8 +30,8 @@ var ViewerSupport = (function () {
             candidate = candidates[i];
             try {
                 // Reading across an origin boundary throws.
-                if ( candidate && candidate !== window && candidate.Zarafa &&
-                        candidate.Zarafa.common && candidate.Zarafa.common.previewer ) {
+                if ( candidate && candidate !== window && candidate.Grommunio &&
+                        candidate.Grommunio.common && candidate.Grommunio.common.previewer ) {
                     return candidate;
                 }
             } catch ( e ) {
@@ -55,7 +55,7 @@ var ViewerSupport = (function () {
             host = hostWindow();
             if ( host ) {
                 try {
-                    strings = host.Zarafa.common.previewer.data.ViewerStrings.get();
+                    strings = host.Grommunio.common.previewer.data.ViewerStrings.get();
                 } catch ( e ) {
                     strings = {};
                 }
@@ -87,7 +87,7 @@ var ViewerSupport = (function () {
 
             try {
                 document.documentElement.dataset.theme =
-                    host.Zarafa.core.DarkMode.isDark() ? 'dark' : 'light';
+                    host.Grommunio.core.DarkMode.isDark() ? 'dark' : 'light';
                 accent = host.getComputedStyle(host.document.body)
                     .getPropertyValue('--theme-primary-color').trim();
                 if ( (/^#[0-9a-f]{6}$/i).test(accent) ) {

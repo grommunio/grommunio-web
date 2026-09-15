@@ -1,15 +1,15 @@
-Ext.namespace('Zarafa.plugins.ai.ui');
+Ext.namespace('Grommunio.plugins.ai.ui');
 
 /**
- * @class Zarafa.plugins.ai.ui.AIAssistantPanel
+ * @class Grommunio.plugins.ai.ui.AIAssistantPanel
  * @extends Ext.Panel
- * @xtype zarafa.aiassistantpanel
+ * @xtype grommunio.aiassistantpanel
  *
  * The body of the AI Assistant window: a scrollable area that renders the
  * assistant's output. It supports incremental streaming (appendDelta) as well
  * as a single buffered result (setResult), plus loading and error states.
  */
-Zarafa.plugins.ai.ui.AIAssistantPanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.ai.ui.AIAssistantPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * @property {String} accumulated text of the current response.
@@ -36,25 +36,25 @@ Zarafa.plugins.ai.ui.AIAssistantPanel = Ext.extend(Ext.Panel, {
 		this.addEvents(
 			/**
 			 * @event airesult Fired when a full result is available.
-			 * @param {Zarafa.plugins.ai.ui.AIAssistantPanel} panel
+			 * @param {Grommunio.plugins.ai.ui.AIAssistantPanel} panel
 			 * @param {String} text
 			 */
 			'airesult',
 			/**
 			 * @event aierror Fired when the request failed.
-			 * @param {Zarafa.plugins.ai.ui.AIAssistantPanel} panel
+			 * @param {Grommunio.plugins.ai.ui.AIAssistantPanel} panel
 			 * @param {String} message
 			 */
 			'aierror',
 			/**
 			 * @event chipclick Fired when a suggested-action chip is clicked.
-			 * @param {Zarafa.plugins.ai.ui.AIAssistantPanel} panel
+			 * @param {Grommunio.plugins.ai.ui.AIAssistantPanel} panel
 			 * @param {Number} index The chip's index.
 			 */
 			'chipclick'
 		);
 
-		Zarafa.plugins.ai.ui.AIAssistantPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.ai.ui.AIAssistantPanel.superclass.constructor.call(this, config);
 
 		this.on('afterrender', this.onAfterRender, this);
 	},
@@ -197,7 +197,7 @@ Zarafa.plugins.ai.ui.AIAssistantPanel = Ext.extend(Ext.Panel, {
 	 */
 	renderText: function(withCaret)
 	{
-		var html = Zarafa.plugins.ai.ui.AIAssistantPanel.renderMarkdown(this.text);
+		var html = Grommunio.plugins.ai.ui.AIAssistantPanel.renderMarkdown(this.text);
 		if (withCaret) {
 			html += '<span class="k-ai-caret"></span>';
 		}
@@ -227,7 +227,7 @@ Zarafa.plugins.ai.ui.AIAssistantPanel = Ext.extend(Ext.Panel, {
 	}
 });
 
-Ext.reg('zarafa.aiassistantpanel', Zarafa.plugins.ai.ui.AIAssistantPanel);
+Ext.reg('grommunio.aiassistantpanel', Grommunio.plugins.ai.ui.AIAssistantPanel);
 
 /**
  * Render a safe subset of Markdown (paragraphs, '-'/'*' bullets, #/##/###
@@ -238,14 +238,14 @@ Ext.reg('zarafa.aiassistantpanel', Zarafa.plugins.ai.ui.AIAssistantPanel);
  * @return {String} HTML
  * @static
  */
-Zarafa.plugins.ai.ui.AIAssistantPanel.renderMarkdown = function(text)
+Grommunio.plugins.ai.ui.AIAssistantPanel.renderMarkdown = function(text)
 {
 	text = String(text || '');
 
 	var inline = function(value) {
 		// Decode entities the model emitted (e.g. &nbsp;) to real characters,
 		// then re-escape so display is both correct and injection-safe.
-		value = Ext.util.Format.htmlEncode(Zarafa.plugins.ai.AIClient.decodeEntities(value));
+		value = Ext.util.Format.htmlEncode(Grommunio.plugins.ai.AIClient.decodeEntities(value));
 		value = value.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 		value = value.replace(/`([^`]+)`/g, '<code>$1</code>');
 		return value;

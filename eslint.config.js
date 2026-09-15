@@ -13,14 +13,14 @@ module.exports = [
 			// The client uses optional chaining and regexp lookbehind, so the old
 			// "es6" setting left several files unparsed and therefore unchecked.
 			ecmaVersion: "latest",
-			// Plain scripts, not modules: the files share one global Ext/Zarafa.
+			// Plain scripts, not modules: the files share one global Ext/Grommunio.
 			sourceType: "script",
 			globals: {
 				...globals.browser,
 				"DOMPurify": "writable",
 				"Ext": "writable",
 				"inlineCSS": "writable",
-				"Zarafa": "writable",
+				"Grommunio": "writable",
 				"_": "writable",
 				"container": "writable",
 				"ngettext": "writable",
