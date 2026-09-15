@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.templatesnippets.settings');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.templatesnippets.settings');
 
 /**
- * @class Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsCategory
- * @extends Zarafa.settings.ui.SettingsCategory
- * @xtype zarafa.settingstemplatesnippetscategory
+ * @class Grommunio.plugins.templatesnippets.settings.SettingsTemplateSnippetsCategory
+ * @extends Grommunio.settings.ui.SettingsCategory
+ * @xtype grommunio.settingstemplatesnippetscategory
  *
  * Settings category for managing Template Snippets.
  */
-Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsCategory = Ext.extend(Zarafa.settings.ui.SettingsCategory, {
+Grommunio.plugins.templatesnippets.settings.SettingsTemplateSnippetsCategory = Ext.extend(Grommunio.settings.ui.SettingsCategory, {
 
 	constructor: function(config) {
 		config = config || {};
@@ -16,12 +21,12 @@ Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsCategory = Ext.
 			categoryIndex: 9945,
 			iconCls: 'icon_templatesnippets',
 			items: [{
-				xtype: 'zarafa.settingstemplatesnippetswidget',
+				xtype: 'grommunio.settingstemplatesnippetswidget',
 				settingsContext: config.settingsContext
 			}]
 		});
-		Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsCategory.superclass.constructor.call(this, config);
+		Grommunio.plugins.templatesnippets.settings.SettingsTemplateSnippetsCategory.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('zarafa.settingstemplatesnippetscategory', Zarafa.plugins.templatesnippets.settings.SettingsTemplateSnippetsCategory);
+Ext.reg('grommunio.settingstemplatesnippetscategory', Grommunio.plugins.templatesnippets.settings.SettingsTemplateSnippetsCategory);

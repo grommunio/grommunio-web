@@ -1,4 +1,11 @@
 /*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+/*
  * #dependsFile client/extjs-mod/Ext.js
  *
  * Override if browser is IE/Edge because IE and Edge throws a 'permission denied' exception when trying to compare a missing element (e.g. an iframe) from the 'specialElCache'

@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.mdm.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.mdm.dialogs');
 
 /**
- * @class Zarafa.plugins.mdm.dialogs.MDMDeviceContentPanel
- * @extends Zarafa.core.ui.RecordContentPanel
+ * @class Grommunio.plugins.mdm.dialogs.MDMDeviceContentPanel
+ * @extends Grommunio.core.ui.RecordContentPanel
  * @xtype mdmplugin.devicecontentpanel
  *
  * The content panel which is use to show device detail panel.
  */
-Zarafa.plugins.mdm.dialogs.MDMDeviceContentPanel = Ext.extend(Zarafa.core.ui.RecordContentPanel, {
+Grommunio.plugins.mdm.dialogs.MDMDeviceContentPanel = Ext.extend(Grommunio.core.ui.RecordContentPanel, {
 
 	/**
 	 * @constructor
@@ -42,7 +47,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceContentPanel = Ext.extend(Zarafa.core.ui.Rec
 			}]
 		});
 
-		Zarafa.plugins.mdm.dialogs.MDMDeviceContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.mdm.dialogs.MDMDeviceContentPanel.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -55,4 +60,4 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceContentPanel = Ext.extend(Zarafa.core.ui.Rec
 	}
 });
 
-Ext.reg('mdmplugin.devicecontentpanel', Zarafa.plugins.mdm.dialogs.MDMDeviceContentPanel);
+Ext.reg('mdmplugin.devicecontentpanel', Grommunio.plugins.mdm.dialogs.MDMDeviceContentPanel);

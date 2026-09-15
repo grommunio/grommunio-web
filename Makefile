@@ -1,9 +1,17 @@
+# SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+# SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+# SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Tools
+
+SHELL := /bin/bash
 
 PHPMD ?= phpmd
 PHPDOC ?= phpdoc
 PHPDOC_CONFIG ?= phpdoc.dist.xml
 NPM ?= npm
+NODE ?= node
 MSGFMT ?= msgfmt
 PHP ?= php
 
@@ -22,7 +30,7 @@ HTMLCOMPILER ?= node_modules/html-minifier-terser/cli.js
 SVGCOMPRESS ?= node_modules/svgo/bin/svgo
 PRECOMPRESS ?= node tools/precompress.mjs
 
-JSOPTIONS = --compress ecma=2015,computed_props=false --mangle reserved=['FormData','Ext','Zarafa','container','settings','properties','languages','serverconfig','user','version','urlActionData','console','Tokenizr','module','define','global','require','proxy','_','dgettext','dngettext','dnpgettext','ngettext','pgettext','onResize','tinymce','resizeLoginBox','userManager','DOMPurify','PDFJS','odf','L','GeoSearch','inlineCSS','CSSTree']
+JSOPTIONS = --compress ecma=2015,computed_props=false --mangle reserved=['FormData','Ext','Grommunio','container','settings','properties','languages','serverconfig','user','version','urlActionData','console','Tokenizr','module','define','global','require','proxy','_','dgettext','dngettext','dnpgettext','ngettext','pgettext','onResize','tinymce','resizeLoginBox','userManager','DOMPurify','PDFJS','odf','L','GeoSearch','inlineCSS','CSSTree']
 CSSOPTIONS = --no-map --use postcss-preset-env --use cssnano --use $(CURDIR)/tools/postcss-asset-version.mjs
 WEBAPPVERSION = $(shell git describe --abbrev=7 --always --long | sed 's/grommunio-web-//')
 HTMLOPTIONS = --collapse-whitespace --remove-comments
@@ -58,7 +66,7 @@ THIRDPARTY = $(sort $(shell find client/third-party -name '*.js')) client/third-
 PURIFYJS = client/dompurify/purify.min.js
 DEPLOYPURIFYJS = $(DEPLOYPURIFY)/purify.js
 
-JSFILES = $(sort $(shell find client/zarafa -name '*.js'))
+JSFILES = $(sort $(shell find client/grommunio -name '*.js'))
 
 # Build
 
@@ -251,7 +259,7 @@ lint: vendor
 
 .PHONY: lintci
 lintci: vendor
-	$(NPM) run lint -- --quiet -f junit -o eslint.xml client/zarafa/ || true
+	$(NPM) run lint -- --quiet -f junit -o eslint.xml client/grommunio/ || true
 
 .PHONY: phplint
 phplint:
@@ -264,6 +272,26 @@ phplintci:
 .PHONY: phpdoc
 phpdoc:
 	$(PHPDOC) run --config $(PHPDOC_CONFIG)
+
+# Bills of material
+
+BOMS = bom.json bom.spdx.json
+BOMSOURCES = tools/build-bom.mjs tools/bom-vendored.json package-lock.json package.json version \
+	$(wildcard plugins/*/php/vendor/composer/installed.json) \
+	plugins/files/php/Files/Backend/Webdav/sabredav/vendor/composer/installed.json
+
+.PHONY: bom
+bom: $(BOMS)
+
+$(BOMS) &: $(BOMSOURCES)
+	$(NODE) tools/build-bom.mjs
+
+# Fails when the committed BOMs no longer match their sources, so a
+# dependency bump cannot land without regenerating them. Run it in CI
+# next to the lint targets.
+.PHONY: bom-check
+bom-check:
+	$(NODE) tools/build-bom.mjs --check
 
 # NPM
 

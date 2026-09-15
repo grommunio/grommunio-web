@@ -1,20 +1,25 @@
-Ext.namespace('Zarafa.plugins.ai.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.ai.ui');
 
 /**
- * @class Zarafa.plugins.ai.ui.AIAssistantWindow
+ * @class Grommunio.plugins.ai.ui.AIAssistantWindow
  * @extends Ext.Window
- * @xtype zarafa.aiassistantwindow
+ * @xtype grommunio.aiassistantwindow
  *
- * A floating, resizable card that hosts the {@link Zarafa.plugins.ai.ui.AIAssistantPanel}
+ * A floating, resizable card that hosts the {@link Grommunio.plugins.ai.ui.AIAssistantPanel}
  * and a footer toolbar. Reading-side features (summarize, translate, suggested
  * actions) run inside this window so the user keeps their place in the mail.
  *
  * A single instance is reused across invocations via {@link #showFeature}.
  */
-Zarafa.plugins.ai.ui.AIAssistantWindow = Ext.extend(Ext.Window, {
+Grommunio.plugins.ai.ui.AIAssistantWindow = Ext.extend(Ext.Window, {
 
 	/**
-	 * @property {Zarafa.plugins.ai.ui.AIAssistantPanel} the content panel.
+	 * @property {Grommunio.plugins.ai.ui.AIAssistantPanel} the content panel.
 	 */
 	aiPanel: undefined,
 
@@ -34,7 +39,7 @@ Zarafa.plugins.ai.ui.AIAssistantWindow = Ext.extend(Ext.Window, {
 	{
 		config = config || {};
 
-		this.aiPanel = new Zarafa.plugins.ai.ui.AIAssistantPanel();
+		this.aiPanel = new Grommunio.plugins.ai.ui.AIAssistantPanel();
 
 		Ext.applyIf(config, {
 			title: _('AI Assistant'),
@@ -51,7 +56,7 @@ Zarafa.plugins.ai.ui.AIAssistantWindow = Ext.extend(Ext.Window, {
 			buttons: this.createButtons()
 		});
 
-		Zarafa.plugins.ai.ui.AIAssistantWindow.superclass.constructor.call(this, config);
+		Grommunio.plugins.ai.ui.AIAssistantWindow.superclass.constructor.call(this, config);
 
 		this.aiPanel.on('chipclick', this.onChipClick, this);
 	},
@@ -230,18 +235,18 @@ Zarafa.plugins.ai.ui.AIAssistantWindow = Ext.extend(Ext.Window, {
 	/**
 	 * Render suggested-action chips inside the panel and reveal them.
 	 * @param {Array} actions Sanitized action objects.
-	 * @param {Zarafa.core.data.IPMRecord} record The source mail record.
+	 * @param {Grommunio.core.data.IPMRecord} record The source mail record.
 	 */
 	setChips: function(actions, record)
 	{
 		this.chipsActions = actions || [];
 		this.chipsRecord = record;
-		this.aiPanel.setChips(Zarafa.plugins.ai.ui.AIActionChips.renderHtml(this.chipsActions));
+		this.aiPanel.setChips(Grommunio.plugins.ai.ui.AIActionChips.renderHtml(this.chipsActions));
 	},
 
 	/**
 	 * Execute the action behind a clicked chip (opens a confirm-first dialog).
-	 * @param {Zarafa.plugins.ai.ui.AIAssistantPanel} panel
+	 * @param {Grommunio.plugins.ai.ui.AIAssistantPanel} panel
 	 * @param {Number} index
 	 * @private
 	 */
@@ -249,7 +254,7 @@ Zarafa.plugins.ai.ui.AIAssistantWindow = Ext.extend(Ext.Window, {
 	{
 		var action = this.chipsActions && this.chipsActions[index];
 		if (action) {
-			Zarafa.plugins.ai.SmartActions.execute(action, this.chipsRecord);
+			Grommunio.plugins.ai.SmartActions.execute(action, this.chipsRecord);
 		}
 	},
 
@@ -263,21 +268,21 @@ Zarafa.plugins.ai.ui.AIAssistantWindow = Ext.extend(Ext.Window, {
 	}
 });
 
-Ext.reg('zarafa.aiassistantwindow', Zarafa.plugins.ai.ui.AIAssistantWindow);
+Ext.reg('grommunio.aiassistantwindow', Grommunio.plugins.ai.ui.AIAssistantWindow);
 
 /**
  * Show the shared AI Assistant window and start a feature in it.
  *
  * @param {Object} options title {String}, model {String}, runner {Function}
- * @return {Zarafa.plugins.ai.ui.AIAssistantWindow}
+ * @return {Grommunio.plugins.ai.ui.AIAssistantWindow}
  * @static
  */
-Zarafa.plugins.ai.ui.AIAssistantWindow.showFeature = function(options)
+Grommunio.plugins.ai.ui.AIAssistantWindow.showFeature = function(options)
 {
-	var instance = Zarafa.plugins.ai.ui.AIAssistantWindow.instance;
+	var instance = Grommunio.plugins.ai.ui.AIAssistantWindow.instance;
 	if (!instance || instance.isDestroyed) {
-		instance = new Zarafa.plugins.ai.ui.AIAssistantWindow();
-		Zarafa.plugins.ai.ui.AIAssistantWindow.instance = instance;
+		instance = new Grommunio.plugins.ai.ui.AIAssistantWindow();
+		Grommunio.plugins.ai.ui.AIAssistantWindow.instance = instance;
 	}
 	instance.startFeature(options);
 	return instance;

@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * Contact ItemModule
  * Module which opens, creates, saves and deletes an item. It
@@ -522,7 +529,7 @@ class ContactItemModule extends ItemModule {
 		// taking leap years into account.
 		$month = self::getMonthOffset($startDate);
 
-		$defAllDayReminder = $GLOBALS['settings']->get('zarafa/v1/contexts/calendar/default_allday_reminder_time', 1080);
+		$defAllDayReminder = $GLOBALS['settings']->get('grommunio/v1/contexts/calendar/default_allday_reminder_time', 1080);
 
 		$props = [
 			'message_class' => 'IPM.Appointment',

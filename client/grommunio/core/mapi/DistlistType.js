@@ -1,0 +1,67 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.core.mapi');
+
+/**
+ * @class Grommunio.core.mapi.DistlistType
+ * @extends Grommunio.core.Enum
+ *
+ * @singleton
+ */
+Grommunio.core.mapi.DistlistType = Grommunio.core.Enum.create({
+
+	/**
+	 * Denotes contact members in distlist from contact folders.
+	 * @property
+	 * @type Number
+	 */
+	'DL_USER': 0x000000C3,
+
+	/**
+	 * Denotes contact members in distlist from contact folders.
+	 * @property
+	 * @type Number
+	 */
+	'DL_USER2': 0x000000D3,
+
+	/**
+	 * Denotes contact members in distlist from contact folders.
+	 * @property
+	 * @type Number
+	 */
+	'DL_USER3': 0x000000E3,
+
+	/**
+	 * Denotes External members in distlist.
+	 * @property
+	 * @type Number
+	 */
+	'DL_EXTERNAL_MEMBER': 0x00000000,
+
+	/**
+	 * Denotes distribution list from contact folders.
+	 * @property
+	 * @type Number
+	 */
+	'DL_DIST': 0x000000B4,
+
+	/**
+	 * Denotes addressbook users.
+	 * @property
+	 * @type Number
+	 */
+	'DL_USER_AB': 0x000000B5,
+
+	/**
+	 * Denotes addressbook user groups.
+	 * @property
+	 * @type Number
+	 */
+	'DL_DIST_AB': 0x000000B6
+});
+

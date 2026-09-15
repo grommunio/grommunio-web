@@ -1,6 +1,11 @@
 <?php
 
 /*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+/*
  * This file contains functions which are used in plugin.smime.php and class.pluginsmimemodule.php and therefore
  * exists here to avoid code-duplication.
  */

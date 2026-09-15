@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * Manager for including JS and CSS files into the desired order.
  */
@@ -78,7 +85,7 @@ class FileLoader {
 	 *
 	 * @return array The array of Javascript files
 	 */
-	public function getZarafaJavascriptFiles($load, $libFiles = []) {
+	public function getGrommunioJavascriptFiles($load, $libFiles = []) {
 		if ($load == LOAD_RELEASE) {
 			return ["client/grommunio.js"];
 		}
@@ -87,8 +94,8 @@ class FileLoader {
 		}
 
 		return $this->buildJSLoadingSequence(
-			$this->getListOfFiles('js', 'client/zarafa'),
-			['client/zarafa/core'],
+			$this->getListOfFiles('js', 'client/grommunio'),
+			['client/grommunio/core'],
 			$libFiles
 		);
 	}
@@ -307,7 +314,7 @@ class FileLoader {
 
 		foreach ($fileDataLookup as $filename => &$fileData) {
 			for ($i = 0, $len = count($fileData['extends']); $i < $len; ++$i) {
-				if (str_starts_with($fileData['extends'][$i], 'Zarafa')) {
+				if (str_starts_with($fileData['extends'][$i], 'Grommunio')) {
 					if (isset($libFileLookup[$fileData['extends'][$i]])) {
 						// Found in library — no dependency needed
 					}
@@ -439,7 +446,7 @@ class FileLoader {
 	private function getJsFiles() {
 		if (!isset($this->extjsFiles)) {
 			$this->extjsFiles = $this->getExtjsJavascriptFiles(DEBUG_LOADER);
-			$this->webappFiles = $this->getZarafaJavascriptFiles(DEBUG_LOADER, $this->extjsFiles);
+			$this->webappFiles = $this->getGrommunioJavascriptFiles(DEBUG_LOADER, $this->extjsFiles);
 			$this->pluginFiles = $this->getPluginJavascriptFiles(DEBUG_LOADER, array_merge($this->extjsFiles, $this->webappFiles));
 			$this->remoteFiles = $this->getRemoteJavascriptFiles(DEBUG_LOADER);
 		}

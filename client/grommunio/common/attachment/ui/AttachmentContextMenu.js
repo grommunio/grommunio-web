@@ -1,0 +1,456 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.common.attachment.ui');
+
+/**
+ * @class Grommunio.common.attachment.ui.AttachmentContextMenu
+ * @extends Grommunio.core.ui.menu.ConditionalMenu
+ * @xtype grommunio.attachmentcontextmenu
+ */
+Grommunio.common.attachment.ui.AttachmentContextMenu = Ext.extend(Grommunio.core.ui.menu.ConditionalMenu, {
+	// Insertion points for this class
+	/**
+	 * @insert common.contextmenu.attachment.actions
+	 * Insertion point for adding actions menu items into the context menu
+	 * @param {Grommunio.common.attachment.ui.AttachmentContextMenu} contextmenu This contextmenu
+	 */
+	/**
+	 * @insert common.contextmenu.attachment.options
+	 * Insertion point for adding options menu items into the context menu
+	 * @param {Grommunio.common.attachment.ui.AttachmentContextMenu} contextmenu This contextmenu
+	 */
+
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		if (!Ext.isDefined(config.model) && Ext.isDefined(config.context)) {
+			config.model = config.context.getModel();
+		}
+		Ext.applyIf(config, {
+			items: [
+				this.createContextActionItems(config.records),
+				container.populateInsertionPoint('common.contextmenu.attachment.actions', this),
+				{ xtype: 'menuseparator' },
+				container.populateInsertionPoint('common.contextmenu.attachment.options', this)
+			],
+			defaults: {
+				xtype: 'grommunio.conditionalitem',
+				hideOnDisabled: false
+			}
+		});
+		Grommunio.common.attachment.ui.AttachmentContextMenu.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Create the Action context menu items
+	 * @param {Grommunio.core.data.IPMAttachmentRecord} Attachment record. Based on record type preview will be enabled or disabled.
+	 * @return {Grommunio.core.ui.menu.ConditionalItem[]} The list of Action context menu items
+	 * @private
+	 */
+	createContextActionItems: function(records)
+	{
+		return [{
+			text: _('Preview'),
+			iconCls: 'icon_attachment_preview',
+			scope: this,
+			handler: this.onPreviewItem,
+			beforeShow: this.onPreviewBeforeShow
+		}, {
+			// The layers the setting did not pick. Their text is set in
+			// beforeShow, since which two they are depends on the setting.
+			text: _('Preview in a dialog'),
+			iconCls: 'icon_attachment_preview',
+			previewSlot: 0,
+			scope: this,
+			handler: this.onPreviewInTarget,
+			beforeShow: this.onPreviewInTargetBeforeShow
+		}, {
+			text: _('Preview in a dialog'),
+			iconCls: 'icon_attachment_preview',
+			previewSlot: 1,
+			scope: this,
+			handler: this.onPreviewInTarget,
+			beforeShow: this.onPreviewInTargetBeforeShow
+		}, {
+			text: _('Download'),
+			iconCls: 'icon_download',
+			scope: this,
+			handler: this.onDownloadItem,
+			beforeShow: this.onDownloadBeforeShow
+		}, {
+			text: _('Download all as ZIP'),
+			iconCls: 'icon_download_zip',
+			scope: this,
+			handler: this.onDownloadAllAsZip,
+			beforeShow: this.onDownloadZipBeforeShow
+		}, {
+			text: _('Save selection to folder'),
+			iconCls: 'icon_download',
+			scope: this,
+			handler: this.onSaveSelectionToFolder,
+			beforeShow: this.onSaveSelectionBeforeShow
+		}, {
+			text: _('Import to folder'),
+			iconCls: 'icon_import_attachment',
+			handler: this.onImportToFolder,
+			beforeShow: this.onImportToFolderBeforeShow,
+			afterRender: this.onImportToFolderAfterRender,
+			scope: this
+		}, {
+			text: _('Remove attachment'),
+			iconCls: 'icon_delete',
+			handler: this.onRemoveItem,
+			beforeShow: this.onRemoveBeforeShow,
+			scope: this
+		}];
+	},
+
+	/**
+	 * @cfg {Grommunio.core.data.IPMAttachmentRecord} primaryRecord The attachment the
+	 * pointer was on when the menu was opened. Optional; when absent the first of
+	 * {@link #records} is used. See {@link #getPrimaryRecord}.
+	 */
+	primaryRecord: undefined,
+
+	/**
+	 * @cfg {Grommunio.core.data.IPMAttachmentRecord[]} selectedRecords The whole
+	 * selection the gesture covered, see
+	 * {@link Grommunio.common.ui.messagepanel.AttachmentLinks#getGestureRecords}.
+	 * {@link #records} stays a single record: ConditionalMenu hands it to every
+	 * item's beforeShow, plugin items included.
+	 */
+	selectedRecords: undefined,
+
+	/**
+	 * The single attachment the per-item actions apply to.
+	 *
+	 * Every item here acts on one attachment, so they all resolve through this;
+	 * an item that acts on the whole selection reads {@link #selectedRecords}.
+	 *
+	 * @param {Grommunio.core.data.IPMAttachmentRecord|Grommunio.core.data.IPMAttachmentRecord[]} records
+	 * The records the menu was opened with, defaulting to the menu's own
+	 * @return {Grommunio.core.data.IPMAttachmentRecord} The record to act on
+	 * @private
+	 */
+	getPrimaryRecord: function(records)
+	{
+		// The opener names the attachment the pointer was on. Falling back to
+		// the first of the selection would make a right-click inside a selection
+		// act on a different attachment than the one that was clicked.
+		if (this.primaryRecord) {
+			return this.primaryRecord;
+		}
+
+		var candidate = Ext.isDefined(records) ? records : this.records;
+		return Ext.isArray(candidate) ? candidate[0] : candidate;
+	},
+
+	/**
+	 * Function will be called before {@link Grommunio.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
+	 * so we can decide which item should be disabled.
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item context menu item
+	 * @param {Grommunio.core.data.IPMAttachmentRecord|Grommunio.core.data.IPMAttachmentRecord[]} records attachment record(s) on which context menu is shown
+	 */
+	onPreviewBeforeShow: function(item, records)
+	{
+		var record = this.getPrimaryRecord(records);
+
+		if (!Grommunio.common.Actions.isFilePreviewerEnabled()) {
+			item.setVisible(false);
+			return;
+		}
+
+		// get component that can preview the selected record
+		var comp = container.getSharedComponent(Grommunio.core.data.SharedComponentType['common.view'], record);
+
+		// component should be lightbox to make attachment previewable
+		var disabled = !comp || comp instanceof Grommunio.common.CommonContext;
+		// embedded messages can not be previewed
+		disabled = disabled || record.isEmbeddedMessage();
+
+		item.setDisabled(disabled);
+	},
+
+	/**
+	 * Only a stored mail the user may change can lose an attachment, and only when
+	 * the administrator allows it.
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item context menu item
+	 * @param {Grommunio.core.data.IPMAttachmentRecord|Grommunio.core.data.IPMAttachmentRecord[]} records attachment record(s) on which context menu is shown
+	 */
+	onRemoveBeforeShow: function(item, records)
+	{
+		var record = this.getPrimaryRecord(records);
+		var store = record ? record.getStore() : undefined;
+		var message = store ? store.getParentRecord() : undefined;
+
+		// The attachments of an S/MIME mail are the ones of the message inside the
+		// signature, their numbers do not address the stored message at all.
+		var messageClass = message ? message.get('message_class') : '';
+		var allowed = container.getServerConfig().isAttachmentRemovalEnabled() &&
+			Ext.isNumber(record.get('attach_num')) &&
+			message && message.phantom !== true &&
+			Grommunio.core.MessageClass.isClass(messageClass, 'IPM.Note', true) &&
+			!Grommunio.core.MessageClass.isClass(messageClass, 'IPM.Note.SMIME', true) &&
+			(message.get('access') & Grommunio.core.mapi.Access.ACCESS_MODIFY) > 0;
+
+		item.setVisible(!!allowed);
+	},
+
+	/**
+	 * Remove the attachment from the message it belongs to.
+	 * @param {Ext.Button} item The clicked item
+	 * @param {Ext.EventObject} event The event object
+	 * @private
+	 */
+	onRemoveItem: function(item, event)
+	{
+		Grommunio.common.Actions.removeAttachment(this.getPrimaryRecord());
+	},
+
+	/**
+	 * Function will be called before {@link Grommunio.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
+	 * so we can decide which item should be disabled.
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item context menu item
+	 * @param {Grommunio.core.data.IPMAttachmentRecord|Grommunio.core.data.IPMAttachmentRecord[]} records attachment record(s) on which context menu is shown
+	 */
+	onDownloadBeforeShow: function(item, records)
+	{
+		// embedded messages can not be downloaded
+		item.setDisabled(this.getPrimaryRecord(records).isEmbeddedMessage());
+	},
+
+	/**
+	 * Function will be called before {@link Grommunio.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
+	 * so we can decide which item should be disabled.
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item context menu item
+	 * @param {Grommunio.core.data.IPMAttachmentRecord|Grommunio.core.data.IPMAttachmentRecord[]} records attachment record(s) on which context menu is shown
+	 */
+	onDownloadZipBeforeShow: function(item, records)
+	{
+		var record = this.getPrimaryRecord(records);
+		var normalAttachmentCounter = 0;
+		// Check if there is more than one normal attachments.
+		// Here, 'query' method of Ext.data.Store is useless in case where there is same id(-1) of all the unsaved attachments.
+		if(record.store.getCount() > 1) {
+			record.store.each(function(record){
+				if(record.isEmbeddedInBody() !== true) {
+					normalAttachmentCounter++;
+				}
+			});
+		}
+
+		// embedded messages can not be downloaded as ZIP
+		// check if there is more than one attachments.
+		item.setDisabled(record.isEmbeddedMessage() || normalAttachmentCounter <= 1);
+	},
+
+	/**
+	 * Function will be called before {@link Grommunio.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
+	 * so we can decide which item should be disabled.
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item context menu item
+	 */
+	onSaveSelectionBeforeShow: function(item)
+	{
+		var saver = Grommunio.common.attachment.AttachmentFolderSaver;
+		var records = this.selectedRecords;
+
+		// This answers a need only a selection has: several loose files on disk,
+		// which neither the drag (one file at most) nor the ZIP (an archive of
+		// everything) gives. A single attachment is what "Download" is for, so
+		// the item stays out of the menu until there are several to write.
+		var visible = Ext.isArray(records) && saver.isSupported() &&
+			saver.getSaveableRecords(records).length > 1;
+
+		item.setVisible(visible);
+	},
+
+	/**
+	 * Function will be called before {@link Grommunio.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
+	 * so we can decide which item should be disabled.
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item context menu item
+	 * @param {Grommunio.core.data.IPMAttachmentRecord|Grommunio.core.data.IPMAttachmentRecord[]} records attachment record(s) on which context menu is shown
+	 */
+	onImportToFolderBeforeShow: function(item, records)
+	{
+		var record = this.getPrimaryRecord(records);
+		var store = record.getStore();
+		var parentRecord = store.getParentRecord();
+		item.setDisabled(!record.canBeImported() || parentRecord.phantom);
+	},
+
+	/**
+	 * Function will be called after {@link Grommunio.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} gets rendered
+	 * It helps to put qtip in case if the item is disabled.
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item context menu item
+	 */
+	onImportToFolderAfterRender: function(item)
+	{
+		var serverConfig = container.getServerConfig();
+		// 'this' is the menu item here, so the records are reached through the
+		// root menu, which normalises a selection down to a single attachment.
+		var attachRecord = this.getRootMenu().getPrimaryRecord();
+		if (!serverConfig.isVCfImportSupported() && attachRecord.isVCFAttachment()) {
+			var tooltip = _('In order to use the vCard import feature, upgrade your Gromox to version 0 or higher.');
+			this.setTooltipOnImportButton(this.getEl(), tooltip);
+		} else if (!serverConfig.isICSImportSupported() && attachRecord.isICSAttachment()) {
+			var tooltip = _('In order to use the ICS / VCS import feature, upgrade your Gromox to version 0 or higher.');
+			this.setTooltipOnImportButton(this.getEl(), tooltip);
+		}
+	},
+
+	/**
+	 * Helper function to set the tooltip on import button.
+	 *
+	 * @param {Ext.Element} itemElement The Element which encapsulates this Component.
+	 * @param {String} tooltip The tooltip which is going to show on import button.
+	 */
+	setTooltipOnImportButton(itemElement, tooltip)
+	{
+		itemElement.dom.setAttribute('ext:qtip', tooltip);
+		itemElement.dom.setAttribute('ext:qwidth', 'ext:qwidth="100%"');
+	},
+
+	/**
+	 * Event handler which is called when the user selects the 'Preview'
+	 * item in the context menu. This will open the item in the layer the user
+	 * configured: a dialog, a grommunio Web tab or a browser window.
+	 * @private
+	 */
+	onPreviewItem: function()
+	{
+		//should already have a component that has won the bid
+		//invoke that component to open the preview
+		this.openPreviewIn(Grommunio.common.Actions.getFilePreviewerTarget());
+	},
+
+	/**
+	 * Event handler for the two items which preview in a layer other than the
+	 * configured one. The layer was put on the item by
+	 * {@link #onPreviewInTargetBeforeShow}.
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item The clicked item
+	 * @private
+	 */
+	onPreviewInTarget: function(item)
+	{
+		this.openPreviewIn(item.previewTarget);
+	},
+
+	/**
+	 * Opens the preview in the given {@link Grommunio.core.data.UIFactory} layer.
+	 * @param {String} layerType 'dialogs', 'tabs' or 'separateWindows'
+	 * @private
+	 */
+	openPreviewIn: function(layerType)
+	{
+		var record = this.getPrimaryRecord();
+		if (record.localContent) {
+			// The previewer fetches from the server; a browser-decrypted file is saved instead.
+			Grommunio.common.Actions.downloadAttachment(record);
+			return;
+		}
+		// 'modal' would force the dialog layer, so it and layerType are exclusive.
+		// autoResize sizes the panel from the main window's viewport, which fits the dialog layer alone.
+		var config = {modal: layerType === 'dialogs', autoResize: layerType === 'dialogs'};
+		if (!config.modal) {
+			config.layerType = layerType;
+		}
+
+		Grommunio.core.data.UIFactory.openViewRecord(record, config);
+	},
+
+	/**
+	 * Labels one of the two alternative preview items and hides it when there is
+	 * no layer left for its slot, which is the case for the second one where
+	 * pop-out is unavailable or the menu is shown from a popped-out window.
+	 * Visibility otherwise follows the 'Preview' item.
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item context menu item
+	 * @param {Grommunio.core.data.IPMAttachmentRecord} record attachment record on which context menu is shown
+	 */
+	onPreviewInTargetBeforeShow: function(item, record)
+	{
+		var configured = Grommunio.common.Actions.getFilePreviewerTarget();
+		var alternatives = Grommunio.common.Actions.getFilePreviewerTargets().filter(function(target) {
+			return target !== configured && Grommunio.common.Actions.canPreviewInTarget(target);
+		});
+
+		item.previewTarget = alternatives[item.previewSlot];
+		if (!item.previewTarget) {
+			item.setVisible(false);
+
+			return;
+		}
+
+		item.setText(this.getPreviewTargetText(item.previewTarget));
+		this.onPreviewBeforeShow(item, record);
+	},
+
+	/**
+	 * @param {String} target 'dialogs', 'tabs' or 'separateWindows'
+	 * @return {String} the menu text offering a preview in that layer
+	 * @private
+	 */
+	getPreviewTargetText: function(target)
+	{
+		switch (target) {
+			case 'tabs':
+				return _('Preview in a grommunio Web tab');
+			case 'separateWindows':
+				return _('Preview in a browser window');
+			default:
+				return _('Preview in a dialog');
+		}
+	},
+
+	/**
+	 * Event handler which is called when the user selects the 'Download'
+	 * item in the context menu. This will open the print dialog.
+	 * @private
+	 */
+	onDownloadItem: function()
+	{
+		Grommunio.common.Actions.downloadAttachment(this.getPrimaryRecord());
+	},
+
+	/**
+	 * Event handler which is called when the user selects the 'Download all as ZIP'
+	 * item in the context menu.
+	 * @private
+	 */
+	onDownloadAllAsZip: function()
+	{
+		Grommunio.common.Actions.downloadAttachment(this.getPrimaryRecord(), true);
+	},
+
+	/**
+	 * Event handler which is called when the user selects the 'Save selection to
+	 * folder' item in the context menu. Writes the selected attachments as loose
+	 * files into a folder the user picks.
+	 * @private
+	 */
+	onSaveSelectionToFolder: function()
+	{
+		Grommunio.common.attachment.AttachmentFolderSaver.save(this.selectedRecords);
+	},
+
+	/**
+	 * Event handler which is called when the user selects the 'Import to folder'
+	 * item in the context menu.
+	 * @private
+	 */
+	onImportToFolder: function()
+	{
+		Grommunio.common.Actions.importToFolder(this.getPrimaryRecord());
+	}
+});
+
+Ext.reg('grommunio.attachmentcontextmenu', Grommunio.common.attachment.ui.AttachmentContextMenu);

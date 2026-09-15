@@ -1,12 +1,17 @@
-Ext.namespace('Zarafa.plugins.smime.settings');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.smime.settings');
 /**
- * @class Zarafa.smime.settings.SettingsPublickeyWidget
- * @extends Zarafa.settings.ui.SettingsWidget
+ * @class Grommunio.smime.settings.SettingsPublickeyWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
  * @xtype smime.settingspublickeysmimewidget
  *
- * The {@link Zarafa.settings.SettingsPublickeyWidget widget} for managing public certificates
+ * The {@link Grommunio.settings.SettingsPublickeyWidget widget} for managing public certificates
  */
-Zarafa.plugins.smime.settings.SettingsPublickeyWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
+Grommunio.plugins.smime.settings.SettingsPublickeyWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -17,7 +22,7 @@ Zarafa.plugins.smime.settings.SettingsPublickeyWidget = Ext.extend(Zarafa.settin
 		Ext.applyIf(config, {
 			height : 400,
 			title : _('Public & Private certificates'),
-			cls : 'zarafa-settings-widget k-settings-nogap',
+			cls : 'grommunio-settings-widget k-settings-nogap',
 			xtype : 'smime.settingspublickeysmimewidget',
 			layout : {
 				// override from SettingsWidget
@@ -30,11 +35,11 @@ Zarafa.plugins.smime.settings.SettingsPublickeyWidget = Ext.extend(Zarafa.settin
 			}]
 		});
 		
-		Zarafa.plugins.smime.settings.SettingsPublickeyWidget.superclass.constructor.call(this, config);
+		Grommunio.plugins.smime.settings.SettingsPublickeyWidget.superclass.constructor.call(this, config);
 	},
 
 	/**
-	 * @return {Zarafa.public.smime.data.SmimeCertificateStore} The store which is holds all the public certificates
+	 * @return {Grommunio.public.smime.data.SmimeCertificateStore} The store which is holds all the public certificates
 	 */
 	getCertificateStore : function()
 	{
@@ -42,12 +47,12 @@ Zarafa.plugins.smime.settings.SettingsPublickeyWidget = Ext.extend(Zarafa.settin
 	},
 
 	/**
-	 * initialize events for the {@link Zarafa.plugins.smime.settings.SettingsPublickeyWidget SettingsPublickeyWidget}.
+	 * initialize events for the {@link Grommunio.plugins.smime.settings.SettingsPublickeyWidget SettingsPublickeyWidget}.
 	 * @private
 	 */
 	initEvents : function()
 	{
-		Zarafa.plugins.smime.settings.SettingsPublickeyWidget.superclass.initEvents.call(this);
+		Grommunio.plugins.smime.settings.SettingsPublickeyWidget.superclass.initEvents.call(this);
 
 		// listen to savesettings and discardsettings to save/discard public certificates.
 		var contextModel = this.settingsContext.getModel();
@@ -65,8 +70,8 @@ Zarafa.plugins.smime.settings.SettingsPublickeyWidget = Ext.extend(Zarafa.settin
 	/**
 	 * Event handler for the {@link Ext.data.Store#remove} event which is fired
 	 * by the {@link Ext.data.Store} inside the {@link #certificatePanel}.
-	 * This will mark the {@link Zarafa.settings.SettingsContextModel} as
-	 * {@link Zarafa.settings.SettingsContextModel#setDirty dirty}.
+	 * This will mark the {@link Grommunio.settings.SettingsContextModel} as
+	 * {@link Grommunio.settings.SettingsContextModel#setDirty dirty}.
 	 * @param {Ext.data.Store} store The store which fired the event
 	 * @param {Ext.data.Record} record The record which was updated
 	 * @private
@@ -81,8 +86,8 @@ Zarafa.plugins.smime.settings.SettingsPublickeyWidget = Ext.extend(Zarafa.settin
 	/**
 	 * Event handler for the {@link Ext.data.Store#update} event which is fired
 	 * by the {@link Ext.data.Store} inside the {@link #certificatePanel}.
-	 * This will mark the {@link Zarafa.settings.SettingsContextModel} as
-	 * {@link Zarafa.settings.SettingsContextModel#setDirty dirty}.
+	 * This will mark the {@link Grommunio.settings.SettingsContextModel} as
+	 * {@link Grommunio.settings.SettingsContextModel#setDirty dirty}.
 	 * @param {Ext.data.Store} store The store which fired the event
 	 * @param {Ext.data.Record} record The record which was updated
 	 * @param {String} operation The update operation being performed.
@@ -96,8 +101,8 @@ Zarafa.plugins.smime.settings.SettingsPublickeyWidget = Ext.extend(Zarafa.settin
 	},
 
 	/**
-	 * Event handler will be called when {@link Zarafa.settings.SettingsContextModel#savesettings} event is fired.
-	 * This will relay this event to {@link Zarafa.plugins.smime.settings.SettingsPublickeyPanel PublickeyPanel} so it can
+	 * Event handler will be called when {@link Grommunio.settings.SettingsContextModel#savesettings} event is fired.
+	 * This will relay this event to {@link Grommunio.plugins.smime.settings.SettingsPublickeyPanel PublickeyPanel} so it can
 	 * save certificates.
 	 * @private
 	 */
@@ -107,8 +112,8 @@ Zarafa.plugins.smime.settings.SettingsPublickeyWidget = Ext.extend(Zarafa.settin
 	},
 
 	/**
-	 * Event handler will be called when {@link Zarafa.settings.SettingsContextModel#discardsettings} event is fired.
-	 * This will relay this event to {@link Zarafa.plugins.smime.settings.SettingsPublicKeyPanel PublickeyPanel} so it can
+	 * Event handler will be called when {@link Grommunio.settings.SettingsContextModel#discardsettings} event is fired.
+	 * This will relay this event to {@link Grommunio.plugins.smime.settings.SettingsPublicKeyPanel PublickeyPanel} so it can
 	 * discard current changes and reload public certificates from the server.
 	 * @private
 	 */
@@ -118,4 +123,4 @@ Zarafa.plugins.smime.settings.SettingsPublickeyWidget = Ext.extend(Zarafa.settin
 	}
 });
 
-Ext.reg('smime.settingspublickeywidget', Zarafa.plugins.smime.settings.SettingsPublickeyWidget);
+Ext.reg('smime.settingspublickeywidget', Grommunio.plugins.smime.settings.SettingsPublickeyWidget);

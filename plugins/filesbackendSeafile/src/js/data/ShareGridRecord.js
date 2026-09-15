@@ -1,9 +1,14 @@
-Ext.namespace('Zarafa.plugins.files.backend.Seafile.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.backend.Seafile.data');
 
 /**
  * Record definition representing a single share recipient entry.
  */
-Zarafa.plugins.files.backend.Seafile.data.ShareGridRecord =
+Grommunio.plugins.files.backend.Seafile.data.ShareGridRecord =
 	Ext.data.Record.create(
 		{
 			name: 'id',

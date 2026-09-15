@@ -1,0 +1,73 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.common.categories.ui');
+
+/**
+ * @class Grommunio.common.categories.ui.Tooltip
+ * @extends Ext.ToolTip
+ * @xtype grommunio.categoriestooltip
+ *
+ * Tooltip for category blocks that are truncated because they are too long.
+ * The tooltip will show the full category name.
+ */
+Grommunio.common.categories.ui.Tooltip = Ext.extend(Ext.ToolTip, {
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object.
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		Ext.applyIf(config, {
+			xtype: 'grommunio.categoriestooltip',
+			target: Ext.get(document.body), // Should be overridden when creating this component
+			delegate: '.k-category-block',
+			dismissDelay: 0,
+			trackMouse: true,
+			renderTo: Ext.getBody(),
+			listeners: {
+				beforeshow: this.onBeforeshow,
+				scope: this
+			}
+		});
+
+		Grommunio.common.categories.ui.Tooltip.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Event handler for the beforeshow event of the categoryTooltip. Will update
+	 * the contents of the category tooltip if necessary or return false to not
+	 * show the tooltip otherwise.
+	 * @param (Ext.ToolTip) tooltip The category tooltip
+	 * @return {Boolean|undefined} False if the tooltip should not be shown,
+	 * undefined otherwise
+	 */
+	onBeforeshow: function(tooltip)
+	{
+		// Don't show the tooltip for categories that aren't truncated
+	if ( !this.isCategoryNameTruncated(tooltip.triggerElement) ){
+		return false;
+	}
+
+    tooltip.body.dom.innerHTML = Ext.util.Format.htmlEncode(tooltip.triggerElement.textContent);
+	},
+
+	/**
+	 * Will check if a category name is truncated or not
+	 * @param {HTMLElement} categoryEl The category element that needs to be checked
+	 * for truncation.
+	 * @return {Boolean} True if the category name is truncated, false otherwise
+	 */
+	isCategoryNameTruncated: function(categoryEl)
+	{
+		return categoryEl.offsetWidth < categoryEl.scrollWidth;
+	}
+});
+
+Ext.reg('grommunio.categoriestooltip', Grommunio.common.categories.ui.Tooltip);

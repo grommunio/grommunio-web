@@ -1,4 +1,9 @@
-Ext.namespace('Zarafa.plugins.mdm.settings');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.mdm.settings');
 
 /*
  * Settings category entry for MDM
@@ -6,13 +11,13 @@ Ext.namespace('Zarafa.plugins.mdm.settings');
  */
 
 /**
- * @class Zarafa.plugins.mdm.settings.MDMSettingsCategory
- * @extends Zarafa.settings.ui.SettingsCategory
- * @xtype Zarafa.plugins.mdmsettingscategory
+ * @class Grommunio.plugins.mdm.settings.MDMSettingsCategory
+ * @extends Grommunio.settings.ui.SettingsCategory
+ * @xtype Grommunio.plugins.mdmsettingscategory
  *
  * The mdm settings category entry.
  */
-Zarafa.plugins.mdm.settings.MDMSettingsCategory = Ext.extend(Zarafa.settings.ui.SettingsCategory, {
+Grommunio.plugins.mdm.settings.MDMSettingsCategory = Ext.extend(Grommunio.settings.ui.SettingsCategory, {
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -24,12 +29,12 @@ Zarafa.plugins.mdm.settings.MDMSettingsCategory = Ext.extend(Zarafa.settings.ui.
 			title : _('Mobile Devices'),
 			iconCls : 'icon_mdm_settings',
 			items : [{
-				xtype : 'Zarafa.plugins.mdm.mdmsettingswidget'
+				xtype : 'Grommunio.plugins.mdm.mdmsettingswidget'
 			}]
 		});
 
-		Zarafa.plugins.mdm.settings.MDMSettingsCategory.superclass.constructor.call(this, config);
+		Grommunio.plugins.mdm.settings.MDMSettingsCategory.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('Zarafa.plugins.mdm.mdmsettingscategory', Zarafa.plugins.mdm.settings.MDMSettingsCategory);
+Ext.reg('Grommunio.plugins.mdm.mdmsettingscategory', Grommunio.plugins.mdm.settings.MDMSettingsCategory);

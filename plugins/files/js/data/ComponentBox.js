@@ -1,17 +1,22 @@
-Ext.namespace('Zarafa.plugins.files.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.ComponentBox
+ * @class Grommunio.plugins.files.data.ComponentBox
  * @singleton
  *
  * The global component box which holds all aliases to important components.
  */
-Zarafa.plugins.files.data.ComponentBox = Ext.extend(Object, {
+Grommunio.plugins.files.data.ComponentBox = Ext.extend(Object, {
 
 	/**
 	 * Get the files context.
 	 *
-	 * @return {Zarafa.plugins.files.FilesContext}
+	 * @return {Grommunio.plugins.files.FilesContext}
 	 */
 	getContext: function () {
 		return container.getContextByName("filescontext");
@@ -20,7 +25,7 @@ Zarafa.plugins.files.data.ComponentBox = Ext.extend(Object, {
 	/**
 	 * Get the main panel.
 	 *
-	 * @return {Zarafa.core.ui.MainViewport}
+	 * @return {Grommunio.core.ui.MainViewport}
 	 */
 	getMainPanel: function () {
 		try {
@@ -33,7 +38,7 @@ Zarafa.plugins.files.data.ComponentBox = Ext.extend(Object, {
 	/**
 	 * Get the preview panel.
 	 *
-	 * @return {Zarafa.plugins.files.ui.FilesPreviewPanel}
+	 * @return {Grommunio.plugins.files.ui.FilesPreviewPanel}
 	 */
 	getPreviewPanel: function () {
 		return this.getMainPanel().filesPreview;
@@ -42,7 +47,7 @@ Zarafa.plugins.files.data.ComponentBox = Ext.extend(Object, {
 	/**
 	 * Get the tabpanel.
 	 *
-	 * @return {Zarafa.core.ui.ContextContainer}
+	 * @return {Grommunio.core.ui.ContextContainer}
 	 */
 	getTabPanel: function () {
 		return container.getTabPanel();
@@ -51,7 +56,7 @@ Zarafa.plugins.files.data.ComponentBox = Ext.extend(Object, {
 	/**
 	 * Get the files viewpanel.
 	 *
-	 * @return {Zarafa.core.ui.SwitchViewContentContainer}
+	 * @return {Grommunio.core.ui.SwitchViewContentContainer}
 	 */
 	getViewPanel: function () {
 		return this.getMainPanel().viewPanel;
@@ -60,11 +65,11 @@ Zarafa.plugins.files.data.ComponentBox = Ext.extend(Object, {
 	/**
 	 * Get the files gridpanel or iconviewpanel.
 	 *
-	 * @return {Zarafa.plugins.files.ui.FilesRecordGridView} or {Zarafa.plugins.files.ui.FilesRecordIconView}
+	 * @return {Grommunio.plugins.files.ui.FilesRecordGridView} or {Grommunio.plugins.files.ui.FilesRecordIconView}
 	 */
 	getItemsView: function () {
 		return this.getViewPanel().getActiveItem();
 	}
 });
 
-Zarafa.plugins.files.data.ComponentBox = new Zarafa.plugins.files.data.ComponentBox();
+Grommunio.plugins.files.data.ComponentBox = new Grommunio.plugins.files.data.ComponentBox();

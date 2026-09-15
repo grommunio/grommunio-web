@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * NewMailNotifier.
  *
@@ -310,7 +317,7 @@ class NewMailNotifier extends Notifier {
 	/**
 	 * Check whether the client suppresses new mail notifications for a folder,
 	 * so no message details have to be looked up for it. The same exclusion
-	 * list as in Zarafa.hierarchy.data.HierarchyStore#onNotifyNewmail is used.
+	 * list as in Grommunio.hierarchy.data.HierarchyStore#onNotifyNewmail is used.
 	 *
 	 * @param mixed  $store        the store containing the folder
 	 * @param string $storeEntryid hex entryid of that store

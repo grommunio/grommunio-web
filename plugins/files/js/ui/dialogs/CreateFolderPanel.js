@@ -1,16 +1,21 @@
-Ext.namespace('Zarafa.plugins.files.ui.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui.dialogs');
 
 /**
- * @class Zarafa.plugins.files.ui.dialogs.CreateFolderPanel
+ * @class Grommunio.plugins.files.ui.dialogs.CreateFolderPanel
  * @extends Ext.Panel
  * @xtype filesplugin.createfolderpanel
  *
  * Panel for users to create folder record in different supported backends.
  */
-Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 
 	/**
-	 * @cfg {Zarafa.plugins.files.data.FilesFolderRecord} parentFolder (optional) The parent folder
+	 * @cfg {Grommunio.plugins.files.data.FilesFolderRecord} parentFolder (optional) The parent folder
 	 * underneath the new folder will be created.
 	 */
 	parentFolder : undefined,
@@ -24,7 +29,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 		config = config || {};
 
 		config.plugins = Ext.value(config.plugins, []);
-		config.plugins.push('zarafa.recordcomponentupdaterplugin');
+		config.plugins.push('grommunio.recordcomponentupdaterplugin');
 
 		config = Ext.applyIf(config, {
 			xtype : 'filesplugin.createfolderpanel',
@@ -39,7 +44,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 			buttons: [{
 				text: _('Ok'),
 				ref: '../okButton',
-				cls: 'zarafa-action',
+				cls: 'grommunio-action',
 				handler : this.onOk,
 				scope: this
 			},{
@@ -50,15 +55,15 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 			}]
 		});
 
-		Zarafa.plugins.files.ui.dialogs.CreateFolderPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.dialogs.CreateFolderPanel.superclass.constructor.call(this, config);
 	},
 
 	/**
-	 * Creates body for {@link Zarafa.plugins.files.ui.dialogs.CreateFolderContentPanel CreateFolderContentPanel}
-	 * @param {Object} config The config options contains the {@link Zarafa.plugins.files.FilesContextModel FilesContextModel} and
-	 * {@link Zarafa.plugins.files.ui.Tree#accountFilter}. which used by {@link Zarafa.plugins.files.ui.Tree Tree}.
+	 * Creates body for {@link Grommunio.plugins.files.ui.dialogs.CreateFolderContentPanel CreateFolderContentPanel}
+	 * @param {Object} config The config options contains the {@link Grommunio.plugins.files.FilesContextModel FilesContextModel} and
+	 * {@link Grommunio.plugins.files.ui.Tree#accountFilter}. which used by {@link Grommunio.plugins.files.ui.Tree Tree}.
 	 *
-	 * @return {Array} Array which contains configuration object to create the {@link Zarafa.plugins.files.ui.Tree TreePanel}.
+	 * @return {Array} Array which contains configuration object to create the {@link Grommunio.plugins.files.ui.Tree TreePanel}.
 	 * @private
 	 */
 	createPanel : function(config)
@@ -87,7 +92,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 			},{
 				xtype : 'filesplugin.tree',
 				model : config.model,
-				FilesFilter: Zarafa.plugins.files.data.FileTypes.FOLDER,
+				FilesFilter: Grommunio.plugins.files.data.FileTypes.FOLDER,
 				bodyCssClass : 'files-create-folder-tree-panel',
 				fieldLabel : _('Select where to place the folder'),
 				anchor : '100% 80%',
@@ -105,7 +110,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	 */
 	initEvents : function ()
 	{
-		Zarafa.plugins.files.ui.dialogs.CreateFolderPanel.superclass.initEvents.apply(this, arguments);
+		Grommunio.plugins.files.ui.dialogs.CreateFolderPanel.superclass.initEvents.apply(this, arguments);
 		// If there is a folder we should select, the enable the 'load' event handler
 		// as we will have to wait until the correct node has been loaded.
 		if (this.parentFolder) {
@@ -147,10 +152,10 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 		});
 
 		if (folderAlreadyExist) {
-			Zarafa.plugins.files.data.Actions.msgWarning(_('Folder already exists'));
+			Grommunio.plugins.files.data.Actions.msgWarning(_('Folder already exists'));
 			return;
-		} else if (!Zarafa.plugins.files.data.Utils.File.isValidFilename(folderName)) {
-			Zarafa.plugins.files.data.Actions.msgWarning(_('Incorrect foldername'));
+		} else if (!Grommunio.plugins.files.data.Utils.File.isValidFilename(folderName)) {
+			Grommunio.plugins.files.data.Actions.msgWarning(_('Incorrect foldername'));
 			return;
 		}
 
@@ -159,7 +164,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 		record.set("display_name", folderName);
 		record.set("filename", folderName);
 		record.set("text", folderName);
-		record.set("icon_index", Zarafa.core.mapi.IconIndex["folder_note"]);
+		record.set("icon_index", Grommunio.core.mapi.IconIndex["folder_note"]);
 		record.set("folder_id", this.parentFolder.get('folder_id') + folderName + "/" );
 		record.set("path", this.parentFolder.get('folder_id'));
 		record.set("parent_entryid", this.parentFolder.get('entryid'));
@@ -184,9 +189,9 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Fired when the {@link Zarafa.hierarchy.ui.Tree Tree} fires the {@link Zarafa.hierarchy.ui.Tree#load load}
+	 * Fired when the {@link Grommunio.hierarchy.ui.Tree Tree} fires the {@link Grommunio.hierarchy.ui.Tree#load load}
 	 * event. This function will try to select the {@link Ext.tree.TreeNode TreeNode} in
-	 * {@link Zarafa.hierarchy.ui.Tree Tree} initially. When the given node is not loaded yet, it will try again
+	 * {@link Grommunio.hierarchy.ui.Tree Tree} initially. When the given node is not loaded yet, it will try again
 	 * later when the event is fired again.
 	 *
 	 * @private
@@ -203,8 +208,8 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * Function is used to update values of fields when ever an updated
-	 * {@link Zarafa.plugins.files.data.FilesFolderRecord record} is received.
-	 * @param {Zarafa.plugins.files.data.FilesFolderRecord} record The record update the panel with.
+	 * {@link Grommunio.plugins.files.data.FilesFolderRecord record} is received.
+	 * @param {Grommunio.plugins.files.data.FilesFolderRecord} record The record update the panel with.
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
 	update : function(record, contentReset)
@@ -228,4 +233,4 @@ Zarafa.plugins.files.ui.dialogs.CreateFolderPanel = Ext.extend(Ext.Panel, {
 	}
 });
 
-Ext.reg('filesplugin.createfolderpanel', Zarafa.plugins.files.ui.dialogs.CreateFolderPanel);
+Ext.reg('filesplugin.createfolderpanel', Grommunio.plugins.files.ui.dialogs.CreateFolderPanel);

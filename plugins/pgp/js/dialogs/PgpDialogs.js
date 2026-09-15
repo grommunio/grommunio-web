@@ -1,6 +1,11 @@
-Ext.namespace('Zarafa.plugins.pgp.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
 
-Zarafa.plugins.pgp.dialogs.PgpDialogs = {
+Ext.namespace('Grommunio.plugins.pgp.dialogs');
+
+Grommunio.plugins.pgp.dialogs.PgpDialogs = {
 	/** Sensitive fields exist only in this modal, never in a mail record or settings. */
 	form: function(title, fields, submitText, submit, introduction)
 	{
@@ -13,20 +18,20 @@ Zarafa.plugins.pgp.dialogs.PgpDialogs = {
 		var win = new Ext.Window({
 			title: title, modal: true, width: 620, autoHeight: true,
 			resizable: false, stateful: false, layout: 'auto', cls: 'pgp-dialog',
-			items: (introduction ? [{xtype: 'box', autoEl: {tag: 'p', cls: 'pgp-explanation', html: Zarafa.plugins.pgp.PgpUtils.encode(introduction)}}] : []).concat([form]),
+			items: (introduction ? [{xtype: 'box', autoEl: {tag: 'p', cls: 'pgp-explanation', html: Grommunio.plugins.pgp.PgpUtils.encode(introduction)}}] : []).concat([form]),
 			buttons: [{text: submitText, handler: function(button) {
 				if (!form.getForm().isValid()) { return; }
 				win.pgpWorking = true;
 				button.disable();
 				form.operationStatus.show();
-				form.operationStatus.getEl().update(Zarafa.plugins.pgp.PgpUtils.encode(_('Working…')));
+				form.operationStatus.getEl().update(Grommunio.plugins.pgp.PgpUtils.encode(_('Working…')));
 				var values = form.getForm().getValues();
 				var done = function(success, message) {
 					if (win.isDestroyed) { return; }
 					win.pgpWorking = false;
 					if (success) { win.close(); } else {
 						button.enable();
-						form.operationStatus.getEl().update(Zarafa.plugins.pgp.PgpUtils.encode(message || _('The operation failed. Please try again.')));
+						form.operationStatus.getEl().update(Grommunio.plugins.pgp.PgpUtils.encode(message || _('The operation failed. Please try again.')));
 					}
 				};
 				try { submit(values, done); } catch (error) { done(false, error.message); }
@@ -53,7 +58,7 @@ Zarafa.plugins.pgp.dialogs.PgpDialogs = {
 	},
 	unlock: function(fingerprint, callback, scope)
 	{
-		var utils = Zarafa.plugins.pgp.PgpUtils;
+		var utils = Grommunio.plugins.pgp.PgpUtils;
 		return this.form(_('Unlock OpenPGP private key'), [this.passwordField()], _('Unlock'), function(values, done) {
 			var passphrase = values.passphrase;
 			utils.loadKey(fingerprint).then(function(key) {
@@ -70,13 +75,13 @@ Zarafa.plugins.pgp.dialogs.PgpDialogs = {
 		if (!keys.length) {
 			var empty = new Ext.Window({title: _('Set up OpenPGP'), modal: true, width: 480, autoHeight: true,
 				resizable: false, cls: 'pgp-dialog', items: [{xtype: 'box', autoEl: {tag: 'p', cls: 'pgp-explanation',
-					html: Zarafa.plugins.pgp.PgpUtils.encode(_('Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings.'))}}],
-				buttons: [{text: _('Open key settings'), handler: function() { empty.close(); Zarafa.plugins.pgp.PgpUtils.openSettings(); }},
+					html: Grommunio.plugins.pgp.PgpUtils.encode(_('Add a private key matching the sender address to sign messages or keep a readable encrypted sent copy. You can import an existing key or create one in OpenPGP settings.'))}}],
+				buttons: [{text: _('Open key settings'), handler: function() { empty.close(); Grommunio.plugins.pgp.PgpUtils.openSettings(); }},
 					{text: _('Cancel'), handler: function() { empty.close(); }}]});
 			empty.show();
 			return empty;
 		}
-		var choices = [], utils = Zarafa.plugins.pgp.PgpUtils;
+		var choices = [], utils = Grommunio.plugins.pgp.PgpUtils;
 		Ext.each(keys, function(key) { choices.push([key.fingerprint, utils.keyLabel(key)]); });
 		return this.form(_('Choose OpenPGP key'), [{
 			xtype: 'combo', name: 'fingerprint', hiddenName: 'fingerprint', fieldLabel: _('Private key'),
@@ -123,7 +128,7 @@ Zarafa.plugins.pgp.dialogs.PgpDialogs = {
 				var blob = new Blob([field.getValue()], {type: 'application/pgp-keys'});
 				var url = window.URL.createObjectURL(blob), link = document.createElement('a');
 				link.href = url;
-				link.download = Zarafa.plugins.pgp.PgpUtils.fingerprint(fingerprint) + (suffix || (secret ? '-private.asc' : '-public.asc'));
+				link.download = Grommunio.plugins.pgp.PgpUtils.fingerprint(fingerprint) + (suffix || (secret ? '-private.asc' : '-public.asc'));
 				document.body.appendChild(link);
 				link.click();
 				document.body.removeChild(link);

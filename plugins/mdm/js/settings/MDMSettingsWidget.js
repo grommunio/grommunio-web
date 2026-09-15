@@ -1,10 +1,15 @@
-Ext.namespace('Zarafa.plugins.mdm.settings');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.mdm.settings');
 
 /**
- * @class Zarafa.plugins.mdm.settings.MDMSettingsWidget
- * @extends Zarafa.settings.ui.SettingsWidget
+ * @class Grommunio.plugins.mdm.settings.MDMSettingsWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
  */
-Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
+Grommunio.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
 
 	/**
 	 * @constructor
@@ -14,11 +19,11 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	{
 		config = config || {};
 
-		var store = new Zarafa.plugins.mdm.data.MDMDeviceStore();
+		var store = new Grommunio.plugins.mdm.data.MDMDeviceStore();
 		store.on('load', this.onDeviceStoreLoad, this);
 		Ext.applyIf(config, {
 			title : _('Mobile Devices'),
-			cls : 'zarafa-settings-widget k-settings-nogap',
+			cls : 'grommunio-settings-widget k-settings-nogap',
 			items : [{
 				xtype : 'panel',
 				layout: 'fit',
@@ -62,7 +67,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 					},{
 						dataIndex : 'wipestatus',
 						header : _('Provisioning Status'),
-						renderer : Zarafa.plugins.mdm.ui.Renderers.provisioningStatus
+						renderer : Grommunio.plugins.mdm.ui.Renderers.provisioningStatus
 					},{
 						dataIndex : 'lastconnecttime',
 						header : _('Last Connect'),
@@ -123,7 +128,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 				}]
 			}]
 		});
-		Zarafa.plugins.mdm.settings.MDMSettingsWidget.superclass.constructor.call(this, config);
+		Grommunio.plugins.mdm.settings.MDMSettingsWidget.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -133,7 +138,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	initEvents : function()
 	{
 		this.deviceGrid.mon(this.deviceGrid.getStore(),'beforeloadrecord', this.checkAuthentication, this, {buffer: 50});
-		Zarafa.plugins.mdm.settings.MDMSettingsWidget.superclass.initEvents.apply(this, arguments);
+		Grommunio.plugins.mdm.settings.MDMSettingsWidget.superclass.initEvents.apply(this, arguments);
 	},
 
 	/**
@@ -147,9 +152,9 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 
 	/**
 	 * This is a callback function for 'authenticate', 'resync', 'wipe', 'remove' actions and
-	 * handler for 'beforeloadrecord' event of {@link Zarafa.plugins.mdm.data.MDMDeviceStore store}.
+	 * handler for 'beforeloadrecord' event of {@link Grommunio.plugins.mdm.data.MDMDeviceStore store}.
 	 * It will show or hide "authentication red bar" button on the basis of response.
-	 * This will be called from  {@link Zarafa.plugins.mdm.data.MDMResponseHandler MDMResponseHandler}
+	 * This will be called from  {@link Grommunio.plugins.mdm.data.MDMResponseHandler MDMResponseHandler}
 	 * @param {Boolean} isAuthenticated indicates whether a User is authenticated to grommunio-sync server or not.
 	 */
 	checkAuthentication : function(isAuthenticated)
@@ -205,7 +210,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	},
 
 	/**
-	 * General {@link Zarafa.common.dialogs.CustomMessageBox CustomMessageBox} for this component.
+	 * General {@link Grommunio.common.dialogs.CustomMessageBox CustomMessageBox} for this component.
 	 * @param {String} message message which needs to be shown in the messagebox.
 	 * @param {Function} callbackFn callback function on click of buttons of this messagebox.
 	 * @param {String} actionType action for which message dialog is needed to be shown.
@@ -213,7 +218,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	showPasswordMessageBox : function(message, callbackFn, actionType)
 	{
 		var customCfg = this.getCustomItemsAndButtons(actionType, this);
-		new Zarafa.common.dialogs.CustomMessageBox({
+		new Grommunio.common.dialogs.CustomMessageBox({
 			title:  _('Mobile Device Manager'),
 			msg: message,
 			buttonAlign: 'left',
@@ -233,7 +238,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	},
 
 	/**
-	 * Helper function which will return custom items and custom buttons for {@link Zarafa.common.dialogs.CustomMessageBox CustomMessageBox}
+	 * Helper function which will return custom items and custom buttons for {@link Grommunio.common.dialogs.CustomMessageBox CustomMessageBox}
 	 * based on actiontype.
 	 *
 	 * @param {String} actionType action for which message dialog is needed to be shown.
@@ -249,7 +254,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 		var isImpersonatedDevice = !Ext.isEmpty(selectedRecord?.get('impersonatinguser'));
 		customCfg['customButtons'] = [{
 			name: isAuthenticateAction ? 'ok' : 'yes',
-			cls: 'zarafa-action',
+			cls: 'grommunio-action',
 			text: isAuthenticateAction ? _('Ok') : _('Yes'),
 			keepOpenWindow: true
 		}, {
@@ -374,7 +379,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 					'username': inputValues.userNameField,
 					'password': inputValues.passwordField
 				},
-				new Zarafa.plugins.mdm.data.MDMResponseHandler({
+				new Grommunio.plugins.mdm.data.MDMResponseHandler({
 					successCallback : this.mdmWidgetScope.checkAuthentication,
 					mdmWidgetScope : this.mdmWidgetScope
 				})
@@ -423,8 +428,8 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 			if (record) {
 				var isImpersonatedDevice = !Ext.isEmpty(record.get('impersonatinguser'));
 				var wipeType = (inputValues.wipeType == 'accountonly' || isImpersonatedDevice) ?
-					Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING_ACCOUNT_ONLY :
-					Zarafa.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING;
+					Grommunio.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING_ACCOUNT_ONLY :
+					Grommunio.plugins.mdm.data.ProvisioningStatus.WIPE_PENDING;
 				var requestData = {
 					'deviceid' : record.get('entryid'),
 					'wipetype': wipeType
@@ -437,7 +442,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 					'pluginmdmmodule',
 					'wipe',
 					requestData,
-					new Zarafa.plugins.mdm.data.MDMResponseHandler({
+					new Grommunio.plugins.mdm.data.MDMResponseHandler({
 						successCallback : mdmWidgetScope.refreshGrid,
 						failureCallback : mdmWidgetScope.checkAuthentication,
 						mdmWidgetScope : mdmWidgetScope
@@ -461,7 +466,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 				'pluginmdmmodule',
 				'resync',
 				{ 'deviceid' : record.get('entryid') },
-				new Zarafa.plugins.mdm.data.MDMResponseHandler({
+				new Grommunio.plugins.mdm.data.MDMResponseHandler({
 					failureCallback : this.checkAuthentication,
 					mdmWidgetScope : this
 				})
@@ -509,7 +514,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 					'pluginmdmmodule',
 					'remove',
 					requestData,
-					new Zarafa.plugins.mdm.data.MDMResponseHandler({
+					new Grommunio.plugins.mdm.data.MDMResponseHandler({
 						successCallback : mdmWidgetScope.removeDone.createDelegate(this, [record], true),
 						failureCallback : mdmWidgetScope.checkAuthentication,
 						mdmWidgetScope : mdmWidgetScope
@@ -522,8 +527,8 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 
 	/**
 	 * Callback function triggers when device was successfully removed from the grommunio-sync server.
-	 * we have to remove that device from {@link Zarafa.plugins.mdm.data.MDMDeviceStore store}.
-	 * @param {Zarafa.plugins.mdm.data.MDMDeviceRecord} record {@link Zarafa.core.data.IPMRecord record} object
+	 * we have to remove that device from {@link Grommunio.plugins.mdm.data.MDMDeviceStore store}.
+	 * @param {Grommunio.plugins.mdm.data.MDMDeviceRecord} record {@link Grommunio.core.data.IPMRecord record} object
 	 */
 	removeDone : function(record)
 	{
@@ -556,7 +561,7 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	{
 		var record = grid.getStore().getAt(rowIndex);
 		record.opened = false;
-		Zarafa.core.data.UIFactory.openLayerComponent(Zarafa.core.data.SharedComponentType['mdm.dialog.mdmdevicecontentpanel'], undefined, {
+		Grommunio.core.data.UIFactory.openLayerComponent(Grommunio.core.data.SharedComponentType['mdm.dialog.mdmdevicecontentpanel'], undefined, {
 			manager : Ext.WindowMgr,
 			record : record
 		});
@@ -590,4 +595,4 @@ Zarafa.plugins.mdm.settings.MDMSettingsWidget = Ext.extend(Zarafa.settings.ui.Se
 	}
 });
 
-Ext.reg('Zarafa.plugins.mdm.mdmsettingswidget', Zarafa.plugins.mdm.settings.MDMSettingsWidget);
+Ext.reg('Grommunio.plugins.mdm.mdmsettingswidget', Grommunio.plugins.mdm.settings.MDMSettingsWidget);

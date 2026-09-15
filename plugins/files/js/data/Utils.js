@@ -1,12 +1,17 @@
-Ext.namespace('Zarafa.plugins.files.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.Utils
+ * @class Grommunio.plugins.files.data.Utils
  * @singleton
  *
  * This class contains some static helper methods.
  */
-Zarafa.plugins.files.data.Utils = {
+Grommunio.plugins.files.data.Utils = {
 
 	/**
 	 * Base64 methods.
@@ -183,17 +188,17 @@ Zarafa.plugins.files.data.Utils = {
 		 */
 		typeRenderer: function (value, p, record) {
 			switch (value) {
-				case Zarafa.plugins.files.data.FileTypes.FOLDER:
-					p.css = "zarafa-files-listview-icon " + Zarafa.plugins.files.data.Utils.File.getIconClass("folder", "16");
+				case Grommunio.plugins.files.data.FileTypes.FOLDER:
+					p.css = "grommunio-files-listview-icon " + Grommunio.plugins.files.data.Utils.File.getIconClass("folder", "16");
 					break;
-				case Zarafa.plugins.files.data.FileTypes.FILE:
-					p.css = "zarafa-files-listview-icon " + Zarafa.plugins.files.data.Utils.File.getIconClass(record.get('filename'), "16");
+				case Grommunio.plugins.files.data.FileTypes.FILE:
+					p.css = "grommunio-files-listview-icon " + Grommunio.plugins.files.data.Utils.File.getIconClass(record.get('filename'), "16");
 					break;
 				default :
 					break;
 			}
 
-			p.css += ' zarafa-grid-empty-cell';
+			p.css += ' grommunio-grid-empty-cell';
 
 			return '';
 		},
@@ -208,10 +213,10 @@ Zarafa.plugins.files.data.Utils = {
 		 */
 		sharedRenderer: function (value, p, record) {
 			if (value) {
-				p.css = "zarafa-files-listview-icon files_icon_16_share";
+				p.css = "grommunio-files-listview-icon files_icon_16_share";
 			}
 
-			p.css += ' zarafa-grid-empty-cell';
+			p.css += ' grommunio-grid-empty-cell';
 
 			return '';
 		},
@@ -460,7 +465,7 @@ Zarafa.plugins.files.data.Utils = {
 		 * is the web root, so "/files/remote.php/webdav" gives "/files" and a
 		 * root-level "/remote.php/webdav" gives "".
 		 *
-		 * @param {Zarafa.plugins.files.data.AccountRecord} account The files account
+		 * @param {Grommunio.plugins.files.data.AccountRecord} account The files account
 		 * @return {Object|Boolean} { origin, app } with app ending in "/index.php/apps/onlyoffice/",
 		 * false when the account does not point at a Nextcloud.
 		 */
@@ -535,8 +540,8 @@ Zarafa.plugins.files.data.Utils = {
 			if (fileOnly || folderOnly || noRoot) {
 				for (var i = 0; i < records.length; i++) {
 					if ( 
-						(fileOnly && records[i].get('type') == Zarafa.plugins.files.data.FileTypes.FOLDER) ||
-						(folderOnly && records[i].get('type') !== Zarafa.plugins.files.data.FileTypes.FOLDER) ||
+						(fileOnly && records[i].get('type') == Grommunio.plugins.files.data.FileTypes.FOLDER) ||
+						(folderOnly && records[i].get('type') !== Grommunio.plugins.files.data.FileTypes.FOLDER) ||
 						(noRoot && records[i].get('filename') === '..')
 					) {
 						return false;

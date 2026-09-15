@@ -1,18 +1,23 @@
-Ext.namespace('Zarafa.plugins.chat');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.chat');
 
 /**
- * @class Zarafa.plugins.chat.Chat
- * @extends Zarafa.core.Plugin
+ * @class Grommunio.plugins.chat.Chat
+ * @extends Grommunio.core.Plugin
  *
  * Plugin that adds Chat to grommunio Web
  */
-Zarafa.plugins.chat.Chat = Ext.extend(Zarafa.core.Plugin, {
+Grommunio.plugins.chat.Chat = Ext.extend(Grommunio.core.Plugin, {
 
 	/**
 	 * Initializes the plugin.
 	 */
 	initPlugin : function(){
-		var pluginSettings = container.getSettingsModel().get('zarafa/v1/plugins/chat', true);
+		var pluginSettings = container.getSettingsModel().get('grommunio/v1/plugins/chat', true);
 		var site = {
 			url: pluginSettings.url,
 			tabOrder: 9
@@ -25,7 +30,7 @@ Zarafa.plugins.chat.Chat = Ext.extend(Zarafa.core.Plugin, {
 		this.registerInsertionPoint('context.settings.categories', this.createSettingCategory, this);
 
 		// Register mail specific dialog types
-		Zarafa.core.data.SharedComponentType.addProperty('plugins.chat.panel');
+		Grommunio.core.data.SharedComponentType.addProperty('plugins.chat.panel');
 
 		// Autostart if needed
 		if ( pluginSettings.autostart ){
@@ -60,8 +65,8 @@ Zarafa.plugins.chat.Chat = Ext.extend(Zarafa.core.Plugin, {
 	/**
 	 * Event handler for the click event of the tabbar buttons. It will
 	 * open the tab if it already exists, or create it otherwise.
-	 * @param {Zarafa.core.ui.MainTab} btn The button in the
-	 * {@link Zarafa.core.ui.MainTabBar main tabbar}
+	 * @param {Grommunio.core.ui.MainTab} btn The button in the
+	 * {@link Grommunio.core.ui.MainTabBar main tabbar}
 	 */
 	openTab: function(btn)
 	{
@@ -80,8 +85,8 @@ Zarafa.plugins.chat.Chat = Ext.extend(Zarafa.core.Plugin, {
 		}
 
 		// Create a new tab
-		Zarafa.core.data.UIFactory.openLayerComponent(
-			Zarafa.core.data.SharedComponentType['plugins.chat.panel'],
+		Grommunio.core.data.UIFactory.openLayerComponent(
+			Grommunio.core.data.SharedComponentType['plugins.chat.panel'],
 			null,
 			{
 				url: btn.url,
@@ -95,7 +100,7 @@ Zarafa.plugins.chat.Chat = Ext.extend(Zarafa.core.Plugin, {
 	createSettingCategory : function()
 	{
 		return {
-			xtype: 'zarafa.plugins.chat.settings.category'
+			xtype: 'grommunio.plugins.chat.settings.category'
 		};
 	},
 
@@ -104,7 +109,7 @@ Zarafa.plugins.chat.Chat = Ext.extend(Zarafa.core.Plugin, {
 	 * and the given record.
 	 * This will bid on a common.dialog.create or common.dialog.view for a
 	 * record with a message class set to IPM or IPM.Note.
-	 * @param {Zarafa.core.data.SharedComponentType} type Type of component a context
+	 * @param {Grommunio.core.data.SharedComponentType} type Type of component a context
 	 * can bid for.
 	 * @param {Ext.data.Record} record Optionally passed record.
 	 * @return {Number} The bid for the shared component
@@ -114,7 +119,7 @@ Zarafa.plugins.chat.Chat = Ext.extend(Zarafa.core.Plugin, {
 			var bid = -1;
 
 			switch (type) {
-				case Zarafa.core.data.SharedComponentType['plugins.chat.panel']:
+				case Grommunio.core.data.SharedComponentType['plugins.chat.panel']:
 					bid = 1;
 			}
 
@@ -124,7 +129,7 @@ Zarafa.plugins.chat.Chat = Ext.extend(Zarafa.core.Plugin, {
 	/**
 	 * Will return the reference to the shared component.
 	 * Based on the type of component requested a component is returned.
-	 * @param {Zarafa.core.data.SharedComponentType} type Type of component a context
+	 * @param {Grommunio.core.data.SharedComponentType} type Type of component a context
 	 * can bid for.
 	 * @param {Ext.data.Record} record Optionally passed record.
 	 * @return {Ext.Component} Component
@@ -133,18 +138,18 @@ Zarafa.plugins.chat.Chat = Ext.extend(Zarafa.core.Plugin, {
 	{
 		switch (type)
 		{
-			case Zarafa.core.data.SharedComponentType['plugins.chat.panel']:
-				return Zarafa.plugins.chat.ui.ContentPanel;
+			case Grommunio.core.data.SharedComponentType['plugins.chat.panel']:
+				return Grommunio.plugins.chat.ui.ContentPanel;
 		}
 	}
 
 });
 
-Zarafa.onReady(function() {
-	container.registerPlugin(new Zarafa.core.PluginMetaData({
+Grommunio.onReady(function() {
+	container.registerPlugin(new Grommunio.core.PluginMetaData({
 		name : 'chat',
 		displayName : 'Chat',
 		allowUserVisible : true,
-		pluginConstructor : Zarafa.plugins.chat.Chat
+		pluginConstructor : Grommunio.plugins.chat.Chat
 	}));
 });

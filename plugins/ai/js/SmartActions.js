@@ -1,19 +1,24 @@
-Ext.namespace('Zarafa.plugins.ai');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.ai');
 
 /**
- * @class Zarafa.plugins.ai.SmartActions
+ * @class Grommunio.plugins.ai.SmartActions
  * @singleton
  *
  * Executes a suggested smart action by opening a PREFILLED dialog the user
  * reviews and confirms — nothing is committed without an explicit save. Uses
  * the same record-creation paths the application itself uses.
  */
-Zarafa.plugins.ai.SmartActions = {
+Grommunio.plugins.ai.SmartActions = {
 
 	/**
 	 * Dispatch an action to its handler.
 	 * @param {Object} action The sanitized action object from the server.
-	 * @param {Zarafa.core.data.IPMRecord} record The source mail record.
+	 * @param {Grommunio.core.data.IPMRecord} record The source mail record.
 	 */
 	execute: function(action, record)
 	{
@@ -36,7 +41,7 @@ Zarafa.plugins.ai.SmartActions = {
 	/**
 	 * The default folder record for a hierarchy key (calendar/task/contact).
 	 * @param {String} key
-	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord|undefined}
+	 * @return {Grommunio.hierarchy.data.MAPIFolderRecord|undefined}
 	 * @private
 	 */
 	defaultFolder: function(key)
@@ -50,7 +55,7 @@ Zarafa.plugins.ai.SmartActions = {
 	 * nothing when it is unavailable (e.g. a delegate-only mailbox).
 	 * @param {String} key calendar | task | contact
 	 * @param {String} label Human folder label for the message.
-	 * @return {Zarafa.hierarchy.data.MAPIFolderRecord|undefined}
+	 * @return {Grommunio.hierarchy.data.MAPIFolderRecord|undefined}
 	 * @private
 	 */
 	requireFolder: function(key, label)
@@ -75,7 +80,7 @@ Zarafa.plugins.ai.SmartActions = {
 		}
 
 		var times = this.resolveTimes(action);
-		var record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Appointment', {
+		var record = Grommunio.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Appointment', {
 			store_entryid: folder.get('store_entryid'),
 			parent_entryid: folder.get('entryid'),
 			startdate: times.start,
@@ -83,7 +88,7 @@ Zarafa.plugins.ai.SmartActions = {
 			commonstart: times.start,
 			commonend: times.end,
 			duration: times.minutes,
-			busystatus: Zarafa.core.mapi.BusyStatus.BUSY
+			busystatus: Grommunio.core.mapi.BusyStatus.BUSY
 		});
 
 		record.beginEdit();
@@ -108,7 +113,7 @@ Zarafa.plugins.ai.SmartActions = {
 			if (!name) {
 				return;
 			}
-			var recipient = recipientStore.parseRecipient(name, Zarafa.core.mapi.RecipientType.MAPI_TO);
+			var recipient = recipientStore.parseRecipient(name, Grommunio.core.mapi.RecipientType.MAPI_TO);
 			if (recipient) {
 				recipientStore.add(recipient);
 				added.push(recipient);
@@ -118,7 +123,7 @@ Zarafa.plugins.ai.SmartActions = {
 			recipientStore.resolve(added);
 		}
 
-		Zarafa.core.data.UIFactory.openCreateRecord(record);
+		Grommunio.core.data.UIFactory.openCreateRecord(record);
 	},
 
 	/**
@@ -148,8 +153,8 @@ Zarafa.plugins.ai.SmartActions = {
 			data.startdate = due;
 		}
 
-		var record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Task', data);
-		Zarafa.core.data.UIFactory.openCreateRecord(record);
+		var record = Grommunio.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Task', data);
+		Grommunio.core.data.UIFactory.openCreateRecord(record);
 	},
 
 	/**
@@ -178,10 +183,10 @@ Zarafa.plugins.ai.SmartActions = {
 			data.email_address_type_1 = 'SMTP';
 		}
 
-		var record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Contact', data);
+		var record = Grommunio.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Contact', data);
 		this.applyContactName(record, action.name);
 
-		Zarafa.core.data.UIFactory.openCreateRecord(record);
+		Grommunio.core.data.UIFactory.openCreateRecord(record);
 	},
 
 	/**
@@ -189,7 +194,7 @@ Zarafa.plugins.ai.SmartActions = {
 	 * framework's own parser (handles prefixes/suffixes/middle names) and the
 	 * "Last, First" form. display_name/fileas already hold the full string, so
 	 * the contact stays usable even when the parse is ambiguous.
-	 * @param {Zarafa.core.data.IPMRecord} record
+	 * @param {Grommunio.core.data.IPMRecord} record
 	 * @param {String} name
 	 * @private
 	 */
@@ -208,7 +213,7 @@ Zarafa.plugins.ai.SmartActions = {
 
 		var parsed;
 		try {
-			parsed = new Zarafa.contact.data.ContactDetailsParser().parseInfo('name', name);
+			parsed = new Grommunio.contact.data.ContactDetailsParser().parseInfo('name', name);
 		} catch (e) {
 			parsed = null;
 		}
@@ -236,17 +241,17 @@ Zarafa.plugins.ai.SmartActions = {
 	/**
 	 * Generate a reply with AI, then offer to open it as a prefilled reply.
 	 * @param {Object} action carries the reply intent
-	 * @param {Zarafa.core.data.IPMRecord} record The message being replied to
+	 * @param {Grommunio.core.data.IPMRecord} record The message being replied to
 	 */
 	draftReply: function(action, record)
 	{
 		if (!record) {
 			return;
 		}
-		var client = Zarafa.plugins.ai.AIClient;
+		var client = Grommunio.plugins.ai.AIClient;
 		var self = this;
 
-		Zarafa.plugins.ai.ui.AIAssistantWindow.showFeature({
+		Grommunio.plugins.ai.ui.AIAssistantWindow.showFeature({
 			title: _('Draft reply'),
 			model: client.getModelName(),
 			insertLabel: _('Open as reply'),
@@ -264,7 +269,7 @@ Zarafa.plugins.ai.SmartActions = {
 	/**
 	 * Open a reply to the message with the generated text placed above the
 	 * quoted original.
-	 * @param {Zarafa.core.data.IPMRecord} record
+	 * @param {Grommunio.core.data.IPMRecord} record
 	 * @param {String} text
 	 */
 	openReplyWithText: function(record, text)
@@ -272,15 +277,15 @@ Zarafa.plugins.ai.SmartActions = {
 		var model = container.getContextByName('mail').getModel();
 
 		var open = function() {
-			var response = model.createResponseRecord(record, Zarafa.mail.data.ActionTypes.REPLY);
+			var response = model.createResponseRecord(record, Grommunio.mail.data.ActionTypes.REPLY);
 			if (response.get('isHTML')) {
 				// Editor's default font (proportional), not monospace <pre>.
-				var html = Zarafa.plugins.ai.AIClient.toEditorHtml(text);
+				var html = Grommunio.plugins.ai.AIClient.toEditorHtml(text);
 				response.set('html_body', html + (response.get('html_body') || ''));
 			} else {
 				response.set('body', text + '\n\n' + (response.get('body') || ''));
 			}
-			Zarafa.core.data.UIFactory.openCreateRecord(response);
+			Grommunio.core.data.UIFactory.openCreateRecord(response);
 		};
 
 		if (record.isOpened()) {

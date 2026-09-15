@@ -1,0 +1,264 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.hierarchy.ui');
+
+/**
+ * @class Grommunio.hierarchy.ui.TreeSorter
+ * @extends Ext.tree.TreeSorter
+ *
+ * Special sorting class for the HierarchyTree, this enables special sorting of the folders,
+ * in which the "Stores" are sorted in such a way that the Private store is placed on top,
+ * and the Public store is placed on the bottom. All Shared stores are placed alphabetical
+ * order between the Private and Public stores.
+ * All folders below the stores are sorted in alphabetical order.
+ */
+Grommunio.hierarchy.ui.TreeSorter = Ext.extend(Ext.tree.TreeSorter, {
+
+	/**
+	 * @cfg {Boolean} folderStore
+	 * @hide
+	 */
+	/**
+	 * @cfg {String} property
+	 * @hide
+	 */
+	/**
+	 * @cfg {String} leadAttr
+	 * @hide
+	 */
+	/**
+	 * @cfg {Function} sortType
+	 * @hide
+	 */
+
+	/**
+	 * @cfg {String} folderProperty The property from the {@link Grommunio.hierarchy.data.MAPIFolderRecord folder}
+	 * which must be used in the comparison between 2 {@link Grommunio.hierarchy.data.MAPIFolderRecord folders}.
+	 */
+	folderProperty: 'display_name',
+
+	/**
+	 * @cfg {String} storeProperty The property from the {@link Grommunio.hierarchy.data.MAPIStoreRecord store}
+	 * which must be used in the comparison between 2 {@link Grommunio.hierarchy.data.MAPIStoreRecord stores}.
+	 */
+	storeProperty: 'mailbox_owner_name',
+
+	/**
+	 * @cfg {String[]} folderOrder The predefined order for the folders in the hierarchy. It contains default
+	 * folder keys and container classes.
+	 */
+	folderOrder: [
+		'inbox',
+		'drafts',
+		'outbox',
+		'sent',
+		'IPF.Note',
+		'wastebasket',
+		'junk',
+		'calendar',
+		'IPF.Appointment',
+		'contact',
+		'IPF.Contact',
+		'todolist',
+		'task',
+		'IPF.Task',
+		'note',
+		'IPF.StickyNote',
+		'journal',
+		'IPF.Journal',
+		'IPF.Note.OutlookHomepage'
+	],
+
+	/**
+	 * @constructor
+	 * @param {Ext.tree.Tree} tree The tree which this sorter is being applied on
+	 * @param {Object} config Configuration object
+	 */
+	constructor: function(tree, config)
+	{
+		Grommunio.hierarchy.ui.TreeSorter.superclass.constructor.apply(this, arguments);
+
+		this.sortFn = this.hierarchySort.createDelegate(this);
+		this.collator = new Intl.Collator(container.getSettingsModel().get('grommunio/v1/main/language').split('_')[0]);
+	},
+
+	/**
+	 * Special sorting function which applies special sorting when the
+	 * {@link Grommunio.hierarchy.data.MAPIFolderRecord folder} on the node
+	 * is a {@link Grommunio.hierarchy.data.MAPIFolderRecord#isIPMSubTree IPM_SUBTREE}.
+	 *
+	 * @param {Ext.tree.Node} node1 The first node to be compared
+	 * @param {Ext.tree.Node} node2 The second node to be compared
+	 * @private
+	 */
+	hierarchySort: function(node1, node2)
+	{
+		var folder1 = node1.attributes.folder;
+		var folder2 = node2.attributes.folder;
+		var store1 = folder1.getMAPIStore();
+		var store2 = folder2.getMAPIStore();
+
+		var dsc = this.dir && this.dir.toLowerCase() == "desc";
+		var cs = this.caseSensitive === true;
+
+		// If folder 1 is the favorites root node (IPM_COMMON_VIEWS)
+		// we directly return a value to sort it to the top of the tree.
+		if (folder1.isFavoritesRootFolder()) {
+			return dsc ? +1 : -1;
+		}
+
+		// If folder 2 is the favorites root node (IPM_COMMON_VIEWS)
+		// we directly return a value to sort it to the top of the tree.
+		if (folder2.isFavoritesRootFolder()) {
+			return dsc ? -1 : +1;
+		}
+
+		// If folder 1 is the root node (IPM_SUBTREE) for the
+		// default store we directly return a value to sort it
+		// to the top of the tree. For the public store we return
+		// a value to sort it to the bottom of the tree.
+		if (folder1.isIPMSubTree()) {
+			if (store1.isDefaultStore()) {
+				return dsc ? +1 : -1;
+			}
+			if (store1.isPublicStore()) {
+				return dsc ? -1 : +1;
+			}
+		}
+
+		// If folder 2 is the root node (IPM_SUBTREE) for the
+		// default store we directly return a value to sort it
+		// to the top of the tree. For the public store we return
+		// a value to sort it to the bottom of the tree.
+		if (folder2.isIPMSubTree()) {
+			if (store2.isDefaultStore()) {
+				return dsc ? -1 : +1;
+			}
+
+			if (store2.isPublicStore()) {
+				return dsc ? +1 : -1;
+			}
+		}
+
+		// The user can give the shared stores an explicit order by dragging them in the
+		// hierarchy, and that order wins over the alphabetical one below. This is checked
+		// for every pair of top level nodes, not only for two IPM_SUBTREEs: in a filtered
+		// tree such as the calendar folder list a shared store is represented by its
+		// visible folders rather than by its IPM_SUBTREE, and those must follow the same
+		// order. Nodes passed to a sort function always share a parent, so testing one of
+		// them is enough. While the user has never reordered anything,
+		// {@link Grommunio.hierarchy.data.StoreOrder#compareStores} returns 0 for every
+		// pair and the layout below stays untouched. Once an order exists it ranks every
+		// store - the own store first and the Public store last, mirroring the
+		// IPM_SUBTREE rules above - so the comparison stays transitive when their
+		// folders are ordinary top level nodes in a filtered tree.
+		if (node1.parentNode && node1.parentNode.isRoot === true) {
+			var orderCmp = Grommunio.hierarchy.data.StoreOrder.compareStores(store1, store2);
+			if (orderCmp !== 0) {
+				return dsc ? -orderCmp : orderCmp;
+			}
+		}
+
+		// If both folder 1 as folder 2 are root nodes (IPM_SUBTREE) then
+		// we sort by the storeProperty, allowing the sorting based on
+		// the display name of the user, rather then of the folder.
+		if (folder1.isIPMSubTree() && folder2.isIPMSubTree()) {
+			var cmp = this.compareRecordProp(store1, store2, this.storeProperty, dsc, cs);
+			// If the store properties are equal, then we have 2 shared folders which
+			// belong to the same store. We are going to sort those by the folderProperty.
+			if (cmp !== 0) {
+				return cmp;
+			}
+		}
+
+		// Sort all remaining cases by the folder property.
+		return this.compareRecordProp(folder1, folder2, this.folderProperty, dsc, cs);
+	},
+
+	/**
+	 * Helper function for {@link #hierarchySort}, this performs a comparison of two records.
+	 * The records (folders) will be ordered based on the preset folder order defined in
+	 * {@link folderOrder}. If this will not result in a order, the records will be ordered
+	 * based on the on a passed property field.
+	 *
+	 * @param {Ext.data.Record} record1 The first record to compare
+	 * @param {Ext.data.Record} record2 The second record to compare
+	 * @param {String} property The property on which the records are compared
+	 * @param {Boolean} descending True if the records must be sorted descending
+	 * @param {Boolean} caseSensitive True if the property values must be compared case-sensitive
+	 * @return {Integer} +1 if record1 should be placed before record 2 in the order, -1 otherwise
+	 * @private
+	 */
+	compareRecordProp: function(record1, record2, property, descending, caseSensitive)
+	{
+		var	folderKey1;
+		var	folderKey2;
+
+		var isRecord1Store = record1.get('object_type') === Grommunio.core.mapi.ObjectType.MAPI_STORE;
+		var isRecord2Store = record2.get('object_type') === Grommunio.core.mapi.ObjectType.MAPI_STORE;
+		var bothRecordsStore = isRecord1Store && isRecord2Store;
+
+		// First look at the folders Order, because they have a predefined order
+		// For the sorting of Favorites folders, get the original records to retrieve FullyQualifiedName later.
+		// Skip getting the original records for search folders.
+		// Escape getting default folder key for Shared type folders. For the store records and other than favorites records,
+    // directly get the default folder key.
+		if(!bothRecordsStore && record1.isFavoritesFolder() && record2.isFavoritesFolder()) {
+			record1 = !record1.isSearchFolder() ? record1.getOriginalRecordFromFavoritesRecord() : record1;
+			record2 = !record2.isSearchFolder() ? record2.getOriginalRecordFromFavoritesRecord() : record2;
+
+			var isRecord1Shared = record1.getMAPIStore().isSharedStore();
+			var isRecord2Shared = record2.getMAPIStore().isSharedStore();
+
+			folderKey1 = !isRecord1Shared ? record1.getDefaultFolderKey() : undefined;
+			folderKey2 = !isRecord2Shared ? record2.getDefaultFolderKey() : undefined;
+		} else {
+			folderKey1 = record1.getDefaultFolderKey();
+			folderKey2 = record2.getDefaultFolderKey();
+		}
+
+		// If the folder is not a default folder, we will sort it by its container class
+		if ( !folderKey1 ){
+			folderKey1 = record1.get('container_class');
+		}
+		if ( !folderKey2 ){
+			folderKey2 = record2.get('container_class');
+		}
+
+		// First check if record1 or record2 are a different default type or type
+		// and if so, sort the records based on that
+		var index1 = this.folderOrder.indexOf(folderKey1);
+		var index2 = this.folderOrder.indexOf(folderKey2);
+		if ( index1 > -1 ){
+			if ( index2===-1 || index1<index2 ){
+				return descending ? +1 : -1;
+			} else if ( index1 > index2 ) {
+				return descending ? -1 : +1;
+			}
+		} else if ( index2 > -1 ){
+			return descending ? -1 : +1;
+		}
+
+		// Folders that have the same type will now be sorted based on the passed property
+
+		// When sorting on display name, we will use the 'fully qualified display name', so
+		// we will use 'Calendar of Hank Bla' instead of just 'Calendar' to sort.
+		var v1 = property == 'display_name' && record1.getFullyQualifiedDisplayName ? record1.getFullyQualifiedDisplayName() : record1.get(property);
+		var v2 = property == 'display_name' && record2.getFullyQualifiedDisplayName ? record2.getFullyQualifiedDisplayName() : record2.get(property);
+
+		// For case insensitive sorting, convert to lowercase, this will correctly position
+		// folders which start with '_' to be sorted first (when converting to uppercase, those
+		// folders are otherwise sorted last.
+		if (!caseSensitive) {
+			v1 = !Ext.isEmpty(v1) ? v1.toLowerCase() : v1;
+			v2 = !Ext.isEmpty(v2) ? v2.toLowerCase() : v2;
+		}
+
+		return (descending ? -1 : 1) * this.collator.compare(v1, v2);
+	}
+});

@@ -1,4 +1,12 @@
 <?php
+
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 include BASE_PATH . 'server/includes/loader.php';
 include BASE_PATH . 'server/includes/templates/serverinfo.php';
 require_once BASE_PATH . 'server/includes/core/class.categorylist.php';
@@ -64,7 +72,7 @@ if (defined('ADDITIONAL_COLOR_SCHEMES')) {
 if (defined('ADDITIONAL_CATEGORIES')) {
 	$serverConfig['additional_default_categories'] = json_decode((string) ADDITIONAL_CATEGORIES);
 }
-if ($GLOBALS['settings']->get('zarafa/v1/contexts/mail/attachment_reminder_enable') === true) {
+if ($GLOBALS['settings']->get('grommunio/v1/contexts/mail/attachment_reminder_enable') === true) {
 	$serverConfig['attachment_reminder_keywords'] = ATTACHMENT_REMINDER_KEYWORDS;
 }
 ?>
@@ -75,7 +83,7 @@ if ($GLOBALS['settings']->get('zarafa/v1/contexts/mail/attachment_reminder_enabl
 		<meta name="Generator" content="grommunio-web v<?php echo $loader->getVersion(); ?>">
 <?php
 // The canvas is dark before any stylesheet arrives, so a reload does not flash white
-$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('zarafa/v1/main/dark_mode') : 'light';
+$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('grommunio/v1/main/dark_mode') : 'light';
 if ($darkMode === 'dark') {
 	echo "\t\t<style>html { background: #121212; }</style>\n";
 }
@@ -113,11 +121,11 @@ $iconsetStylesheet = Iconsets::getActiveStylesheet();
 		<link id="grommunio-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 	</head>
 
-	<body class="zarafa-webclient theme-<?php echo strtolower((string) $theme ?: 'basic');
+	<body class="grommunio-webclient theme-<?php echo strtolower((string) $theme ?: 'basic');
 echo ' ' . $hideFavorites;
 echo ' ' . $scrollFavorites;
 echo ' ' . $unreadBorders;
-$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('zarafa/v1/main/dark_mode') : 'light';
+$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('grommunio/v1/main/dark_mode') : 'light';
 if ($darkMode === 'dark') {
 	echo ' dark-mode';
 }
@@ -132,7 +140,7 @@ elseif ($darkMode === 'system') {
 			document.body.classList.add('dark-mode');
 		}
 		</script>
-		<a class="skip-link" href="#zarafa-mainpanel"><?php echo _("Skip to main content"); ?></a>
+		<a class="skip-link" href="#grommunio-mainpanel"><?php echo _("Skip to main content"); ?></a>
 		<div id="loading-mask" class="theme-<?php echo strtolower(THEME !== "" ? THEME : 'basic'); ?>" role="status" aria-label="<?php echo _("Loading"); ?>">
 			<div id="form-container" class="loading">
 				<div id="bg"></div>
@@ -166,7 +174,7 @@ elseif ($darkMode === 'system') {
 			prefetchedHierarchy	= <?php echo json_encode($prefetchedHierarchy); ?>;
 <?php } ?>
 
-			Ext.onReady(Zarafa.loadWebclient, Zarafa);
+			Ext.onReady(Grommunio.loadWebclient, Grommunio);
 		</script>
 	</body>
 </html>

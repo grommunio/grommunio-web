@@ -1,6 +1,11 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
 
-Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel, {
+Ext.namespace('Grommunio.plugins.files.ui');
+
+Grommunio.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel, {
 
 	defaultPreviewImage: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iIzg4OCIgZD0iTTIuMjIgMi4yMmEuNzUuNzUgMCAwIDAtLjA3My45NzZsLjA3My4wODQgNC4wMzQgNC4wMzVhOS45ODYgOS45ODYgMCAwIDAtMy45NTUgNS43NS43NS43NSAwIDAgMCAxLjQ1NS4zNjQgOC40OSA4LjQ5IDAgMCAxIDMuNTgtNS4wMzRsMS44MSAxLjgxQTQgNCAwIDAgMCAxNC44IDE1Ljg2bDUuOTE5IDUuOTJhLjc1Ljc1IDAgMCAwIDEuMTMzLS45NzdsLS4wNzMtLjA4NC02LjExMy02LjExNC4wMDEtLjAwMi0xLjItMS4xOTgtMi44Ny0yLjg3aC4wMDJsLTIuODgtMi44NzcuMDAxLS4wMDItMS4xMzMtMS4xM0wzLjI4IDIuMjJhLjc1Ljc1IDAgMCAwLTEuMDYgMFptNy45ODQgOS4wNDUgMy41MzUgMy41MzZhMi41IDIuNSAwIDAgMS0zLjUzNS0zLjUzNVpNMTIgNS41Yy0xIDAtMS45Ny4xNDgtMi44ODkuNDI1bDEuMjM3IDEuMjM2YTguNTAzIDguNTAzIDAgMCAxIDkuODk5IDYuMjcyLjc1Ljc1IDAgMCAwIDEuNDU1LS4zNjNBMTAuMDAzIDEwLjAwMyAwIDAgMCAxMiA1LjVabS4xOTUgMy41MSAzLjgwMSAzLjhhNC4wMDMgNC4wMDMgMCAwIDAtMy44MDEtMy44WiIvPjwvc3ZnPg==',
 
@@ -8,7 +13,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 
 	constructor: function (config) {
 		config = config || {};
-		var context = Zarafa.plugins.files.data.ComponentBox.getContext();
+		var context = Grommunio.plugins.files.data.ComponentBox.getContext();
 		var viewMode = context.getCurrentViewMode();
 
 		var layout = {
@@ -16,7 +21,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 			align: 'stretch',
 			pack : 'start'
 		};
-		if(viewMode === Zarafa.plugins.files.data.ViewModes.BOTTOM_PREVIEW) {
+		if(viewMode === Grommunio.plugins.files.data.ViewModes.BOTTOM_PREVIEW) {
 			Ext.apply(layout, {
 				type : 'hbox'
 			});
@@ -37,7 +42,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 		// FixME : Listener is used when user use info button
 		// in context menu. we can avoid this code by either using
 		// initEvents function or by 'previewrecordchange' which was fired
-		// from setPreviewRecord function of Zarafa.core.ContextModel
+		// from setPreviewRecord function of Grommunio.core.ContextModel
 		if (Ext.isDefined(config.record)) {
 			config = Ext.applyIf(config, {
 				listeners: {
@@ -48,7 +53,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 			});
 		}
 
-		Zarafa.plugins.files.ui.FilesRecordDetailsPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.FilesRecordDetailsPanel.superclass.constructor.call(this, config);
 	},
 
 	refresh: function () {
@@ -188,12 +193,12 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 	 * an attachment of a mail. A file of a format grommunio Web cannot render,
 	 * and a folder, get the placeholder image instead.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesRecord} record The selected file
+	 * @param {Grommunio.plugins.files.data.FilesRecord} record The selected file
 	 * @param {Boolean} previewable Whether the previewer can render it
 	 */
 	setPreviewPanel: function (record, previewable) {
 		var current = this.filepreview.get(0);
-		var viewer = current instanceof Zarafa.common.previewer.ui.ViewerPanel;
+		var viewer = current instanceof Grommunio.common.previewer.ui.ViewerPanel;
 
 		if (previewable) {
 			// Reuse the frame that is already there, so that switching
@@ -202,7 +207,7 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 				current.setRecord(record);
 			} else {
 				this.replacePreview({
-					xtype : 'zarafa.viewerpanel',
+					xtype : 'grommunio.viewerpanel',
 					record: record
 				});
 			}
@@ -227,10 +232,10 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 	{
 		this.filename.setValue(record.get('filename'));
 
-		var recordType = record.get('type') == Zarafa.plugins.files.data.FileTypes.FILE;
+		var recordType = record.get('type') == Grommunio.plugins.files.data.FileTypes.FILE;
 		this.filesizeContainer.setVisible(recordType);
 		if (recordType) {
-			this.filesize.setValue(Zarafa.plugins.files.data.Utils.Format.fileSize(record.get('message_size')));
+			this.filesize.setValue(Grommunio.plugins.files.data.Utils.Format.fileSize(record.get('message_size')));
 		}
 
 		var lastModifiedDate = Ext.util.Format.date(new Date(record.get('lastmodified')), _('d.m.Y G:i'));
@@ -242,18 +247,18 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 		}
 		this.type.setValue(type);
 
-		var supportSharing = record.getAccount().supportsFeature(Zarafa.plugins.files.data.AccountRecordFeature.SHARING);
+		var supportSharing = record.getAccount().supportsFeature(Grommunio.plugins.files.data.AccountRecordFeature.SHARING);
 		this.sharedContainer.setVisible(supportSharing);
 		if (supportSharing) {
 			this.shared.setValue(record.get("isshared") ? _('Yes') : _('No'));
 		}
 		this.setPreviewPanel(record, recordType &&
-			Zarafa.common.Actions.isFilePreviewerEnabled() &&
-			Zarafa.common.previewer.data.Formats.isSupported(record.get('filename')));
+			Grommunio.common.Actions.isFilePreviewerEnabled() &&
+			Grommunio.common.previewer.data.Formats.isSupported(record.get('filename')));
 	},
 
 	onRender: function (ct, position) {
-		Zarafa.plugins.files.ui.FilesRecordDetailsPanel.superclass.onRender.call(this, ct, position);
+		Grommunio.plugins.files.ui.FilesRecordDetailsPanel.superclass.onRender.call(this, ct, position);
 		this.wrap = this.el.wrap({cls: 'preview-body'});
 		this.resizeEl = this.positionEl = this.wrap;
 	},
@@ -264,4 +269,4 @@ Zarafa.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPanel,
 	}
 });
 
-Ext.reg('filesplugin.filesrecorddetailspanel', Zarafa.plugins.files.ui.FilesRecordDetailsPanel);
+Ext.reg('filesplugin.filesrecorddetailspanel', Grommunio.plugins.files.ui.FilesRecordDetailsPanel);

@@ -1,3 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 (function() {
 	/**
 	 * @class Ext.dd.DragDropMgr
@@ -131,8 +138,8 @@
 				// the target element is belongs to active window or not?
 
 				if (oTarget.cursorIsOver) {
-					var activeWindow = Zarafa.core.BrowserWindowMgr.getActive();
-					var targetOwnerWindow = Zarafa.core.BrowserWindowMgr.getOwnerWindow(oTarget);
+					var activeWindow = Grommunio.core.BrowserWindowMgr.getActive();
+					var targetOwnerWindow = Grommunio.core.BrowserWindowMgr.getOwnerWindow(oTarget);
 					return activeWindow === targetOwnerWindow;
 				} else {
 					return false

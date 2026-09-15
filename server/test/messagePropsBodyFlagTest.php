@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // isHTML describes the body. A caller that asks for no body must not be told the
 // item is plain text, or an opened record on the client loses its html body.
 if (extension_loaded('mapi')) {

@@ -1,11 +1,16 @@
-Ext.namespace('Zarafa.plugins.files.backend.Default.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.backend.Default.data');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.data.ShareGridRecord
+ * @class Grommunio.plugins.files.backend.Default.data.ShareGridRecord
  *
  * This class specifies the ShareGridRecord and it's fields.
  */
-Zarafa.plugins.files.backend.Default.data.ShareGridRecord =
+Grommunio.plugins.files.backend.Default.data.ShareGridRecord =
 	Ext.data.Record.create(
 		{ name: 'id', type: 'string' },
 		{ name: 'shareWith', type: 'string' },

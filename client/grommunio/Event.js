@@ -1,0 +1,31 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+/**
+ * @class Ext.EventObjectImpl
+ * #core
+ */
+Ext.apply(Ext.EventObjectImpl.prototype, {
+	/**
+	 * Function will return Character code for the key event
+	 * Number keys of numpad keys have keycode of 96 to 105, this function will
+	 * convert it to proper ASCII character and return it
+	 *
+	 * @return {String} The trimmed string
+	 */
+	getKeyCharCode: function()
+	{
+		var key = this.getCharCode();
+		// Handle numpad keys here
+		if (key >= this.NUM_ZERO && key <= this.NUM_NINE) {
+			// These are numkeys and it will have different keyCode than number's
+			// ASCII value so we are mapping these keys to it's original character values.
+			key -= 48;
+		}
+		return String.fromCharCode(key);
+	}
+});

@@ -1,3 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 (function() {
  	var orig_beforeShow = Ext.Window.prototype.beforeShow;
  	var orig_onWindowResize = Ext.Window.prototype.onWindowResize;
@@ -73,7 +80,7 @@
 				if ( this.browserWindow.name === 'mainBrowserWindow' ) {
 	            	Ext.EventManager.onWindowResize(this.onWindowResize, this);
 	           } else {
-					Zarafa.core.BrowserWindowMgr.on('separatewindowresize', this.onSeparateWindowResize, this);
+					Grommunio.core.BrowserWindowMgr.on('separatewindowresize', this.onSeparateWindowResize, this);
 	           }
 	        }
 	        this.doConstrain();
@@ -101,7 +108,7 @@
 				if ( this.browserWindow.name === 'mainBrowserWindow' ) {
 					Ext.EventManager.removeResizeListener(this.onWindowResize, this);
 			   } else {
-					Zarafa.core.BrowserWindowMgr.un('separatewindowresize', this.onSeparateWindowResize, this);
+					Grommunio.core.BrowserWindowMgr.un('separatewindowresize', this.onSeparateWindowResize, this);
 			   }
 			}
 			if(this.keyMap) {
@@ -136,7 +143,7 @@
 		},
 
 		/**
-		 * Event handler for the separatewindowresize event of the {@link Zarafa.core.BrowserWindowMgr}
+		 * Event handler for the separatewindowresize event of the {@link Grommunio.core.BrowserWindowMgr}
 		 *
 		 * @param {Window} browserWindow The window object that represents the browser window that
 		 * was resized.

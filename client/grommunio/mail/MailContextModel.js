@@ -1,0 +1,1081 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.mail');
+
+/**
+ * @class Grommunio.mail.MailContextModel
+ * @extends Grommunio.core.ContextModel
+ */
+Grommunio.mail.MailContextModel = Ext.extend(Grommunio.core.ContextModel, {
+	/**
+	 * When searching, this property marks the {@link Grommunio.core.ContextModel#getCurrentDataMode datamode}
+	 * which was used before {@link #onSearchStart searching started} the datamode was switched to
+	 * {@link Grommunio.mail.data.DataModes#SEARCH}.
+	 * @property
+	 * @type Mixed
+	 * @private
+	 */
+	oldDataMode: undefined,
+
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		if(!Ext.isDefined(config.store)) {
+			config.store = new Grommunio.mail.MailStore();
+		}
+
+		Ext.applyIf(config, {
+			statefulRecordSelection: true,
+			current_data_mode: Grommunio.mail.data.DataModes.ALL
+		});
+
+		Grommunio.mail.MailContextModel.superclass.constructor.call(this, config);
+
+		this.on({
+			'searchstart': this.onSearchStart,
+			'searchstop': this.onSearchStop,
+			scope: this
+		});
+	},
+
+	/**
+	 * Create a new {@link Grommunio.core.data.IPMRecord IPMRecord} which must be used within
+	 * the {@link Grommunio.mail.dialogs.MailCreateContentPanel MailCreateContentPanel}.
+	 * @param {Grommunio.core.data.MAPIFolder} folder folder in which new record should be created.
+	 * @return {Grommunio.core.data.IPMRecord} The new {@link Grommunio.core.data.IPMRecord IPMRecord}.
+	 */
+	createRecord: function(folder)
+	{
+		folder = folder || container.getHierarchyStore().getDefaultFolder('drafts');
+
+		var signatureId = this.getSignatureId();
+
+		var record = Grommunio.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Note', {
+			store_entryid: folder.get('store_entryid'),
+			parent_entryid: folder.get('entryid'),
+			body: this.getSignatureData(false, signatureId),
+			html_body: this.getSignatureData(true, signatureId),
+			isHTML: container.getSettingsModel().get('grommunio/v1/contexts/mail/dialogs/mailcreate/use_html_editor')
+			// @todo should set From properties differently if replying for someone else's store
+		});
+
+		return record;
+	},
+
+	/**
+	 * Function will create a new {@link Grommunio.core.data.IPMRecord IPMRecord} for responding to an original
+	 * {@link Grommunio.core.data.IPMRecord IPMRecord}. This will also set subject, body, attachment, recipient
+	 * properties based on {@link Grommunio.mail.data.ActionTypes ActionType} provided.
+	 *
+	 * @param {Grommunio.core.data.IPMRecord} record The original {@link Grommunio.core.data.IPMRecord IPMRecord}.
+	 * @param {String} actionType The action type for the given {@link Grommunio.core.data.IPMRecord record}.
+	 * Can be any of the values of {@link Grommunio.mail.data.ActionTypes ActionTypes}.
+	 * @param {Grommunio.core.data.IPMRecord} responseRecord The new {@link Grommunio.core.data.IPMRecord IPMRecord}.
+	 * @param {Object} (Optional) config The optional configuration.
+	 * @private
+	 */
+	createResponseRecord: function(record, actionType, responseRecord, config)
+	{
+		// FIXME: Error message?
+		if (Ext.isEmpty(actionType) || !record) {
+			return;
+		}
+
+		var isMultipleItems = false;
+		if (Ext.isDefined(responseRecord)) {
+			isMultipleItems = true;
+		}
+		else {
+			responseRecord = this.createRecord();
+		}
+
+		// Set the Message action for the record. This will instruct
+		// the server side to update the original message accordingly.
+		responseRecord.addMessageAction('action_type', actionType);
+
+		// By copying the reference to the original mail,
+		// the server is able to update that mail and add
+		// reply/forward flags to it.
+		responseRecord.addMessageAction('source_entryid', record.get('entryid'));
+		responseRecord.addMessageAction('source_store_entryid', record.get('store_entryid'));
+
+		var pgp = record.get('pgp');
+		if (actionType !== Grommunio.mail.data.ActionTypes.FORWARD_ATTACH && pgp && !pgp.pending && pgp.mime && !pgp.unverifiable) {
+			if (!pgp.inline && pgp.format !== 'inline' && (pgp.decrypted || pgp.signed)) {
+				// Original MAPI attachments contain the protected MIME envelope;
+				// the usable files exist only in the browser attachment store.
+				responseRecord.addMessageAction('browser_decrypted', true);
+			}
+			if (pgp.encrypted && pgp.decrypted) { responseRecord.set('pgp_encrypt', true); }
+		}
+
+		this.setSourceMessageInfo(record, actionType, responseRecord);
+
+		var attachNum = record.get('attach_num');
+		if(!Ext.isEmpty(attachNum) && actionType!==Grommunio.mail.data.ActionTypes.EDIT_AS_NEW) {
+			responseRecord.addMessageAction('source_attach_num', attachNum);
+		}
+
+		// initialize properties of response record
+		if (actionType === Grommunio.mail.data.ActionTypes.EDIT_AS_NEW){
+			this.copyRecordRecipients(responseRecord, record);
+			this.copySendAsIdentity(responseRecord, record);
+		} else {
+			var mapiFolderStore = this.getDefaultFolder().getMAPIFolderStore();
+			var folderIndex = mapiFolderStore.find('entryid', record.get('parent_entryid'));
+			var folder = mapiFolderStore.getAt(folderIndex);
+			var isSentFolder = folder ? folder.getDefaultFolderKey() === 'sent' : false;
+			this.initRecordRecipients(responseRecord, record, actionType, isSentFolder);
+		}
+
+		this.initRecordSubject(responseRecord, record, actionType);
+
+		if (actionType === Grommunio.mail.data.ActionTypes.FORWARD_ATTACH) {
+			responseRecord.getAttachmentStore().addAsAttachment(record, config);
+		} else if (actionType === Grommunio.mail.data.ActionTypes.EDIT_AS_NEW) {
+			this.copyRecordBody(responseRecord, record);
+			this.initRecordAttachments(responseRecord, record, actionType);
+		} else {
+			this.initRecordBody(responseRecord, record, actionType);
+			this.initRecordAttachments(responseRecord, record, actionType);
+		}
+
+		if (isMultipleItems) {
+			if (container.getSettingsModel().get('grommunio/v1/contexts/mail/use_english_abbreviations')) {
+				responseRecord.set('subject', ('Fwd') + ': ');
+			} else {
+				responseRecord.set('subject', _('Fwd') + ': ');
+			}
+		}
+
+		// If the record we are replying is in other user's store then set delegator info.
+		if (!Ext.isFunction(record.userIsStoreOwner) || !record.userIsStoreOwner()) {
+			var storeOwner = container.getHierarchyStore().getById(record.get('store_entryid'));
+
+			if(storeOwner) {
+				responseRecord.setDelegatorInfo(storeOwner);
+			}
+		}
+
+		return responseRecord;
+	},
+
+	/**
+	 * Function is used to set the source message action type.
+	 * @param {Grommunio.core.data.IPMRecord} record The original {@link Grommunio.core.data.IPMRecord IPMRecord}.
+	 * @param {String} actionType The action type for the given {@link Grommunio.core.data.IPMRecord record}.
+	 * @param {Grommunio.core.data.IPMRecord} responseRecord The new {@link Grommunio.core.data.IPMRecord IPMRecord}.
+	 * Can be any of the values of {@link Grommunio.mail.data.ActionTypes ActionTypes}.
+	 */
+	setSourceMessageInfo: function(record, actionType, responseRecord)
+	{
+		// Hack alert !
+		// we are not able to identify the 0x85CE named property, So here we hardcode first 24byte
+		// value of the record, based on action type (reply, replyall, forward) and add 48byte
+		// entryid at the end.
+		var sourceMessageAction;
+		switch(actionType) {
+			case 'reply':
+					sourceMessageAction = "0501000066000000";
+				break;
+			case 'replyall':
+					sourceMessageAction = "0501000067000000";
+				break;
+			case 'forward':
+			case 'forward_attach':
+					sourceMessageAction = "0601000068000000";
+				break;
+		}
+		if (sourceMessageAction) {
+			var sourceMessageInfo = "01000E000C000000" + sourceMessageAction + "0200000030000000" + record.get('entryid');
+			responseRecord.set('source_message_info', sourceMessageInfo);
+		}
+	},
+
+	/**
+	 * Initialize the {@link Grommunio.core.data.IPMRecord record} with an updated
+	 * subject. This will prefix the previous subject with 'Re' or 'Fwd',
+	 * depending on the given action type.
+	 *
+	 * @param {Grommunio.core.data.IPMRecord} record The record to initialize
+	 * @param {Grommunio.core.data.IPMRecord} origRecord The original record
+	 * to which the respond is created
+	 * @param {Grommunio.mail.data.ActionTypes} actionType The actionType used
+	 * for this response.
+	 * @private
+	 */
+	initRecordSubject: function(record, origRecord, actionType)
+	{
+		var subjectPrefix;
+		var english_abb = container.getSettingsModel().get('grommunio/v1/contexts/mail/use_english_abbreviations');
+
+		switch (actionType)
+		{
+			case Grommunio.mail.data.ActionTypes.REPLY:
+			case Grommunio.mail.data.ActionTypes.REPLYALL:
+				if (english_abb) {
+					subjectPrefix = ('Re') + ': ';
+				} else {
+					subjectPrefix = _('Re') + ': ';
+				}
+				break;
+			case Grommunio.mail.data.ActionTypes.FORWARD:
+			case Grommunio.mail.data.ActionTypes.FORWARD_ATTACH:
+				if (english_abb) {
+					subjectPrefix = ('Fwd') + ': ';
+				} else {
+					subjectPrefix = _('Fwd') + ': ';
+				}
+				break;
+			case Grommunio.mail.data.ActionTypes.EDIT_AS_NEW:
+				subjectPrefix = '';
+				break;
+			default:
+				// FIXME: Error message?
+				subjectPrefix = _('Re') + ': ';
+				break;
+		}
+
+		var normalizedSubject = origRecord.get('normalized_subject');
+		record.set('subject', subjectPrefix + normalizedSubject);
+		record.set('normalized_subject', normalizedSubject);
+	},
+
+	/**
+	 * Get the best available plain-text body from a record.
+	 * @param {Grommunio.core.data.IPMRecord} record
+	 * @return {String}
+	 * @private
+	 */
+	getRecordPlainBody: function(record)
+	{
+		return record.getBody(false) || record.get('body') || '';
+	},
+
+	/**
+	 * Get the best available HTML body from a record with robust fallbacks.
+	 * @param {Grommunio.core.data.IPMRecord} record
+	 * @param {String} htmlBody preferred HTML body candidate (used only when the
+	 * record has no raw html_body of its own)
+	 * @param {String} plainBody plain-text fallback body
+	 * @return {String}
+	 * @private
+	 */
+	getBestEffortHtmlBody: function(record, htmlBody, plainBody)
+	{
+		htmlBody = htmlBody || '';
+
+		// Prefer the record's own html_body whenever it exists, even if isHTML is
+		// stale-false (e.g. a body-less notifier merged isHTML=false onto an
+		// already-opened record). The supplied candidate may be plain-text derived.
+		var rawHtmlBody = record.get('html_body') || '';
+		if (!Ext.isEmpty(rawHtmlBody)) {
+			if (Ext.isFunction(record.inlineImgOutlookToGrommunio)) {
+				rawHtmlBody = record.inlineImgOutlookToGrommunio(rawHtmlBody);
+			}
+			// quote what the reading pane shows: no external content the user has not downloaded
+			var unsent = Ext.isFunction(record.isUnsent) && record.isUnsent();
+			if (!unsent && Ext.isFunction(record.shouldBlockExternalContent) && record.shouldBlockExternalContent()) {
+				rawHtmlBody = Grommunio.core.HTMLParser.blockExternalContent(rawHtmlBody);
+			}
+			if (container.getServerConfig().getDOMPurifyEnabled()) {
+				rawHtmlBody = DOMPurify.sanitize(rawHtmlBody);
+			}
+			if (Ext.isFunction(record.cleanupOutlookStyles)) {
+				rawHtmlBody = record.cleanupOutlookStyles(rawHtmlBody);
+			}
+			htmlBody = rawHtmlBody;
+		}
+
+		if (Ext.isEmpty(htmlBody)) {
+			htmlBody = Grommunio.core.HTMLParser.convertPlainToHTML(plainBody || this.getRecordPlainBody(record));
+		}
+
+		if (!Ext.isEmpty(htmlBody) && container.getServerConfig().getDOMPurifyEnabled()) {
+			htmlBody = DOMPurify.sanitize(htmlBody);
+		}
+
+		return String(htmlBody);
+	},
+
+	/**
+	 * Initialize the {@link Grommunio.core.data.IPMRecord record} with an updated
+	 * body. This will quote the previous body as plain-text or html depending
+	 * on the editors preferences.
+	 *
+	 * @param {Grommunio.core.data.IPMRecord} record The record to initialize
+	 * @param {Grommunio.core.data.IPMRecord} origRecord The original record
+	 * to which the respond is created
+	 * @param {Grommunio.mail.data.ActionTypes} actionType The actionType used
+	 * for this response.
+	 * @private
+	 */
+	initRecordBody: function(record, origRecord, actionType)
+	{
+		var signatureId = this.getSignatureId(actionType);
+
+		// Create a copy of the original data, the body has changed,
+		// and we don't want to change the original record.
+		var respondData = Ext.apply({}, origRecord.data);
+
+		/**
+		 * here we go through all the recipients in recipientStore and build the username <user@abc.com> format
+		 * recipient for to and cc fields, and add then in respondData display_to and display_cc field.
+		 * and we don't want to change original record,
+		 */
+		if(origRecord.isOpened()){
+			var recipientStore = origRecord.getRecipientStore();
+			var to = [];
+			var cc = [];
+
+			if (recipientStore.getCount() > 0) {
+				recipientStore.each(function(recipient) {
+					switch(recipient.get('recipient_type')){
+						case Grommunio.core.mapi.RecipientType.MAPI_TO:
+							to.push(recipient.formatRecipient());
+							break;
+						case Grommunio.core.mapi.RecipientType.MAPI_CC:
+							cc.push(recipient.formatRecipient());
+							break;
+					}
+				},this);
+
+				respondData.display_to = to.join('; ');
+				respondData.display_cc = cc.join('; ');
+			}
+		}
+
+		var plainBody = this.getRecordPlainBody(origRecord);
+		// Only seed from getSanitizedHtmlBody() when the record is genuinely HTML;
+		// when isHTML is stale-false it returns a plain-text-derived body. The real
+		// html_body is recovered by getBestEffortHtmlBody(). Mirrors MessageBody.js.
+		var quotedHtmlBody = '';
+		if (origRecord.get('isHTML') === true && Ext.isFunction(origRecord.getSanitizedHtmlBody)) {
+			quotedHtmlBody = origRecord.getSanitizedHtmlBody() || '';
+		}
+		quotedHtmlBody = this.getBestEffortHtmlBody(origRecord, quotedHtmlBody, plainBody);
+
+		respondData.body = quotedHtmlBody;
+		respondData.signatureData = this.getSignatureData(true, signatureId);
+		respondData.fontFamily = container.getSettingsModel().get('grommunio/v1/main/default_font');
+		respondData.fontSize = Grommunio.common.ui.htmleditor.Fonts.getDefaultFontSize();
+
+		record.set('html_body', Grommunio.mail.data.Templates.htmlQuotedTemplate.apply(respondData));
+
+		// Initialize plain-text body
+		respondData.body = plainBody;
+		respondData.signatureData = this.getSignatureData(false, signatureId);
+
+		// Prefix each line with the '> ' sign to indicate
+		// it is being quoted. Wrap the text around 72 chars.
+		const text = respondData.body;
+		let newText = "> ";
+		let count = 0;
+		for (let i=0; i < text.length; ++i) {
+			if ((text[i] === " " && count > 72) || text[i] === "\n") {
+				newText += "\n> ";
+				count = 0;
+			} else {
+				newText += text[i];
+				count++;
+			}
+		}
+		respondData.body = newText;
+
+		record.set('body', Grommunio.mail.data.Templates.plaintextQuotedTemplate.apply(respondData));
+	},
+
+	/**
+	 * Initialize the {@link Grommunio.core.data.IPMRecord record} with updated
+	 * recipients. This will possibly copy all recipients, or will copy the
+	 * sender recipient into a To recipient depending on the given actionType.
+	 *
+	 * @param {Grommunio.core.data.IPMRecord} record The record to initialize
+	 * @param {Grommunio.core.data.IPMRecord} origRecord The original record
+	 * to which the respond is created
+	 * @param {Grommunio.mail.data.ActionTypes} actionType The actionType used
+	 * for this response.
+	 * @param {Boolean} isSentFolder it should be true if {@link Grommunio.core.data.IPMRecord record} belong in sent folder.
+	 * @private
+	 */
+	initRecordRecipients: function(record, origRecord, actionType, isSentFolder)
+	{
+		// When forwarding, we don't need to copy any recipients
+		if (actionType === Grommunio.mail.data.ActionTypes.FORWARD || actionType === Grommunio.mail.data.ActionTypes.FORWARD_ATTACH) {
+			return;
+		}
+
+		var store = record.getRecipientStore();
+
+		// To prevent duplicates to be added, we keep a list of
+		// all recipients which are added. Note that the contents
+		// of reply-to is unconditional, and we will only be using
+		// this list for the REPLYALL case.
+		var addedRecipientEntryids = [];
+		var addedRecipientSmtpAddrs = [];
+
+		// Simply, Don't use reply-to information in case of "sent items"
+		if(!isSentFolder) {
+			// This line will prevent logged-in user from recipients,
+			// When we are in 'sent items', we want to include ourselves in TO, CC, and BCC
+			var loggedInEntryId = container.getUser().getEntryId();
+			addedRecipientEntryids.push(loggedInEntryId);
+			var loggedInSmtp = container.getUser().getSMTPAddress();
+			if (loggedInSmtp) {
+				addedRecipientSmtpAddrs.push(loggedInSmtp.toLowerCase());
+			}
+
+			// We always need to add the reply-to recipients except "sent items"
+			var replyTo = origRecord.getSubStore('reply-to');
+
+			replyTo.each(function(recipient) {
+				this.addRecipientToStore(store, recipient, true);
+
+				var recipEntryid = recipient.get('entryid');
+				var recipSmtp = recipient.get('smtp_address');
+
+				// Store entryid and smtp address of added recipient to prevent doubles
+				addedRecipientEntryids.push(recipEntryid);
+				if (recipSmtp) {
+					addedRecipientSmtpAddrs.push(recipSmtp.toLowerCase());
+				}
+			}, this);
+		}
+
+		// When Replying to all recipients, start adding the originals as well
+		// If we are replying from "Inbox" then skip this whole logic, as we need only "reply-to" information
+		if (actionType === Grommunio.mail.data.ActionTypes.REPLYALL || (actionType === Grommunio.mail.data.ActionTypes.REPLY && isSentFolder)) {
+			var origStore = origRecord.getRecipientStore();
+
+			origStore.each(function(recipient) {
+				// In case where we are replying from "sent items" folder then
+				// we only skip the CC/BCC recipients, TO recipient needs to be carried forward.
+				if (actionType === Grommunio.mail.data.ActionTypes.REPLY && recipient.get('recipient_type') !== Grommunio.core.mapi.RecipientType.MAPI_TO) {
+					return;
+				}
+
+				var recipEntryid = recipient.get('entryid');
+				var recipSmtp = recipient.get('smtp_address');
+
+				// Check if recipient was already added by comparing
+				// entryids first, then fall back to SMTP address
+				// comparison.  The entryid check alone is not enough
+				// because the logged-in user's AB entryid can differ
+				// in type from the recipient entryid in the message.
+				var recipDuplicate = false;
+				if (recipEntryid) {
+					for (var i = 0; i < addedRecipientEntryids.length; i++) {
+						if (Grommunio.core.EntryId.compareABEntryIds(addedRecipientEntryids[i], recipEntryid)) {
+							recipDuplicate = true;
+							break;
+						}
+					}
+				}
+				if (!recipDuplicate && recipSmtp) {
+					recipDuplicate = addedRecipientSmtpAddrs.indexOf(recipSmtp.toLowerCase()) >= 0;
+				}
+
+				if (!recipDuplicate) {
+					this.addRecipientToStore(store, recipient, false);
+
+					// Store entryid and smtp address of added recipient to prevent doubles
+					addedRecipientEntryids.push(recipEntryid);
+					if (recipSmtp) {
+						addedRecipientSmtpAddrs.push(recipSmtp.toLowerCase());
+					}
+				}
+			}, this);
+
+			// Add myself back as recipient if I am replying in the sent folder and there are no recipients in the TO field.
+			if(isSentFolder && store.find('recipient_type', Grommunio.core.mapi.RecipientType.MAPI_TO) === -1) {
+				this.addRecipientToStore(store, origRecord.getSender(), true);
+			}
+		}
+	},
+
+	/**
+	 * Helper function for {@link Grommunio.mail.MailContextModel#initRecordRecipients}, adds a recipient to the store.
+	 *
+	 * @param {Grommunio.core.data.IPMRecipientStore} store recipient store
+	 * @param {Grommunio.core.data.IPMRecipientRecord} recipient which should be added to store
+	 * @param {boolean} to specifies if recipient should be TO or not
+	 * @private
+	 */
+	addRecipientToStore: function(store, recipient, to)
+	{
+		var recipData = Ext.apply({}, recipient.data);
+
+		// Create a new recipient containing all data from the original.
+		recipient = Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_RECIPIENT, recipData);
+
+		if (to) {
+			recipient.set('recipient_type', Grommunio.core.mapi.RecipientType.MAPI_TO);
+		}
+
+		// We have copied the 'rowid' as well, but new recipients
+		// shouldn't have this property as it will be filled in by PHP.
+		recipient.set('rowid', undefined);
+
+		store.add(recipient);
+
+	},
+
+	/**
+	 * Copy the body (both plain text and html) of the {@link Grommunio.core.data.IPMRecord original record}
+	 * to the {@link Grommunio.core.data.IPMRecord new record}.
+	 * The html body will be cleaned, meaning the wrapping div that was added by
+	 * the grommunio Web backend will be removed. This is necessary because it introduces
+	 * problems when we paste it in TinyMCE.
+	 *
+	 * @param {Grommunio.core.data.IPMRecord} record The new record
+	 * @param {Grommunio.core.data.IPMRecord} origRecord The original record
+	 * @private
+	 */
+	copyRecordBody: function(record, origRecord)
+	{
+		// We can simply copy the contents of the plain text body
+		var plainBody = this.getRecordPlainBody(origRecord);
+		record.set('body', plainBody);
+
+		var htmlBody = origRecord.getBody(true);
+		htmlBody = this.getBestEffortHtmlBody(origRecord, htmlBody, plainBody);
+
+		// Remove the comments
+		htmlBody = htmlBody.replace(/<!--.*?-->/gi, '');
+
+		// Remove the wrapping div
+		htmlBody = htmlBody.replace(/^\s*<div\s+class=['"]bodyclass['"]\s*>/gi, '');
+		htmlBody = htmlBody.replace(/\s*<\/div\s*>\s*$/gi, '');
+		record.set('html_body', htmlBody);
+	},
+
+	/**
+	 * Copy the recipients of the {@link Grommunio.core.data.IPMRecord original record}
+	 * to the {@link Grommunio.core.data.IPMRecord new record}.
+	 *
+	 * @param {Grommunio.core.data.IPMRecord} record The record to initialize
+	 * @param {Grommunio.core.data.IPMRecord} origRecord The original record
+	 * to which the respond is created
+	 * @private
+	 */
+	copyRecordRecipients: function(record, origRecord)
+	{
+		var recipientStore = record.getRecipientStore();
+		var origRecipientStore = origRecord.getRecipientStore();
+
+		origRecipientStore.each(function(recipient) {
+			var recipData = Ext.apply({}, recipient.data);
+
+			// Create a new recipient containing all data from the original.
+			recipient = Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_RECIPIENT, recipData);
+
+			// We have copied the 'rowid' as well, but new recipients
+			// shouldn't have this property as it will be filled in by PHP.
+			recipient.set('rowid', undefined);
+
+			recipientStore.add(recipient);
+		}, this);
+	},
+
+	/**
+	 * Copy the SendAs / on-behalf identity (the sent_representing_* properties)
+	 * of the {@link Grommunio.core.data.IPMRecord original record} to the
+	 * {@link Grommunio.core.data.IPMRecord new record} for "Edit as New".
+	 *
+	 * Only done for a message in the user's own Sent or Drafts folder which
+	 * was sent under another identity. Received messages also carry
+	 * sent_representing_* (the original author), which must not become the
+	 * From; shared store messages get their identity from setDelegatorInfo.
+	 *
+	 * @param {Grommunio.core.data.IPMRecord} record The record to initialize
+	 * @param {Grommunio.core.data.IPMRecord} origRecord The original record
+	 * to which the respond is created
+	 * @private
+	 */
+	copySendAsIdentity: function(record, origRecord)
+	{
+		if (!Ext.isFunction(origRecord.userIsStoreOwner) || !origRecord.userIsStoreOwner()) {
+			return;
+		}
+
+		var reprEntryId = origRecord.get('sent_representing_entryid');
+		if (Ext.isEmpty(reprEntryId)) {
+			return;
+		}
+
+		// An alias identity carries the user's own addressbook entryid with a
+		// different SMTP address, so a message only counts as sent-as-self
+		// when the address does not differ either.
+		if (Grommunio.core.EntryId.compareABEntryIds(reprEntryId, container.getUser().getEntryId())) {
+			var reprAddress = origRecord.get('sent_representing_smtp_address') ||
+				origRecord.get('sent_representing_email_address');
+			var ownAddress = container.getUser().getSMTPAddress();
+			if (!Grommunio.core.Util.validateEmailAddress(reprAddress) ||
+				String(reprAddress).toLowerCase() === String(ownAddress).toLowerCase()) {
+				return;
+			}
+		}
+
+		var folder = container.getHierarchyStore().getFolder(origRecord.get('parent_entryid'));
+		if (!folder || (folder.getDefaultFolderKey() !== 'sent' && folder.getDefaultFolderKey() !== 'drafts')) {
+			return;
+		}
+
+		record.set('sent_representing_name', origRecord.get('sent_representing_name'));
+		record.set('sent_representing_email_address', origRecord.get('sent_representing_email_address'));
+		record.set('sent_representing_address_type', origRecord.get('sent_representing_address_type'));
+		record.set('sent_representing_entryid', reprEntryId);
+		record.set('sent_representing_search_key', origRecord.get('sent_representing_search_key'));
+		var smtpAddress = origRecord.get('sent_representing_smtp_address');
+		if (Grommunio.core.Util.validateEmailAddress(smtpAddress)) {
+			record.set('sent_representing_smtp_address', smtpAddress);
+		}
+	},
+
+	/**
+	 * Initialize the {@link Grommunio.core.data.IPMRecord record} with attachments
+	 * in case of forward it the attachments will be copied to the record.
+	 * For reply it will be added if it is a inline image.
+	 *
+	 * @param {Grommunio.core.data.IPMRecord} record The record to initialize
+	 * @param {Grommunio.core.data.IPMRecord} origRecord The original record
+	 * to which the respond is created
+	 * @param {Grommunio.mail.data.ActionTypes} actionType The actionType used
+	 * for this response.
+	 * @private
+	 */
+	initRecordAttachments: function(record, origRecord, actionType)
+	{
+		var store = record.getAttachmentStore();
+		if (record.getMessageActions().browser_decrypted === true) {
+			var model = this, files = [], reply = actionType === Grommunio.mail.data.ActionTypes.REPLY || actionType === Grommunio.mail.data.ActionTypes.REPLYALL;
+			var html = String(origRecord.get('html_body') || '');
+			origRecord.getAttachmentStore().each(function(attach) {
+				if (!attach.localContent) { return; }
+				// A Content-ID alone does not make a file inline; the body must use it.
+				var cid = attach.get('cid'), inline = !!cid && html.indexOf('cid:' + cid) !== -1;
+				if (!reply || (inline && record.get('isHTML'))) { files.push({attachment: attach, inline: inline}); }
+			});
+			// Sequential uploads keep duplicate filenames and response correlation
+			// unambiguous. Open compose only after all files are accounted for.
+			record.browserAttachmentsReady = files.reduce(function(previous, file) {
+				return previous.then(function() { return model.uploadLocalResponseAttachment(record, file.attachment, file.inline); });
+			}, Promise.resolve()).then(function() {
+				record.set('hasattach', store.getCount() > 0);
+			});
+			return;
+		}
+
+		switch (actionType)
+		{
+			case Grommunio.mail.data.ActionTypes.FORWARD:
+			case Grommunio.mail.data.ActionTypes.FORWARD_ATTACH:
+			case Grommunio.mail.data.ActionTypes.EDIT_AS_NEW:
+				var origStore = origRecord.getAttachmentStore();
+				origStore.each(function(attach) {
+					store.add(attach.copy());
+				}, this);
+
+				// Check record store or so
+				record.set('hasattach', origRecord.get('hasattach'));
+			/* falls through */
+			case Grommunio.mail.data.ActionTypes.REPLYALL:
+			case Grommunio.mail.data.ActionTypes.REPLY:
+				// TODO: handle inline image attachments
+				break;
+		}
+	},
+
+	/** Upload a decrypted file without sending a server-side source attachment ID. */
+	uploadLocalResponseAttachment: function(record, source, inline)
+	{
+		var store = record.getAttachmentStore(), local = source.localContent;
+		return new Promise(function(resolve, reject) {
+			var win = Grommunio.core.BrowserWindowMgr.getActive() || window;
+			if (!win.File || !win.DataTransfer || !local || !local.blob) {
+				reject(new Error(_('This browser cannot attach the decrypted file. Download it before forwarding.')));
+				return;
+			}
+			var transfer = new win.DataTransfer();
+			transfer.items.add(new win.File([local.blob], source.get('name'), {type: source.get('filetype') || 'application/octet-stream'}));
+			if (!store.canUploadFiles(transfer.files)) {
+				reject(new Error(_('A decrypted attachment exceeds the upload limits. No incomplete response was created.')));
+				return;
+			}
+			var uploaded, timeout;
+			var cleanup = function() {
+				store.un('add', onAdd);
+				store.un('write', onWrite);
+				store.un('exception', onError);
+				win.clearTimeout(timeout);
+			};
+			var onAdd = function(attachmentStore, added) { uploaded = added[0]; };
+			var onWrite = function(attachmentStore, action, result, response, uploadedRecords) {
+				if (action !== 'create' || !uploaded) { return; }
+				if (uploadedRecords && (Array.isArray(uploadedRecords) ? uploadedRecords.indexOf(uploaded) === -1 : uploadedRecords !== uploaded)) { return; }
+				cleanup();
+				var cid = source.get('cid');
+				if (inline === true && cid) {
+					uploaded.set('cid', cid);
+					uploaded.set('hidden', true);
+					uploaded.setInline(true);
+					// The editor loads the uploaded copy; saving turns the attachCid URL back
+					// into the literal cid:, so the id must not be percent-encoded here.
+					var target = Ext.urlAppend(uploaded.getInlineImageUrl(), 'attachCid=' + String(cid).replace(/[\s"'<>&]/g, ''));
+					var html = record.get('html_body') || '';
+					Ext.each([local.inlineUrl, local.url], function(url) {
+						if (url) { html = html.split(url).join(Ext.util.Format.htmlEncode(target)); }
+					});
+					record.set('html_body', html);
+				}
+				resolve(uploaded);
+			};
+			var onError = function() {
+				cleanup();
+				reject(new Error(_('A decrypted attachment could not be uploaded. No incomplete response was created.')));
+			};
+			store.on('add', onAdd);
+			store.on('write', onWrite);
+			store.on('exception', onError);
+			timeout = win.setTimeout(onError, 120000);
+			try { store.uploadFiles(transfer.files, undefined, inline === true); }
+			catch (error) { cleanup(); reject(error); }
+		});
+	},
+
+	/**
+	 * Function is used to get signature id of the signature which should be added to the
+	 * body of {@link Grommunio.core.data.IPMRecord IPMRecord} based on passed actionType.
+	 * If no action type is passed then it should be considered as new mail.
+	 * @param {Grommunio.mail.data.ActionTypes} actionType one of 'reply', 'forward', 'replyall'.
+	 * @return {Number} signature of signature that should be added to the body.
+	 */
+	getSignatureId: function(actionType)
+	{
+		var signatureId;
+
+		// get signature id based on action type passed
+		switch (actionType) {
+			case Grommunio.mail.data.ActionTypes.FORWARD:
+			case Grommunio.mail.data.ActionTypes.FORWARD_ATTACH:
+			case Grommunio.mail.data.ActionTypes.REPLYALL:
+			case Grommunio.mail.data.ActionTypes.REPLY:
+				signatureId = container.getSettingsModel().get('grommunio/v1/contexts/mail/signatures/replyforward_message', true);
+				break;
+			default:
+				signatureId = container.getSettingsModel().get('grommunio/v1/contexts/mail/signatures/new_message', true);
+				break;
+		}
+
+		return parseInt(signatureId, 10);
+	},
+
+	/**
+	 * Function is used to get signature data based on passed signature id
+	 * from {@link Grommunio.settings.SettingsModel SettingsModel}. It also does conversion of signature data
+	 * when it needs to be converted from plain to html or vice versa.
+	 * @param {Boolean} preferHTML True if the signature should be returned in HTML format else in plain format.
+	 * @param {Number} signatureId id of the signature to get the data, this id can be get using {@link #getSignatureId}.
+	 * @param {Boolean} withEmptyLines True (default) to add empty lines before the signature, false otherwise.
+	 * @return {String} signature data that should be added to body of the {@link Grommunio.core.data.IPMRecord IPMRecord}.
+	 */
+	getSignatureData: function(preferHtml, signatureId, withEmptyLines)
+	{
+		if(!signatureId) {
+			return '';
+		}
+
+		var sigDetails = container.getSettingsModel().get('grommunio/v1/contexts/mail/signatures/all/' + signatureId, true);
+
+		if(Ext.isEmpty(sigDetails)) {
+			return '';
+		}
+
+		// Create a copy of the original data
+		sigDetails = Ext.apply({}, sigDetails);
+
+		if(!Ext.isDefined(sigDetails['content'])) {
+			return '';
+		}
+
+		var sigIsHtml = sigDetails['isHTML'];
+
+		if(preferHtml === false) {
+			// we want signature in plain format, so if signature is in html format then convert it to plain format
+			if(sigIsHtml === true) {
+				sigDetails['content'] = Grommunio.core.HTMLParser.convertHTMLToPlain(sigDetails['content']);
+			}
+
+			// Prefix the signature with two newlines
+			if ( withEmptyLines !== false ) {
+				sigDetails['content'] = '\n\n' + sigDetails['content'];
+			}
+		} else {
+			if (sigIsHtml === false) {
+				// we want signature in html format, so if signature is in plain format then convert it to html
+				sigDetails['content'] = Grommunio.core.HTMLParser.convertPlainToHTML(sigDetails['content']);
+			}
+
+			// Prefix the signature with two newlines
+			if ( withEmptyLines !== false ) {
+				sigDetails['content'] = this.wrapSignature(sigDetails['content']);
+			}
+		}
+
+		// Parse the signature to replace the templates
+		sigDetails['content'] = this.replaceSignatureTemplates(sigDetails['content'], preferHtml);
+
+		return sigDetails['content'];
+	},
+
+	/**
+	 * Function is used to wrap the signature with div 'signatureContainer'
+	 * along with two empty lines.
+	 *
+	 * @param {String} signature The signature which is going to wrapped.
+	 * @return {String} Wrapped signature.
+	 */
+	wrapSignature: function(signature)
+	{
+		var fontFamily = container.getSettingsModel().get('grommunio/v1/main/default_font');
+		var fontSize = Grommunio.common.ui.htmleditor.Fonts.getDefaultFontSize();
+
+		var lineStyle = 'font-family:'+fontFamily+'; font-size:'+fontSize+'; padding: 0; margin: 0;';
+		var emptyLine = '<p style="' + lineStyle + '"><span><br/></span></p>';
+
+		// Fallback so a signature with no font of its own is not sent fontless;
+		// the editor body font is not part of the message.
+		var containerStyle = 'font-family:'+fontFamily+'; font-size:'+fontSize+';';
+
+		return emptyLine + emptyLine + '<div class="signatureContainer" style="' + containerStyle + '">'+signature+'</div>';
+	},
+
+	/**
+	 * Replaces the templates in a signature
+	 * @param {String} signatureContent The text of the signature (can be html or plain text)
+	 * @param {Boolean} preferHTML True if the signature should be returned in HTML format else in plain format.
+	 * @return {String} The text of the signature with template holders replaced by their value
+	 */
+	replaceSignatureTemplates: function(signatureContent, preferHtml)
+	{
+		// First check if there are template holders in the signature
+		// otherwise we can return immediately
+		if ( !/{%.*}/gi.test(signatureContent) ){
+			return signatureContent;
+		}
+
+		// TODO: The user information should be updated, so we will always have
+		// the latest data
+
+		// Get the user information
+		var user = container.getUser();
+		// Map the template holders to their data
+		var map = {
+			firstname		: user.getFirstName(),
+			initials		: user.getInitials(),
+			lastname		: user.getLastName(),
+			displayname		: user.getDisplayName(),
+			title			: user.getTitle(),
+			company			: user.getCompany(),
+			department		: user.getDepartment(),
+			office			: user.getOffice(),
+			assistant		: user.getAssistant(),
+			phone			: user.getPhone(),
+			primary_email	: user.getSMTPAddress(),
+			address			: user.getAddress(),
+			city			: user.getCity(),
+			state			: user.getState(),
+			zipcode			: user.getZipCode(),
+			country			: user.getCountry(),
+			phone_business	: user.getPhoneBusiness(),
+			phone_business2	: user.getPhoneBusiness2(),
+			phone_fax		: user.getFax(),
+			phone_assistant	: user.getPhoneAssistant(),
+			phone_home		: user.getPhoneHome(),
+			phone_home2		: user.getPhoneHome2(),
+			phone_mobile	: user.getPhoneMobile(),
+			phone_pager		: user.getPhonePager()
+		};
+
+		Ext.iterate(map, function(key, value){
+			if ( !Ext.isDefined(value) ){
+				value = '';
+			} else if ( preferHtml ){
+				// Let's replace newlines with br's, to make sure that info that was entered
+				// on multiple lines in ldap will also be displayed on multiple lines.
+				value = Grommunio.core.HTMLParser.nl2br(Ext.util.Format.htmlEncode(value));
+			}
+			signatureContent = signatureContent.replace(new RegExp('{%'+key+'}', 'gi'), value);
+		});
+
+		return signatureContent;
+	},
+
+	/**
+	 * Load the store using the given (optional) restriction. if
+	 * {@link Grommunio.core.data.ListModuleStore#hasFilterApplied} then
+	 * set the filter restriction in params and if context is going to switch
+	 * then clear the filter.
+	 * @param {Object} options The options object to load the store with
+	 * @private
+	 */
+	load: function(options)
+	{
+		var store = this.getStore();
+		// suspended is only true when context is going to switch
+		// on context witch if filter is enabled then clear the filter.
+		if (this.suspended && store.hasFilterApplied) {
+			store.stopFilter();
+		} else {
+			// If user switch folder within the context and Datamode is {@link Grommunio.mail.data.DataModes.UNREAD UNREAD}
+			// then we have to persist the filter so, set the filter restriction
+			// in restriction/params object.
+			options = Ext.applyIf(options || {}, {
+				params: {
+					restriction: {
+						filter: this.getFilterRestriction(this.getFilterTypeFromDataMode())
+					}
+				}
+			});
+		}
+		Grommunio.mail.MailContextModel.superclass.load.call(this, options);
+	},
+
+	/**
+	 * Function will provide the filter type based on the {@link #this.current_data_mode current_data_mode}
+	 * when {@link #this.current_data_mode current_data_mode} is available.
+	 *
+	 * @return {Grommunio.common.data.Filters} filterType to get the restriction.
+	 */
+	getFilterTypeFromDataMode: function()
+	{
+		if (Ext.isDefined(this.current_data_mode)) {
+			if (this.current_data_mode === Grommunio.mail.data.DataModes.UNREAD) {
+				return Grommunio.common.data.Filters.UNREAD;
+			}
+		}
+	},
+
+	/**
+	 * Function which provide the restriction based on the given {@link Grommunio.common.data.Filters.UNREAD Filter}
+	 *
+	 * @param {Grommunio.common.data.Filters} filterType The filterType which needs to perform on store.
+	 * @return {Array|false} RES_BITMASK restriction else false.
+	 */
+	getFilterRestriction: function(filterType)
+	{
+		var store = this.getStore();
+		return store.getFilterRestriction(filterType);
+	},
+
+	/**
+	 * Event handler which is executed right before the {@link #datamodechange}
+	 * event is fired. This allows subclasses to initialize the {@link #store}.
+	 * This will apply a restriction to the {@link #store} if needed.
+	 *
+	 * @param {Grommunio.contact.ContactContextModel} model The model which fired the event.
+	 * @param {Grommunio.contact.data.DataModes} newMode The new selected DataMode.
+	 * @param {Grommunio.contact.data.DataModes} oldMode The previously selected DataMode.
+	 * @private
+	 */
+	onDataModeChange: function(model, newMode, oldMode)
+	{
+		Grommunio.mail.MailContextModel.superclass.onDataModeChange.call(this, model, newMode, oldMode);
+
+		if (newMode !== oldMode && oldMode === Grommunio.mail.data.DataModes.SEARCH) {
+			this.stopSearch();
+			// stop the live scroll after the search gets stopped.
+			this.stopLiveScroll();
+		}
+		switch (newMode) {
+			case Grommunio.mail.data.DataModes.SEARCH:
+			case Grommunio.mail.data.DataModes.LIVESCROLL:
+				break;
+			case Grommunio.mail.data.DataModes.ALL:
+				this.load();
+				break;
+			case Grommunio.mail.data.DataModes.UNREAD:
+				this.load({
+					params: {
+						restriction: {
+							filter: this.getFilterRestriction(Grommunio.common.data.Filters.UNREAD)
+						}
+					}
+				});
+				break;
+			default: break;
+		}
+	},
+
+
+	/**
+	 * Event handler which is executed right before the {@link #folderchange}
+	 * event is fired. This allows subclasses to update the folders.
+	 * Also apply the default sorting on mail grid as per the folder type.
+	 *
+	 * @param {Grommunio.core.ContextModel} model The model which fired the event.
+	 * @param {Array} folders selected folders as an array of {@link Grommunio.hierarchy.data.MAPIFolderRecord Folder} objects.
+	 * @private
+	 */
+	onFolderChange: function(model, folders)
+	{
+		if(!Ext.isEmpty(folders)) {
+			var folder = folders[0];
+			var folderKey = folder.getDefaultFolderKey();
+			var field = 'message_delivery_time';
+
+			if(folderKey === 'drafts') {
+				field = 'last_modification_time';
+			} else if(folderKey === 'sent' ) {
+				field = 'client_submit_time';
+			} else if(folderKey === 'outbox') {
+				field = 'deferred_send_time';
+			}
+
+			this.store.defaultSortInfo.field = field;
+		}
+
+		Grommunio.mail.MailContextModel.superclass.onFolderChange.call(this, model, folders);
+	},
+
+	/**
+	 * Event handler for the {@link #searchstart searchstart} event.
+	 * This will {@link #setDataMode change the datamode} to {@link Grommunio.mail.data.DataModes#SEARCH search mode}.
+	 * The previously active {@link #getCurrentDataMode view} will be stored in the {@link #oldDataMode} and will
+	 * be recovered when the {@link #onSearchStop search is stopped}.
+	 * @param {Grommunio.core.ContextModel} model The model which fired the event
+	 * @private
+	 */
+	onSearchStart: function(model)
+	{
+		if(this.getCurrentDataMode() != Grommunio.mail.data.DataModes.SEARCH){
+			this.oldDataMode = this.getCurrentDataMode();
+			this.setDataMode(Grommunio.mail.data.DataModes.SEARCH);
+		}
+	},
+
+	/**
+	 * Event handler for the {@link #searchstop searchstop} event.
+	 * This will {@link #setDataMode change the datamode} to the {@link #oldDataMode previous datamode}.
+	 * @param {Grommunio.core.ContextModel} model The model which fired the event
+	 * @private
+	 */
+	onSearchStop: function(model)
+	{
+		if (this.getCurrentDataMode() === Grommunio.mail.data.DataModes.SEARCH) {
+			this.setDataMode(this.oldDataMode);
+		}
+		delete this.oldDataMode;
+	}
+
+});

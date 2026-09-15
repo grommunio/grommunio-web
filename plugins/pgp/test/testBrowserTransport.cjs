@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 'use strict';
 /* Real browser crypto with deterministic Ext/store lifecycle stand-ins. */
 const assert = require('node:assert/strict');
@@ -98,7 +103,7 @@ async function main() {
 		Ext: {namespace() {}, apply: Object.assign, isFunction: value => typeof value === 'function', data: {Record: {COMMIT: 'commit'}},
 			urlAppend: (url, query) => url + (url.indexOf('?') === -1 ? '?' : '&') + query},
 		container: {getUser: () => ({getSMTPAddress: () => 'qa@example.test'})},
-		Zarafa: {sanitizerConfig: {FORBID_TAGS: ['iframe', 'meta'], ADD_TAGS: ['svg', 'use', 'symbol'], ALLOW_DATA_ATTR: true}, plugins: {pgp: {PgpUtils: utils, crypto: {BrowserCrypto, PgpMime: Mime}, dialogs: {PgpDialogs: {
+		Grommunio: {sanitizerConfig: {FORBID_TAGS: ['iframe', 'meta'], ADD_TAGS: ['svg', 'use', 'symbol'], ALLOW_DATA_ATTR: true}, plugins: {pgp: {PgpUtils: utils, crypto: {BrowserCrypto, PgpMime: Mime}, dialogs: {PgpDialogs: {
 			chooseKeyAsync: async keys => { if (!keys.length) { throw new Error('No key'); } return keys[0]; },
 			unlockAsync: async () => { unlockCount++; await crypto.unlock(own.encrypted_private_key, password, undefined, own.public_key); }
 		}}}}, core: {HTMLParser: {blockExternalContent: html => { blockCount++; return html; }},
@@ -107,7 +112,7 @@ async function main() {
 	});
 	vm.runInContext('String.format = function(text) { var values = Array.prototype.slice.call(arguments, 1); return text.replace(/\\{(\\d+)\\}/g, function(match, index) { return values[index]; }); };', context);
 	vm.runInContext(fs.readFileSync(require.resolve('../js/PgpTransport.js'), 'utf8'), context);
-	const transport = context.Zarafa.plugins.pgp.PgpTransport;
+	const transport = context.Grommunio.plugins.pgp.PgpTransport;
 	function setup(sign = true, encrypt = false, modal = false) {
 		const record = new Record({store_entryid: 'bb', message_class: 'IPM.Note', pgp_key: own.fingerprint,
 			pgp_sign: sign, pgp_encrypt: encrypt, sent_representing_smtp_address: 'qa@example.test'});
@@ -279,13 +284,13 @@ async function testCore(context) {
 		each: (values, fn, scope) => values.forEach(value => fn.call(scope, value)),
 		isDefined: value => value !== undefined, isEmpty: value => value == null || value === '' || Array.isArray(value) && !value.length});
 	context.Ext.data.Store = {prototype: {handleException() {}}};
-	context.Zarafa.core.mapi.Access = {ACCESS_READ: 1};
-	context.Zarafa.core.mapi.MessageFlags = {MSGFLAG_UNSENT: 8, MSGFLAG_READ: 1};
-	context.Zarafa.core.data.RecordFactory = new Proxy(context.Zarafa.core.data.RecordFactory, {get: (object, name) => object[name] || (() => {})});
+	context.Grommunio.core.mapi.Access = {ACCESS_READ: 1};
+	context.Grommunio.core.mapi.MessageFlags = {MSGFLAG_UNSENT: 8, MSGFLAG_READ: 1};
+	context.Grommunio.core.data.RecordFactory = new Proxy(context.Grommunio.core.data.RecordFactory, {get: (object, name) => object[name] || (() => {})});
 	for (const filename of ['JsonWriter.js', 'JsonAttachmentWriter.js', 'IPMRecord.js', 'IPMAttachmentRecord.js', 'IPMAttachmentStore.js']) {
-		vm.runInContext(fs.readFileSync(path.resolve(__dirname, '../../../client/zarafa/core/data', filename), 'utf8'), context, {filename});
+		vm.runInContext(fs.readFileSync(path.resolve(__dirname, '../../../client/grommunio/core/data', filename), 'utf8'), context, {filename});
 	}
-	const writer = Object.assign({}, context.Zarafa.core.data.JsonWriter, {toHash: record => ({...record.data})});
+	const writer = Object.assign({}, context.Grommunio.core.data.JsonWriter, {toHash: record => ({...record.data})});
 	function serialRecord(protectedView, unsent) {
 		const record = new Record({entryid: 'aa', unsent, body: 'decrypted text', html_body: '<p>decrypted</p>', isHTML: true,
 			hasattach: true, pgp: protectedView ? {mime: 'opaque-envelope'} : undefined, message_flags: 1, categories: ['local flag']});
@@ -304,7 +309,7 @@ async function testCore(context) {
 	const removed = {data: {attach_num: 7, cid: 'removed-picture'}, isInline: () => true};
 	const ordinary = {data: {attach_num: -1, tmpname: 'cache-binary'}, isInline: () => false};
 	const uploadStore = {getId: () => 'upload-dialog', getModifiedRecords: () => [uploaded, ordinary], getRemovedRecords: () => [removed, ordinary]};
-	const attachmentHash = context.Zarafa.core.data.JsonAttachmentWriter.toPropHash({getAttachmentStore: () => uploadStore}).attachments;
+	const attachmentHash = context.Grommunio.core.data.JsonAttachmentWriter.toPropHash({getAttachmentStore: () => uploadStore}).attachments;
 	equal(attachmentHash.dialog_attachments, 'upload-dialog', 'Core attachment writer retains upload dialog identity');
 	check(attachmentHash.add.length === 1 && attachmentHash.add[0].inline === true && attachmentHash.add[0].tmpname === 'cache-picture', 'Pending inline upload explicitly serializes inline flag and cache filename');
 	check(attachmentHash.remove.length === 1 && attachmentHash.remove[0].inline === true && attachmentHash.remove[0].attach_num === 7, 'Saved inline removal explicitly serializes inline flag and MAPI number');
@@ -312,7 +317,7 @@ async function testCore(context) {
 	check(attachmentHash.add[0] !== uploaded.data && attachmentHash.remove[0] !== removed.data, 'Inline serialized properties are independent copied objects');
 	const attach = new Record({cid: 'picture', attach_num: -1});
 	attach.localContent = {url: 'blob:local-binary', inlineUrl: 'data:image/png;base64,AA==', blob: {}, zip: () => 'blob:local-zip'};
-	const attachStore = Object.assign({}, context.Zarafa.core.data.IPMAttachmentStore, {localOnly: true, getRange: () => [attach],
+	const attachStore = Object.assign({}, context.Grommunio.core.data.IPMAttachmentStore, {localOnly: true, getRange: () => [attach],
 		getAttachmentBaseUrl() { throw new Error('Local attachments must not request a server URL'); }});
 	equal(attachStore.getDownloadAttachmentUrl(attach), 'blob:local-binary', 'Local attachment download uses browser Blob URL');
 	equal(attachStore.getSelectionZipUrl([attach]), 'blob:local-zip', 'Selected local attachments use browser ZIP');
@@ -320,30 +325,30 @@ async function testCore(context) {
 	equal(attachStore.getInlineImageUrl(attach), attach.localContent.inlineUrl, 'Local inline images resolve without server fetch');
 	attach.getInlineImageUrl = () => attachStore.getInlineImageUrl(attach);
 	const message = new Record(); message.getAttachmentStore = () => attachStore; message.getMessageAction = () => undefined;
-	const inline = context.Zarafa.core.data.IPMRecord.inlineImgOutlookToZarafa;
+	const inline = context.Grommunio.core.data.IPMRecord.inlineImgOutlookToGrommunio;
 	equal(inline.call(message, '<img src="cid:picture"><img src="cid:missing">'), '<img src="data:image/png;base64,AA=="><img src="">', 'Core CID replacement uses only exact local attachments and suppresses missing CID');
 	attachStore.getRange = () => [attach, attach];
 	equal(inline.call(message, '<img src="cid:picture">'), '<img src="">', 'Ambiguous duplicate CID is not rendered');
 	const advisory = new Record({pgp: {advisory: true, unverifiable: true, mime: ''}, entryid: 'e1', store_entryid: 's1'});
 	advisory.getAttachmentStore = () => ({getRange() { throw new Error('Advisory records must use the server inline-image path'); }});
 	advisory.getMessageAction = () => undefined;
-	context.Zarafa.core.HTMLParser.inlineImgOutlookToZarafa = (body, store, entryid) => body.replace('cid:', 'server:' + store + ':' + entryid + ':');
+	context.Grommunio.core.HTMLParser.inlineImgOutlookToGrommunio = (body, store, entryid) => body.replace('cid:', 'server:' + store + ':' + entryid + ':');
 	equal(inline.call(advisory, '<img src="cid:picture">'), '<img src="server:s1:e1:picture">', 'Advisory OpenPGP records keep the server inline-image path');
-	equal(context.Zarafa.core.data.IPMAttachmentRecord.canBeImported.call(attach), false, 'Local decrypted attachment cannot trigger server-side import');
-	equal(context.Zarafa.core.data.IPMAttachmentRecord.isUploaded.call(attach), true, 'Usable browser attachment recognized without upload');
+	equal(context.Grommunio.core.data.IPMAttachmentRecord.canBeImported.call(attach), false, 'Local decrypted attachment cannot trigger server-side import');
+	equal(context.Grommunio.core.data.IPMAttachmentRecord.isUploaded.call(attach), true, 'Usable browser attachment recognized without upload');
 	attach.localContent.blob = null;
-	equal(context.Zarafa.core.data.IPMAttachmentRecord.isUploaded.call(attach), false, 'Locked browser attachment no longer usable');
-	context.Zarafa.mail = {};
+	equal(context.Grommunio.core.data.IPMAttachmentRecord.isUploaded.call(attach), false, 'Locked browser attachment no longer usable');
+	context.Grommunio.mail = {};
 	const uploadWindow = {setTimeout, clearTimeout, File: class {constructor(parts, name, options) { this.parts = parts; this.name = name; this.type = options.type; }},
 		DataTransfer: class {constructor() { this.files = []; this.items = {add: file => this.files.push(file)}; }}};
-	context.Zarafa.core.BrowserWindowMgr = {getActive: () => uploadWindow};
+	context.Grommunio.core.BrowserWindowMgr = {getActive: () => uploadWindow};
 	context.Ext.util = {Format: {htmlEncode: value => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}};
-	vm.runInContext(fs.readFileSync(path.resolve(__dirname, '../../../client/zarafa/mail/MailContextModel.js'), 'utf8'), context, {filename: 'MailContextModel.js'});
+	vm.runInContext(fs.readFileSync(path.resolve(__dirname, '../../../client/grommunio/mail/MailContextModel.js'), 'utf8'), context, {filename: 'MailContextModel.js'});
 	const responseRecord = new Record({html_body: '<img src="blob:source"><img src="data:image/png;base64,AA==">'});
 	const uploadEvents = responseRecord.attachments;
 	const uploadRecord = new Record({attach_num: -1, tmpname: 'response-cache'});
-	uploadRecord.setInline = context.Zarafa.core.data.IPMAttachmentRecord.setInline;
-	uploadRecord.isInline = context.Zarafa.core.data.IPMAttachmentRecord.isInline;
+	uploadRecord.setInline = context.Grommunio.core.data.IPMAttachmentRecord.setInline;
+	uploadRecord.isInline = context.Grommunio.core.data.IPMAttachmentRecord.isInline;
 	uploadRecord.getInlineImageUrl = () => 'http://x/dl?tmpname=response-cache';
 	let uploadedFile;
 	uploadEvents.canUploadFiles = () => true;
@@ -355,7 +360,7 @@ async function testCore(context) {
 	};
 	const sourceAttachment = new Record({name: 'inline.png', cid: 'response-cid', hidden: true, filetype: 'image/png'});
 	sourceAttachment.localContent = {blob: new Blob([Uint8Array.of(0, 255, 65)]), url: 'blob:source', inlineUrl: 'data:image/png;base64,AA=='};
-	const uploadResponse = context.Zarafa.mail.MailContextModel.uploadLocalResponseAttachment;
+	const uploadResponse = context.Grommunio.mail.MailContextModel.uploadLocalResponseAttachment;
 	equal(await uploadResponse.call({}, responseRecord, sourceAttachment, true), uploadRecord, 'Reply/forward local upload correlates the exact completed record');
 	check(uploadRecord.isInline() && uploadRecord.get('cid') === 'response-cid' && uploadRecord.get('hidden'), 'Reply/forward helper restores inline state and CID after upload');
 	equal(responseRecord.get('html_body'), '<img src="http://x/dl?tmpname=response-cache&amp;attachCid=response-cid"><img src="http://x/dl?tmpname=response-cache&amp;attachCid=response-cid">', 'Reply/forward HTML points quoted images at the uploaded copy with the CID the save path restores');
@@ -367,15 +372,15 @@ async function testCore(context) {
 }
 
 function testProtectedMessageRendering(context) {
-	context.Zarafa.common = {ui: {messagepanel: {}}};
-	context.Zarafa.core.KeyMapMgr = {deactivate() {}, activate() {}};
+	context.Grommunio.common = {ui: {messagepanel: {}}};
+	context.Grommunio.core.KeyMapMgr = {deactivate() {}, activate() {}};
 	Object.assign(context.Ext, {reg() {}, isFunction: value => typeof value === 'function',
 		Element: class {constructor(document) { this.dom = document; }}, defer: callback => callback(), EventManager: {on() {}}});
 	context.container.getServerConfig = () => ({getDOMPurifyEnabled: () => true});
-	vm.runInContext(fs.readFileSync(path.resolve(__dirname, '../../../client/zarafa/common/ui/messagepanel/MessageBody.js'), 'utf8'), context, {filename: 'MessageBody.js'});
+	vm.runInContext(fs.readFileSync(path.resolve(__dirname, '../../../client/grommunio/common/ui/messagepanel/MessageBody.js'), 'utf8'), context, {filename: 'MessageBody.js'});
 	const renderedBody = {innerHTML: '', querySelectorAll: () => []};
 	const iframeDocument = {body: renderedBody, getElementsByTagName: tag => tag === 'body' ? [renderedBody] : []};
-	const component = Object.assign({}, context.Zarafa.common.ui.messagepanel.MessageBody, {
+	const component = Object.assign({}, context.Grommunio.common.ui.messagepanel.MessageBody, {
 		getEl: () => ({dom: {contentWindow: {document: iframeDocument}}}),
 		plaintextTemplate: {applyTemplate: data => '<pre>' + data.body + '</pre>'},
 		addCSSText() {}, setImageClickHandler() {}, deferLinkification() {}, recordComponentUpdaterPlugin: {}});

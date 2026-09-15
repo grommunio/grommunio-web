@@ -1,4 +1,12 @@
 <?php
+
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 include BASE_PATH . 'server/includes/loader.php';
 include BASE_PATH . 'server/includes/templates/serverinfo.php';
 
@@ -44,7 +52,7 @@ echo Theming::getStyles($theme);
 ?>
 	</head>
 
-	<body class="zarafa-welcome theme-<?php echo strtolower((string) $theme ?: 'basic'); ?>">
+	<body class="grommunio-welcome theme-<?php echo strtolower((string) $theme ?: 'basic'); ?>">
 		<div id="loading-mask" role="status" aria-label="<?php echo _("Loading"); ?>">
 			<div id="form-container" class="loading" style="visibility: hidden;">
 				<div id="bg"></div>
@@ -72,7 +80,7 @@ echo Theming::getStyles($theme);
 			version 		= <?php echo json_encode($versionInfo); ?>;
 			serverconfig 		= <?php echo json_encode($serverConfig); ?>;
 
-			Ext.onReady(Zarafa.loadWelcome, Zarafa);
+			Ext.onReady(Grommunio.loadWelcome, Grommunio);
 		</script>
 	</body>
 </html>

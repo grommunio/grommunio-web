@@ -1,0 +1,47 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.core.mapi');
+
+/**
+ * @class Grommunio.core.mapi.TaskAcceptanceState
+ * @extends Grommunio.core.Enum
+ * @singleton
+ *
+ * The TaskAcceptanceState property indicates the acceptance state of the task.
+ */
+Grommunio.core.mapi.TaskAcceptanceState = Grommunio.core.Enum.create({
+	/**
+	 * Denotes that the task object is not assigned.
+	 * @property
+	 * @type Number
+	 */
+	'NOT_DELEGATED': 0 ,
+
+	/**
+	 * Denotes that the Task object's acceptance status is unknown.
+	 * @property
+	 * @type Number
+	 */
+	'DELEGATION_UNKNOWN': 1,
+
+	/**
+	 * Denotes that the task assignee has accepted the Task object.
+	 * This value is set when the client processes a task acceptance.
+	 * @property
+	 * @type Number
+	 */
+	'DELEGATION_ACCEPTED': 2,
+
+	/**
+	 * Denotes that The task assignee has rejected the Task object.
+	 * This value is set when the client processes a task rejection.
+	 * @property
+	 * @type Number
+	 */
+	'DELEGATION_DECLINED': 3
+});

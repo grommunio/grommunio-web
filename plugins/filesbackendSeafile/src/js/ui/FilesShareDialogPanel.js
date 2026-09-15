@@ -1,15 +1,20 @@
-Ext.namespace('Zarafa.plugins.files.backend.Seafile.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.backend.Seafile.ui');
 
 /**
  * Dialog that exposes Seafile specific sharing capabilities to the Files plugin.
  * It mirrors the structure of the ownCloud backend dialog so that translations
  * and widget bindings stay familiar to administrators.
  *
- * @class Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel
- * @extends Zarafa.plugins.files.ui.dialogs.SharePanel
+ * @class Grommunio.plugins.files.backend.Seafile.ui.FilesShareDialogPanel
+ * @extends Grommunio.plugins.files.ui.dialogs.SharePanel
  */
-Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
-	Zarafa.plugins.files.ui.dialogs.SharePanel,
+Grommunio.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
+	Grommunio.plugins.files.ui.dialogs.SharePanel,
 	{
 		loadMask: undefined,
 		passwordChanged: false,
@@ -31,7 +36,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 				? ownerRecord.get('folder_id')
 				: ownerRecord.get('id');
 			this.parentRecord = ownerRecord;
-			Zarafa.plugins.files.backend.Seafile.data.singleton.ShareStore.init(
+			Grommunio.plugins.files.backend.Seafile.data.singleton.ShareStore.init(
 				recordType,
 			);
 			this.setupGridStoreListeners();
@@ -192,7 +197,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 					scope: this,
 				},
 			});
-			Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Seafile.ui.FilesShareDialogPanel.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -202,7 +207,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 		 */
 		setupGridStoreListeners: function () {
 			var store =
-				Zarafa.plugins.files.backend.Seafile.data.singleton.ShareStore.getStore();
+				Grommunio.plugins.files.backend.Seafile.data.singleton.ShareStore.getStore();
 			store.on('add', this.onGridStoreAdd, this);
 			store.on('update', this.onGridStoreUpdate, this);
 			store.on('remove', this.onGridStoreRemove, this);
@@ -351,7 +356,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 		 */
 		closeDialog: function () {
 			var e =
-				Zarafa.plugins.files.backend.Seafile.data.singleton.ShareStore.getStore();
+				Grommunio.plugins.files.backend.Seafile.data.singleton.ShareStore.getStore();
 			e.un('update', this.onGridStoreUpdate, this);
 			e.un('remove', this.onGridStoreRemove, this);
 			this.dialog.close();
@@ -382,7 +387,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 			if (Ext.isDefined(this.parentRecord)) {
 				if (
 					this.parentRecord.get('type') ===
-					Zarafa.plugins.files.data.FileTypes.FOLDER
+					Grommunio.plugins.files.data.FileTypes.FOLDER
 				) {
 					this.editcheckbox.show();
 				}
@@ -403,7 +408,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 				{
 					records: e,
 				},
-				new Zarafa.plugins.files.backend.Seafile.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Seafile.data.ResponseHandler({
 					successCallback: this.initGuiFromSharedRecord.createDelegate(this),
 				}),
 			);
@@ -417,7 +422,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 				var a = t[i];
 				if (
 					a.shareType ===
-					Zarafa.plugins.files.backend.Seafile.data.RecipientTypes.LINK
+					Grommunio.plugins.files.backend.Seafile.data.RecipientTypes.LINK
 				) {
 					this.linkShareID = i;
 					this.linkfieldset.show();
@@ -443,13 +448,13 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 					}
 				} else if (
 					a.shareType ===
-					Zarafa.plugins.files.backend.Seafile.data.RecipientTypes.GROUP
+					Grommunio.plugins.files.backend.Seafile.data.RecipientTypes.GROUP
 				) {
-					Zarafa.plugins.files.backend.Seafile.data.singleton.ShareStore.addGroup(
+					Grommunio.plugins.files.backend.Seafile.data.singleton.ShareStore.addGroup(
 						a,
 					);
 				} else {
-					Zarafa.plugins.files.backend.Seafile.data.singleton.ShareStore.addUser(
+					Grommunio.plugins.files.backend.Seafile.data.singleton.ShareStore.addUser(
 						a,
 					);
 				}
@@ -465,7 +470,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 			var e = [this.recordId];
 			var t = {
 				shareType:
-					Zarafa.plugins.files.backend.Seafile.data.RecipientTypes.LINK,
+					Grommunio.plugins.files.backend.Seafile.data.RecipientTypes.LINK,
 			};
 			container.getRequest().singleRequest(
 				'filesbrowsermodule',
@@ -474,7 +479,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 					records: e,
 					options: t,
 				},
-				new Zarafa.plugins.files.backend.Seafile.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Seafile.data.ResponseHandler({
 					successCallback: this.shareByLinkCreated.createDelegate(this),
 					failureCallback: this.closeDialog.createDelegate(this),
 				}),
@@ -507,7 +512,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 					records: [e],
 					accountid: t,
 				},
-				new Zarafa.plugins.files.backend.Seafile.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Seafile.data.ResponseHandler({
 					successCallback: this.shareByIDRemoved.createDelegate(
 						this,
 						[e],
@@ -542,8 +547,8 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 			var s = {
 				shareType:
 					e.get('type') === 'user'
-						? Zarafa.plugins.files.backend.Seafile.data.RecipientTypes.USER
-						: Zarafa.plugins.files.backend.Seafile.data.RecipientTypes.GROUP,
+						? Grommunio.plugins.files.backend.Seafile.data.RecipientTypes.USER
+						: Grommunio.plugins.files.backend.Seafile.data.RecipientTypes.GROUP,
 				shareWith: e.get('shareWith'),
 				permissions: a,
 				shareWithDisplayname: e.get('shareWithDisplayname'),
@@ -555,7 +560,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 					records: i,
 					options: s,
 				},
-				new Zarafa.plugins.files.backend.Seafile.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Seafile.data.ResponseHandler({
 					successCallback: this.shareCreated.createDelegate(this, [s, e], true),
 					failureCallback: this.shareFailed.createDelegate(this, [t, e]),
 				}),
@@ -621,7 +626,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 					accountid: this.parentRecord.getAccount().get('id'),
 					options: t,
 				},
-				new Zarafa.plugins.files.backend.Seafile.data.ResponseHandler({
+				new Grommunio.plugins.files.backend.Seafile.data.ResponseHandler({
 					successCallback: this.shareByLinkUpdated.createDelegate(this, [e]),
 					failureCallback: this.closeLoadMask.createDelegate(this),
 				}),
@@ -659,5 +664,5 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel = Ext.extend(
 );
 Ext.reg(
 	'filesplugin.seafile.filessharedialogpanel',
-	Zarafa.plugins.files.backend.Seafile.ui.FilesShareDialogPanel,
+	Grommunio.plugins.files.backend.Seafile.ui.FilesShareDialogPanel,
 );

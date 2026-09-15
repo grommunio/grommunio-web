@@ -1,0 +1,67 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.mail.data');
+
+/**
+ * @class Grommunio.mail.data.ViewModes
+ * @extends Grommunio.core.Enum
+ *
+ * Enum containing the different viewing modes of the mail context.
+ *
+ * @singleton
+ */
+Grommunio.mail.data.ViewModes = Grommunio.core.Enum.create({
+	/**
+	 * Don't show the preview panel
+	 * @property
+	 * @type Number
+	 */
+	NO_PREVIEW: 0,
+
+	/**
+	 * Show the preview panel to the right
+	 * @property
+	 * @type Number
+	 */
+	RIGHT_PREVIEW: 1,
+
+	/**
+	 * Show the preview panel in the bottom
+	 * @property
+	 * @type Number
+	 */
+	BOTTOM_PREVIEW: 2,
+
+	/**
+	 * Show the search results
+	 * @property
+	 * @type Number
+	 */
+	SEARCH: 3,
+
+	/**
+	 * Show the live scroll results
+	 * @property
+	 * @type Number
+	 */
+	LIVESCROLL: 4,
+
+	/**
+	 * Function was used to check that current view mode
+	 * was one of the view mode from {@link #NO_PREVIEW},
+	 * {@link #RIGHT_PREVIEW} and {@link #BOTTOM_PREVIEW}.
+	 *
+	 * @param {Grommunio.mail.data.ViewModes} viewMode the viewMode which currently selected.
+	 * @return return true if current view mode is {@link #NO_PREVIEW}, {@link #RIGHT_PREVIEW}
+	 * and {@link #BOTTOM_PREVIEW} else return false.
+	 */
+	isMainViewMode: function(viewMode)
+	{
+		return viewMode === this.NO_PREVIEW || viewMode === this.RIGHT_PREVIEW || viewMode === this.BOTTOM_PREVIEW;
+	}
+});

@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.settings.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.settings.ui');
 
 /**
- * @class Zarafa.plugins.files.settings.ui.FeatureVersionInfoPanel
+ * @class Grommunio.plugins.files.settings.ui.FeatureVersionInfoPanel
  * @extends Ext.Panel
  * @xtype filesplugin.featureversioninfopanel
  *
- * Will generate UI for {@link Zarafa.plugins.files.settings.ui.FeatureVersionInfoContentPanel FeatureVersionInfoContentPanel}.
+ * Will generate UI for {@link Grommunio.plugins.files.settings.ui.FeatureVersionInfoContentPanel FeatureVersionInfoContentPanel}.
  */
-Zarafa.plugins.files.settings.ui.FeatureVersionInfoPanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.files.settings.ui.FeatureVersionInfoPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * @cfg {Object} The current loaded account record.
@@ -36,7 +41,7 @@ Zarafa.plugins.files.settings.ui.FeatureVersionInfoPanel = Ext.extend(Ext.Panel,
 			}]
 		});
 
-		Zarafa.plugins.files.settings.ui.FeatureVersionInfoPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.settings.ui.FeatureVersionInfoPanel.superclass.constructor.call(this, config);
 
 		this.doReload();
 	},
@@ -52,7 +57,7 @@ Zarafa.plugins.files.settings.ui.FeatureVersionInfoPanel = Ext.extend(Ext.Panel,
 	 * Reload the version store.
 	 */
 	doReload: function () {
-		var responseHandler = new Zarafa.core.data.AbstractResponseHandler({
+		var responseHandler = new Grommunio.core.data.AbstractResponseHandler({
 			doGetversion: this.gotVersionValues.createDelegate(this)
 		});
 
@@ -78,7 +83,7 @@ Zarafa.plugins.files.settings.ui.FeatureVersionInfoPanel = Ext.extend(Ext.Panel,
 	},
 
 	/**
-	 * Function will create panel items for {@link Zarafa.plugins.files.settings.ui.FeatureVersionInfoPanel FeatureVersionInfoPanel}.
+	 * Function will create panel items for {@link Grommunio.plugins.files.settings.ui.FeatureVersionInfoPanel FeatureVersionInfoPanel}.
 	 *
 	 * @return {Array} array of items that should be added to panel.
 	 * @private
@@ -103,4 +108,4 @@ Zarafa.plugins.files.settings.ui.FeatureVersionInfoPanel = Ext.extend(Ext.Panel,
 	}
 });
 
-Ext.reg('filesplugin.featureversioninfopanel', Zarafa.plugins.files.settings.ui.FeatureVersionInfoPanel);
+Ext.reg('filesplugin.featureversioninfopanel', Grommunio.plugins.files.settings.ui.FeatureVersionInfoPanel);

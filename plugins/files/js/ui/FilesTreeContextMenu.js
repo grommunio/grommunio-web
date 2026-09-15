@@ -1,10 +1,15 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
 
-Zarafa.plugins.files.ui.FilesTreeContextMenu = Ext.extend(Zarafa.core.ui.menu.ConditionalMenu, {
+Ext.namespace('Grommunio.plugins.files.ui');
+
+Grommunio.plugins.files.ui.FilesTreeContextMenu = Ext.extend(Grommunio.core.ui.menu.ConditionalMenu, {
 	/**
-	 * The {@link Zarafa.plugins.files.FilesContextModel} which is obtained from the {@link #context}.
+	 * The {@link Grommunio.plugins.files.FilesContextModel} which is obtained from the {@link #context}.
 	 * @property
-	 * @type Zarafa.plugins.files.FilesContextModel
+	 * @type Grommunio.plugins.files.FilesContextModel
 	 */
 	model: undefined,
 
@@ -25,7 +30,7 @@ Zarafa.plugins.files.ui.FilesTreeContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 			]
 		});
 
-		Zarafa.plugins.files.ui.FilesTreeContextMenu.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.FilesTreeContextMenu.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -34,13 +39,13 @@ Zarafa.plugins.files.ui.FilesTreeContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 	 */
 	createContextActionItems: function () {
 		return [{
-			xtype     : 'zarafa.conditionalitem',
+			xtype     : 'grommunio.conditionalitem',
 			text      : _('New Folder'),
 			iconCls   : 'files_icon_action files_icon_action_new_folder',
 			handler   : this.onContextItemNewFolder,
 			scope     : this
 		},{
-			xtype     : 'zarafa.conditionalitem',
+			xtype     : 'grommunio.conditionalitem',
 			text      : _('Refresh'),
 			iconCls   : 'files_icon_action icon_cache',
 			handler   : this.onContextItemRefresh,
@@ -48,7 +53,7 @@ Zarafa.plugins.files.ui.FilesTreeContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 			name      : "refresh",
 			scope     : this
 		},{
-			xtype     : 'zarafa.conditionalitem',
+			xtype     : 'grommunio.conditionalitem',
 			text      : _('Rename'),
 			iconCls   : 'files_icon_action files_icon_action_edit',
 			handler   : this.onContextItemRename,
@@ -56,7 +61,7 @@ Zarafa.plugins.files.ui.FilesTreeContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 			beforeShow: this.onBeforeShowItem,
 			scope     : this
 		}, {
-			xtype     : 'zarafa.conditionalitem',
+			xtype     : 'grommunio.conditionalitem',
 			text      : _('Delete'),
 			iconCls   : 'files_icon_action files_icon_action_delete',
 			name      : "delete",
@@ -71,12 +76,12 @@ Zarafa.plugins.files.ui.FilesTreeContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 	 * context menu item show.
 	 *
 	 * @param {Ext.Button} item The item which is going to show.
-	 * @param {Zarafa.plugins.files.data.FilesFolderRecord} record The folder record on which
+	 * @param {Grommunio.plugins.files.data.FilesFolderRecord} record The folder record on which
 	 * this context menu item shows.
 	 */
 	onBeforeShowItem : function (item, record)
 	{
-		var path = Zarafa.plugins.files.data.Utils.File.stripAccountId(record.get('folder_id'));
+		var path = Grommunio.plugins.files.data.Utils.File.stripAccountId(record.get('folder_id'));
 
 		if (item.name === "refresh") {
 			item.setVisible(path === "/");
@@ -87,7 +92,7 @@ Zarafa.plugins.files.ui.FilesTreeContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 
 	/**
 	 * Handler called when "Refresh" button is pressed.
-	 * it will reload the {@link Zarafa.plugins.files.ui.NavigatorTreePanel NavigatorTreePanel}.
+	 * it will reload the {@link Grommunio.plugins.files.ui.NavigatorTreePanel NavigatorTreePanel}.
 	 */
 	onContextItemRefresh: function()
 	{
@@ -96,30 +101,30 @@ Zarafa.plugins.files.ui.FilesTreeContextMenu = Ext.extend(Zarafa.core.ui.menu.Co
 
 	/**
 	 * Handler called when "Delete" button is pressed.
-	 * it will delete the folder from {@link Zarafa.plugins.files.ui.NavigatorTreePanel NavigatorTreePanel}.
+	 * it will delete the folder from {@link Grommunio.plugins.files.ui.NavigatorTreePanel NavigatorTreePanel}.
 	 */
 	onContextItemDelete: function ()
 	{
-		Zarafa.plugins.files.data.Actions.deleteRecords(this.records);
+		Grommunio.plugins.files.data.Actions.deleteRecords(this.records);
 	},
 
 	/**
 	 * Handler called when "New Folder" button is pressed.
-	 * It will open the {@link Zarafa.plugins.files.ui.dialogs.CreateFolderContentPanel CreateFolderContentPanel}
+	 * It will open the {@link Grommunio.plugins.files.ui.dialogs.CreateFolderContentPanel CreateFolderContentPanel}
 	 */
 	onContextItemNewFolder: function ()
 	{
-		Zarafa.plugins.files.data.Actions.createFolder(this.model, undefined, this.records);
+		Grommunio.plugins.files.data.Actions.createFolder(this.model, undefined, this.records);
 	},
 
 	/**
 	 * Handler called when "Rename" button is pressed.
-	 * It is used to rename the folder of {@link Zarafa.plugins.files.ui.NavigatorTreePanel NavigatorTreePanel}.
+	 * It is used to rename the folder of {@link Grommunio.plugins.files.ui.NavigatorTreePanel NavigatorTreePanel}.
 	 */
 	onContextItemRename: function ()
 	{
-		Zarafa.plugins.files.data.Actions.openRenameDialog(this.records);
+		Grommunio.plugins.files.data.Actions.openRenameDialog(this.records);
 	}
 });
 
-Ext.reg('filesplugin.filestreecontextmenu', Zarafa.plugins.files.ui.FilesTreeContextMenu);
+Ext.reg('filesplugin.filestreecontextmenu', Grommunio.plugins.files.ui.FilesTreeContextMenu);

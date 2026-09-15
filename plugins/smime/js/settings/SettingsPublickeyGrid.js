@@ -1,14 +1,19 @@
-Ext.namespace('Zarafa.plugins.smime.settings');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.smime.settings');
 
 /**
- * @class Zarafa.plugins.smime.settings.PublickeyGrid
+ * @class Grommunio.plugins.smime.settings.PublickeyGrid
  * @extends Ext.grid.GridPanel
  * @xtype smime.publickeygrid
  *
- * {@link Zarafa.plugins.smime.settings.PublickeyGrid PublickeyGrid} will be used to display
+ * {@link Grommunio.plugins.smime.settings.PublickeyGrid PublickeyGrid} will be used to display
  * public certificates of the current user.
  */
-Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
+Grommunio.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
@@ -18,7 +23,7 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 		config = config || {};
 
 		if(!config.store) {
-			config.store = new Zarafa.plugins.smime.data.SmimeCertificateStore();
+			config.store = new Grommunio.plugins.smime.data.SmimeCertificateStore();
 		}
 	
 		Ext.applyIf(config, {
@@ -38,7 +43,7 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 			}
 		});
 
-		Zarafa.plugins.smime.settings.PublickeyGrid.superclass.constructor.call(this, config);
+		Grommunio.plugins.smime.settings.PublickeyGrid.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -47,7 +52,7 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 	 */
 	initEvents : function()
 	{
-		Zarafa.plugins.smime.settings.PublickeyGrid.superclass.initEvents.call(this);
+		Grommunio.plugins.smime.settings.PublickeyGrid.superclass.initEvents.call(this);
 
 		// select first certificate when store has finished loading
 		this.mon(this.store, 'load', this.onViewReady, this, {single : true});
@@ -252,4 +257,4 @@ Zarafa.plugins.smime.settings.PublickeyGrid = Ext.extend(Ext.grid.GridPanel, {
 
 });
 
-Ext.reg('smime.publickeygrid', Zarafa.plugins.smime.settings.PublickeyGrid);
+Ext.reg('smime.publickeygrid', Grommunio.plugins.smime.settings.PublickeyGrid);

@@ -1,11 +1,16 @@
-Ext.namespace('Zarafa.plugins.smime.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.smime.data');
 
 /**
- * @class Zarafa.plugins.smime.data.SmimeCertificateRecordFields
+ * @class Grommunio.plugins.smime.data.SmimeCertificateRecordFields
  * Array of {@link Ext.data.Field field} configurations for the
- * {@link Zarafa.plugins.smime.data.SmimeCertificateRecord} object.
+ * {@link Grommunio.plugins.smime.data.SmimeCertificateRecord} object.
  */
-Zarafa.plugins.smime.data.SmimeCertificateRecordFields = [
+Grommunio.plugins.smime.data.SmimeCertificateRecordFields = [
 	{name: 'entryid', type: 'string'},
 	{name: 'type', type: 'string'}, // Public or Private
 	{name: 'issued_by', type: 'string'},
@@ -23,21 +28,21 @@ Zarafa.plugins.smime.data.SmimeCertificateRecordFields = [
 ];
 
 /**
- * @class Zarafa.plugins.smime.data.SmimeCertificateRecord
- * @extends Zarafa.core.data.IPMRecord
+ * @class Grommunio.plugins.smime.data.SmimeCertificateRecord
+ * @extends Grommunio.core.data.IPMRecord
  *
- * An extension to the {@link Zarafa.core.data.IPMRecord}.
+ * An extension to the {@link Grommunio.core.data.IPMRecord}.
  */
-Zarafa.plugins.smime.data.SmimeCertificateRecord = Ext.extend(Zarafa.core.data.IPMRecord, {});
+Grommunio.plugins.smime.data.SmimeCertificateRecord = Ext.extend(Grommunio.core.data.IPMRecord, {});
 
-Zarafa.core.data.RecordCustomObjectType.addProperty('ZARAFA_SMIME');
-Zarafa.core.data.RecordFactory.addFieldToCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_SMIME, Zarafa.plugins.smime.data.SmimeCertificateRecordFields);
-Zarafa.core.data.RecordFactory.addFieldToCustomType(Zarafa.core.data.RecordCustomObjectType.MAPI_SMIME_ATTACH, Zarafa.core.data.IPMRecordFields);
-Zarafa.core.data.RecordFactory.setSubStoreToCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_SMIME, 'attachments', Zarafa.plugins.smime.data.SmimeAttachmentStore);
-Zarafa.core.data.RecordFactory.addListenerToCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_SMIME, 'createphantom', function(record)
+Grommunio.core.data.RecordCustomObjectType.addProperty('GROMMUNIO_SMIME');
+Grommunio.core.data.RecordFactory.addFieldToCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_SMIME, Grommunio.plugins.smime.data.SmimeCertificateRecordFields);
+Grommunio.core.data.RecordFactory.addFieldToCustomType(Grommunio.core.data.RecordCustomObjectType.MAPI_SMIME_ATTACH, Grommunio.core.data.IPMRecordFields);
+Grommunio.core.data.RecordFactory.setSubStoreToCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_SMIME, 'attachments', Grommunio.plugins.smime.data.SmimeAttachmentStore);
+Grommunio.core.data.RecordFactory.addListenerToCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_SMIME, 'createphantom', function(record)
 {
 	// Phantom records must always be marked as opened (they contain the full set of data)
 	record.afterOpen();
 });
 
-Zarafa.core.data.RecordFactory.setBaseClassToCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_SMIME, Zarafa.plugins.smime.data.SmimeCertificateRecord);
+Grommunio.core.data.RecordFactory.setBaseClassToCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_SMIME, Grommunio.plugins.smime.data.SmimeCertificateRecord);

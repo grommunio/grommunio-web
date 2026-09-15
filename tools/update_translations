@@ -1,4 +1,9 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+# SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+# SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 update_translations () {
 	potfile=$1
@@ -88,7 +93,7 @@ touch $POT_FILE
 
 # Web case
 if [ -d ".git" ]; then
-	create_potfile "client/zarafa client/extjs-mod plugins"
+	create_potfile "client/grommunio client/extjs-mod plugins"
 
 	if [ -n "${newlang}" ]; then
 		new_lang "${newlang}"

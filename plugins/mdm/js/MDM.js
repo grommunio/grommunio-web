@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.mdm');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.mdm');
 
 /**
- * @class Zarafa.plugins.mdm.MDM
- * @extends Zarafa.core.Plugin
+ * @class Grommunio.plugins.mdm.MDM
+ * @extends Grommunio.core.Plugin
  *
  * Plugin which lists all devices connected to a Grommunio account with Sync.
  * The user can wipe, resync, remove a device using buttons in grommunio Web.
  */
-Zarafa.plugins.mdm.MDM = Ext.extend(Zarafa.core.Plugin, {
+Grommunio.plugins.mdm.MDM = Ext.extend(Grommunio.core.Plugin, {
 	/**
 	 * Constructor
 	 * @param {Object} config
@@ -15,10 +20,10 @@ Zarafa.plugins.mdm.MDM = Ext.extend(Zarafa.core.Plugin, {
 	 */
 	constructor : function(config) {
 		config = config || {};
-		Zarafa.plugins.mdm.MDM.superclass.constructor.call(this, config);
+		Grommunio.plugins.mdm.MDM.superclass.constructor.call(this, config);
 
 		// Module information for MDM which will use in shadow store.
-		Zarafa.core.ModuleNames["IPM.MDM"] = {
+		Grommunio.core.ModuleNames["IPM.MDM"] = {
 			list: 'pluginmdmmodule',
 			item: 'pluginmdmmodule'
 		}
@@ -33,14 +38,14 @@ Zarafa.plugins.mdm.MDM = Ext.extend(Zarafa.core.Plugin, {
 	{
 		this.registerInsertionPoint('context.settings.categories', this.createSettingCategory, this);
 		// this.registerInsertionPoint('settings.versioninformation', this.createVersionInfo, this);
-		Zarafa.core.data.SharedComponentType.addProperty('mdm.dialog.mdmdevicecontentpanel');
-		Zarafa.core.data.SharedComponentType.addProperty('mdm.dialog.mdmmanagesharedfoldercontentpanel');
-		Zarafa.plugins.mdm.MDM.superclass.initPlugin.apply(this, arguments);
+		Grommunio.core.data.SharedComponentType.addProperty('mdm.dialog.mdmdevicecontentpanel');
+		Grommunio.core.data.SharedComponentType.addProperty('mdm.dialog.mdmmanagesharedfoldercontentpanel');
+		Grommunio.plugins.mdm.MDM.superclass.initPlugin.apply(this, arguments);
 	},
 
 	/**
 	 * Bid for the type of shared component and the given record.
-	 * @param {Zarafa.core.data.SharedComponentType} type Type of component a context can bid for.
+	 * @param {Grommunio.core.data.SharedComponentType} type Type of component a context can bid for.
 	 * @param {Ext.data.Record} record Optionally passed record.
 	 * @returns {Number}
 	 */
@@ -48,8 +53,8 @@ Zarafa.plugins.mdm.MDM = Ext.extend(Zarafa.core.Plugin, {
 	{
 		var bid = -1;
 		switch (type) {
-			case Zarafa.core.data.SharedComponentType['mdm.dialog.mdmdevicecontentpanel']:
-			case Zarafa.core.data.SharedComponentType['mdm.dialog.mdmmanagesharedfoldercontentpanel']:
+			case Grommunio.core.data.SharedComponentType['mdm.dialog.mdmdevicecontentpanel']:
+			case Grommunio.core.data.SharedComponentType['mdm.dialog.mdmmanagesharedfoldercontentpanel']:
 				bid = 1;
 				break;
 		}
@@ -59,19 +64,19 @@ Zarafa.plugins.mdm.MDM = Ext.extend(Zarafa.core.Plugin, {
 	/**
 	 * Will return the reference to the shared component.
 	 * Based on the type of component requested a component is returned.
-	 * @param {Zarafa.core.data.SharedComponentType} type Type of component a context can bid for.
+	 * @param {Grommunio.core.data.SharedComponentType} type Type of component a context can bid for.
 	 * @param {Ext.data.Record} record Optionally passed record.
-	 * @return {Zarafa.plugins.mdm.dialogs.MDMDeviceDetailsContentPanel} Component
+	 * @return {Grommunio.plugins.mdm.dialogs.MDMDeviceDetailsContentPanel} Component
 	 */
 	getSharedComponent : function (type, record)
 	{
 		var component;
 		switch (type) {
-			case Zarafa.core.data.SharedComponentType['mdm.dialog.mdmdevicecontentpanel']:
-				component = Zarafa.plugins.mdm.dialogs.MDMDeviceContentPanel;
+			case Grommunio.core.data.SharedComponentType['mdm.dialog.mdmdevicecontentpanel']:
+				component = Grommunio.plugins.mdm.dialogs.MDMDeviceContentPanel;
 				break;
-			case Zarafa.core.data.SharedComponentType['mdm.dialog.mdmmanagesharedfoldercontentpanel']:
-				component = Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderContentPanel;
+			case Grommunio.core.data.SharedComponentType['mdm.dialog.mdmmanagesharedfoldercontentpanel']:
+				component = Grommunio.plugins.mdm.dialogs.MDMManageSharedFolderContentPanel;
 				break;
 		}
 		return component;
@@ -84,7 +89,7 @@ Zarafa.plugins.mdm.MDM = Ext.extend(Zarafa.core.Plugin, {
 	 */
 	createSettingCategory: function() {
 		return [{
-			xtype : 'Zarafa.plugins.mdm.mdmsettingscategory'
+			xtype : 'Grommunio.plugins.mdm.mdmsettingscategory'
 		}];
 	},
 
@@ -92,7 +97,7 @@ Zarafa.plugins.mdm.MDM = Ext.extend(Zarafa.core.Plugin, {
 	 * Creates a displayField that will show the version of the Grommunio Sync
 	 */
 	createVersionInfo : function() {
-		var version = container.getSettingsModel().get('zarafa/v1/plugins/mdm/zpush-server-version', true);
+		var version = container.getSettingsModel().get('grommunio/v1/plugins/mdm/zpush-server-version', true);
 		return {
 			fieldLabel : _('grommunio-sync'),
 			value : version
@@ -101,10 +106,10 @@ Zarafa.plugins.mdm.MDM = Ext.extend(Zarafa.core.Plugin, {
 
 });
 
-Zarafa.onReady(function() {
-	container.registerPlugin(new Zarafa.core.PluginMetaData({
+Grommunio.onReady(function() {
+	container.registerPlugin(new Grommunio.core.PluginMetaData({
 		name : 'mdm',
 		displayName : _('Mobile device management'),
-		pluginConstructor : Zarafa.plugins.mdm.MDM
+		pluginConstructor : Grommunio.plugins.mdm.MDM
 	}));
 });

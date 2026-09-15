@@ -1,12 +1,19 @@
-Ext.namespace('Zarafa.plugins.passwd.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.passwd.data');
 
 /**
- * @class Zarafa.plugins.passwd.data.ResponseHandler
- * @extends Zarafa.core.data.AbstractResponseHandler
+ * @class Grommunio.plugins.passwd.data.ResponseHandler
+ * @extends Grommunio.core.data.AbstractResponseHandler
  *
  * Passwd plugin specific response handler.
  */
-Zarafa.plugins.passwd.data.PasswdResponseHandler = Ext.extend(Zarafa.core.data.AbstractResponseHandler, {
+Grommunio.plugins.passwd.data.PasswdResponseHandler = Ext.extend(Grommunio.core.data.AbstractResponseHandler, {
 
 	/**
 	 * @cfg {Function} callbackFn The function which will be called after success/failure response.

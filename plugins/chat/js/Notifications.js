@@ -1,4 +1,9 @@
-Ext.namespace('Zarafa.plugins.chat');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.chat');
 
 /**
  * This object is used to relay browser notifications from the Chat iframe
@@ -6,7 +11,7 @@ Ext.namespace('Zarafa.plugins.chat');
  * and activated.
  * @type {Object}
  */
-Zarafa.plugins.chat.Notifications = {
+Grommunio.plugins.chat.Notifications = {
 	/**
 	 * Reference to the iframe element where Chat is loaded
 	 * @type {HTMLElement}

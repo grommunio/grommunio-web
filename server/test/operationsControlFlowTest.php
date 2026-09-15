@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 defined('BASE_PATH') || define('BASE_PATH', dirname(__DIR__, 2) . '/');
 if (!class_exists('SQLite3')) {
 	class SQLite3 {}
@@ -9,7 +14,7 @@ require_once dirname(__DIR__) . '/includes/core/class.operations.php';
 if (!class_exists('BaseException')) {
 	class BaseException extends Exception {}
 }
-require_once dirname(__DIR__) . '/includes/exceptions/class.ZarafaException.php';
+require_once dirname(__DIR__) . '/includes/exceptions/class.GrommunioException.php';
 require_once dirname(__DIR__) . '/includes/modules/class.module.php';
 require_once dirname(__DIR__) . '/includes/modules/class.listmodule.php';
 require_once dirname(__DIR__) . '/includes/modules/class.appointmentlistmodule.php';

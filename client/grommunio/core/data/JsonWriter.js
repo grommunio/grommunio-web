@@ -1,0 +1,263 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.core.data');
+
+/**
+ * @class Grommunio.core.data.JsonWriter
+ * @extends Ext.data.JsonWriter
+ */
+Grommunio.core.data.JsonWriter = Ext.extend(Ext.data.JsonWriter, {
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		Ext.applyIf(config, {
+			writeAllFields: false,
+			// FIXME: Disable automatic encoding for now,
+			// the MAPIProxy needs an individual encoded string
+			// for each record in the request. We might want to
+			// fix this in the future though.
+			encode: false
+		});
+
+		Grommunio.core.data.JsonWriter.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Render the data in the data object which will be {@link Ext.encode encoded}
+	 * and send over the protocol to the server after this function call. During
+	 * rendering all {@link Date date} objects will be converted to UNIX timestamps.
+	 * This will prevent ExtJs/JSON specific encoding functions to convert the
+	 * date object into a "YYYY-MM-DDTHH:MM:SS" timestring.
+	 * @param {Object/Array} data The object which musted be rendered
+	 * @private
+	 */
+	renderData: function(data)
+	{
+		if (Array.isArray(data)) {
+			for (var i = 0, len = data.length; i < len; i++) {
+				this.renderData(data[i]);
+			}
+			return;
+		}
+
+		Ext.iterate(data, function(key, value) {
+			if (Ext.isDate(value)) {
+				data[key] = Math.floor(value.getTime() / 1000);
+			}
+			if (Ext.isObject(value)) {
+				this.renderData(value);
+			}
+		}, this);
+	},
+
+	/**
+	 * Final action of a write event. Apply the written data-object to params.
+	 * This function is extended from {@link Ext.data.JsonWriter Extjs}, to use
+	 * {@link #renderData} to add some extra data conversions before encoding
+	 * the data by {@link Ext.encode Ext.encode}.
+	 * @param {Object} http params-object to write-to.
+	 * @param {Object} baseParams as defined by {@link Ext.data.Store#baseParams}.
+	 * The baseParms must be encoded by the extending class, eg: {@link Ext.data.JsonWriter}, {@link Ext.data.XmlWriter}.
+	 * @param {Object/Object[]} data Data-object representing compiled Store-recordset.
+	 */
+	render: function(params, baseParams, data)
+	{
+		// Apply the parameters into the data object, this allows
+		// optional data to be send to the server.
+		Ext.apply(data, baseParams, params);
+
+		// Apply special rendering to convert all objects
+		this.renderData(data);
+		Grommunio.core.data.JsonWriter.superclass.render.call(this, params, baseParams, data);
+	},
+
+	/**
+	 * Adds special function for serialization needed when opening
+	 * a record. We can use the default {@link Grommunio.core.data.JsonWriter.toIdHash toIdHash}
+	 * function.
+	 *
+	 * @param {Ext.data.Record} record
+	 * @return {Object}
+	 * @private
+	 */
+	openRecord: function(record)
+	{
+		return this.toIdHash(record);
+	},
+
+	/**
+	 * Rather then using the regular {@link Ext.data.JsonWriter#toHash toHash}
+	 * function, this will use the specialized {@link Grommunio.core.data.JsonWriter#toPropHash toPropHash}
+	 * function.
+	 *
+	 * @param {Ext.data.Record} record
+	 * @return {Object}
+	 * @override
+	 * @private
+	 */
+	createRecord: function(record)
+	{
+		return this.toPropHash(record);
+	},
+
+	/**
+	 * Rather then using the regular {@link Ext.data.JsonWriter#toHash toHash}
+	 * function, this will use the specialized {@link Grommunio.core.data.JsonWriter#toPropHash toPropHash}
+	 * function.
+	 *
+	 * @param {Ext.data.Record} record
+	 * @return {Object}
+	 * @override
+	 * @private
+	 */
+	updateRecord: function(record)
+	{
+		return this.toPropHash(record);
+	},
+
+	/**
+	 * Use the {@link Grommunio.core.data.JsonWriter#toIdHash toIdHash} function for creating the hash.
+	 *
+	 * @param {Ext.data.Record} record
+	 * @return {Object}
+	 * @override
+	 * @private
+	 */
+	destroyRecord: function(record)
+	{
+		return this.toIdHash(record);
+	},
+
+	/**
+	 * Similar to {@link Ext.data.JsonWriter#toHash}
+	 *
+	 * This will limit the serialization to only the ID properties and message
+	 * action commands for the given {@link Grommunio.core.data.IPMRecord record}.
+	 *
+	 * @param {Ext.data.Record} record The record to hash
+	 * @param {Boolean} allowEmpty True to allow empty ID elements to be send
+	 * @return {Object} The hashed object
+	 * @private
+	 */
+	toIdHash: function(record, allowEmpty)
+	{
+		var hash = {};
+
+		Ext.each(record.getIdProps(), function(idProp) {
+			var id = record.get(idProp);
+			if (allowEmpty || Ext.isDefined(id)) {
+				hash[idProp] = id;
+			}
+		}, this);
+
+		this.addMessageActionsHash(hash, record);
+		hash.timezone_iana = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+		return hash;
+	},
+
+	/**
+	 * Similar to {@link Ext.data.JsonWriter#toHash}
+	 *
+	 * Besides serializing the data itself, it will insert
+	 * the recipients, attachments and message action commands
+	 * into the object data.
+	 *
+	 * @param {Ext.data.Record} record The record to hash
+	 * @return {Object} The hashed object
+	 * @private
+	 */
+	toPropHash: function(record)
+	{
+		var hash = this.toIdHash(record, false);
+
+		// FIXME: How to pass on deleted properties?
+		hash.props = this.toHash(record);
+
+		// FIXME: remove identification entryids from props,
+		// in the future Extjs will support the 'config'
+		// argument to toHash which we can use the filter
+		// out the ID properties...
+		this.removeIdHashFromProps(hash, record);
+
+		// Add additional information from the subStores into the hash
+		for (var key in record.subStores) {
+			if (record.supportsSubStore(key) === true) {
+				var store = record.subStores[key];
+
+				if (store && store.writer) {
+					Ext.apply(hash, store.writer.toPropHash(record));
+				}
+			}
+		}
+
+		this.addMessageActionsHash(hash, record);
+
+		// A protected read view is transient browser data, not a message edit.
+		// In particular, mark-read, flags and categories must never persist its
+		// locally decrypted body, attachment metadata or security-status MIME.
+		if (record.get('pgp') && record.isUnsent && !record.isUnsent()) {
+			['body', 'html_body', 'isHTML', 'hasattach', 'pgp'].forEach(function(name) { delete hash.props[name]; });
+			delete hash.attachments;
+		}
+
+		return hash;
+	},
+
+	/**
+	 * remove additional identification properties from the props using the
+	 * {@link Grommunio.core.data.JsonWriter.idProperties idProperties}
+	 * field.
+	 *
+	 * @param {Object} hash The hash into which the identification fields must be added
+	 * @param {Grommunio.core.data.IPMrecord} record The record to serialize from
+	 * @private
+	 */
+	removeIdHashFromProps: function(hash, record)
+	{
+		Ext.each(record.getIdProps(), function(idProp) {
+			if (Ext.isDefined(hash.props) && Ext.isDefined(hash.props[idProp])) {
+				delete hash.props[idProp];
+			}
+		}, this);
+	},
+
+	/**
+	 * Add message actions into the hash. Message actions are not properties
+	 * which come from the server, but are used to add an additional action
+	 * instruction for the server to perform. As such the action needs to
+	 * be serialized separately into the hash object.
+	 *
+	 * @param {Object} hash The hash into which the message actions must be added
+	 * @param {Grommunio.core.data.IPMrecord} record The record to serialize from
+	 * @private
+	 */
+	addMessageActionsHash: function(hash, record)
+	{
+		var actions = record.getMessageActions();
+		var message_action = {};
+
+		// No Message actions defined
+		if (!Ext.isDefined(actions)) {
+			return;
+		}
+
+		for (var key in actions) {
+			if (Ext.isDefined(actions[key])) {
+				message_action[key] = actions[key];
+			}
+		}
+
+		hash.message_action = message_action;
+	}
+});

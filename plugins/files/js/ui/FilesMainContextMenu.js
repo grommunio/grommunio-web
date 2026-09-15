@@ -1,10 +1,15 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
 
-Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
-	Zarafa.core.ui.menu.ConditionalMenu,
+Ext.namespace('Grommunio.plugins.files.ui');
+
+Grommunio.plugins.files.ui.FilesMainContextMenu = Ext.extend(
+	Grommunio.core.ui.menu.ConditionalMenu,
 	{
 		/**
-		 * @cfg {Zarafa.plugins.files.FilesContext} context The context to which this context menu belongs.
+		 * @cfg {Grommunio.plugins.files.FilesContext} context The context to which this context menu belongs.
 		 */
 		context: undefined,
 		model: null,
@@ -34,7 +39,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 
 			this.model = config.context.model;
 
-			Zarafa.plugins.files.ui.FilesMainContextMenu.superclass.constructor.call(
+			Grommunio.plugins.files.ui.FilesMainContextMenu.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -51,7 +56,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 		createContextActionItems: function (model) {
 			return [
 				{
-					xtype: 'zarafa.conditionalitem',
+					xtype: 'grommunio.conditionalitem',
 					text: _('Preview'),
 					iconCls: 'files_icon_action files_icon_action_preview',
 					handler: this.onContextItemPreview,
@@ -59,18 +64,18 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 						var selection = Ext.isArray(records) ? records : [records];
 
 						item.setVisible(selection.length === 1 &&
-							Zarafa.plugins.files.data.Actions.isPreviewable(selection[0]));
+							Grommunio.plugins.files.data.Actions.isPreviewable(selection[0]));
 					},
 					scope: this,
 				},
 				{
-					xtype: 'zarafa.conditionalitem',
+					xtype: 'grommunio.conditionalitem',
 					text: _('Download'),
 					iconCls: 'files_icon_action files_icon_action_download',
 					handler: this.onContextItemDownload,
 					beforeShow: function (item, records) {
 						var visible =
-							Zarafa.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
+							Grommunio.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
 								records,
 								false,
 								true,
@@ -83,7 +88,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 					scope: this,
 				},
 				{
-					xtype: 'zarafa.conditionalitem',
+					xtype: 'grommunio.conditionalitem',
 					text: _('Share'),
 					iconCls: 'files_icon_action files_icon_action_share',
 					handler: this.onContextItemShare,
@@ -94,13 +99,13 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 							var account = records[0].getAccount();
 							isShared = records[0].get('isshared');
 							visible = account.supportsFeature(
-								Zarafa.plugins.files.data.AccountRecordFeature.SHARING,
+								Grommunio.plugins.files.data.AccountRecordFeature.SHARING,
 							);
 						}
 
 						visible =
 							visible &&
-							Zarafa.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
+							Grommunio.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
 								records,
 								true,
 								false,
@@ -117,13 +122,13 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 					scope: this,
 				},
 				{
-					xtype: 'zarafa.conditionalitem',
+					xtype: 'grommunio.conditionalitem',
 					text: _('New Folder'),
 					iconCls: 'files_icon_action files_icon_action_new_folder',
 					handler: this.onContextItemNewFolder,
 					beforeShow: function (item, records) {
 						item.setVisible(
-							Zarafa.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
+							Grommunio.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
 								records,
 								true,
 								false,
@@ -136,13 +141,13 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 					scope: this,
 				},
 				{
-					xtype: 'zarafa.conditionalitem',
+					xtype: 'grommunio.conditionalitem',
 					text: _('Attach to mail'),
 					iconCls: 'files_icon_action files_icon_action_attach_to_mail',
 					handler: this.onContextItemAttach,
 					beforeShow: function (item, records) {
 						var visible =
-							Zarafa.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
+							Grommunio.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
 								records,
 								false,
 								true,
@@ -166,7 +171,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 					scope: this,
 				},
 				{
-					xtype: 'zarafa.conditionalitem',
+					xtype: 'grommunio.conditionalitem',
 					cls: 'files_icon_actionbutton',
 					text: _('Attach to mail as link'),
 					iconCls: 'files_icon_action files_icon_action_attach_to_mail_link',
@@ -174,7 +179,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 					scope: this,
 					beforeShow: function (item, records) {
 						var visible =
-							Zarafa.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
+							Grommunio.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
 								records,
 								false,
 								false,
@@ -195,13 +200,13 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 					},
 				},
 				{
-					xtype: 'zarafa.conditionalitem',
+					xtype: 'grommunio.conditionalitem',
 					text: _('Rename'),
 					iconCls: 'files_icon_action files_icon_action_edit',
 					handler: this.onContextItemRename,
 					beforeShow: function (item, records) {
 						item.setVisible(
-							Zarafa.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
+							Grommunio.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
 								records,
 								true,
 								false,
@@ -213,13 +218,13 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 					scope: this,
 				},
 				{
-					xtype: 'zarafa.conditionalitem',
+					xtype: 'grommunio.conditionalitem',
 					text: _('Delete'),
 					iconCls: 'files_icon_action files_icon_action_delete',
 					handler: this.onContextItemDelete,
 					beforeShow: function (item, records) {
 						item.setVisible(
-							Zarafa.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
+							Grommunio.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
 								records,
 								false,
 								false,
@@ -230,13 +235,13 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 					scope: this,
 				},
 				{
-					xtype: 'zarafa.conditionalitem',
+					xtype: 'grommunio.conditionalitem',
 					text: _('Info'),
 					iconCls: 'icon_info',
 					handler: this.onContextItemInfo,
 					beforeShow: function (item, records) {
 						var visibilityFilter =
-							Zarafa.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
+							Grommunio.plugins.files.data.Utils.Validator.actionSelectionVisibilityFilter(
 								records,
 								true,
 								false,
@@ -245,7 +250,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 							);
 						var noPreviewPanel =
 							this.context.getCurrentViewMode() ===
-							Zarafa.plugins.files.data.ViewModes.NO_PREVIEW;
+							Grommunio.plugins.files.data.ViewModes.NO_PREVIEW;
 						item.setDisabled(!visibilityFilter || !noPreviewPanel);
 					},
 					scope: this,
@@ -259,28 +264,28 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 		onContextItemPreview: function () {
 			var records = Ext.isArray(this.records) ? this.records : [this.records];
 
-			Zarafa.plugins.files.data.Actions.previewFile(records[0]);
+			Grommunio.plugins.files.data.Actions.previewFile(records[0]);
 		},
 
 		/**
 		 * Handler called when 'Download' context menu item is pressed.
 		 */
 		onContextItemDownload: function () {
-			Zarafa.plugins.files.data.Actions.downloadItem(this.records);
+			Grommunio.plugins.files.data.Actions.downloadItem(this.records);
 		},
 
 		/**
 		 * Handler called when 'Delete' context menu item is pressed.
 		 */
 		onContextItemDelete: function () {
-			Zarafa.plugins.files.data.Actions.deleteRecords(this.records);
+			Grommunio.plugins.files.data.Actions.deleteRecords(this.records);
 		},
 
 		/**
 		 * Handler called when 'share' context menu item is pressed.
 		 */
 		onContextItemShare: function () {
-			Zarafa.plugins.files.data.Actions.createShareDialog(this.records);
+			Grommunio.plugins.files.data.Actions.createShareDialog(this.records);
 		},
 
 		/**
@@ -292,12 +297,12 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 			var model = button.model;
 			var hierarchyStore = model.getHierarchyStore();
 			var folder = hierarchyStore.getFolder(this.records[0].get('entryid'));
-			Zarafa.plugins.files.data.Actions.createFolder(model, undefined, folder);
+			Grommunio.plugins.files.data.Actions.createFolder(model, undefined, folder);
 		},
 
 		/**
 		 * Handler called when 'Info' context menu item is pressed.
-		 * It will open the {@link Zarafa.plugins.files.ui.dialogs.FilesRecordContentPanel FilesRecordContentPanel}.
+		 * It will open the {@link Grommunio.plugins.files.ui.dialogs.FilesRecordContentPanel FilesRecordContentPanel}.
 		 */
 		onContextItemInfo: function () {
 			var count = this.records.length;
@@ -316,10 +321,10 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 			);
 
 			var componentType =
-				Zarafa.core.data.SharedComponentType[
-					'zarafa.plugins.files.fileinfopanel'
+				Grommunio.core.data.SharedComponentType[
+					'grommunio.plugins.files.fileinfopanel'
 				];
-			Zarafa.core.data.UIFactory.openLayerComponent(
+			Grommunio.core.data.UIFactory.openLayerComponent(
 				componentType,
 				undefined,
 				config,
@@ -330,7 +335,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 		 * Handler called when 'Rename' context menu item is pressed.
 		 */
 		onContextItemRename: function () {
-			Zarafa.plugins.files.data.Actions.openRenameDialog(this.records[0]);
+			Grommunio.plugins.files.data.Actions.openRenameDialog(this.records[0]);
 		},
 
 		/**
@@ -372,7 +377,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 							.getMaxAttachmentSize(),
 						dialog_attachments: attachmentStore.getId(),
 					},
-					new Zarafa.core.data.AbstractResponseHandler({
+					new Grommunio.core.data.AbstractResponseHandler({
 						doDownloadtotmp: this.attachToMail.createDelegate(
 							this,
 							[emailRecord],
@@ -381,7 +386,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 					}),
 				);
 			} catch (e) {
-				Zarafa.plugins.files.data.Actions.msgWarning(e.message);
+				Grommunio.plugins.files.data.Actions.msgWarning(e.message);
 			}
 		},
 
@@ -390,11 +395,11 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 		 *
 		 * @param {Array} responseItems The File records that will be added as attachments.
 		 * @param {Object} response The response object belonging to the given command.
-		 * @param {Zarafa.core.data.IPMRecord} emailRecord The mail record which contains files records
+		 * @param {Grommunio.core.data.IPMRecord} emailRecord The mail record which contains files records
 		 * as an attachments.
 		 */
 		attachToMail: function (response, emailRecord) {
-			Zarafa.plugins.files.data.Actions.openCreateMailContent(
+			Grommunio.plugins.files.data.Actions.openCreateMailContent(
 				emailRecord,
 				response.items,
 			);
@@ -439,7 +444,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 					{
 						records: idsList,
 					},
-					new Zarafa.plugins.files.backend.Default.data.ResponseHandler({
+					new Grommunio.plugins.files.backend.Default.data.ResponseHandler({
 						successCallback: this.attachLinkToMail.createDelegate(
 							this,
 							[emailRecord],
@@ -448,7 +453,7 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 					}),
 				);
 			} catch (e) {
-				Zarafa.plugins.files.data.Actions.msgWarning(e.message);
+				Grommunio.plugins.files.data.Actions.msgWarning(e.message);
 			}
 		},
 
@@ -478,12 +483,12 @@ Zarafa.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 			});
 			html += signature;
 			emailRecord.set('html_body', html);
-			Zarafa.core.data.UIFactory.openCreateRecord(emailRecord);
+			Grommunio.core.data.UIFactory.openCreateRecord(emailRecord);
 		},
 	},
 );
 
 Ext.reg(
 	'filesplugin.filesmaincontextmenu',
-	Zarafa.plugins.files.ui.FilesMainContextMenu,
+	Grommunio.plugins.files.ui.FilesMainContextMenu,
 );

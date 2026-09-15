@@ -1,3 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * Override Ext.Layer when parentEl is not specified in config.
  * Consider body of active browser window as a parent element instead of main browser window.
@@ -25,7 +32,7 @@
     Ext.Layer = function(config, existingEl) {
         config = config || {};
         var dh = Ext.DomHelper,
-            activeBrowserObject = Zarafa.core.BrowserWindowMgr.getActive(),
+            activeBrowserObject = Grommunio.core.BrowserWindowMgr.getActive(),
             cp = config.parentEl, pel = cp ? Ext.getDom(cp) : activeBrowserObject.document.body;
 
         if (existingEl) {

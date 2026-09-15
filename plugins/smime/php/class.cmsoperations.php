@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * CMS abstraction layer — wraps openssl_cms_*, openssl_pkcs7_*, and
  * OpenSSL CLI to provide a unified interface for S/MIME operations.

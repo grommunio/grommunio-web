@@ -1,14 +1,19 @@
-Ext.namespace('Zarafa.plugins.smime.settings');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.smime.settings');
 
 /**
- * @class Zarafa.plugins.smime.settings.SettingsPublickeyPanel
+ * @class Grommunio.plugins.smime.settings.SettingsPublickeyPanel
  * @extends Ext.Panel
  * @xtype smime.publiccertificatespanel
- * Will generate UI for the {@link Zarafa.plugins.smime.settings.SettingsPublickeyWidget SettingsPublickeyWidget}.
+ * Will generate UI for the {@link Grommunio.plugins.smime.settings.SettingsPublickeyWidget SettingsPublickeyWidget}.
  */
-Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 	/**
-	 * @cfg {Zarafa.plugins.smime.data.SmimeCertificateStore} store Certificate store that will be used to load public certificates
+	 * @cfg {Grommunio.plugins.smime.data.SmimeCertificateStore} store Certificate store that will be used to load public certificates
 	 */
 	store : undefined,
 
@@ -16,7 +21,7 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 	 * The LoadMask object which will be shown when the {@link #record} is being opened, and
 	 * the dialog is waiting for the server to respond with the desired data.
 	 * @property
-	 * @type Zarafa.common.ui.LoadMask
+	 * @type Grommunio.common.ui.LoadMask
 	 */
 	loadMask : undefined,
 
@@ -29,7 +34,7 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 		config = config || {};
 
 		if(!config.store) {
-			config.store = new Zarafa.plugins.smime.data.SmimeCertificateStore();
+			config.store = new Grommunio.plugins.smime.data.SmimeCertificateStore();
 		}
 
 		Ext.applyIf(config, {
@@ -43,13 +48,13 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 			items : this.createPanelItems(config.store)
 		});
 
-		Zarafa.plugins.smime.settings.SettingsPublickeyPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.smime.settings.SettingsPublickeyPanel.superclass.constructor.call(this, config);
 	},
 
 	/**
-	 * Function will create panel items for {@link Zarafa.plugins.smime.data.SmimeCertificateStore SmimeCertificateStore}
+	 * Function will create panel items for {@link Grommunio.plugins.smime.data.SmimeCertificateStore SmimeCertificateStore}
 	 * @return {Array} array of items that should be added to panel.
-	 * @param {Zarafa.plugins.smime.data.SmimeCertificateStore} store store that will be used to load public certificates.
+	 * @param {Grommunio.plugins.smime.data.SmimeCertificateStore} store store that will be used to load public certificates.
 	 * @private
 	 */
 	createPanelItems : function(store)
@@ -127,7 +132,7 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 	 */
 	initEvents : function()
 	{
-		Zarafa.plugins.smime.settings.SettingsPublickeyPanel.superclass.initEvents.call(this);
+		Grommunio.plugins.smime.settings.SettingsPublickeyPanel.superclass.initEvents.call(this);
 
 		// register event to enable/disable buttons
 		this.mon(this.publickeyGrid.getSelectionModel(), 'selectionchange', this.onGridSelectionChange, this);
@@ -140,7 +145,7 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 	showLoadMask : function()
 	{
 		if (!this.loadMask) {
-			this.loadMask = new Zarafa.common.ui.LoadMask(this.el);
+			this.loadMask = new Grommunio.common.ui.LoadMask(this.el);
 		}
 
 		this.loadMask.show();
@@ -159,7 +164,7 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Event handler will be called when selection in {@link Zarafa.plugins.smime.settings.PublickeyGrid PublickeyGrid}
+	 * Event handler will be called when selection in {@link Grommunio.plugins.smime.settings.PublickeyGrid PublickeyGrid}
 	 * has been changed
 	 * @param {Ext.grid.RowSelectionModel} selectionModel selection model that fired the event
 	 */
@@ -192,7 +197,7 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Function will be used to reload data in the {@link Zarafa.plugins.smime.data.SmimeCertificateStore SmimeCertificateStore}
+	 * Function will be used to reload data in the {@link Grommunio.plugins.smime.data.SmimeCertificateStore SmimeCertificateStore}
 	 */
 	discardChanges : function()
 	{
@@ -200,7 +205,7 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Function will be used to save changes in the {@link Zarafa.plugins.smime.data.SmimeCertificateStore SmimeCertificateStore}
+	 * Function will be used to save changes in the {@link Grommunio.plugins.smime.data.SmimeCertificateStore SmimeCertificateStore}
 	 */
 	saveChanges : function()
 	{
@@ -208,4 +213,4 @@ Zarafa.plugins.smime.settings.SettingsPublickeyPanel = Ext.extend(Ext.Panel, {
 	}
 });
 
-Ext.reg('smime.publiccertificatespanel', Zarafa.plugins.smime.settings.SettingsPublickeyPanel);
+Ext.reg('smime.publiccertificatespanel', Grommunio.plugins.smime.settings.SettingsPublickeyPanel);

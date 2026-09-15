@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.ui.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui.dialogs');
 
 /**
- * @class Zarafa.plugins.files.ui.dialogs.UploadStatusPanel
+ * @class Grommunio.plugins.files.ui.dialogs.UploadStatusPanel
  * @extends Ext.form.FormPanel
  * @xtype filesplugin.uploadstatuspanel
  *
  * This panel will upload files via ajax and display some nice progressbars.
  */
-Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPanel, {
+Grommunio.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPanel, {
 
 	/**
 	 * @var FileList or string[]
@@ -55,8 +60,8 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 	callbackUploadAborted: Ext.emptyFn,
 
 	/**
-	 * @cfg {@link Zarafa.plugins.files.data.FilesRecordStore store} which contains
-	 * {@link Zarafa.plugins.files.data.FilesRecord FilesRecord}.
+	 * @cfg {@link Grommunio.plugins.files.data.FilesRecordStore store} which contains
+	 * {@link Grommunio.plugins.files.data.FilesRecord FilesRecord}.
 	 */
 	store : undefined,
 
@@ -78,7 +83,7 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 			}
 		});
 
-		Zarafa.plugins.files.ui.dialogs.UploadStatusPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.dialogs.UploadStatusPanel.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -116,7 +121,7 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 					items      : {
 						xtype     : 'displayfield',
 						fieldClass: 'fp_upload_header',
-						value     : Zarafa.plugins.files.data.Utils.Format.fileSizeList(filesize)
+						value     : Grommunio.plugins.files.data.Utils.Format.fileSizeList(filesize)
 					}
 				}]
 			}, {
@@ -303,7 +308,7 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 
 				var finished = ((event.loaded / event.total) * 100).toFixed(2);
 				filesUploaderPanel.progress.updateProgress((event.loaded / event.total), _('Uploading: ') + finished + '%', true);
-				filesUploaderPanel.uploaded.setValue(Zarafa.plugins.files.data.Utils.Format.fileSizeList(event.loaded));
+				filesUploaderPanel.uploaded.setValue(Grommunio.plugins.files.data.Utils.Format.fileSizeList(event.loaded));
 			} else {
 				filesUploaderPanel.progress.updateProgress(0.5, _('Upload status unavailable... please wait.'), true);
 			}
@@ -409,4 +414,4 @@ Zarafa.plugins.files.ui.dialogs.UploadStatusPanel = Ext.extend(Ext.form.FormPane
 	}
 });
 
-Ext.reg('filesplugin.uploadstatuspanel', Zarafa.plugins.files.ui.dialogs.UploadStatusPanel);
+Ext.reg('filesplugin.uploadstatuspanel', Grommunio.plugins.files.ui.dialogs.UploadStatusPanel);

@@ -1,7 +1,12 @@
-Ext.namespace('Zarafa.plugins.ai.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.ai.ui');
 
 /**
- * @class Zarafa.plugins.ai.ui.AIComposeMenu
+ * @class Grommunio.plugins.ai.ui.AIComposeMenu
  * @singleton
  *
  * Builds the "AI" split-button for the mail composer toolbar. Its menu offers
@@ -9,18 +14,18 @@ Ext.namespace('Zarafa.plugins.ai.ui');
  * fix grammar, translate). The editor is resolved at click time via a holder
  * closed over by the menus, so submenu items work too.
  */
-Zarafa.plugins.ai.ui.AIComposeMenu = {
+Grommunio.plugins.ai.ui.AIComposeMenu = {
 
 	/**
 	 * Build the composer split-button config.
-	 * @param {Zarafa.plugins.ai.AIPlugin} plugin Scope for the click handler.
+	 * @param {Grommunio.plugins.ai.AIPlugin} plugin Scope for the click handler.
 	 * @return {Object} Button config.
 	 */
 	createButton: function(plugin)
 	{
 		var holder = { button: null };
 		var getEditor = function() {
-			return holder.button ? Zarafa.plugins.ai.ui.AIComposeMenu.findEditorField(holder.button) : null;
+			return holder.button ? Grommunio.plugins.ai.ui.AIComposeMenu.findEditorField(holder.button) : null;
 		};
 
 		return {
@@ -31,7 +36,7 @@ Zarafa.plugins.ai.ui.AIComposeMenu = {
 			overflowText: _('AI writing assistant'),
 			iconCls: 'icon_ai',
 			cls: 'k-ai-toolbar-btn',
-			plugins: ['zarafa.recordcomponentupdaterplugin'],
+			plugins: ['grommunio.recordcomponentupdaterplugin'],
 			menu: this.buildMenu(plugin, getEditor),
 			handler: function() {
 				this.showMenu();
@@ -49,7 +54,7 @@ Zarafa.plugins.ai.ui.AIComposeMenu = {
 
 	/**
 	 * Build the compose menu and submenus, tagging each with the editor getter.
-	 * @param {Zarafa.plugins.ai.AIPlugin} plugin
+	 * @param {Grommunio.plugins.ai.AIPlugin} plugin
 	 * @param {Function} getEditor
 	 * @return {Object} Menu config.
 	 */
@@ -104,7 +109,7 @@ Zarafa.plugins.ai.ui.AIComposeMenu = {
 	/**
 	 * Walk up from a component to the composer's editor field.
 	 * @param {Ext.Component} cmp
-	 * @return {Zarafa.common.ui.EditorField|null}
+	 * @return {Grommunio.common.ui.EditorField|null}
 	 */
 	findEditorField: function(cmp)
 	{

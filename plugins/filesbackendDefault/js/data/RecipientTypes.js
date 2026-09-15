@@ -1,15 +1,20 @@
-Ext.namespace('Zarafa.plugins.files.backend.Default.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.backend.Default.data');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.data.RecipientTypes
- * @extends Zarafa.core.Enum
+ * @class Grommunio.plugins.files.backend.Default.data.RecipientTypes
+ * @extends Grommunio.core.Enum
  *
  * Enum containing the different recipient types that are available in the owncloud backend.
  *
  * @singleton
  */
-Zarafa.plugins.files.backend.Default.data.RecipientTypes =
-	Zarafa.core.Enum.create({
+Grommunio.plugins.files.backend.Default.data.RecipientTypes =
+	Grommunio.core.Enum.create({
 		/**
 		 * RecipientType: user
 		 *

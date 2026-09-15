@@ -1,15 +1,20 @@
-Ext.namespace('Zarafa.plugins.files.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.BackendStore
- * @extends Zarafa.core.data.ListModuleStore
+ * @class Grommunio.plugins.files.data.BackendStore
+ * @extends Grommunio.core.data.ListModuleStore
  * @xtype filesplugin.backendstore
  *
  * The BackendStore class provides a way to connect the 'filesaccountmodule' in the server back-end to an
- * 'Account Type' combo box object which belongs to {@link Zarafa.plugins.files.settings.ui.AccountEditPanel AccountEditPanel}.
+ * 'Account Type' combo box object which belongs to {@link Grommunio.plugins.files.settings.ui.AccountEditPanel AccountEditPanel}.
  * It provides a means to retrieve supported backend listings asynchronously.
  */
-Zarafa.plugins.files.data.BackendStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
+Grommunio.plugins.files.data.BackendStore = Ext.extend(Grommunio.core.data.ListModuleStore, {
 
 	/**
 	 * @constructor
@@ -19,7 +24,7 @@ Zarafa.plugins.files.data.BackendStore = Ext.extend(Zarafa.core.data.ListModuleS
 	{
 		config = config || {};
 
-		var recordType = Zarafa.core.data.RecordFactory.getRecordClassByMessageClass('IPM.FilesBackend');
+		var recordType = Grommunio.core.data.RecordFactory.getRecordClassByMessageClass('IPM.FilesBackend');
 
 		Ext.applyIf(config, {
 			preferredMessageClass: 'IPM.FilesBackend',
@@ -28,18 +33,18 @@ Zarafa.plugins.files.data.BackendStore = Ext.extend(Zarafa.core.data.ListModuleS
 					list_backend: true
 				}
 			},
-			reader: new Zarafa.core.data.JsonReader({
+			reader: new Grommunio.core.data.JsonReader({
 				id: 'name',
 				idProperty: 'name'
 			}, recordType),
-			proxy: new Zarafa.core.data.IPMProxy({
+			proxy: new Grommunio.core.data.IPMProxy({
 				listModuleName: 'filesaccountmodule',
 				itemModuleName: 'filesaccountmodule'
 			})
 		});
 
-		Zarafa.plugins.files.data.BackendStore.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.data.BackendStore.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.backendstore', Zarafa.plugins.files.data.BackendStore);
+Ext.reg('filesplugin.backendstore', Grommunio.plugins.files.data.BackendStore);

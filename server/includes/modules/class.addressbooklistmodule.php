@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * Addressbook Module.
  */
@@ -72,7 +79,7 @@ class AddressbookListModule extends ListModule {
 	}
 
 	/**
-	 * Function which retrieves the list of system users in Zarafa.
+	 * Function which retrieves the list of system users in Grommunio.
 	 *
 	 * @param array  $action     the action data, sent by the client
 	 * @param string $actionType the action type, sent by the client

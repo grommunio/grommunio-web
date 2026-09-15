@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui');
 
 /**
- * @class Zarafa.plugins.files.ui.Tree
+ * @class Grommunio.plugins.files.ui.Tree
  * @extends Ext.tree.TreePanel
  * @xtype filesplugin.tree
  *
  * The hierarchy tree panel implementation for files.
  */
-Zarafa.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
+Grommunio.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 
 	/**
 	 * @cfg {String} account id that should be loaded.
@@ -15,7 +20,7 @@ Zarafa.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	accountFilter: undefined,
 
 	/**
-	 * @cfg {Object} config option for {@link Zarafa.hierarchy.ui.FolderNode foldernode}
+	 * @cfg {Object} config option for {@link Grommunio.hierarchy.ui.FolderNode foldernode}
 	 */
 	nodeConfig : undefined,
 
@@ -26,7 +31,7 @@ Zarafa.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 
 	/**
 	 * @cfg {Object} treeSorter a {@link Ext.Ext.tree.TreeSorter} config or {@link Boolean}
-	 * to sort the {@linkZarafa.plugins.files.ui.Tree Tree}
+	 * to sort the {@linkGrommunio.plugins.files.ui.Tree Tree}
 	 * Defaults to <code>true</code>.
 	 */
 	treeSorter : true,
@@ -53,7 +58,7 @@ Zarafa.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 			ddGroup : 'dd.filesrecord',
 			ddAppendOnly : true,
 			pathSeparator: '&',
-			root : new Zarafa.plugins.files.ui.FilesHierarchyRootNode({
+			root : new Grommunio.plugins.files.ui.FilesHierarchyRootNode({
 				text : 'Files',
 				id : '#R#',
 				// TODO: Find why we need this
@@ -67,7 +72,7 @@ Zarafa.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 			autoScroll : true,
 			maskDisabled : true
 		});
-		Zarafa.plugins.files.ui.Tree.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.Tree.superclass.constructor.call(this, config);
 
 		if(this.treeSorter && !(this.treeSorter instanceof Ext.tree.TreeSorter)) {
 			this.treeSorter = new Ext.tree.TreeSorter(this);
@@ -79,19 +84,19 @@ Zarafa.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 */
 	initEvents : function()
 	{
-		Zarafa.plugins.files.ui.Tree.superclass.initEvents.apply(this, arguments);
+		Grommunio.plugins.files.ui.Tree.superclass.initEvents.apply(this, arguments);
 		this.on('afterrender', this.onAfterRenderTree, this);
 	},
 
 	/**
-	 * Function will initialize {@link Zarafa.plugins.files.ui.Tree Tree}.
+	 * Function will initialize {@link Grommunio.plugins.files.ui.Tree Tree}.
 	 * @protected
 	 */
 	initComponent : function()
 	{
 		// Initialize the loader
 		if (!this.loader) {
-			this.loader = new Zarafa.plugins.files.data.NavigatorTreeLoader({
+			this.loader = new Grommunio.plugins.files.data.NavigatorTreeLoader({
 				tree : this,
 				store : this.store,
 				nodeConfig : this.nodeConfig,
@@ -99,7 +104,7 @@ Zarafa.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 			});
 		}
 
-		Zarafa.plugins.files.ui.Tree.superclass.initComponent.apply(this, arguments);
+		Grommunio.plugins.files.ui.Tree.superclass.initComponent.apply(this, arguments);
 
 		// create load mask
 		if(this.loadMask) {
@@ -108,13 +113,13 @@ Zarafa.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	},
 
 	/**
-	 * Function will create {@link Zarafa.common.ui.LoadMask} which will be shown
-	 * when loading the {@link Zarafa.plugins.files.ui.Tree Tree}.
+	 * Function will create {@link Grommunio.common.ui.LoadMask} which will be shown
+	 * when loading the {@link Grommunio.plugins.files.ui.Tree Tree}.
 	 * @private
 	 */
 	createLoadMask : function()
 	{
-		this.loadMask = new Zarafa.common.ui.LoadMask(this.ownerCt.getEl(), Ext.apply({ store: this.store }, this.loadMask));
+		this.loadMask = new Grommunio.common.ui.LoadMask(this.ownerCt.getEl(), Ext.apply({ store: this.store }, this.loadMask));
 		if (this.store.isLoading()) {
 			this.loadMask.show();
 		}
@@ -153,7 +158,7 @@ Zarafa.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * Manual selection of the treeNode to which the folder is attached in the tree.
 	 * This will first ensure the given folder {@link #ensureFolderVisible is visible}
 	 * and will then {@link Ext.tree.DefaultSelectionModel#select select the given node} in the tree.
-	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder to select
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder to select
 	 * @param {Boolean} ensureVisibility True to make given folder visible in screen moving scroll bar.
 	 * @return {Boolean} True when the TreeNode for the given folder existed, and could be selected.
 	 */
@@ -177,9 +182,9 @@ Zarafa.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	 * This will call {@link Ext.tree.TreeNode#ensureVisible} in the node
 	 * to which the given folder is attached. This will first make sure
 	 * that the actual folder has been loaded by the parent folder.
-	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder which must
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder which must
 	 * be made visible.
-	 * @return {Zarafa.hierarchy.ui.FolderNode} The node which was made visible,
+	 * @return {Grommunio.hierarchy.ui.FolderNode} The node which was made visible,
 	 * false if the folder was not found in the hierarchy.
 	 */
 	ensureFolderVisible : function(folder)
@@ -223,7 +228,7 @@ Zarafa.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 
 	/**
 	 * The filter which is applied for filtering nodes from the
-	 * {@link Zarafa.plugins.files.ui.Tree Tree}.
+	 * {@link Grommunio.plugins.files.ui.Tree Tree}.
 	 *
 	 * @param {Object} folder the folder to filter
 	 * @return {Boolean} true to accept the folder
@@ -237,7 +242,7 @@ Zarafa.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 		}
 
 		if (!hide && Ext.isDefined(this.FilesFilter)) {
-			hide = folder.get('object_type') !== Zarafa.plugins.files.data.FileTypes.FOLDER;
+			hide = folder.get('object_type') !== Grommunio.plugins.files.data.FileTypes.FOLDER;
 		}
 
 		if( !hide && folder.isHomeFolder()) {
@@ -248,4 +253,4 @@ Zarafa.plugins.files.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	}
 });
 
-Ext.reg('filesplugin.tree', Zarafa.plugins.files.ui.Tree);
+Ext.reg('filesplugin.tree', Grommunio.plugins.files.ui.Tree);

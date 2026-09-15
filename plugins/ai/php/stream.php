@@ -1,6 +1,11 @@
 <?php
 
 /*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+/*
  * Server-Sent-Events endpoint for the AI Assistant plugin.
  *
  * Streams the model's output token-by-token so summaries and translations

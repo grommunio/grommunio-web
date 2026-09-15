@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 define('MEET_DEFAULTS', [
 	// Base URL of your Meet installation:
 	'server' => 'https://' . $_SERVER['HTTP_HOST'] . '/meet/',

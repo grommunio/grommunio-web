@@ -1,12 +1,17 @@
-Ext.namespace('Zarafa.plugins.smime');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.smime');
 
 /**
- * @class Zarafa.plugins.smime.SmimeText
+ * @class Grommunio.plugins.smime.SmimeText
  * Singleton which holds two functions with translation messages for certain status codes from PHP for S/MIME messages
  * One helper function to create a message.
  * @singleton
  */
-Zarafa.plugins.smime.SmimeText = function () {
+Grommunio.plugins.smime.SmimeText = function () {
 	return {
 		/*
 		 * Helper function to create the popup body message
@@ -40,52 +45,52 @@ Zarafa.plugins.smime.SmimeText = function () {
 					_('The verification of the digital signature was successful for this email message.');
 			// Could not verify, missing public certificate
 			case 1:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('grommunio Web could not find a public certificate for the recipient.'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('grommunio Web could not find a public certificate for the recipient.'));
 			// Signature verified, but certificate expired
 			case 2:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('The identity of the sender and authenticity of the message content have been verified, but the certificate used to sign the message expired on [d-m-Y].'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('The identity of the sender and authenticity of the message content have been verified, but the certificate used to sign the message expired on [d-m-Y].'));
 			// Signature could not be verified
 			case 3:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('The digital signature could not be verified for unknown reasons.'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('The digital signature could not be verified for unknown reasons.'));
 			// Signature has been revoked
 			case 4:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('The digital certificate used to sign this message has been revoked (i.e. the sender has marked it as compromised)'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('The digital certificate used to sign this message has been revoked (i.e. the sender has marked it as compromised)'));
 			// The verification step with the Certificate Authority failed
 			case 5:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('The verification service of the certificate authority that signed the sender\'s certificate is not available. The validity of the certificate could not be verified.'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('The verification service of the certificate authority that signed the sender\'s certificate is not available. The validity of the certificate could not be verified.'));
 			// Certificate does not support OCSP
 			case 9:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('The revocation status of the digital certificate used to sign this email is unknown (Server is unavailable or certificate does not support OCSP). The validity of the certificate could not be verified.'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('The revocation status of the digital certificate used to sign this email is unknown (Server is unavailable or certificate does not support OCSP). The validity of the certificate could not be verified.'));
 			// OCSP check disabled
 			case 10:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('The revocation status of the digital certificate used to sign this email is disabled (OCSP). The validity of the certificate could not be verified.'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('The revocation status of the digital certificate used to sign this email is disabled (OCSP). The validity of the certificate could not be verified.'));
 			// OCSP server offline
 			case 11:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('The certificate verification server (OCSP) is temporarily offline.'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('The certificate verification server (OCSP) is temporarily offline.'));
 			// User
 			case 13:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('Sender is removed from the server.'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('Sender is removed from the server.'));
 			// CRL revoked
 			case 14:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('The digital certificate used to sign this message has been revoked according to the Certificate Revocation List (CRL).'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('The digital certificate used to sign this message has been revoked according to the Certificate Revocation List (CRL).'));
 			// CRL unavailable
 			case 15:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('The revocation status of the certificate could not be verified because the CRL Distribution Point is unavailable.'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('The revocation status of the certificate could not be verified because the CRL Distribution Point is unavailable.'));
 			// Weak RSA key
 			case 16:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('The RSA key size used in this certificate is below the recommended minimum of 2048 bits. Consider upgrading to a stronger certificate.'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('The RSA key size used in this certificate is below the recommended minimum of 2048 bits. Consider upgrading to a stronger certificate.'));
 			// Key usage mismatch
 			case 17:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('The certificate\'s Key Usage extension does not permit this operation. The certificate may be intended for signing only or encryption only.'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('The certificate\'s Key Usage extension does not permit this operation. The certificate may be intended for signing only or encryption only.'));
 			// EFAIL CBC warning
 			case 18:
 				return _('This message was encrypted using CBC mode (not authenticated encryption). While it was decrypted successfully, AES-GCM (authenticated encryption) provides stronger protection against modification attacks. Consider asking the sender to upgrade their S/MIME configuration.');
 			// Signing time skew
 			case 19:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('The signing time in the digital signature differs significantly from the expected time. This may indicate a clock synchronization issue or message tampering.'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('The signing time in the digital signature differs significantly from the expected time. This may indicate a clock synchronization issue or message tampering.'));
 			// Certificate chain could not be verified against the CA store
 			case 20:
-				return Zarafa.plugins.smime.SmimeText.createMessage(_('The certificate chain of the sender\'s certificate could not be verified: the certificate authority that issued it is not in the server\'s trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority.'));
+				return Grommunio.plugins.smime.SmimeText.createMessage(_('The certificate chain of the sender\'s certificate could not be verified: the certificate authority that issued it is not in the server\'s trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority.'));
 			default:
 				return '';
 			}

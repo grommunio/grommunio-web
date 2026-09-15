@@ -1,0 +1,459 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.core.data');
+
+/**
+ * @class Grommunio.core.data.ServerConfig
+ * @extends Object
+ *
+ * An object which represents the server
+ * configuration. To obtain the instance
+ * of this object, use {@link Grommunio.core.Container#getServerConfig}.
+ */
+Grommunio.core.data.ServerConfig = Ext.extend(Object, {
+
+	/**
+	 * Object containing all meta data for this server configuration
+	 * @property
+	 * @type Object
+	 */
+	meta: undefined,
+
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor: function(config)
+	{
+		this.meta = config;
+	},
+
+	/**
+	 * @return {String} the base url of grommunio Web
+	 */
+	getBaseUrl: function()
+	{
+		return this.meta.base_url;
+	},
+
+	/**
+	 * @return {String} the title of grommunio Web
+	 */
+	getWebappTitle: function()
+	{
+		return this.meta.webapp_title;
+	},
+
+	/**
+	 * @return {Boolean} True if the GAB list should only be enabled when searching
+	 */
+	isFullGabDisabled: function()
+	{
+		return this.meta.disable_full_gab === true;
+	},
+
+	/**
+	 * @return {Boolean} True if it should be possible to set rules on the store
+	 * of other users.
+	 */
+	isSharedRulesEnabled: function()
+	{
+		return this.meta.enable_shared_rules === true;
+	},
+
+	/**
+	 * @return {Boolean} True if the conversation view may be used
+	 * (administrative kill-switch, see ENABLE_CONVERSATION_VIEW in config.php)
+	 */
+	isConversationViewEnabled: function()
+	{
+		return this.meta.enable_conversation_view !== false;
+	},
+
+	/**
+	 * @return {Boolean} True if the attachment bytes may be embedded in a drag
+	 * operation, so a cooperating web application can reconstruct the file on
+	 * drop (see ENABLE_ATTACHMENT_DRAG_OUT in config.php). This does not affect
+	 * dragging an attachment onto the operating system, which needs no embedded
+	 * bytes.
+	 */
+	isAttachmentDragOutEnabled: function()
+	{
+		return this.meta.enable_attachment_drag_out !== false;
+	},
+
+	/**
+	 * @return {Number} The maximum attachment size (in bytes) whose content is
+	 * embedded in a drag operation for the attachment drag-out feature (see
+	 * ATTACHMENT_DRAG_OUT_MAX_SIZE in config.php). Defaults to 25 MiB when the
+	 * server did not provide a (valid) value.
+	 */
+	getAttachmentDragOutMaxSize: function()
+	{
+		var size = parseInt(this.meta.attachment_drag_out_max_size, 10);
+		return isNaN(size) || size < 0 ? 26214400 : size;
+	},
+
+	/**
+	 * @return {Boolean} True if grommunio Web is using Single Sign-On to login
+	 */
+	usingSSO: function()
+	{
+		return this.meta.using_sso;
+	},
+
+	/**
+	 * @return {Boolean} True if Plugins are enabled
+	 */
+	isPluginsEnabled: function()
+	{
+		return this.meta.enable_plugins;
+	},
+
+	/**
+	 * @return {String} A semicolon separated list of plugins that cannot be
+	 * disabled by the user.
+	 */
+	getAlwaysEnabledPluginsList: function()
+	{
+		return this.meta.always_enabled_plugins || '';
+	},
+
+	/**
+	 * @return {Array} Plugins whose client files were not sent because the user
+	 * has them, or a plugin they depend on, disabled. Each entry has the fields
+	 * name, display_name, allow_disable and settings_base.
+	 */
+	getUnloadedPlugins: function()
+	{
+		return this.meta.unloaded_plugins || [];
+	},
+
+	/**
+	 * @return {Boolean} True if Advanced Settings are enabled
+	 */
+	isAdvancedSettingsEnabled: function()
+	{
+		return this.meta.enable_advanced_settings;
+	},
+
+	/**
+	 * @return {Number} The maximum number of allowed attachments in a single message
+	 */
+	getMaxAttachments: function()
+	{
+		return this.meta.max_attachments;
+	},
+
+	/**
+	 * @return {String} The base url for webapp help manual plugin.
+	 */
+	getWebappManualUrl: function()
+	{
+		return this.meta.plugin_webappmanual_url;
+	},
+
+	/**
+	 * @return {Number} The maximum number of files that can be uploaded via a single request.
+	 */
+	getMaxFileUploads: function()
+	{
+		return this.meta.max_file_uploads;
+	},
+
+	/**
+	 * @return {Number} The maximum attachment size allowed in a single request.
+	 */
+	getMaxPostRequestSize: function()
+	{
+		return this.meta.post_max_size;
+	},
+
+	/**
+	 * @return {Number} The maximum size of a single attachment
+	 */
+	getMaxAttachmentSize: function()
+	{
+		return this.meta.max_attachment_size;
+	},
+
+	/**
+	 * @return {Number} The maximum size of all attachments in a single message combined
+	 */
+	getMaxAttachmentTotalSize: function()
+	{
+		return this.meta.max_attachment_total_size;
+	},
+
+	/**
+	 * @return {Number} The start offset to use when loading freebusy data
+	 */
+	getFreebusyLoadStartOffset: function()
+	{
+		return this.meta.freebusy_load_start_offset;
+	},
+
+	/**
+	 * @return {Number} The end offset to use when loading freebusy data
+	 */
+	getFreebusyLoadEndOffset: function()
+	{
+		return this.meta.freebusy_load_end_offset;
+	},
+
+	/**
+	 * @return {Number} The upper limit of the eml files allowed to be included in single ZIP archive
+	 */
+	getMaxEmlFilesInZIP: function()
+	{
+		return this.meta.maximum_eml_files_in_zip;
+	},
+
+	/**
+	 * @return {Mixed} The client timeout time (in seconds) if set or false otherwise.
+	 */
+	getClientTimeout: function()
+	{
+		return this.meta.client_timeout;
+	},
+
+	/**
+	 * @return {String} The active theme selected by admin or user.
+	 */
+	getActiveTheme: function()
+	{
+		return this.meta.active_theme;
+	},
+
+	/**
+	 * @return {Array} The installed json themes
+	 */
+	getJsonThemes: function()
+	{
+		return this.meta.json_themes;
+	},
+
+	/**
+	 * @return {String} The active iconset selected by admin or user.
+	 */
+	getActiveIconset: function()
+	{
+		return this.meta.active_iconset;
+	},
+
+	/**
+	 * @return {Array} The installed iconsets
+	 */
+	getIconsets: function()
+	{
+		return this.meta.iconsets;
+	},
+
+	/**
+	 * @return {String|Boolean} The primary color for SVG icons if defined by the active theme,
+	 * or false otherwise
+	 */
+	getPrimaryIconColor: function()
+	{
+		return this.meta.icons_primary_color;
+	},
+
+	/**
+	 * @return {String|Boolean} The secondary color for SVG icons if defined by the active theme,
+	 * or false otherwise
+	 */
+	getSecondaryIconColor: function()
+	{
+		return this.meta.icons_secondary_color;
+	},
+
+	/**
+	 * @return {Object} The about texts of iconsets
+	 */
+	getIconsetAbouts: function()
+	{
+		return this.meta.iconsets_about;
+	},
+
+	/**
+	 * @return {Array} returns the installed plugins version information array.
+	 */
+	getPluginsVersion: function()
+	{
+		return this.meta.version_info;
+	},
+
+	/**
+	 * @return {Boolean} True if VCF import functionality is supported on backend, false otherwise.
+	 */
+	isVCfImportSupported: function()
+	{
+		return this.meta.is_vcfimport_supported;
+	},
+
+	/**
+	 * @return {Boolean} True if ICS and VCS import functionality is supported on backend, false otherwise.
+	 */
+	isICSImportSupported: function()
+	{
+		return this.meta.is_icsimport_supported;
+	},
+
+	/**
+	 * @return {Array} returns the color schemes defined in config.php/default.php.
+	 */
+	getColorSchemes: function()
+	{
+		return this.meta.color_schemes;
+	},
+
+	/**
+	 * @return {Array} returns the additional color schemes defined in config.php/default.php.
+	 */
+	getAdditionalColorSchemes: function()
+	{
+		return this.meta.additional_color_schemes;
+	},
+
+	/**
+	 * @return {Array} returns the categories defined in config.php/default.php.
+	 */
+	getDefaultCategories: function()
+	{
+		return this.meta.default_categories;
+	},
+
+	/**
+	 * @return {String[]} returns the Outlook-compatible category color palette.
+	 */
+	getCategoryColorPalette: function()
+	{
+		return this.meta.category_color_palette;
+	},
+
+	/**
+	 * @return {Array} returns the additional categories defined in config.php/default.php.
+	 */
+	getAdditionalDefaultCategories: function()
+	{
+		return this.meta.additional_default_categories;
+	},
+
+	/**
+	 * @return {Array} returns the contact prefix defined in config.php.
+	 */
+	getContactPrefix: function ()
+	{
+		return this.meta.contact_prefix;
+	},
+
+	/**
+	 * @return {Array} returns the contact suffix defined in config.php.
+	 */
+	getContactSuffix: function ()
+	{
+		return this.meta.contact_suffix;
+	},
+
+	/**
+	 * @return {Array} returns the powerpaste config defined in config.php.
+	 */
+	getPowerpasteConfig: function ()
+	{
+		return this.meta.powerpaste;
+	},
+
+	/**
+	 * @return {Number} return the shared stores polling interval in microseconds
+	 */
+	getSharedStorePollingInterval: function()
+	{
+		return this.meta.shared_store_polling_interval * 60000;
+	},
+
+	/**
+	 * @returns {Boolean} True if DOMPurify is enabled by admin(from config.php) else false.
+	 */
+	getDOMPurifyEnabled: function ()
+	{
+		return this.meta.enable_dompurify;
+	},
+
+	/**
+	 * @returns {Boolean} True if file previewer is enabled by admin(from config.php) else false.
+	 */
+	isFilePreviewerEnabled: function ()
+	{
+		return this.meta.enable_file_previewer;
+	},
+
+	/**
+	 * @return {Boolean} True if BIMI logos of sender domains may be shown
+	 */
+	isBimiEnabled: function ()
+	{
+		return this.meta.enable_bimi === true;
+	},
+
+	/**
+	 * @returns {Boolean} True if theming is enabled by admin(from config.php) else false.
+	 */
+	isThemingEnabled: function ()
+	{
+		return this.meta.enable_themes;
+	},
+
+	/**
+	 * @returns {Boolean} True if iconsets are enabled by admin(from config.php) else false.
+	 */
+	isIconSetsEnabled: function ()
+	{
+		return this.meta.enable_iconsets;
+	},
+
+	/**
+	 * @returns {Boolean} True if widgets are enabled by admin(from config.php) else false.
+	 */
+	isWidgetEnabled : function()
+	{
+		return this.meta.enable_widgets;
+	},
+
+	/**
+	 * @return {Boolean} True if grommunio Web shows the logout button
+	 */
+	showLogoutButton: function()
+	{
+		return this.meta.show_logout_button;
+	},
+
+	/**
+	 * @return {String} Comma-separated list of attachment reminder keywords,
+	 * or empty string if the feature is disabled.
+	 */
+	getAttachmentReminderKeywords: function()
+	{
+		return this.meta.attachment_reminder_keywords || '';
+	},
+
+	/**
+	 * @return {Boolean} True when a user may remove an attachment from a stored message
+	 */
+	isAttachmentRemovalEnabled: function()
+	{
+		return this.meta.enable_attachment_removal !== false;
+	},
+
+	/**
+	 * @return {String} The authentication method used: 'oidc' or 'basic'.
+	 */
+	getAuthMethod: function()
+	{
+		return this.meta.auth_method || 'basic';
+	}
+});

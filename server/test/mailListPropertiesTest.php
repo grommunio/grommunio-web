@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // The mail list must carry PR_ACCESS: the client refuses a delete it believes the
 // store would not accept, and the record default cannot stand in for the real value.
 if (extension_loaded('mapi')) {

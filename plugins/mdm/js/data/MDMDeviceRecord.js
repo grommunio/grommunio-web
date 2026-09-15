@@ -1,11 +1,16 @@
-Ext.namespace('Zarafa.plugins.mdm');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.mdm');
 
 /**
- * @class Zarafa.plugins.mdm.data.MDMDeviceRecordFields Array of {@link Ext.data.Field field} configurations for the
- * {@link Zarafa.plugins.mdm.data.MDMDeviceRecord record} object.
+ * @class Grommunio.plugins.mdm.data.MDMDeviceRecordFields Array of {@link Ext.data.Field field} configurations for the
+ * {@link Grommunio.plugins.mdm.data.MDMDeviceRecord record} object.
  * @private
  */
-Zarafa.plugins.mdm.data.MDMDeviceRecordFields = [
+Grommunio.plugins.mdm.data.MDMDeviceRecordFields = [
 	{name: 'entryid', type: 'string'},
 	{name: 'devicetype', type: 'string'},
 	{name: 'deviceos', type: 'string'},
@@ -31,7 +36,7 @@ Zarafa.plugins.mdm.data.MDMDeviceRecordFields = [
 ];
 
 
-Zarafa.plugins.mdm.data.MDMDeviceRecord = Ext.extend(Zarafa.core.data.IPMRecord, {});
-Zarafa.core.data.RecordFactory.addFieldToMessageClass('IPM.MDM', Zarafa.plugins.mdm.data.MDMDeviceRecordFields);
-Zarafa.core.data.RecordFactory.setBaseClassToMessageClass('IPM.MDM', Zarafa.plugins.mdm.data.MDMDeviceRecord);
-Zarafa.core.data.RecordFactory.setSubStoreToMessageClass('IPM.MDM', 'sharedfolders', Zarafa.plugins.mdm.data.MDMDeviceFolderStore);
+Grommunio.plugins.mdm.data.MDMDeviceRecord = Ext.extend(Grommunio.core.data.IPMRecord, {});
+Grommunio.core.data.RecordFactory.addFieldToMessageClass('IPM.MDM', Grommunio.plugins.mdm.data.MDMDeviceRecordFields);
+Grommunio.core.data.RecordFactory.setBaseClassToMessageClass('IPM.MDM', Grommunio.plugins.mdm.data.MDMDeviceRecord);
+Grommunio.core.data.RecordFactory.setSubStoreToMessageClass('IPM.MDM', 'sharedfolders', Grommunio.plugins.mdm.data.MDMDeviceFolderStore);

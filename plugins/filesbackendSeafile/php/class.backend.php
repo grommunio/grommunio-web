@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /** @noinspection PhpMultipleClassDeclarationsInspection */
 
 declare(strict_types=1);
@@ -919,7 +924,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 						"editor" => [
 							"xtype" => "checkbox",
 							"listeners" => [
-								"check" => "Zarafa.plugins.files.data.Actions.onCheckSSL", // this javascript function will be called!
+								"check" => "Grommunio.plugins.files.data.Actions.onCheckSSL", // this javascript function will be called!
 							],
 						],
 					],
@@ -944,7 +949,7 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 						"editor" => [
 							"xtype" => "checkbox",
 							"listeners" => [
-								"check" => "Zarafa.plugins.files.data.Actions.onCheckCredentials", // this javascript function will be called!
+								"check" => "Grommunio.plugins.files.data.Actions.onCheckCredentials", // this javascript function will be called!
 							],
 						],
 					],

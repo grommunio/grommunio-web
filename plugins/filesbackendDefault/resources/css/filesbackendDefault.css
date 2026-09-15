@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /* The main icon for the backend*/
 /* Naming convention: icon_<size>_<backend name> */
 .icon_16_Default, .icon_24_Default, .icon_256_Default {

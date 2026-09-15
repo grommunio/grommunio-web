@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 require_once __DIR__ . '/class.pgpkeystore.php';
 require_once __DIR__ . '/class.pgpmime.php';
 
@@ -33,7 +38,7 @@ class Pluginpgp extends Plugin {
 		try {
 			switch ($eventID) {
 				case 'server.core.settings.init.before':
-					$data['settingsObj']->addSysAdminDefaults(['zarafa' => ['v1' => ['plugins' => ['pgp' => [
+					$data['settingsObj']->addSysAdminDefaults(['grommunio' => ['v1' => ['plugins' => ['pgp' => [
 						'enable' => PLUGIN_PGP_ENABLE && PLUGIN_PGP_USER_DEFAULT_ENABLE,
 						'default_key' => '', 'default_sign' => false, 'default_encrypt' => false,
 					]]]]]);
@@ -84,7 +89,7 @@ class Pluginpgp extends Plugin {
 	/** The read hooks follow the per-user plugin switch that also withholds the client files. */
 	private function enabledForUser(): bool {
 		return PLUGIN_PGP_ENABLE && isset($GLOBALS['settings']) &&
-			$GLOBALS['settings']->get('zarafa/v1/plugins/pgp/enable', false) === true;
+			$GLOBALS['settings']->get('grommunio/v1/plugins/pgp/enable', false) === true;
 	}
 
 	private function assertExclusive(string $class, bool $smime = false): void {

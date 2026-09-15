@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.backend.Default.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.backend.Default.ui');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel
- * @extends Zarafa.common.ui.grid.ColumnModel
+ * @class Grommunio.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel
+ * @extends Grommunio.common.ui.grid.ColumnModel
  *
  * The Column model for the share grid.
  */
-Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel =
-	Ext.extend(Zarafa.common.ui.grid.ColumnModel, {
+Grommunio.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel =
+	Ext.extend(Grommunio.common.ui.grid.ColumnModel, {
 		/**
 		 * @constructor
 		 * @param config Configuration structure
@@ -25,7 +30,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel =
 			});
 			Ext.apply(this, config);
 
-			Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -34,7 +39,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel =
 		/**
 		 * Create an array of {@link Ext.grid.Column columns} which must be visible within
 		 * the default view of this {@link Ext.grid.ColumnModel ColumnModel}.
-		 * @param {Zarafa.plugins.files.data.FileTypes} fileType folder or file
+		 * @param {Grommunio.plugins.files.data.FileTypes} fileType folder or file
 		 * @return {Ext.grid.Column[]} The array of columns
 		 * @private
 		 */
@@ -73,7 +78,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel =
 					renderer: this.yesNoRenderer,
 				},
 			];
-			if (fileType === Zarafa.plugins.files.data.FileTypes.FOLDER) {
+			if (fileType === Grommunio.plugins.files.data.FileTypes.FOLDER) {
 				columns.push(
 					{
 						header: _('Create'),
@@ -108,7 +113,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel =
 			p.css = 'shareicon_16_' + value;
 
 			// add extra css class for empty cell
-			p.css += ' zarafa-grid-empty-cell';
+			p.css += ' grommunio-grid-empty-cell';
 
 			return '';
 		},
@@ -130,7 +135,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserGridColumnModel =
 			}
 
 			// add extra css class for empty cell
-			p.css += ' zarafa-grid-empty-cell';
+			p.css += ' grommunio-grid-empty-cell';
 
 			return '';
 		},

@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.smime.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.smime.dialogs');
 
 /**
- * @class Zarafa.plugins.smime.dialogs.PassphraseWindow
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.smime.dialogs.PassphraseWindow
+ * @extends Grommunio.core.ui.ContentPanel
  *
  * The content panel which asks the user for his passphrase and verifies if it's correct.
  * @xtype smime.passphrasewindow
  */
-Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
+Grommunio.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 
 	/**
 	 * cfg {Ext.Button} btn the smime security dropdown button
@@ -31,7 +36,7 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 			buttons : [{
 				type: 'submit',
 				text: _('Submit'),
-				cls: 'zarafa-action passphrase_submit',
+				cls: 'grommunio-action passphrase_submit',
 				handler: this.checkPassphrase,
 				scope: this
 			},{
@@ -46,7 +51,7 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 			}
 		});
 
-		Zarafa.plugins.smime.dialogs.PassphraseWindow.superclass.constructor.call(this, config);
+		Grommunio.plugins.smime.dialogs.PassphraseWindow.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -57,7 +62,7 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 	getInnerItems : function()
 	{
 		var innerItems = [];
-		var passwordSaveEnabled = container.getSettingsModel().get('zarafa/v1/plugins/smime/passphrase_cache');
+		var passwordSaveEnabled = container.getSettingsModel().get('grommunio/v1/plugins/smime/passphrase_cache');
 
 		if ( Ext.isGecko && passwordSaveEnabled ) {
 			var url = container.getBaseURL();
@@ -83,9 +88,9 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Event handler for the 'destroy' event of the {@link Zarafa.plugins.smime.dialogs.PassphraseWindow}
-	 * Will {@link Zarafa.core.BrowserWindowMgr.unRegister} the iframe from the
-	 * {@link Zarafa.core.BrowserWindowMgr}
+	 * Event handler for the 'destroy' event of the {@link Grommunio.plugins.smime.dialogs.PassphraseWindow}
+	 * Will {@link Grommunio.core.BrowserWindowMgr.unRegister} the iframe from the
+	 * {@link Grommunio.core.BrowserWindowMgr}
 	 * @private
 	 */
 	onBeforeDestroy : function()
@@ -93,14 +98,14 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 		// If we created an iframe, we must unregister it from the BrowserWindowMgr
 		if ( Ext.isDefined(this.windowName) ){
 			var parentWindow = this.getEl().dom.ownerDocument.defaultView;
-			Zarafa.core.BrowserWindowMgr.unRegister(this.windowName);
-			Zarafa.core.BrowserWindowMgr.setActive(parentWindow.name);
+			Grommunio.core.BrowserWindowMgr.unRegister(this.windowName);
+			Grommunio.core.BrowserWindowMgr.setActive(parentWindow.name);
 		}
 	},
 
 	/**
 	 * Event handler which is triggered when the user presses the Cancel button
-	 * {@link Ext.Button}. This will close the {@link Zarafa.plugins.smime.dialogs.PassphraseWindow dialog}
+	 * {@link Ext.Button}. This will close the {@link Grommunio.plugins.smime.dialogs.PassphraseWindow dialog}
 	 * @private
 	 */
 	onCancel : function()
@@ -119,18 +124,18 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 
 		Ext.EventManager.on(iframeElement, 'load', function(){
 
-			// Create a unique name for the iframe window that can be used by the Zarafa.core.BrowserWindowMgr
-			this.windowName = 'smime-passphrasewindow-'+Zarafa.plugins.smime.dialogs.PassphraseWindow.iframeCounter++;
+			// Create a unique name for the iframe window that can be used by the Grommunio.core.BrowserWindowMgr
+			this.windowName = 'smime-passphrasewindow-'+Grommunio.plugins.smime.dialogs.PassphraseWindow.iframeCounter++;
 			iframeElement.dom.contentWindow.name = this.windowName;
-			Zarafa.core.BrowserWindowMgr.browserWindows.add(this.windowName, iframeElement.dom.contentWindow);
-			Zarafa.core.BrowserWindowMgr.setActive(this.windowName);
-			Zarafa.core.BrowserWindowMgr.initExtCss(iframeElement.dom.contentWindow);
+			Grommunio.core.BrowserWindowMgr.browserWindows.add(this.windowName, iframeElement.dom.contentWindow);
+			Grommunio.core.BrowserWindowMgr.setActive(this.windowName);
+			Grommunio.core.BrowserWindowMgr.initExtCss(iframeElement.dom.contentWindow);
 
 			// Disable contextmenu globally in the iframe.
-			Ext.getBody().on('contextmenu', Zarafa.core.BrowserWindowMgr.onBodyContextMenu, this);
+			Ext.getBody().on('contextmenu', Grommunio.core.BrowserWindowMgr.onBodyContextMenu, this);
 
 			// Create a viewport for the iframe window that will take care of the resizing
-			new Zarafa.plugins.smime.ui.Viewport({
+			new Grommunio.plugins.smime.ui.Viewport({
 				layout: 'fit',
 				cls: 'k-smime-viewport',
 				body: iframeElement.dom.contentDocument.body,
@@ -148,7 +153,7 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 	 */
 	createForm : function()
 	{
-		var passwordSaveEnabled = container.getSettingsModel().get('zarafa/v1/plugins/smime/passphrase_cache');
+		var passwordSaveEnabled = container.getSettingsModel().get('grommunio/v1/plugins/smime/passphrase_cache');
 
 		return {
 			// We need a real form to trigger autofill on browsers, if the user does not want to
@@ -220,7 +225,7 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 
 		// Activate the main browser window again, so the user can move the passphrase window
 		var parentWindow = this.getEl().dom.ownerDocument.defaultView;
-		Zarafa.core.BrowserWindowMgr.setActive(parentWindow.name);
+		Grommunio.core.BrowserWindowMgr.setActive(parentWindow.name);
 
 		// Make sure we unregister the iframe window when the parent window is unloaded
 		// (e.g when the popout window is closed)
@@ -255,7 +260,7 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 				'user' : user.getSMTPAddress(),
 				'passphrase' : this.passphrase.getValue()
 			},
-			new Zarafa.plugins.smime.data.SmimeResponseHandler({
+			new Grommunio.plugins.smime.data.SmimeResponseHandler({
 				successCallback : this.onPassphraseCallback.createDelegate(this)
 			})
 		);
@@ -270,7 +275,7 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 	 */
 	onPassphraseCallback : function(response) {
 		if(response.status) {
-			if(this.btn instanceof Zarafa.core.data.IPMRecord) {
+			if(this.btn instanceof Grommunio.core.data.IPMRecord) {
 				this.btn.open({forceLoad: true});
 			} else {
 				var owner = this.btn.ownerCt;
@@ -303,7 +308,7 @@ Zarafa.plugins.smime.dialogs.PassphraseWindow = Ext.extend(Ext.Panel, {
 	}
 });
 
-Ext.reg('smime.passphrasewindow', Zarafa.plugins.smime.dialogs.PassphraseWindow);
+Ext.reg('smime.passphrasewindow', Grommunio.plugins.smime.dialogs.PassphraseWindow);
 
 // Counter that we use to give the iframe window a unique name
-Zarafa.plugins.smime.dialogs.PassphraseWindow.iframeCounter = 0;
+Grommunio.plugins.smime.dialogs.PassphraseWindow.iframeCounter = 0;

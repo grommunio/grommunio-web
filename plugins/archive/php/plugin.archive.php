@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * Archive Plugin
  * Plugin which will enable desktop notifications for new mails.
@@ -43,7 +48,7 @@ class PluginArchive extends Plugin {
 		];
 
 		$data['settingsObj']->addSysAdminDefaults([
-			'zarafa' => [
+			'grommunio' => [
 				'v1' => [
 					'plugins' => [
 						'archive' => $pluginData,

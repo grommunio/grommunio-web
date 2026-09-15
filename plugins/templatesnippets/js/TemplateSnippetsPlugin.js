@@ -1,19 +1,24 @@
-Ext.namespace('Zarafa.plugins.templatesnippets');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.templatesnippets');
 
 /**
- * @class Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin
- * @extends Zarafa.core.Plugin
+ * @class Grommunio.plugins.templatesnippets.TemplateSnippetsPlugin
+ * @extends Grommunio.core.Plugin
  *
  * Plugin that allows users to insert predefined text snippets (templates)
  * into editor fields. Supports both system-provided and user-defined templates
  * with separate HTML and plain text representations.
  */
-Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.Plugin, {
+Grommunio.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Grommunio.core.Plugin, {
 	templateButtons: undefined,
 	settingsListenersRegistered: false,
 
 	initPlugin: function() {
-		Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin.superclass.initPlugin.apply(this, arguments);
+		Grommunio.plugins.templatesnippets.TemplateSnippetsPlugin.superclass.initPlugin.apply(this, arguments);
 
 		this.registerInsertionPoint('context.mail.mailcreatecontentpanel.toolbar.actions', this.createTemplateButton, this);
 		this.registerInsertionPoint('context.calendar.appointmentcontentpanel.toolbar.actions', this.createTemplateButton, this);
@@ -35,7 +40,7 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.
 			tooltip: _('Insert a text template at the cursor position'),
 			iconCls: 'icon_templatesnippets',
 			scope: this,
-			plugins: ['zarafa.recordcomponentupdaterplugin'],
+			plugins: ['grommunio.recordcomponentupdaterplugin'],
 			menu: {
 				xtype: 'menu',
 				listeners: {
@@ -93,7 +98,7 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.
 
 	/**
 	 * Rebuild the menu when user templates are changed in settings.
-	 * @param {Zarafa.settings.SettingsModel} settingsModel
+	 * @param {Grommunio.settings.SettingsModel} settingsModel
 	 * @param {Object} changedSettings
 	 */
 	onSettingsChanged: function(settingsModel, changedSettings) {
@@ -106,7 +111,7 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.
 				changedSettings = [changedSettings];
 			}
 			for (var i = 0; i < changedSettings.length; i++) {
-				if (changedSettings[i].path && changedSettings[i].path.indexOf('zarafa/v1/plugins/templatesnippets') >= 0) {
+				if (changedSettings[i].path && changedSettings[i].path.indexOf('grommunio/v1/plugins/templatesnippets') >= 0) {
 					dominated = true;
 					break;
 				}
@@ -132,7 +137,7 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.
 		var settingsModel = container.getSettingsModel();
 
 		// System templates
-		var systemTemplates = settingsModel.get('zarafa/v1/plugins/templatesnippets/system_templates', true);
+		var systemTemplates = settingsModel.get('grommunio/v1/plugins/templatesnippets/system_templates', true);
 		if (systemTemplates) {
 			var hasSys = false;
 			for (var skey in systemTemplates) {
@@ -153,7 +158,7 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.
 		}
 
 		// User templates
-		var userTemplates = settingsModel.get('zarafa/v1/plugins/templatesnippets/user_templates', true);
+		var userTemplates = settingsModel.get('grommunio/v1/plugins/templatesnippets/user_templates', true);
 		if (userTemplates) {
 			for (var ukey in userTemplates) {
 				if (userTemplates.hasOwnProperty(ukey)) {
@@ -206,13 +211,13 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.
 			if (tpl.html) {
 				content = tpl.html;
 			} else if (tpl.text) {
-				content = Zarafa.core.HTMLParser.convertPlainToHTML(tpl.text);
+				content = Grommunio.core.HTMLParser.convertPlainToHTML(tpl.text);
 			}
 		} else {
 			if (tpl.text) {
 				content = tpl.text;
 			} else if (tpl.html) {
-				content = Zarafa.core.HTMLParser.convertHTMLToPlain(tpl.html);
+				content = Grommunio.core.HTMLParser.convertHTMLToPlain(tpl.html);
 			}
 		}
 
@@ -224,7 +229,7 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.
 	/**
 	 * Navigate from a component up to the EditorField in the compose window.
 	 * @param {Ext.Component} cmp Starting component
-	 * @return {Zarafa.common.ui.EditorField|null}
+	 * @return {Grommunio.common.ui.EditorField|null}
 	 */
 	findEditorField: function(cmp) {
 		while (cmp) {
@@ -235,15 +240,15 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.
 				return cmp.mainPanel.editorField;
 			}
 			if (cmp.findByType) {
-				var editors = cmp.findByType('zarafa.editorfield');
+				var editors = cmp.findByType('grommunio.editorfield');
 				if (!Ext.isEmpty(editors)) {
 					return editors[0];
 				}
 			}
 			if (cmp.findParentByType) {
-				var panel = cmp.findParentByType('zarafa.recordcontentpanel');
+				var panel = cmp.findParentByType('grommunio.recordcontentpanel');
 				if (panel) {
-					var panelEditors = panel.findByType('zarafa.editorfield');
+					var panelEditors = panel.findByType('grommunio.editorfield');
 					if (!Ext.isEmpty(panelEditors)) {
 						return panelEditors[0];
 					}
@@ -260,16 +265,16 @@ Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin = Ext.extend(Zarafa.core.
 	 */
 	createSettingsCategory: function() {
 		return {
-			xtype: 'zarafa.settingstemplatesnippetscategory',
+			xtype: 'grommunio.settingstemplatesnippetscategory',
 			settingsContext: arguments[2]
 		};
 	}
 });
 
-Zarafa.onReady(function() {
-	container.registerPlugin(new Zarafa.core.PluginMetaData({
+Grommunio.onReady(function() {
+	container.registerPlugin(new Grommunio.core.PluginMetaData({
 		name: 'templatesnippets',
 		displayName: _('Template Snippets'),
-		pluginConstructor: Zarafa.plugins.templatesnippets.TemplateSnippetsPlugin
+		pluginConstructor: Grommunio.plugins.templatesnippets.TemplateSnippetsPlugin
 	}));
 });

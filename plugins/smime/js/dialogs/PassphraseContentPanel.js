@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.smime.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.smime.dialogs');
 
 /**
- * @class Zarafa.plugins.smime.dialogs.PassphraseContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.smime.dialogs.PassphraseContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  *
  * The content panel for changing a users passphrase.
  * @xtype smime.passphrasecontentpanel
  */
-Zarafa.plugins.smime.dialogs.PassphraseContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.smime.dialogs.PassphraseContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
 	/**
 	 * @constructor
 	 * @param config Configuration structure
@@ -17,7 +22,7 @@ Zarafa.plugins.smime.dialogs.PassphraseContentPanel = Ext.extend(Zarafa.core.ui.
 		config = config || {};
 		config = Ext.applyIf(config, {
 			xtype: 'smime.passphrasecontentpanel',
-			cls : 'zarafa-smime-passphrasewindow',
+			cls : 'grommunio-smime-passphrasewindow',
 			modal: true,
 			layout: 'fit',
 			title : _('S/MIME Passphrase'),
@@ -31,8 +36,8 @@ Zarafa.plugins.smime.dialogs.PassphraseContentPanel = Ext.extend(Zarafa.core.ui.
 			}]
 		});
 
-		Zarafa.plugins.smime.dialogs.PassphraseContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.smime.dialogs.PassphraseContentPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('smime.passphrasecontentpanel', Zarafa.plugins.smime.dialogs.PassphraseContentPanel);
+Ext.reg('smime.passphrasecontentpanel', Grommunio.plugins.smime.dialogs.PassphraseContentPanel);

@@ -1,4 +1,9 @@
 /*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+/*
  * Navigation Bar Styles
  */
 
@@ -84,7 +89,7 @@
     overflow-y: auto;
 }
 
-.zarafa-hierarchy-node-backend {
+.grommunio-hierarchy-node-backend {
     font-weight: normal;
     color: var(--ui-text-3) !important;
     font-style: italic !important;

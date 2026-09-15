@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui');
 
 /**
- * @class Zarafa.plugins.files.ui.MultipleFileUploadField
+ * @class Grommunio.plugins.files.ui.MultipleFileUploadField
  * @extends Ext.ux.form.FileUploadField
  * @xtype filesplugin.multiplefileuploadfield
  *
  * Creates a file upload field.
  */
-Zarafa.plugins.files.ui.MultipleFileUploadField = Ext.extend(Ext.ux.form.FileUploadField, {
+Grommunio.plugins.files.ui.MultipleFileUploadField = Ext.extend(Ext.ux.form.FileUploadField, {
 	// override
 	createFileInput: function () {
 		var opt = {
@@ -51,4 +56,4 @@ Zarafa.plugins.files.ui.MultipleFileUploadField = Ext.extend(Ext.ux.form.FileUpl
 	}
 });
 
-Ext.reg('filesplugin.multiplefileuploadfield', Zarafa.plugins.files.ui.MultipleFileUploadField);
+Ext.reg('filesplugin.multiplefileuploadfield', Grommunio.plugins.files.ui.MultipleFileUploadField);

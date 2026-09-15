@@ -1,3 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 (function() {
 	/**
 	 * @class Ext.Element
@@ -237,7 +244,7 @@
 			o = o || [0,0];
 			p = (!p || p == "?" ? "tl-bl?" : (!(/-/).test(p) && p !== "" ? "tl-" + p : p || "tl-bl")).toLowerCase();
 			// Get document belongs to respective browser window to calculate positions of menu to prevent the overflow
-			var browserWindow = Zarafa.core.BrowserWindowMgr.getOwnerWindow(el);
+			var browserWindow = Grommunio.core.BrowserWindowMgr.getOwnerWindow(el);
 			var me = this,
 					d = me.dom,
 					a1,
@@ -316,7 +323,7 @@
 		// private ==>  used outside of core
 		adjustForConstraints: function(xy, parent, offsets) {
 			// Using currently active browser window in case if parent is undefined
-			var browserWindow = Zarafa.core.BrowserWindowMgr.getActive();
+			var browserWindow = Grommunio.core.BrowserWindowMgr.getActive();
 			return this.getConstrainToXY(parent || browserWindow.document, false, offsets, xy) ||  xy;
 		},
 
@@ -326,7 +333,7 @@
 
 			return function(el, local, offsets, proposedXY) {
 				// Using currently active browser window for size and position related calculations
-				var browserWindow = Zarafa.core.BrowserWindowMgr.getActive();
+				var browserWindow = Grommunio.core.BrowserWindowMgr.getActive();
 				el = Ext.get(el);
 				offsets = offsets ? Ext.applyIf(offsets, os) : os;
 
@@ -398,7 +405,7 @@
 		 */
 		get: function(el) {
 			var getResult = null;
-			var activeBrowserWindow = Zarafa.core.BrowserWindowMgr.getActive();
+			var activeBrowserWindow = Grommunio.core.BrowserWindowMgr.getActive();
 
 			// First, find the element in active browser window if the active window is not the main webapp window
 			if (Ext.isDefined(activeBrowserWindow) && activeBrowserWindow.name !== 'mainBrowserWindow' && typeof el === "string") {
@@ -414,7 +421,7 @@
 
 			// If the element is still not found, Try to find the same in all the available browser windows
 			if (getResult === null && typeof el === "string") {
-				var browserWindows = Zarafa.core.BrowserWindowMgr.browserWindows;
+				var browserWindows = Grommunio.core.BrowserWindowMgr.browserWindows;
 				browserWindows.each(function(browserWindow) {
 					if(Ext.isDefined(browserWindow) && browserWindow.name !== 'mainBrowserWindow' && browserWindow !== activeBrowserWindow) {
 						// If element is found in browser window then return ext element
@@ -426,7 +433,7 @@
 					}
 				});
 			} else {
-				var browserWindows = Zarafa.core.BrowserWindowMgr.browserWindows;
+				var browserWindows = Grommunio.core.BrowserWindowMgr.browserWindows;
 				if(Ext.isDefined(browserWindows)) {
 					browserWindows.each(function(browserWindow) {
 						if(browserWindow.document === el) {
@@ -485,7 +492,7 @@
 									out,
 									display;
 
-							if (el == Zarafa.core.BrowserWindowMgr.getActive().document) {
+							if (el == Grommunio.core.BrowserWindowMgr.getActive().document) {
 								return null;
 							}
 							prop = chkCache(prop);

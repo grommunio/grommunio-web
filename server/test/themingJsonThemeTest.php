@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // A json theme has to feed the custom properties grommunio.css is written against,
 // not only the handful of selectors Theming::$styles names.
 if (extension_loaded('mapi')) {
@@ -94,7 +99,7 @@ if (!str_contains($css, '--theme-spinner-image: url(plugins/' . $theme . '/img/w
 // The dark mode logo rule must be answered, or darkmode.css keeps the stock logo.
 $theme = makeTheme(['logo-small' => 'img/logo.svg']);
 $css = Theming::getStyles($theme);
-if (!str_contains($css, 'body.dark-mode .zarafa-maintoolbar')) {
+if (!str_contains($css, 'body.dark-mode .grommunio-maintoolbar')) {
 	throw new RuntimeException('A theme logo is not applied in dark mode.');
 }
 if (substr_count($css, 'plugins/' . $theme . '/img/logo.svg') !== 2) {

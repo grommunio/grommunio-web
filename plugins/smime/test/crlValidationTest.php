@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 require_once 'test/smimeTest.php';
 require_once 'php/util.php';
 require_once 'php/class.certificate.php';

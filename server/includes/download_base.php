@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * DownloadBase.
  *
@@ -210,7 +217,7 @@ abstract class DownloadBase {
 		if ($exception instanceof MAPIException) {
 			$return = [
 				'success' => false,
-				'zarafa' => [
+				'grommunio' => [
 					'error' => [
 						'type' => ERROR_MAPI,
 						'info' => [
@@ -223,12 +230,12 @@ abstract class DownloadBase {
 				],
 			];
 		}
-		elseif ($exception instanceof ZarafaException) {
+		elseif ($exception instanceof GrommunioException) {
 			$return = [
 				'success' => false,
-				'zarafa' => [
+				'grommunio' => [
 					'error' => [
-						'type' => ERROR_ZARAFA,
+						'type' => ERROR_GROMMUNIO,
 						'info' => [
 							'file' => $exception->getFileLine(),
 							'display_message' => $exception->getDisplayMessage(),
@@ -241,7 +248,7 @@ abstract class DownloadBase {
 		elseif ($exception instanceof BaseException) {
 			$return = [
 				'success' => false,
-				'zarafa' => [
+				'grommunio' => [
 					'error' => [
 						'type' => ERROR_GENERAL,
 						'info' => [
@@ -256,7 +263,7 @@ abstract class DownloadBase {
 		else {
 			$return = [
 				'success' => false,
-				'zarafa' => [
+				'grommunio' => [
 					'error' => [
 						'type' => ERROR_GENERAL,
 						'info' => [

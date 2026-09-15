@@ -1,6 +1,13 @@
 <?php
 
 /*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+/*
  *
  * This script bootstraps the entry scripts (index.php and grommunio.php) by:
  * 	- including all classes that are used by both entry scripts
@@ -73,8 +80,8 @@ require_once UMAPI_PATH . '/class.baseexception.php';
 require_once UMAPI_PATH . '/class.mapiexception.php';
 require_once UMAPI_PATH . '/class.recurrenceexception.php';
 
-require_once BASE_PATH . 'server/includes/exceptions/class.ZarafaException.php';
-require_once BASE_PATH . 'server/includes/exceptions/class.ZarafaErrorException.php';
+require_once BASE_PATH . 'server/includes/exceptions/class.GrommunioException.php';
+require_once BASE_PATH . 'server/includes/exceptions/class.GrommunioErrorException.php';
 require_once BASE_PATH . 'server/includes/core/class.webappsession.php';
 require_once UMAPI_PATH . '/class.baserecurrence.php';
 require_once UMAPI_PATH . '/class.recurrence.php';

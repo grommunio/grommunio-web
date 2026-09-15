@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 class Pluginmeet extends Plugin {
 	public function init() {
 		$this->registerHook('server.core.settings.init.before');
@@ -27,7 +32,7 @@ class Pluginmeet extends Plugin {
 		if (defined('MEET_DEFAULTS') && is_array(MEET_DEFAULTS)) {
 			$data['settingsObj']->addSysAdminDefaults(
 				[
-					'zarafa' => [
+					'grommunio' => [
 						'v1' => [
 							'plugins' => [
 								'meet' => MEET_DEFAULTS,

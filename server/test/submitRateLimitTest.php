@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 if (function_exists('mapi_logon_zarafa')) {
 	echo "Submit rate limit checks skipped with php-mapi loaded\n";
 
@@ -24,8 +29,8 @@ if (!class_exists('BaseException')) {
 	}
 }
 
-if (!class_exists('ZarafaException')) {
-	class ZarafaException extends BaseException {}
+if (!class_exists('GrommunioException')) {
+	class GrommunioException extends BaseException {}
 }
 
 if (!function_exists('_')) {
@@ -76,7 +81,7 @@ $send = static function (): bool {
 
 		return true;
 	}
-	catch (ZarafaException $e) {
+	catch (GrommunioException $e) {
 		$GLOBALS['rateLastError'] = $e;
 
 		return false;

@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // A theme may bring nothing but a favicon; that must not take the page down, and
 // the favicon URL must carry the file's own cache buster.
 if (extension_loaded('mapi')) {

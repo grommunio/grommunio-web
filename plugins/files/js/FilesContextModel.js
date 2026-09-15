@@ -1,23 +1,28 @@
-Ext.namespace('Zarafa.plugins.files.context');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.context');
 
 /**
- * @class Zarafa.plugins.files.FilesContextModel
- * @extends Zarafa.core.ContextModel
+ * @class Grommunio.plugins.files.FilesContextModel
+ * @extends Grommunio.core.ContextModel
  *
- * This class will instantiate a new {@link Zarafa.plugins.files.data.FilesRecordStore files store} object.
+ * This class will instantiate a new {@link Grommunio.plugins.files.data.FilesRecordStore files store} object.
  */
-Zarafa.plugins.files.FilesContextModel = Ext.extend(Zarafa.core.ContextModel, {
+Grommunio.plugins.files.FilesContextModel = Ext.extend(Grommunio.core.ContextModel, {
 
 	/**
-	 * @cfg {@link Zarafa.plugins.files.data.FilesHierarchyStore FilesHierarchyStore} holds
-	 * {@link Zarafa.plugins.files.data.FilesStoreRecord FilesStoreRecord} as records, which defines store information
+	 * @cfg {@link Grommunio.plugins.files.data.FilesHierarchyStore FilesHierarchyStore} holds
+	 * {@link Grommunio.plugins.files.data.FilesStoreRecord FilesStoreRecord} as records, which defines store information
 	 * of all opened stores.
 	 */
 	hierarchyStore: undefined,
 
 	/**
-	 * @cfg {@link Zarafa.plugins.files.data.AccountStore AccountStore} holds
-	 * {@link Zarafa.plugins.files.data.AccountRecord AccountRecord} as records,
+	 * @cfg {@link Grommunio.plugins.files.data.AccountStore AccountStore} holds
+	 * {@link Grommunio.plugins.files.data.AccountRecord AccountRecord} as records,
 	 */
 	accountStore: undefined,
 
@@ -33,14 +38,14 @@ Zarafa.plugins.files.FilesContextModel = Ext.extend(Zarafa.core.ContextModel, {
 		});
 
 		if(!Ext.isDefined(config.hierarchyStore)) {
-			config.hierarchyStore = new Zarafa.plugins.files.data.FilesHierarchyStore();
+			config.hierarchyStore = new Grommunio.plugins.files.data.FilesHierarchyStore();
 		}
 
 		if (!Ext.isDefined(config.store)) {
-			config.store = new Zarafa.plugins.files.data.FilesRecordStore(config);
+			config.store = new Grommunio.plugins.files.data.FilesRecordStore(config);
 		}
 
-		Zarafa.plugins.files.FilesContextModel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.FilesContextModel.superclass.constructor.call(this, config);
 
 		// Hook an event handler to the 'load' event of the
 		// hierarchyStore. Call the event handler directly
@@ -58,9 +63,9 @@ Zarafa.plugins.files.FilesContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	},
 
 	/**
-	 * Event handler triggered when {@link Zarafa.plugins.files.data.AccountStore AccountStore} has been
-	 * updated. It will load the {@link Zarafa.plugins.files.data.FilesHierarchyStore FilesHierarchyStore} to update the
-	 * {@link Zarafa.plugins.files.ui.Tree Tree}.
+	 * Event handler triggered when {@link Grommunio.plugins.files.data.AccountStore AccountStore} has been
+	 * updated. It will load the {@link Grommunio.plugins.files.data.FilesHierarchyStore FilesHierarchyStore} to update the
+	 * {@link Grommunio.plugins.files.ui.Tree Tree}.
 	 */
 	updateAccountStore : function()
 	{
@@ -68,15 +73,15 @@ Zarafa.plugins.files.FilesContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	},
 
 	/**
-	 * Create a new {@link Zarafa.plugins.files.data.FilesRecord FilesRecord}.
+	 * Create a new {@link Grommunio.plugins.files.data.FilesRecord FilesRecord}.
 	 *
 	 * @param {String} parentid id of the parent folder
-	 * @return {Zarafa.plugins.files.data.FilesRecord} The new {@link Zarafa.plugins.files.data.FilesRecord FilesRecord}.
+	 * @return {Grommunio.plugins.files.data.FilesRecord} The new {@link Grommunio.plugins.files.data.FilesRecord FilesRecord}.
 	 */
 	createRecord: function (parentid) {
 		parentid = parentid || "/";
 
-		var record = Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Files', {
+		var record = Grommunio.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Files', {
 			store_entryid : "files",
 			parent_entryid: parentid
 		});
@@ -85,7 +90,7 @@ Zarafa.plugins.files.FilesContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	},
 
 	/**
-	 * Update the current preview {@link Zarafa.core.data.IPMRecord}
+	 * Update the current preview {@link Grommunio.core.data.IPMRecord}
 	 * This will fire the event {@link #previewrecordchange}.
 	 *
 	 * @param {mixed} record The record which is set as preview or false to refresh the old record
@@ -93,12 +98,12 @@ Zarafa.plugins.files.FilesContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 */
 	setPreviewRecord: function (record, refresh) {
 		if (container.getCurrentContext().getName() === "filescontext") {
-			var previewPanel = Zarafa.plugins.files.data.ComponentBox.getPreviewPanel();
+			var previewPanel = Grommunio.plugins.files.data.ComponentBox.getPreviewPanel();
 			var panelConstructor;
 
 			if (refresh && this.previewRecord) {
 
-				panelConstructor = container.getSharedComponent(Zarafa.core.data.SharedComponentType['common.preview'], this.previewRecord);
+				panelConstructor = container.getSharedComponent(Grommunio.core.data.SharedComponentType['common.preview'], this.previewRecord);
 
 				previewPanel.removeAll();
 				if (Ext.isDefined(panelConstructor)) {
@@ -111,7 +116,7 @@ Zarafa.plugins.files.FilesContextModel = Ext.extend(Zarafa.core.ContextModel, {
 				this.previewRecord = record;
 
 				if (Ext.isDefined(record)) {
-					panelConstructor = container.getSharedComponent(Zarafa.core.data.SharedComponentType['common.preview'], record);
+					panelConstructor = container.getSharedComponent(Grommunio.core.data.SharedComponentType['common.preview'], record);
 
 					if (Ext.isDefined(panelConstructor) && previewPanel.fileinfo instanceof panelConstructor) {
 						previewPanel.fileinfo.update(record);
@@ -157,13 +162,13 @@ Zarafa.plugins.files.FilesContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	},
 
 	/**
-	 * Function used to get the {@link Zarafa.plugins.files.data.FilesHierarchyStore FilesHierarchyStore}
-	 * @return {Zarafa.plugins.files.data.FilesHierarchyStore} return the {@link Zarafa.plugins.files.data.FilesHierarchyStore FilesHierarchyStore}
+	 * Function used to get the {@link Grommunio.plugins.files.data.FilesHierarchyStore FilesHierarchyStore}
+	 * @return {Grommunio.plugins.files.data.FilesHierarchyStore} return the {@link Grommunio.plugins.files.data.FilesHierarchyStore FilesHierarchyStore}
 	 */
 	getHierarchyStore: function ()
 	{
 		if(!this.hierarchyStore) {
-			this.hierarchyStore = new Zarafa.plugins.files.data.FilesHierarchyStore();
+			this.hierarchyStore = new Grommunio.plugins.files.data.FilesHierarchyStore();
 		}
 		return this.hierarchyStore;
 	},
@@ -173,8 +178,8 @@ Zarafa.plugins.files.FilesContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * This function automatically causes the store to
 	 * reload its contents. This method triggers the
 	 * {@link #folderchange} event if the folder was previously in the list.
-	 * @param {Zarafa.plugins.files.data.FilesFolderRecord} folder folder to remove.
-	 * @return {Zarafa.plugins.files.data.FilesFolderRecord} the folder if it was removed,
+	 * @param {Grommunio.plugins.files.data.FilesFolderRecord} folder folder to remove.
+	 * @return {Grommunio.plugins.files.data.FilesFolderRecord} the folder if it was removed,
 	 * or undefined otherwise (i.e. it was not in the folder list).
 	 */
 	removeFolder : function(folder)
@@ -209,7 +214,7 @@ Zarafa.plugins.files.FilesContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * Helper function which used to push the parent folder of currently selected into {@link #folders} array.
 	 * If parent folder is undefined than it will push the {@link #defaultFolder} into {@link #folders} array.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesFolderRecord} folder The folder which is going to be deleted.
+	 * @param {Grommunio.plugins.files.data.FilesFolderRecord} folder The folder which is going to be deleted.
 	 */
 	setParentFolderToDefaultFolder : function(folder)
 	{
@@ -230,21 +235,21 @@ Zarafa.plugins.files.FilesContextModel = Ext.extend(Zarafa.core.ContextModel, {
 	 * Event handler which is executed right before the {@link #folderchange}
 	 * event is fired. This allows subclasses to update the folders.
 	 *
-	 * @param {Zarafa.core.ContextModel} model The model which fired the event.
-	 * @param {Array} folders selected folders as an array of {@link Zarafa.plugins.files.data.FilesFolderRecord Folder} objects.
+	 * @param {Grommunio.core.ContextModel} model The model which fired the event.
+	 * @param {Array} folders selected folders as an array of {@link Grommunio.plugins.files.data.FilesFolderRecord Folder} objects.
 	 * @private
 	 */
 	onFolderChange : Ext.emptyFn,
 
 	/**
-	 * Sets {@link #defaultFolder default folder} for the particular {@link Zarafa.core.Context context}.
+	 * Sets {@link #defaultFolder default folder} for the particular {@link Grommunio.core.Context context}.
 	 * This will help while opening new item dialog from other contexts
 	 * e.g. Create new Contact from Inbox, at this moment we need {@link #defaultFolder} to create the item.
 	 *
-	 * When the {@link Zarafa.core.Context context} was opened without any folders,
+	 * When the {@link Grommunio.core.Context context} was opened without any folders,
 	 * this also means we can now {@link #addFolder load} the {@link #defaultFolder}.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesHierarchyStore} store that holds hierarchy data.
+	 * @param {Grommunio.plugins.files.data.FilesHierarchyStore} store that holds hierarchy data.
 	 * @private
 	 */
 	onHierarchyLoad : function (hierarchyStore) {

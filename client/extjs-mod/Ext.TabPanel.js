@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 (function() {
 	var orig_onRender = Ext.TabPanel.prototype.onRender;
 	var orig_setActiveTab = Ext.TabPanel.prototype.setActiveTab;

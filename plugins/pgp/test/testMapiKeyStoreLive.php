@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * Real MAPI FAI test with an already-encrypted, browser-generated key fixture.
  * Required: PGP_TEST_USER (dedicated QA account), PGP_TEST_KEY_RECORD JSON path.

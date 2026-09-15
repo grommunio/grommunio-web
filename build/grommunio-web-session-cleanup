@@ -1,4 +1,7 @@
 #!/bin/sh
+# SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Remove expired grommunio-web session files.
 #
 # config.php points session.save_path at a directory of its own with ini_set().

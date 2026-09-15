@@ -1,10 +1,15 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /* RFC 3156 framing. Never decode and reserialize the bytes being verified. */
 (function(root, factory) {
 	'use strict';
 	if (typeof module === 'object' && module.exports) {
 		module.exports = factory(require('./BrowserCrypto.js'));
 	} else {
-		root.Zarafa.plugins.pgp.crypto.PgpMime = factory(root.Zarafa.plugins.pgp.crypto.BrowserCrypto);
+		root.Grommunio.plugins.pgp.crypto.PgpMime = factory(root.Grommunio.plugins.pgp.crypto.BrowserCrypto);
 	}
 })(typeof globalThis !== 'undefined' ? globalThis : this, function(Crypto) {
 	'use strict';

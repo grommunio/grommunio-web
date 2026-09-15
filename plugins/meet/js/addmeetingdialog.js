@@ -1,5 +1,10 @@
-Ext.namespace('Zarafa.plugins.meet.ui');
-Zarafa.plugins.meet.ui.AddMeetingDialog = Ext.extend(Zarafa.core.ui.ContentPanel, {
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.meet.ui');
+Grommunio.plugins.meet.ui.AddMeetingDialog = Ext.extend(Grommunio.core.ui.ContentPanel, {
 
   constructor: function(config){
     config = config || {};
@@ -74,11 +79,11 @@ Zarafa.plugins.meet.ui.AddMeetingDialog = Ext.extend(Zarafa.core.ui.ContentPanel
       ]
     });
 
-    Zarafa.plugins.meet.ui.AddMeetingDialog.superclass.constructor.call(this, config);
+    Grommunio.plugins.meet.ui.AddMeetingDialog.superclass.constructor.call(this, config);
   },
 
   onRoomNameBlur: function(){
-    this.roomUrlBox.setValue(container.getSettingsModel().get('zarafa/v1/plugins/meet/server') + this.roomNameBox.getValue().replace(/[^a-zA-Z0-9\-]/g, '_').replace(/_{2,}/g,  '_').replace(/^_+|_+$/g, ''))
+    this.roomUrlBox.setValue(container.getSettingsModel().get('grommunio/v1/plugins/meet/server') + this.roomNameBox.getValue().replace(/[^a-zA-Z0-9\-]/g, '_').replace(/_{2,}/g,  '_').replace(/^_+|_+$/g, ''))
   },
   
   addMeeting: function(){
@@ -91,28 +96,28 @@ Zarafa.plugins.meet.ui.AddMeetingDialog = Ext.extend(Zarafa.core.ui.ContentPanel
           break;
         case 'IPM.Appointment':
           var oloc = this.source.record.get('location');
-          if(oloc && !container.getSettingsModel().get('zarafa/v1/plugins/meet/locationoverride')){
+          if(oloc && !container.getSettingsModel().get('grommunio/v1/plugins/meet/locationoverride')){
             this.source.record.set('location', oloc + ' / ' + this.source.record.jitsiCurrentUrl);
           }else{
             this.source.record.set('location', this.source.record.jitsiCurrentUrl);
           }
-          if(!container.getSettingsModel().get('zarafa/v1/plugins/meet/noinvitation')){
+          if(!container.getSettingsModel().get('grommunio/v1/plugins/meet/noinvitation')){
             edf = this.source.ownerCt.ownerCt.appointmentTab.editorField;
           }
       }
       if(edf){
         var meetUrl = this.source.record.jitsiCurrentUrl;
         if(edf.isHtmlEditor()){
-          var htmlTpl = container.getSettingsModel().get('zarafa/v1/plugins/meet/invitationhtml');
+          var htmlTpl = container.getSettingsModel().get('grommunio/v1/plugins/meet/invitationhtml');
           if(htmlTpl){
             edf.insertAtCursor('<p>&nbsp;</p>' + htmlTpl.replace(/%url%/g, Ext.util.Format.htmlEncode(meetUrl)) + '<p>&nbsp;</p>');
           }else{
-            var itpl = container.getSettingsModel().get('zarafa/v1/plugins/meet/invitationmessage') || '\n%url%\n';
+            var itpl = container.getSettingsModel().get('grommunio/v1/plugins/meet/invitationmessage') || '\n%url%\n';
             itpl = itpl.replace(/(\r\n|\n|\r)/gm, '<br/>');
             edf.insertAtCursor(itpl.replace(/%url%/g, '<a href="' + Ext.util.Format.htmlEncode(meetUrl) + '">' + Ext.util.Format.htmlEncode(meetUrl) + '</a>'));
           }
         }else{
-          var itpl = container.getSettingsModel().get('zarafa/v1/plugins/meet/invitationmessage') || '\n%url%\n';
+          var itpl = container.getSettingsModel().get('grommunio/v1/plugins/meet/invitationmessage') || '\n%url%\n';
           edf.insertAtCursor(itpl.replace(/%url%/g, meetUrl));
         }
       }
@@ -121,4 +126,4 @@ Zarafa.plugins.meet.ui.AddMeetingDialog = Ext.extend(Zarafa.core.ui.ContentPanel
   }
 
 });
-Ext.reg('meet_addmeetingdialog', Zarafa.plugins.meet.ui.AddMeetingDialog);
+Ext.reg('meet_addmeetingdialog', Grommunio.plugins.meet.ui.AddMeetingDialog);

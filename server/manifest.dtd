@@ -1,3 +1,9 @@
+<!--
+  SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+  SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+  SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+  SPDX-License-Identifier: AGPL-3.0-or-later
+-->
 <!-- The <plugin> element. This is the root element for the document -->
 <!ELEMENT plugin (info,config?,dependencies?,optional?,translations?,components)>
 
@@ -40,7 +46,7 @@
 <!-- The attributes for the <plugin> element. -->
 <!ATTLIST plugin version CDATA #REQUIRED>
 
-<!-- The attributes for the <optional> element. The switch is the setting zarafa/v1/plugins/<settingsname>/enable, settingsname defaults to the plugin directory -->
+<!-- The attributes for the <optional> element. The switch is the setting grommunio/v1/plugins/<settingsname>/enable, settingsname defaults to the plugin directory -->
 <!ATTLIST optional settingsname CDATA #IMPLIED>
 
 <!-- The attributes for the <depends> element. -->

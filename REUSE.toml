@@ -1,0 +1,268 @@
+# Licence and copyright for the files that cannot carry an SPDX header
+# themselves: the third-party trees vendored into this repository, and our own
+# binary or comment-less files (images, fonts, audio, gettext catalogs, JSON).
+#
+# Every other file states its licence in its own header. Together the two cover
+# the whole repository, so `reuse lint` passes.
+#
+# The vendored entries here and the runtime half of bom.json describe the same
+# components; regenerate the BOMs with `make bom` after changing either.
+
+version = 1
+SPDX-PackageName = "grommunio-web"
+SPDX-PackageSupplier = "grommunio GmbH <info@grommunio.com>"
+SPDX-PackageDownloadLocation = "https://github.com/grommunio/grommunio-web"
+
+# ── our own files ───────────────────────────────────────────────────
+
+[[annotations]]
+path = [
+  "server/language/**",
+  "client/resources/images/**",
+  "client/resources/audio/**",
+  "client/resources/css/**",
+  "doc/**",
+  "README.rst",
+  "SECURITY.md",
+  "manifest.webmanifest",
+  "version",
+  "package.json",
+  "package-lock.json",
+  "bom.json",
+  "bom.spdx.json",
+  "tools/bom-vendored.json",
+  "REUSE.toml",
+  ".gitignore",
+  ".browserslistrc",
+  ".htaccess",
+  "client/jsduck.json",
+  "plugins/*/README.md",
+  "plugins/*/docs/**",
+  "plugins/pgp/js/crypto/README.md",
+  "plugins/*/.gitignore",
+  "plugins/*/resources/**",
+  "plugins/*/system-templates-samples/**",
+  "plugins/files/js/ui/**",
+  "server/**/*.dirstamp",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Copyright 2020 - 2026 grommunio GmbH"
+SPDX-License-Identifier = "AGPL-3.0-or-later"
+
+[[annotations]]
+path = ["plugins/pgp/resources/vendor/**"]
+precedence = "override"
+SPDX-FileCopyrightText = [
+  "Copyright (c) the OpenPGP.js contributors",
+  "Copyright (c) 2022 - 2023 Paul Miller (noble-ciphers, noble-hashes, noble-curves)",
+  "Copyright (c) 2021 - 2025 Andris Reinman (postal-mime)",
+  "Copyright (c) 2026 Arjun Barrett (fflate)",
+]
+SPDX-License-Identifier = "LGPL-3.0-or-later AND MIT-0 AND MIT"
+
+# Upstream style sheets and marker images of the maps plugin.
+[[annotations]]
+path = [
+  "plugins/maps/resources/css/leaflet.css",
+  "plugins/maps/resources/css/images/**",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2010 - 2023 Vladimir Agafonkin, (c) 2010 - 2011 CloudMade"
+SPDX-License-Identifier = "BSD-2-Clause"
+
+[[annotations]]
+path = ["plugins/maps/resources/css/geocoder.css"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2010 - 2016 Stephan Meijer (leaflet-geosearch)"
+SPDX-License-Identifier = "MIT"
+
+# Files that cannot host a comment where a header would be valid: the two
+# templates that open with a doctype rather than <?php, dependency manifests,
+# a dotfile, and a test fixture.
+[[annotations]]
+path = [
+  "server/includes/templates/deskapp.php",
+  "server/includes/templates/login.php",
+  "plugins/*/php/composer.json",
+  "plugins/*/php/composer.lock",
+  "plugins/*/php/.htaccess",
+  "plugins/*/package.json",
+  "plugins/*/package-lock.json",
+  "plugins/*/test/*.crt",
+  "tools/README.md",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Copyright 2020 - 2026 grommunio GmbH"
+SPDX-License-Identifier = "AGPL-3.0-or-later"
+
+# The licence texts themselves carry no licence of their own.
+[[annotations]]
+path = ["LICENSE.txt", "AGPL-3"]
+precedence = "override"
+SPDX-FileCopyrightText = [
+  "Copyright 2020 - 2026 grommunio GmbH",
+  "Copyright 2016 Kopano and its licensors",
+  "Copyright 2005 - 2016 Zarafa B.V. and its licensors",
+]
+SPDX-License-Identifier = "AGPL-3.0-or-later"
+
+# ── vendored third-party trees ──────────────────────────────────────
+
+[[annotations]]
+path = ["client/extjs/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2011 - 2013 Sencha Inc"
+SPDX-License-Identifier = "GPL-3.0-only"
+
+[[annotations]]
+path = ["client/tinymce/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) Tiny Technologies, Inc."
+SPDX-License-Identifier = "GPL-2.0-or-later AND (Apache-2.0 OR MPL-2.0)"
+
+[[annotations]]
+path = ["client/tinymce/plugins/officepaste/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright 2020 - 2026 grommunio GmbH"
+SPDX-License-Identifier = "AGPL-3.0-or-later"
+
+[[annotations]]
+path = ["client/tinymce-languages/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) Ephox Corporation DBA Tiny Technologies, Inc. and the TinyMCE translation contributors"
+SPDX-License-Identifier = "GPL-2.0-or-later"
+
+[[annotations]]
+path = ["client/dompurify/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) Cure53 and other contributors"
+SPDX-License-Identifier = "Apache-2.0 OR MPL-2.0"
+
+[[annotations]]
+path = ["client/filepreviewer/pdfjs/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) Mozilla Foundation and pdf.js contributors"
+SPDX-License-Identifier = "Apache-2.0 AND BSD-3-Clause AND BSD-2-Clause AND MIT AND CC0-1.0 AND (GPL-2.0-only WITH Font-exception-2.0)"
+
+[[annotations]]
+path = ["client/filepreviewer/ViewerJS/**"]
+precedence = "override"
+SPDX-FileCopyrightText = [
+  "Copyright (c) ViewerJS and WebODF contributors",
+  "Copyright 2020 - 2026 grommunio GmbH",
+]
+SPDX-License-Identifier = "AGPL-3.0-or-later AND Apache-2.0 AND (MIT OR GPL-3.0-only)"
+
+[[annotations]]
+path = ["client/filepreviewer/ViewerJS/vendor/**"]
+precedence = "override"
+SPDX-FileCopyrightText = [
+  "Copyright (c) Volodymyr Baydalka (docx-preview)",
+  "Copyright (c) 2009 - 2016 Stuart Knightley and the JSZip contributors",
+  "Copyright (C) 2014 - 2017 Vitaly Puzrin and Andrei Tuputcyn (pako)",
+  "Copyright (C) 2012-present SheetJS LLC",
+]
+SPDX-License-Identifier = "Apache-2.0 AND (MIT OR GPL-3.0-only) AND MIT"
+
+[[annotations]]
+path = ["client/filepreviewer/ViewerJS/video-js/**"]
+precedence = "override"
+SPDX-FileCopyrightText = [
+  "Copyright (c) Brightcove, Inc. and the Video.js contributors",
+  "Copyright (c) Mozilla Foundation and the vtt.js contributors",
+]
+SPDX-License-Identifier = "Apache-2.0 AND MIT"
+
+# The renderers we wrote for the previewer, next to the ViewerJS files.
+[[annotations]]
+path = [
+  "client/filepreviewer/ViewerJS/Cfb.js",
+  "client/filepreviewer/ViewerJS/DocViewerPlugin.js",
+  "client/filepreviewer/ViewerJS/DocxViewerPlugin.js",
+  "client/filepreviewer/ViewerJS/MessageViewerPlugin.js",
+  "client/filepreviewer/ViewerJS/PptxViewerPlugin.js",
+  "client/filepreviewer/ViewerJS/RtfViewerPlugin.js",
+  "client/filepreviewer/ViewerJS/SheetViewerPlugin.js",
+  "client/filepreviewer/ViewerJS/Support.js",
+  "client/filepreviewer/ViewerJS/TextViewerPlugin.js",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright 2020 - 2026 grommunio GmbH"
+SPDX-License-Identifier = "AGPL-3.0-or-later"
+
+[[annotations]]
+path = ["client/third-party/csstree/csstree.js"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) Roman Dvornov and css-tree contributors"
+SPDX-License-Identifier = "MIT AND CC0-1.0 AND BSD-3-Clause"
+
+[[annotations]]
+path = ["client/third-party/tokenizr/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) Ralf S. Engelschall"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ["client/resources/fonts/**"]
+precedence = "override"
+SPDX-FileCopyrightText = [
+  "Copyright (c) Christian Robertson (Roboto)",
+  "Copyright (c) The Mozilla Foundation and Telefonica S.A. (Fira Mono)",
+]
+SPDX-License-Identifier = "Apache-2.0 AND OFL-1.1"
+
+[[annotations]]
+path = ["client/resources/iconsets/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = [
+  "Copyright (c) Microsoft Corporation (Fluent UI System Icons)",
+  "Copyright 2020 - 2026 grommunio GmbH",
+]
+SPDX-License-Identifier = "MIT AND AGPL-3.0-or-later"
+
+[[annotations]]
+path = ["client/grommunio/common/printer/LICENSE"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2010 Ed Spencer"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ["plugins/maps/js/external/**"]
+precedence = "override"
+SPDX-FileCopyrightText = [
+  "Copyright (c) Vladimir Agafonkin and Leaflet contributors",
+  "Copyright (c) Stephan Meijer (leaflet-geosearch)",
+]
+SPDX-License-Identifier = "BSD-2-Clause AND MIT AND Apache-2.0 AND 0BSD"
+
+[[annotations]]
+path = ["plugins/passwd/js/external/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) Christoph Haas"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ["plugins/files/js/external/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2008 Ing. Jozef Sakalos"
+SPDX-License-Identifier = "LGPL-3.0-only"
+
+[[annotations]]
+path = ["plugins/files/php/vendor/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) the phpfastcache, PSR and Composer contributors"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ["plugins/kendox/php/vendor/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) the phpseclib, paragonie, Symfony and Composer contributors"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = [
+  "plugins/files/php/Files/Backend/Webdav/sabredav/**",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) fruux GmbH and the sabre/dav contributors"
+SPDX-License-Identifier = "BSD-3-Clause AND MIT"

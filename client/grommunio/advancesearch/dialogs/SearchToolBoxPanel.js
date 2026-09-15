@@ -1,0 +1,1690 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.advancesearch.dialogs');
+
+/**
+ * @class Grommunio.advancesearch.dialogs.SearchToolBoxPanel
+ * @extends Ext.Panel
+ * @xtype grommunio.searchtoolboxpanel
+ *
+ */
+Grommunio.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
+
+	/**
+	 * The {@link Grommunio.advancesearch.AdvanceSearchContextModel} which is obtained from
+	 * the {@link #context}.
+	 *
+	 * @property
+	 * @type Grommunio.advancesearch.AdvanceSearchContextModel
+	 */
+	model: undefined,
+
+	/**
+	 * The template of the category blocks
+	 * @property
+	 * @type {Ext.Template/String}
+	 */
+	categoriesHtmlTemplate:
+		'<tpl for=".">' +
+			'<span class="k-category-block {colorClass}" '+
+				'<tpl if="!Ext.isEmpty(backgroundColor)">style="background-color:{backgroundColor};"</tpl>'+
+				'<tpl if="!Ext.isEmpty(hoverString)">ext:qtip = "{hoverString}" ext:qwidth="100%"</tpl>'+
+				'>' +
+				'{categoryName}' + '<span class="k-category-close"></span>'+
+			'</span>' +
+		'</tpl>',
+
+	/**
+	 * @cfg {Grommunio.advancesearch.data.SearchCategoriesStore} store The store which contain categories,
+	 * That added in category filter.
+	 */
+	searchCategoriesStore: undefined,
+
+	/**
+	 * @constructor
+	 * @param {Object} config configuration object.
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		if (!Ext.isDefined(config.model) && Ext.isDefined(config.searchContext)) {
+			config.model = config.searchContext.getModel();
+		}
+
+		this.searchCategoriesStore = new Grommunio.advancesearch.data.SearchCategoriesStore();
+		var messageType = {};
+		var filterSetting = {};
+		var searchInCheckBoxSetting = {};
+		var searchCriteria = this.getSearchFolderSettings(config.model, config.searchTabId);
+		if (searchCriteria) {
+			messageType = searchCriteria.messageTypeCheckBoxGroup || {};
+			filterSetting = searchCriteria.filterCheckBoxGroup || {};
+			searchInCheckBoxSetting = searchCriteria.searchInCheckBoxGroup || {};
+			this.searchCategoriesStore.addCategories(searchCriteria.categories);
+		}
+
+		/**
+		 * messageClasses contains all message classes which used in advance search.
+		 */
+		config.messageClasses = {};
+
+		/**
+		 * folder on which search gets performed.
+		 */
+		config.folder = undefined;
+
+		/**
+		 * search fields which used to match with search string.
+		 */
+		config.searchFields = {};
+
+		/**
+		 * searchCriteria which contains the search criteria based on this
+		 * search criteria search restriction will be form.
+		 */
+		config.searchCriteria = {};
+		config.searchCriteria['date_range'] = {};
+		config.searchCriteria['date_range']['start'] = 0;
+		config.searchCriteria['date_range']['end'] = 0;
+		config.searchCriteria['negated_extra_fields'] = [];
+
+		var dateRangeStore = {
+			xtype: 'jsonstore',
+			autoDestroy: true,
+			fields: ['name', 'value'],
+			autoLoad: true,
+			data: Grommunio.advancesearch.data.DateRangeFields
+		};
+
+		Ext.applyIf(config, {
+			xtype: 'grommunio.searchtoolboxpanel',
+			header: false,
+			width: 190,
+			minWidth: 190,
+			maxWidth: 190,
+			cls: 'grommunio-search-toolbox',
+			plugins: [{
+				ptype: 'grommunio.recordcomponentplugin'
+			},{
+				ptype: 'grommunio.recordcomponentupdaterplugin'
+			}],
+			collapsible: false,
+			layout: 'fit',
+			unstyled: true,
+			ref: 'searchToolBox',
+			items: [{
+				xtype: 'container',
+				style: 'overflow-y: auto; overflow-x: hidden;',
+				items: [
+					this.createFoldersFieldset(),
+					this.createMessageTypeFieldset(messageType),
+					this.createFilterFieldset(filterSetting),
+					this.createDateRangeFieldset(dateRangeStore),
+					this.createSearchInFieldset(searchInCheckBoxSetting),
+					this.createCategoryFilterFieldset(dateRangeStore),
+					this.createFavoritesContainer(config)
+				]
+			}],
+			listeners: {
+				afterrender: this.onAfterRender,
+				scope: this
+			}
+		});
+
+		this.addEvents(
+			/**
+			 * @event afterupdaterestriction fired after the {@link #searchCriteria} gets updated by the
+			 * {@link Grommunio.advancesearch.dialogs.SearchToolBoxPanel searchToolBox}.
+			 * @param {Grommunio.advancesearch.dialogs.SearchToolBoxPanel} searchToolBox which used to triggers/update the search restriction.
+			 */
+			'afterupdaterestriction'
+		);
+
+		Grommunio.advancesearch.dialogs.SearchToolBoxPanel.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Event handler for the render event of the SearchToolBoxPanel. Will add an event listener to the
+	 * input element of the {@link Grommunio.common.searchfield.ui.SearchTextField}
+	 */
+	onAfterRender: function()
+	{
+		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
+
+		// Because the input event is not relayed by the Ext.form.TextField (like e.g. keyup) we must listen
+		// to the input element itself. We can only add the listener once it has been rendered, hence the
+		// double mon()
+		this.mon(searchTextField, 'render', function() {
+			this.mon(searchTextField.getEl(), 'input', this.onSearchTextFieldChange, this);
+		}, this, {single: true});
+
+		// Listen for chip changes to sync search bar chips → toolbox checkboxes
+		this.mon(searchTextField, 'chipchange', this.onChipChange, this);
+
+		// Sync chips and fieldset state once the search field has parsed its
+		// tokens. If already rendered, sync now; otherwise wait for afterrender
+		// so tokens are available.
+		var syncInitial = function() {
+			var chips = searchTextField.getFilterChips ? searchTextField.getFilterChips() : [];
+			if (chips.length > 0) {
+				this.onChipChange(searchTextField, chips);
+			}
+			this.onSearchTextFieldChange();
+		};
+
+		if (searchTextField.rendered) {
+			syncInitial.call(this);
+		} else {
+			this.mon(searchTextField, 'afterrender', function() {
+				// Defer to allow the CheckboxGroup to finish rendering
+				// its items into a MixedCollection before we try to
+				// iterate with .each().
+				syncInitial.defer(1, this);
+			}, this, {single: true});
+		}
+	},
+
+	/**
+	 * Event handler for the input event of the input of the {@link Grommunio.common.searchfield.ui.SearchTextField}
+	 * Will disable the search field panels when the search query is a KQL query, or enable them otherwise
+	 * @param {Grommunio.common.searchfield.ui.SearchTextField} searchTextField The text field where the
+	 * search queries are entered.
+	 */
+	onSearchTextFieldChange: function()
+	{
+		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
+		var query = searchTextField.getValue();
+		var tokens = Grommunio.advancesearch.KQLParser.tokenize(query);
+		var usesAdvancedSyntax = Grommunio.advancesearch.KQLParser.usesExplicitSyntax(tokens);
+
+		// When the user has active filter chips, keep the checkboxes enabled
+		// so they stay in sync with the chips. Only disable when the user
+		// typed raw KQL syntax without using the chip UI.
+		var hasChips = searchTextField.tokens && searchTextField.tokens.length > 0;
+
+		if (usesAdvancedSyntax && !hasChips) {
+			this.searchInFieldset.disable();
+			this.categoryFilterFieldSet.disable();
+		} else {
+			this.searchInFieldset.enable();
+			this.categoryFilterFieldSet.enable();
+		}
+	},
+
+	/**
+	 * Mapping from KQL filter keys to SearchToolBoxPanel checkbox itemIds.
+	 * Multiple KQL keys can map to the same checkbox.
+	 * @property
+	 * @type Object
+	 */
+	/**
+	 * Mapping from KQL chip keys to "Search in" checkbox itemIds.
+	 * @property
+	 * @type Object
+	 */
+	chipToCheckboxMap: {
+		'subject': 'subject',
+		'from': 'sender',
+		'sender': 'sender',
+		'to': 'recipients',
+		'cc': 'recipients',
+		'bcc': 'recipients',
+		'body': 'body'
+	},
+
+	/**
+	 * Reverse mapping from "Search in" checkbox itemIds to KQL keys.
+	 * @property
+	 * @type Object
+	 */
+	checkboxToChipMap: {
+		'sender': ['from', 'sender'],
+		'recipients': ['to', 'cc', 'bcc'],
+		'subject': ['subject'],
+		'body': ['body']
+	},
+
+	/**
+	 * Mapping from chip keys to "Filter" checkbox names.
+	 * @property
+	 * @type Object
+	 */
+	chipToFilterMap: {
+		'attachment': 'hasattach',
+		'unread': 'message_flags'
+	},
+
+	/**
+	 * Reverse mapping from "Filter" checkbox names to chip keys.
+	 * @property
+	 * @type Object
+	 */
+	filterToChipMap: {
+		'hasattach': 'attachment',
+		'message_flags': 'unread'
+	},
+
+	/**
+	 * Mapping from type: chip values to message type checkbox names.
+	 * @property
+	 * @type Object
+	 */
+	typeValueToCheckboxMap: {
+		'mail': 'mail',
+		'appointment': 'calendar',
+		'contact': 'contact',
+		'task': 'task',
+		'note': 'note'
+	},
+
+	/**
+	 * Reverse mapping from message type checkbox names to type: chip values.
+	 * @property
+	 * @type Object
+	 */
+	checkboxToTypeValueMap: {
+		'mail': 'mail',
+		'calendar': 'appointment',
+		'contact': 'contact',
+		'task': 'task',
+		'note': 'note'
+	},
+
+	/**
+	 * Flag to prevent recursive sync between chips and checkboxes.
+	 * @property
+	 * @type Boolean
+	 */
+	syncing: false,
+
+	/**
+	 * Event handler for the chipchange event from SearchTextField.
+	 * Syncs chip state → all toolbox panel controls.
+	 * @param {Grommunio.common.searchfield.ui.SearchTextField} field
+	 * @param {Array} chips Array of chip objects
+	 */
+	onChipChange: function(field, chips)
+	{
+		if (this.syncing) {
+			return;
+		}
+
+		// Guard: checkbox groups may not be MixedCollections yet
+		if (!this.searchInCheckboxGroup ||
+			!this.searchInCheckboxGroup.items ||
+			typeof this.searchInCheckboxGroup.items.each !== 'function') {
+			if (chips && chips.length > 0) {
+				this.onChipChange.defer(1, this, [field, chips]);
+			}
+			return;
+		}
+
+		this.syncing = true;
+
+		// Collect all chip keys and values, tracking negation
+		var filterKeys = [];
+		var negatedKeys = [];
+		var typeValues = [];
+		var categoryValues = [];
+		var dateValue = null;
+		for (var i = 0; i < chips.length; i++) {
+			var chip = chips[i];
+			if (chip.type !== 'filter') {
+				continue;
+			}
+			filterKeys.push(chip.key);
+			if (chip.negated) {
+				negatedKeys.push(chip.key);
+			}
+			if (chip.key === 'type' && chip.value) {
+				typeValues.push(chip.value.toLowerCase());
+			}
+			if (chip.key === 'category' && chip.value) {
+				categoryValues.push(chip.value);
+			}
+			if (chip.key === 'date' && chip.value) {
+				dateValue = chip.value.toLowerCase().replace(/\s+/g, '_');
+			}
+		}
+		this.searchCriteria['negated_extra_fields'] = negatedKeys;
+
+		// Sync "Search in" checkboxes
+		this.searchInCheckboxGroup.items.each(function(checkbox) {
+			var chipKeys = this.checkboxToChipMap[checkbox.itemId];
+			if (!chipKeys) {
+				return;
+			}
+			var shouldCheck = false;
+			for (var j = 0; j < chipKeys.length; j++) {
+				if (filterKeys.indexOf(chipKeys[j]) !== -1) {
+					shouldCheck = true;
+					break;
+				}
+			}
+			if (checkbox.getValue() !== shouldCheck) {
+				checkbox.setValue(shouldCheck);
+			}
+		}, this);
+
+		// Sync "Filter" checkboxes (attachment, unread)
+		// Negated filters should not check the checkbox
+		if (this.filterCheckBoxGroup && this.filterCheckBoxGroup.items &&
+			typeof this.filterCheckBoxGroup.items.each === 'function') {
+			this.filterCheckBoxGroup.items.each(function(checkbox) {
+				var chipKey = this.filterToChipMap[checkbox.name];
+				if (!chipKey) {
+					return;
+				}
+				var shouldCheck = filterKeys.indexOf(chipKey) !== -1 &&
+					negatedKeys.indexOf(chipKey) === -1;
+				if (checkbox.getValue() !== shouldCheck) {
+					checkbox.setValue(shouldCheck);
+				}
+			}, this);
+		}
+
+		// Sync "Show" (message type) checkboxes
+		if (this.messageTypeCheckboxGroup && this.messageTypeCheckboxGroup.items &&
+			typeof this.messageTypeCheckboxGroup.items.each === 'function') {
+			this.messageTypeCheckboxGroup.items.each(function(checkbox) {
+				var shouldCheck = typeValues.indexOf(this.checkboxToTypeValueMap[checkbox.name] || '') !== -1;
+				if (checkbox.getValue() !== shouldCheck) {
+					checkbox.setValue(shouldCheck);
+				}
+			}, this);
+		}
+
+		// Sync date range combo
+		if (this.dateRangeCombo && dateValue) {
+			var store = this.dateRangeCombo.getStore();
+			if (store.find('value', dateValue) !== -1) {
+				this.dateRangeCombo.setValue(dateValue);
+				this.dateRangeCombo.fireEvent('select', this.dateRangeCombo,
+					store.getAt(store.find('value', dateValue)),
+					store.find('value', dateValue));
+			}
+		} else if (this.dateRangeCombo && !dateValue && filterKeys.indexOf('date') === -1) {
+			// No date chip → reset to "Any date"
+			var currentDateValue = this.dateRangeCombo.getValue();
+			if (currentDateValue !== 'all_dates') {
+				this.dateRangeCombo.setValue('all_dates');
+				var dateStore = this.dateRangeCombo.getStore();
+				this.dateRangeCombo.fireEvent('select', this.dateRangeCombo,
+					dateStore.getAt(dateStore.find('value', 'all_dates')),
+					dateStore.find('value', 'all_dates'));
+			}
+		}
+
+		// Sync categories: add missing ones and remove extras
+		if (this.searchCategoriesStore) {
+			var existingCategories = this.searchCategoriesStore.getCategories();
+			// Add categories from chips that aren't in the store
+			for (var c = 0; c < categoryValues.length; c++) {
+				if (this.searchCategoriesStore.findExactCaseInsensitive('name', categoryValues[c]) === -1) {
+					this.searchCategoriesStore.addCategories([categoryValues[c]]);
+				}
+			}
+			// Remove categories from store that aren't in chips
+			for (var r = existingCategories.length - 1; r >= 0; r--) {
+				var found = false;
+				for (var cv = 0; cv < categoryValues.length; cv++) {
+					if (categoryValues[cv].toLowerCase() === existingCategories[r].toLowerCase()) {
+						found = true;
+						break;
+					}
+				}
+				if (!found) {
+					var idx = this.searchCategoriesStore.findExactCaseInsensitive('name', existingCategories[r]);
+					if (idx !== -1) {
+						this.searchCategoriesStore.removeAt(idx);
+					}
+				}
+			}
+			this.setCategoriesRestriction(this.searchCategoriesStore.getCategories());
+			if (this.categoryFilterLabel) {
+				this.categoryFilterLabel.setVisible(!this.searchCategoriesStore.getCount());
+			}
+		}
+
+		this.syncing = false;
+
+		// Re-evaluate fieldset enable/disable state
+		this.onSearchTextFieldChange();
+	},
+
+	/**
+	 * Creates the folders fieldset for search tool box of form panel.
+	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
+	 * @private
+	 */
+	createFoldersFieldset: function()
+	{
+		return {
+			layout: 'form',
+			xtype:'fieldset',
+			border: false,
+			title: _('Folders'),
+			ref: '../includeSubFolderFieldSet',
+			items: [{
+				xtype: "checkbox",
+				hideLabel: true,
+				ref: '../../includeSubFolder',
+				boxLabel: _('Include subfolders')
+			}]
+		};
+	},
+
+	/**
+	 * Creates the message type fieldset for search tool box of form panel.
+	 *
+	 * @param {Object} messageType setting object which used to pre-select the check box when
+	 * user trying to open saved search folder.
+	 *
+	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
+	 * @private
+	 */
+	createMessageTypeFieldset: function(messageType)
+	{
+		return {
+			layout: 'form',
+			xtype:'fieldset',
+			border: false,
+			title: _('Show…'),
+			items: [{
+				xtype: 'checkboxgroup',
+				ref: '../../messageTypeCheckboxGroup',
+				columns: 1,
+				name: 'messageTypeCheckboxGroup',
+				hideLabel: true,
+				listeners: {
+					change: this.onMessageTypeCheckboxChange,
+					scope: this
+				},
+				items: [{
+					name: 'mail',
+					boxLabel: _('Mails'),
+					checked: Ext.isDefined(messageType['mail'])
+				},{
+					name: 'calendar',
+					boxLabel: _('Appointments'),
+					checked: Ext.isDefined(messageType['calendar'])
+				},{
+					name: 'contact',
+					boxLabel: _('Contacts'),
+					checked: Ext.isDefined(messageType['contact'])
+				},{
+					name: 'task',
+					boxLabel: _('Tasks'),
+					checked: Ext.isDefined(messageType['task'])
+				},{
+					name: 'note',
+					boxLabel: _('Notes'),
+					checked: Ext.isDefined(messageType['note'])
+				}]
+			}]
+		};
+	},
+
+	/**
+	 * Creates the filter fieldset for search tool box of form panel.
+	 *
+	 * @param {Object} filterSetting setting object which used to pre-select the check box when
+	 * user trying to open saved search folder.
+	 *
+	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
+	 * @private
+	 */
+	createFilterFieldset: function(filterSetting)
+	{
+		return {
+			layout: 'form',
+			xtype:'fieldset',
+			border: false,
+			title: _('Filter…'),
+			items: [{
+				xtype: 'checkboxgroup',
+				columns: 1,
+				ref: '../../filterCheckBoxGroup',
+				hideLabel: true,
+				name: 'filterCheckBoxGroup',
+				listeners: {
+					change: this.onFilterCheckBoxGroup,
+					render: this.onRenderCheckboxGroup,
+					scope: this
+				},
+				items: [{
+					name: 'message_flags',
+					boxLabel: _('Unread'),
+					checked: Ext.isDefined(filterSetting['message_flags'])
+				},{
+					name: 'hasattach',
+					boxLabel: _('Attachments'),
+					checked: Ext.isDefined(filterSetting['hasattach'])
+				}]
+			}]
+		};
+	},
+
+	/**
+	 * Creates the date range fieldset for search tool box of form panel.
+	 *
+	 * @param {Ext.data.JsonStore} dateRangeStore store which contains different date range for
+	 * date range combo box.
+	 *
+	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
+	 * @private
+	 */
+	createDateRangeFieldset: function(dateRangeStore)
+	{
+		return {
+			layout: 'form',
+			xtype:'fieldset',
+			border: false,
+			title: _('Date'),
+			items: [{
+				xtype: 'combo',
+				displayField: 'name',
+				editable: false,
+				hideLabel: true,
+				ref: '../../dateRangeCombo',
+				store: dateRangeStore,
+				valueField: 'value',
+				value: dateRangeStore.data[0].value,
+				mode: 'local',
+				triggerAction: 'all',
+				width: 150,
+				listeners: {
+					select: this.onSelectCombo,
+					beforerender: this.onBeforeRenderDateRangeCombo,
+					scope: this
+				}
+			},{
+				xtype: 'grommunio.dateperiodfield',
+				ref: '../../dateField',
+				hidden: true,
+				allowBlank: false,
+				onStartChange: this.onStartChange,
+				onEndChange: this.onEndChange,
+				defaultValue: new Grommunio.core.DateRange({
+					allowBlank: false ,
+					startDate: new Date().add(Date.MONTH, -1),
+					dueDate: new Date()
+				}),
+				startFieldConfig: {
+					labelSeparator: "",
+					fieldLabel: pgettext('search.date', 'From'),
+					labelStyle: 'width: 35px',
+					itemCls: 'grommunio-dateperiodfield-itemsCls',
+					labelWidth: 50,
+					width: 110
+				},
+				endFieldConfig: {
+					labelSeparator: "",
+					fieldLabel: pgettext('search.date', 'To'),
+					labelStyle: 'width: 35px',
+					itemCls: 'grommunio-dateperiodfield-itemsCls',
+					labelWidth: 50,
+					width: 110
+				}
+			}]
+		};
+	},
+
+	/**
+	 * Creates the category filter fieldset for search tool box of form panel.
+	 *
+	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
+	 * @private
+	 */
+	createCategoryFilterFieldset: function ()
+	{
+		return {
+			layout: 'form',
+			xtype: 'fieldset',
+			border: false,
+			cls: 'k-category-filter',
+			title: _('Filter category…'),
+			autoHeight: true,
+			ref: '../categoryFilterFieldSet',
+			items: [{
+				xtype: 'button',
+				iconCls: 'icon_category_add',
+				cls: 'k-category-add-button',
+				tooltip: _('Add Category'),
+				handler: this.onSelectCategory,
+				scope: this
+			}, {
+				xtype: 'button',
+				text: _('Select Category'),
+				cls: 'k-category-filter-label',
+				width: 'auto',
+				hidden: this.searchCategoriesStore.getCount(),
+				ref: '../../categoryFilterLabel',
+				handler: this.onSelectCategory,
+				scope: this
+			}, {
+				xtype: 'dataview',
+				anchor: '100% 100%',
+				autoHeight: true,
+				tpl: this.categoriesHtmlTemplate,
+				prepareData: function (data) {
+					Ext.apply(data, {
+						hoverString: Ext.util.Format.htmlEncode(data.name.length > 20 ? data.name : '').replace(/\s/g, '&nbsp;'),
+						categoryName: Ext.util.Format.ellipsis(data.name, 20)
+					});
+					return data;
+				},
+				store: this.searchCategoriesStore,
+				itemSelector: 'span.k-category-block',
+				listeners: {
+					click: this.onCategoryRemove,
+					scope: this
+				}
+			}]
+		};
+	},
+
+	/**
+	 * Create the "Search in" {@link Ext.form.CheckboxGroup checkboxgroup} which specifies
+	 * which fields search has to look in.
+	 *
+	 * @param {Object} searchInCheckBoxSetting setting object which used to pre-select the check box when
+	 * user trying to open saved search folder.
+	 *
+	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
+	 * @private
+	 */
+	createSearchInFieldset: function(searchInCheckBoxSetting)
+	{
+		return {
+			layout: 'form',
+			xtype:'fieldset',
+			border: false,
+			title: _('Search…'),
+			ref: '../searchInFieldset',
+			items: [{
+				xtype: 'checkboxgroup',
+				columns: 1,
+				ref: '../../searchInCheckboxGroup',
+				name: 'searchInCheckboxGroup',
+				hideLabel: true,
+				listeners: {
+					change: this.onSearchInCheckboxChange,
+					render: this.onRenderCheckboxGroup,
+					scope: this
+				},
+				items: [{
+					name: ['sender_name', 'sender_email_address', 'sent_representing_name', 'sent_representing_email_address'],
+					itemId: 'sender',
+					boxLabel: _('Sender'),
+					checked: Ext.isDefined(searchInCheckBoxSetting['sender'])
+				},{
+					name: ['display_to', 'display_cc', 'display_bcc'],
+					itemId: 'recipients',
+					boxLabel: _('Recipients'),
+					checked: Ext.isDefined(searchInCheckBoxSetting['recipients'])
+				},{
+					name: 'subject',
+					itemId: 'subject',
+					boxLabel: _('Subject'),
+					checked: Ext.isDefined(searchInCheckBoxSetting['subject'])
+				},{
+					name: 'body',
+					itemId: 'body',
+					boxLabel: _('Body & Attachments'),
+					checked: Ext.isDefined(searchInCheckBoxSetting['body'])
+				}]
+			}]
+		};
+	},
+
+	/**
+	 * Create the "Search in" {@link Ext.form.CheckboxGroup checkboxgroup} which specifies
+	 * which fields search has to look in.
+	 * @return {Object} config object for creating {@link Ext.form.FieldSet FieldSet}.
+	 * @private
+	 */
+	createFavoritesContainer: function ()
+	{
+		return {
+			xtype: 'container',
+			cls: 'grommunio-search-toolbox-favoritesbutton-container',
+			layout:'fit',
+			hidden: container.getSettingsModel().get('grommunio/v1/contexts/hierarchy/hide_favorites', true, false),
+			items: [{
+				cls: 'search-toolbox-favorites-button',
+				iconCls: 'icon_favorites',
+				xtype:'button',
+				text: '<span>' + _('Favorites') + '</span>',
+				handler: this.onClickFavorites,
+				tooltip: {
+					text: _('Add a folder to favorites based on search query'),
+					width: 350
+				},
+				scope: this
+			}]
+		};
+	},
+
+	/**
+	 * Initialize events
+	 * @private
+	 */
+	initEvents: function()
+	{
+		this.mon(this.messageTypeCheckboxGroup, {
+			render: this.onRenderCheckboxGroup,
+			scope: this
+		});
+
+		this.mon(this.dateRangeCombo, {
+			enable: this.onEnableCombo,
+			scope: this
+		});
+
+		this.mon(this.dateField,{
+			change: this.onChangeDateField,
+			scope: this
+		});
+
+		this.dateField.mon(this.dateField.startField, 'specialkey', this.onSpecialKey, this);
+		this.dateField.mon(this.dateField.endField, 'specialkey', this.onSpecialKey, this);
+		this.mon(this.searchCategoriesStore, 'add', this.onSearchCategoryUpdate, this);
+		this.mon(this.searchCategoriesStore, 'remove', this.onSearchCategoryUpdate, this);
+	},
+
+	/**
+	 * Overridden event handler which is called when the start date has been changed.
+	 *
+	 * @param {Ext.form.Field} field The field which has changed
+	 * @param {Mixed} newValue The new value for the field
+	 * @param {Mixed} oldValue The old value for the field
+	 */
+	onStartChange: function(field, newValue, oldValue)
+	{
+		var range = this.defaultValue;
+		var oldRange = this.defaultValue.clone();
+
+		if (range.getStartDate() !== newValue) {
+			if (Ext.isEmpty(newValue)) {
+				range.setStartDate(null);
+			} else {
+				var dueTime = range.getDueTime();
+				// If the start date is after the due date, then set due date same as the start date
+				if (newValue.getTime() > dueTime) {
+					range.set(newValue, newValue.clone());
+				} else {
+					range.setStartDate(newValue);
+				}
+			}
+		}
+
+		this.fireEvent('change', this, range.clone(), oldRange);
+	},
+
+	/**
+	 * Overridden handler which is called when the due date has been changed.
+	 *
+	 * @param {Ext.form.Field} field The field which has changed
+	 * @param {Mixed} newValue The new value for the field
+	 * @param {Mixed} oldValue The old value for the field
+	 */
+	onEndChange: function(field, newValue, oldValue)
+	{
+		var range = this.defaultValue;
+		var oldRange = this.defaultValue.clone();
+
+		if (range.getDueDate() !== newValue) {
+			if (Ext.isEmpty(newValue)) {
+				range.set(null, null);
+			} else {
+				var startTime = range.getStartTime();
+				if (newValue.getTime() < startTime) {
+					// If the due date is before the start date, then set start date same as the due date
+					range.set(newValue, newValue.clone());
+				} else {
+					range.setDueDate(newValue);
+				}
+			}
+		}
+
+		this.fireEvent('change', this, range.clone(), oldRange);
+	},
+
+	/**
+	 * Event handler which is raised just before the {@link Ext.form.ComboBox ComboBox}
+	 * is being rendered. it will call {@link #getSearchFolderSettings} which
+	 * provide saved search folder related setting objects which used to pre-select
+	 * date range combo box.
+	 *
+	 * @param {Ext.form.ComboBox} combo the combo box component.
+	 */
+	onBeforeRenderDateRangeCombo: function(combo)
+	{
+		var searchCriteria = this.getSearchFolderSettings();
+		if (searchCriteria) {
+			var dateRange = searchCriteria.date_range;
+			var record = combo.findRecord(combo.valueField, dateRange);
+			this.setDateRangeRestriction(combo, record);
+			if (!Ext.isObject(dateRange)) {
+				combo.setValue(dateRange);
+			} else {
+				combo.setValue('custom_date');
+				this.dateField.hidden = false;
+				var startDate = new Date(dateRange.start);
+				var dueDate = new Date(dateRange.due);
+
+				this.dateField.startField.setValue(startDate);
+				this.dateField.endField.setValue(dueDate);
+			}
+		}
+	},
+
+	/**
+	 * Function which used to retrieve the saved search folder related settings object
+	 * if we are trying to open it.
+	 *
+	 * @param {Grommunio.advancesearch.AdvanceSearchContextModel} contextModel (optional) the advance search context model
+	 * @param {String} searchStoreUniqueId (optional) searchStoreUniqueId is represent the unique id of
+	 * {@link Grommunio.advancesearch.AdvanceSearchStore AdvanceSearchStore}.
+	 *
+	 * @returns {Object|Boolean} return settings object of saved search folder else false.
+	 */
+	getSearchFolderSettings: function(contextModel, searchStoreUniqueId)
+	{
+		var model = Ext.isDefined(contextModel) ? contextModel : this.model;
+		var store = model.store;
+		searchStoreUniqueId = Ext.isDefined(searchStoreUniqueId) ? searchStoreUniqueId : store.searchStoreUniqueId;
+		if (Ext.isDefined(store.searchFolder[searchStoreUniqueId])) {
+			var folder = store.searchFolder[searchStoreUniqueId];
+			return container.getSettingsModel().getSettingsObject('grommunio/v1/contexts/search/search_criteria/'+folder.get('entryid'));
+		}
+		return false;
+	},
+
+	/**
+	 * Event handler is fired for each special key, but it only handles the {@link Ext.EventObjectImp#ENTER} key.
+	 * it was call the triggerBlur function of updated date field. which internally fire the
+	 * blur event and blur event fire the change event, which handled by
+	 * {@link Grommunio.common.ui.DatePeriodField#onStartChange} or {@link Grommunio.common.ui.DatePeriodField#onEndChange}
+	 * which fire the {@link Grommunio.common.ui.DateRangeField#change} event of {@link Grommunio.common.ui.DateRangeField date rage field}
+	 * and it was handled by the {@link #onChangeDateField}.
+	 *
+	 * @param {Ext.form.Field} field The field which fired the event
+	 * @param {Ext.EventObject} eventObj The event object for this event
+	 */
+	onSpecialKey: function(field, eventObj)
+	{
+		if (eventObj.getKey() === eventObj.ENTER) {
+			field.triggerBlur();
+		}
+	},
+
+	/**
+	 * Function which is used to set the date range related restriction
+	 * in {@link #searchCriteria} object.
+	 *
+	 * @param {Ext.form.ComboBox} combo The field which fired the event
+	 * @param {Ext.data.Record} record The selected record
+	 * @private
+	 */
+	setDateRangeRestriction: function(combo, record)
+	{
+		var value = record.get('value');
+		var today = new Date();
+		// Add a day to implement until
+		this.searchCriteria['date_range']['end'] = today.add(Date.DAY, 1).getTime() / 1000;
+
+		if (value !== 'custom_date' && this.dateField.isVisible()) {
+			this.dateField.hide();
+			this.doLayout();
+		}
+
+		switch(value) {
+			case 'past_week':
+				this.searchCriteria['date_range']['start'] = today.add(Date.DAY, -7).getTime() / 1000;
+			break;
+			case 'past_two_weeks':
+				this.searchCriteria['date_range']['start'] = today.add(Date.DAY, -14).getTime() / 1000;
+			break;
+			case 'past_month':
+				this.searchCriteria['date_range']['start'] = today.add(Date.MONTH, -1).getTime() / 1000;
+				break;
+			case 'past_six_month':
+				this.searchCriteria['date_range']['start'] = today.add(Date.MONTH, -6).getTime() / 1000;
+				break;
+			case 'past_year':
+				this.searchCriteria['date_range']['start'] = today.add(Date.YEAR, -1).getTime() / 1000;
+				break;
+			case 'custom_date':
+				this.dateField.show();
+				this.doLayout();
+				this.searchCriteria['date_range']['start'] = this.dateField.startField.getValue().getTime() / 1000;
+				// Add a day to implement until
+				this.searchCriteria['date_range']['end'] = this.dateField.endField.getValue().add(Date.DAY, 1).getTime() / 1000;
+				break;
+			default:
+				this.searchCriteria['date_range']['start'] = 0;
+				this.searchCriteria['date_range']['end'] = 0;
+		}
+	},
+
+	/**
+	 * Event handler which is called when a selection has been made in the
+	 * {@link Ext.form.ComboBox combobox}.
+	 * @param {Ext.form.ComboBox} combo The field which fired the event
+	 * @param {Ext.data.Record} record The selected record
+	 * @private
+	 */
+	onSelectCombo: function(combo, record)
+	{
+		this.setDateRangeRestriction(combo, record);
+		if (!this.syncing) {
+			this.afterUpdateRestriction();
+		}
+
+		// Sync date range combo → search bar date: chip
+		if (this.syncing) {
+			return;
+		}
+		this.syncing = true;
+
+		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
+		var dateValue = record.get('value');
+
+		// Remove existing date: chips
+		if (searchTextField.tokens) {
+			for (var i = searchTextField.tokens.length - 1; i >= 0; i--) {
+				if (searchTextField.tokens[i].type === 'filter' && searchTextField.tokens[i].key === 'date') {
+					searchTextField.removeTokenAt(i, true);
+				}
+			}
+		}
+
+		// Add new date: chip if not "all_dates"
+		if (dateValue && dateValue !== 'all_dates') {
+			searchTextField.insertFilter('date', dateValue, true);
+		}
+
+		this.syncing = false;
+	},
+
+	/**
+	 * Event handler for the {@link Ext.form.CheckboxGroup#change change} event, this will
+	 * update the {@link #searchCriteria}, which used in advance search request.
+	 *
+	 * @param {Ext.form.CheckboxGroup} group the checkboxgroup
+	 * @param {Array} checked an array of {Ext.form.Checkbox} items which are selected
+	 */
+	onFilterCheckBoxGroup: function(group, checked)
+	{
+		this.setFilterRestriction(group, checked);
+		if (!this.syncing) {
+			this.afterUpdateRestriction();
+		}
+
+		// Sync filter checkboxes → search bar chips
+		if (this.syncing) {
+			return;
+		}
+		this.syncing = true;
+
+		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
+		var checkedNames = {};
+		if (!Ext.isEmpty(checked)) {
+			Ext.each(checked, function(cb) {
+				checkedNames[cb.name] = true;
+			});
+		}
+
+		var activeKeys = searchTextField.getActiveFilterKeys ? searchTextField.getActiveFilterKeys() : [];
+		group.items.each(function(checkbox) {
+			var chipKey = this.filterToChipMap[checkbox.name];
+			if (!chipKey) {
+				return;
+			}
+			if (checkedNames[checkbox.name]) {
+				if (activeKeys.indexOf(chipKey) === -1) {
+					searchTextField.insertFilter(chipKey, chipKey === 'unread' ? 'true' : '', true);
+				} else if (searchTextField.isFilterNegated && searchTextField.isFilterNegated(chipKey)) {
+					// Filter exists but is negated (NOT Unread) — remove the negation
+					searchTextField.removeFilterNegation(chipKey, true);
+				}
+			} else {
+				searchTextField.removeFilterChip(chipKey, true);
+			}
+		}, this);
+
+		this.syncing = false;
+	},
+
+	/**
+	 * Event handler for the {@link Ext.form.CheckboxGroup#change change} event, this will
+	 * update the {@link #searchCriteria}, which used in advance search request.
+	 *
+	 * @param {Ext.form.CheckboxGroup} group the checkboxgroup
+	 * @param {Array} checked an array of {Ext.form.Checkbox} items which are selected
+	 */
+	onMessageTypeCheckboxChange: function(group, checked)
+	{
+		this.setMessageClassRestriction(group, checked);
+		if (!this.syncing) {
+			this.afterUpdateRestriction();
+		}
+
+		// Sync message type checkboxes → search bar type: chips
+		if (this.syncing) {
+			return;
+		}
+		this.syncing = true;
+
+		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
+		var checkedNames = {};
+		if (!Ext.isEmpty(checked)) {
+			Ext.each(checked, function(cb) {
+				checkedNames[cb.name] = true;
+			});
+		}
+
+		// Collect existing type: chip values
+		var existingTypeValues = [];
+		if (searchTextField.tokens) {
+			for (var i = 0; i < searchTextField.tokens.length; i++) {
+				var tok = searchTextField.tokens[i];
+				if (tok.type === 'filter' && tok.key === 'type') {
+					existingTypeValues.push(tok.value.toLowerCase());
+				}
+			}
+		}
+
+		group.items.each(function(checkbox) {
+			var typeValue = this.checkboxToTypeValueMap[checkbox.name];
+			if (!typeValue) {
+				return;
+			}
+			if (checkedNames[checkbox.name]) {
+				if (existingTypeValues.indexOf(typeValue) === -1) {
+					searchTextField.insertFilter('type', typeValue, true);
+				}
+			} else {
+				// Remove the type: chip with this value
+				if (searchTextField.tokens) {
+					for (var j = searchTextField.tokens.length - 1; j >= 0; j--) {
+						var t = searchTextField.tokens[j];
+						if (t.type === 'filter' && t.key === 'type' &&
+							t.value.toLowerCase() === typeValue) {
+							searchTextField.removeTokenAt(j, true);
+							break;
+						}
+					}
+				}
+			}
+		}, this);
+
+		this.syncing = false;
+	},
+
+	/**
+	 * Event handler for the {@link Ext.form.CheckboxGroup#change change} event, this will
+	 * update the {@link #searchCriteria} and restricts the "search_fields" so that it only
+	 * contains fields which are selected.
+	 *
+	 * @param {Ext.form.CheckboxGroup} group the checkboxgroup
+	 * @param {Array} checked an array of {Ext.form.Checkbox} items which are selected
+	 */
+	onSearchInCheckboxChange: function(group, checked)
+	{
+		this.setSearchInRestriction(group, checked);
+		if (!this.syncing) {
+			this.afterUpdateRestriction();
+		}
+
+		// Sync checkboxes → search bar chips (reverse direction)
+		if (this.syncing) {
+			return;
+		}
+		this.syncing = true;
+
+		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
+		var checkedIds = {};
+		if (!Ext.isEmpty(checked)) {
+			Ext.each(checked, function(cb) {
+				checkedIds[cb.itemId] = true;
+			});
+		}
+
+		// Sync checkbox state to chips: add chips for checked, remove for unchecked
+		var activeKeys = searchTextField.getActiveFilterKeys ? searchTextField.getActiveFilterKeys() : [];
+		group.items.each(function(checkbox) {
+			var checkboxId = checkbox.itemId;
+			var chipKeys = this.checkboxToChipMap[checkboxId];
+			if (!chipKeys) {
+				return;
+			}
+			if (checkedIds[checkboxId]) {
+				// Add the first matching chip if none exists yet
+				var hasAny = false;
+				for (var j = 0; j < chipKeys.length; j++) {
+					if (activeKeys.indexOf(chipKeys[j]) !== -1) {
+						hasAny = true;
+						break;
+					}
+				}
+				if (!hasAny) {
+					searchTextField.insertFilter(chipKeys[0]);
+				}
+			} else {
+				// Remove all matching chips
+				for (var i = 0; i < chipKeys.length; i++) {
+					searchTextField.removeFilterChip(chipKeys[i], true);
+				}
+			}
+		}, this);
+
+		this.syncing = false;
+	},
+
+	/**
+	 * Sets the search restriction for Search filtering fields.
+	 *
+	 * @param {Ext.form.CheckboxGroup} group the checkboxgroup
+	 * @param {Array} checked an array of {Ext.form.Checkbox} items which are selected
+	 */
+	setSearchInRestriction: function (group, checked)
+	{
+		if (Ext.isEmpty(checked)) {
+			// Set the search_fields restriction based the current selected messageClasses.
+			this.setMessageClassRestriction(this.messageTypeCheckboxGroup, this.messageTypeCheckboxGroup.getValue());
+		} else {
+			var searchFields = [];
+			checked.forEach(function(checkBox) {
+				searchFields = searchFields.concat(checkBox.name);
+			});
+			this.searchCriteria['search_fields'] = searchFields;
+		}
+	},
+
+	/**
+	 * Function call after the {@link #searchCriteria} gets updated
+	 * by {@link Grommunio.advancesearch.dialogs.SearchToolBoxPanel search tool box}. This
+	 * will fire the {@link #afterupdaterestriction} which triggers the advance search.
+	 */
+	afterUpdateRestriction: function()
+	{
+		this.fireEvent('afterupdaterestriction' , this);
+	},
+
+	/**
+	 * Event handler was fire when message type/ filter/ search check box group gets rendered.
+	 * @param {Ext.form.CheckboxGroup} group the group is {@link Ext.form.CheckboxGroup checkbox}
+	 * @private
+	 */
+	onRenderCheckboxGroup: function(group)
+	{
+		switch(group.name) {
+			case 'filterCheckBoxGroup':
+				this.setFilterRestriction(group, group.getValue());
+				break;
+			case 'searchInCheckboxGroup':
+				this.setSearchInRestriction(group, group.getValue());
+				break;
+			default:
+				this.setMessageClassRestriction(group, group.getValue());
+		}
+	},
+
+	/**
+	 * Sets the search restriction for extra filtering fields.
+	 *
+	 * @param {Ext.form.CheckboxGroup} group the group is {@link Ext.form.CheckboxGroup checkbox}
+	 * @param {Array} checked an array of {Ext.form.Checkbox} items which are selected
+	 */
+	setFilterRestriction: function(group, checked)
+	{
+		this.searchCriteria['extra_fields'] = checked.map(function(checkbox) { return checkbox.name; });
+	},
+
+	/**
+	 * Sets the search restriction for message classes based on the checkboxes which are available,
+	 * if no checkboxes are selected we want to search through all available message and searchfields.
+	 *
+	 * @param {Ext.form.CheckboxGroup} group the {@link Ext.form.CheckboxGroup checkbox} group
+	 * @param {Array} checked a list of checkboxes which are enabled
+	 */
+	setMessageClassRestriction: function(group, checked)
+	{
+		// Helper to filter out duplicates
+		const onlyUnique = function(value, index, arr) {
+			return arr.indexOf(value) === index;
+		};
+
+		var messageClasses = [];
+		var searchFields = [];
+
+		if (Ext.isEmpty(checked)) {
+			checked = group.items.items;
+		}
+
+		var searchInCheckBox = this.searchInCheckboxGroup.getValue();
+		var searchInCheckBoxFields = [];
+		if (!Ext.isEmpty(searchInCheckBox)) {
+			searchInCheckBox.forEach(function (checkBox) {
+				searchInCheckBoxFields = searchInCheckBoxFields.concat(checkBox.name);
+			}, this);
+		}
+
+		checked.forEach(function(checkBox) {
+			messageClasses = messageClasses.concat(this.getMessageClass(checkBox.name));
+			// searchInCheckBox has high priority, If any of the checkBox selected from that
+			// then don't add/contact default search fields in searchFields array.
+			if (Ext.isEmpty(searchInCheckBoxFields)) {
+				searchFields = searchFields.concat(Grommunio[checkBox.name].data.SearchFields[0].value.split(' '));
+			}
+		}, this);
+
+		if (!Ext.isEmpty(searchInCheckBoxFields)) {
+			searchFields = searchInCheckBoxFields;
+		}
+
+		this.searchCriteria['message_class'] = messageClasses.filter(onlyUnique);
+		this.searchCriteria['search_fields'] = searchFields.filter(onlyUnique);
+	},
+
+	/**
+	 * Function used to retrieve the message class based on the selected
+	 * {@link #createMessageTypeFieldset}.
+	 * @param {String} checkBoxName The checkBoxName of the selected check box from check box list
+	 * @return {Array} return and array of message classes.
+	 */
+	getMessageClass: function(checkBoxName)
+	{
+		switch(checkBoxName) {
+			case 'mail':
+				return ['IPM.Note', 'REPORT.IPM.Note'];
+			case 'calendar':
+				return ['IPM.Appointment', 'IPM.Schedule'];
+			case 'contact':
+				return ['IPM.Contact', 'IPM.DistList'];
+			case 'task':
+				return ['IPM.Task'];
+			case 'note':
+				return ['IPM.StickyNote'];
+		}
+	},
+
+	/**
+	 * Event handler which is fired when the {@link Grommunio.common.ui.DateRangeField} has been changed.
+	 * This will update the start and due date inside the {@link #searchCriteria} accordingly.
+	 *
+	 * @param {Ext.form.Field} field The field which has changed
+	 * @param {Mixed} newRange The new date range
+	 * @param {Mixed} oldRange The old date range
+	 * @private
+	 */
+	onChangeDateField: function(field, newRange, oldRange)
+	{
+		var newStartDate = newRange.startDate.getTime()/1000;
+		// Add a day to implement until
+		var newDueDate = newRange.dueDate.add(Date.DAY, 1).getTime()/1000;
+
+		this.searchCriteria['date_range']['start'] = newStartDate;
+		this.searchCriteria['date_range']['end'] = newDueDate;
+
+		if(newRange.compare(oldRange) !== 0) {
+			this.afterUpdateRestriction();
+		}
+	},
+
+	/**
+	 * Event handler triggers after the date range combo box gets enabled.
+	 * also it will update the {@link #searchCriteria} based on the selected
+	 * value of the combo box.
+	 *
+	 * @param {Ext.form.ComboBox} combo which gets enabled.
+	 * @private
+	 */
+	onEnableCombo: function(combo)
+	{
+		var index = combo.getStore().find('value', combo.getValue());
+		var record = combo.getStore().getAt(index);
+		if (record) {
+			this.onSelectCombo(combo, record);
+		}
+	},
+
+	/**
+	 * Event handler triggered when "Favorites" button was pressed. it will open
+	 * {@link Grommunio.advancesearch.dialogs.CreateSearchFolderPanel CreateSearchFolderPanel}.
+	 */
+	onClickFavorites: function ()
+	{
+		var config = {
+			searchText: this.dialog.searchText,
+			searchStoreEntryId: this.model.getStore().searchStoreEntryId,
+			includeSubFolder: this.includeSubFolder.getValue(),
+			searchFolderEntryId: this.model.store.searchFolderEntryId
+		};
+		Grommunio.advancesearch.Actions.openCreateSearchFolderContentPanel(this.model, config);
+	},
+
+
+	/**
+	 * Function will be used to create search restriction based on value entered in
+	 * search textfield and {@link Grommunio.common.search.dialogs.SearchToolBoxPanel SearchToolBox}.
+	 *
+	 * In words: all terms must occur at least once, but it doesn't matter in which of the fields they occur.
+	 *
+	 * @param {String} textFieldValue value of search text field.
+	 * @return {Object} Object that will be passed as restriction to server.
+	 * @private
+	 */
+	createRestriction: function(textFieldValue)
+	{
+		if (Ext.isEmpty(textFieldValue)) {
+			return [];
+		}
+
+		var searchFieldPreference = Ext.isArray(this.searchCriteria['search_fields']) ? this.searchCriteria['search_fields'].slice(0) : [];
+		var tokens = Grommunio.advancesearch.KQLParser.tokenize(textFieldValue);
+		var usesAdvancedSyntax = Grommunio.advancesearch.KQLParser.usesExplicitSyntax(tokens);
+		var andRes = [];
+		if ( tokens ) {
+			var tokenRes = Grommunio.advancesearch.KQLParser.createTokenRestriction(tokens, usesAdvancedSyntax ? null : searchFieldPreference);
+			if ( tokenRes ) {
+				andRes = [tokenRes];
+			} else {
+				// treat malformed KQL as plain search text
+				tokens = false;
+			}
+		}
+
+		var finalRes = [];
+		var orResDate = [];
+		var orResSearchField = [];
+		var orResMessageClass = [];
+		var andResCategory = [];
+		var orFilters = [];
+
+		Ext.iterate(this.searchCriteria, function(key, values) {
+			if ( !tokens ) {
+				// search field restriction
+				if(key === 'search_fields') {
+					Ext.each(values, function(value){
+						orResSearchField.push(
+							Grommunio.core.data.RestrictionFactory.dataResContent(
+								value,
+								Grommunio.core.mapi.Restrictions.FL_SUBSTRING | Grommunio.core.mapi.Restrictions.FL_IGNORECASE,
+								textFieldValue
+							)
+						);
+					}, this);
+				}
+			}
+
+			if (key === 'extra_fields') {
+				Ext.each(values, function(value) {
+					if (value === 'hasattach') {
+						orFilters.push(
+							Grommunio.core.data.RestrictionFactory.createResAnd([
+								Grommunio.core.data.RestrictionFactory.dataResProperty(
+									'hide_attachments',
+									Grommunio.core.mapi.Restrictions.RELOP_NE,
+									true
+								),
+								Grommunio.core.data.RestrictionFactory.createResSubRestriction(
+									'PR_MESSAGE_ATTACHMENTS',
+									Grommunio.core.data.RestrictionFactory.dataResProperty(
+										'PR_ATTACHMENT_HIDDEN',
+										Grommunio.core.mapi.Restrictions.RELOP_NE,
+										true
+									)
+								)
+							])
+						);
+
+					}
+					if (value === 'message_flags') {
+						orFilters.push(
+							Grommunio.core.data.RestrictionFactory.dataResBitmask(
+								value,
+								Grommunio.core.mapi.Restrictions.BMR_EQZ,
+								Grommunio.core.mapi.MessageFlags.MSGFLAG_READ
+							)
+						);
+					}
+				});
+			}
+
+			// Negated unread filter (NOT Unread = show read messages)
+			// This is separate from extra_fields since the checkbox is unchecked
+			if (key === 'negated_extra_fields' && Ext.isArray(values) &&
+				values.indexOf('unread') !== -1) {
+				orFilters.push(
+					Grommunio.core.data.RestrictionFactory.dataResBitmask(
+						'message_flags',
+						Grommunio.core.mapi.Restrictions.BMR_NEZ,
+						Grommunio.core.mapi.MessageFlags.MSGFLAG_READ
+					)
+				);
+			}
+
+			// Date Range restriction
+			if(key === 'date_range') {
+				if(values.start !== 0 && values.end !== 0) {
+					// Modification date
+					orResDate = Grommunio.core.data.RestrictionFactory.createResOr([
+						Grommunio.core.data.RestrictionFactory.createResAnd([
+							Grommunio.core.data.RestrictionFactory.createResNot(
+								Grommunio.core.data.RestrictionFactory.dataResExist('PR_MESSAGE_DELIVERY_TIME')
+							),
+							Grommunio.core.data.RestrictionFactory.dataResProperty(
+								'last_modification_time',
+								Grommunio.core.mapi.Restrictions.RELOP_GE,
+								values.start
+							),
+							Grommunio.core.data.RestrictionFactory.dataResProperty(
+								'last_modification_time',
+								Grommunio.core.mapi.Restrictions.RELOP_LT,
+								values.end
+							)
+						]),
+						Grommunio.core.data.RestrictionFactory.createResAnd([
+							Grommunio.core.data.RestrictionFactory.dataResExist('PR_MESSAGE_DELIVERY_TIME'),
+							Grommunio.core.data.RestrictionFactory.dataResProperty(
+								'message_delivery_time',
+								Grommunio.core.mapi.Restrictions.RELOP_GE,
+								values.start
+							),
+							Grommunio.core.data.RestrictionFactory.dataResProperty(
+								'message_delivery_time',
+								Grommunio.core.mapi.Restrictions.RELOP_LT,
+								values.end
+							)
+						])
+					]);
+				}
+			}
+
+			// message class restriction
+			if(key === 'message_class' && !Ext.isEmpty(values)) {
+				Ext.each(values, function(value){
+					orResMessageClass.push(
+						Grommunio.core.data.RestrictionFactory.dataResContent(
+							key,
+							Grommunio.core.mapi.Restrictions.FL_PREFIX | Grommunio.core.mapi.Restrictions.FL_IGNORECASE,
+							value
+						)
+					);
+				}, this);
+			}
+
+			// category restriction
+			if (key === 'categories' && !Ext.isEmpty(values)) {
+				Ext.each(values, function (value) {
+					andResCategory.push(
+						Grommunio.core.data.RestrictionFactory.dataResContent(
+							key,
+							Grommunio.core.mapi.Restrictions.FL_FULLSTRING | Grommunio.core.mapi.Restrictions.FL_IGNORECASE,
+							value
+						)
+					);
+				}, this);
+			}
+		}, this);
+
+		/**
+		 * If date-information is present in search criteria then create search restriction
+		 * something like this.
+		 * AND
+		 * 		AND
+		 * 			OR
+		 * 				AND
+		 * 					Not PR_MESSAGE_DELIVERY_TIME exists
+		 * 					start date (last_modification_time)
+		 * 					end date (last_modification_time)
+		 * 				AND
+		 * 					PR_MESSAGE_DELIVERY_TIME exists
+		 * 					start date (message_delivery_time)
+		 * 					end date (message_delivery_time)
+		 * 			OR
+		 * 				searchFields
+		 * 		OR
+		 * 			message class
+		 * 		OR
+		 * 			search filters
+		 */
+		if(!Ext.isEmpty(orResDate)) {
+			var andResDateSearchField = [];
+			andResDateSearchField.push(orResDate);
+			if ( orResSearchField.length ) {
+				andResDateSearchField.push(Grommunio.core.data.RestrictionFactory.createResOr(orResSearchField));
+			}
+			andRes.push(Grommunio.core.data.RestrictionFactory.createResAnd(andResDateSearchField));
+		} else if ( orResSearchField.length ) {
+			/**
+			 * If date information is not present in search criteria then create search restriction
+			 * something like this.
+			 * AND
+			 * 		OR
+			 * 			searchFields
+			 * 		OR
+			 * 			message class
+			 * 		OR
+			 * 			search filters
+			 */
+			andRes.push(Grommunio.core.data.RestrictionFactory.createResOr(orResSearchField));
+		}
+
+		// Message class restriction which indicates which type of message you want to search.
+		andRes.push(Grommunio.core.data.RestrictionFactory.createResOr(orResMessageClass));
+
+		if (!Ext.isEmpty(andResCategory)) {
+			andRes.push(Grommunio.core.data.RestrictionFactory.createResAnd(andResCategory));
+		}
+
+		if (!Ext.isEmpty(orFilters)) {
+			andRes.push(Grommunio.core.data.RestrictionFactory.createResAnd(orFilters));
+		}
+
+		if(!Ext.isEmpty(andRes)) {
+			finalRes = Grommunio.core.data.RestrictionFactory.createResAnd(andRes);
+		}
+
+
+		return finalRes;
+	},
+
+	/**
+	 * Function which is handle click event of select category.
+	 * It will show {@link Grommunio.advancesearch.dialogs.SearchCategoriesContentPanel search category panel}.
+	 */
+	onSelectCategory: function ()
+	{
+		Grommunio.advancesearch.Actions.openSearchCategoryContentPanel({
+			modal: true,
+			searchCategoryStore: this.searchCategoriesStore,
+			scope: this
+		});
+	},
+
+	/**
+	 * Function which is handle click event of category box.
+	 * It will identify that is user click on close button, If yes then
+	 * Remove that category from {@link Grommunio.advancesearch.data.SearchCategoriesStore}
+	 *
+	 * @param {Ext.DataView} item Categories data view.
+	 * @param {Number} index The index of the target node in {@link Grommunio.advancesearch.data.SearchCategoriesStore}.
+	 * @param {HTMLElement} node html element.
+	 * @param {Ext.EventObject} e event object.
+	 */
+	onCategoryRemove: function (item, index, node, e)
+	{
+		var element = e.getTarget();
+		if (element.className === "k-category-close") {
+			this.searchCategoriesStore.removeAt(index);
+		}
+	},
+
+	/**
+	 * Sets the search restriction for categories
+	 * based on categories available in {@link #searchCategoriesStore},
+	 *
+	 * @param {Array} categories a list of categories.
+	 */
+	setCategoriesRestriction: function(categories)
+	{
+		this.searchCriteria['categories'] = categories;
+	},
+
+	/**
+	 * Handler which is call while category will be add or remove.
+	 * It will update the search restriction with categories available in {@link #searchCategoriesStore}
+	 */
+	onSearchCategoryUpdate: function ()
+	{
+		var categories = this.searchCategoriesStore.getCategories();
+		this.setCategoriesRestriction(categories);
+		if (!this.syncing) {
+			this.afterUpdateRestriction();
+		}
+		this.categoryFilterLabel.setVisible(!this.searchCategoriesStore.getCount());
+
+		// Sync categories → search bar chips
+		if (this.syncing) {
+			return;
+		}
+		this.syncing = true;
+
+		var searchTextField = this.ownerCt.searchToolbar.contextMainPanelToolbar.searchFieldContainer.searchTextField;
+		if (searchTextField && searchTextField.tokens) {
+			// Remove existing category chips
+			for (var i = searchTextField.tokens.length - 1; i >= 0; i--) {
+				if (searchTextField.tokens[i].type === 'filter' && searchTextField.tokens[i].key === 'category') {
+					searchTextField.tokens.splice(i, 1);
+				}
+			}
+			// Add category chips for each store entry
+			for (var j = 0; j < categories.length; j++) {
+				var last = searchTextField.tokens.length > 0 ? searchTextField.tokens[searchTextField.tokens.length - 1] : null;
+				if (last && last.type !== 'operator') {
+					searchTextField.tokens.push({ type: 'operator', key: 'AND' });
+				}
+				searchTextField.tokens.push({ type: 'filter', key: 'category', value: categories[j] });
+			}
+			searchTextField.cleanupOperators();
+			searchTextField.renderTokens();
+			searchTextField.syncHiddenInput();
+			searchTextField.fireEvent('chipchange', searchTextField, searchTextField.getFilterChips());
+		}
+
+		this.syncing = false;
+	}
+});
+
+Ext.reg('grommunio.searchtoolboxpanel', Grommunio.advancesearch.dialogs.SearchToolBoxPanel);

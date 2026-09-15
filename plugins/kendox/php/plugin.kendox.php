@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * Kendox Plugin.
  *
@@ -35,7 +40,7 @@ class Pluginkendox extends Plugin {
 	 */
 	public function injectPluginSettings(&$data) {
 		$data['settingsObj']->addSysAdminDefaults([
-			'zarafa' => [
+			'grommunio' => [
 				'v1' => [
 					'plugins' => [
 						'kendox' => [

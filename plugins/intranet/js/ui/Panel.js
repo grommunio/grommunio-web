@@ -1,10 +1,17 @@
-Ext.namespace('Zarafa.plugins.intranet.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.intranet.ui');
 
 /**
- * @class Zarafa.plugins.intranet.ui.Panel
+ * @class Grommunio.plugins.intranet.ui.Panel
  * @extends Ext.Panel
  */
-Zarafa.plugins.intranet.ui.Panel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.intranet.ui.Panel = Ext.extend(Ext.Panel, {
 	/**
 	 * The id of the iframe element inside this panel
 	 */
@@ -20,7 +27,7 @@ Zarafa.plugins.intranet.ui.Panel = Ext.extend(Ext.Panel, {
 	 * the dialog is waiting for the server to respond with the desired data. This will only
 	 * be set if {@link #showLoadMask} is true.
 	 * @property
-	 * @type Zarafa.common.ui.LoadMask
+	 * @type Grommunio.common.ui.LoadMask
 	 */
 	loadMask : undefined,
 
@@ -32,7 +39,7 @@ Zarafa.plugins.intranet.ui.Panel = Ext.extend(Ext.Panel, {
 	{
 		config = config || {};
 		this.iframeId = 'intranet-iframe-'+config.tabOrder;
-		if (Zarafa.plugins.intranet.isDeskApp()) {
+		if (Grommunio.plugins.intranet.isDeskApp()) {
 			this.tag = 'webview';
 		} else {
 			this.tag = 'iframe';
@@ -40,7 +47,7 @@ Zarafa.plugins.intranet.ui.Panel = Ext.extend(Ext.Panel, {
 
 		Ext.applyIf(config, {
 			// Overridden from Ext.Component
-			xtype: 'zarafa.plugins.intranet.ui.panel',
+			xtype: 'grommunio.plugins.intranet.ui.panel',
 			layout : 'fit',
 			header: false,
 			html : {
@@ -57,7 +64,7 @@ Zarafa.plugins.intranet.ui.Panel = Ext.extend(Ext.Panel, {
 			}
 		});
 
-		Zarafa.plugins.intranet.ui.Panel.superclass.constructor.call(this, config);
+		Grommunio.plugins.intranet.ui.Panel.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -200,7 +207,7 @@ Zarafa.plugins.intranet.ui.Panel = Ext.extend(Ext.Panel, {
 			return;
 		}
 		if (!this.loadMask) {
-			this.loadMask = new Zarafa.common.ui.LoadMask(this.ownerCt.el);
+			this.loadMask = new Grommunio.common.ui.LoadMask(this.ownerCt.el);
 		}
 
 		if (errorMask) {
@@ -231,4 +238,4 @@ Zarafa.plugins.intranet.ui.Panel = Ext.extend(Ext.Panel, {
 
 });
 
-Ext.reg('zarafa.plugins.intranet.ui.panel', Zarafa.plugins.intranet.ui.Panel);
+Ext.reg('grommunio.plugins.intranet.ui.panel', Grommunio.plugins.intranet.ui.Panel);

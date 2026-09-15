@@ -1,11 +1,16 @@
-Ext.namespace('Zarafa.plugins.files.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.AccountRecordFields
+ * @class Grommunio.plugins.files.data.AccountRecordFields
  *
  * These fields will be available in all 'IPM.FilesAccount' type messages.
  */
-Zarafa.plugins.files.data.AccountRecordFields = [
+Grommunio.plugins.files.data.AccountRecordFields = [
 	{name: 'id'},
 	{name: 'name'},
 	{name: 'status'},
@@ -18,11 +23,11 @@ Zarafa.plugins.files.data.AccountRecordFields = [
 ];
 
 /**
- * @class Zarafa.plugins.files.data.AccountRecordStatus
+ * @class Grommunio.plugins.files.data.AccountRecordStatus
  *
  * This object contains all valid status codes that an account can have.
  */
-Zarafa.plugins.files.data.AccountRecordStatus = {
+Grommunio.plugins.files.data.AccountRecordStatus = {
 	OK     : "ok",
 	ERROR  : "err",
 	NEW    : "new",
@@ -30,11 +35,11 @@ Zarafa.plugins.files.data.AccountRecordStatus = {
 };
 
 /**
- * @class Zarafa.plugins.files.data.AccountRecordStatus
+ * @class Grommunio.plugins.files.data.AccountRecordStatus
  *
  * This object contains all available feature codes that an account can have.
  */
-Zarafa.plugins.files.data.AccountRecordFeature = {
+Grommunio.plugins.files.data.AccountRecordFeature = {
 	QUOTA       : "Quota",
 	VERSION_INFO: "VersionInfo",
 	SHARING     : "Sharing",
@@ -43,17 +48,17 @@ Zarafa.plugins.files.data.AccountRecordFeature = {
 };
 
 /**
- * @class Zarafa.plugins.files.data.AccountRecord
- * @extends Zarafa.core.data.IPMRecord
+ * @class Grommunio.plugins.files.data.AccountRecord
+ * @extends Grommunio.core.data.IPMRecord
  */
-Zarafa.plugins.files.data.AccountRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
+Grommunio.plugins.files.data.AccountRecord = Ext.extend(Grommunio.core.data.IPMRecord, {
 
 	/**
-	 * Applies all data from an {@link Zarafa.plugins.files.data.AccountRecord AccountRecord}
+	 * Applies all data from an {@link Grommunio.plugins.files.data.AccountRecord AccountRecord}
 	 * to this instance. This will update all data.
 	 *
-	 * @param {Zarafa.plugins.files.data.AccountRecord} record The record to apply to this
-	 * @return {Zarafa.plugins.files.data.AccountRecord} this
+	 * @param {Grommunio.plugins.files.data.AccountRecord} record The record to apply to this
+	 * @return {Grommunio.plugins.files.data.AccountRecord} this
 	 */
 	applyData: function (record) {
 		this.beginEdit();
@@ -71,7 +76,7 @@ Zarafa.plugins.files.data.AccountRecord = Ext.extend(Zarafa.core.data.IPMRecord,
 	/**
 	 * Check if the account support the given feature.
 	 *
-	 * @param featureName Should be one of Zarafa.plugins.files.data.AccountRecordFeature children.
+	 * @param featureName Should be one of Grommunio.plugins.files.data.AccountRecordFeature children.
 	 * @return {boolean}
 	 */
 	supportsFeature: function (featureName) {
@@ -85,21 +90,21 @@ Zarafa.plugins.files.data.AccountRecord = Ext.extend(Zarafa.core.data.IPMRecord,
 	/**
 	 * Check if the account support the given feature.
 	 *
-	 * @param featureName Should be one of Zarafa.plugins.files.data.AccountRecordFeature children.
+	 * @param featureName Should be one of Grommunio.plugins.files.data.AccountRecordFeature children.
 	 * @return {boolean}
 	 */
 	renewOauthToken: function () {
-		if(!this.supportsFeature(Zarafa.plugins.files.data.AccountRecordFeature.OAUTH)) {
+		if(!this.supportsFeature(Grommunio.plugins.files.data.AccountRecordFeature.OAUTH)) {
 			return false;
 		}
 
 		// show the frontend panel
-		Zarafa.plugins.files.backend[this.get('backend')].data.OAUTH.reAuthenticate(this.get('id'));
+		Grommunio.plugins.files.backend[this.get('backend')].data.OAUTH.reAuthenticate(this.get('id'));
 
 		return true;
 	}
 });
 
 
-Zarafa.core.data.RecordFactory.addFieldToMessageClass('IPM.FilesAccount', Zarafa.plugins.files.data.AccountRecordFields);
-Zarafa.core.data.RecordFactory.setBaseClassToMessageClass('IPM.FilesAccount', Zarafa.plugins.files.data.AccountRecord);
+Grommunio.core.data.RecordFactory.addFieldToMessageClass('IPM.FilesAccount', Grommunio.plugins.files.data.AccountRecordFields);
+Grommunio.core.data.RecordFactory.setBaseClassToMessageClass('IPM.FilesAccount', Grommunio.plugins.files.data.AccountRecord);

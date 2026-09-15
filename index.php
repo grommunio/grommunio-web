@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * This is the entry point for every request that should return HTML
  * (one exception is that it also returns translated text for javascript).
@@ -231,17 +238,17 @@ updateSession(function () use ($sessionSettings) {
 // Get language from the request, or the session, or the user settings, or the config
 if (isset($_REQUEST["language"]) && $Language->isLanguage($_REQUEST["language"])) {
 	$lang = $_REQUEST["language"];
-	$GLOBALS["settings"]->set("zarafa/v1/main/language", $lang);
+	$GLOBALS["settings"]->set("grommunio/v1/main/language", $lang);
 }
 elseif (isset($_SESSION["lang"])) {
 	$lang = $_SESSION["lang"];
-	$GLOBALS["settings"]->set("zarafa/v1/main/language", $lang);
+	$GLOBALS["settings"]->set("grommunio/v1/main/language", $lang);
 }
 else {
-	$lang = $GLOBALS["settings"]->get("zarafa/v1/main/language");
+	$lang = $GLOBALS["settings"]->get("grommunio/v1/main/language");
 	if (empty($lang)) {
 		$lang = LANG;
-		$GLOBALS["settings"]->set("zarafa/v1/main/language", $lang);
+		$GLOBALS["settings"]->set("grommunio/v1/main/language", $lang);
 	}
 }
 
@@ -249,7 +256,7 @@ $Language->setLanguage($lang);
 // Store the directory name so a legacy value like de_DE.UTF-8 does not linger
 if ($Language->getSelected() !== null && (string) $Language->getSelected() !== $lang) {
 	$lang = (string) $Language->getSelected();
-	$GLOBALS["settings"]->set("zarafa/v1/main/language", $lang);
+	$GLOBALS["settings"]->set("grommunio/v1/main/language", $lang);
 }
 setcookie('lang', (string) $lang, [
 	'expires' => time() + 31536000,
@@ -266,9 +273,9 @@ header("X-grommunio: " . trim(file_get_contents('version')));
 // Set a template variable for the favicon of the login, welcome, and webclient page
 $theme = Theming::getActiveTheme();
 $favicon = getFavicon(Theming::getActiveTheme());
-$hideFavorites = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/hide_favorites") ? 'hideFavorites' : '';
-$scrollFavorites = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/scroll_favorites") ? 'scrollFavorites' : '';
-$unreadBorders = $GLOBALS["settings"]->get("zarafa/v1/main/unread_borders") === false ? '' : 'k-unreadborders';
+$hideFavorites = $GLOBALS["settings"]->get("grommunio/v1/contexts/hierarchy/hide_favorites") ? 'hideFavorites' : '';
+$scrollFavorites = $GLOBALS["settings"]->get("grommunio/v1/contexts/hierarchy/scroll_favorites") ? 'scrollFavorites' : '';
+$unreadBorders = $GLOBALS["settings"]->get("grommunio/v1/main/unread_borders") === false ? '' : 'k-unreadborders';
 
 // If GET parameter 'load' is defined, we defer handling to the load.php script
 if (isset($_GET['load'])) {
@@ -278,7 +285,7 @@ if (isset($_GET['load'])) {
 }
 
 // Unloaded settings answer with defaults and refuse to save, so the welcome screen would come back on every load.
-if (ENABLE_WELCOME_SCREEN && $GLOBALS["settings"]->isLoaded() && $GLOBALS["settings"]->get("zarafa/v1/main/show_welcome") !== false) {
+if (ENABLE_WELCOME_SCREEN && $GLOBALS["settings"]->isLoaded() && $GLOBALS["settings"]->get("grommunio/v1/main/show_welcome") !== false) {
 	// These hooks are defined twice (also when there is a "load" argument supplied)
 	$GLOBALS['PluginManager']->triggerHook("server.index.load.welcome.before");
 	include BASE_PATH . 'server/includes/templates/welcome.php';
@@ -288,7 +295,7 @@ else {
 	// Set the show_welcome to false, so that when the admin is changing the
 	// ENABLE_WELCOME_SCREEN option to false after some time, the users who are already
 	// using grommunio Web are not bothered with the Welcome Screen.
-	$GLOBALS["settings"]->set("zarafa/v1/main/show_welcome", false);
+	$GLOBALS["settings"]->set("grommunio/v1/main/show_welcome", false);
 
 	// Clean up old state files in tmp/session/
 	$state = new State("index");

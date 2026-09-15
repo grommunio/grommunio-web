@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 if (function_exists('mapi_getprops')) {
 	echo "Module MAPI contract checks skipped with php-mapi loaded\n";
 
@@ -10,8 +15,8 @@ defined('BASE_PATH') || define('BASE_PATH', dirname(__DIR__, 2) . '/');
 defined('PR_MDB_PROVIDER') || define('PR_MDB_PROVIDER', 0x34140102);
 defined('ZARAFA_STORE_DELEGATE_GUID') || define('ZARAFA_STORE_DELEGATE_GUID', 'delegate-provider');
 
-if (!class_exists('ZarafaException')) {
-	class ZarafaException extends Exception {}
+if (!class_exists('GrommunioException')) {
+	class GrommunioException extends Exception {}
 }
 if (!class_exists('SQLite3')) {
 	class SQLite3 {}

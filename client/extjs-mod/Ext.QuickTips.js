@@ -1,3 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 Ext.namespace('Ext.QuickTips');
 /*
  * @class Ext.QuickTips
@@ -16,7 +23,7 @@ Ext.QuickTips = Ext.extend(Object, {
 
 	/**
 	 * The {@link Ext.QuickTip} instance belongs to specific browser window which
-	 * is currently {@link Zarafa.core.BrowserWindowMgr.activeBrowserWindow active}.
+	 * is currently {@link Grommunio.core.BrowserWindowMgr.activeBrowserWindow active}.
 	 * @property
 	 * @type String
 	 * @private
@@ -60,7 +67,7 @@ Ext.QuickTips = Ext.extend(Object, {
 			this.tip.render(Ext.getBody());
 		}
 
-		this.browserQuickTips.add(Zarafa.core.BrowserWindowMgr.getOwnerWindow(this.tip).name, this.tip);
+		this.browserQuickTips.add(Grommunio.core.BrowserWindowMgr.getOwnerWindow(this.tip).name, this.tip);
 	},
 
 	// Protected method called by the dd classes

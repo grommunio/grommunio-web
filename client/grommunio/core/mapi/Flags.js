@@ -1,0 +1,95 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace("Grommunio.core.mapi");
+
+/**
+ * @class Grommunio.core.mapi.FlagStatus
+ * @extends Grommunio.core.Enum
+ * @singleton
+ */
+Grommunio.core.mapi.FlagStatus = Grommunio.core.Enum.create({
+
+	/**
+	 * @property
+	 * @type Number
+	 * Indicates that the flag status property is cleared (neither flagged or completed).
+	 */
+	cleared: 0,
+
+	/**
+	 * @property
+	 * @type Number
+	 * Indicates that an item is completed.
+	 */
+	completed: 1,
+
+	/**
+	 * @property
+	 * @type Number
+	 * Indicates that an item is flagged.
+	 */
+	flagged: 2
+
+});
+
+/**
+ * @class Grommunio.core.mapi.FlagIcon
+ * @extends Grommunio.core.Enum
+ * @singleton
+ */
+Grommunio.core.mapi.FlagIcon = Grommunio.core.Enum.create({
+	/**
+	 * @property
+	 * @type Number
+	 * The item should not be displayed with any flag.
+	 */
+	clear: 0,
+
+	/**
+	 * @property
+	 * @type Number
+	 * The item should be displayed with a purple flag.
+	 */
+	purple: 1,
+
+	/**
+	 * @property
+	 * @type Number
+	 * The item should be displayed with a orange flag.
+	 */
+	orange: 2,
+
+	/**
+	 * @property
+	 * @type Number
+	 * The item should be displayed with a green flag.
+	 */
+	green: 3,
+
+	/**
+	 * @property
+	 * @type Number
+	 * The item should be displayed with a yellow flag.
+	 */
+	yellow: 4,
+
+	/**
+	 * @property
+	 * @type Number
+	 * The item should be displayed with a blue flag.
+	 */
+	blue: 5,
+
+	/**
+	 * @property
+	 * @type Number
+	 * The item should be displayed with a red flag.
+	 */
+	red: 6
+
+});

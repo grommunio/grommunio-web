@@ -1,3 +1,11 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-FileCopyrightText: Copyright 2013 Oleg Schildt
+ * SPDX-License-Identifier: AGPL-3.0-or-later AND LGPL-2.1-or-later
+ */
+
 /*--------------------------------------------------------------------
  Ext.ux.form.TinyMCETextArea
 
@@ -6,11 +14,13 @@
  Integration for TinyMCE 7.x WYSIWYG Editor with HTML5 text areas and
  ExtJS integration
 
- Rewrite by grommunio, inspired by the work of:
+ Rewritten by grommunio for the TinyMCE 7.x API, derived from
+ Ext.ux.form.TinyMCETextArea 4.0.1 (2013-12-17), which is licensed
+ LGPL v2.1 or later:
 
- - Oleg Schildt
- - Steve Drucker
- - Bhavin Bathani
+ - Oleg Schildt <Oleg.Schildt@gmail.com>, Copyright (c) 2013 Oleg Schildt
+ - Enhanced by Steve Drucker <sdrucker@figleaf.com>
+ - Re-enhanced for ExtJS 3.4 by Bhavin Bathani <bhavin.gir@gmail.com>
 --------------------------------------------------------------------*/
 
 Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
@@ -652,4 +662,4 @@ Ext.ux.form.TinyMCETextArea = Ext.extend(Ext.form.TextArea, {
 	}
 });
 
-Ext.reg("zarafa.tinymcetextarea", Ext.ux.form.TinyMCETextArea);
+Ext.reg("grommunio.tinymcetextarea", Ext.ux.form.TinyMCETextArea);

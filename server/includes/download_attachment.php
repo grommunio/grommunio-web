@@ -1,7 +1,14 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // required to handle php errors
-require_once __DIR__ . '/exceptions/class.ZarafaErrorException.php';
+require_once __DIR__ . '/exceptions/class.GrommunioErrorException.php';
 require_once __DIR__ . '/download_base.php';
 
 /**
@@ -218,7 +225,7 @@ class DownloadAttachment extends DownloadBase {
 					else {
 						$this->destinationFolder = mapi_msgstore_openentry($GLOBALS["mapisession"]->getPublicMessageStore(), hex2bin((string) $this->destinationFolderId));
 						if (!$this->destinationFolder) {
-							throw new ZarafaException(_("Destination folder not found."));
+							throw new GrommunioException(_("Destination folder not found."));
 						}
 					}
 				}
@@ -713,7 +720,7 @@ class DownloadAttachment extends DownloadBase {
 	public function importAttachment() {
 		$attachment = $this->getAttachmentByAttachNum();
 		if ($attachment === false) {
-			throw new ZarafaException(_("Could not find attachment."));
+			throw new GrommunioException(_("Could not find attachment."));
 		}
 
 		$addrBook = $GLOBALS['mapisession']->getAddressbook();
@@ -727,7 +734,7 @@ class DownloadAttachment extends DownloadBase {
 		switch ($extension) {
 			case 'eml':
 				if (isBrokenEml($attachmentStream)) {
-					throw new ZarafaException(_("Eml is corrupted"));
+					throw new GrommunioException(_("Eml is corrupted"));
 				}
 
 				try {
@@ -735,7 +742,7 @@ class DownloadAttachment extends DownloadBase {
 					$ok = mapi_inetmapi_imtomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, []);
 				}
 				catch (Exception) {
-					throw new ZarafaException(_("The eml Attachment is not imported successfully"));
+					throw new GrommunioException(_("The eml Attachment is not imported successfully"));
 				}
 
 				break;
@@ -746,7 +753,7 @@ class DownloadAttachment extends DownloadBase {
 					$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $this->store, $newMessage, $attachmentStream);
 				}
 				catch (Exception) {
-					throw new ZarafaException(_("The vcf attachment is not imported successfully"));
+					throw new GrommunioException(_("The vcf attachment is not imported successfully"));
 				}
 				break;
 
@@ -783,7 +790,7 @@ class DownloadAttachment extends DownloadBase {
 						$message = sprintf(_("Unable to import '%s'. "), $attachmentProps[PR_ATTACH_LONG_FILENAME]) . $e->getMessage();
 					}
 
-					$e = new ZarafaException($message);
+					$e = new GrommunioException($message);
 					$e->setTitle(_("Import error"));
 
 					throw $e;
@@ -809,7 +816,7 @@ class DownloadAttachment extends DownloadBase {
 			$return = [
 				// 'success' property is needed for Extjs Ext.form.Action.Submit#success handler
 				'success' => true,
-				'zarafa' => [
+				'grommunio' => [
 					sanitizeGetValue('module', '', STRING_REGEX) => [
 						sanitizeGetValue('moduleid', '', STRING_REGEX) => [
 							'update' => [
@@ -839,13 +846,13 @@ class DownloadAttachment extends DownloadBase {
 					],
 				];
 
-				$return['zarafa']['hierarchynotifier'] = $hierarchynotifier;
+				$return['grommunio']['hierarchynotifier'] = $hierarchynotifier;
 			}
 
 			echo json_encode($return);
 		}
 		else {
-			throw new ZarafaException(_("Attachment is not imported successfully"));
+			throw new GrommunioException(_("Attachment is not imported successfully"));
 		}
 	}
 
@@ -857,7 +864,7 @@ class DownloadAttachment extends DownloadBase {
 		$copyFromMessage = $GLOBALS['operations']->openMessage($this->store, hex2bin((string) $this->entryId), $this->attachNum, true);
 
 		if (empty($copyFromMessage)) {
-			throw new ZarafaException(_("Embedded attachment not found."));
+			throw new GrommunioException(_("Embedded attachment not found."));
 		}
 
 		$newMessage = mapi_folder_createmessage($this->destinationFolder);
@@ -871,7 +878,7 @@ class DownloadAttachment extends DownloadBase {
 		$return = [
 			// 'success' property is needed for Extjs Ext.form.Action.Submit#success handler
 			'success' => true,
-			'zarafa' => [
+			'grommunio' => [
 				sanitizeGetValue('module', '', STRING_REGEX) => [
 					sanitizeGetValue('moduleid', '', STRING_REGEX) => [
 						'update' => [
@@ -967,7 +974,7 @@ class DownloadAttachment extends DownloadBase {
 			}
 			else {
 				// Throw exception if ZIP is not created successfully
-				throw new ZarafaException(_("ZIP is not created successfully"));
+				throw new GrommunioException(_("ZIP is not created successfully"));
 			}
 
 			// A selection that matched nothing must not become an empty archive on disk.
@@ -977,7 +984,7 @@ class DownloadAttachment extends DownloadBase {
 					error_log('Unable to remove empty attachment archive: ' . $randomZipName);
 				}
 
-				throw new ZarafaException(_("ZIP is not created successfully"));
+				throw new GrommunioException(_("ZIP is not created successfully"));
 			}
 
 			$zip->close();
@@ -1035,7 +1042,7 @@ class DownloadAttachment extends DownloadBase {
 			}
 		}
 		else {
-			throw new ZarafaException(_("Attachments can not be downloaded"));
+			throw new GrommunioException(_("Attachments can not be downloaded"));
 		}
 	}
 
@@ -1068,7 +1075,7 @@ class DownloadAttachment extends DownloadBase {
 		if ($exception instanceof MAPIException) {
 			$return = [
 				'success' => false,
-				'zarafa' => [
+				'grommunio' => [
 					'error' => [
 						'type' => ERROR_MAPI,
 						'info' => [
@@ -1081,12 +1088,12 @@ class DownloadAttachment extends DownloadBase {
 				],
 			];
 		}
-		elseif ($exception instanceof ZarafaException) {
+		elseif ($exception instanceof GrommunioException) {
 			$return = [
 				'success' => false,
-				'zarafa' => [
+				'grommunio' => [
 					'error' => [
-						'type' => ERROR_ZARAFA,
+						'type' => ERROR_GROMMUNIO,
 						'info' => [
 							'file' => $exception->getFileLine(),
 							'display_message' => $exception->getDisplayMessage(),
@@ -1099,7 +1106,7 @@ class DownloadAttachment extends DownloadBase {
 		elseif ($exception instanceof BaseException) {
 			$return = [
 				'success' => false,
-				'zarafa' => [
+				'grommunio' => [
 					'error' => [
 						'type' => ERROR_GENERAL,
 						'info' => [
@@ -1114,7 +1121,7 @@ class DownloadAttachment extends DownloadBase {
 		else {
 			$return = [
 				'success' => false,
-				'zarafa' => [
+				'grommunio' => [
 					'error' => [
 						'type' => ERROR_GENERAL,
 						'info' => [

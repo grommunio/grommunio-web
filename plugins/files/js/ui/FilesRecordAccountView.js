@@ -1,16 +1,21 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
 
-Zarafa.plugins.files.ui.FilesRecordAccountView = Ext.extend(Ext.Panel, {
+Ext.namespace('Grommunio.plugins.files.ui');
+
+Grommunio.plugins.files.ui.FilesRecordAccountView = Ext.extend(Ext.Panel, {
 
 	/**
-	 * @cfg {Zarafa.plugins.files.FilesContext} context The context to which this context menu belongs.
+	 * @cfg {Grommunio.plugins.files.FilesContext} context The context to which this context menu belongs.
 	 */
 	context : undefined,
 
 	/**
-	 * The {@link Zarafa.plugins.files.FilesContextModel} which is obtained from the {@link #context}.
+	 * The {@link Grommunio.plugins.files.FilesContextModel} which is obtained from the {@link #context}.
 	 * @property
-	 * @type Zarafa.plugins.files.FilesContextModel
+	 * @type Grommunio.plugins.files.FilesContextModel
 	 */
 	model: undefined,
 
@@ -32,7 +37,7 @@ Zarafa.plugins.files.ui.FilesRecordAccountView = Ext.extend(Ext.Panel, {
 		Ext.applyIf(config, {
 			xtype: 'filesplugin.filesrecordaccountview',
 			layout:'fit',
-			cls : 'zarafa-files-accountview',
+			cls : 'grommunio-files-accountview',
 			loadMask : true,
 			header : false,
 			border : false,
@@ -47,14 +52,14 @@ Zarafa.plugins.files.ui.FilesRecordAccountView = Ext.extend(Ext.Panel, {
 				autoScroll : true,
 				singleSelect : true,
 				deferEmptyText: false,
-				overClass : 'zarafa-files-accountview-over',
+				overClass : 'grommunio-files-accountview-over',
 				tpl : this.initTemplate(config.model),
-				selectedClass : 'zarafa-files-accountview-selected',
-				itemSelector : 'div.zarafa-files-accountview-container'
+				selectedClass : 'grommunio-files-accountview-selected',
+				itemSelector : 'div.grommunio-files-accountview-container'
 			}]
 		});
 
-		Zarafa.plugins.files.ui.FilesRecordAccountView.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.FilesRecordAccountView.superclass.constructor.call(this, config);
 	},
 
 	initTemplate: function (model) {
@@ -62,11 +67,11 @@ Zarafa.plugins.files.ui.FilesRecordAccountView = Ext.extend(Ext.Panel, {
 		return new Ext.XTemplate(
 			'<div style="height: 100%; width: 100%; overflow: auto;">',
 				'<tpl for=".">',
-					'<div class="zarafa-files-accountview-container">',
-						'<div class="zarafa-files-account-background {.:this.getAccountType}"> </div>',
-						'<div class="zarafa-files-account-info">',
-							'<span class="zarafa-files-accountview-subject">{filename:htmlEncode}</span>',
-							'<span class="zarafa-files-accountview-account">{.:this.getAccountIdentifier}</span>',
+					'<div class="grommunio-files-accountview-container">',
+						'<div class="grommunio-files-account-background {.:this.getAccountType}"> </div>',
+						'<div class="grommunio-files-account-info">',
+							'<span class="grommunio-files-accountview-subject">{filename:htmlEncode}</span>',
+							'<span class="grommunio-files-accountview-account">{.:this.getAccountIdentifier}</span>',
 						'</div>',
 					'</div>',
 				'</tpl>',
@@ -103,7 +108,7 @@ Zarafa.plugins.files.ui.FilesRecordAccountView = Ext.extend(Ext.Panel, {
 						}
 					}
 
-					return Zarafa.plugins.files.data.Utils.Format.truncate(identifier, 27); // 27 = length of the account field
+					return Grommunio.plugins.files.data.Utils.Format.truncate(identifier, 27); // 27 = length of the account field
 				},
 				model : model
 			}
@@ -129,7 +134,7 @@ Zarafa.plugins.files.ui.FilesRecordAccountView = Ext.extend(Ext.Panel, {
 	 */
 	initComponent: function ()
 	{
-		Zarafa.plugins.files.ui.FilesRecordAccountView.superclass.initComponent.apply(this, arguments);
+		Grommunio.plugins.files.ui.FilesRecordAccountView.superclass.initComponent.apply(this, arguments);
 
 		// create load mask
 		if (this.loadMask) {
@@ -138,15 +143,15 @@ Zarafa.plugins.files.ui.FilesRecordAccountView = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Function will create {@link Zarafa.common.ui.LoadMask} which will be shown
-	 * when loading the {@link Zarafa.plugins.files.ui.FilesRecordAccountView FilesRecordAccountView}.
+	 * Function will create {@link Grommunio.common.ui.LoadMask} which will be shown
+	 * when loading the {@link Grommunio.plugins.files.ui.FilesRecordAccountView FilesRecordAccountView}.
 	 * @private
 	 */
 	createLoadMask: function ()
 	{
 		var hierarchyStore = this.model.getHierarchyStore();
 		if (hierarchyStore.isLoading()) {
-			this.loadMask = new Zarafa.common.ui.LoadMask(this.getEl(), { msg: this.loadingText, store: this.store});
+			this.loadMask = new Grommunio.common.ui.LoadMask(this.getEl(), { msg: this.loadingText, store: this.store});
 			this.loadMask.show();
 		}
 	},
@@ -158,7 +163,7 @@ Zarafa.plugins.files.ui.FilesRecordAccountView = Ext.extend(Ext.Panel, {
 	destroy: function ()
 	{
 		Ext.destroy(this.loadMask);
-		Zarafa.plugins.files.ui.FilesRecordAccountView.superclass.destroy.apply(this, arguments);
+		Grommunio.plugins.files.ui.FilesRecordAccountView.superclass.destroy.apply(this, arguments);
 	},
 
 	/**
@@ -176,5 +181,5 @@ Zarafa.plugins.files.ui.FilesRecordAccountView = Ext.extend(Ext.Panel, {
 	}
 });
 
-Ext.reg('filesplugin.filesrecordaccountview', Zarafa.plugins.files.ui.FilesRecordAccountView);
+Ext.reg('filesplugin.filesrecordaccountview', Grommunio.plugins.files.ui.FilesRecordAccountView);
 

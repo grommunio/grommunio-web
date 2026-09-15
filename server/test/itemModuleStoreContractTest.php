@@ -1,7 +1,12 @@
 <?php
 
-if (!class_exists('ZarafaException')) {
-	class ZarafaException extends Exception {}
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+if (!class_exists('GrommunioException')) {
+	class GrommunioException extends Exception {}
 }
 
 require_once dirname(__DIR__) . '/includes/modules/class.module.php';

@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.ui.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui.dialogs');
 
 /**
- * @class Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel
+ * @class Grommunio.plugins.files.ui.dialogs.SaveToFilesPanel
  * @extends Ext.Panel
  * @xtype filesplugin.savetofilespanel
  *
  * This dialog panel will provide the file chooser tree for the destination folder selection.
  */
-Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * @var {Object} response holds the response data from the attachment preparation event
@@ -38,7 +43,7 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 			buttons: this.createActionButtons()
 		});
 
-		Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.dialogs.SaveToFilesPanel.superclass.constructor.call(this, config);
 
 		if (Ext.isDefined(this.model)) {
 			this.mon(this.hierarchyTree, 'click', this.onTreeNodeClick, this);
@@ -46,9 +51,9 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Create the {@link Zarafa.plugins.files.ui.Tree Tree}.
+	 * Create the {@link Grommunio.plugins.files.ui.Tree Tree}.
 	 * @param {Object} config The configuration object.
-	 * @return {Object} return an object which used to create the {@link Zarafa.plugins.files.ui.Tree Tree}
+	 * @return {Object} return an object which used to create the {@link Grommunio.plugins.files.ui.Tree Tree}
 	 */
 	createTreePanel : function(config)
 	{
@@ -79,8 +84,8 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 			columns: [{
 				dataIndex: 'type',
 				header   : '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
-				headerCls: 'zarafa-icon-column icon',
-				renderer : Zarafa.plugins.files.data.Utils.Renderer.typeRenderer,
+				headerCls: 'grommunio-icon-column icon',
+				renderer : Grommunio.plugins.files.data.Utils.Renderer.typeRenderer,
 				width    : 24,
 				fixed    : true,
 				tooltip  : _('Sort by: Type')
@@ -93,7 +98,7 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 				header   : _('Size'),
 				dataIndex: 'message_size',
 				width    : 80,
-				renderer : Zarafa.plugins.files.data.Utils.Format.fileSizeList,
+				renderer : Grommunio.plugins.files.data.Utils.Format.fileSizeList,
 				tooltip  : _('Sort by: Size')
 			}],
 			loadMask : {
@@ -119,13 +124,13 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 		return [{
 			xtype: 'button',
 			text: _('New folder'),
-			cls: 'zarafa-normal',
+			cls: 'grommunio-normal',
 			handler: this.onClickNewFolder,
 			scope: this
 		}, {
 			xtype: 'button',
 			text: _('Save'),
-			cls: 'zarafa-action',
+			cls: 'grommunio-action',
 			iconCls: 'icon_files_category_white',
 			handler: this.onClickSave,
 			scope: this
@@ -191,7 +196,7 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * This function will prompt {@link Zarafa.plugins.files.ui.dialogs.CreateFolderContentPanel CreateFolderContentPanel}
+	 * This function will prompt {@link Grommunio.plugins.files.ui.dialogs.CreateFolderContentPanel CreateFolderContentPanel}
 	 * the user for a new folder name.
 	 */
 	onClickNewFolder: function () {
@@ -199,20 +204,20 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 		if (!Ext.isDefined(folder)) {
 			return;
 		}
-		Zarafa.plugins.files.data.Actions.createFolder(this.model, undefined, folder);
+		Grommunio.plugins.files.data.Actions.createFolder(this.model, undefined, folder);
 	},
 
 	/**
 	 * Function used to get the selected folder.
 	 *
-	 * @return {Zarafa.plugins.files.data.FilesFolderRecord|undefined} return selected folder else undefined.
+	 * @return {Grommunio.plugins.files.data.FilesFolderRecord|undefined} return selected folder else undefined.
 	 */
 	getSelectedFolder : function()
 	{
 		var selectionModel = this.hierarchyTree.getSelectionModel();
 		var selectedNode = selectionModel.getSelectedNode();
 		if (Ext.isEmpty(selectedNode)) {
-			Zarafa.plugins.files.data.Actions.msgWarning(_('You have to choose a folder!'));
+			Grommunio.plugins.files.data.Actions.msgWarning(_('You have to choose a folder!'));
 			return undefined;
 		}
 		return selectedNode.getFolder();
@@ -237,12 +242,12 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 						type   : this.response.type,
 						destdir: folder.get('folder_id')
 					},
-					new Zarafa.core.data.AbstractResponseHandler({
+					new Grommunio.core.data.AbstractResponseHandler({
 						doUploadtobackend: this.uploadDone.createDelegate(this)
 					})
 				);
 			} catch (e) {
-				Zarafa.plugins.files.data.Actions.msgWarning(e.message);
+				Grommunio.plugins.files.data.Actions.msgWarning(e.message);
 			}
 		}
 	},
@@ -265,4 +270,4 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 	}
 });
 
-Ext.reg('filesplugin.savetofilespanel', Zarafa.plugins.files.ui.dialogs.SaveToFilesPanel);
+Ext.reg('filesplugin.savetofilespanel', Grommunio.plugins.files.ui.dialogs.SaveToFilesPanel);

@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // Exercise the normal attachment upload path without a mailbox or php-mapi.
 if (extension_loaded('mapi')) {
 	echo "Inline attachment upload checks skipped with php-mapi loaded\n";

@@ -1,14 +1,19 @@
-Ext.namespace('Zarafa.plugins.files.ui.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui.dialogs');
 
 /**
- * @class Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.files.ui.dialogs.FilesUploadContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  * @xtype filesplugin.filesuploadcontentpanel
  *
  * This class displays the main upload dialog if a users click on the + sign in the tabbar. It will
  * show a simple folder selector tree and a file upload field.
  */
-Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
 
 	/**
 	 * @var string The selected destination path
@@ -44,7 +49,7 @@ Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core
 			}]
 		});
 
-		Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.dialogs.FilesUploadContentPanel.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -56,7 +61,7 @@ Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core
 	createUploadField: function () {
 		return {
 			xtype : 'panel',
-			title : _('Select a file') + ' (' + _('Maximum upload size') + ': ' + Zarafa.plugins.files.data.Utils.Format.fileSize(Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize()) + '):',
+			title : _('Select a file') + ' (' + _('Maximum upload size') + ': ' + Grommunio.plugins.files.data.Utils.Format.fileSize(Grommunio.plugins.files.data.Utils.Core.getMaxUploadFilesize()) + '):',
 			layout: 'fit',
 			padding: 10,
 			items : [{
@@ -85,7 +90,7 @@ Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core
 		return {
 			xtype : 'filesplugin.tree',
 			title : _('Select upload folder') + ':',
-			FilesFilter: Zarafa.plugins.files.data.FileTypes.FOLDER,
+			FilesFilter: Grommunio.plugins.files.data.FileTypes.FOLDER,
 			flex:1,
 			store : model.getHierarchyStore(),
 			listeners : {
@@ -118,11 +123,11 @@ Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core
 	},
 
 	/**
-	 * Event handler triggered when {@link Zarafa.plugins.files.ui.FilesFolderNode FilesFolderNode}
-	 * has been selected in {@link Zarafa.plugins.files.ui.Tree TreePanel}. The selected folder id
+	 * Event handler triggered when {@link Grommunio.plugins.files.ui.FilesFolderNode FilesFolderNode}
+	 * has been selected in {@link Grommunio.plugins.files.ui.Tree TreePanel}. The selected folder id
 	 * will be stored to {@link #targetFolder}.
 	 *
-	 * @param {Zarafa.plugins.files.ui.FilesFolderNode} node The node which selected in {@link Zarafa.plugins.files.ui.Tree TreePanel}
+	 * @param {Grommunio.plugins.files.ui.FilesFolderNode} node The node which selected in {@link Grommunio.plugins.files.ui.Tree TreePanel}
 	 */
 	onFolderSelected: function (node) {
 		var folder = node.getFolder();
@@ -145,12 +150,12 @@ Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core
 
 			var filesTooLarge = false;
 			Ext.each(files, function (file) {
-				if (file.size > Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize()) {
+				if (file.size > Grommunio.plugins.files.data.Utils.Core.getMaxUploadFilesize()) {
 
 					this.mainuploadfield.reset();
 
 					container.getNotifier().notify('error.files', _('Error'),
-						String.format(_('File "{0}" is too large! Maximum allowed filesize: {1}.'), Ext.util.Format.htmlEncode(file.name), Zarafa.plugins.files.data.Utils.Format.fileSize(Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize())));
+						String.format(_('File "{0}" is too large! Maximum allowed filesize: {1}.'), Ext.util.Format.htmlEncode(file.name), Grommunio.plugins.files.data.Utils.Format.fileSize(Grommunio.plugins.files.data.Utils.Core.getMaxUploadFilesize())));
 
 					this.mainuploadbutton.setDisabled(true);
 					filesTooLarge = true;
@@ -172,7 +177,7 @@ Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core
 	 */
 	doUpload: function () {
 		var files = this.mainuploadfield.fileInput.dom.files;
-		Zarafa.plugins.files.data.Actions.uploadAsyncItems(files, this.record.getStore(), this.targetFolder);
+		Grommunio.plugins.files.data.Actions.uploadAsyncItems(files, this.record.getStore(), this.targetFolder);
 		this.onClose();
 	},
 
@@ -184,4 +189,4 @@ Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel = Ext.extend(Zarafa.core
 	}
 });
 
-Ext.reg('filesplugin.filesuploadcontentpanel', Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel);
+Ext.reg('filesplugin.filesuploadcontentpanel', Grommunio.plugins.files.ui.dialogs.FilesUploadContentPanel);

@@ -1,20 +1,25 @@
-Ext.namespace('Zarafa.plugins.files.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.FilesHierarchyStore
- * @extends Zarafa.core.data.IPFStore
+ * @class Grommunio.plugins.files.data.FilesHierarchyStore
+ * @extends Grommunio.core.data.IPFStore
  * @xtype filesplugin.hierarchystore
  *
- * {@link Zarafa.plugins.files.data.FilesHierarchyStore FilesHierarchyStore} holds
- * {@link Zarafa.plugins.files.data.FilesStoreRecord FilesStoreRecord} as records, which defines store information
+ * {@link Grommunio.plugins.files.data.FilesHierarchyStore FilesHierarchyStore} holds
+ * {@link Grommunio.plugins.files.data.FilesStoreRecord FilesStoreRecord} as records, which defines store information
  * of all opened stores.
  */
-Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFStore, {
+Grommunio.plugins.files.data.FilesHierarchyStore = Ext.extend(Grommunio.core.data.IPFStore, {
 	/**
 	 * @cfg {Boolean} stateful A flag which causes the store to create a {@link #state} object in which
-	 * the state for the various {@link Zarafa.plugins.files.data.FilesFolderRecord folders} can be saved.
+	 * the state for the various {@link Grommunio.plugins.files.data.FilesFolderRecord folders} can be saved.
 	 * This class will not automatically get/set the state, but assumes that other {@link Ext.Component components}
-	 * or {@link Zarafa.core.data.StatefulObservable stateful objects} will {@link #getState get} or
+	 * or {@link Grommunio.core.data.StatefulObservable stateful objects} will {@link #getState get} or
 	 * {@link #applyState apply} the state.
 	 */
 	stateful: true,
@@ -23,12 +28,12 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 	 * When {@link #stateful} the interaction object in which the state can be saved or obtained from.
 	 * Typically access to this object can be done through {@link #getState} and {@link #applyState}.
 	 * @property
-	 * @type Zarafa.hierarchy.data.HierarchyState
+	 * @type Grommunio.hierarchy.data.HierarchyState
 	 */
 	state: undefined,
 
 	/**
-	 * True to indicate the {@link Zarafa.plugins.files.data.FilesHierarchyStore store} is currently loading.
+	 * True to indicate the {@link Grommunio.plugins.files.data.FilesHierarchyStore store} is currently loading.
 	 * else false
 	 * @property
 	 * @type Boolean
@@ -36,11 +41,11 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 	loading: false,
 
 	/**
-	 * @cfg {Zarafa.core.data.RecordCustomObjectType} customObjectType The custom object type
+	 * @cfg {Grommunio.core.data.RecordCustomObjectType} customObjectType The custom object type
 	 * which represents the {@link Ext.data.Record records} which should be created using
-	 * {@link Zarafa.core.data.RecordFactory#createRecordObjectByCustomType}.
+	 * {@link Grommunio.core.data.RecordFactory#createRecordObjectByCustomType}.
 	 */
-	customObjectType: Zarafa.core.data.RecordCustomObjectType.FILES_FOLDER_STORE,
+	customObjectType: Grommunio.core.data.RecordCustomObjectType.FILES_FOLDER_STORE,
 
 	/**
 	 * @constructor
@@ -53,10 +58,10 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 		Ext.applyIf(config, {
 			standalone: true,
 			autoLoad: true,
-			proxy: new Zarafa.plugins.files.data.FilesHierarchyProxy(),
-			writer: new Zarafa.core.data.JsonWriter(),
-			reader: new Zarafa.plugins.files.data.FilesJsonReader({
-				customObjectType: Zarafa.core.data.RecordCustomObjectType.FILES_FOLDER_STORE
+			proxy: new Grommunio.plugins.files.data.FilesHierarchyProxy(),
+			writer: new Grommunio.core.data.JsonWriter(),
+			reader: new Grommunio.plugins.files.data.FilesJsonReader({
+				customObjectType: Grommunio.core.data.RecordCustomObjectType.FILES_FOLDER_STORE
 			})
 		});
 
@@ -64,34 +69,34 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 			/**
 			 * @event addFolder
 			 * Fires when a folder has been created.
-			 * @param {Zarafa.plugins.files.data.FilesHierarchyStore} store
-			 * @param {Zarafa.plugins.files.data.FilesStoreRecord} storeRecord
-			 * @param {Zarafa.hierarchy.data.IPFRecord/Zarafa.hierarchy.data.IPFRecord[]}
+			 * @param {Grommunio.plugins.files.data.FilesHierarchyStore} store
+			 * @param {Grommunio.plugins.files.data.FilesStoreRecord} storeRecord
+			 * @param {Grommunio.hierarchy.data.IPFRecord/Grommunio.hierarchy.data.IPFRecord[]}
 			 * folder record that is added to the hierarchy store.
 			 */
 			'addFolder',
 			/**
 			 * @event removeFolder
 			 * Fires when a folder has been removed.
-			 * @param {Zarafa.plugins.files.data.FilesHierarchyStore} store
-			 * @param {Zarafa.plugins.files.data.FilesStoreRecord} storeRecord
-			 * @param {Zarafa.hierarchy.data.IPFRecord}
+			 * @param {Grommunio.plugins.files.data.FilesHierarchyStore} store
+			 * @param {Grommunio.plugins.files.data.FilesStoreRecord} storeRecord
+			 * @param {Grommunio.hierarchy.data.IPFRecord}
 			 * folder which is removed from the hierarchy store.
 			 */
 			'removeFolder',
 			/**
 			 * @event updateFolder
 			 * Fires when a folder has been updated
-			 * @param {Zarafa.plugins.files.data.FilesHierarchyStore} store
-			 * @param {Zarafa.plugins.files.data.FilesStoreRecord} storeRecord
-			 * @param {Zarafa.hierarchy.data.IPFRecord} record folder which is updated in the hierarchy store.
+			 * @param {Grommunio.plugins.files.data.FilesHierarchyStore} store
+			 * @param {Grommunio.plugins.files.data.FilesStoreRecord} storeRecord
+			 * @param {Grommunio.hierarchy.data.IPFRecord} record folder which is updated in the hierarchy store.
 			 * @param {String} operation The update operation being performed. Value may be one of
 			 * {@link Ext.data.Record#EDIT}, {@link Ext.data.Record#REJECT}, {@link Ext.data.Record#COMMIT}.
 			 */
 			'updateFolder'
 		);
 
-		Zarafa.plugins.files.data.FilesHierarchyStore.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.data.FilesHierarchyStore.superclass.constructor.call(this, config);
 		// Register store with the store manager
 		this.on({
 			'add' : this.onAdd,
@@ -136,11 +141,11 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 	},
 
 	/**
-	 * Event handler fired when a {@link Zarafa.plugins.files.data.FilesStoreRecord store}
+	 * Event handler fired when a {@link Grommunio.plugins.files.data.FilesStoreRecord store}
 	 * has been added to the hierarchy. This will call {@link #hookStoreRecord}.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesHierarchyStore} store This store
-	 * @param {Zarafa.plugins.files.data.FilesStoreRecord[]} records The record which is added
+	 * @param {Grommunio.plugins.files.data.FilesHierarchyStore} store This store
+	 * @param {Grommunio.plugins.files.data.FilesStoreRecord[]} records The record which is added
 	 * @param {Number} index The index from where the record was added
 	 * @private
 	 */
@@ -150,11 +155,11 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 	},
 
 	/**
-	 * Event handler fired when a {@link Zarafa.hierarchy.data.MAPIStoreRecord store}
+	 * Event handler fired when a {@link Grommunio.hierarchy.data.MAPIStoreRecord store}
 	 * has been added to the hierarchy. This will call {@link #unhookStoreRecord}.
 	 *
-	 * @param {Zarafa.hierarchy.data.HierarchyStore} store This store
-	 * @param {Zarafa.hierarchy.data.MAPIStoreRecord} record The record which is removed
+	 * @param {Grommunio.hierarchy.data.HierarchyStore} store This store
+	 * @param {Grommunio.hierarchy.data.MAPIStoreRecord} record The record which is removed
 	 * @param {Number} index The index from where the record was removed
 	 * @private
 	 */
@@ -168,7 +173,7 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 	 * to the {@link Ext.data.Store#add}, {@link Ext.data.Store#remove} and {@link Ext.data.Store#update} events
 	 * for the 'folders' substore for each store which is inside the hierarchy. This allows us to fire
 	 * the {@link #addFolder}, {@link #removeFolder}, {@link #updateFolder} events.
-	 * @param {Zarafa.plugins.files.data.FilesStoreRecord[]} records The records which are hooked
+	 * @param {Grommunio.plugins.files.data.FilesStoreRecord[]} records The records which are hooked
 	 * @private
 	 */
 	hookStoreRecord: function(records)
@@ -186,7 +191,7 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 
 	/**
 	 * This will unhook the events from {@link #hookStoreRecord}.
-	 * @param {Zarafa.plugins.files.data.FilesStoreRecord} record The record to unhook
+	 * @param {Grommunio.plugins.files.data.FilesStoreRecord} record The record to unhook
 	 * @private
 	 */
 	unhookStoreRecord: function(record)
@@ -198,12 +203,12 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 	},
 
 	/**
-	 * Event handler fired when a folder in one of the {@link Zarafa.plugins.files.data.FilesStoreRecord stores}
+	 * Event handler fired when a folder in one of the {@link Grommunio.plugins.files.data.FilesStoreRecord stores}
 	 * in this store has been {@link Ext.data.Store#add added}. This will fire the
 	 * {@link #addFolder} event.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesFoldersSubStore} substore
-	 * @param {Zarafa.plugins.files.data.FilesFolderRecord} folder which is added to the hierarchy
+	 * @param {Grommunio.plugins.files.data.FilesFoldersSubStore} substore
+	 * @param {Grommunio.plugins.files.data.FilesFolderRecord} folder which is added to the hierarchy
 	 * @param {Number} index The index in the substore from where the folder was added
 	 * @private
 	 */
@@ -213,12 +218,12 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 	},
 
 	/**
-	 * Event handler fired when a folder in one of the {@link Zarafa.hierarchy.data.MAPIStoreRecord stores}
+	 * Event handler fired when a folder in one of the {@link Grommunio.hierarchy.data.MAPIStoreRecord stores}
 	 * in this store has been {@link Ext.data.Store#update updated}. This will fire the
 	 * {@link #updateFolder} event.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesFoldersSubStore} store
-	 * @param {Zarafa.plugins.files.data.FilesFolderRecord} record which is updated in the hierarchy.
+	 * @param {Grommunio.plugins.files.data.FilesFoldersSubStore} store
+	 * @param {Grommunio.plugins.files.data.FilesFolderRecord} record which is updated in the hierarchy.
 	 * @param {String} operation The update operation being performed. Value may be one of
 	 * {@link Ext.data.Record#EDIT}, {@link Ext.data.Record#REJECT}, {@link Ext.data.Record#COMMIT}.
 	 * @private
@@ -229,12 +234,12 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 	},
 
 	/**
-	 * Event handler fired when a folder in one of the {@link Zarafa.hierarchy.data.MAPIStoreRecord stores}
+	 * Event handler fired when a folder in one of the {@link Grommunio.hierarchy.data.MAPIStoreRecord stores}
 	 * in this store has been {@link Ext.data.Store#remove removed}. This will fire the
 	 * {@link #removeFolder} event.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesFoldersSubStore} substore
-	 * @param {Zarafa.plugins.files.data.FilesFolderRecord} folder which is removed from the hierarchy
+	 * @param {Grommunio.plugins.files.data.FilesFoldersSubStore} substore
+	 * @param {Grommunio.plugins.files.data.FilesFolderRecord} folder which is removed from the hierarchy
 	 * @param {Number} index The index in the substore from where the folder was removed
 	 * @private
 	 */
@@ -246,7 +251,7 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 	/**
 	 * Retrieves a folder by MAPI ID from list of stores
 	 * @param {String} id MAPI ID of the folder to search for.
-	 * @return {Zarafa.plugins.files.data.FilesFolderRecord} a folder matching the given ID, or undefined if not found.
+	 * @return {Grommunio.plugins.files.data.FilesFolderRecord} a folder matching the given ID, or undefined if not found.
 	 */
 	getFolder: function(id)
 	{
@@ -266,7 +271,7 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 	/**
 	 * Retrieves a folder by MAPI ID from list of stores
 	 * @param {String} id MAPI ID of the folder to search for.
-	 * @return {Zarafa.plugins.files.data.FilesFolderRecord} a folder matching the given ID, or undefined if not found.
+	 * @return {Grommunio.plugins.files.data.FilesFolderRecord} a folder matching the given ID, or undefined if not found.
 	 */
 	getFolderByFolderId: function(id)
 	{
@@ -285,7 +290,7 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 
 	/**
 	 * <p>Loads the Record cache from the configured <tt>{@link #proxy}</tt> using the configured <tt>{@link #reader}</tt>.</p>
-	 * <br> Function just adds 'list' as actionType in options and calls parent {@link Zarafa.core.data.IPFStore#load} method.
+	 * <br> Function just adds 'list' as actionType in options and calls parent {@link Grommunio.core.data.IPFStore#load} method.
 	 * <br> Check documentation of {@link Ext.data.Store#load} for more information.
 	 */
 	load: function(options)
@@ -311,13 +316,13 @@ Zarafa.plugins.files.data.FilesHierarchyStore = Ext.extend(Zarafa.core.data.IPFS
 		}
 
 		Ext.applyIf(options, {
-			actionType: Zarafa.core.Actions['list']
+			actionType: Grommunio.core.Actions['list']
 		});
 
-		return Zarafa.plugins.files.data.FilesHierarchyStore.superclass.load.call(this, options);
+		return Grommunio.plugins.files.data.FilesHierarchyStore.superclass.load.call(this, options);
 	}
 });
 
 
 
-Ext.reg('filesplugin.hierarchystore', Zarafa.plugins.files.data.FilesHierarchyStore);
+Ext.reg('filesplugin.hierarchystore', Grommunio.plugins.files.data.FilesHierarchyStore);

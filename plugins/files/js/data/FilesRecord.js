@@ -1,19 +1,24 @@
-Ext.namespace('Zarafa.plugins.files.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.FilesRecordFields
+ * @class Grommunio.plugins.files.FilesRecordFields
  *
  * Array of {@link Ext.data.Field field} configurations for the
- * {@link Zarafa.core.data.IPMRecord IPMRecord} object.
+ * {@link Grommunio.core.data.IPMRecord IPMRecord} object.
  * These fields will be available in all 'IPM.Files' type messages.
  */
-Zarafa.plugins.files.data.FilesRecordFields = [
+Grommunio.plugins.files.data.FilesRecordFields = [
 	// FIXME : try to remove this id proper.
 	{name: 'id', mapping:"entryid"},
 	{name: 'folder_id'},
 	{name: 'fileid'},
 	{name: 'path'},
-	{name: 'type', type: 'int', defaultValue: Zarafa.plugins.files.data.FileTypes.FOLDER},
+	{name: 'type', type: 'int', defaultValue: Grommunio.plugins.files.data.FileTypes.FOLDER},
 	{name: 'filename'},
 	{name: 'display_name', mapping: 'filename'},
 	{name: 'isshared', type: 'boolean', defaultValue: false},
@@ -24,10 +29,10 @@ Zarafa.plugins.files.data.FilesRecordFields = [
 ];
 
 /**
- * @class Zarafa.plugins.files.data.FilesRecord
- * @extends Zarafa.core.data.IPMRecord
+ * @class Grommunio.plugins.files.data.FilesRecord
+ * @extends Grommunio.core.data.IPMRecord
  */
-Zarafa.plugins.files.data.FilesRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
+Grommunio.plugins.files.data.FilesRecord = Ext.extend(Grommunio.core.data.IPMRecord, {
 
 	/**
 	 * @cfg {Boolean} Record state.
@@ -44,11 +49,11 @@ Zarafa.plugins.files.data.FilesRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	baseIdProperties : [ 'folder_id', 'entryid', 'store_entryid', 'parent_entryid' ],
 
 	/**
-	 * Applies all data from an {@link Zarafa.plugins.files.data.FilesRecord FilesRecord}
+	 * Applies all data from an {@link Grommunio.plugins.files.data.FilesRecord FilesRecord}
 	 * to this instance. This will update all data.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesRecord} record The record to apply to this
-	 * @return {Zarafa.plugins.files.data.FilesRecord} this
+	 * @param {Grommunio.plugins.files.data.FilesRecord} record The record to apply to this
+	 * @return {Grommunio.plugins.files.data.FilesRecord} this
 	 */
 	applyData: function (record) {
 		this.beginEdit();
@@ -65,7 +70,7 @@ Zarafa.plugins.files.data.FilesRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 
 	/**
 	 * Builds and returns inline image URL to download inline images,
-	 * it uses {@link Zarafa.core.data.IPMRecord IPMRecord} to get store and message entryids.
+	 * it uses {@link Grommunio.core.data.IPMRecord IPMRecord} to get store and message entryids.
 	 *
 	 * @return {String} URL for downloading inline images.
 	 */
@@ -78,7 +83,7 @@ Zarafa.plugins.files.data.FilesRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 
 	/**
 	 * Builds and returns attachment URL to download attachment,
-	 * it uses {@link Zarafa.core.data.IPMRecord IPMRecord} to get store and message entryids.
+	 * it uses {@link Grommunio.core.data.IPMRecord IPMRecord} to get store and message entryids.
 	 *
 	 * @return {String} URL for downloading attachment.
 	 */
@@ -119,13 +124,13 @@ Zarafa.plugins.files.data.FilesRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	/**
 	 * Get the account object for the record.
 	 *
-	 * @return {Zarafa.plugins.files.data.AccountRecord} an IPM.FilesAccount record
+	 * @return {Grommunio.plugins.files.data.AccountRecord} an IPM.FilesAccount record
 	 */
 	getAccount: function ()
 	{
 		// FixME : Create function called getAccountFromRecord in
 		// Files context model.
-		var accId = Zarafa.plugins.files.data.Utils.File.getAccountId(this.get('folder_id'));
+		var accId = Grommunio.plugins.files.data.Utils.File.getAccountId(this.get('folder_id'));
 		var store = container.getCurrentContext().getAccountsStore();
 
 		// look up the account
@@ -142,13 +147,13 @@ Zarafa.plugins.files.data.FilesRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	 */
 	isFolder : function ()
 	{
-		return this.get('type') === Zarafa.plugins.files.data.FileTypes.FOLDER;
+		return this.get('type') === Grommunio.plugins.files.data.FileTypes.FOLDER;
 	},
 
 	/**
-	 * Move the {@link Zarafa.plugins.files.data.FilesRecord record} to a different
-	 * {@link Zarafa.plugins.files.data.FilesFolderRecord folder}.
-	 * @param {Zarafa.plugins.files.data.FilesFolderRecord} folder The folder to copy the record to
+	 * Move the {@link Grommunio.plugins.files.data.FilesRecord record} to a different
+	 * {@link Grommunio.plugins.files.data.FilesFolderRecord folder}.
+	 * @param {Grommunio.plugins.files.data.FilesFolderRecord} folder The folder to copy the record to
 	 */
 	moveTo : function(folder)
 	{
@@ -158,10 +163,10 @@ Zarafa.plugins.files.data.FilesRecord = Ext.extend(Zarafa.core.data.IPMRecord, {
 	}
 });
 
-Zarafa.core.data.RecordCustomObjectType.addProperty('ZARAFA_FILES');
+Grommunio.core.data.RecordCustomObjectType.addProperty('GROMMUNIO_FILES');
 
-Zarafa.core.data.RecordFactory.addFieldToMessageClass('IPM.Files', Zarafa.plugins.files.data.FilesRecordFields);
-Zarafa.core.data.RecordFactory.setBaseClassToMessageClass('IPM.Files', Zarafa.plugins.files.data.FilesRecord);
+Grommunio.core.data.RecordFactory.addFieldToMessageClass('IPM.Files', Grommunio.plugins.files.data.FilesRecordFields);
+Grommunio.core.data.RecordFactory.setBaseClassToMessageClass('IPM.Files', Grommunio.plugins.files.data.FilesRecord);
 
-Zarafa.core.data.RecordFactory.addFieldToCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_FILES, Zarafa.plugins.files.data.FilesRecordFields);
-Zarafa.core.data.RecordFactory.setBaseClassToCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_FILES, Zarafa.plugins.files.data.FilesRecord);
+Grommunio.core.data.RecordFactory.addFieldToCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_FILES, Grommunio.plugins.files.data.FilesRecordFields);
+Grommunio.core.data.RecordFactory.setBaseClassToCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_FILES, Grommunio.plugins.files.data.FilesRecord);

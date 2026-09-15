@@ -1,3 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 (function() {
 	/*
 	 * Override Ext.form.BasicForm, there is a unwanted behavior in there
@@ -28,7 +35,7 @@
 						// we use Composite fields for returning a single values based on combining the
 						// values from the individual components. To keep supporting this feature without
 						// requiring a completely new component support for the config option 'isSingleValued'
-						// has been added (defined in Zarafa.common.ui.CompositeField).
+						// has been added (defined in Grommunio.common.ui.CompositeField).
 					} else if (field.isSingleValued !== true && field.eachItem) {
 						value = [];
 						field.eachItem(function(item) {

@@ -1,10 +1,17 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 require_once __DIR__ . '/class.colors.php';
 
 // The themes are moved to a different location when released
 // so we will define these constants for their location
-define('THEME_PATH_' . LOAD_SOURCE, 'client/zarafa/core/themes');
+define('THEME_PATH_' . LOAD_SOURCE, 'client/grommunio/core/themes');
 define('THEME_PATH_' . LOAD_DEBUG, 'client/themes');
 define('THEME_PATH_' . LOAD_RELEASE, 'client/themes');
 
@@ -75,17 +82,17 @@ class Theming {
 				$theme = THEME !== "" ? THEME : 'basic';
 			}
 			else {
-				$theme = $GLOBALS['settings']->get('zarafa/v1/main/active_theme');
+				$theme = $GLOBALS['settings']->get('grommunio/v1/main/active_theme');
 			}
 
 			// Migrate legacy "dark" theme users: the dark theme directory
 			// has been removed. Switch them to basic theme + dark mode.
 			if ($theme === 'dark') {
-				$darkMode = $GLOBALS['settings']->get('zarafa/v1/main/dark_mode');
+				$darkMode = $GLOBALS['settings']->get('grommunio/v1/main/dark_mode');
 				if (empty($darkMode) || $darkMode === 'light') {
-					$GLOBALS['settings']->set('zarafa/v1/main/dark_mode', 'dark');
+					$GLOBALS['settings']->set('grommunio/v1/main/dark_mode', 'dark');
 				}
-				$GLOBALS['settings']->set('zarafa/v1/main/active_theme', 'basic');
+				$GLOBALS['settings']->set('grommunio/v1/main/active_theme', 'basic');
 				$GLOBALS['settings']->saveSettings();
 				$theme = 'basic';
 			}
@@ -539,18 +546,18 @@ class Theming {
 			}
 
 			/* The top bar of the Welcome dialog */
-			.zarafa-welcome-body > .x-panel-bwrap > .x-panel-body div.zarafa-welcome-title {
+			.grommunio-welcome-body > .x-panel-bwrap > .x-panel-body div.grommunio-welcome-title {
 				border-left: 1px solid {{primary-color}};
 				border-right: 1px solid {{primary-color}};
 				background: {{primary-color}};
 			}
 
 			/* The border line under the top menu bar */
-			body #zarafa-mainmenu {
+			body #grommunio-mainmenu {
 				border-color: {{primary-color}};
 			}
 			/* The background color of the top menu bar */
-			body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct {
+			body #grommunio-mainmenu.grommunio-maintabbar > .x-toolbar-ct {
 				background-color: {{primary-color}};
 			}
 			/* Unread items */
@@ -570,29 +577,29 @@ class Theming {
 			}
 
 			/* Background color of the hover state of the buttons in the top menu bar */
-			body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn.x-btn-over,
+			body #grommunio-mainmenu.grommunio-maintabbar > .x-toolbar-ct .x-btn.x-btn-over,
 			/* Background color of the active state of the buttons (i.e. when the buttons get clicked) */
-			body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn.x-btn-over.x-btn-click,
+			body #grommunio-mainmenu.grommunio-maintabbar > .x-toolbar-ct .x-btn.x-btn-over.x-btn-click,
 			/* Background color of the selected button */
-			body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active,
+			body #grommunio-mainmenu.grommunio-maintabbar > .x-toolbar-ct .grommunio-maintabbar-maintab-active,
 			/* Background color of the hover state of selected button */
-			body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active.x-btn-over,
+			body #grommunio-mainmenu.grommunio-maintabbar > .x-toolbar-ct .grommunio-maintabbar-maintab-active.x-btn-over,
 			/* Background color of the active state of selected button */
-			body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click {
+			body #grommunio-mainmenu.grommunio-maintabbar > .x-toolbar-ct .grommunio-maintabbar-maintab-active.x-btn-over.x-btn-click {
 				background-color: {{primary-color:hover}} !important;
 			}
 		',
 
 		'mainbar-text-color' => '
-			body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct,
+			body #grommunio-mainmenu.grommunio-maintabbar > .x-toolbar-ct,
 			/* Text color of the buttons in the top menu bar */
-			body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn button.x-btn-text,
-			body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn-over button.x-btn-text,
-			body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .x-btn-over.x-btn-click button.x-btn-text,
+			body #grommunio-mainmenu.grommunio-maintabbar > .x-toolbar-ct .x-btn button.x-btn-text,
+			body #grommunio-mainmenu.grommunio-maintabbar > .x-toolbar-ct .x-btn-over button.x-btn-text,
+			body #grommunio-mainmenu.grommunio-maintabbar > .x-toolbar-ct .x-btn-over.x-btn-click button.x-btn-text,
 			/* Text color of the selected button in the top menu bar */
-			body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active button.x-btn-text,
-			body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active.x-btn-over button.x-btn-text,
-			body #zarafa-mainmenu.zarafa-maintabbar > .x-toolbar-ct .zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click button.x-btn-text {
+			body #grommunio-mainmenu.grommunio-maintabbar > .x-toolbar-ct .grommunio-maintabbar-maintab-active button.x-btn-text,
+			body #grommunio-mainmenu.grommunio-maintabbar > .x-toolbar-ct .grommunio-maintabbar-maintab-active.x-btn-over button.x-btn-text,
+			body #grommunio-mainmenu.grommunio-maintabbar > .x-toolbar-ct .grommunio-maintabbar-maintab-active.x-btn-over.x-btn-click button.x-btn-text {
 				color: {{mainbar-text-color}} !important;
 			}
 		',
@@ -606,61 +613,61 @@ class Theming {
 			 * in the calendar, etc.
 			 ****************************************************************************/
 			/* Buttons, normal state */
-			.x-btn.zarafa-action .x-btn-small,
-			.x-btn.zarafa-action .x-btn-medium,
-			.x-btn.zarafa-action .x-btn-large,
+			.x-btn.grommunio-action .x-btn-small,
+			.x-btn.grommunio-action .x-btn-medium,
+			.x-btn.grommunio-action .x-btn-large,
 			/* Buttons, active state */
-			.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-small,
-			.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-medium,
-			.x-btn.zarafa-action.x-btn-over.x-btn-click .x-btn-large,
-			.x-btn.zarafa-action.x-btn-click .x-btn-small,
-			.x-btn.zarafa-action.x-btn-click .x-btn-medium,
-			.x-btn.zarafa-action.x-btn-click .x-btn-large,
+			.x-btn.grommunio-action.x-btn-over.x-btn-click .x-btn-small,
+			.x-btn.grommunio-action.x-btn-over.x-btn-click .x-btn-medium,
+			.x-btn.grommunio-action.x-btn-over.x-btn-click .x-btn-large,
+			.x-btn.grommunio-action.x-btn-click .x-btn-small,
+			.x-btn.grommunio-action.x-btn-click .x-btn-medium,
+			.x-btn.grommunio-action.x-btn-click .x-btn-large,
 			/* Special case: Popup, Windows, or Messageboxes (first button is by default styled as the action button) */
-			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-large,
-			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-large,
-			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
-			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-large,
+			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.grommunio-normal) .x-btn-large,
+			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.grommunio-normal) .x-btn-large,
+			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.grommunio-normal) .x-btn-large,
+			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.grommunio-normal) .x-btn-large,
+			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.grommunio-normal) .x-btn-large,
+			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.grommunio-normal) .x-btn-large,
+			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.grommunio-normal) .x-btn-large,
+			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.grommunio-normal) .x-btn-large,
+			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.grommunio-normal) .x-btn-large,
+			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.grommunio-normal) .x-btn-large,
+			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.grommunio-normal) .x-btn-large,
+			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.grommunio-normal) .x-btn-large,
 			/* action button in reminder popout */
-			.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.zarafa-normal) .x-btn-small,
-			.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.zarafa-normal) .x-btn-small,
-			.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.zarafa-normal) .x-btn-small,
+			.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn:not(.grommunio-normal) .x-btn-small,
+			.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-click:not(.grommunio-normal) .x-btn-small,
+			.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over.x-btn-click:not(.grommunio-normal) .x-btn-small,
 			/* Current day in the calendar */
-			.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current,
-			.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table,
-			.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-day td,
+			.grommunio-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current,
+			.grommunio-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table,
+			.grommunio-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-day td,
 			/* The date pickers */
 			.x-date-picker .x-date-inner td.x-date-today a,
 			.x-date-picker .x-date-mp table td.x-date-mp-sel a,
@@ -668,51 +675,51 @@ class Theming {
 				background: {{action-color}} !important;
 			}
 			/* Focused Action button */
-			.x-btn.zarafa-action.x-btn-focus .x-btn-small, .x-btn.zarafa-action.x-btn-focus .x-btn-medium, .x-btn.zarafa-action.x-btn-focus .x-btn-large {
+			.x-btn.grommunio-action.x-btn-focus .x-btn-small, .x-btn.grommunio-action.x-btn-focus .x-btn-medium, .x-btn.grommunio-action.x-btn-focus .x-btn-large {
 				background: {{action-color}} !important;
 			}
 			/* Selected calendar */
-			.zarafa-calendar-tabarea-stroke.zarafa-calendar-tab-selected {
+			.grommunio-calendar-tabarea-stroke.grommunio-calendar-tab-selected {
 				border-top-color: {{action-color}};
 			}
 			.x-date-picker .x-date-inner td.x-date-weeknumber a,
-			.zarafa-hierarchy-node-total-count span.zarafa-hierarchy-node-counter,
-			.zarafa-hierarchy-node-unread-count span.zarafa-hierarchy-node-counter {
+			.grommunio-hierarchy-node-total-count span.grommunio-hierarchy-node-counter,
+			.grommunio-hierarchy-node-unread-count span.grommunio-hierarchy-node-counter {
 				color: {{action-color}};
 			}
 			.x-date-picker .x-date-inner td.x-date-today a {
 				border-color: {{action-color}};
 			}
-			.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current,
-			.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current {
+			.grommunio-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current,
+			.grommunio-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current {
 				border-right-color: {{action-color}};
 			}
-			.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-hour td:first-child,
-			.zarafa-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current td:first-child {
+			.grommunio-freebusy-panel .x-freebusy-timeline-container .x-freebusy-header .x-freebusy-header-body .x-freebusy-timeline-day.x-freebusy-timeline-day-current table tr.x-freebusy-timeline-hour td:first-child,
+			.grommunio-freebusy-panel .x-freebusy-timeline-container .x-freebusy-body .x-freebusy-background .x-freebusy-timeline-day.x-freebusy-timeline-day-current td:first-child {
 				border-left-color: {{action-color}};
 			}
 		',
 
 		'action-color:hover' => '
 			/* Buttons, hover state */
-			.x-btn.zarafa-action.x-btn-over .x-btn-small,
-			.x-btn.zarafa-action.x-btn-over .x-btn-medium,
-			.x-btn.zarafa-action.x-btn-over .x-btn-large,
+			.x-btn.grommunio-action.x-btn-over .x-btn-small,
+			.x-btn.grommunio-action.x-btn-over .x-btn-medium,
+			.x-btn.grommunio-action.x-btn-over .x-btn-large,
 			/* Special case: Popup, Windows, or Messageboxes */
-			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
-			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
-			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
-			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
-			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-medium,
-			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-large,
+			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-panel-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.grommunio-normal) .x-btn-large,
+			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.grommunio-normal) .x-btn-large,
+			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.grommunio-normal) .x-btn-large,
+			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.grommunio-normal) .x-btn-small,
+			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.grommunio-normal) .x-btn-medium,
+			.x-window .x-window-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.grommunio-normal) .x-btn-large,
 			/* action button in reminder popout */
-			.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.zarafa-normal) .x-btn-small,
+			.k-reminderpanel .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-over:not(.grommunio-normal) .x-btn-small,
 			/* The date pickers */
 			.x-date-picker .x-date-mp table tr.x-date-mp-btns td button.x-date-mp-ok:hover {
 				background: {{action-color:hover}} !important;
@@ -728,18 +735,18 @@ class Theming {
 			 *********************************************************************/
 			/* selected item in grids */
 			.x-grid3-row.x-grid3-row-selected,
-			.x-grid3 .x-grid3-row-selected .zarafa-grid-button-container,
+			.x-grid3 .x-grid3-row-selected .grommunio-grid-button-container,
 			/* selected item in tree hierarchies */
-			.x-tree-node .zarafa-hierarchy-node.x-tree-selected,
+			.x-tree-node .grommunio-hierarchy-node.x-tree-selected,
 			/* selected items in boxfields (e.g. the recipient fields) */
-			.x-zarafa-boxfield ul .x-zarafa-boxfield-item-focus,
-			.x-zarafa-boxfield ul .x-zarafa-boxfield-recipient-item.x-zarafa-boxfield-item-focus,
+			.x-grommunio-boxfield ul .x-grommunio-boxfield-item-focus,
+			.x-grommunio-boxfield ul .x-grommunio-boxfield-recipient-item.x-grommunio-boxfield-item-focus,
 			/* selected items in card view of Contacts context */
-			div.zarafa-contact-cardview-selected,
+			div.grommunio-contact-cardview-selected,
 			/* selected items in icon view of Notes context */
-			.zarafa-note-iconview-selected,
+			.grommunio-note-iconview-selected,
 			/* selected category in the Settings context */
-			#zarafa-mainpanel-contentpanel-settings .zarafa-settings-category-panel .zarafa-settings-category-tab-active,
+			#grommunio-mainpanel-contentpanel-settings .grommunio-settings-category-panel .grommunio-settings-category-tab-active,
 			/* selected date in date pickers */
 			.x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) a,
 			.x-date-picker .x-date-inner td.x-date-selected:not(.x-date-today) a:hover {
@@ -760,9 +767,9 @@ class Theming {
 			 *********************************************************************/
 			.preview-header-extrainfobox,
 			.preview-header-extrainfobox-item,
-			.k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo div,
-			.k-taskgeneraltab .zarafa-calendar-appointment-extrainfo div,
-			.zarafa-mailcreatepanel > .x-panel-bwrap > .x-panel-body .zarafa-mailcreatepanel-extrainfo div {
+			.k-appointmentcreatetab .grommunio-calendar-appointment-extrainfo div,
+			.k-taskgeneraltab .grommunio-calendar-appointment-extrainfo div,
+			.grommunio-mailcreatepanel > .x-panel-bwrap > .x-panel-body .grommunio-mailcreatepanel-extrainfo div {
 				background: {{selection-color}} !important;
 			}
 
@@ -787,9 +794,9 @@ class Theming {
 			 *********************************************************************/
 			.preview-header-extrainfobox,
 			.preview-header-extrainfobox-item,
-			.k-appointmentcreatetab .zarafa-calendar-appointment-extrainfo div,
-			.k-taskgeneraltab .zarafa-calendar-appointment-extrainfo div,
-			.zarafa-mailcreatepanel > .x-panel-bwrap > .x-panel-body .zarafa-mailcreatepanel-extrainfo div {
+			.k-appointmentcreatetab .grommunio-calendar-appointment-extrainfo div,
+			.k-taskgeneraltab .grommunio-calendar-appointment-extrainfo div,
+			.grommunio-mailcreatepanel > .x-panel-bwrap > .x-panel-body .grommunio-mailcreatepanel-extrainfo div {
 				color: {{selection-text-color}};
 			}
 		',
@@ -800,12 +807,12 @@ class Theming {
 			 * =================================
 			 *********************************************************************/
 			/* Normal button */
-			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-small,
-			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-over):not(.x-btn-click) .x-btn-small,
-			.x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-small,
-			.x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-medium,
-			.x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-click) .x-btn-large,
-			.x-toolbar .x-btn.x-btn-focus:not(.zarafa-action):not(.x-btn-noicon) .x-btn-small {
+			.x-window .x-window-footer .x-toolbar-left-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.grommunio-action):not(.x-btn-over):not(.x-btn-click) .x-btn-small,
+			.x-window .x-panel-footer .x-toolbar-right-row .x-toolbar-cell:not(.x-hide-offsets) ~ .x-toolbar-cell:not(.x-hide-offsets) .x-btn.x-btn-focus:not(.grommunio-action):not(.x-btn-over):not(.x-btn-click) .x-btn-small,
+			.x-btn.x-btn-focus:not(.grommunio-action):not(.x-btn-click) .x-btn-small,
+			.x-btn.x-btn-focus:not(.grommunio-action):not(.x-btn-click) .x-btn-medium,
+			.x-btn.x-btn-focus:not(.grommunio-action):not(.x-btn-click) .x-btn-large,
+			.x-toolbar .x-btn.x-btn-focus:not(.grommunio-action):not(.x-btn-noicon) .x-btn-small {
 			border: 1px solid {{focus-color}} !important;
 			}
 			/* Login */
@@ -846,7 +853,7 @@ class Theming {
 			 * ===============================================
 			 * The maximum height of the image that can be shown is 45px.
 			 ****************************************************************************/
-			.zarafa-maintoolbar {
+			.grommunio-maintoolbar {
 				background-image: url({{logo-small}});
 				background-size: auto 38px;
 			}
@@ -856,7 +863,7 @@ class Theming {
 		   own. The selector matches the one in darkmode.css and this block comes after
 		   it, so it wins without !important. */
 		'logo-small:dark' => '
-			body.dark-mode .zarafa-maintoolbar {
+			body.dark-mode .grommunio-maintoolbar {
 				background-image: url({{logo-small:dark}});
 				background-size: auto 38px;
 			}
@@ -872,7 +879,7 @@ class Theming {
 			#loading-mask,
 			#bg,
 			/* Background image of the Welcome screen */
-			body.zarafa-welcome {
+			body.grommunio-welcome {
 				background: url({{background-image}}) no-repeat center center;
 				background-size: cover;
 			}

@@ -1,0 +1,71 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.common.rules.data');
+
+/**
+ * @class Grommunio.common.rules.data.ActionFlags
+ * @extends Grommunio.core.Enum
+ * @singleton
+ */
+Grommunio.common.rules.data.ActionFlags = Grommunio.core.Enum.create({
+	/**
+	 * Indicates that the action is unknown/unsupported
+	 * @property
+	 * @type Number
+	 */
+	UNKNOWN: -1,
+
+	/**
+	 * Indicates that the "Move Message To" action is selected
+	 * @property
+	 * @type Number
+	 */
+	MOVE: 1,
+
+	/**
+	 * Indicates that the "Copy Message To" action is selected
+	 * @property
+	 * @type Number
+	 */
+	COPY: 2,
+
+	/**
+	 * Indicates that the "Move Message to Deleted Items" action is selected
+	 * @property
+	 * @type Number
+	 */
+	DELETE: 3,
+
+	/**
+	 * Indicates that the "Redirect Message To" action is selected
+	 * @property
+	 * @type Number
+	 */
+	REDIRECT: 4,
+
+	/**
+	 * Indicates that the "Forward Message To" action is selected
+	 * @property
+	 * @type Number
+	 */
+	FORWARD: 5,
+
+	/**
+	 * Indicates that the "Forward Message as Attachment To" action is selected
+	 * @property
+	 * @type Number
+	 */
+	FORWARD_ATTACH: 6,
+
+	/**
+	 * Indicates that the "Mark As Read" action is selected
+	 * @property
+	 * @type Number
+	 * */
+	MARK_AS_READ: 7
+});

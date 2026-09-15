@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // Includes. Will probably already be included.
 require_once BASE_PATH . 'config.php';
 require_once BASE_PATH . 'defaults.php';
@@ -204,9 +211,9 @@ class WebAppSession {
 	private function isDestroySessionRequest($requestJson) {
 		$isDestroySession = false;
 
-		if (isset($requestJson, $requestJson['zarafa'])) {
-			if (isset($requestJson['zarafa']['hierarchymodule'])) {
-				foreach ($requestJson['zarafa']['hierarchymodule'] as $requestId => $action) {
+		if (isset($requestJson, $requestJson['grommunio'])) {
+			if (isset($requestJson['grommunio']['hierarchymodule'])) {
+				foreach ($requestJson['grommunio']['hierarchymodule'] as $requestId => $action) {
 					if (isset($action, $action['destroysession'])) {
 						$isDestroySession = true;
 					}
@@ -225,7 +232,7 @@ class WebAppSession {
 	 * @return bool
 	 */
 	private function isReminderListRequest($requestJson) {
-		return isset($requestJson) && isset($requestJson['zarafa'], $requestJson['zarafa']['reminderlistmodule']);
+		return isset($requestJson) && isset($requestJson['grommunio'], $requestJson['grommunio']['reminderlistmodule']);
 	}
 
 	/**

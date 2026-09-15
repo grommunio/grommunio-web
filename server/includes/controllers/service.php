@@ -1,6 +1,13 @@
 <?php
 
 /*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+/*
  * This controller script handles REST requests. Every request needs its own controller script
  * to handle the request. This script will only check if a controller for the request
  * exists, and if so it will delegate control to that script. If a controller for the

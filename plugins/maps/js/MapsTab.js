@@ -1,14 +1,19 @@
-Ext.namespace('Zarafa.plugins.maps');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.maps');
 
 /**
-* @class Zarafa.plugins.maps.MapsTab
+* @class Grommunio.plugins.maps.MapsTab
 * @extends Ext.Panel
 * @xtype maps.contactmapstab
 *
 * This class is used to create layout of maps tab
 * panel of the contact dialog.
 */
-Zarafa.plugins.maps.MapsTab=Ext.extend(Ext.Panel, {
+Grommunio.plugins.maps.MapsTab=Ext.extend(Ext.Panel, {
 
 	/**
 	 * The leaflet instance on which we can place the
@@ -30,7 +35,7 @@ Zarafa.plugins.maps.MapsTab=Ext.extend(Ext.Panel, {
 	{
 		config = config || {};
 		config.plugins = Ext.value(config.plugins, []);
-		config.plugins.push('zarafa.recordcomponentupdaterplugin');
+		config.plugins.push('grommunio.recordcomponentupdaterplugin');
 
 		this.mapID = new Date().getUTCMilliseconds();
 
@@ -47,7 +52,7 @@ Zarafa.plugins.maps.MapsTab=Ext.extend(Ext.Panel, {
 			},
 		});
 
-		Zarafa.plugins.maps.MapsTab.superclass.constructor.call(this, config);
+		Grommunio.plugins.maps.MapsTab.superclass.constructor.call(this, config);
 		
 	},
 
@@ -59,7 +64,7 @@ Zarafa.plugins.maps.MapsTab=Ext.extend(Ext.Panel, {
 	 */
 	onRender: function(...props)
 	{
-		Zarafa.plugins.maps.MapsTab.superclass.onRender.apply(this, arguments);
+		Grommunio.plugins.maps.MapsTab.superclass.onRender.apply(this, arguments);
 		this.map = this.createGmap();
 		this.provider = new GeoSearch.OpenStreetMapProvider()
 	},
@@ -91,7 +96,7 @@ Zarafa.plugins.maps.MapsTab=Ext.extend(Ext.Panel, {
 	/**
 	 * Load record into maps panel
 	 *
-	 * @param {Zarafa.core.data.IPMRecord} record The record to work with
+	 * @param {Grommunio.core.data.IPMRecord} record The record to work with
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 * @private
 	 */
@@ -164,4 +169,4 @@ Zarafa.plugins.maps.MapsTab=Ext.extend(Ext.Panel, {
 });
 
 //registration
-Ext.reg('maps.contactmapstab', Zarafa.plugins.maps.MapsTab);
+Ext.reg('maps.contactmapstab', Grommunio.plugins.maps.MapsTab);

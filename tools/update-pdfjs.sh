@@ -1,4 +1,7 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 #
 # Update the vendored Mozilla PDF.js viewer to a given release.
 #
@@ -67,7 +70,7 @@ Reminder:
   - The viewer is loaded as an ES module (web/viewer.html -> build/pdf.mjs);
     no build step is required, the files are served as-is.
   - If PDF.js changes the download button id or the AppOptions used by
-    client/zarafa/common/previewer/ui/ViewerContainer.js, update that file.
-  - Refresh the PDF.js copyright year/version in client/zarafa/ABOUT.js and
+    client/grommunio/common/previewer/ui/ViewerContainer.js, update that file.
+  - Refresh the PDF.js copyright year/version in client/grommunio/ABOUT.js and
     LICENSE.txt if it changed.
 EOF

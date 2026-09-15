@@ -1,16 +1,21 @@
-Ext.namespace('Zarafa.plugins.smime.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.smime.data');
 
 /**
- * @class Zarafa.plugins.smime.data.SmimeAttachmentStore
- * @extends Zarafa.core.data.IPMAttachmentStore
- * AttachmentStore specific for S/MIME Plugin which creates {@link Zarafa.plugins.smime.SmimeAttachmentRecord record}.
+ * @class Grommunio.plugins.smime.data.SmimeAttachmentStore
+ * @extends Grommunio.core.data.IPMAttachmentStore
+ * AttachmentStore specific for S/MIME Plugin which creates {@link Grommunio.plugins.smime.SmimeAttachmentRecord record}.
  * @private
  */
-Zarafa.plugins.smime.data.SmimeAttachmentStore = Ext.extend(Zarafa.core.data.IPMAttachmentStore, {
+Grommunio.plugins.smime.data.SmimeAttachmentStore = Ext.extend(Grommunio.core.data.IPMAttachmentStore, {
 	/**
-	 * @cfg {Zarafa.core.data.RecordCustomObjectType} smime objecttype for the creation of our own attachmenttype in the attachmentstore
+	 * @cfg {Grommunio.core.data.RecordCustomObjectType} smime objecttype for the creation of our own attachmenttype in the attachmentstore
 	 */
-	attachmentRecordType : Zarafa.core.data.RecordCustomObjectType.ZARAFA_SMIME_ATTACHMENT,
+	attachmentRecordType : Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_SMIME_ATTACHMENT,
 
 	/**
 	 * @constructor
@@ -20,8 +25,8 @@ Zarafa.plugins.smime.data.SmimeAttachmentStore = Ext.extend(Zarafa.core.data.IPM
 	{
 		config = config || {};
 
-		Zarafa.plugins.smime.data.SmimeAttachmentStore.superclass.constructor.call(this, config);
+		Grommunio.plugins.smime.data.SmimeAttachmentStore.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('smime.attachmentstore', Zarafa.plugins.smime.data.SmimeAttachmentStore);
+Ext.reg('smime.attachmentstore', Grommunio.plugins.smime.data.SmimeAttachmentStore);

@@ -1,3 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 (function() {
 	/*
 	 * Override Ext.DataView to provide the ability to insert extra item in dropdown-ist.
@@ -8,7 +15,7 @@
 
 	Ext.override(Ext.DataView, {
 		/*
-		 * Override to add events for {@link Zarafa.common.ui.BoxField#extraItemSelector extraItemSelector} element.
+		 * Override to add events for {@link Grommunio.common.ui.BoxField#extraItemSelector extraItemSelector} element.
 		 * @override
 		 */
 		initComponent: function()
@@ -39,7 +46,7 @@
 
 		/*
 		 * Override to fire {@link #extraitemclick} event while click is performed
-		 * on {@link Zarafa.common.ui.BoxField#extraItemSelector extraItemSelector} element.
+		 * on {@link Grommunio.common.ui.BoxField#extraItemSelector extraItemSelector} element.
 		 * @param {Ext.EventObject} e The event object
 		 * @private
 		 * @override
@@ -65,7 +72,7 @@
 
 		/*
 		 * Fires {@link #beforeextraitemclick} event for
-		 * {@link Zarafa.common.ui.BoxField#extraItemSelector extraItemSelector} element.
+		 * {@link Grommunio.common.ui.BoxField#extraItemSelector extraItemSelector} element.
 		 * @param {HTMLElement} node The target node
 		 * @param {Number} index The index of the target node
 		 * @param {Ext.EventObject} e The event object

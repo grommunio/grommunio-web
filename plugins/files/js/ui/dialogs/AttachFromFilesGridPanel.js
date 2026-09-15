@@ -1,14 +1,19 @@
-Ext.namespace('Zarafa.plugins.files.ui.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui.dialogs');
 
 /**
- * @class Zarafa.plugins.files.ui.dialogs.AttachFromFilesGridPanel
+ * @class Grommunio.plugins.files.ui.dialogs.AttachFromFilesGridPanel
  * @extends Ext.grid.GridPanel
  * @xtype filesplugin.attachfromfilesgridpanel
  *
  * This dialog panel will provide facility to user to select the
  * files by checking checkbox from {@link Ext.grid.GridPanel GridPanel}.
  */
-Zarafa.plugins.files.ui.dialogs.AttachFromFilesGridPanel = Ext.extend(Ext.grid.GridPanel, {
+Grommunio.plugins.files.ui.dialogs.AttachFromFilesGridPanel = Ext.extend(Ext.grid.GridPanel, {
 
 	/**
 	 * @constructor
@@ -19,7 +24,7 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesGridPanel = Ext.extend(Ext.grid.G
 
 		var model = new Ext.grid.CheckboxSelectionModel({
 			checkOnly : true,
-			headerCls: 'zarafa-icon-column',
+			headerCls: 'grommunio-icon-column',
 			header : '<p class="icon_all_day">&nbsp;<span class="title">' + _('All Day') + '</span></p>',
 			width    : 24
 		});
@@ -33,8 +38,8 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesGridPanel = Ext.extend(Ext.grid.G
 				id       : 'type',
 				dataIndex: 'type',
 				header   : '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
-				headerCls: 'zarafa-icon-column icon',
-				renderer : Zarafa.plugins.files.data.Utils.Renderer.typeRenderer,
+				headerCls: 'grommunio-icon-column icon',
+				renderer : Grommunio.plugins.files.data.Utils.Renderer.typeRenderer,
 				width    : 24,
 				fixed    : true,
 				tooltip  : _('Sort by: Type')
@@ -47,7 +52,7 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesGridPanel = Ext.extend(Ext.grid.G
 				header   : _('Size'),
 				dataIndex: 'message_size',
 				width    : 80,
-				renderer : Zarafa.plugins.files.data.Utils.Format.fileSizeList,
+				renderer : Grommunio.plugins.files.data.Utils.Format.fileSizeList,
 				tooltip  : _('Sort by: Size')
 			}],
 			selModel: model,
@@ -62,8 +67,8 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesGridPanel = Ext.extend(Ext.grid.G
 			}
 		});
 
-		Zarafa.plugins.files.ui.dialogs.AttachFromFilesGridPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.dialogs.AttachFromFilesGridPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.attachfromfilesgridpanel', Zarafa.plugins.files.ui.dialogs.AttachFromFilesGridPanel);
+Ext.reg('filesplugin.attachfromfilesgridpanel', Grommunio.plugins.files.ui.dialogs.AttachFromFilesGridPanel);

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /* Run with node --test plugins/pgp/test/frontend-test.js. No browser dependencies. */
 'use strict';
 
@@ -46,24 +51,24 @@ function runtime() {
 		preg() {},
 		id() { return 'test'; }
 	};
-	context.Zarafa = {core: {Plugin: function() {}, ContextModel: function() {}, ui: {Toolbar: function() {}}, data: {
+	context.Grommunio = {core: {Plugin: function() {}, ContextModel: function() {}, ui: {Toolbar: function() {}}, data: {
 		AbstractResponseHandler: function(config) { Object.assign(this, config); }, RecordFactory: {addFieldToMessageClass(messageClass, list) { fields.push(...list); }}
 	}}, settings: {ui: {SettingsWidget: function(config) { Object.assign(this, config); }}}, onReady() {}};
 	context.container = {getSettingsModel: () => ({get: (key, fallback) => fallback}), getUser: () => ({getSMTPAddress: () => 'alice@example.test'})};
 	vm.createContext(context);
 	vm.runInContext("String.format = function(text, value) { return text.replace('{0}', value); };", context);
-	vm.runInContext(fs.readFileSync(path.join(__dirname, '../../../client/zarafa/common/ui/SecurityButtons.js'), 'utf8'), context);
+	vm.runInContext(fs.readFileSync(path.join(__dirname, '../../../client/grommunio/common/ui/SecurityButtons.js'), 'utf8'), context);
 	vm.runInContext("Function.prototype.defer = function() { return 'timer'; }; var window = {clearTimeout() {}};", context);
-	vm.runInContext(fs.readFileSync(path.join(__dirname, '../../../client/zarafa/core/plugins/AutoSaveMessagePlugin.js'), 'utf8'), context);
+	vm.runInContext(fs.readFileSync(path.join(__dirname, '../../../client/grommunio/core/plugins/AutoSaveMessagePlugin.js'), 'utf8'), context);
 	for (const filename of ['data/PgpResponseHandler.js', 'PgpUtils.js', 'PgpPlugin.js', 'dialogs/PgpDialogs.js', 'settings/SettingsPgpWidget.js']) {
 		vm.runInContext(fs.readFileSync(path.join(__dirname, '../js', filename), 'utf8'), context, {filename});
 	}
 	vm.runInContext(fs.readFileSync(path.join(__dirname, '../../smime/js/SmimePlugin.js'), 'utf8'), context);
 	for (const filename of ['Actions.js', 'MailContextModel.js']) {
-		vm.runInContext(fs.readFileSync(path.join(__dirname, '../../../client/zarafa/mail', filename), 'utf8'), context);
+		vm.runInContext(fs.readFileSync(path.join(__dirname, '../../../client/grommunio/mail', filename), 'utf8'), context);
 	}
-	context.Zarafa.mail.data = {ActionTypes: {REPLY: 'reply', REPLYALL: 'replyall', FORWARD: 'forward', FORWARD_ATTACH: 'forward_attach', EDIT_AS_NEW: 'edit_as_new'}};
-	return {context, fields, alerts, utils: context.Zarafa.plugins.pgp.PgpUtils, plugin: new context.Zarafa.plugins.pgp.PgpPlugin()};
+	context.Grommunio.mail.data = {ActionTypes: {REPLY: 'reply', REPLYALL: 'replyall', FORWARD: 'forward', FORWARD_ATTACH: 'forward_attach', EDIT_AS_NEW: 'edit_as_new'}};
+	return {context, fields, alerts, utils: context.Grommunio.plugins.pgp.PgpUtils, plugin: new context.Grommunio.plugins.pgp.PgpPlugin()};
 }
 
 function record(values = {}) {
@@ -146,11 +151,11 @@ test('selecting OpenPGP is silent draft intent with no passphrase or key request
 });
 
 test('shared toolbar has exactly Sign and Encrypt for either or both plugins', () => {
-	const {plugin, context} = runtime(), manager = context.Zarafa.common.ui.SecurityButtons;
+	const {plugin, context} = runtime(), manager = context.Grommunio.common.ui.SecurityButtons;
 	assert.equal(manager.createButtons().length, 0);
 	manager.register(plugin.securityProvider());
 	assert.deepEqual(Array.from(manager.createButtons(), button => button.text), ['Sign', 'Encrypt']);
-	const smime = new context.Zarafa.plugins.smime.SmimePlugin();
+	const smime = new context.Grommunio.plugins.smime.SmimePlugin();
 	manager.register(smime.securityProvider());
 	assert.deepEqual(Array.from(manager.createButtons(), button => button.text), ['Sign', 'Encrypt']);
 	manager.register(plugin.securityProvider());
@@ -160,8 +165,8 @@ test('shared toolbar has exactly Sign and Encrypt for either or both plugins', (
 });
 
 test('both shared security menus and every provider submenu use the scoped menu layout', () => {
-	const {plugin, context} = runtime(), manager = context.Zarafa.common.ui.SecurityButtons;
-	const pgp = plugin.securityProvider(), smime = new context.Zarafa.plugins.smime.SmimePlugin().securityProvider();
+	const {plugin, context} = runtime(), manager = context.Grommunio.common.ui.SecurityButtons;
+	const pgp = plugin.securityProvider(), smime = new context.Grommunio.plugins.smime.SmimePlugin().securityProvider();
 	for (const providers of [[pgp], [smime], [smime, pgp]]) {
 		manager.providers = providers;
 		const buttons = manager.createButtons();
@@ -184,8 +189,8 @@ test('both shared security menus and every provider submenu use the scoped menu 
 
 test('key settings retain native section spacing and direct form references', () => {
 	const {context} = runtime();
-	const widget = new context.Zarafa.plugins.pgp.settings.SettingsPgpWidget();
-	assert.deepEqual(widget.cls.split(/\s+/).sort(), ['pgp-settings', 'zarafa-settings-widget']);
+	const widget = new context.Grommunio.plugins.pgp.settings.SettingsPgpWidget();
+	assert.deepEqual(widget.cls.split(/\s+/).sort(), ['pgp-settings', 'grommunio-settings-widget']);
 	assert.equal(widget.layout, 'form');
 	assert.equal(widget.labelWidth, 200);
 	assert.deepEqual(Array.from(widget.items.filter(item => item.ref), item => [item.ref, item.xtype]), [
@@ -200,7 +205,7 @@ test('key settings retain native section spacing and direct form references', ()
 
 test('key settings use consistent button styling and a fit-width keyserver action', () => {
 	const {context} = runtime();
-	const widget = new context.Zarafa.plugins.pgp.settings.SettingsPgpWidget();
+	const widget = new context.Grommunio.plugins.pgp.settings.SettingsPgpWidget();
 	const grid = widget.items.find(item => item.ref === 'keyGrid');
 	const top = grid.tbar.filter(item => typeof item === 'object');
 	const bottom = grid.bbar.filter(item => typeof item === 'object');
@@ -221,7 +226,7 @@ test('key settings use consistent button styling and a fit-width keyserver actio
 
 test('key actions stay disabled until a suitable key is selected', () => {
 	const {context} = runtime();
-	const widget = new context.Zarafa.plugins.pgp.settings.SettingsPgpWidget();
+	const widget = new context.Grommunio.plugins.pgp.settings.SettingsPgpWidget();
 	const grid = widget.items.find(item => item.ref === 'keyGrid');
 	const actions = Object.fromEntries(grid.bbar.filter(item => item.itemId).map(item => [item.itemId, {
 		...item, setDisabled(value) { this.disabled = value; }
@@ -247,12 +252,12 @@ test('key actions stay disabled until a suitable key is selected', () => {
 
 test('autosave pauses only for a provider that opts in with encryption selected', () => {
 	const {context} = runtime();
-	const buttons = context.Zarafa.common.ui.SecurityButtons;
+	const buttons = context.Grommunio.common.ui.SecurityButtons;
 	buttons.providers = [{id: 'x', label: 'X', suspendsAutoSave: true, isSelected: (mail, action) => action === 'encrypt' && mail.get('enc') === true}];
 	assert.equal(buttons.suspendsAutoSave(undefined), false);
 	assert.equal(buttons.suspendsAutoSave(record({enc: false})), false);
 	assert.equal(buttons.suspendsAutoSave(record({enc: true})), true);
-	context.container.getSettingsModel = () => ({get: key => key === 'zarafa/v1/contexts/mail/autosave_encrypted_enable'});
+	context.container.getSettingsModel = () => ({get: key => key === 'grommunio/v1/contexts/mail/autosave_encrypted_enable'});
 	assert.equal(buttons.suspendsAutoSave(record({enc: true})), false);
 	// A provider that does not opt in keeps periodic autosave.
 	context.container.getSettingsModel = () => ({get: () => false});
@@ -262,13 +267,13 @@ test('autosave pauses only for a provider that opts in with encryption selected'
 
 test('autosave skips its tick while encryption is selected, re-arms, and says so on the button', () => {
 	const {context} = runtime();
-	const buttons = context.Zarafa.common.ui.SecurityButtons;
+	const buttons = context.Grommunio.common.ui.SecurityButtons;
 	buttons.providers = [{id: 'x', label: 'X', suspendsAutoSave: true, isSelected: (mail, action) => action === 'encrypt' && mail.get('enc') === true}];
 	const mail = record({enc: true});
 	mail.getSubStore = () => ({each() {}});
 	mail.isUnsent = () => true;
 	let saves = 0;
-	const plugin = new context.Zarafa.core.plugins.AutoSaveMessagePlugin({});
+	const plugin = new context.Grommunio.core.plugins.AutoSaveMessagePlugin({});
 	plugin.field = {autoSave: true, isSending: false, saveRecord() { saves++; }};
 	plugin.record = mail;
 	plugin.messageAutoSave();
@@ -283,14 +288,14 @@ test('autosave skips its tick while encryption is selected, re-arms, and says so
 	plugin.messageAutoSave();
 	assert.equal(saves, 1);
 	mail.data.enc = true;
-	context.container.getSettingsModel = () => ({get: key => key === 'zarafa/v1/contexts/mail/autosave_encrypted_enable' ? true : 60});
+	context.container.getSettingsModel = () => ({get: key => key === 'grommunio/v1/contexts/mail/autosave_encrypted_enable' ? true : 60});
 	plugin.messageAutoSave();
 	assert.equal(saves, 2);
 });
 
 test('protocol menu resolves its button when toolbar overflow hides the owner', () => {
 	const {context} = runtime();
-	const buttons = context.Zarafa.common.ui.SecurityButtons;
+	const buttons = context.Grommunio.common.ui.SecurityButtons;
 	buttons.providers = [{id: 'x', label: 'X', priority: 1, isSelected: () => false, getOptions: () => []}];
 	const mail = record();
 	const [signButton] = buttons.createButtons();
@@ -304,8 +309,8 @@ test('protocol menu resolves its button when toolbar overflow hides the owner', 
 });
 
 test('protocol exclusion covers sign, encrypt and cross-protocol combinations', () => {
-	const {plugin, context} = runtime(), manager = context.Zarafa.common.ui.SecurityButtons;
-	const smime = new context.Zarafa.plugins.smime.SmimePlugin();
+	const {plugin, context} = runtime(), manager = context.Grommunio.common.ui.SecurityButtons;
+	const smime = new context.Grommunio.plugins.smime.SmimePlugin();
 	const pgpProvider = plugin.securityProvider(), smimeProvider = smime.securityProvider();
 	manager.register(pgpProvider);
 	manager.register(smimeProvider);
@@ -325,7 +330,7 @@ test('protocol exclusion covers sign, encrypt and cross-protocol combinations', 
 });
 
 test('main button follows active protocol and clears only its own action', () => {
-	const {plugin, context} = runtime(), manager = context.Zarafa.common.ui.SecurityButtons;
+	const {plugin, context} = runtime(), manager = context.Grommunio.common.ui.SecurityButtons;
 	manager.register(plugin.securityProvider());
 	const mail = record({pgp_sign: true, pgp_encrypt: true});
 	const button = {...buttonFor(mail, 'sign'), securityAction: 'sign'};
@@ -339,9 +344,9 @@ test('main button follows active protocol and clears only its own action', () =>
 });
 
 test('menus show disabled alternative protocol and an explanatory tooltip', () => {
-	const {plugin, context} = runtime(), manager = context.Zarafa.common.ui.SecurityButtons;
+	const {plugin, context} = runtime(), manager = context.Grommunio.common.ui.SecurityButtons;
 	manager.register(plugin.securityProvider());
-	manager.register(new context.Zarafa.plugins.smime.SmimePlugin().securityProvider());
+	manager.register(new context.Grommunio.plugins.smime.SmimePlugin().securityProvider());
 	const mail = record({pgp_encrypt: true}), items = [];
 	manager.populateMenu({removeAll() {}, add(item) { items.push(item); }},
 		{...buttonFor(mail, 'sign'), securityAction: 'sign'});
@@ -356,9 +361,9 @@ test('menus show disabled alternative protocol and an explanatory tooltip', () =
 });
 
 test('provider binding happens once per compose and defaults never alter S/MIME drafts', () => {
-	const {plugin, context} = runtime(), manager = context.Zarafa.common.ui.SecurityButtons;
+	const {plugin, context} = runtime(), manager = context.Grommunio.common.ui.SecurityButtons;
 	let installs = 0;
-	context.Zarafa.plugins.pgp.PgpTransport = {install() { installs++; }};
+	context.Grommunio.plugins.pgp.PgpTransport = {install() { installs++; }};
 	manager.register(plugin.securityProvider());
 	const mail = record({message_class: 'IPM.Note.deferSMIME'});
 	mail.phantom = true;
@@ -372,7 +377,7 @@ test('provider binding happens once per compose and defaults never alter S/MIME 
 });
 
 test('inactive S/MIME send hook does not block OpenPGP, but mixed drafts fail closed', () => {
-	const {context} = runtime(), smime = new context.Zarafa.plugins.smime.SmimePlugin();
+	const {context} = runtime(), smime = new context.Grommunio.plugins.smime.SmimePlugin();
 	assert.equal(smime.onBeforeSendRecord({}, record({pgp_sign: true})), true);
 	assert.equal(smime.onBeforeSendRecord({}, record({pgp_sign: true, message_class: 'IPM.Note.deferSMIME'})), false);
 });
@@ -388,7 +393,7 @@ test('untrusted errors stay plain data until encoded by inline presentation', as
 });
 
 test('unlock uses browser-only passphrase with the latest public certificate', async () => {
-	const {utils, context} = runtime(), dialogs = context.Zarafa.plugins.pgp.dialogs.PgpDialogs;
+	const {utils, context} = runtime(), dialogs = context.Grommunio.plugins.pgp.dialogs.PgpDialogs;
 	let submit, local, completed = false;
 	const requests = [];
 	dialogs.form = (title, fields, button, handler) => { submit = handler; };
@@ -407,7 +412,7 @@ test('unlock uses browser-only passphrase with the latest public certificate', a
 
 test('private-key passphrase fields do not request autofill of the website login password', () => {
 	const {context} = runtime();
-	const field = context.Zarafa.plugins.pgp.dialogs.PgpDialogs.passwordField();
+	const field = context.Grommunio.plugins.pgp.dialogs.PgpDialogs.passwordField();
 	assert.equal(field.inputType, 'password');
 	assert.equal(field.autoCreate.autocomplete, 'new-password');
 });
@@ -415,7 +420,7 @@ test('private-key passphrase fields do not request autofill of the website login
 test('only successful key and policy mutations invalidate cached verification', async () => {
 	const {utils, context} = runtime();
 	let updates = 0, successful = true;
-	context.Zarafa.plugins.pgp.PgpTransport = {keysChanged: () => { updates++; }};
+	context.Grommunio.plugins.pgp.PgpTransport = {keysChanged: () => { updates++; }};
 	context.container.getRequest = () => ({singleRequest(module, action, data, handler) {
 		handler.callback({success: successful});
 	}});
@@ -444,8 +449,8 @@ test('persisted key payload excludes passwords and unlocked key objects', async 
 });
 
 test('generation runs locally and only protected material plus self trust are persisted', async () => {
-	const {utils, context} = runtime(), dialogs = context.Zarafa.plugins.pgp.dialogs.PgpDialogs;
-	const widget = Object.create(context.Zarafa.plugins.pgp.settings.SettingsPgpWidget.prototype);
+	const {utils, context} = runtime(), dialogs = context.Grommunio.plugins.pgp.dialogs.PgpDialogs;
+	const widget = Object.create(context.Grommunio.plugins.pgp.settings.SettingsPgpWidget.prototype);
 	let submit, localOptions, finished;
 	const requests = [];
 	dialogs.form = (title, fields, button, handler) => { submit = handler; };
@@ -493,12 +498,12 @@ test('reply waits for browser decryption and attachment uploads before opening c
 	const {context} = runtime(), mail = record({pgp: {pending: true, encrypted: true, mime: 'AA=='}}), events = [];
 	let releaseAttachments;
 	const response = {browserAttachmentsReady: new Promise(resolve => { releaseAttachments = resolve; })};
-	context.Zarafa.core.data.UIFactory = {openCreateRecord: result => { assert.equal(result, response); events.push('compose'); }};
-	context.Zarafa.plugins.pgp.PgpTransport = {
+	context.Grommunio.core.data.UIFactory = {openCreateRecord: result => { assert.equal(result, response); events.push('compose'); }};
+	context.Grommunio.plugins.pgp.PgpTransport = {
 		open: async () => { events.push('open'); mail.set('pgp', {encrypted: true, locked: true}); return mail; },
 		unlockAndOpen: async () => { events.push('unlock'); mail.set('pgp', {encrypted: true, decrypted: true}); return mail; }
 	};
-	const ready = context.Zarafa.mail.Actions.openReadyMailResponse(mail, {createResponseRecord() { events.push('quote'); return response; }}, 'reply');
+	const ready = context.Grommunio.mail.Actions.openReadyMailResponse(mail, {createResponseRecord() { events.push('quote'); return response; }}, 'reply');
 	await new Promise(resolve => setImmediate(resolve));
 	assert.deepEqual(events, ['open', 'unlock', 'quote']);
 	releaseAttachments();
@@ -511,11 +516,11 @@ test('advisory statuses without an envelope use the normal response and badge pa
 	const {context, plugin, alerts} = runtime(), events = [];
 	const advisory = {advisory: true, unverifiable: true, encrypted: true, signed: false, pending: false, decrypted: false, locked: false, mime: '', format: 'mime', inline: false};
 	const response = record();
-	context.Zarafa.core.data.UIFactory = {openCreateRecord: () => { events.push('compose'); }};
-	context.Zarafa.plugins.pgp.PgpTransport = {open: async () => { events.push('open'); }, unlockAndOpen: async () => { events.push('unlock'); }};
-	await context.Zarafa.mail.Actions.openReadyMailResponse(record({pgp: advisory}), {createResponseRecord() { events.push('quote'); return response; }}, 'forward');
+	context.Grommunio.core.data.UIFactory = {openCreateRecord: () => { events.push('compose'); }};
+	context.Grommunio.plugins.pgp.PgpTransport = {open: async () => { events.push('open'); }, unlockAndOpen: async () => { events.push('unlock'); }};
+	await context.Grommunio.mail.Actions.openReadyMailResponse(record({pgp: advisory}), {createResponseRecord() { events.push('quote'); return response; }}, 'forward');
 	assert.deepEqual(events, ['quote', 'compose']);
-	const model = Object.create(context.Zarafa.mail.MailContextModel.prototype);
+	const model = Object.create(context.Grommunio.mail.MailContextModel.prototype);
 	for (const shape of [advisory, {...advisory, encrypted: false, signed: true}]) {
 		const actions = {};
 		const result = record();
@@ -526,7 +531,7 @@ test('advisory statuses without an envelope use the normal response and badge pa
 		model.setSourceMessageInfo = () => {};
 		model.initRecordAttachments = () => {};
 		model.initRecordBody = () => {};
-		context.Zarafa.core.data.RecordFactory.createRecordObjectByMessageClass = () => result;
+		context.Grommunio.core.data.RecordFactory.createRecordObjectByMessageClass = () => result;
 		try { model.createResponseRecord(source, 'forward'); } catch (error) { /* stubs stop after the protection decision */ }
 		assert.equal(actions.browser_decrypted, undefined);
 		assert.equal(result.get('pgp_encrypt'), false);
@@ -540,8 +545,8 @@ test('advisory statuses without an envelope use the normal response and badge pa
 test('reply to a tampered encrypted message fails closed with an encoded error', async () => {
 	const {context} = runtime(), mail = record({pgp: {encrypted: true, mime: 'AA=='}}), notices = [];
 	context.container.getNotifier = () => ({notify: (...args) => notices.push(args)});
-	context.Zarafa.plugins.pgp.PgpTransport = {open: async () => { throw new Error('<img src=x onerror=bad()>'); }};
-	await context.Zarafa.mail.Actions.openReadyMailResponse(mail, {createResponseRecord() { assert.fail('Must not quote failed plaintext'); }}, 'forward');
+	context.Grommunio.plugins.pgp.PgpTransport = {open: async () => { throw new Error('<img src=x onerror=bad()>'); }};
+	await context.Grommunio.mail.Actions.openReadyMailResponse(mail, {createResponseRecord() { assert.fail('Must not quote failed plaintext'); }}, 'forward');
 	assert.match(notices[0][2], /&lt;img/);
 	assert.equal(mail.browserResponsePending, false);
 });
@@ -549,20 +554,20 @@ test('reply to a tampered encrypted message fails closed with an encoded error',
 test('reply rejects signed-only decoding errors but allows a rendered invalid signature', async () => {
 	const {context} = runtime(), notices = [];
 	context.container.getNotifier = () => ({notify: (...args) => notices.push(args)});
-	context.Zarafa.plugins.pgp.PgpTransport = {open: async mail => mail};
+	context.Grommunio.plugins.pgp.PgpTransport = {open: async mail => mail};
 	const failed = record({pgp: {signed: true, error: true, pending: false}});
-	await context.Zarafa.mail.Actions.openReadyMailResponse(failed, {createResponseRecord() { assert.fail('Must not quote undecoded signed body'); }}, 'reply');
+	await context.Grommunio.mail.Actions.openReadyMailResponse(failed, {createResponseRecord() { assert.fail('Must not quote undecoded signed body'); }}, 'reply');
 	assert.equal(notices.length, 1);
 	let quoted = false;
-	context.Zarafa.core.data.UIFactory = {openCreateRecord() { quoted = true; }};
+	context.Grommunio.core.data.UIFactory = {openCreateRecord() { quoted = true; }};
 	const rendered = record({pgp: {signed: true, error: false, signature: 'bad'}});
-	await context.Zarafa.mail.Actions.openReadyMailResponse(rendered, {createResponseRecord() { return {}; }}, 'reply');
+	await context.Grommunio.mail.Actions.openReadyMailResponse(rendered, {createResponseRecord() { return {}; }}, 'reply');
 	assert.equal(quoted, true);
 });
 
 test('decrypted response attachment selection keeps inline replies and full forwards', async () => {
 	const {context} = runtime();
-	const model = Object.create(context.Zarafa.mail.MailContextModel.prototype), copied = [];
+	const model = Object.create(context.Grommunio.mail.MailContextModel.prototype), copied = [];
 	const attachments = [record({name: 'photo.png', cid: 'inline'}), record({name: 'document.pdf'}), record({name: 'opaque.mime'}), record({name: 'report.pdf', cid: 'unreferenced'})];
 	attachments[0].localContent = {blob: {}};
 	attachments[1].localContent = {blob: {}};
@@ -588,7 +593,7 @@ test('decrypted attachment uploads preserve bytes and CID without a source messa
 	uploaded.getInlineImageUrl = () => 'http://x/dl?tmpname=up';
 	const win = {File: class { constructor(parts, name, options) { this.parts = parts; this.name = name; this.type = options.type; } },
 		DataTransfer: class { constructor() { this.files = []; this.items = {add: file => this.files.push(file)}; } }, setTimeout, clearTimeout};
-	context.Zarafa.core.BrowserWindowMgr = {getActive: () => win};
+	context.Grommunio.core.BrowserWindowMgr = {getActive: () => win};
 	const store = {canUploadFiles: () => true, on: (event, fn) => { listeners[event] = fn; }, un: event => { delete listeners[event]; },
 		uploadFiles(files, form, hidden) {
 			assert.equal(files[0].parts[0], bytes);
@@ -601,7 +606,7 @@ test('decrypted attachment uploads preserve bytes and CID without a source messa
 	response.getAttachmentStore = () => store;
 	const source = record({name: 'binary.png', cid: 'image@example.test', filetype: 'image/png', hidden: true});
 	source.localContent = {blob: bytes, inlineUrl: 'data:image/png;base64,AA=='};
-	const model = Object.create(context.Zarafa.mail.MailContextModel.prototype);
+	const model = Object.create(context.Grommunio.mail.MailContextModel.prototype);
 	await model.uploadLocalResponseAttachment(response, source, true);
 	assert.equal(uploaded.get('cid'), 'image@example.test');
 	assert.equal(uploaded.inline, true);
@@ -614,7 +619,7 @@ test('a decrypted file with an unreferenced Content-ID is attached as a visible 
 	uploaded.setInline = value => { uploaded.inline = value; };
 	const win = {File: class { constructor(parts, name, options) { this.parts = parts; this.name = name; this.type = options.type; } },
 		DataTransfer: class { constructor() { this.files = []; this.items = {add: file => this.files.push(file)}; } }, setTimeout, clearTimeout};
-	context.Zarafa.core.BrowserWindowMgr = {getActive: () => win};
+	context.Grommunio.core.BrowserWindowMgr = {getActive: () => win};
 	let hiddenUpload;
 	const store = {canUploadFiles: () => true, on: (event, fn) => { listeners[event] = fn; }, un: event => { delete listeners[event]; },
 		uploadFiles(files, form, hidden) {
@@ -626,7 +631,7 @@ test('a decrypted file with an unreferenced Content-ID is attached as a visible 
 	response.getAttachmentStore = () => store;
 	const source = record({name: 'report.pdf', cid: 'part1@mail.example', filetype: 'application/pdf', hidden: false});
 	source.localContent = {blob: new Uint8Array([1, 2, 3]), url: 'blob:report'};
-	const model = Object.create(context.Zarafa.mail.MailContextModel.prototype);
+	const model = Object.create(context.Grommunio.mail.MailContextModel.prototype);
 	await model.uploadLocalResponseAttachment(response, source, false);
 	assert.equal(hiddenUpload, false);
 	assert.equal(uploaded.get('cid'), undefined);

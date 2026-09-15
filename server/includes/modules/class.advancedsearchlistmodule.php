@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 require_once BASE_PATH . 'server/includes/core/class.indexsqlite.php';
 
 class AdvancedSearchListModule extends ListModule {
@@ -141,7 +148,7 @@ class AdvancedSearchListModule extends ListModule {
 		}
 
 		$this->parseSortOrder($action, null, true);
-		$limit = $action['restriction']['limit'] ?? $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
+		$limit = $action['restriction']['limit'] ?? $GLOBALS['settings']->get('grommunio/v1/main/page_size', 50);
 		$limit = max(1, (int) $limit);
 		$start = max(0, (int) $this->start);
 		$data = ["item" => []];
@@ -342,7 +349,7 @@ class AdvancedSearchListModule extends ListModule {
 						$eidObj = $GLOBALS["entryid"]->createMsgStoreEntryIdObj(hex2bin((string) $action['store_entryid']));
 						if (isset($eidObj['MailboxDN'])) {
 							$sharedUserSetting = $GLOBALS["settings"]->get(
-								"zarafa/v1/contexts/hierarchy/shared_stores/" . bin2hex(strtolower((string) $eidObj['MailboxDN']))
+								"grommunio/v1/contexts/hierarchy/shared_stores/" . bin2hex(strtolower((string) $eidObj['MailboxDN']))
 							);
 							if (isset($sharedUserSetting['all']) ||
 							   (isset($sharedUserSetting['inbox']['show_subfolders']) && $sharedUserSetting['inbox']['show_subfolders'])) {

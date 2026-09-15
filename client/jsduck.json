@@ -5,7 +5,7 @@
     "--ext-namespace": "Ext",
     "--seo": false,
     "--": [
-        "zarafa",
+        "grommunio",
         "extjs"
     ],
     "--output": "../docs"

@@ -1,23 +1,28 @@
-Ext.namespace('Zarafa.plugins.files.ui.snippets');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui.snippets');
 
 /**
- * @class Zarafa.plugins.files.ui.snippets.FilesNavigationBar
+ * @class Grommunio.plugins.files.ui.snippets.FilesNavigationBar
  * @extends Ext.Panel
  * @xtype filesplugin.navigationbar
  *
  * This panel will display a windows explorer like navigation bar.
  */
-Zarafa.plugins.files.ui.snippets.FilesNavigationBar = Ext.extend(Ext.Panel, {
+Grommunio.plugins.files.ui.snippets.FilesNavigationBar = Ext.extend(Ext.Panel, {
 
 	/**
-	 * @cfg {Zarafa.core.Context} context The context to which this toolbar belongs
+	 * @cfg {Grommunio.core.Context} context The context to which this toolbar belongs
 	 */
 	context: undefined,
 
 	/**
-	 * The {@link Zarafa.core.ContextModel} which is obtained from the {@link #context}.
+	 * The {@link Grommunio.core.ContextModel} which is obtained from the {@link #context}.
 	 * @property
-	 * @type Zarafa.mail.MailContextModel
+	 * @type Grommunio.mail.MailContextModel
 	 */
 	model: undefined,
 
@@ -55,10 +60,10 @@ Zarafa.plugins.files.ui.snippets.FilesNavigationBar = Ext.extend(Ext.Panel, {
 	currentPath: '#R#',
 
 	/**
-	 * filesStore which contains the {@link Zarafa.plugins.files.data.FilesRecord FilesRecord}.
+	 * filesStore which contains the {@link Grommunio.plugins.files.data.FilesRecord FilesRecord}.
 	 *
 	 * @property
-	 * @type {Zarafa.plugins.files.data.FilesRecordStore}
+	 * @type {Grommunio.plugins.files.data.FilesRecordStore}
 	 */
 	filesStore : undefined,
 
@@ -87,7 +92,7 @@ Zarafa.plugins.files.ui.snippets.FilesNavigationBar = Ext.extend(Ext.Panel, {
 			layout : 'column',
 		});
 
-		Zarafa.plugins.files.ui.snippets.FilesNavigationBar.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.snippets.FilesNavigationBar.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -102,7 +107,7 @@ Zarafa.plugins.files.ui.snippets.FilesNavigationBar = Ext.extend(Ext.Panel, {
 	},
 
 	/**
-	 * Event handler triggered when {@link Zarafa.plugins.files.data.FilesHierarchyStore FilesHierarchyStore}.
+	 * Event handler triggered when {@link Grommunio.plugins.files.data.FilesHierarchyStore FilesHierarchyStore}.
 	 * is load. It will update the navigation bar as per the default selected folder.
 	 */
 	onHierarchyStoreLoad : function()
@@ -116,9 +121,9 @@ Zarafa.plugins.files.ui.snippets.FilesNavigationBar = Ext.extend(Ext.Panel, {
 	 * It will call {@link #updateNavigationBar} function to update the navigation bar
 	 * as per the updated folder.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesHierarchyStore} store
-	 * @param {Zarafa.plugins.files.data.FilesStoreRecord} storeRecord
-	 * @param {Zarafa.hierarchy.data.IPFRecord} folder The folder which is updated in the hierarchy store.
+	 * @param {Grommunio.plugins.files.data.FilesHierarchyStore} store
+	 * @param {Grommunio.plugins.files.data.FilesStoreRecord} storeRecord
+	 * @param {Grommunio.hierarchy.data.IPFRecord} folder The folder which is updated in the hierarchy store.
 	 */
 	onUpdateFolder : function(store, parentFolder, folder)
 	{
@@ -151,7 +156,7 @@ Zarafa.plugins.files.ui.snippets.FilesNavigationBar = Ext.extend(Ext.Panel, {
 	 * Update the navigation bar as per the selected folder if
 	 * not selected it earlier.
 	 *
-	 * @param {Zarafa.hierarchy.data.IPFRecord} folder The folder which is updated in the hierarchy store.
+	 * @param {Grommunio.hierarchy.data.IPFRecord} folder The folder which is updated in the hierarchy store.
 	 */
 	updateNavigationBar : function (folder)
 	{
@@ -238,7 +243,7 @@ Zarafa.plugins.files.ui.snippets.FilesNavigationBar = Ext.extend(Ext.Panel, {
 		}
 
 		var lastCls = isLastButton ? " files_navbar_button_last" : "";
-		var accountName = Zarafa.plugins.files.data.Utils.Format.truncate(account.get("name"), this.maxStringBeforeTruncate);
+		var accountName = Grommunio.plugins.files.data.Utils.Format.truncate(account.get("name"), this.maxStringBeforeTruncate);
 		var accButton = {
 			xtype : 'button',
 			cls : "files_navbar_button" + lastCls,
@@ -260,12 +265,12 @@ Zarafa.plugins.files.ui.snippets.FilesNavigationBar = Ext.extend(Ext.Panel, {
 	/**
 	 * Create buttons for the given folder path.
 	 *
-	 * @param {Zarafa.hierarchy.data.IPFRecord} folder The folder which is updated in the hierarchy store.
+	 * @param {Grommunio.hierarchy.data.IPFRecord} folder The folder which is updated in the hierarchy store.
 	 */
 	generateNavigationButtons: function (folder) {
 		var currentPath = Ext.isDefined(folder) ? folder.get('folder_id') : "#R#";
-		var accountID = Zarafa.plugins.files.data.Utils.File.getAccountId(currentPath);
-		var path = Zarafa.plugins.files.data.Utils.File.stripAccountId(currentPath);
+		var accountID = Grommunio.plugins.files.data.Utils.File.getAccountId(currentPath);
+		var path = Grommunio.plugins.files.data.Utils.File.stripAccountId(currentPath);
 
 		// recalculate the width
 		this.recalculateMaxPath();
@@ -292,7 +297,7 @@ Zarafa.plugins.files.ui.snippets.FilesNavigationBar = Ext.extend(Ext.Panel, {
 				Ext.each(overflowParts, function (pathPart) {
 					currPath += pathPart + "/";
 					menu.push({
-						text: Zarafa.plugins.files.data.Utils.Format.truncate(pathPart, this.maxStringBeforeTruncate),
+						text: Grommunio.plugins.files.data.Utils.Format.truncate(pathPart, this.maxStringBeforeTruncate),
 						handler: this.doNavButtonClick,
 						iconCls: 'icon_folder_note',
 						path: "#R#" + accountID + currPath,
@@ -314,7 +319,7 @@ Zarafa.plugins.files.ui.snippets.FilesNavigationBar = Ext.extend(Ext.Panel, {
 				currPath += pathPart + "/";
 				var lastCls = index == (pathParts.length-1) ? " files_navbar_button_last" : "";
 				var navBtn = new Ext.Button({
-					text: Zarafa.plugins.files.data.Utils.Format.truncate(pathPart, this.maxStringBeforeTruncate),
+					text: Grommunio.plugins.files.data.Utils.Format.truncate(pathPart, this.maxStringBeforeTruncate),
 					cls: "files_navbar_button" + lastCls,
 					path: "#R#" + accountID + currPath,
 					listeners: {
@@ -352,4 +357,4 @@ Zarafa.plugins.files.ui.snippets.FilesNavigationBar = Ext.extend(Ext.Panel, {
 	}
 });
 
-Ext.reg('filesplugin.navigationbar', Zarafa.plugins.files.ui.snippets.FilesNavigationBar);
+Ext.reg('filesplugin.navigationbar', Grommunio.plugins.files.ui.snippets.FilesNavigationBar);

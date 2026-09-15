@@ -1,16 +1,21 @@
-Ext.namespace('Zarafa.plugins.files.ui.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui.dialogs');
 
 /**
- * @class Zarafa.plugins.files.ui.dialogs.AttachFromFilesTreePanel
+ * @class Grommunio.plugins.files.ui.dialogs.AttachFromFilesTreePanel
  * @extends Ext.Panel
  * @xtype filesplugin.attachfromfilespanel
  *
  * This dialog panel will provide the filechooser tree.
  */
-Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.files.ui.dialogs.AttachFromFilesPanel = Ext.extend(Ext.Panel, {
 
 	/**
-	 * @var {Zarafa.core.data.IPMRecord} emailRecord
+	 * @var {Grommunio.core.data.IPMRecord} emailRecord
 	 */
 	emailRecord: undefined,
 
@@ -48,7 +53,7 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel = Ext.extend(Ext.Panel, {
 			buttons: this.createActionButtons()
 		});
 
-		Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.dialogs.AttachFromFilesPanel.superclass.constructor.call(this, config);
 		if (Ext.isDefined(this.model)) {
 			this.mon(this.hierarchyTree, 'click', this.onTreeNodeClick, this);
 		}
@@ -140,7 +145,7 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel = Ext.extend(Ext.Panel, {
 							ids               : idsList,
 							dialog_attachments: attachmentStore.getId()
 						},
-						new Zarafa.core.data.AbstractResponseHandler({
+						new Grommunio.core.data.AbstractResponseHandler({
 							doDownloadtotmp: this.addDownloadedFilesAsAttachmentToEmail.createDelegate(this)
 						})
 					);
@@ -158,7 +163,7 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel = Ext.extend(Ext.Panel, {
 	 * @returns {Ext.data.Record}
 	 */
 	convertDownloadedFileInfoToAttachmentRecord: function (downloadedFileInfo) {
-		var attachmentRecord = Zarafa.core.data.RecordFactory.createRecordObjectByObjectType(Zarafa.core.mapi.ObjectType.MAPI_ATTACH);
+		var attachmentRecord = Grommunio.core.data.RecordFactory.createRecordObjectByObjectType(Grommunio.core.mapi.ObjectType.MAPI_ATTACH);
 
 		attachmentRecord.set('tmpname', downloadedFileInfo.tmpname);
 		attachmentRecord.set('name', downloadedFileInfo.name);
@@ -188,4 +193,4 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel = Ext.extend(Ext.Panel, {
 	}
 });
 
-Ext.reg('filesplugin.attachfromfilespanel', Zarafa.plugins.files.ui.dialogs.AttachFromFilesPanel);
+Ext.reg('filesplugin.attachfromfilespanel', Grommunio.plugins.files.ui.dialogs.AttachFromFilesPanel);

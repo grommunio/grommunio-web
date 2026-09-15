@@ -1,11 +1,16 @@
-Ext.namespace('Zarafa.plugins.chat.settings');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.chat.settings');
 
 /**
- * @class Zarafa.plugins.chat.settings.Category
- * @extends Zarafa.settings.ui.SettingsCategory
- * @xtype zarafa.plugins.chat.settings.category
+ * @class Grommunio.plugins.chat.settings.Category
+ * @extends Grommunio.settings.ui.SettingsCategory
+ * @xtype grommunio.plugins.chat.settings.category
  */
-Zarafa.plugins.chat.settings.Category = Ext.extend(Zarafa.settings.ui.SettingsCategory, {
+Grommunio.plugins.chat.settings.Category = Ext.extend(Grommunio.settings.ui.SettingsCategory, {
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -19,12 +24,12 @@ Zarafa.plugins.chat.settings.Category = Ext.extend(Zarafa.settings.ui.SettingsCa
 			categoryIndex : 12,
 			iconCls : 'k-chat-settings-category',
 			items : [{
-				xtype : 'zarafa.plugins.chat.settings.generalsettingswidget'
+				xtype : 'grommunio.plugins.chat.settings.generalsettingswidget'
 			}]
 		});
 
-		Zarafa.plugins.chat.settings.Category.superclass.constructor.call(this, config);
+		Grommunio.plugins.chat.settings.Category.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('zarafa.plugins.chat.settings.category', Zarafa.plugins.chat.settings.Category);
+Ext.reg('grommunio.plugins.chat.settings.category', Grommunio.plugins.chat.settings.Category);

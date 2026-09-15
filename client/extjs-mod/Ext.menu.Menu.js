@@ -1,3 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 (function() {
 	/*
 	 * Overridden to destroy the menu when it does not have an owner component.
@@ -31,13 +38,13 @@
 		}),
 
 		/**
-		 * Event handler for the load event of {@link Zarafa.core.data.IPMStore store}
+		 * Event handler for the load event of {@link Grommunio.core.data.IPMStore store}
 		 * When we have {@link Ext.menu.Menu contextmenu} open and if we receive a new record
 		 * then store and sub store of the selected records are not accessible anymore,so we have
 		 * to get a new records by the entryid of the old records.
 		 *
-		 * @param {Zarafa.core.data.IPMStore} store This store
-		 * @param {Zarafa.core.data.IPMRecord[]} records loaded record set
+		 * @param {Grommunio.core.data.IPMStore} store This store
+		 * @param {Grommunio.core.data.IPMRecord[]} records loaded record set
 		 * @param {Object} options the options (parameters) with which the load was invoked.
 		 * @private
 		 */

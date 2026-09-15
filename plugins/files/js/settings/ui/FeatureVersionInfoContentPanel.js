@@ -1,11 +1,16 @@
-Ext.namespace('Zarafa.plugins.files.settings.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.settings.ui');
 
 /**
- * @class Zarafa.plugins.files.settings.ui.FeatureVersionInfoContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.files.settings.ui.FeatureVersionInfoContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  * @xtype filesplugin.featureversioninfocontentpanel
  */
-Zarafa.plugins.files.settings.ui.FeatureVersionInfoContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.files.settings.ui.FeatureVersionInfoContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
 
 	/**
 	 * @constructor
@@ -26,8 +31,8 @@ Zarafa.plugins.files.settings.ui.FeatureVersionInfoContentPanel = Ext.extend(Zar
 			}]
 		});
 
-		Zarafa.plugins.files.settings.ui.FeatureVersionInfoContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.settings.ui.FeatureVersionInfoContentPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.featureversioninfocontentpanel', Zarafa.plugins.files.settings.ui.FeatureVersionInfoContentPanel);
+Ext.reg('filesplugin.featureversioninfocontentpanel', Grommunio.plugins.files.settings.ui.FeatureVersionInfoContentPanel);

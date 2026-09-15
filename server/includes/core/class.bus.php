@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 require_once __DIR__ . '/../exceptions/class.BusException.php';
 
 /**
@@ -453,10 +460,10 @@ class Bus {
 	public function getData() {
 		if (empty($this->responseData)) {
 			// Helps to avoid unnecessary bus error message on client side when gromox is stopped.
-			// we just error_log and send empty zarafa array on client side
+			// we just error_log and send empty grommunio array on client side
 			error_log(_("Response data requested from bus but it doesn't have any data."));
 
-			return json_encode(["zarafa" => []]);
+			return json_encode(["grommunio" => []]);
 		}
 
 		return $this->responseData;

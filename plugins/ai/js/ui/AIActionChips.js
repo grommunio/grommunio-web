@@ -1,7 +1,12 @@
-Ext.namespace('Zarafa.plugins.ai.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.ai.ui');
 
 /**
- * @class Zarafa.plugins.ai.ui.AIActionChips
+ * @class Grommunio.plugins.ai.ui.AIActionChips
  * @singleton
  *
  * Renders suggested smart actions as clickable chips. Pure HTML (with an
@@ -9,7 +14,7 @@ Ext.namespace('Zarafa.plugins.ai.ui');
  * a single delegated click handler that maps a chip's data-idx back to its
  * action.
  */
-Zarafa.plugins.ai.ui.AIActionChips = {
+Grommunio.plugins.ai.ui.AIActionChips = {
 
 	/**
 	 * Build the chips HTML for a list of actions.

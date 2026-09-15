@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 require_once BASE_PATH . 'server/includes/core/class.encryptionstore.php';
 require_once 'zpushprops.php';
 

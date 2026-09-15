@@ -1,6 +1,13 @@
 <?php
 
-require_once __DIR__ . '/class.ZarafaException.php';
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+require_once __DIR__ . '/class.GrommunioException.php';
 
 if (!class_exists('JSONException')) {
 	/**
@@ -8,5 +15,5 @@ if (!class_exists('JSONException')) {
 	 * in server/util.php
 	 * getCode() method will return actual JSON error constant.
 	 */
-	class JSONException extends ZarafaException {}
+	class JSONException extends GrommunioException {}
 }

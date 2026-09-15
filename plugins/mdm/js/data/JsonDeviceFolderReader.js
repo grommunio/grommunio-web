@@ -1,21 +1,26 @@
-Ext.namespace('Zarafa.plugins.mdm.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.mdm.data');
 
 /**
- * @class Zarafa.plugins.mdm.data.JsonDeviceFolderReader
- * @extends Zarafa.core.data.JsonReader
+ * @class Grommunio.plugins.mdm.data.JsonDeviceFolderReader
+ * @extends Grommunio.core.data.JsonReader
  *
- * This extension of the {@link Zarafa.core.data.JsonReader} supports
- * {@link Zarafa.plugins.mdm.data.MDMDeviceStore stores} which can hold different type of
- * {@link Zarafa.plugins.mdm.data.MDMDeviceRecord records}.
+ * This extension of the {@link Grommunio.core.data.JsonReader} supports
+ * {@link Grommunio.plugins.mdm.data.MDMDeviceStore stores} which can hold different type of
+ * {@link Grommunio.plugins.mdm.data.MDMDeviceRecord records}.
  */
-Zarafa.plugins.mdm.data.JsonDeviceFolderReader = Ext.extend(Zarafa.core.data.JsonReader, {
+Grommunio.plugins.mdm.data.JsonDeviceFolderReader = Ext.extend(Grommunio.core.data.JsonReader, {
 	
 	/**
 	 * @constructor
 	 * @param {Object} meta Metadata configuration options.
 	 * @param {Object} recordType (optional) Optional Record type matches the type
 	 * which must be read from response. If no type is given, it will use the
-	 * record type for the {@link Zarafa.core.data.RecordCustomObjectType#MDM_Device_Folder}.
+	 * record type for the {@link Grommunio.core.data.RecordCustomObjectType#MDM_Device_Folder}.
 	 */
 	constructor: function (meta, recordType)
 	{
@@ -26,9 +31,9 @@ Zarafa.plugins.mdm.data.JsonDeviceFolderReader = Ext.extend(Zarafa.core.data.Jso
 		});
 
 		if (!Ext.isDefined(recordType)) {
-			recordType = Zarafa.core.data.RecordFactory.getRecordClassByCustomType(meta.customObjectType);
+			recordType = Grommunio.core.data.RecordFactory.getRecordClassByCustomType(meta.customObjectType);
 		}
 
-		Zarafa.plugins.mdm.data.JsonDeviceFolderReader.superclass.constructor.call(this, meta, recordType);
+		Grommunio.plugins.mdm.data.JsonDeviceFolderReader.superclass.constructor.call(this, meta, recordType);
 	}
 });

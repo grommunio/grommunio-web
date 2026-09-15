@@ -1,5 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /* global PostalMime, DOMPurify, fflate */
-Ext.namespace('Zarafa.plugins.pgp');
+Ext.namespace('Grommunio.plugins.pgp');
 
 /**
  * The only bridge between mailbox transport and browser cryptography.
@@ -7,7 +12,7 @@ Ext.namespace('Zarafa.plugins.pgp');
  * exact MIME bytes locally, then submits an expiring, draft-bound receipt.
  * Reading never uploads decrypted bodies or attachments.
  */
-Zarafa.plugins.pgp.PgpTransport = (function() {
+Grommunio.plugins.pgp.PgpTransport = (function() {
 	'use strict';
 	var states = new WeakMap(), displayed = new Map(), subscribed, epoch = 0, certificateEpoch = 0;
 	var LIMIT = 50 * 1024 * 1024;
@@ -18,7 +23,7 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 		if (!purifier) {
 			purifier = typeof DOMPurify === 'function' && typeof window !== 'undefined' ? DOMPurify(window) : DOMPurify;
 			if (purifier !== DOMPurify && purifier.setConfig) {
-				var base = (typeof Zarafa !== 'undefined' && Zarafa.sanitizerConfig) || {};
+				var base = (typeof Grommunio !== 'undefined' && Grommunio.sanitizerConfig) || {};
 				purifier.setConfig(Ext.apply({}, base, {FORBID_TAGS: (base.FORBID_TAGS || []).concat(strict.FORBID_TAGS), FORBID_ATTR: strict.FORBID_ATTR, ADD_TAGS: []}));
 			}
 		}
@@ -32,7 +37,7 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 		}
 		return publicBundle;
 	}
-	function utils() { return Zarafa.plugins.pgp.PgpUtils; }
+	function utils() { return Grommunio.plugins.pgp.PgpUtils; }
 	function crypto() {
 		var service = utils().crypto();
 		if (subscribed !== service) {
@@ -46,9 +51,9 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 		}
 		return service;
 	}
-	function bytes() { return Zarafa.plugins.pgp.crypto.BrowserCrypto; }
-	function mime() { return Zarafa.plugins.pgp.crypto.PgpMime; }
-	function dialogs() { return Zarafa.plugins.pgp.dialogs.PgpDialogs; }
+	function bytes() { return Grommunio.plugins.pgp.crypto.BrowserCrypto; }
+	function mime() { return Grommunio.plugins.pgp.crypto.PgpMime; }
+	function dialogs() { return Grommunio.plugins.pgp.dialogs.PgpDialogs; }
 	function error(message, code) { var result = new Error(message); result.code = code; return result; }
 	function cancelled() { var failure = error(_('The OpenPGP operation was cancelled.'), 'OPENPGP_CANCELLED'); failure.cancelled = true; return failure; }
 	function active(dialog, record) {
@@ -265,10 +270,10 @@ Zarafa.plugins.pgp.PgpTransport = (function() {
 		var blob = new Blob([content], {type: 'application/octet-stream'});
 		var url = URL.createObjectURL(blob);
 		state.urls.push(url);
-		var attachment = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.mapi.ObjectType.MAPI_ATTACH, {
+		var attachment = Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(Grommunio.core.mapi.ObjectType.MAPI_ATTACH, {
 			// Only files the body references are inline; a Content-ID alone keeps a file visible.
 			name: name, size: content.length, filetype: type, cid: cid, hidden: !!cid && html.indexOf('cid:' + cid) !== -1,
-			attach_method: Zarafa.core.mapi.AttachMethod.ATTACH_BY_VALUE, attach_num: -1,
+			attach_method: Grommunio.core.mapi.AttachMethod.ATTACH_BY_VALUE, attach_num: -1,
 			extension: name.indexOf('.') < 0 ? '' : name.split('.').pop().toLowerCase()
 		});
 		attachment.phantom = false;

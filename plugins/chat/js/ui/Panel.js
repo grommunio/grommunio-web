@@ -1,10 +1,15 @@
-Ext.namespace('Zarafa.plugins.chat.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.chat.ui');
 
 /**
- * @class Zarafa.plugins.chat.ui.Panel
+ * @class Grommunio.plugins.chat.ui.Panel
  * @extends Ext.Panel
  */
-Zarafa.plugins.chat.ui.Panel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.chat.ui.Panel = Ext.extend(Ext.Panel, {
 	/**
 	 * The id of the iframe element inside this panel
 	 * @property
@@ -24,7 +29,7 @@ Zarafa.plugins.chat.ui.Panel = Ext.extend(Ext.Panel, {
 
 		Ext.applyIf(config, {
 			// Overridden from Ext.Component
-			xtype: 'zarafa.plugins.chat.ui.panel',
+			xtype: 'grommunio.plugins.chat.ui.panel',
 			layout : 'fit',
 			header: false,
 			border: false,
@@ -44,7 +49,7 @@ Zarafa.plugins.chat.ui.Panel = Ext.extend(Ext.Panel, {
 			}
 		});
 
-		Zarafa.plugins.chat.ui.Panel.superclass.constructor.call(this, config);
+		Grommunio.plugins.chat.ui.Panel.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -60,7 +65,7 @@ Zarafa.plugins.chat.ui.Panel = Ext.extend(Ext.Panel, {
 
 		iframe.addEventListener(event, function(){
 			this.hideLoadMask();
-			Zarafa.plugins.chat.Notifications.initialize(iframe);
+			Grommunio.plugins.chat.Notifications.initialize(iframe);
 		}.createDelegate(this));
 	},
 
@@ -153,7 +158,7 @@ Zarafa.plugins.chat.ui.Panel = Ext.extend(Ext.Panel, {
 			return;
 		}
 		if (!this.loadMask) {
-			this.loadMask = new Zarafa.common.ui.LoadMask(this.ownerCt.el);
+			this.loadMask = new Grommunio.common.ui.LoadMask(this.ownerCt.el);
 		}
 
 		if (errorMask) {
@@ -183,4 +188,4 @@ Zarafa.plugins.chat.ui.Panel = Ext.extend(Ext.Panel, {
 	}
 });
 
-Ext.reg('zarafa.plugins.chat.ui.panel', Zarafa.plugins.chat.ui.Panel);
+Ext.reg('grommunio.plugins.chat.ui.panel', Grommunio.plugins.chat.ui.Panel);

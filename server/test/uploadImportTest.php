@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 if (!class_exists('BaseException')) {
 	class BaseException extends Exception {}
 }
@@ -70,7 +75,7 @@ try {
 
 		throw new RuntimeException('An unreadable attachment was accepted.');
 	}
-	catch (ZarafaException) {
+	catch (GrommunioException) {
 		// Expected failure for an unreadable attachment.
 	}
 	finally {

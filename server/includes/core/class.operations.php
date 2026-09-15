@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * General operations.
  *
@@ -217,7 +224,7 @@ class Operations {
 					// only open a particular shared store.
 					if (is_array($storeOptions)) {
 						// Update the store properties to mark previously opened
-						$prevSharedFolders = $GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/shared_stores/" . $username, null);
+						$prevSharedFolders = $GLOBALS["settings"]->get("grommunio/v1/contexts/hierarchy/shared_stores/" . $username, null);
 						if (!empty($prevSharedFolders)) {
 							foreach ($prevSharedFolders as $type => $prevSharedFolder) {
 								// Update the store properties to refer to the shared folder,
@@ -741,7 +748,7 @@ class Operations {
 			return;
 		}
 
-		if ($GLOBALS["settings"]->get("zarafa/v1/contexts/hierarchy/show_default_favorites") !== false) {
+		if ($GLOBALS["settings"]->get("grommunio/v1/contexts/hierarchy/show_default_favorites") !== false) {
 			$commonViewFolder = mapi_msgstore_openentry($store, $commonViewFolderEntryid);
 
 			$inboxFolderEntryid = hex2bin((string) $storeData["props"]["default_folder_inbox"]);
@@ -874,7 +881,7 @@ class Operations {
 				$props = mapi_getprops($folderObj, [PR_ENTRYID, PR_STORE_ENTRYID, PR_DISPLAY_NAME]);
 				$this->createFavoritesLink($commonViewFolder, $props);
 			}
-			$GLOBALS["settings"]->set("zarafa/v1/contexts/hierarchy/show_default_favorites", false, true);
+			$GLOBALS["settings"]->set("grommunio/v1/contexts/hierarchy/show_default_favorites", false, true);
 		}
 	}
 
@@ -1237,7 +1244,7 @@ class Operations {
 					$result = true;
 
 					// if exists, also delete settings made for this folder (client don't need an update for this)
-					$GLOBALS["settings"]->delete("zarafa/v1/state/folders/" . bin2hex($entryid));
+					$GLOBALS["settings"]->delete("grommunio/v1/state/folders/" . bin2hex($entryid));
 				}
 			}
 			else {
@@ -1249,7 +1256,7 @@ class Operations {
 							$result = true;
 
 							// if exists, also delete settings made for this folder (client don't need an update for this)
-							$GLOBALS["settings"]->delete("zarafa/v1/state/folders/" . bin2hex($entryid));
+							$GLOBALS["settings"]->delete("grommunio/v1/state/folders/" . bin2hex($entryid));
 						}
 					}
 					else {
@@ -1290,7 +1297,7 @@ class Operations {
 						$result = true;
 
 						// if exists, also delete settings made for this folder (client don't need an update for this)
-						$GLOBALS["settings"]->delete("zarafa/v1/state/folders/" . bin2hex($entryid));
+						$GLOBALS["settings"]->delete("grommunio/v1/state/folders/" . bin2hex($entryid));
 					}
 				}
 			}
@@ -1452,7 +1459,7 @@ class Operations {
 		}
 
 		if ($rowcount === false) {
-			$rowcount = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
+			$rowcount = $GLOBALS['settings']->get('grommunio/v1/main/page_size', 50);
 		}
 
 		if (is_array($restriction)) {
@@ -1510,7 +1517,7 @@ class Operations {
 		foreach ($rows as $row) {
 			$itemData = Conversion::mapMAPI2XML($properties, $row);
 
-			// For ZARAFA type users the email_address properties are filled with the username
+			// For GROMMUNIO type users the email_address properties are filled with the username
 			// Here we will copy that property to the *_username property for consistency with
 			// the getMessageProps() function
 			// We will not retrieve the real email address (like the getMessageProps function does)
@@ -2896,7 +2903,7 @@ class Operations {
 	 * kept per mailbox rather than per session, so a second session does not
 	 * come with a second allowance.
 	 *
-	 * @throws ZarafaException when the mailbox is over the limit
+	 * @throws GrommunioException when the mailbox is over the limit
 	 */
 	public static function assertSubmitRateLimit(): void {
 		$limit = defined('MAX_SUBMITS_PER_MINUTE') ? (int) MAX_SUBMITS_PER_MINUTE : 0;
@@ -2920,7 +2927,7 @@ class Operations {
 
 		if (count($recent) >= $limit) {
 			$state->close();
-			$error = new ZarafaException(
+			$error = new GrommunioException(
 				sprintf('submit rate limit of %d per minute reached', $limit),
 				0,
 				null,
@@ -3156,7 +3163,7 @@ class Operations {
 		$reprMessage = false;
 		$oldDraftFolder = false;
 		$oldDraftDeleteFlags = 0;
-		$delegateSentItemsStyle = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/delegate_sent_items_style');
+		$delegateSentItemsStyle = $GLOBALS['settings']->get('grommunio/v1/contexts/mail/delegate_sent_items_style');
 		$saveBoth = strcasecmp((string) $delegateSentItemsStyle, 'both') == 0;
 		$saveRepresentee = strcasecmp((string) $delegateSentItemsStyle, 'representee') == 0;
 		$sendingAsDelegate = false;
@@ -3826,7 +3833,7 @@ class Operations {
 					$result = mapi_folder_deletemessages($folder, $entryids, $flags);
 					break;
 				}
-				$delegateWastebasketStyle = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/delegate_wastebasket_style', DELEGATE_WASTEBASKET_MAINUSER);
+				$delegateWastebasketStyle = $GLOBALS['settings']->get('grommunio/v1/contexts/mail/delegate_wastebasket_style', DELEGATE_WASTEBASKET_MAINUSER);
 				// Delete to the main user's wastebasket; the source folder still
 				// lives in the delegate store, so only the destination may change
 				$wastebasketStore = $store;

@@ -1,3 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 (function() {
 	/**
 	 * @class Ext
@@ -102,7 +109,7 @@
 		 */
 		getDom: function(el) {
 			var getDomResult = null;
-			var activeBrowserWindow = Zarafa.core.BrowserWindowMgr.getActive();
+			var activeBrowserWindow = Grommunio.core.BrowserWindowMgr.getActive();
 
 			// First, search for the element in active window only if browser window manager has active window available
 			// and is not the main webapp window.
@@ -120,7 +127,7 @@
 			// If the element is not found in 'webapp main window DOM' and 'active window' then the element must belongs to
 			// other separately created window, try to look there as well.
 			if(getDomResult === null && typeof el === 'string') {
-				var browserWindows = Zarafa.core.BrowserWindowMgr.browserWindows;
+				var browserWindows = Grommunio.core.BrowserWindowMgr.browserWindows;
 				if(Ext.isDefined(browserWindows)) {
 					browserWindows.each(function(browserWindow) {
 						var elementResult = browserWindow.document.getElementById(el);
@@ -141,7 +148,7 @@
 		 * @return {Ext.Element} The document body of the currently active browser window.
 		 */
 		getBody: function() {
-			var activeBrowserWindow = Zarafa.core.BrowserWindowMgr.getActive();
+			var activeBrowserWindow = Grommunio.core.BrowserWindowMgr.getActive();
 			var documentObject = Ext.isDefined(activeBrowserWindow) ? activeBrowserWindow.document : document;
 			return Ext.get(documentObject.body || documentObject.documentElement);
 		},
@@ -151,7 +158,7 @@
 		 * @return Ext.Element The document object wrapped as (@link Ext.Element}
 		 */
 		getDoc: function() {
-			var activeBrowserWindow = Zarafa.core.BrowserWindowMgr.getActive();
+			var activeBrowserWindow = Grommunio.core.BrowserWindowMgr.getActive();
 			var documentObject = Ext.isDefined(activeBrowserWindow) ? activeBrowserWindow.document : document;
 			return Ext.get(documentObject);
 		}

@@ -1,21 +1,26 @@
-Ext.namespace('Zarafa.plugins.files.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.FilesFolderResponseHandler
- * @extends Zarafa.core.data.ProxyResponseHandler
+ * @class Grommunio.plugins.files.data.FilesFolderResponseHandler
+ * @extends Grommunio.core.data.ProxyResponseHandler
  *
- * A Simple implementation for a {@link Zarafa.plugins.files.data.FilesFolderResponseHandler ResponseHandler}.
+ * A Simple implementation for a {@link Grommunio.plugins.files.data.FilesFolderResponseHandler ResponseHandler}.
  * This one can only be used by {@link Ext.data.DataProxy proxies} which wish to handle a Response
  * to their Request.
  *
  * This implementation limits itself to firing an {@link Ext.data.DataProxy#exception exception}
  * on error, and calling a callback function when all processing has been completed.
  */
-Zarafa.plugins.files.data.FilesFolderResponseHandler = Ext.extend(Zarafa.core.data.ProxyResponseHandler, {
+Grommunio.plugins.files.data.FilesFolderResponseHandler = Ext.extend(Grommunio.core.data.ProxyResponseHandler, {
 
 	/**
 	 * Handles the list response. Gathers the stores from the response data, converts each entry
-	 * into a {@link Zarafa.core.MAPIStore MAPIStore} and pushes them into the collectedItems.
+	 * into a {@link Grommunio.core.MAPIStore MAPIStore} and pushes them into the collectedItems.
 	 * @param {Object} response The response object belonging to the given command.
 	 * @return {Boolean} False when action could not be handled successfully. This will
 	 * not cancel the transaction itself, but rather causes the 'success' argument for the
@@ -28,7 +33,7 @@ Zarafa.plugins.files.data.FilesFolderResponseHandler = Ext.extend(Zarafa.core.da
 
 	/**
 	 * Handles the updatelist response. Gathers the stores from the response data, converts each entry
-	 * into a {@link Zarafa.core.MAPIStore MAPIStore} and pushes them into the collectedItems.
+	 * into a {@link Grommunio.core.MAPIStore MAPIStore} and pushes them into the collectedItems.
 	 *
 	 * @param {Object} response The response object belonging to the given command.
 	 * @return {Boolean} False when action could not be handled successfully. This will

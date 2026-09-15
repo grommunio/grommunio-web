@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 if (function_exists('mapi_logon_zarafa')) {
 	echo "Eml attachment preview checks skipped with php-mapi loaded\n";
 

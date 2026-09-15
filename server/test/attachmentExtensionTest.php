@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // Check that the extension handed to the client never carries the leading period
 // PR_ATTACH_EXTENSION is stored with.
 if (extension_loaded('mapi')) {

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 (function() {
 	/*
 	 * Fix the Ext.tree.TreeDropZone, which asks Ext.dd.Registry for the element the

@@ -1,7 +1,12 @@
-Ext.namespace('Zarafa.plugins.pgp.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.pgp.data');
 
 /** Every OpenPGP operation uses the normal, authenticated Web request router. */
-Zarafa.plugins.pgp.data.PgpResponseHandler = Ext.extend(Zarafa.core.data.AbstractResponseHandler, {
+Grommunio.plugins.pgp.data.PgpResponseHandler = Ext.extend(Grommunio.core.data.AbstractResponseHandler, {
 	doRequest: function(response)
 	{
 		if (this.callback) {

@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.backend.Seafile.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.backend.Seafile.data');
 
 /**
  * Lightweight array store that backs the share grid with in-memory data.
  */
-Zarafa.plugins.files.backend.Seafile.data.ShareGridStore = Ext.extend(
+Grommunio.plugins.files.backend.Seafile.data.ShareGridStore = Ext.extend(
 	Ext.data.ArrayStore,
 	{
 		constructor: function (e) {
-			Zarafa.plugins.files.backend.Seafile.data.ShareGridStore.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Seafile.data.ShareGridStore.superclass.constructor.call(
 				this,
 				{
 					fields: [
@@ -28,5 +33,5 @@ Zarafa.plugins.files.backend.Seafile.data.ShareGridStore = Ext.extend(
 );
 Ext.reg(
 	'filesplugin.seafile.sharegridstore',
-	Zarafa.plugins.files.backend.Seafile.data.ShareGridStore,
+	Grommunio.plugins.files.backend.Seafile.data.ShareGridStore,
 );

@@ -1,10 +1,15 @@
-Ext.namespace('Zarafa.plugins.files.backend.Seafile.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.backend.Seafile.ui');
 
 /**
  * Column model that mirrors the permissions matrix used by the ownCloud backend.
  */
-Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGridColumnModel =
-	Ext.extend(Zarafa.common.ui.grid.ColumnModel, {
+Grommunio.plugins.files.backend.Seafile.ui.FilesShareUserGridColumnModel =
+	Ext.extend(Grommunio.common.ui.grid.ColumnModel, {
 		constructor: function (e) {
 			e = e || {};
 			this.defaultColumns = this.createDefaultColumns(e.fileType);
@@ -15,7 +20,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGridColumnModel =
 				},
 			});
 			Ext.apply(this, e);
-			Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGridColumnModel.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Seafile.ui.FilesShareUserGridColumnModel.superclass.constructor.call(
 				this,
 				e,
 			);
@@ -55,7 +60,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGridColumnModel =
 					renderer: this.yesNoRenderer,
 				},
 			];
-			if (e === Zarafa.plugins.files.data.FileTypes.FOLDER) {
+			if (e === Grommunio.plugins.files.data.FileTypes.FOLDER) {
 				t.push(
 					{
 						header: _('Create'),
@@ -79,13 +84,13 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGridColumnModel =
 		},
 		shareTypeRenderer: function (e, t, i) {
 			t.css = 'shareicon_16_' + e;
-			t.css += ' zarafa-grid-empty-cell';
+			t.css += ' grommunio-grid-empty-cell';
 			return '';
 		},
 		yesNoRenderer: function (e, t, i) {
 			t.css = e ? 'shareicon_16_yes' : 'shareicon_16_no';
-			t.css += ' zarafa-grid-empty-cell';
+			t.css += ' grommunio-grid-empty-cell';
 			return '';
 		},
 	});
-Ext.namespace('Zarafa.plugins.files.backend.Seafile.ui');
+Ext.namespace('Grommunio.plugins.files.backend.Seafile.ui');

@@ -1,0 +1,925 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.hierarchy.ui');
+
+/**
+ * @class Grommunio.hierarchy.ui.HierarchyTreePanel
+ * @extends Grommunio.hierarchy.ui.Tree
+ * @xtype grommunio.hierarchytreepanel
+ *
+ * HierarchyTreePanel for hierarchy list in the main window.
+ */
+Grommunio.hierarchy.ui.HierarchyTreePanel = Ext.extend(Grommunio.hierarchy.ui.Tree, {
+	/**
+	 * @cfg {Boolean} enableItemDrop true to enable just drag for {@link Grommunio.core.data.MAPIRecord items}
+	 * from a {@Link Ext.grid.GridPanel grid}.
+	 */
+	enableItemDrop: false,
+
+	/**
+	 * The dropZone used by this tree if drop is enabled (see {@link #enableItemDrop})
+	 * @property
+	 * @type Ext.tree.TreeDropZone
+	 */
+	itemDropZone: undefined,
+
+	/**
+	 * @cfg {Object} itemDropConfig Custom config to pass to the {@link Ext.tree.TreeDropZone} instance
+	 */
+	itemDropConfig: undefined,
+
+	/**
+	 * @cfg {Object} bbarConfig Custom config to pass to the {@link Grommunio.hierarchy.ui.HierarchyTreeBottomBar}.
+	 * By default the xtype in this object is set to grommunio.hierarchytreebottombar.
+	 */
+	bbarConfig: undefined,
+
+	/**
+	 * @cfg {String} filterSearchBoxValue The current value of {@link Ext.form.textfield filterSearchTextBox}.
+	 * This will be used in {@link #setSearchFilter} to check whether the value is changed.
+	 */
+	filterSearchBoxValue: undefined,
+
+	/**
+	 * @cfg {Boolean} showAllFoldersDefaultValue True to render the 'Show all folders'
+	 * {@link #showAllFoldersCheckbox checkbox} as {@link Ext.form.Checkbox#checked checked}.
+	 */
+	showAllFoldersDefaultValue: false,
+
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		var checked = Ext.isDefined(config.showAllFoldersDefaultValue)
+			? config.showAllFoldersDefaultValue: this.showAllFoldersDefaultValue;
+
+		Ext.applyIf(config, {
+			xtype: 'grommunio.hierarchytreepanel',
+			baseCls: 'grommunio-hierarchy-treepanel',
+			flex: 1,
+			minHeight: 100,
+			stateful: true,
+			statefulName: 'hierarchytree',
+			ref: '../hierarchytree',
+			tbar: [{
+				xtype: 'checkbox',
+				cls: 'grommunio-hierarchy-treepanel-showallfolders',
+				ref: '../showAllFoldersCheckbox',
+				boxLabel: _('Show All'),
+				checked: checked,
+				listeners: {
+					beforerender: this.reviseCheckboxDisablity,
+					check: this.onCheckShowAllFoldersCheckbox,
+					scope: this
+				}
+			},
+			{
+				xtype: 'textfield',
+				cls: 'k-searchfolder-field',
+				fieldLabel: _('Filter folders'),
+				doLayout: this.onLayoutSearchField.createDelegate(this),
+				enableKeyEvents: true,
+				ref: '../../../filterSearchTextBox',
+				listeners: {
+					scope: this,
+					keyup: {
+						fn: this.onSearchTextFiledKeyUp,
+						buffer: 250
+					}
+				}
+			}],
+			loadMask: true,
+			treeSorter: true,
+			treeFilter: true,
+			trackMouseOver: true,
+			containerScroll: true,
+			// Default values for the Drag&Drop objects.
+			// By default is Drag&Drop disabled...
+			dragConfig: {
+				ddGroup: 'dd.mapifolder'
+			},
+			dropConfig: {
+				ddGroup: 'dd.mapifolder',
+				expandDelay: 250,
+				allowParentInsert: true
+			},
+			enableItemDrop: true,
+			itemDropConfig: {
+				ddGroup: 'dd.mapiitem'
+			}
+		});
+
+		if(!Ext.isDefined(config.bbar)){
+			config.bbarConfig = config.bbarConfig || {};
+			config.bbar = Ext.applyIf(config.bbarConfig, {
+				xtype: 'grommunio.hierarchytreebottombar'
+			});
+		}
+
+		this.addEvents(
+			/**
+			 * @event beforeitemdrop
+			 * Fires when a DD object is dropped on a node in this tree for preprocessing. Return false to cancel the drop. The dropEvent
+			 * passed to handlers has the following properties:<br />
+			 * <ul style="padding:5px;padding-left:16px;">
+			 * <li>tree - The TreePanel</li>
+			 * <li>target - The node being targeted for the drop</li>
+			 * <li>data - The drag data from the drag source</li>
+			 * <li>point - The point of the drop - append, above or below</li>
+			 * <li>source - The drag source</li>
+			 * <li>rawEvent - Raw mouse event</li>
+			 * <li>dropNode - Drop node(s) provided by the source <b>OR</b> you can supply node(s)
+			 * to be inserted by setting them on this object.</li>
+			 * <li>cancel - Set this to true to cancel the drop.</li>
+			 * <li>dropStatus - If the default drop action is cancelled but the drop is valid, setting this to true
+			 * will prevent the animated 'repair' from appearing.</li>
+			 * </ul>
+			 * @param {Object} dropEvent
+			 */
+			'beforeitemdrop',
+			/**
+			 * @event itemdrop
+			 * Fires after a DD object is dropped on a node in this tree. The dropEvent
+			 * passed to handlers has the following properties:<br />
+			 * <ul style="padding:5px;padding-left:16px;">
+			 * <li>tree - The TreePanel</li>
+			 * <li>target - The node being targeted for the drop</li>
+			 * <li>data - The drag data from the drag source</li>
+			 * <li>point - The point of the drop - append, above or below</li>
+			 * <li>source - The drag source</li>
+			 * <li>rawEvent - Raw mouse event</li>
+			 * <li>dropNode - Dropped node(s).</li>
+			 * </ul>
+			 * @param {Object} dropEvent
+			 */
+			'itemdrop',
+			/**
+			 * @event folderdrop
+			 * Fires after a DD object is dropped on a folder node in this tree. The dropEvent
+			 * passed to handlers has the following properties:<br />
+			 * <ul style="padding:5px;padding-left:16px;">
+			 * <li>tree - The TreePanel</li>
+			 * <li>target - The node being targeted for the drop</li>
+			 * <li>data - The drag data from the drag source</li>
+			 * <li>point - The point of the drop - append, above or below</li>
+			 * <li>source - The drag source</li>
+			 * <li>rawEvent - Raw mouse event</li>
+			 * <li>dropNode - Dropped node(s).</li>
+			 * </ul>
+			 * @param {Object} dropEvent
+			 */
+			'folderdrop'
+		);
+
+		Grommunio.hierarchy.ui.HierarchyTreePanel.superclass.constructor.call(this, config);
+
+		// We cannot wait for render time to set these listeners (as in initEvents()) because
+		// then the listeners would not be set when 'Show all folders' is checked.
+		this.mon(this.store, 'remove', this.onStoreRemove, this);
+		this.mon(this.store, 'removeFolder', this.onFolderRemove, this);
+	},
+
+	/**
+	 * Called after the tree has been {@link #render rendered} This will initialize
+	 * all event handlers and when {@link #enableDD Drag & Drop} has been enabled,
+	 * it will initialize the {@link #dropZone} with a special
+	 * {@link Grommunio.hierarchy.ui.HierarchyFolderDropZone Folder DropZone} object.
+	 * When {@link #enableItemDrop} has been enabled, it will also initialize the
+	 * {@link #itemDropZone} using the {@link Grommunio.hierarchy.ui.HierarchyItemDropZone Item DropZone}.
+	 * @private
+	 */
+	initEvents: function()
+	{
+		// Capture events that can change the height of the hierarchy tree, or of the containing panel,
+		// so we can add a class and the css can handle the position of the bottombar
+		this.on('afterrender', function(){
+			this.on('expandnode', this.checkTreeHeight, this);
+			this.on('collapsenode', this.checkTreeHeight, this);
+			this.on('afterlayout', this.checkTreeHeight, this);
+			this.on('append', this.checkTreeHeight, this);
+			this.on('remove', this.checkTreeHeight, this);
+			this.on('resize', this.checkTreeHeight, this);
+		}, this, {single: true});
+
+		// Add listeners to Grommunio.hierarchy.ui.Tree events
+		this.on('contextmenu', this.onTreeNodeContextMenu, this);
+		this.on('click', this.onFolderClicked, this);
+		this.mon(container, 'folderselect', this.onFolderSelect, this);
+
+		this.mon(container, 'contextswitch', this.reviseCheckboxDisablity, this);
+
+		// TODO This needs to be fixed by lazy loading the stuff in the mainPanel, then we can do container.getNavigationBar()
+		// But at the moment it is instantiated as getMainPanel is run and so we cannot yet get the navigationBar that way
+		var navigationPanel = this.findParentByType('grommunio.navigationpanel');
+		if(navigationPanel){
+			this.mon(navigationPanel, 'toggleshowallfolders', this.onToggleShowAllFolders, this);
+		}
+
+		// Add listener for the 'load' event so we can select
+		// the currently active folder (when a folder was activated
+		// before the hierarchy is shown).
+		this.mon(this.loader, 'load', this.onHierarchyLoaderLoad, this);
+
+		if (this.stateful === true) {
+			this.on('expandnode', this.saveFolderState, this, { buffer: 5 });
+			this.on('collapsenode', this.saveFolderState, this, { buffer: 5 });
+		}
+
+		if (this.enableDD || this.enableDrop) {
+			// Initialize a special DropZone which has better support for detecting where
+			// mapifolders can be dropped inside the hierarchy.
+			if (!this.dropZone) {
+				this.dropZone = new Grommunio.hierarchy.ui.HierarchyFolderDropZone(this, this.dropConfig || {
+					ddGroup: this.ddGroup || 'TreeDD', appendOnly: this.ddAppendOnly === true
+				});
+			}
+
+			this.on('folderdrop', this.onFolderDrop, this);
+		}
+
+		if (this.enableItemDrop) {
+			// Initialize a special DropZone which has support for dragging MAPIRecord objects
+			// from a grid into the hierarchy.
+			if (!this.itemDropZone) {
+				this.itemDropZone = new Grommunio.hierarchy.ui.HierarchyItemDropZone(this, this.itemDropConfig || {
+					ddGroup: this.ddGroup || 'TreeDD'
+				});
+			}
+
+			this.on('itemdrop', this.onItemDrop, this);
+		}
+
+		Grommunio.hierarchy.ui.HierarchyTreePanel.superclass.initEvents.call(this);
+	},
+
+	/**
+	 * Event handler which is triggered when
+	 * a key is pressed in the filterSearchTextBox.
+	 *
+	 * @param {Ext.form.TextField} field
+	 * @param {Ext.EventObject} eventObj
+	 * @private
+	 */
+	onSearchTextFiledKeyUp: function (field, eventObj)
+	{
+		var value = field.getRawValue();
+		this.setSearchFilter(value);
+	},
+
+	/**
+	 * Function will apply or clear the search filter based on {@link Ext.form.textfield filterSearchTextBox value}.
+	 * @param {String} value which needs to be search in the tree.
+	 */
+	setSearchFilter: function(value)
+	{
+		// Check if search text value is changed.
+		if  (value !== this.filterSearchBoxValue) {
+			this.filterSearchBoxValue = value;
+			if (Ext.isEmpty(value) && !Ext.isEmpty(this.treeFilter)) {
+				this.treeFilter.clear();
+				this.checkTreeHeight();
+				return;
+			}
+			var regEx = new RegExp('' + value + '', 'i');
+			this.treeFilter.filter(regEx);
+			this.checkTreeHeight();
+		}
+	},
+
+	/**
+	 * Function is used to resize the {@link Ext.form.textfield filterSearchTextBox}
+	 * and set the search filter.
+	 */
+	onLayoutSearchField: function()
+	{
+		var filterSearchTextBox = this.getTopToolbar().findByType('textfield')[0];
+
+		if (filterSearchTextBox.isVisible()) {
+			var containerWidth = this.el.getStyleSize().width;
+			var showFolderCheckFieldWidth = this.showAllFoldersCheckbox.getWidth();
+			// Fill remaining space: container - checkbox - left padding
+			var adjWidth = containerWidth - showFolderCheckFieldWidth - 8;
+
+			filterSearchTextBox.setWidth(adjWidth);
+
+			this.setSearchFilter(filterSearchTextBox.getValue());
+		}
+	},
+
+	/**
+	 * Register the {@link #stateEvents state events} to the {@link #saveState} callback function.
+	 * @protected
+	 */
+	initStateEvents: function(){
+		Grommunio.hierarchy.ui.HierarchyTreePanel.superclass.initStateEvents.call(this);
+		this.mon(this.showAllFoldersCheckbox, 'check', this.saveState, this, {delay: 100});
+	},
+
+	/**
+	 * Checks the height of the hierarchy tree. When it is smaller then the height of the containing box
+	 * it will add a class so the CSS can handle the position of the bottom bar.
+	 */
+	checkTreeHeight: function(){
+		if(!this.ownerCt) {
+			return;
+		}
+
+		var treeHeight = this.body.down('ul').getHeight();
+		var panelHeight = this.ownerCt.getHeight();
+		var topBarHeight = this.getTopToolbar().getHeight();
+		var bottomBarHeight = this.getBottomToolbar().getHeight();
+		if ( panelHeight < treeHeight + bottomBarHeight + topBarHeight ){
+			this.ownerCt.getEl().addClass('fixed-bottombar');
+		} else {
+			this.ownerCt.getEl().removeClass('fixed-bottombar');
+		}
+	},
+
+	/**
+	 * Fires on {@link Grommunio.core.Container#contextswitch}, or {@link Ext.form.Checkbox#beforerender}.
+	 * Make (@link #showAllFoldersCheckbox) disable if current context is Settings or Grommunio, enable otherwise.
+	 * @param {Object | Ext.form.Checkbox} parameters contains folder details or checkbox instance
+	 * @param {Context} oldContext (optional) previously selected context
+	 * @param {Context} newContext (optional) selected context
+	 *
+	 * @private
+	 */
+	reviseCheckboxDisablity: function (parameters, oldContext, newContext)
+	{
+		var context = newContext || container.getCurrentContext();
+		var settingsOrToday = (context == container.getContextByName('settings') || context == container.getContextByName('today'));
+		this.showAllFoldersCheckbox.setDisabled(settingsOrToday);
+
+		var model = context.getModel();
+		if (Ext.isDefined(model)) {
+			this.mon(model, 'beforefolderchange', this.onBeforeFolderChange, this);
+		}
+	},
+
+	/**
+	 * Event handler which is triggered after drop is completed on {@link Grommunio.hierarchy.ui.Tree Tree}.
+	 * @param {Object} dropEvent The object describing the drop information
+	 * @private
+	 */
+	onFolderDrop: function(dropEvent)
+	{
+		var dropNode = dropEvent.dropNode;
+		if (Ext.isDefined(dropNode)) {
+			// A mailbox dropped between two other mailboxes changes the order of the
+			// hierarchy rather than moving anything in the mailbox itself.
+			if (Grommunio.hierarchy.ui.HierarchyFolderDropZone.isStoreReorderDrop(dropEvent)) {
+				return this.onStoreReorderDrop(dropEvent);
+			}
+
+			var targetNode = dropEvent.target;
+
+			switch (dropEvent.point) {
+				case 'above':
+				case 'below':
+					targetNode = dropEvent.target.parentNode;
+					break;
+				case 'append':
+				/* falls through */
+				default:
+					break;
+			}
+
+			// See HierarchyFolderDropZone#isValidDropPoint: a drop which resolves to the
+			// invisible root node of the hierarchy is not a folder move, and asking it
+			// for its folder throws. Second line of defence, in case such a drop is
+			// raised from anywhere else.
+			if (!Ext.isFunction(targetNode.getFolder)) {
+				return false;
+			}
+
+			var sourceFolder = dropNode.getFolder();
+			var targetFolder = targetNode.getFolder();
+
+			var hasAccess = targetFolder.get('access') & Grommunio.core.mapi.Access.ACCESS_CREATE_HIERARCHY;
+			var hasCtrlKeyPressed = dropEvent.rawEvent.ctrlKey;
+
+			// Guard: dropping a folder onto the tier it already lives in must be a no-op.
+			// Compare by MAPI entryid (not tree-node identity) so this also holds for
+			// shared/favorites stores where nodes may be distinct objects. Only guard the
+			// move path; a Ctrl-copy into the same parent is a legitimate duplicate.
+			if (!hasCtrlKeyPressed &&
+				Grommunio.core.EntryId.compareEntryIds(sourceFolder.get('parent_entryid'), targetFolder.get('entryid')) &&
+				Grommunio.core.EntryId.compareEntryIds(sourceFolder.get('store_entryid'), targetFolder.get('store_entryid'))) {
+				return false;
+			}
+
+			var msg;
+			if (!hasAccess) {
+				msg = hasCtrlKeyPressed ? _("You have insufficient privileges to copy this folder. Ask the folder owner to grant you permissions or contact your system administrator.")
+					: _("You have insufficient privileges to move this folder. Ask the folder owner to grant you permissions or contact your system administrator.");
+				container.getNotifier().notify('error', _("Insufficient privileges"), msg);
+				return false;
+			}
+
+			if (hasCtrlKeyPressed) {
+				sourceFolder.copyTo(targetFolder);
+			} else {
+				// Can not perform move operation, so suggest user a copy operation.
+				if (!sourceFolder.hasDeleteOwnRights()) {
+					msg = _("You have insufficient privileges to move this folder. Would you like to copy instead?");
+					Grommunio.common.Actions.showMessageBox(sourceFolder, targetFolder, sourceFolder.getMAPIFolderStore(), msg, this);
+					return false;
+				}
+				sourceFolder.moveTo(targetFolder);
+			}
+
+			sourceFolder.save();
+		}
+	},
+
+	/**
+	 * Handle a drop which moves a mailbox to another position in the hierarchy. Nothing is
+	 * moved in the mailbox itself; the new order of the mailboxes is derived from the
+	 * position the node was dropped at and handed to
+	 * {@link Grommunio.hierarchy.data.StoreOrder} to be persisted. Every hierarchy tree then
+	 * re-sorts itself, so all trees keep showing the same order.
+	 * @param {Object} dropEvent The object describing the drop information
+	 * @return {Boolean} False when the drop could not be resolved to a new order, in
+	 * which case the hierarchy is left as it was
+	 * @private
+	 */
+	onStoreReorderDrop: function(dropEvent)
+	{
+		var dropNode = dropEvent.dropNode;
+		var dropZone = Grommunio.hierarchy.ui.HierarchyFolderDropZone;
+		var storeOrder = Grommunio.hierarchy.data.StoreOrder;
+
+		var keyOf = function(node) {
+			return storeOrder.getStoreKey(node.getFolder().getMAPIStore());
+		};
+
+		var draggedKey = keyOf(dropNode);
+		var targetKey = keyOf(dropEvent.target);
+
+		// Start from the stored order rather than from this tree: a filtered tree does
+		// not show every mailbox - one opened as a single mail folder has no node in
+		// the calendar folder list - and rebuilding the order from the visible nodes
+		// alone would silently throw away the positions of the mailboxes it misses.
+		var keys = [];
+		var stored = storeOrder.getOrder();
+		for (var i = 0, len = stored.length; i < len; i++) {
+			if (stored[i] !== draggedKey) {
+				keys.push(stored[i]);
+			}
+		}
+
+		// Append the mailboxes shown in this tree which have no stored position yet,
+		// in the sequence their nodes appear. A mailbox can have several top level
+		// nodes in a filtered tree, one per visible folder, and they all move together.
+		var siblings = dropNode.parentNode.childNodes;
+		for (var j = 0, jlen = siblings.length; j < jlen; j++) {
+			if (!dropZone.isReorderableNode(siblings[j])) {
+				continue;
+			}
+
+			var key = keyOf(siblings[j]);
+			if (key !== draggedKey && keys.indexOf(key) === -1) {
+				keys.push(key);
+			}
+		}
+
+		var targetIndex = keys.indexOf(targetKey);
+		if (targetIndex === -1) {
+			return false;
+		}
+
+		keys.splice(dropEvent.point === 'above' ? targetIndex : targetIndex + 1, 0, draggedKey);
+
+		storeOrder.setOrder(keys);
+	},
+
+	/**
+	 * Event handler which is triggered after drop of item is completed on {@link Grommunio.hierarchy.ui.Tree Tree}.
+	 * @param {Object} dropEvent The object describing the drop information
+	 * @private
+	 */
+	onItemDrop: function(dropEvent)
+	{
+		if (!Ext.isEmpty(dropEvent.dropItem)) {
+			var targetNode = dropEvent.target;
+
+			var sourceNodes = Array.isArray(dropEvent.dropItem) ? dropEvent.dropItem : [ dropEvent.dropItem ];
+			var targetFolder = targetNode.getFolder();
+			var store = sourceNodes[0].getStore();
+
+			var cloneSourceNodes = sourceNodes.clone();
+			cloneSourceNodes = Grommunio.common.Actions.resolveRecords(cloneSourceNodes, store);
+
+			if (Ext.isEmpty(cloneSourceNodes)) {
+				return false;
+			}
+
+			var isCtrlKeyPress = dropEvent.rawEvent.ctrlKey;
+			var noAccessRecord = [];
+
+			// Check folder has create item rights.
+			if (!targetFolder.hasCreateRights()) {
+				var message = _("You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator.");
+				if (isCtrlKeyPress) {
+					message = _("You have insufficient privileges to copy this item. Ask the folder owner to grant you permissions or contact your system administrator.");
+				}
+				container.getNotifier().notify('error', _("Insufficient privileges"), message);
+				return false;
+			}
+
+			var sourceNode = this.getNodeById(cloneSourceNodes[0].get('parent_entryid'));
+			var sourceFolder = sourceNode.getFolder();
+			var requireDeleteCheck = cloneSourceNodes[0].get('object_type') !== Grommunio.core.mapi.ObjectType.MAPI_MESSAGE && !sourceFolder.hasDeleteOwnRights();
+
+			// If targetFolder has create item rights and source folder does not have delete item rights,
+			// in that case move operation is not possible, therefore show message box which indicate that
+			// move operation is not possible and ask user to copy the item.
+			if (requireDeleteCheck && targetFolder.hasCreateRights() && !sourceFolder.hasDeleteOwnRights() && !isCtrlKeyPress) {
+				Grommunio.common.Actions.showMessageBox(cloneSourceNodes, targetFolder, store, undefined, this);
+				return false;
+			}
+
+			cloneSourceNodes.forEach(function (sourceNode, index) {
+				if (isCtrlKeyPress) {
+					sourceNode.copyTo(targetFolder);
+				} else {
+					// Check record access. If record has no delete access (record not belongs to user)
+					// user can't move this item.
+					if (requireDeleteCheck && !sourceNode.hasDeleteAccess()) {
+						noAccessRecord.push({
+							record: sourceNode,
+							index:index
+						});
+					} else {
+						sourceNode.moveTo(targetFolder);
+					}
+				}
+			}, this);
+
+			// Show detailed warning message when record have no access to delete
+			// ask user to copy that records.
+			if (requireDeleteCheck && !Ext.isEmpty(noAccessRecord)) {
+				var msg;
+				if (noAccessRecord.length > 1) {
+					msg = _("You have insufficient privileges to move following items.");
+					msg += "<br/><br/>";
+					noAccessRecord.forEach(function (item) {
+						cloneSourceNodes.splice(item.index, 1);
+						var subject = item.record.get('subject');
+						subject = !Ext.isEmpty(subject) ? subject : _("None");
+						msg += "<b>" +_("Subject:") + "</b> " + subject;
+						msg += "<br/>";
+					}, this);
+					msg += "<br/>" + _("Would you like to copy instead?");
+				}
+				var records = Ext.pluck(noAccessRecord, "record");
+				Grommunio.common.Actions.showMessageBox(records, targetFolder, store, msg, this);
+			}
+
+			// Don't call store.save if cloneSourceNodes is empty array.
+		if(!Ext.isEmpty(cloneSourceNodes)) {
+			if (!isCtrlKeyPress) {
+				Grommunio.common.Actions.ensureStoreReloadOnEmpty(store);
+			}
+			store.save(cloneSourceNodes);
+		}
+		}
+	},
+
+	/**
+	 * Event handler which is fired when the {@link #store} fires the
+	 * {@link Grommunio.hierarchy.data.HierarchyStore#remove} event handler. This will check
+	 * if any of the folders inside the store is currently opened, and
+	 * will deselect those folders.
+	 *
+	 * @param {Grommunio.hierarchy.data.HierarchyStore} store The store which fired the event
+	 * @param {Grommunio.hierarchy.data.MAPIStoreRecord} storeRecord The store which was deleted
+	 * @private
+	 */
+	onStoreRemove: function(store, storeRecord)
+	{
+		var subFolders = storeRecord.getSubStore('folders');
+
+		if (this.model) {
+			subFolders.each(function(folder) {
+				this.model.removeFolder(folder);
+			}, this);
+		}
+	},
+
+	/**
+	 * Event handler which is fired when the {@link #store} fires the
+	 * {@link Grommunio.hierarchy.data.HierarchyStore#removeFolder} event handler. This will check
+	 * if the folder is currently opened, and will deselect that folder.
+	 *
+	 * @param {Grommunio.hierarchy.data.HierarchyStore} store The store which fired the event
+	 * @param {Grommunio.hierarchy.data.MAPIStoreRecord} storeRecord The store from where the folder is
+	 * removed
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder which was removed from the store
+	 * @private
+	 */
+	onFolderRemove: function(store, storeRecord, folder)
+	{
+		if (this.model) {
+			this.model.removeFolder(folder);
+		}
+	},
+
+	/**
+	 * Fires when the {@Link Grommunio.core.ContextModel} fires the
+	 * {@Link Grommunio.core.ContextModel#beforefolderchange} event.
+	 * This will add the folder to be selected in the array
+	 * of selected folders. If 'Show all folders' is checked and the folder
+	 * to be selected does not belong to the current context,
+	 * then the context is switched to the context of the folder to be selected, else a sibling folder of the same
+	 * context will be selected. If the webapp is reloaded, the default folder of the current context is selected.
+	 * @param {Array} folders Selected folders as an array of {@link Grommunio.hierarchy.data.MAPIFolderRecord Folder} objects.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder which was removed from the store
+	 */
+	onBeforeFolderChange: function (folders, folder)
+	{
+		var folderNode, folderToSelect;
+
+		var isSharedFolder = folder.getMAPIStore().isSharedStore();
+		var showAllCheckBox = this.showAllFoldersCheckbox;
+		var isAllFolderHierarchy = showAllCheckBox.checked && this.showAllFoldersDefaultValue;
+		var isContextHierarchy = !this.showAllFoldersDefaultValue && !showAllCheckBox.checked;
+
+		// Return if a folder belongs to a shared store, or the folder is a Calendar item
+		// and the 'Show all folders' checkbox is unchecked, or the container class of folder is
+		// not of the current context hierarchy.
+		if (isSharedFolder || (!isAllFolderHierarchy && !isContextHierarchy) ||
+			(isContextHierarchy && (folder.isCalendarFolder() || folder.get('container_class') !== this.IPMFilter))) {
+			return;
+		}
+		folderNode = this.getNodeById(folder.get('entryid'));
+
+		// No need to change the current selection if folder is not selected.
+		if (!folderNode || !folderNode.isSelected()) {
+			return;
+		}
+
+		var previousSiblingFolder = folderNode.previousSibling;
+		var nextSiblingFolder = folderNode.nextSibling;
+
+		if (previousSiblingFolder) {
+			folderToSelect = previousSiblingFolder.getFolder();
+		} else if (nextSiblingFolder) {
+			folderToSelect = nextSiblingFolder.getFolder();
+		} else {
+			folderToSelect = folder.getParentFolder();
+		}
+
+		var context = container.getContextByFolder(folderToSelect);
+
+		// Check if the context is different, if the context of the folder
+		// to be selected is different, then switch context.
+		if (container.getCurrentContext().getName() !== context.getName()) {
+			container.switchContext(context, folderToSelect);
+			return false;
+		}
+
+		folders.push(folderToSelect);
+	},
+
+	/**
+	 * Fires when the {@link Grommunio.core.Container} fires the
+	 * {@link Grommunio.core.Container#folderselect} event. This
+	 * will search for the corresponding node in the tree,
+	 * and will mark the given folder as {@link #selectFolderInTree selected}.
+	 *
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord|Array} folder The folder which
+	 * is currently selected.
+	 * @private
+	 */
+	onFolderSelect: function(folder)
+	{
+		if (Array.isArray(folder)) {
+
+			// If we have multi selected folder then select previously selected node in tree.
+			if (folder.length > 1 && this.model) {
+				folder = this.model.getDefaultFolder();
+			} else {
+				folder = folder[0];
+			}
+		}
+
+		// Select the node of selected folder.
+		// Guard against non-MAPI folder objects (e.g. from the files plugin)
+		if (folder && Ext.isFunction(folder.getMAPIStore)) {
+			this.selectFolderInTree(folder);
+		}
+	},
+
+	/**
+	 * Fires when the {@link #loader} fires the {@link Grommunio.hierarchy.data.HierarchyTreeLoader#load}
+	 * event to indicate that all nodes have been rendered into the tree.
+	 * This will {@link #selectFolderInTree select} {@link Grommunio.core.ContextModel#getFolders all folders}
+	 * @param {Object} loader TreeLoader object.
+	 * @param {Object} node The {@link Ext.tree.TreeNode} object being loaded.
+	 * @param {Object} response The response object containing the data from the server.
+	 * @private
+	 */
+	onHierarchyLoaderLoad: function(loader, node, response)
+	{
+		// Use respective model considering the case the current model doesn't belongs to current context
+		var currentContextModel = container.getCurrentContext().getModel();
+		if (currentContextModel) {
+			var folders = currentContextModel.getFolders();
+			for (var i = 0, len = folders.length; i < len; i++) {
+				this.selectFolderInTree(folders[i], folders[i].id === node.id);
+			}
+
+			// If we have multi selected folder then select previously selected node in tree.
+			if (folders.length > 1 && currentContextModel) {
+				this.selectFolderInTree(currentContextModel.getDefaultFolder());
+			}
+		}
+	},
+
+	/**
+	 * Fired on contextmenu event on {@link Grommunio.hierarchy.ui.FolderNode}
+	 * @param {Grommunio.hierarchy.ui.FolderNode} treeNode The node on which the contextmenu
+	 * was requested.
+	 * @param {Ext.EventObject} eventObj The event object with event information
+	 * @private
+	 */
+	onTreeNodeContextMenu: function(treeNode, eventObj)
+	{
+		// If folder is favorites root folder then disable the right click
+		// as it doesn't support any context menu items.
+		if(treeNode.getFolder().isFavoritesRootFolder()) {
+			return;
+		}
+
+		var positionEventObj = eventObj.getXY();
+
+		// Handle a specific situation for Edge where somehow eventObj replaced with 'blur' event which doesn't have the position.
+		// Check if the position is available or not, get the position of treeNode
+		// and use that position to render context menu if not available.
+		if (positionEventObj[0] === 0 && positionEventObj[1] === 0) {
+			var treeNodeAnchor = treeNode.ui.anchor;
+			var nodePosition = treeNodeAnchor.getBoundingClientRect();
+			positionEventObj = [nodePosition.left, nodePosition.top];
+		}
+		var folder = treeNode.getFolder();
+		if(folder.isFavoritesFolder() && !folder.isSearchFolder()) {
+			folder = folder.getOriginalRecordFromFavoritesRecord();
+		}
+		Grommunio.core.data.UIFactory.openDefaultContextMenu(folder, { position: positionEventObj, contextNode: treeNode });
+	},
+
+	/**
+	 * Fired when a node is clicked in {@link Grommunio.hierarchy.ui.Tree}.
+	 * It calls container to change folder.
+	 * @param {Ext.tree.TreeNode} node which is clicked
+	 */
+	onFolderClicked: function(treeNode)
+	{
+		this.openFolder(treeNode.getFolder());
+	},
+
+	/**
+	 * @return {Grommunio.hierarchy.ui.TreeEditor} The tree editor which can be used
+	 * @private
+	 */
+	getTreeEditor: function()
+	{
+		if (!this.treeEditor) {
+			this.treeEditor = new Grommunio.hierarchy.ui.TreeEditor(this);
+		}
+		return this.treeEditor;
+	},
+
+	/**
+	 * Triggers node editing
+	 * @param {Grommunio.hierarchy.ui.FolderNode} treeNode node to be edited
+	 */
+	startEditingNode: function(treeNode)
+	{
+		this.getTreeEditor().startEditingNode(treeNode);
+	},
+
+	/**
+	 * When {@link #stateful} is enabled, this will test if the given
+	 * folder has the 'is_open' state enabled.
+	 * If the folder is not found in the settings, the rule is that
+	 * {@link Grommunio.hierarchy.data.MAPIFolderRecord#isIPMSubTree subtrees}
+	 * will be expanded by default, all other folders are collapsed.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder to check
+	 * @return {Boolean} True if the folder should be expanded by default
+	 * @private
+	 */
+	isFolderOpened: function(folder)
+	{
+		var opened;
+		if (this.stateful === true) {
+			var state = container.getHierarchyStore().getState(folder, 'tree');
+			if (state) {
+				opened = state.is_open;
+			}
+		}
+		if (!Ext.isDefined(opened)) {
+			opened = Grommunio.hierarchy.ui.HierarchyTreePanel.superclass.isFolderOpened.call(this, folder);
+		}
+		return opened;
+	},
+
+	/**
+	 * Event handler for the {@link #expandnode} and {@link #collapsenode} events. When
+	 * {@link #stateful} is enabled, then this function will save the current
+	 * state of the given node.
+	 *
+	 * @param {Grommunio.hierarchy.ui.FolderNode} node The node which will be saved into the settings
+	 * @private
+	 */
+	saveFolderState: function(node)
+	{
+		if (this.stateful === true && !node.isRoot) {
+			var folder = node.getFolder();
+			var state = container.getHierarchyStore().getState(folder, 'tree');
+
+			if (state.is_open !== node.expanded) {
+				container.getHierarchyStore().applyState(folder, 'tree', { is_open: node.expanded });
+			}
+		}
+	},
+
+	/**
+	 * Called when the {@link #showAllFoldersCheckbox} checkbox in the top toolbar is checked or
+	 * unchecked. It will set the toggle showAllFolders option in the
+	 * {@link Grommunio.core.ui.NavigationPanel}.
+	 * @param {Ext.Form.Checkbox} button The pressed button
+	 * @param {Boolean} checkState True when checkbox is checked, false when not
+	 */
+	onCheckShowAllFoldersCheckbox: function(checkbox, checkState)
+	{
+		container.getNavigationBar().setShowFolderList(checkState);
+	},
+
+	/**
+	 * Called when the {@link Grommunio.core.ui.NavigationPanel} fires the
+	 * {@link Grommunio.core.ui.NavigationPanel#toggleshowallfolders toggleshowallfolders} event. Then
+	 * we change the {@link #showAllFoldersCheckbox} button in the top toolbar accordingly.
+	 * @param {Boolean} show Value of the showAllFolders state
+	 */
+	onToggleShowAllFolders: function(show)
+	{
+		// Suspend events to stop the check-event that will fire from triggering all kinds of
+		// other updates externally.
+		this.suspendEvents(false);
+
+		this.showAllFoldersCheckbox.setValue(show);
+
+		this.resumeEvents();
+	},
+
+	/**
+	 * Called before the panel is being destroyed.
+	 */
+	beforeDestroy: function()
+	{
+		if (this.rendered) {
+			Ext.destroy(this.itemDropZone);
+		}
+
+		Grommunio.hierarchy.ui.HierarchyTreePanel.superclass.beforeDestroy.apply(this, arguments);
+	},
+
+	/**
+	 * When {@link #stateful} the State object which should be saved into the
+	 * {@link Ext.state.Manager}.
+	 * @return {Object} The state object
+	 * @protected
+	 */
+	getState: function()
+	{
+		var state = Grommunio.hierarchy.ui.HierarchyTreePanel.superclass.getState.call(this) || {};
+		var checkboxValue = this.showAllFoldersCheckbox.getValue();
+		return Ext.apply(state, {
+			showallcheckbox: checkboxValue
+		});
+	},
+
+	/**
+	 * Obtain the path in which the {@link #getState state} must be saved.
+	 * This option is only used when the {@link Grommunio.core.data.SettingsStateProvider SettingsStateProvider} is
+	 * used in the {@link Ext.state.Manager}. This returns {@link #statefulName} if provided, or else generates
+	 * a custom name.
+	 * @return {String} The unique name for this component by which the {@link #getState state} must be saved.
+	 */
+	getStateName: function()
+	{
+		return 'sidebars/' + Grommunio.core.ui.MainViewSidebar.superclass.getStateName.call(this);
+	}
+});
+Ext.reg('grommunio.hierarchytreepanel', Grommunio.hierarchy.ui.HierarchyTreePanel);

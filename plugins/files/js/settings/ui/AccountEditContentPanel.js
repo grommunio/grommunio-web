@@ -1,11 +1,16 @@
-Ext.namespace('Zarafa.plugins.files.settings.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.settings.ui');
 
 /**
- * @class Zarafa.plugins.files.settings.ui.AccountEditContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.files.settings.ui.AccountEditContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  * @xtype filesplugin.accounteditcontentpanel
  */
-Zarafa.plugins.files.settings.ui.AccountEditContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.files.settings.ui.AccountEditContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
 
 	/**
 	 * @constructor
@@ -31,8 +36,8 @@ Zarafa.plugins.files.settings.ui.AccountEditContentPanel = Ext.extend(Zarafa.cor
 			}]
 		});
 
-		Zarafa.plugins.files.settings.ui.AccountEditContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.settings.ui.AccountEditContentPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.accounteditcontentpanel', Zarafa.plugins.files.settings.ui.AccountEditContentPanel);
+Ext.reg('filesplugin.accounteditcontentpanel', Grommunio.plugins.files.settings.ui.AccountEditContentPanel);

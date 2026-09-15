@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // Writes <file>.br and <file>.gz next to static assets for nginx
 // brotli_static/gzip_static and removes stale or orphaned ones.
 // Usage: precompress.mjs [--ext list] [--formats br,gz] [--min-size n] [--jobs n] [--skip regex] [--force] <dir>...

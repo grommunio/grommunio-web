@@ -1,10 +1,15 @@
-Ext.namespace('Zarafa.plugins.files.backend.Seafile.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.backend.Seafile.data');
 
 /**
  * Thin wrapper around the generic response handler to reuse Seafile specific callbacks.
  */
-Zarafa.plugins.files.backend.Seafile.data.ResponseHandler = Ext.extend(
-	Zarafa.core.data.AbstractResponseHandler,
+Grommunio.plugins.files.backend.Seafile.data.ResponseHandler = Ext.extend(
+	Grommunio.core.data.AbstractResponseHandler,
 	{
 		successCallback: null,
 		failureCallback: null,
@@ -28,5 +33,5 @@ Zarafa.plugins.files.backend.Seafile.data.ResponseHandler = Ext.extend(
 );
 Ext.reg(
 	'filesplugin.seafile.responsehandler',
-	Zarafa.plugins.files.backend.Seafile.data.ResponseHandler,
+	Grommunio.plugins.files.backend.Seafile.data.ResponseHandler,
 );

@@ -1,8 +1,13 @@
-Ext.namespace('Zarafa.plugins.files.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.FilesRecordStore
- * @extends Zarafa.core.data.ListModuleStore
+ * @class Grommunio.plugins.files.data.FilesRecordStore
+ * @extends Grommunio.core.data.ListModuleStore
  *
  * The FilesStore class provides a way to connect the 'filesbrowsermodule' in the server back-end to an
  * Ext.grid.GridPanel object. It provides a means to retrieve files listings asynchronously.
@@ -12,7 +17,7 @@ Ext.namespace('Zarafa.plugins.files.data');
  *
  * @constructor
  */
-Zarafa.plugins.files.data.FilesRecordStore = Ext.extend(Zarafa.core.data.ListModuleStore, {
+Grommunio.plugins.files.data.FilesRecordStore = Ext.extend(Grommunio.core.data.ListModuleStore, {
 
 	/**
 	 * @cfg folderId The folderId of selected folder.
@@ -38,7 +43,7 @@ Zarafa.plugins.files.data.FilesRecordStore = Ext.extend(Zarafa.core.data.ListMod
 				load: this.onLoad,
 				exception: this.onLoadException
 			},
-			proxy: new Zarafa.plugins.files.data.FilesProxy({
+			proxy: new Grommunio.plugins.files.data.FilesProxy({
 				listModuleName: 'filesbrowsermodule',
 				itemModuleName: 'filesbrowsermodule'
 			})
@@ -48,22 +53,22 @@ Zarafa.plugins.files.data.FilesRecordStore = Ext.extend(Zarafa.core.data.ListMod
 			/**
 			 * @event createfolder
 			 * Fires when a folder has been created.
-			 * @param {Zarafa.plugins.files.data.FilesRecordStore} store store in which folder record was created.
+			 * @param {Grommunio.plugins.files.data.FilesRecordStore} store store in which folder record was created.
 			 * @param {String} parentFolderId The parentFolderId under which folder was created.
 			 * @param {Object} data The data contains the information about newly created folder.
 			 */
 			'createfolder'
 		);
 
-		Zarafa.plugins.files.data.FilesRecordStore.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.data.FilesRecordStore.superclass.constructor.call(this, config);
 	},
 
 	/**
-	 * Initialize events which {@link Zarafa.plugins.files.data.FilesHierarchyStore FilesHierarchyStore} will listen to.
+	 * Initialize events which {@link Grommunio.plugins.files.data.FilesHierarchyStore FilesHierarchyStore} will listen to.
 	 * @protected
 	 */
 	initEvents: function () {
-		Zarafa.plugins.files.data.FilesRecordStore.superclass.initEvents.apply(this, arguments);
+		Grommunio.plugins.files.data.FilesRecordStore.superclass.initEvents.apply(this, arguments);
 
 		if (Ext.isDefined(this.hierarchyStore)) {
 			this.hierarchyStore.on('addFolder', this.onHierarchyAddFolder, this);
@@ -74,9 +79,9 @@ Zarafa.plugins.files.data.FilesRecordStore = Ext.extend(Zarafa.core.data.ListMod
 	 * Event handler triggers when folder was added in hierarchy. function was
 	 * responsible to save the search criteria in settings.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesHierarchyStore} store The store which fired the event
-	 * @param {Zarafa.plugins.files.data.FilesStoreRecord} mapiStore mapi store in which new folders are added.
-	 * @param {Zarafa.plugins.files.data.FilesFolderRecord/Zarafa.plugins.files.data.FilesFolderRecord[]} record folder record(s) which are added in hierarchy.
+	 * @param {Grommunio.plugins.files.data.FilesHierarchyStore} store The store which fired the event
+	 * @param {Grommunio.plugins.files.data.FilesStoreRecord} mapiStore mapi store in which new folders are added.
+	 * @param {Grommunio.plugins.files.data.FilesFolderRecord/Grommunio.plugins.files.data.FilesFolderRecord[]} record folder record(s) which are added in hierarchy.
 	 * @private
 	 */
 	onHierarchyAddFolder: function(store, mapiStore, records)
@@ -158,7 +163,7 @@ Zarafa.plugins.files.data.FilesRecordStore = Ext.extend(Zarafa.core.data.ListMod
 
 		/*
 		 * these options can be passed in arguments, or it can be set by setter methods of
-		 * {@link Zarafa.core.data.ListModuleStore ListModuleStore}, like {@link #setRestriction}
+		 * {@link Grommunio.core.data.ListModuleStore ListModuleStore}, like {@link #setRestriction}
 		 * and {@link #setActionType}, advantage of using setter methods would be that
 		 * all consecutive requestswill use that options if its not passed in arguments.
 		 * but load method doesn't store these options automatically (like in case of entryids), so
@@ -168,13 +173,13 @@ Zarafa.plugins.files.data.FilesRecordStore = Ext.extend(Zarafa.core.data.ListMod
 			actionType: this.actionType
 		});
 
-		return Zarafa.plugins.files.data.FilesRecordStore.superclass.load.call(this, options);
+		return Grommunio.plugins.files.data.FilesRecordStore.superclass.load.call(this, options);
 	},
 
 
 	/**
 	 * Function will set folder entryid and store entryid.
-	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord[]} mapiFolder mapi folder that should be used to load data.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord[]} mapiFolder mapi folder that should be used to load data.
 	 */
 	setFolder: function(mapiFolder)
 	{
@@ -208,15 +213,15 @@ Zarafa.plugins.files.data.FilesRecordStore = Ext.extend(Zarafa.core.data.ListMod
 	 * Eventhandler that handles the beforeload event of the store.
 	 * It will switch the viewmode if necessary.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesRecordStore} store
-	 * @param {Zarafa.plugins.files.data.FilesRecord} records
+	 * @param {Grommunio.plugins.files.data.FilesRecordStore} store
+	 * @param {Grommunio.plugins.files.data.FilesRecord} records
 	 * @param {Object} options
 	 */
 	onLoad: function (store, records, options)
 	{
 		// TODO: Move to files main panel.
 		var path = options.params.id;
-		var componentBox = Zarafa.plugins.files.data.ComponentBox;
+		var componentBox = Grommunio.plugins.files.data.ComponentBox;
 		var viewPanel = componentBox.getViewPanel();
 		var disabledSwitchViewButton = false;
 
@@ -228,12 +233,12 @@ Zarafa.plugins.files.data.FilesRecordStore = Ext.extend(Zarafa.core.data.ListMod
 				previewPanel.topToolbar.disable();
 			}
 			disabledSwitchViewButton = true;
-		} else if (componentBox.getItemsView() instanceof Zarafa.plugins.files.ui.FilesRecordAccountView) {
+		} else if (componentBox.getItemsView() instanceof Grommunio.plugins.files.ui.FilesRecordAccountView) {
 			switch (componentBox.getContext().getCurrentView()) {
-				case Zarafa.plugins.files.data.Views.LIST:
+				case Grommunio.plugins.files.data.Views.LIST:
 					viewPanel.switchView('files-gridview');
 					break;
-				case Zarafa.plugins.files.data.Views.ICON:
+				case Grommunio.plugins.files.data.Views.ICON:
 					viewPanel.switchView('files-iconview');
 					break;
 			}
@@ -259,11 +264,11 @@ Zarafa.plugins.files.data.FilesRecordStore = Ext.extend(Zarafa.core.data.ListMod
 
 				// first we need to get the account
 				var failedID = options.params.id;
-				var accID = Zarafa.plugins.files.data.Utils.File.getAccountId(failedID);
+				var accID = Grommunio.plugins.files.data.Utils.File.getAccountId(failedID);
 				var accStore = container.getCurrentContext().getAccountsStore();
 				// look up the account
 				var account = accStore.getById(accID);
-				if (Ext.isDefined(account) && account.supportsFeature(Zarafa.plugins.files.data.AccountRecordFeature.OAUTH)) {
+				if (Ext.isDefined(account) && account.supportsFeature(Grommunio.plugins.files.data.AccountRecordFeature.OAUTH)) {
 					account.renewOauthToken();
 				}
 			}
@@ -271,7 +276,7 @@ Zarafa.plugins.files.data.FilesRecordStore = Ext.extend(Zarafa.core.data.ListMod
 	},
 
 	/**
-	 * Reloads the Record cache from the configured Proxy. See the superclass {@link Zarafa.core.data.ListModuleStore#reload documentation}
+	 * Reloads the Record cache from the configured Proxy. See the superclass {@link Grommunio.core.data.ListModuleStore#reload documentation}
 	 * for more details.
 	 * During reload we add an extra option into the {@link #load} argument which marks the action as a reload
 	 * action.
@@ -290,7 +295,7 @@ Zarafa.plugins.files.data.FilesRecordStore = Ext.extend(Zarafa.core.data.ListMod
 			reload: true
 		});
 
-		Zarafa.plugins.files.data.FilesRecordStore.superclass.reload.call(this, options);
+		Grommunio.plugins.files.data.FilesRecordStore.superclass.reload.call(this, options);
 	},
 
 	/**
@@ -302,4 +307,4 @@ Zarafa.plugins.files.data.FilesRecordStore = Ext.extend(Zarafa.core.data.ListMod
 		return this.entryId;
 	}
 });
-Ext.reg('filesplugin.filesrecordstore', Zarafa.plugins.files.data.FilesRecordStore);
+Ext.reg('filesplugin.filesrecordstore', Grommunio.plugins.files.data.FilesRecordStore);

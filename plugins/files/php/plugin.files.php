@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 require_once __DIR__ . "/Files/Core/class.downloadhandler.php";
 require_once __DIR__ . "/Files/Core/class.uploadhandler.php";
 require_once __DIR__ . "/Files/Core/class.recipienthandler.php";
@@ -96,7 +101,7 @@ class Pluginfiles extends Plugin {
 	 */
 	public function injectPluginSettings(&$data) {
 		$data['settingsObj']->addSysAdminDefaults([
-			'zarafa' => [
+			'grommunio' => [
 				'v1' => [
 					'contexts' => [
 						'files' => [

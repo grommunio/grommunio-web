@@ -1,4 +1,9 @@
-Ext.namespace('Zarafa.plugins.smime.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.smime.ui');
 
 // Add functionality to Ext.EventManager so our viewport can handle iframe resizing
 Ext.apply(Ext.EventManager, function(){
@@ -49,13 +54,13 @@ Ext.apply(Ext.EventManager, function(){
 }());
 
 /**
- * @class Zarafa.plugins.smime.ui.Viewport
+ * @class Grommunio.plugins.smime.ui.Viewport
  * @extends Ext.Viewport
  *
  * The viewport we can use inside an iframe window. The original {@link Ext.Viewport}
  * needs some modifications to work on the correct document
  */
-Zarafa.plugins.smime.ui.Viewport = Ext.extend(Ext.Viewport, {
+Grommunio.plugins.smime.ui.Viewport = Ext.extend(Ext.Viewport, {
 	/**
 	 * @cfg {Mixed} body The body element that this viewport will be attached to.
 	 * Can be an HTML element or an {@link Ext.Element}

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 (function() {
 	/*
 	 * Keyboard navigation shares the submenu expansion with the mouse, which delays it

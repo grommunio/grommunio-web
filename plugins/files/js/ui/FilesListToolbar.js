@@ -1,24 +1,29 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui');
 
 /**
- * @class Zarafa.plugins.files.ui.FilesListToolbar
+ * @class Grommunio.plugins.files.ui.FilesListToolbar
  * @extends Ext.Toolbar
  * @xtype filesplugin.fileslisttoolbar
  *
  * The top toolbar for the files explorer.
  */
-Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
-	Zarafa.core.ui.ContentPanelToolbar,
+Grommunio.plugins.files.ui.FilesListToolbar = Ext.extend(
+	Grommunio.core.ui.ContentPanelToolbar,
 	{
 		/**
-		 * @cfg {Zarafa.plugins.files.FilesContext} context The context to which this toolbar belongs
+		 * @cfg {Grommunio.plugins.files.FilesContext} context The context to which this toolbar belongs
 		 */
 		context: undefined,
 
 		/**
-		 * The {@link Zarafa.plugins.files.FilesContextModel} which is obtained from the {@link #context}.
+		 * The {@link Grommunio.plugins.files.FilesContextModel} which is obtained from the {@link #context}.
 		 * @property
-		 * @type Zarafa.plugins.files.FilesContextModel
+		 * @type Grommunio.plugins.files.FilesContextModel
 		 */
 		model: undefined,
 
@@ -37,7 +42,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 				enableOverflow: true,
 				items: this.createToolbarItems(),
 			});
-			Zarafa.plugins.files.ui.FilesListToolbar.superclass.constructor.call(
+			Grommunio.plugins.files.ui.FilesListToolbar.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -188,7 +193,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 					scope: this,
 				},
 				{
-					xtype: 'zarafa.toolbarbutton',
+					xtype: 'grommunio.toolbarbutton',
 					tooltip: _('Delete'),
 					ref: 'deleteBtn',
 					overflowText: _('Delete'),
@@ -205,8 +210,8 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 		 * grid. it will disable/enable download, attach to mail,
 		 * share and rename buttons in toolbar.
 		 *
-		 * @param {Zarafa.core.ContextModel} model this model.
-		 * @param {Zarafa.plugins.files.data.FilesRecord[]} records The selected records
+		 * @param {Grommunio.core.ContextModel} model this model.
+		 * @param {Grommunio.plugins.files.data.FilesRecord[]} records The selected records
 		 */
 		onRecordSelectionChange: function (model, records) {
 			var linkShareVisible = true;
@@ -219,7 +224,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 				}
 			}
 
-			var validator = Zarafa.plugins.files.data.Utils.Validator;
+			var validator = Grommunio.plugins.files.data.Utils.Validator;
 			var isVisible = validator.actionSelectionVisibilityFilter(
 				records,
 				false,
@@ -240,7 +245,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 			var selected = Ext.isArray(records) ? records : [records].filter(Boolean);
 			this.previewBtn.setDisabled(
 				selected.length !== 1 ||
-				!Zarafa.plugins.files.data.Actions.isPreviewable(selected[0]),
+				!Grommunio.plugins.files.data.Actions.isPreviewable(selected[0]),
 			);
 			this.attachToMailBtn.setDisabled(!isVisible);
 			this.attachLinkToMailBtn.setDisabled(!linkShareVisible);
@@ -257,7 +262,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 				var account = records[0].getAccount();
 				this.shareBtn.setVisible(
 					account.supportsFeature(
-						Zarafa.plugins.files.data.AccountRecordFeature.SHARING,
+						Grommunio.plugins.files.data.AccountRecordFeature.SHARING,
 					),
 				);
 			} else {
@@ -279,8 +284,8 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 		 * Event handler which is triggered when folder was changed.
 		 * It will disable or enable the toolbar items.
 		 *
-		 * @param {Zarafa.plugins.files.FilesContextModel} model The {@link Zarafa.plugins.files.FilesContextModel FilesContextModel}
-		 * @param {Zarafa.plugins.files.data.FilesRecord} records
+		 * @param {Grommunio.plugins.files.FilesContextModel} model The {@link Grommunio.plugins.files.FilesContextModel FilesContextModel}
+		 * @param {Grommunio.plugins.files.data.FilesRecord} records
 		 * @param {Object} options
 		 */
 		onFolderChangeLoad: function (model, folders) {
@@ -302,7 +307,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 		onFilePreview: function () {
 			var records = this.model.getSelectedRecords();
 			if (!Ext.isEmpty(records)) {
-				Zarafa.plugins.files.data.Actions.previewFile(records[0]);
+				Grommunio.plugins.files.data.Actions.previewFile(records[0]);
 			}
 		},
 
@@ -313,7 +318,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 			return function (button) {
 				var hierarchyStore = model.getHierarchyStore();
 				var folder = hierarchyStore.getFolder(model.getStore().getPath());
-				Zarafa.plugins.files.data.Actions.createFile(
+				Grommunio.plugins.files.data.Actions.createFile(
 					model,
 					undefined,
 					folder,
@@ -330,7 +335,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 			var model = this.model;
 			var hierarchyStore = model.getHierarchyStore();
 			var folder = hierarchyStore.getFolder(model.getStore().getPath());
-			Zarafa.plugins.files.data.Actions.createFolder(model, undefined, folder);
+			Grommunio.plugins.files.data.Actions.createFolder(model, undefined, folder);
 		},
 
 		/**
@@ -342,7 +347,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 		 * @private
 		 */
 		onFileUpload: function (button, event) {
-			var uploadComponent = new Zarafa.plugins.files.ui.UploadComponent({
+			var uploadComponent = new Grommunio.plugins.files.ui.UploadComponent({
 				callback: this.uploadCallback,
 				multiple: true,
 				scope: this,
@@ -358,7 +363,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 		 */
 		onFileDownload: function () {
 			var records = this.model.getSelectedRecords();
-			Zarafa.plugins.files.data.Actions.downloadItem(records);
+			Grommunio.plugins.files.data.Actions.downloadItem(records);
 		},
 
 		/**
@@ -371,7 +376,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 		 */
 		onFileShare: function (button, event) {
 			var records = this.model.getSelectedRecords();
-			Zarafa.plugins.files.data.Actions.createShareDialog(records);
+			Grommunio.plugins.files.data.Actions.createShareDialog(records);
 		},
 
 		/**
@@ -419,7 +424,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 							.getMaxAttachmentSize(),
 						dialog_attachments: attachmentStore.getId(),
 					},
-					new Zarafa.core.data.AbstractResponseHandler({
+					new Grommunio.core.data.AbstractResponseHandler({
 						doDownloadtotmp: this.attachToMail.createDelegate(
 							this,
 							[emailRecord],
@@ -428,7 +433,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 					}),
 				);
 			} catch (e) {
-				Zarafa.plugins.files.data.Actions.msgWarning(e.message);
+				Grommunio.plugins.files.data.Actions.msgWarning(e.message);
 			}
 		},
 
@@ -471,7 +476,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 					{
 						records: idsList,
 					},
-					new Zarafa.plugins.files.backend.Default.data.ResponseHandler({
+					new Grommunio.plugins.files.backend.Default.data.ResponseHandler({
 						successCallback: this.attachLinkToMail.createDelegate(
 							this,
 							[emailRecord],
@@ -480,7 +485,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 					}),
 				);
 			} catch (e) {
-				Zarafa.plugins.files.data.Actions.msgWarning(e.message);
+				Grommunio.plugins.files.data.Actions.msgWarning(e.message);
 			}
 		},
 
@@ -510,18 +515,18 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 			});
 			html += signature;
 			emailRecord.set('html_body', html);
-			Zarafa.core.data.UIFactory.openCreateRecord(emailRecord);
+			Grommunio.core.data.UIFactory.openCreateRecord(emailRecord);
 		},
 
 		/**
-		 * The callback function of {@link Zarafa.plugins.files.ui.UploadComponent}
+		 * The callback function of {@link Grommunio.plugins.files.ui.UploadComponent}
 		 * which used to upload the attachment file on server.
 		 *
 		 * @param {Object/Array} files The files contains file information.
 		 * @param {Object} form the form is contains {@link Ext.form.BasicForm bacisform} info.
 		 */
 		uploadCallback: function (files, form) {
-			Zarafa.plugins.files.data.Actions.uploadAsyncItems(
+			Grommunio.plugins.files.data.Actions.uploadAsyncItems(
 				files,
 				this.model.getStore(),
 			);
@@ -535,7 +540,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 		 * @param emailRecord
 		 */
 		attachToMail: function (response, emailRecord) {
-			Zarafa.plugins.files.data.Actions.openCreateMailContent(
+			Grommunio.plugins.files.data.Actions.openCreateMailContent(
 				emailRecord,
 				response.items,
 			);
@@ -551,7 +556,7 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 		 */
 		onRename: function (button, event) {
 			var records = this.model.getSelectedRecords();
-			Zarafa.plugins.files.data.Actions.openRenameDialog(records[0]);
+			Grommunio.plugins.files.data.Actions.openRenameDialog(records[0]);
 		},
 
 		/**
@@ -574,12 +579,12 @@ Zarafa.plugins.files.ui.FilesListToolbar = Ext.extend(
 				this,
 			);
 
-			Zarafa.plugins.files.data.Actions.deleteRecords(records);
+			Grommunio.plugins.files.data.Actions.deleteRecords(records);
 		},
 	},
 );
 
 Ext.reg(
 	'filesplugin.fileslisttoolbar',
-	Zarafa.plugins.files.ui.FilesListToolbar,
+	Grommunio.plugins.files.ui.FilesListToolbar,
 );

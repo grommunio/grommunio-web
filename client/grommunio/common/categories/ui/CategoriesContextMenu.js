@@ -1,0 +1,227 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.common.categories.ui');
+
+/**
+ * @class Grommunio.common.categories.ui.CategoriesContextMenu
+ * @extends Ext.menu.Menu
+ * @xtype grommunio.categoriescontextmenu
+ *
+ * The CategoriesContextMenu is the context menu that is shown when the user
+ * right clicks on the category icon in the mail grid. It also serves as submenu
+ * of the {@link Grommunio.common.categories.ui.CategoryContextMenu CategoryContextMenu}.
+ */
+Grommunio.common.categories.ui.CategoriesContextMenu = Ext.extend(Ext.menu.Menu, {
+	/**
+	 * @cfg {Grommunio.core.data.IPMRecord[]} The records to which the actions in
+	 * this context menu will apply
+	 */
+	records: [],
+
+	/**
+	 * @cfg {Grommunio.core.data.MAPIStore} store contains {@link #records} on which
+	 * categories is going to apply.
+	 */
+	store: undefined,
+
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		if(!Array.isArray(config.records)) {
+			this.records = [config.records];
+		} else {
+			this.records = config.records;
+		}
+
+		if(Ext.isDefined(this.records[0])) {
+			this.store = this.records[0].getStore();
+		}
+
+		Ext.applyIf(config, {
+			xtype: 'grommunio.categoriescontextmenu',
+			cls: 'k-categories',
+			items: [
+				this.createCategoryItems(),
+				{ xtype: 'menuseparator' },
+				{
+					text: _('Manage Categories'),
+					cls: 'k-manage-categories',
+					handler: function() {
+						Grommunio.common.Actions.openCategoriesContent(this.records);
+					},
+					scope: this
+				}
+			],
+			listeners: {
+				afterrender: this.onAfterRenderCategoriesMenu,
+				scope: this
+			}
+		});
+
+		Grommunio.common.categories.ui.CategoriesContextMenu.superclass.constructor.call(this, config);
+
+		this.mon(this.store,'load', this.onLoad, this);
+	},
+
+	/**
+	 * Create the categories submenu
+	 * @return {Ext.menu.Item[]} The list of menu items of
+	 * the categories menu
+	 * @private
+	 */
+	createCategoryItems: function()
+	{
+		// build the submenu from the records' own mailbox list
+		var storeEntryId = !Ext.isEmpty(this.records) && Ext.isFunction(this.records[0].get)
+			? this.records[0].get('store_entryid') : undefined;
+		var categoriesStore = new Grommunio.common.categories.data.CategoriesStore(
+			storeEntryId ? { storeEntryId: storeEntryId } : undefined
+		);
+		// Add categories that are set on the record(s) but don't exist in the categoryStore
+		categoriesStore.addCategoriesFromMapiRecords(this.records);
+
+		// Show all categories, with selected categories first, followed by quick access
+		// categories and then the remaining categories.
+		var selectedCategories = Grommunio.common.categories.Util.getAllCategories(this.records);
+		var categories = categoriesStore.getRange();
+		categories.sort(function(c1, c2) {
+			var c1Name = c1.get('category');
+			var c2Name = c2.get('category');
+			var c1Group = selectedCategories.indexOf(c1Name) > -1 ? 0 : (c1.get('quickAccess') ? 1 : 2);
+			var c2Group = selectedCategories.indexOf(c2Name) > -1 ? 0 : (c2.get('quickAccess') ? 1 : 2);
+
+			if (c1Group !== c2Group) {
+				return c1Group - c2Group;
+			}
+
+			var sortIndexDiff = c1.get('sortIndex') - c2.get('sortIndex');
+			if (sortIndexDiff !== 0) {
+				return sortIndexDiff;
+			}
+
+			return c1Name.localeCompare(c2Name);
+		});
+
+		// Keep the categories context menu to 15 items like in Outlook.
+		categories = categories.slice(0, 15);
+
+		// Map the visible categories to config objects for menu items.
+		return categories.map(function(category){
+			return {
+				text: '<span class="k-category-in-menu">' + Ext.util.Format.htmlEncode(category.get('category')) + '</span>',
+				plainText: category.get('category'),
+				color: category.get('color'),
+				handler: this.onCategoryMenuItemClick,
+				listeners: {
+					beforerender: this.onBeforeRenderCategoriesMenuItem,
+					afterrender: this.onAfterRenderCategoriesMenuItem,
+					scope: this
+				},
+				scope: this
+			};
+		}.bind(this));
+	},
+
+	/**
+	 * Event handler for the afterrender event of the "Remove category" menu item. Will
+	 * create a {@link Grommunio.common.categories.ui.Tooltip tooltip} for categories that are
+	 * truncated.
+	 * @param {Ext.menu.Item} item The menu item that has been rendered.
+	 */
+	onAfterRenderCategoriesMenu: function(item)
+	{
+		new Grommunio.common.categories.ui.Tooltip({
+			target: item.el,
+			delegate: '.k-category-in-menu'
+		});
+	},
+
+	/**
+	 * Event handler for the beforerender event of the items in the categories submenu. If the
+	 * category is set on all selected records, a css class will be added to the menu item.
+	 * @param {Ext.menu.Item} item The item of the categories submenu
+	 * that is about to be rendered
+	 */
+	onBeforeRenderCategoriesMenuItem: function(item)
+	{
+		var selectedCategories = Grommunio.common.categories.Util.getCommonCategories(this.records);
+		if ( selectedCategories.indexOf(item.plainText)>-1 ){
+			item.cls = 'x-menu-item-selected';
+			item.selected = true;
+		} else {
+			item.cls = '';
+			item.selected = false;
+		}
+	},
+
+	/**
+	 * Event handler for the afterrender event of the items in the categories submenu. It
+	 * will add an svg icon with the category color to the menu item.
+	 * @param {Ext.menu.Item} item The item of the categories submenu
+	 * that was just rendered
+	 */
+	onAfterRenderCategoriesMenuItem: function(item)
+	{
+		var icon = item.el.down('img');
+		var svgIcon = Grommunio.common.categories.Util.getCategoryIconSVG(item.color,'24');
+		Ext.DomHelper.insertHtml('beforeBegin', icon.dom, svgIcon);
+	},
+
+	/**
+	 * Event handler for the items in the categories submenu. Will add, rename or remove the
+	 * clicked category to/from all selected records. function will be shows
+	 * {@link Grommunio.common.categories.dialogs.RenameCategoryPanel RenameCategoryPanel} when
+	 * standard categories(Red, Green etc.) are selected first time.
+	 *
+	 * @param {Ext.menu.Item} item The item of the categories submenu
+	 * that was clicked
+	 */
+	onCategoryMenuItemClick: function(item)
+	{
+		if ( item.selected ){
+			// Remove this category from all records
+			Grommunio.common.categories.Util.removeCategory(this.records, item.plainText, true);
+		} else {
+			// the records' mailbox list when loaded, else the per-user list
+			var storeEntryId = !Ext.isEmpty(this.records) && Ext.isFunction(this.records[0].get)
+				? this.records[0].get('store_entryid') : undefined;
+			var categories = (storeEntryId && Grommunio.common.categories.CategoryListManager
+				? Grommunio.common.categories.CategoryListManager.getCategoriesData(storeEntryId) : null) ||
+				container.getPersistentSettingsModel().get('grommunio/main/categories');
+			var category = categories.find(function (category) {
+				if(!Ext.isEmpty(category.standardIndex) && (category.name === item.plainText)){
+					return category;
+				}
+				return false;
+			});
+
+			if(Ext.isDefined(category) && !category.used) {
+				Grommunio.common.Actions.openRenameCategoryContent({
+					categoryName: category.name,
+					records: this.records,
+					color: item.color,
+					recordStore: this.store,
+					// the panel must edit the same list the check read
+					store: new Grommunio.common.categories.data.CategoriesStore(
+						storeEntryId ? { storeEntryId: storeEntryId } : undefined
+					)
+				});
+			} else {
+				// Add this category to all records that don't have it yet'
+				Grommunio.common.categories.Util.addCategory(this.records, item.plainText, true, this.store);
+			}
+		}
+	}
+});
+
+Ext.reg('grommunio.categoriescontextmenu', Grommunio.common.categories.ui.CategoriesContextMenu);

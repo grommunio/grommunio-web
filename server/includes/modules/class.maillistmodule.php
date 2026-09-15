@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * Mail Module.
  */
@@ -40,7 +47,7 @@ class MailListModule extends ListModule {
 		// ENABLE_CONVERSATION_VIEW acts as an administrative kill-switch.
 		return
 			(!defined('ENABLE_CONVERSATION_VIEW') || ENABLE_CONVERSATION_VIEW) &&
-			$GLOBALS['settings']->get('zarafa/v1/contexts/mail/enable_conversation_view') === true;
+			$GLOBALS['settings']->get('grommunio/v1/contexts/mail/enable_conversation_view') === true;
 	}
 
 	/**

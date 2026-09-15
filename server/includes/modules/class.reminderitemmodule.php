@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * Reminder ItemModule
  * Module which saves an item and it
@@ -110,7 +117,7 @@ class ReminderItemModule extends ItemModule {
 			$newProps = [PR_ENTRYID => $entryid];
 			$props = mapi_getprops($message, $this->properties);
 
-			$snoozeTime = $GLOBALS["settings"]->get('zarafa/v1/main/reminder/default_snooze_time', 5);
+			$snoozeTime = $GLOBALS["settings"]->get('grommunio/v1/main/reminder/default_snooze_time', 5);
 			if (isset($action["message_action"]["snoozeTime"]) && is_numeric($action["message_action"]["snoozeTime"])) {
 				$snoozeTime = $action["message_action"]["snoozeTime"];
 			}

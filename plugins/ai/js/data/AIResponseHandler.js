@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.ai.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.ai.data');
 
 /**
- * @class Zarafa.plugins.ai.data.AIResponseHandler
- * @extends Zarafa.core.data.AbstractResponseHandler
+ * @class Grommunio.plugins.ai.data.AIResponseHandler
+ * @extends Grommunio.core.data.AbstractResponseHandler
  *
  * Response handler for non-streaming AI module requests. Routes the server
  * 'success'/'error' feedback to the supplied callbacks.
  */
-Zarafa.plugins.ai.data.AIResponseHandler = Ext.extend(Zarafa.core.data.AbstractResponseHandler, {
+Grommunio.plugins.ai.data.AIResponseHandler = Ext.extend(Grommunio.core.data.AbstractResponseHandler, {
 
 	/**
 	 * @cfg {Function} successCallback Called with (response) on success.

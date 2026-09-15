@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 if (function_exists('mapi_message_getattachmenttable')) {
 	echo "Attachment CID lookup check skipped with php-mapi loaded\n";
 
@@ -25,8 +30,8 @@ if (!class_exists('BaseException')) {
 	}
 }
 
-require_once dirname(__DIR__) . '/includes/exceptions/class.ZarafaErrorException.php';
-require_once dirname(__DIR__) . '/includes/exceptions/class.ZarafaException.php';
+require_once dirname(__DIR__) . '/includes/exceptions/class.GrommunioErrorException.php';
+require_once dirname(__DIR__) . '/includes/exceptions/class.GrommunioException.php';
 require_once dirname(__DIR__) . '/includes/download_base.php';
 
 foreach ([
@@ -44,7 +49,7 @@ foreach ([
 	'PR_ATTACH_NUM',
 	'MAPI_E_NOT_FOUND',
 	'ERROR_MAPI',
-	'ERROR_ZARAFA',
+	'ERROR_GROMMUNIO',
 	'ERROR_GENERAL',
 ] as $value => $name) {
 	defined($name) || define($name, $value + 1);
@@ -157,7 +162,7 @@ class MissingImportAttachmentDownload extends DownloadAttachment {
 try {
 	(new MissingImportAttachmentDownload())->importAttachment();
 }
-catch (ZarafaException $e) {
+catch (GrommunioException $e) {
 	if ($e->getMessage() === _("Could not find attachment.")) {
 		echo "Attachment lookup checks passed\n";
 

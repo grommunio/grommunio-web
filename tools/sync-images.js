@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * sync-images.js - Bidirectional sync between base64-encoded CSS images and SVG files
  *

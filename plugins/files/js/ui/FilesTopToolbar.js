@@ -1,22 +1,27 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui');
 
 /**
- * @class Zarafa.plugins.files.ui.FilesTopToolbar
+ * @class Grommunio.plugins.files.ui.FilesTopToolbar
  * @extends Ext.Toolbar
  * @xtype filesplugin.filestoptoolbar
  *
  * The top toolbar for the files explorer.
  */
-Zarafa.plugins.files.ui.FilesTopToolbar = Ext.extend(Ext.Toolbar, {
+Grommunio.plugins.files.ui.FilesTopToolbar = Ext.extend(Ext.Toolbar, {
 	/**
-	 * @cfg {Zarafa.core.Context} context The context to which this toolbar belongs
+	 * @cfg {Grommunio.core.Context} context The context to which this toolbar belongs
 	 */
 	context: undefined,
 
 	/**
-	 * The {@link Zarafa.plugins.files.FilesContextModel} which is obtained from the {@link #context}.
+	 * The {@link Grommunio.plugins.files.FilesContextModel} which is obtained from the {@link #context}.
 	 * @property
-	 * @type Zarafa.plugins.files.FilesContextModel
+	 * @type Grommunio.plugins.files.FilesContextModel
 	 */
 	model: undefined,
 
@@ -45,8 +50,8 @@ Zarafa.plugins.files.ui.FilesTopToolbar = Ext.extend(Ext.Toolbar, {
 				accountsStore : config.context.getAccountsStore()
 			}]
 		});
-		Zarafa.plugins.files.ui.FilesTopToolbar.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.FilesTopToolbar.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.filestoptoolbar', Zarafa.plugins.files.ui.FilesTopToolbar);
+Ext.reg('filesplugin.filestoptoolbar', Grommunio.plugins.files.ui.FilesTopToolbar);

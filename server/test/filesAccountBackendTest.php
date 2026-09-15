@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 defined('PLUGIN_FILESBROWSER_LOGLEVEL') || define('PLUGIN_FILESBROWSER_LOGLEVEL', 'ERROR');
 defined('BASE_PATH') || define('BASE_PATH', __DIR__ . '/fixtures/');
 

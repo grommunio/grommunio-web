@@ -1,6 +1,11 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
 
-Zarafa.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Zarafa.common.ui.grid.ColumnModel, {
+Ext.namespace('Grommunio.plugins.files.ui');
+
+Grommunio.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Grommunio.common.ui.grid.ColumnModel, {
 
 	useCompactView: false,
 
@@ -23,7 +28,7 @@ Zarafa.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Zarafa.common.ui
 
 		Ext.apply(this, config);
 
-		Zarafa.plugins.files.ui.FilesRecordGridColumnModel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.FilesRecordGridColumnModel.superclass.constructor.call(this, config);
 	},
 
 	createDefaultColumns: function () {
@@ -31,8 +36,8 @@ Zarafa.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Zarafa.common.ui
 			id       : 'type',
 			dataIndex: 'type',
 			header   : '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
-			headerCls: 'zarafa-icon-column icon',
-			renderer : Zarafa.plugins.files.data.Utils.Renderer.typeRenderer,
+			headerCls: 'grommunio-icon-column icon',
+			renderer : Grommunio.plugins.files.data.Utils.Renderer.typeRenderer,
 			width    : 24,
 			fixed    : true,
 			tooltip  : _('Sort by: Type')
@@ -61,22 +66,22 @@ Zarafa.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Zarafa.common.ui
 				header   : _('Last modified'),
 				dataIndex: 'lastmodified',
 				width    : 160,
-				renderer : Zarafa.plugins.files.data.Utils.Renderer.datetimeRenderer,
+				renderer : Grommunio.plugins.files.data.Utils.Renderer.datetimeRenderer,
 				tooltip  : _('Sort by: Last modified')
 			},
 			{
 				header   : _('Size'),
 				dataIndex: 'message_size',
 				width    : 80,
-				renderer : Zarafa.plugins.files.data.Utils.Format.fileSizeList,
+				renderer : Grommunio.plugins.files.data.Utils.Format.fileSizeList,
 				tooltip  : _('Sort by: Size')
 			},
 			{
 				id       : 'isshared',
 				dataIndex: 'isshared',
 				header   : '<p class="files_icon_12_share">&nbsp;</p>',
-				headerCls: 'zarafa-icon-column icon',
-				renderer : Zarafa.plugins.files.data.Utils.Renderer.sharedRenderer,
+				headerCls: 'grommunio-icon-column icon',
+				renderer : Grommunio.plugins.files.data.Utils.Renderer.sharedRenderer,
 				listeners: {
 					click: this.doOnShareButtonClick
 				},
@@ -92,8 +97,8 @@ Zarafa.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Zarafa.common.ui
 			id       : 'column_type',
 			dataIndex: 'type',
 			header   : '<p class="icon_index">&nbsp;<span class="title">Icon</span></p>',
-			headerCls: 'zarafa-icon-column icon',
-			renderer : Zarafa.plugins.files.data.Utils.Renderer.typeRenderer,
+			headerCls: 'grommunio-icon-column icon',
+			renderer : Grommunio.plugins.files.data.Utils.Renderer.typeRenderer,
 			width    : 24,
 			fixed    : true,
 			tooltip  : _('Sort by: Type')
@@ -108,22 +113,22 @@ Zarafa.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Zarafa.common.ui
 				header   : _('Last modified'),
 				dataIndex: 'lastmodified',
 				width    : 100,
-				renderer : Zarafa.plugins.files.data.Utils.Renderer.datetimeRenderer,
+				renderer : Grommunio.plugins.files.data.Utils.Renderer.datetimeRenderer,
 				tooltip  : _('Sort by: Last modified')
 			},
 			{
 				header   : _('Size'),
 				dataIndex: 'message_size',
 				width    : 80,
-				renderer : Zarafa.plugins.files.data.Utils.Format.fileSizeList,
+				renderer : Grommunio.plugins.files.data.Utils.Format.fileSizeList,
 				tooltip  : _('Sort by: Size')
 			},
 			{
 				id       : 'isshared',
 				dataIndex: 'isshared',
 				header   : '<p class="files_icon_12_share">&nbsp;</p>',
-				headerCls: 'zarafa-icon-column icon',
-				renderer : Zarafa.plugins.files.data.Utils.Renderer.sharedRenderer,
+				headerCls: 'grommunio-icon-column icon',
+				renderer : Grommunio.plugins.files.data.Utils.Renderer.sharedRenderer,
 				listeners: {
 					click: this.doOnShareButtonClick
 				},
@@ -157,7 +162,7 @@ Zarafa.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Zarafa.common.ui
 		var record = grid.store.getAt(row);
 
 		if (record.get("isshared") === true) {
-			Zarafa.plugins.files.data.Actions.createShareDialog([record]);
+			Grommunio.plugins.files.data.Actions.createShareDialog([record]);
 		}
 	}
 });

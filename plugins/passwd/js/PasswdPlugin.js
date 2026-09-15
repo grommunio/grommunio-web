@@ -1,13 +1,20 @@
-Ext.namespace('Zarafa.plugins.passwd');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.passwd');
 
 /**
- * @class Zarafa.plugins.passwd.PasswdPlugin
- * @extends Zarafa.core.Plugin
+ * @class Grommunio.plugins.passwd.PasswdPlugin
+ * @extends Grommunio.core.Plugin
  *
  * Passwd plugin.
  * Allows users to change password from grommunio Web.
  */
-Zarafa.plugins.passwd.PasswdPlugin = Ext.extend(Zarafa.core.Plugin, {
+Grommunio.plugins.passwd.PasswdPlugin = Ext.extend(Grommunio.core.Plugin, {
 
 	/**
 	 * Initialize the plugin by registering to the insertion point
@@ -16,39 +23,39 @@ Zarafa.plugins.passwd.PasswdPlugin = Ext.extend(Zarafa.core.Plugin, {
 	 */
 	initPlugin : function()
 	{
-		Zarafa.plugins.passwd.PasswdPlugin.superclass.initPlugin.apply(this, arguments);
+		Grommunio.plugins.passwd.PasswdPlugin.superclass.initPlugin.apply(this, arguments);
 
 		// Register categories for the settings
 		this.registerInsertionPoint('context.settings.categories', this.createSettingsCategory, this);
 	},
 
 	/**
-	 * Create the delegate {@link Zarafa.settings.ui.SettingsCategory Settings Category}
-	 * to the {@link Zarafa.settings.SettingsContext}. This will create new
-	 * {@link Zarafa.settings.ui.SettingsCategoryTab tabs} for the
-	 * {@link Zarafa.calendar.ui.SettingsPasswdCategory Password}
-	 * in the {@link Zarafa.settings.ui.SettingsCategoryWidgetPanel Widget Panel}.
+	 * Create the delegate {@link Grommunio.settings.ui.SettingsCategory Settings Category}
+	 * to the {@link Grommunio.settings.SettingsContext}. This will create new
+	 * {@link Grommunio.settings.ui.SettingsCategoryTab tabs} for the
+	 * {@link Grommunio.calendar.ui.SettingsPasswdCategory Password}
+	 * in the {@link Grommunio.settings.ui.SettingsCategoryWidgetPanel Widget Panel}.
 	 * @param {String} insertionName insertion point name that is currently populated
-	 * @param {Zarafa.settings.ui.SettingsMainPanel} settingsMainPanel settings main panel
+	 * @param {Grommunio.settings.ui.SettingsMainPanel} settingsMainPanel settings main panel
 	 * which is populating this insertion point
-	 * @param {Zarafa.settings.SettingsContext} settingsContext settings context
+	 * @param {Grommunio.settings.SettingsContext} settingsContext settings context
 	 * @return {Array} configuration object for the categories to register
 	 * @private
 	 */
 	createSettingsCategory : function(insertionName, settingsMainPanel, settingsContext)
 	{
 		return {
-			xtype : 'zarafa.settingspasswdcategory',
+			xtype : 'grommunio.settingspasswdcategory',
 			settingsContext : settingsContext
 		};
 	}
 });
 
-Zarafa.onReady(function() {
-	container.registerPlugin(new Zarafa.core.PluginMetaData({
+Grommunio.onReady(function() {
+	container.registerPlugin(new Grommunio.core.PluginMetaData({
 		name : 'passwd',
 		displayName : _('Change Password'),
-		about : Zarafa.plugins.passwd.ABOUT,
-		pluginConstructor : Zarafa.plugins.passwd.PasswdPlugin
+		about : Grommunio.plugins.passwd.ABOUT,
+		pluginConstructor : Grommunio.plugins.passwd.PasswdPlugin
 	}));
 });

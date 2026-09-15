@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * Utility functions.
  */
@@ -691,7 +698,7 @@ function parse_smime($store, $message) {
  * @return bool true if smime plugin is enabled else false
  */
 function isSmimePluginEnabled() {
-	return $GLOBALS['settings']->get("zarafa/v1/plugins/smime/enable", false);
+	return $GLOBALS['settings']->get("grommunio/v1/plugins/smime/enable", false);
 }
 
 /**

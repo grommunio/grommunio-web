@@ -1,10 +1,15 @@
-Ext.namespace('Zarafa.plugins.meet.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.meet.ui');
 
 /**
- * @class Zarafa.plugins.meet.ui.ContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.meet.ui.ContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  */
-Zarafa.plugins.meet.ui.ContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.meet.ui.ContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
   /**
    * @constructor
    * @param config Configuration structure
@@ -25,16 +30,16 @@ Zarafa.plugins.meet.ui.ContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
       }]
     });
 
-    Zarafa.plugins.meet.ui.ContentPanel.superclass.constructor.call(this, config);
+    Grommunio.plugins.meet.ui.ContentPanel.superclass.constructor.call(this, config);
   }
 });
-Ext.reg('meet_contentpanel', Zarafa.plugins.meet.ui.ContentPanel);
+Ext.reg('meet_contentpanel', Grommunio.plugins.meet.ui.ContentPanel);
 
 /**
- * @class Zarafa.plugins.meet.ui.Panel
+ * @class Grommunio.plugins.meet.ui.Panel
  * @extends Ext.Panel
  */
-Zarafa.plugins.meet.ui.Panel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.meet.ui.Panel = Ext.extend(Ext.Panel, {
   iframeId : undefined,
   isLoadMaskShown : false,
   loadMask : undefined,
@@ -62,7 +67,7 @@ Zarafa.plugins.meet.ui.Panel = Ext.extend(Ext.Panel, {
       }
     });
 
-    Zarafa.plugins.meet.ui.Panel.superclass.constructor.call(this, config);
+    Grommunio.plugins.meet.ui.Panel.superclass.constructor.call(this, config);
   },
 
   onAfterRender: function()
@@ -168,7 +173,7 @@ Zarafa.plugins.meet.ui.Panel = Ext.extend(Ext.Panel, {
       return;
     }
     if (!this.loadMask) {
-      this.loadMask = new Zarafa.common.ui.LoadMask(this.ownerCt.el);
+      this.loadMask = new Grommunio.common.ui.LoadMask(this.ownerCt.el);
     }
 
     if (errorMask) {
@@ -198,4 +203,4 @@ Zarafa.plugins.meet.ui.Panel = Ext.extend(Ext.Panel, {
   }
 
 });
-Ext.reg('meet_panel', Zarafa.plugins.meet.ui.Panel);
+Ext.reg('meet_panel', Grommunio.plugins.meet.ui.Panel);

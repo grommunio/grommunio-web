@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 require_once dirname(__DIR__) . '/includes/core/class.iconsets.php';
 
 $temporaryDirectory = sys_get_temp_dir() . '/grommunio-iconsets-' . bin2hex(random_bytes(8));

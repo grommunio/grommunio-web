@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /** Read-only network boundary policy. Key trust and mailbox isolation are in testMapiKeyStore.php. */
 require_once __DIR__ . '/../php/class.pgpkeyserver.php';
 $method = new ReflectionMethod(PgpKeyserver::class, 'publicAddress');

@@ -1,3 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 (function() {
 	/**
 	 * @class Ext.util.Format
@@ -206,7 +213,7 @@
 		 */
 		sensitivityString: function(value)
 		{
-			return Zarafa.core.mapi.Sensitivity.getDisplayName(value);
+			return Grommunio.core.mapi.Sensitivity.getDisplayName(value);
 		},
 
 		/**
@@ -216,7 +223,7 @@
 		 */
 		importanceString: function(value)
 		{
-			return Zarafa.core.mapi.Importance.getDisplayName(value);
+			return Grommunio.core.mapi.Importance.getDisplayName(value);
 		},
 
 		/**
@@ -226,7 +233,7 @@
 		 */
 		meetingStatusString: function(value)
 		{
-			return Zarafa.core.mapi.MeetingStatus.getDisplayName(value);
+			return Grommunio.core.mapi.MeetingStatus.getDisplayName(value);
 		},
 
 		/**
@@ -236,7 +243,7 @@
 		 */
 		responseStatusString: function(value)
 		{
-			return Zarafa.core.mapi.ResponseStatus.getDisplayName(value);
+			return Grommunio.core.mapi.ResponseStatus.getDisplayName(value);
 		},
 
 		/**
@@ -246,7 +253,7 @@
 		 */
 		taskStatusString: function(value)
 		{
-			return Zarafa.core.mapi.TaskStatus.getDisplayName(value);
+			return Grommunio.core.mapi.TaskStatus.getDisplayName(value);
 		},
 
 		/**
@@ -256,7 +263,7 @@
 		 */
 		busyStatusString: function(value)
 		{
-			return Zarafa.core.mapi.BusyStatus.getDisplayName(value);
+			return Grommunio.core.mapi.BusyStatus.getDisplayName(value);
 		},
 
 		/**

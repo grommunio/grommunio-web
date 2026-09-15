@@ -1,10 +1,15 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui');
 
 /**
- * @class Zarafa.plugins.files.ui.OnlyofficePanel
+ * @class Grommunio.plugins.files.ui.OnlyofficePanel
  * @extends Ext.OnlyofficePanel
  */
-Zarafa.plugins.files.ui.OnlyofficePanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.files.ui.OnlyofficePanel = Ext.extend(Ext.Panel, {
 	/**
 	 * The id of the iframe element inside this onlyofficepanel
 	 * @property
@@ -62,7 +67,7 @@ Zarafa.plugins.files.ui.OnlyofficePanel = Ext.extend(Ext.Panel, {
 
 		Ext.applyIf(config, {
 			// Overridden from Ext.Component
-			xtype: 'zarafa.plugins.files.ui.onlyofficepanel',
+			xtype: 'grommunio.plugins.files.ui.onlyofficepanel',
 			layout : 'fit',
 			header: false,
 			border: false,
@@ -82,7 +87,7 @@ Zarafa.plugins.files.ui.OnlyofficePanel = Ext.extend(Ext.Panel, {
 			}
 		});
 
-		Zarafa.plugins.files.ui.OnlyofficePanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.OnlyofficePanel.superclass.constructor.call(this, config);
 
 		this.messageHandler = this.onWindowMessage.createDelegate(this);
 		window.addEventListener('message', this.messageHandler, false);
@@ -157,8 +162,8 @@ Zarafa.plugins.files.ui.OnlyofficePanel = Ext.extend(Ext.Panel, {
 			this.messageHandler = undefined;
 		}
 
-		Zarafa.plugins.files.ui.OnlyofficePanel.superclass.onDestroy.apply(this, arguments);
+		Grommunio.plugins.files.ui.OnlyofficePanel.superclass.onDestroy.apply(this, arguments);
 	}
 });
 
-Ext.reg('zarafa.plugins.files.ui.onlyofficepanel', Zarafa.plugins.files.ui.OnlyofficePanel);
+Ext.reg('grommunio.plugins.files.ui.onlyofficepanel', Grommunio.plugins.files.ui.OnlyofficePanel);

@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.mdm.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.mdm.dialogs');
 
 /**
- * @class Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab
+ * @class Grommunio.plugins.mdm.dialogs.MDMDeviceGeneralTab
  * @extends Ext.form.FormPanel
  * @xtype mdmplugin.mdmdevicegeneraltab
  *
- * Details tab in the {@link Zarafa.plugins.mdm.dialogs.MDMDeviceContentPanel}
+ * Details tab in the {@link Grommunio.plugins.mdm.dialogs.MDMDeviceContentPanel}
  */
-Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, {
+Grommunio.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, {
 
 	/**
 	 * @constructor
@@ -28,14 +33,14 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 				labelWidth: 150,
 				cls: 'mdm-device-panel'
 			},
-			plugins : ['zarafa.recordcomponentupdaterplugin'],
+			plugins : ['grommunio.recordcomponentupdaterplugin'],
 			items: [
 				this.createDeviceInfoPanel(config),
 				this.createFolderInfoPanel()
 			]
 		});
 
-		Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab.superclass.constructor.call(this, config);
+		Grommunio.plugins.mdm.dialogs.MDMDeviceGeneralTab.superclass.constructor.call(this, config);
 	},
 	/**
 	 * Function which is use to create device status panel
@@ -175,7 +180,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 	 * Updates the panel by loading data from the record into the header template, and
 	 * loading the body html into the embedded iframe.
 	 *
-	 * @param {Zarafa.core.data.IPMRecord} record The record update the panel with.
+	 * @param {Grommunio.core.data.IPMRecord} record The record update the panel with.
 	 * @param {Boolean} contentReset force the component to perform a full update of the data.
 	 */
 	update : function(record, contentReset)
@@ -192,17 +197,17 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 	onAfterRenderStatus: function (statusField)
 	{
 		var status = parseInt(this.record.get("wipestatus"));
-		statusField.setValue(Zarafa.plugins.mdm.data.ProvisioningStatus.getDisplayName(status));
+		statusField.setValue(Grommunio.plugins.mdm.data.ProvisioningStatus.getDisplayName(status));
 	},
 
 	/**
 	 * Function which handles the click event of manage shared folder button.
-	 * It will open {@link Zarafa.plugins.mdm.dialogs.MDMManageSharedFolderContentPanel dialog}
+	 * It will open {@link Grommunio.plugins.mdm.dialogs.MDMManageSharedFolderContentPanel dialog}
 	 */
 	onClickManageSharedFolder: function ()
 	{
 		this.dialog.record.opened = false;
-		Zarafa.core.data.UIFactory.openLayerComponent(Zarafa.core.data.SharedComponentType['mdm.dialog.mdmmanagesharedfoldercontentpanel'], undefined, {
+		Grommunio.core.data.UIFactory.openLayerComponent(Grommunio.core.data.SharedComponentType['mdm.dialog.mdmmanagesharedfoldercontentpanel'], undefined, {
 			manager: Ext.WindowMgr,
 			record: this.dialog.record
 		});
@@ -210,7 +215,7 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 
 	/**
 	 * Reveal the impersonation field only when a value is available.
-	 * @param {Zarafa.core.data.IPMRecord} record
+	 * @param {Grommunio.core.data.IPMRecord} record
 	 * @private
 	 */
 	toggleImpersonatedField: function (record)
@@ -246,4 +251,4 @@ Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab = Ext.extend(Ext.form.FormPanel, 
 	}
 });
 
-Ext.reg('mdmplugin.mdmdevicegeneraltab', Zarafa.plugins.mdm.dialogs.MDMDeviceGeneralTab);
+Ext.reg('mdmplugin.mdmdevicegeneraltab', Grommunio.plugins.mdm.dialogs.MDMDeviceGeneralTab);

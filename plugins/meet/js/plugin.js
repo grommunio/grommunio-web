@@ -1,38 +1,43 @@
-Ext.namespace('Zarafa.plugins.meet');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
 
-Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
+Ext.namespace('Grommunio.plugins.meet');
+
+Grommunio.plugins.meet.Plugin = Ext.extend(Grommunio.core.Plugin, {
   
   plugin: undefined,
   
   initPlugin: function(){
-    Zarafa.core.data.SharedComponentType.addProperty('plugins.meet.panel');
-    Zarafa.core.data.SharedComponentType.addProperty('plugins.meet.addmeetingdialog');
+    Grommunio.core.data.SharedComponentType.addProperty('plugins.meet.panel');
+    Grommunio.core.data.SharedComponentType.addProperty('plugins.meet.addmeetingdialog');
     this.registerInsertionPoint('context.settings.categories', this.createSettingsCategory, this);
-    if(!container.getSettingsModel().get('zarafa/v1/plugins/meet/hidetabbarbutton')){
+    if(!container.getSettingsModel().get('grommunio/v1/plugins/meet/hidetabbarbutton')){
       this.registerInsertionPoint('main.toolbar.actions.last', this.createToolbarButton, this);
     }
     this.registerInsertionPoint('context.calendar.appointmentcontentpanel.toolbar.actions', this.createAddMeetingButton, this);
     this.registerInsertionPoint('context.calendar.appointmentcontentpanel.toolbar.actions', this.createJoinMeetingButton, this);
     this.registerInsertionPoint('context.mail.mailcreatecontentpanel.toolbar.actions', this.createAddMeetingButton, this);
-    if(!container.getSettingsModel().get('zarafa/v1/plugins/meet/nolocationfix')){
-      var Zarafa_calendar_dialogs_AppointmentTab_doSetLocation_or = Zarafa.calendar.dialogs.AppointmentTab.prototype.doSetLocation;
-      Zarafa.calendar.dialogs.AppointmentTab.prototype.doSetLocation = function(){
+    if(!container.getSettingsModel().get('grommunio/v1/plugins/meet/nolocationfix')){
+      var Grommunio_calendar_dialogs_AppointmentTab_doSetLocation_or = Grommunio.calendar.dialogs.AppointmentTab.prototype.doSetLocation;
+      Grommunio.calendar.dialogs.AppointmentTab.prototype.doSetLocation = function(){
         if('meetCurrentUrl' in this.record && arguments[0].indexOf(this.record.meetCurrentUrl) < 0){
-          if(!container.getSettingsModel().get('zarafa/v1/plugins/meet/locationoverride')){
+          if(!container.getSettingsModel().get('grommunio/v1/plugins/meet/locationoverride')){
             arguments[0] += (arguments[0] ? ' / ' : '') + this.record.meetCurrentUrl;
           }else{
             arguments[0] = this.record.meetCurrentUrl;
           }
         }
-        Zarafa_calendar_dialogs_AppointmentTab_doSetLocation_or.apply(this, arguments);
+        Grommunio_calendar_dialogs_AppointmentTab_doSetLocation_or.apply(this, arguments);
       };
-      var Zarafa_calendar_dialogs_AppointmentTab_onFieldChange_or = Zarafa.calendar.dialogs.AppointmentTab.prototype.onFieldChange;
-      Zarafa.calendar.dialogs.AppointmentTab.prototype.onFieldChange = function(){
+      var Grommunio_calendar_dialogs_AppointmentTab_onFieldChange_or = Grommunio.calendar.dialogs.AppointmentTab.prototype.onFieldChange;
+      Grommunio.calendar.dialogs.AppointmentTab.prototype.onFieldChange = function(){
         if(arguments[0].getName() == 'location' && 'meetCurrentUrl' in this.record && arguments[1].indexOf(this.record.meetCurrentUrl) < 0){
           //If the user manually removes the url from the location, prevent adding it again if the location gets set
           delete this.record.meetCurrentUrl;
         }
-        Zarafa_calendar_dialogs_AppointmentTab_onFieldChange_or.apply(this, arguments);
+        Grommunio_calendar_dialogs_AppointmentTab_onFieldChange_or.apply(this, arguments);
       };
     }
   }, 
@@ -63,11 +68,11 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
       iconCls: 'icon_meet',
       handler: this.onAddMeetingButtonClick,
       scope: this,
-      plugins: ['zarafa.recordcomponentupdaterplugin'],
+      plugins: ['grommunio.recordcomponentupdaterplugin'],
       tooltip: _('Shift-click for advanced settings'),
       update: function(record, contentReset){
         this.record = record;
-        if ((new RegExp(container.getSettingsModel().get('zarafa/v1/plugins/meet/server').replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[-a-zA-Z0-9()@:%_\+.~#?&\/=]+')).test(record.get('location'))) {
+        if ((new RegExp(container.getSettingsModel().get('grommunio/v1/plugins/meet/server').replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[-a-zA-Z0-9()@:%_\+.~#?&\/=]+')).test(record.get('location'))) {
           this.setDisabled(true);
         } else {
           this.setDisabled(false);
@@ -83,7 +88,7 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
       iconCls: 'icon_meet',
       handler: this.onJoinMeetingButtonClick,
       scope: this,
-      plugins: ['zarafa.recordcomponentupdaterplugin'],
+      plugins: ['grommunio.recordcomponentupdaterplugin'],
       update: function(record, contentReset){
         this.record = record;
         if (/https?:\/\/[a-zA-Z0-9-\.]+(?:\/[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)?/.test(record.get('location'))) {
@@ -97,7 +102,7 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
   
   onAddMeetingButtonClick: function(button,  evt){
     if(evt.shiftKey){
-      Zarafa.core.data.UIFactory.openLayerComponent(Zarafa.core.data.SharedComponentType['plugins.meet.addmeetingdialog'], null, {modal : true, source: button});
+      Grommunio.core.data.UIFactory.openLayerComponent(Grommunio.core.data.SharedComponentType['plugins.meet.addmeetingdialog'], null, {modal : true, source: button});
       return
     }
     var hash = 0, i, chr;
@@ -109,13 +114,13 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
     }
     if(hash < 0) hash += 2147483647;
     var mname = '';
-    if(!container.getSettingsModel().get('zarafa/v1/plugins/meet/mname_nosubject')){
+    if(!container.getSettingsModel().get('grommunio/v1/plugins/meet/mname_nosubject')){
       mname += (button.record.get('subject') || 'meet').replace(/[^a-zA-Z0-9\-@\.]/g, '_').replace(/_{2,}/g,  '_').replace(/^_+|_+$/g, '') + '-';
     }
-    if(!container.getSettingsModel().get('zarafa/v1/plugins/meet/mname_noorganizer')){
+    if(!container.getSettingsModel().get('grommunio/v1/plugins/meet/mname_noorganizer')){
       mname += container.getUser().getUserName().replace(/\./g, "_").replace("@", "_") + '-';
     }
-    button.record.meetCurrentUrl = container.getSettingsModel().get('zarafa/v1/plugins/meet/server') + mname + hash.toString(16);
+    button.record.meetCurrentUrl = container.getSettingsModel().get('grommunio/v1/plugins/meet/server') + mname + hash.toString(16);
     var edf = null;
     switch(button.record.get('message_class')){
       case 'IPM.Note':
@@ -123,12 +128,12 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
         break;
       case 'IPM.Appointment':
         var oloc = button.record.get('location');
-        if(oloc && !container.getSettingsModel().get('zarafa/v1/plugins/meet/locationoverride')){
+        if(oloc && !container.getSettingsModel().get('grommunio/v1/plugins/meet/locationoverride')){
           button.record.set('location', oloc + ' / ' + button.record.meetCurrentUrl);
         }else{
           button.record.set('location', button.record.meetCurrentUrl);
         }
-        if(container.getSettingsModel().get('zarafa/v1/plugins/meet/noinvitation')){
+        if(container.getSettingsModel().get('grommunio/v1/plugins/meet/noinvitation')){
           return;
         }
         edf = button.ownerCt.ownerCt.appointmentTab.editorField;
@@ -137,16 +142,16 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
     if(edf){
       var meetUrl = button.record.meetCurrentUrl;
       if(edf.isHtmlEditor()){
-        var htmlTpl = container.getSettingsModel().get('zarafa/v1/plugins/meet/invitationhtml');
+        var htmlTpl = container.getSettingsModel().get('grommunio/v1/plugins/meet/invitationhtml');
         if(htmlTpl){
           edf.insertAtCursor('<p>&nbsp;</p>' + htmlTpl.replace(/%url%/g, Ext.util.Format.htmlEncode(meetUrl)) + '<p>&nbsp;</p>');
         }else{
-          var itpl = container.getSettingsModel().get('zarafa/v1/plugins/meet/invitationmessage') || '\n%url%\n';
+          var itpl = container.getSettingsModel().get('grommunio/v1/plugins/meet/invitationmessage') || '\n%url%\n';
           itpl = itpl.replace(/(\r\n|\n|\r)/gm, '<br/>');
           edf.insertAtCursor(itpl.replace(/%url%/g, '<a href="' + Ext.util.Format.htmlEncode(meetUrl) + '">' + Ext.util.Format.htmlEncode(meetUrl) + '</a>'));
         }
       }else{
-        var itpl = container.getSettingsModel().get('zarafa/v1/plugins/meet/invitationmessage') || '\n%url%\n';
+        var itpl = container.getSettingsModel().get('grommunio/v1/plugins/meet/invitationmessage') || '\n%url%\n';
         edf.insertAtCursor(itpl.replace(/%url%/g, meetUrl));
       }
     }
@@ -160,11 +165,11 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
   },
   
   onToolbarButtonClick: function(){
-    this.openMeeting(container.getSettingsModel().get('zarafa/v1/plugins/meet/server'), 'Meet');
+    this.openMeeting(container.getSettingsModel().get('grommunio/v1/plugins/meet/server'), 'Meet');
   }, 
   
   openMeeting: function(meetingurl, meetingname){
-    switch(container.getSettingsModel().get('zarafa/v1/plugins/meet/openin')){
+    switch(container.getSettingsModel().get('grommunio/v1/plugins/meet/openin')){
       case 'browser':
         window.open(meetingurl);
         break;
@@ -172,8 +177,8 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
           window.open(meetingurl, '_blank', 'location=no,height=768,width=1024,scrollbars=yes,status=yes');
         break;
       default:
-        Zarafa.core.data.UIFactory.openLayerComponent(
-          Zarafa.core.data.SharedComponentType['plugins.meet.panel'],
+        Grommunio.core.data.UIFactory.openLayerComponent(
+          Grommunio.core.data.SharedComponentType['plugins.meet.panel'],
           null,
           {
             url: meetingurl,
@@ -189,10 +194,10 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
   bidSharedComponent: function(type, record){
       var bid = -1;
       switch(type){
-        case Zarafa.core.data.SharedComponentType['plugins.meet.panel']:
+        case Grommunio.core.data.SharedComponentType['plugins.meet.panel']:
           bid = 1;
           break;
-        case Zarafa.core.data.SharedComponentType['plugins.meet.addmeetingdialog']:
+        case Grommunio.core.data.SharedComponentType['plugins.meet.addmeetingdialog']:
           bid = 1;
           break;
       }
@@ -201,20 +206,20 @@ Zarafa.plugins.meet.Plugin = Ext.extend(Zarafa.core.Plugin, {
   
   getSharedComponent: function(type, record){
     switch(type){
-      case Zarafa.core.data.SharedComponentType['plugins.meet.panel']:
-        return Zarafa.plugins.meet.ui.ContentPanel;
-      case Zarafa.core.data.SharedComponentType['plugins.meet.addmeetingdialog']:
-        return Zarafa.plugins.meet.ui.AddMeetingDialog;
+      case Grommunio.core.data.SharedComponentType['plugins.meet.panel']:
+        return Grommunio.plugins.meet.ui.ContentPanel;
+      case Grommunio.core.data.SharedComponentType['plugins.meet.addmeetingdialog']:
+        return Grommunio.plugins.meet.ui.AddMeetingDialog;
     }
   },
   
 });
 
-Zarafa.onReady(function(){
-  container.registerPlugin(new Zarafa.core.PluginMetaData({
+Grommunio.onReady(function(){
+  container.registerPlugin(new Grommunio.core.PluginMetaData({
     name: 'meet',
     displayName: 'Meet',
-    //about: Zarafa.plugins.meet.ABOUT,
-    pluginConstructor: Zarafa.plugins.meet.Plugin
+    //about: Grommunio.plugins.meet.ABOUT,
+    pluginConstructor: Grommunio.plugins.meet.Plugin
   }));
 });

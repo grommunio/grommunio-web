@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 require_once BASE_PATH . 'server/includes/core/class.junkrule.php';
 
 /**
@@ -44,9 +49,9 @@ class JunkMailModule extends Module {
 				catch (MAPIException $e) {
 					$this->processException($e, $actionType);
 				}
-				catch (ZarafaException $e) {
+				catch (GrommunioException $e) {
 					$this->sendFeedback(false, [
-						"type" => ERROR_ZARAFA,
+						"type" => ERROR_GROMMUNIO,
 						"info" => ["display_message" => $e->getDisplayMessage()],
 					]);
 				}
@@ -160,7 +165,7 @@ class JunkMailModule extends Module {
 			$lists['junk_include_contacts'] = ($props[PR_JUNK_INCLUDE_CONTACTS] ?? 0) ? 1 : 0;
 		}
 
-		$old = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/safe_senders_list');
+		$old = $GLOBALS['settings']->get('grommunio/v1/contexts/mail/safe_senders_list');
 		if (is_array($old) && !empty($old)) {
 			$known = array_map('strtolower', $lists['safe_senders']);
 			foreach ($old as $entry) {
@@ -196,7 +201,7 @@ class JunkMailModule extends Module {
 		$safeRecipients = $this->sanitizeList($props['safe_recipients'] ?? null);
 		$blockedSenders = $this->sanitizeList($props['blocked_senders'] ?? null);
 		if ($safeSenders === false || $safeRecipients === false || $blockedSenders === false) {
-			throw new ZarafaException(_("The sender lists could not be saved"));
+			throw new GrommunioException(_("The sender lists could not be saved"));
 		}
 
 		$store = $GLOBALS['mapisession']->getDefaultMessageStore();
@@ -285,7 +290,7 @@ class JunkMailModule extends Module {
 				}
 			}
 
-			throw new ZarafaException(_("The sender lists could not be saved"));
+			throw new GrommunioException(_("The sender lists could not be saved"));
 		}
 
 		$this->retireOldSetting($safeSenders, $explicitSafeSenders);
@@ -340,7 +345,7 @@ class JunkMailModule extends Module {
 		$props = mapi_getprops($inbox, [PR_ADDITIONAL_REN_ENTRYIDS]);
 		$eid = $props[PR_ADDITIONAL_REN_ENTRYIDS][4] ?? '';
 		if (strlen($eid) !== 46) {
-			throw new ZarafaException(_("The sender lists could not be saved"));
+			throw new GrommunioException(_("The sender lists could not be saved"));
 		}
 
 		return $eid;
@@ -383,7 +388,7 @@ class JunkMailModule extends Module {
 	 * @param bool  $explicit    the client sent the list itself
 	 */
 	private function retireOldSetting($safeSenders, $explicit) {
-		$old = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/safe_senders_list');
+		$old = $GLOBALS['settings']->get('grommunio/v1/contexts/mail/safe_senders_list');
 		if (!is_array($old) || empty($old)) {
 			return;
 		}
@@ -404,7 +409,7 @@ class JunkMailModule extends Module {
 			}
 		}
 
-		$GLOBALS['settings']->delete('zarafa/v1/contexts/mail/safe_senders_list');
+		$GLOBALS['settings']->delete('grommunio/v1/contexts/mail/safe_senders_list');
 		$GLOBALS['settings']->saveSettings();
 	}
 

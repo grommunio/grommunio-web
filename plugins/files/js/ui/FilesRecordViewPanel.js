@@ -1,6 +1,11 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
 
-Zarafa.plugins.files.ui.FilesRecordViewPanel = Ext.extend(Ext.Panel, {
+Ext.namespace('Grommunio.plugins.files.ui');
+
+Grommunio.plugins.files.ui.FilesRecordViewPanel = Ext.extend(Ext.Panel, {
 
 	constructor: function (config) {
 		config = config || {};
@@ -8,15 +13,15 @@ Zarafa.plugins.files.ui.FilesRecordViewPanel = Ext.extend(Ext.Panel, {
 		Ext.applyIf(config, {
 			xtype : 'filesplugin.filesrecordviewpanel',
 			border: false,
-			cls   : 'zarafa-filesviewpanel',
-			layout: 'zarafa.collapsible',
+			cls   : 'grommunio-filesviewpanel',
+			layout: 'grommunio.collapsible',
 			items : [{
 				xtype: 'filesplugin.filesrecorddetailspanel'
 			}]
 		});
 
-		Zarafa.plugins.files.ui.FilesRecordViewPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.FilesRecordViewPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.filesrecordviewpanel', Zarafa.plugins.files.ui.FilesRecordViewPanel);
+Ext.reg('filesplugin.filesrecordviewpanel', Grommunio.plugins.files.ui.FilesRecordViewPanel);

@@ -1,10 +1,15 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui');
 
 /**
- * @class Zarafa.plugins.files.ui.ContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.files.ui.ContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  */
-Zarafa.plugins.files.ui.ContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.files.ui.ContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
 	/**
 	 * @constructor
 	 * @param config Configuration structure
@@ -15,13 +20,13 @@ Zarafa.plugins.files.ui.ContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 
 		Ext.applyIf(config, {
 			// Overridden from Ext.Component
-			xtype: 'zarafa.plugins.files.ui.contentpanel',
+			xtype: 'grommunio.plugins.files.ui.contentpanel',
 			layout : 'fit',
 			header: false,
 			iconCls: 'icon_files',
 			border: false,
 			items : [{
-				xtype: 'zarafa.plugins.files.ui.onlyofficepanel',
+				xtype: 'grommunio.plugins.files.ui.onlyofficepanel',
 				url: config.url,
 				src: config.src,
 				origin: config.origin,
@@ -32,8 +37,8 @@ Zarafa.plugins.files.ui.ContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
 			}]
 		});
 
-		Zarafa.plugins.files.ui.ContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.ContentPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('zarafa.plugins.files.ui.contentpanel', Zarafa.plugins.files.ui.ContentPanel);
+Ext.reg('grommunio.plugins.files.ui.contentpanel', Grommunio.plugins.files.ui.ContentPanel);

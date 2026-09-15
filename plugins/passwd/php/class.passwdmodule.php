@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * Passwd module.
  * Module that will be used to change passwords of the user.
@@ -31,7 +38,7 @@ class PasswdModule extends Module {
 
 	/**
 	 * Change the user's password. Perform validation and call the appropriate methods based on the
-	 * zarafa setup.
+	 * grommunio setup.
 	 *
 	 * @param array $data data sent by client
 	 */
@@ -64,7 +71,7 @@ class PasswdModule extends Module {
 		}
 		else {
 			$this->sendFeedback(false, [
-				'type' => ERROR_ZARAFA,
+				'type' => ERROR_GROMMUNIO,
 				'info' => [
 					'display_message' => $errorMessage,
 				],
@@ -156,7 +163,7 @@ class PasswdModule extends Module {
 
 		if (!empty($errorMessage)) {
 			$this->sendFeedback(false, [
-				'type' => ERROR_ZARAFA,
+				'type' => ERROR_GROMMUNIO,
 				'info' => [
 					'display_message' => $errorMessage,
 				],

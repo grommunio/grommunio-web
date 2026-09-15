@@ -1,13 +1,20 @@
-Ext.namespace('Zarafa.plugins.desktopnotifications.js');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.desktopnotifications.js');
 
 /**
- * @class Zarafa.plugins.desktopnotifications.js.DesktopNotifier
- * @extends Zarafa.core.ui.notifier.NotifyPlugin
+ * @class Grommunio.plugins.desktopnotifications.js.DesktopNotifier
+ * @extends Grommunio.core.ui.notifier.NotifyPlugin
  *
  * A plugin for notification plugin to show desktop notifications instead of normal in browser
  * notifications for actions like new mail, reminder etc.
  */
-Zarafa.plugins.desktopnotifications.js.DesktopNotifier = Ext.extend(Zarafa.core.ui.notifier.NotifyPlugin, {
+Grommunio.plugins.desktopnotifications.js.DesktopNotifier = Ext.extend(Grommunio.core.ui.notifier.NotifyPlugin, {
 	/**
 	 * @constructor
 	 * @param {Object} config Configuration object
@@ -16,7 +23,7 @@ Zarafa.plugins.desktopnotifications.js.DesktopNotifier = Ext.extend(Zarafa.core.
 	{
 		config = config || {};
 
-		Zarafa.plugins.desktopnotifications.js.DesktopNotifier.superclass.constructor.call(this, config);
+		Grommunio.plugins.desktopnotifications.js.DesktopNotifier.superclass.constructor.call(this, config);
 	},
 
 	/**
@@ -37,10 +44,10 @@ Zarafa.plugins.desktopnotifications.js.DesktopNotifier = Ext.extend(Zarafa.core.
 	{
 		// Desktop notifications render plain text, so decode the HTML
 		// entities which were encoded for the HTML based notifiers.
-		Zarafa.plugins.desktopnotifications.js.DesktopNotification.notify(title, {
+		Grommunio.plugins.desktopnotifications.js.DesktopNotification.notify(title, {
 			tag : category,
 			body : Ext.util.Format.htmlDecode(message),
-			icon : Zarafa.core.Util.getFaviconUrl()
+			icon : Grommunio.core.Util.getFaviconUrl()
 		}, {
 			click : function() {
 				// focus window which generated this notification
@@ -48,10 +55,10 @@ Zarafa.plugins.desktopnotifications.js.DesktopNotifier = Ext.extend(Zarafa.core.
 			}
 		});
 
-		Zarafa.plugins.desktopnotifications.js.DesktopNotifier.superclass.notify.apply(this, arguments);
+		Grommunio.plugins.desktopnotifications.js.DesktopNotifier.superclass.notify.apply(this, arguments);
 	}
 });
 
-Zarafa.onReady(function() {
-	container.getNotifier().registerPlugin('desktopnotifier', new Zarafa.plugins.desktopnotifications.js.DesktopNotifier());
+Grommunio.onReady(function() {
+	container.getNotifier().registerPlugin('desktopnotifier', new Grommunio.plugins.desktopnotifications.js.DesktopNotifier());
 });

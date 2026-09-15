@@ -1,4 +1,12 @@
 <?php
+
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 include BASE_PATH . 'server/includes/loader.php';
 
 $loader = new FileLoader();
@@ -10,7 +18,7 @@ $loader = new FileLoader();
 		<meta name="Generator" content="grommunio-web v<?php echo $loader->getVersion(); ?>">
 <?php
 // The canvas is dark before any stylesheet arrives, so a reload does not flash white
-$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('zarafa/v1/main/dark_mode') : 'light';
+$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('grommunio/v1/main/dark_mode') : 'light';
 if ($darkMode === 'dark') {
 	echo "\t\t<style>html { background: #121212; }</style>\n";
 }
@@ -34,8 +42,8 @@ $iconsetStylesheet = Iconsets::getActiveStylesheet();
 		<link id="grommunio-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
 	</head>
 
-	<body class="zarafa-webclient theme-<?php echo strtolower((string) $theme ?: 'basic');
-$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('zarafa/v1/main/dark_mode') : 'light';
+	<body class="grommunio-webclient theme-<?php echo strtolower((string) $theme ?: 'basic');
+$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('grommunio/v1/main/dark_mode') : 'light';
 if ($darkMode === 'dark') {
 	echo ' dark-mode';
 }
@@ -67,7 +75,7 @@ $loader->printFiles($extjsFiles, $jsTemplate);
 			 */
 			setFocusOnMainWindow = function ()
 			{
-				var browserWindowMgr = window.opener.Zarafa.core.BrowserWindowMgr;
+				var browserWindowMgr = window.opener.Grommunio.core.BrowserWindowMgr;
 				var mainWindowObject = browserWindowMgr.browserWindows.get('mainBrowserWindow');
 				var mainWindow = mainWindowObject.open('', 'mainBrowserWindow');
 				mainWindow.focus();
@@ -77,7 +85,7 @@ $loader->printFiles($extjsFiles, $jsTemplate);
 			window.onload = function ()
 			{
 				// On separate window load creates main container into the separate window and load the required component within it.
-				var browserWindowManager = window.opener.Zarafa.core.BrowserWindowMgr;
+				var browserWindowManager = window.opener.Grommunio.core.BrowserWindowMgr;
 				browserWindowManager.createUI(window);
 			};
 

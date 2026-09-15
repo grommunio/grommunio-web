@@ -1,3 +1,528 @@
+grommunio-web 5.0 (2026-09-15)
+==============================
+grommunio Web 5.0 is the first release under the new major number. The
+Zarafa namespace inherited from the WebApp fork gives way to grommunio in the
+code, the plugin interfaces and the stored settings; the interface has been
+redesigned and gained a dark mode; OpenPGP joins S/MIME; attachments open in a
+document previewer for many more formats; and every release now ships SPDX
+headers, a bill of materials and a published security policy, alongside a set
+of security fixes.
+
+Highlights:
+
+* The Zarafa namespace inherited from the WebApp fork is gone: classes,
+  xtypes, CSS classes, settings and the request envelope now say grommunio;
+  stored settings are migrated on the first login and saved layouts survive
+* Every source file carries an SPDX copyright and licence header, REUSE.toml
+  and LICENSES/ cover the rest, and each release ships a CycloneDX and an SPDX
+  bill of materials; SECURITY.md documents vulnerability reporting under the
+  Cyber Resilience Act
+* Redesigned interface built on shared design tokens, with a dark mode that
+  the bundled plugins follow, larger controls and a new login screen
+* OpenPGP plugin: sign, encrypt, decrypt and verify PGP/MIME mail in the
+  browser and read inline OpenPGP messages; private keys are stored only as
+  passphrase-protected armor in the mailbox
+* Document preview for more formats: text, code, Markdown and JSON, more
+  spreadsheet formats (.xls, CSV), RTF, legacy .doc, .pptx and .eml
+* Undo and redo of delete, move, copy and create actions, flag, read-state and
+  category changes and moved or resized appointments with Ctrl+Z / Ctrl+Y;
+  opt-in via "Undo and redo" under Settings > General (reload required)
+* Outlook-compatible categories stored per mailbox in the master category list
+  with Outlook's palette; shared mailboxes show their own names and colours
+* Sender lists: safe senders, safe recipients and blocked senders, stored in
+  the Outlook Junk Email Rule and honoured by external content blocking
+* BIMI sender logos in the reading pane for messages that passed DMARC
+* Notes linked to a mail: "Create note" in the mail context menu and "Add
+  note" in the reading pane; linked notes are shown with the message
+* Command palette (Ctrl+K) to search folders, views, settings pages and
+  new-item actions; the editor body keeps Ctrl+K for Insert link
+* Attachments: select several with Ctrl- and Shift-click and drag them into a
+  compose window in another tab or window, or to the desktop as one ZIP file
+* Conversation view for shared mailboxes, including mailboxes whose Sent Items
+  folder is not shared
+* A tab's state lock is held only while its state is read and written back,
+  and hierarchy, reminder, free/busy, name resolution, recipient suggestion
+  and settings requests run without a lock, so a slow folder load does not
+  hold up the rest of the interface
+* Faster start-up with fewer requests: scripts, stylesheets and translations
+  are cached by the browser and refetched only when they change
+* Search works in public folders, including subfolders
+* Search prefixes are accepted in the interface language (von:, an:, betreff:)
+* Shared mailboxes can be reordered by dragging them in the folder tree; the
+  order applies to every folder list, including the calendar list
+
+Enhancements:
+
+* Quick actions when hovering over a mail row: Mark Read/Unread, Follow up and
+  Delete, switchable with "Show quick actions when hovering over a list item"
+* Quick actions for task rows (Mark Complete/Incomplete, Delete) and contact
+  rows (Email, Delete)
+* "Compact list spacing" display option
+* Follow-up flagged messages tint the whole row in the message list
+* "Remove attachment" in the attachment context menu deletes an attachment
+  from a stored message; the message keeps its text, sender and metadata
+* "Save selection to folder" writes several selected attachments as individual
+  files into a folder chosen in the browser, never overwriting existing files
+* An attached .eml opens as a mail with its own attachments and inline images
+  instead of only being offered for download
+* Attachment previews can open in a grommunio Web tab or a browser window
+  instead of a dialog ("Open a preview in a" setting and context menu entries)
+* Files can be dropped anywhere on an item dialog to attach them
+* Windows UNC paths, mapped-drive paths and file:// URLs typed or pasted into
+  the editor become clickable links
+* Copy/Move dialog offers the folders a sender's mail was moved to before as
+  buttons above the folder tree; typing a folder name jumps to it in the tree
+* The categories context menu shows selected categories first, then
+  quick-access categories, then the rest, capped at 15 as in Outlook; fixed
+  categories can be renamed
+* Existing categories are migrated into the mailbox on login; "Migrate legacy
+  categories" in the settings' About section adds categories found on items
+* The compact mail view offers a Categories column, hidden by default, to sort
+  by category from the header menu
+* The new mail notification names sender and subject of a single new message,
+  or how many messages arrived, instead of the total unread count
+* Choose which folders raise new mail notifications: "All folders", "Only my
+  own mailbox" or "Only the folders I choose"
+* "Disable sound" option for desktop notifications
+* Ctrl+F jumps to the search box of the current view; a second press falls
+  through to the browser's own find
+* Warning toast when a search is performed without a content index (requires
+  gromox 3.8-106 or later)
+* A notice offers a reload when grommunio Web was updated on the server
+* Compact appointment and task dialogs: notices collapse into one expandable
+  line, Show as, Reminder and Create in share a row, and the form can scroll
+* Appointment tooltip redesigned as a card in the calendar's colour: subject,
+  date and time, location link, organizer, attendees, recurrence, note preview
+* A URL in the appointment location can be opened in a new tab, also for
+  read-only appointments
+* Unread appointments are shown bold with "Mark Read" and "Mark Unread" in the
+  context menu
+* New calendar setting "Delete the meeting request from the inbox when
+  answering from the calendar" (off by default, needs current mapi-header-php)
+* Sign and Encrypt are shared split buttons for S/MIME and OpenPGP; only one
+  protocol protects a message at a time
+* OpenPGP settings: generate and import keys, pin verified fingerprints to
+  addresses, export passphrase-protected backups, manage HTTPS keyservers
+* OpenPGP: reply to and forward protected messages; decrypted content stays in
+  the browser and is cleared when the key is locked
+* S/MIME fetches missing intermediate certificates from the AIA "CA Issuers"
+  URI, so signatures that embed only the end-entity certificate verify
+* Files: "Preview" in the toolbar and context menu opens PDFs, Office and
+  OpenDocument files, text, images and media in the attachment previewer
+* Files: folder listings are fetched only when a folder is expanded
+* Files: folders one may not enter open empty
+* Files: the attachment state is not locked while files are transferred from
+  a Files backend, so uploads and message saves in other tabs are not held up
+* Upload glyph on the Files New button
+* Empty list, preview and notes views follow the folder type
+* File previewer follows the grommunio Web look: interface colours, a single
+  toolbar and the theme including dark mode; the pdf.js viewer follows along
+* Document previews open faster: renderer libraries load together with the
+  document
+* "Search settings" field in Settings
+* A folder rail with favourites and default folders while the navigation panel
+  is collapsed
+* Favourites in every folder list: "Show favorites of the same type in every
+  folder list" or "Show all favorites in every folder list" display setting
+* Two-tone folder icons drawn from the theme colour
+* A favourite shows the icon of the folder it points at
+* Long folder names are cut off with an ellipsis (full name as tooltip)
+  instead of a horizontal scrollbar
+* A shared mailbox opened as a whole can be removed from a filtered folder
+  list, such as the calendar folder list, with "Remove" in the context menu of
+  its top-level folder
+* Theme colours shown in the theme selector
+* Keyboard navigation of the search dropdown
+* Right-click on the row actions opens the mail context menu
+* Wider note colour selector and custom flag dialogs
+* Folder properties dialog resized and tidied
+* Uniform styling for combo, date and spinner fields
+* Keyboard focus rings are shown after keyboard navigation only
+* Tooltips in the theme colour
+* English names next to language names in other scripts
+* The Snooze button grows with its label
+* The context menu key and Shift+F10 open the context menu of the focused row
+  or card in lists; submenus open immediately on the right arrow key
+* Keyboard shortcuts on macOS use Cmd and Option (Ctrl in Safari, which
+  reserves several Cmd combinations); tooltips and settings show the keys
+* Screen readers: form labels point only at real form controls, the editor
+  font-size field is named, and the page declares the full language tag
+* Animations are switched off when the operating system asks for reduced
+  motion
+* Help opens the German manual for a German interface; help links follow the
+  current manual layout, including folders, Chat, MDM, Meet and Files
+* Faster calendar views and login: appointment lists and favourites are
+  filtered while the table loads instead of row by row
+* Faster folder creation and renaming: name conflicts are checked from the
+  hierarchy table instead of opening every sibling folder
+* Search progress polls do not read the whole result set of a large search
+* Inline images are cached by the browser for an hour instead of being
+  refetched on every preview of the same message
+
+Fixes:
+
+* Draft deleted although sending it failed; a failed send left an unsent copy
+  in the Outbox
+* Sending on behalf of another mailbox could turn an HTML draft into plain
+  text
+* A reply autosaved before sending lost its conversation threading
+* Reply or forward quoted only the header and omitted the body of the original
+  message
+* Sending a reply or forward failed when the original message was no longer
+  available
+* Replying to or forwarding a mail with blocked external images loaded them in
+  the editor and sent them along with the quote
+* Inline images were dropped when replying to or forwarding a message received
+  from another mail client or referenced by a percent-encoded Content-ID
+* Reopened drafts lost their inline images
+* Saving a message with freshly uploaded inline images failed
+* Images embedded in the message body were also listed as attachments
+* Images pasted from Microsoft Word were lost
+* Messages, composed mails and signatures without a font of their own were
+  shown and sent in the browser's serif default instead of the configured font
+* Subject duplicated when saving a mail with the keyboard
+* Save and Send gave no visible feedback and could be clicked twice
+* Unreadable uploaded attachments were imported empty instead of reporting an
+  error
+* Check Names resolved legacy account names or Exchange DNs to unrelated
+  address book entries
+* Sends to address book users duplicated recipient history entries
+* Tab could not reach the list of suggested names in the Check Names dialog
+* Sending as an address that is also in the user's contacts failed
+* Sending from one's own alias address, or as one's own identity with "Save
+  emails sent by delegate" enabled, created a second copy in Sent Items
+* Mail sent with send-as permission appeared as sent on behalf of the
+  representee, with the delegate's address shown as an internal identifier
+* Emails sent as or on behalf of another user appeared editable in that user's
+  Sent Items
+* Re-opening a message whose reply-to sender has no entryid raised an error
+* Out of office replies were sent with an empty subject when none was entered
+* Dropping a non-embeddable file onto the body of an appointment, task,
+  contact or note did nothing after confirming to attach it
+* Files dropped onto a compose dialog in its own browser window were attached
+  with 0 bytes, and the "Add as attachment?" prompt opened in the main window
+* Opening or previewing a message downloaded every attachment in the
+  background and kept the payloads in memory for the whole session
+* Received .eml, .vcf and .ics attachments were not recognised: an attached
+  mail only offered a download and a received contact could not be imported
+* Inline images saved from the reading pane were named download.png instead of
+  their real filename
+* Plain-text messages opened from the search results were cut off in the
+  reading pane
+* Follow-up flags set by Outlook or delivered over IMAP showed an additional
+  "Red" colour category
+* A follow-up flag completed in grommunio Web stayed an open task in Outlook
+* Sorting a mail list by category returned a mail once per category and
+  miscounted pages; sorting search results by category failed
+* Quoted search phrases such as subject:"some thing" were split into several
+  chips, and apostrophes in a search term (o'brien, it's) were read as quotes
+* Stale search results stayed in the session and a still-running search was
+  not stopped before a new one
+* Conversation view settings were shown although conversation view is disabled
+  in config.php
+* Deleting items from a shared mailbox failed with "insufficient privileges"
+  even with full delete rights
+* ENABLE_DEFAULT_SOFT_DELETE overrode an explicit soft delete
+* Items one is not allowed to delete vanished from the view until the next
+  reload instead of being reported
+* Deleting a folder from a shared mailbox's Deleted Items renamed it to
+  "name (2)" instead of removing it
+* Closing a shared mailbox failed with "Could not close shared folder" when a
+  favourite pointed at an unreachable mailbox, and removed other favourites
+* Owner of another user's mailbox could not see the other users' permissions
+  on its top-level folder
+* Wrong store and folder sizes, e.g. for stores larger than 2 GB
+* Named property ids of one mailbox were reused for other mailboxes in the
+  same request
+* Folder pane stuck on the previous context when a listener failed during the
+  context switch
+* Dropping mail onto a folder row was refused on parts of the row (the name
+  suffix and the row padding)
+* "Remove From Calendar" flashed and disappeared again when selecting a
+  meeting cancellation in the mail list
+* Declining one occurrence of a recurring meeting marked another occurrence as
+  removed
+* The recurring-selection dialog could open the wrong occurrence
+* Turning a recurring appointment into a single one left the recurrence
+  behind, so attendees still received a series
+* Reopening an appointment right after saving showed the note from before the
+  edit for up to half a minute
+* Text typed into the calendar quick-create box but not confirmed turned into
+  a second appointment on the next relayout
+* A shared or public calendar without read permission failed to load with "An
+  invalid parameter was passed" instead of showing empty
+* No suggested meeting times when no attendee was busy
+* Attendees marked Working Elsewhere blocked suggested times and raised
+  availability warnings
+* Free/busy conflict check missed a conflict when another block of the same
+  attendee came first
+* Working Elsewhere hid busy and out-of-office blocks in the free/busy view
+* A failed free/busy lookup was drawn as Working Elsewhere across the whole
+  range
+* Scheduling tab with many attendees: the attendee list did not scroll with
+  the free/busy timeline and overlapped the legend
+* Date picker marked a day of the newly shown month as selected when only
+  browsing months
+* AM/PM suffix cut off in the appointment time fields in 12-hour format
+* "Delegate receives copies of meeting-related messages" came back unchecked,
+  was applied to every delegate, and saving it reset the private-items flag
+* A delegate with None or read-only calendar rights who was already in the
+  meeting rule had the box ticked and greyed out with no way to clear it
+* OK/Cancel buttons covered the text of the delegate permissions dialog in
+  longer translations
+* Long options in the delegate sent-items dropdown of the compose settings
+  were cut off
+* Rule dialog comboboxes too narrow to read the selected condition or action
+* Settings, recipient history, rules and plugin state were overwritten when
+  requests of one session or several clients on the same mailbox overlapped
+* Favourites, saved searches and stored settings were wiped when the store's
+  settings could not be read, and the welcome screen reappeared on every login
+* Settings: the reload prompt appeared twice per apply, changes made during a
+  save were dropped, and a refused "reset all settings" could wipe later saves
+* Leaving Settings with unsaved changes could switch to the wrong folder
+* Message boxes: duplicated Reload/Cancel buttons, the radio list or checkbox
+  of one box rendered into the next, and a second question replaced the first
+* Removed sidebar widgets kept polling the server
+* Fresh logins over HTTPS with secure cookies enabled failed with
+  MAPI_E_INVALID_PARAMETER
+* A session cookie from a different browser left the client on a permanent
+  error mask instead of the login page
+* Interface unexpectedly shown in English: server-rendered strings used the
+  server default language instead of the selected one
+* A language stored without territory (de instead of de_DE) was rejected
+* A corrupt or stale translation cache stayed untranslated until removed
+* Translations failed on hosts without the PHP sysvshm extension
+* Translated headings such as "Sign & Encrypt" showed "&amp;"
+* Stale stylesheets, icons, themes, favicons, TinyMCE and viewer assets were
+  served from the browser cache after an upgrade until a hard reload
+* Silent failures and corrupt downloads when a MAPI operation failed
+* A server error reported without request context crashed the client's error
+  handler
+* Desktop notifications remained the active notifier and sound setting after
+  the plugin was disabled
+* Routing the mail saving notifications to another notifier showed the
+  configuration object instead of the message
+* Desktop notifications showed the stock grommunio icon and a separate window
+  the stock favicon instead of the theme's
+* Unreadable links on the Legal Information page
+* A theme shipping only a favicon and no style sheets made every page fail
+  with an error 500
+* Themes without a primary hover colour got a lightened shade even for light
+  primary colours
+* An unreadable or invalid iconset.json raised PHP errors instead of being
+  logged and skipped
+* Signed and encrypted S/MIME messages showed invalid@invalid as sender after
+  decryption and replies had no recipient
+* S/MIME signatures chaining to email-only root CAs failed on SUSE and RHEL
+* S/MIME chain verification failures were reported as an unavailable
+  revocation service instead of naming the untrusted CA or missing
+  intermediate
+* S/MIME certificate upload rejected valid private keys on PHP 8
+* Files: editing an account kept its previous backend settings and credentials
+* Files: labels in the account dialog wrapped into the input fields
+* Files: OnlyOffice editing and new-document creation used URLs not derived
+  from the account's backend, and new documents failed Nextcloud's CSRF check
+* Files: malformed WebDAV, OCS and Seafile server responses are reported as
+  errors instead of causing PHP failures
+* Files: download with an unknown account id or a failing backend produced PHP
+  errors, a broken ZIP archive and leftover temporary files
+* Files: version information dialog cut off, Close button outside the dialog
+* Files: copying a file over WebDAV failed because the request carried no
+  destination
+* Files: the share recipient lookup failed with a PHP error on Seafile
+  accounts and on backends without recipient search
+* Files: an expired version marker flushed the whole Redis cache database
+  every 15 minutes
+* Deleting several assigned tasks at once failed
+* MDM shared-folder actions report that the server does not support them
+* MDM: a device the server refused to remove disappeared from the device list
+  anyway
+* AI plugin: long answers were cut off mid-sentence at the output token cap
+
+Changes:
+
+* TinyMCE was upgraded to 8.9.1
+* pdf.js was upgraded to 6.3.289
+* dompurify was upgraded to 3.4.15
+* SheetJS was upgraded to 0.20.3
+* Video.js was upgraded to 8.24.0
+* sabre/dav was upgraded to 4.7.1, sabre/event to 5.1.9 and sabre/vobject to
+  4.6.1 in the Files WebDAV backend
+* OpenPGP.js 6.3.1, postal-mime 2.7.5 and fflate 0.8.3 are vendored for the
+  OpenPGP plugin
+* The Kendox plugin bundles only phpseclib 3.0.57 and symfony/polyfill-iconv
+* Plugin status messages (Files, passwd, AI, Kendox, template snippets,
+  S/MIME) appear as toasts instead of modal message boxes
+* Out of office replies without a subject of their own use "Out of Office"
+* AI plugin: the default output token cap is 4096
+* Remaining animated gif loaders (tree nodes, loading texts) replaced by the
+  spinner
+* First and last page buttons use chevrons with a stop bar, matching the
+  previous and next buttons
+* Settings move from zarafa/v1 to grommunio/v1; a store still holding the old
+  root is migrated while loading and written back once
+* The client source tree moved from client/zarafa to client/grommunio
+* Version 5.0 in package.json and the version file
+
+Security:
+
+* Login, token, fingerprint, logout and all action requests check the request
+  Origin against CROSS_DOMAIN_AUTHENTICATION_ALLOWED_DOMAINS; X-Forwarded-Host
+  and X-Forwarded-Proto are honoured behind a reverse proxy
+* The client logs out with a POST request; a GET logout is accepted only from
+  a same-origin navigation
+* Action requests and the fingerprint service require a JSON POST body; plain
+  form posts are rejected with 405/415 (plugins must send application/json)
+* One-time OAuth state and a validated callback URL for Keycloak logins
+* Attachment downloads are served with nosniff and a sandboxing
+  Content-Security-Policy, inline display only for safe media types
+* Control characters cannot reach response headers through the redirect path
+  or through download filenames
+* BIMI logos are fetched only from public, DNS-pinned HTTPS hosts
+* Limit on messages a mailbox may submit per minute, MAX_SUBMITS_PER_MINUTE
+  (default 20, 0 disables), so a replayed send request cannot flood recipients
+* Attachment drag-out: the sender-supplied MIME type is sanitised, and the
+  prefetch cache has a total size budget, real size checks and a fetch cap
+* Autosave is paused while OpenPGP encryption is selected so no unencrypted
+  draft is written; the compose setting "Also autosave while encryption is
+  selected (drafts are stored unencrypted)" restores it
+* S/MIME AIA, OCSP and CRL downloads resolve the URL before connecting, reach
+  public addresses only and bound the response size
+* S/MIME: CRLs are authenticated against their issuer and checked for
+  freshness, and OCSP responses without a nextUpdate have a maximum age
+* S/MIME: temporary key material is removed reliably, never through a symlink
+* S/MIME: certificate import reports an unverifiable revocation status (and
+  still imports unless PLUGIN_SMIME_REVOCATION_FAIL_CLOSED is set)
+* S/MIME and BIMI cache directories whose permissions cannot be tightened are
+  not used
+* S/MIME LDAP lookups use only the configured PLUGIN_SMIME_LDAP_URI and
+  PLUGIN_SMIME_LDAP_BASE_DN, so a request cannot redirect the bind credentials
+* S/MIME: malformed certificates are rejected by the certificate, DER and
+  NemID parsers instead of causing PHP errors
+* Attachments handed over by OpenOffice are accepted only as regular files
+  directly in the system staging directory
+* The OnlyOffice panel accepts login messages only from its own same-origin
+  frame
+* One-time encryption-store tokens cannot be redeemed by two concurrent
+  requests
+* SECURITY.md: contact for vulnerability reports, the handling steps up to
+  coordinated disclosure, the CRA reporting obligations grommunio GmbH meets,
+  how security updates are delivered and the settings a secure installation
+  depends on
+* bom.json (CycloneDX 1.6) and bom.spdx.json (SPDX 2.3) list all 421 runtime
+  and build-time components; ``make bom`` regenerates them and
+  ``make bom-check`` fails when they are out of date, also in CI
+* SPDX-FileCopyrightText and SPDX-License-Identifier headers on every source
+  file we own, REUSE.toml for the vendored trees and files that cannot carry a
+  header, the licence texts under LICENSES/; ``reuse lint`` passes
+
+Administration:
+
+* Plugins disabled for a user in the grommunio Admin API are not loaded; new
+  ADMIN_API_ENDPOINT and ADMIN_API_DISABLEDPLUGINS_ENDPOINT options
+* ADMIN_API_STATUS_ENDPOINT derives from ADMIN_API_ENDPOINT
+* ADMIN_API_DISABLEDPLUGINS_CACHE_TIME, ADMIN_API_DISABLEDPLUGINS_RETRY_TIME:
+  the disabled-plugins answer is cached per session (300 s, 30 s on failure)
+* New ADMIN_API_TIMEOUT option (default 2 seconds) bounds the Admin API calls
+  at page load
+* ENABLE_BIMI (enabled by default) controls the BIMI sender logos; the server
+  resolves and caches the logo
+* OpenPGP plugin: off by default; PLUGIN_PGP_ENABLE makes it available and
+  PLUGIN_PGP_USER_DEFAULT_ENABLE (default false) turns it on for users who
+  have not chosen
+* PLUGIN_PGP_MAX_MESSAGE_BYTES and PLUGIN_PGP_MAX_KEY_BYTES bound message and
+  key sizes; PLUGIN_PGP_UNLOCK_TTL (seconds, default 300) how long an unlocked
+  key stays in memory
+* PLUGIN_PGP_KEYSERVER_ALLOWLIST restricts keyserver lookups to the listed
+  HTTPS origins
+* ENABLE_ATTACHMENT_REMOVAL (default TRUE) in config.php; FALSE removes the
+  "Remove attachment" menu entry and the server action behind it
+* ENABLE_ATTACHMENT_DRAG_OUT is documented to gate only the embedded
+  attachment payload; dragging attachments to the desktop keeps working when
+  it is off
+* New PLUGIN_SMIME_AIA_ALLOW_PRIVATE permits AIA, OCSP and CRL downloads from
+  private address ranges (internal PKIs)
+* New PLUGIN_SMIME_REVOCATION_FAIL_CLOSED (default false) fails verification
+  when the revocation status of a chain certificate cannot be determined
+* New S/MIME options PLUGIN_SMIME_OCSP_MAX_AGE, PLUGIN_SMIME_OCSP_CLOCK_SKEW,
+  PLUGIN_SMIME_CRL_MAX_BYTES and PLUGIN_SMIME_CRL_CLOCK_SKEW
+* PLUGIN_SMIME_CRL_CACHE_DIR defaults to TMP_PATH/smime/crl
+* JSON themes colour the whole interface, not only the login screen:
+  primary-color feeds all variables, gradient-start/gradient-end the top bar
+* logo-small:dark provides a dark-mode logo
+* The in-app spinner follows the theme
+* Static assets ship pre-compressed as brotli and gzip siblings; the nginx
+  snippet gains a gzip fallback, font caching and the web manifest media type
+* DEBUG_LOADER = LOAD_DEBUG works on a packaged install (a debug bundle is
+  shipped)
+* ext-base, ext-all and ux-all are delivered as one Ext JS bundle
+* grommunio-web-session-cleanup.timer removes session files unused for longer
+  than the new SESSION_MAX_LIFETIME in config.php (default two weeks); on
+  Debian/Ubuntu a session directory set in config.php is invisible to the
+  distribution's session cleaner
+* Translation directories drop the .UTF-8 suffix (server/language/de_DE
+  instead of de_DE.UTF-8)
+* LANG and ENABLED_LANGUAGES accept XPG locale identifiers with or without a
+  charset; a bare language code falls back to its territory
+* Category storage uses PR_ROAMING_XMLSTREAM as defined by php-mapi's
+  mapi_load_mapidefs; a php-mapi that provides it is required
+* Files: PLUGIN_FILES_CACHE_TTL sets how long a folder listing stays cached
+  (default 900 seconds); the unused PLUGIN_FILES_CACHE_DIR is removed
+
+For plugin developers:
+
+* The ``Zarafa`` namespace is ``Grommunio``, ``zarafa.`` xtypes and ptypes
+  are ``grommunio.``, ``zarafa-`` and ``x-zarafa-`` CSS classes are
+  ``grommunio-`` and ``x-grommunio-``, plugin settings live under
+  grommunio/v1/plugins/<name>, the JSON envelope key is grommunio, and PHP
+  has GrommunioException, GrommunioErrorException and ERROR_GROMMUNIO; see
+  doc/plugin-namespace-migration.rst
+* Deprecated aliases for one release: window.Zarafa resolves to Grommunio and
+  warns once, unregistered zarafa.* xtypes and ptypes fall through to
+  grommunio.*, settings paths under zarafa/ are redirected, and the old PHP
+  names remain as aliases; CSS classes are not aliased
+* Unchanged on purpose: mapi_logon_zarafa, mapi_zarafa_getpermissionrules,
+  mapi_zarafa_setpermissionrules, the ZARAFA_*_GUID constants and the ZARAFA
+  address type, which belong to php_mapi, mapi-header-php and gromox
+* The terser reserved-name lists in Makefile and plugins/shared.mk keep the
+  global Grommunio instead of Zarafa
+* Grommunio.common.ui.SecurityButtons: shared compose Sign/Encrypt split
+  buttons fed by protocol providers; S/MIME registers as the first provider
+* New server hook server.util.parse_secure.before lets a plugin claim a
+  protected message before S/MIME parsing
+* New <optional/> manifest element: an optional plugin's client files are only
+  sent to users who enabled it, and plugins depending on it are withheld too
+* All plugins with an enable switch declare <optional/>; withheld plugins stay
+  listed in the plugin settings, and manifest titles match the display names
+* The dropdown, popup, message box and toolbar notifier plugins and the slider
+  base class they built on (the Grommunio.core.ui.notifier plugins) are
+  removed; the names popup, dropdown, eventdropdown, persistentmessageplugin,
+  dialognotifier, messagebox and toolbarnotifierplugin resolve to the toast;
+  the pagination and live-scroll sliders stay
+* Grommunio.core.Util.showMessageBox is removed;
+  Grommunio.common.Actions.showMessageBox is unaffected
+
+Internal:
+
+* ESLint 9 flat config across the client: unused rules switched off,
+  mechanical fixes with byte-identical minified output, last warnings fixed
+* PHP static analysis and hardening: explicit MAPI handle, value and I/O
+  failure contracts, docblock fixes, php-cs-fixer formatting, contract tests
+* Scrutinizer CI configured for PHP 8.2 and MAPI, PHPCS wrapper pinned to
+  3.13.6, MAPI analysis stub types normalized
+* Build: one postcss run for all stylesheets, vendored trees mirrored on
+  change, parallel and DESTDIR builds fixed, CSS targets in .browserslistrc
+* npm run build:pgp-vendor vendors the OpenPGP plugin libraries and checks
+  their versions against the pins
+* Build and development dependency updates (svgo 3.3.5); plugin manifest
+  version bumps
+* Code cleanups: dead code in the settings model, message box and HTML editor,
+  a shared ensureRecordObjectId helper, unreachable code and helpers removed
+* Message wording tidied, wrong translations corrected; translation updates
+* Tests for inline attachment copy and conversion
+* Kendox reports an unreadable PFX file explicitly
+* doc/theming.rst documents the theme.json format
+
 grommunio-web 3.19 (2026-07-27)
 ==================================
 Fixes:

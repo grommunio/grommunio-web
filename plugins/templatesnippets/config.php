@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // Enable the plugin by default for all users
 define('PLUGIN_TEMPLATESNIPPETS_USER_DEFAULT_ENABLE', false);
 

@@ -1,12 +1,17 @@
-Ext.namespace('Zarafa.plugins.files.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui');
 
 /**
- * @class Zarafa.plugins.files.ui.FolderNodeUI
+ * @class Grommunio.plugins.files.ui.FolderNodeUI
  * @extends Ext.tree.TreeNodeUI
  *
  * {@link Ext.tree.TreeNodeUI TreeNodeUI} has limitation that you can't add html tags to textNode as it should only
  * contain text, not anything else. but we need to add counter of folders to textnode and also make some changes according to
- * counters shown or not. So this class changes the template that is used to create {@link Zarafa.hierarchy.ui.FolderNode FolderNode}
+ * counters shown or not. So this class changes the template that is used to create {@link Grommunio.hierarchy.ui.FolderNode FolderNode}
  * so we can create a new element for showing counters so it will not interfere with default functionality of text nodes.
  *
  * The default layout of extjs for treenodes is something like this
@@ -33,19 +38,19 @@ Ext.namespace('Zarafa.plugins.files.ui');
  <img class="x-tree-ec-icon x-tree-elbow">	// expand icon
  <img unselectable="on" class="x-tree-node-icon icon_folder_note">	// folder icon
  <a tabindex="1" href="" class="x-tree-node-anchor" hidefocus="on">
- <span unselectable="on" class="zarafa-hierarchy-node-text"> node text </span>	// text node
- <span unselectable="on" class="zarafa-hierarchy-node-unread-count">(2)</span>	// counter node
+ <span unselectable="on" class="grommunio-hierarchy-node-text"> node text </span>	// text node
+ <span unselectable="on" class="grommunio-hierarchy-node-unread-count">(2)</span>	// counter node
  </a>
  </div>
  </code></pre>
  */
-Zarafa.plugins.files.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
+Grommunio.plugins.files.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 	/**
-	 * Function will render {@link Zarafa.hierarchy.ui.FolderNode FolderNode} based on modified template for
+	 * Function will render {@link Grommunio.hierarchy.ui.FolderNode FolderNode} based on modified template for
 	 * our custom needs.
-	 * @param {Zarafa.hierarchy.ui.FolderNode} n tree node.
-	 * @param {Object} a config object of {@link Zarafa.hierarchy.ui.FolderNode FolderNode}.
-	 * @param {Ext.Element} targetNode element in which {@link Zarafa.hierarchy.ui.FolderNode FolderNode} will be rendered.
+	 * @param {Grommunio.hierarchy.ui.FolderNode} n tree node.
+	 * @param {Object} a config object of {@link Grommunio.hierarchy.ui.FolderNode FolderNode}.
+	 * @param {Ext.Element} targetNode element in which {@link Grommunio.hierarchy.ui.FolderNode FolderNode} will be rendered.
 	 * @param {Boolean} bulkRender
 	 */
 	renderElements: function (n, a, targetNode, bulkRender) {
@@ -54,9 +59,9 @@ Zarafa.plugins.files.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 		var cb = Ext.isBoolean(a.checked);
 		var checkboxMarkup = '';
 		if (cb) {
-			var checkboxId = Ext.id(null, 'zarafa-files-node-cb-');
+			var checkboxId = Ext.id(null, 'grommunio-files-node-cb-');
 			checkboxMarkup =
-				'<input class="x-tree-node-cb zarafa-hierarchy-node-cb" type="checkbox" id="' +
+				'<input class="x-tree-node-cb grommunio-hierarchy-node-cb" type="checkbox" id="' +
 				checkboxId +
 				'" name="' +
 				checkboxId +
@@ -74,7 +79,7 @@ Zarafa.plugins.files.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 				'<li class="x-tree-node">' +
 				'<div ext:tree-node-id="' +
 				n.id +
-				'" class="x-tree-node-el x-tree-node-leaf x-unselectable zarafa-hierarchy-node" unselectable="on">' +
+				'" class="x-tree-node-el x-tree-node-leaf x-unselectable grommunio-hierarchy-node" unselectable="on">' +
 				// indent space
 				'<span class="x-tree-node-indent" aria-hidden="true">' +
 				this.indentMarkup +
@@ -88,7 +93,7 @@ Zarafa.plugins.files.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 				// node icon
 				icon +
 				// node element (this.elNode)
-				'<a hidefocus="on" class="x-tree-node-anchor zarafa-hierarchy-node-anchor" ' +
+				'<a hidefocus="on" class="x-tree-node-anchor grommunio-hierarchy-node-anchor" ' +
 				'href="' +
 				href +
 				'" tabIndex="0" ' +
@@ -98,7 +103,7 @@ Zarafa.plugins.files.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 				'<span unselectable="on">' +
 				(n.tpl ? n.tpl.apply(a) : n.text) +
 				'</span>' +
-				'<span class="zarafa-hierarchy-node-backend" unselectable="on"></span>' +
+				'<span class="grommunio-hierarchy-node-backend" unselectable="on"></span>' +
 				'</a>' +
 				'</div>' +
 				'<ul class="x-tree-node-ct" style="display:none;"></ul>' +
@@ -160,10 +165,10 @@ Zarafa.plugins.files.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 	 */
 	onOver: function (e) {
 		var name = this.textNode.textContent + this.folderBackendNode.textContent;
-		Zarafa.core.Util.setOverflowTooltip(this.textNode, name);
-		Zarafa.core.Util.setOverflowTooltip(this.folderBackendNode, name);
+		Grommunio.core.Util.setOverflowTooltip(this.textNode, name);
+		Grommunio.core.Util.setOverflowTooltip(this.folderBackendNode, name);
 
-		Zarafa.plugins.files.ui.FolderNodeUI.superclass.onOver.apply(this, arguments);
+		Grommunio.plugins.files.ui.FolderNodeUI.superclass.onOver.apply(this, arguments);
 	},
 
 	/**
@@ -217,8 +222,8 @@ Zarafa.plugins.files.ui.FolderNodeUI = Ext.extend(Ext.tree.TreeNodeUI, {
 	},
 
 	/**
-	 * Function is used to show backend name along with {@link Zarafa.plugins.files.data.FilesFolderRecord folder} folder name.
-	 * @param {Zarafa.plugins.files.ui.FilesFolderNode} node which has to show backend name.
+	 * Function is used to show backend name along with {@link Grommunio.plugins.files.data.FilesFolderRecord folder} folder name.
+	 * @param {Grommunio.plugins.files.ui.FilesFolderNode} node which has to show backend name.
 	 */
 	showFolderBackend: function (node) {
 		var folder = node.getFolder();

@@ -1,7 +1,12 @@
-Ext.namespace('Zarafa.plugins.files.ui.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui.dialogs');
 
 /**
- * @class Zarafa.plugins.files.ui.dialogs.SharePanel
+ * @class Grommunio.plugins.files.ui.dialogs.SharePanel
  * @extends Ext.Panel
  * @xtype filesplugin.sharepanel
  *
@@ -11,7 +16,7 @@ Ext.namespace('Zarafa.plugins.files.ui.dialogs');
  *
  * e.g.: filesbackendSMB, filesbackendOwncloud....
  */
-Zarafa.plugins.files.ui.dialogs.SharePanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.files.ui.dialogs.SharePanel = Ext.extend(Ext.Panel, {
 
 	/**
 	 * @constructor
@@ -44,8 +49,8 @@ Zarafa.plugins.files.ui.dialogs.SharePanel = Ext.extend(Ext.Panel, {
 		}
 
 
-		Zarafa.plugins.files.ui.dialogs.SharePanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.dialogs.SharePanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.sharepanel', Zarafa.plugins.files.ui.dialogs.SharePanel);
+Ext.reg('filesplugin.sharepanel', Grommunio.plugins.files.ui.dialogs.SharePanel);

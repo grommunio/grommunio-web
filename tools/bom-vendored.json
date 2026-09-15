@@ -1,0 +1,959 @@
+{
+	"_comment": [
+		"Components no package manager describes: libraries vendored directly in the",
+		"tree, plus the external platform this application runs on. Anything npm or",
+		"composer already records is read from package-lock.json and the",
+		"vendor/composer/installed.json trees by tools/build-bom.mjs instead.",
+		"The PHP extension list is derived from the functions the code actually calls."
+	],
+	"components": [
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "extjs",
+			"version": "3.4.1.1",
+			"license": "GPL-3.0-only",
+			"scope": "runtime",
+			"paths": [
+				"client/extjs/ext-base.js",
+				"client/extjs/ext-base-debug.js",
+				"client/extjs/ext-all.js",
+				"client/extjs/ext-all-debug.js",
+				"client/extjs/ux/ux-all.js",
+				"client/extjs/ux/ux-all-debug.js",
+				"client/extjs/ux/css/ux-all.css",
+				"client/extjs/ux/images/",
+				"client/extjs/resources/css/ext-all.css",
+				"client/extjs/resources/css/ext-all-notheme.css",
+				"client/extjs/resources/css/ext-all-ux.css",
+				"client/extjs/resources/images/"
+			],
+			"copyright": "Copyright (c) 2011 - 2013 Sencha Inc",
+			"purl": "pkg:generic/extjs@3.4.1.1",
+			"website": "https://www.sencha.com/products/extjs/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "ext-ux-printer",
+			"version": "NOASSERTION",
+			"license": "MIT",
+			"scope": "runtime",
+			"paths": [
+				"client/grommunio/common/printer/LICENSE",
+				"client/grommunio/common/printer/renderers/BaseRenderer.js",
+				"client/grommunio/common/printer/renderers/RecordRenderer.js"
+			],
+			"copyright": "Copyright (c) 2010 Ed Spencer",
+			"website": "https://github.com/edspencer/Ext.ux.Printer"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "ext-ux-form-metaform",
+			"version": "1.3",
+			"license": "LGPL-3.0-only",
+			"scope": "runtime",
+			"paths": [
+				"plugins/files/js/external/Ext.ux.form.MetaForm-debug.js"
+			],
+			"copyright": "Copyright (c) 2008 Ing. Jozef Sakalos",
+			"website": "https://www.sencha.com/forum/showthread.php?25551"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "tinymce-i18n",
+			"version": "8",
+			"license": "GPL-2.0-or-later",
+			"scope": "runtime",
+			"paths": [
+				"client/tinymce-languages/"
+			],
+			"copyright": "Copyright (c) 2024 Ephox Corporation DBA Tiny Technologies, Inc. and the TinyMCE translation contributors",
+			"purl": "pkg:npm/tinymce-i18n@8",
+			"website": "https://www.tiny.cloud/get-tiny/language-packages/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "tinymce",
+			"version": "8.9.1",
+			"license": "GPL-2.0-or-later",
+			"scope": "runtime",
+			"paths": [
+				"client/tinymce/tinymce.js",
+				"client/tinymce/tinymce.min.js",
+				"client/tinymce/models/dom/",
+				"client/tinymce/themes/silver/",
+				"client/tinymce/icons/default/",
+				"client/tinymce/skins/",
+				"client/tinymce/plugins/ (29 upstream plugins: accordion, advlist, anchor, autolink, autoresize, autosave, charmap, code, codesample, directionality, emoticons, fullscreen, help, image, importcss, insertdatetime, link, lists, media, nonbreaking, pagebreak, preview, quickbars, save, searchreplace, table, visualblocks, visualchars, wordcount)"
+			],
+			"copyright": "Copyright (c) Tiny Technologies, Inc.",
+			"purl": "pkg:npm/tinymce@8.9.1",
+			"website": "https://www.tiny.cloud/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "ext-ux-form-tinymcetextarea",
+			"version": "4.0.1",
+			"license": "AGPL-3.0-or-later AND LGPL-2.1-or-later",
+			"scope": "runtime",
+			"paths": [
+				"client/third-party/tinymce/TinyMceTextArea.js"
+			],
+			"copyright": "Copyright (c) 2013 Oleg Schildt"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "dompurify",
+			"version": "3.4.12",
+			"license": "Apache-2.0 OR MPL-2.0",
+			"scope": "runtime",
+			"paths": [
+				"client/tinymce/tinymce.js (inlined)",
+				"client/tinymce/tinymce.min.js (inlined)"
+			],
+			"copyright": "Copyright (c) Cure53 and other contributors",
+			"purl": "pkg:npm/dompurify@3.4.12",
+			"website": "https://github.com/cure53/DOMPurify"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "dompurify",
+			"version": "3.4.15",
+			"license": "Apache-2.0 OR MPL-2.0",
+			"scope": "runtime",
+			"paths": [
+				"client/dompurify/purify.js",
+				"client/dompurify/purify.min.js",
+				"client/dompurify/purify.js.map",
+				"client/dompurify/purify.min.js.map"
+			],
+			"copyright": "Copyright (c) Cure53 and other contributors",
+			"purl": "pkg:npm/dompurify@3.4.15",
+			"website": "https://github.com/cure53/DOMPurify"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "pdf.js",
+			"version": "6.3.289",
+			"license": "Apache-2.0",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/pdfjs/LICENSE",
+				"client/filepreviewer/pdfjs/build/pdf.mjs",
+				"client/filepreviewer/pdfjs/build/pdf.mjs.map",
+				"client/filepreviewer/pdfjs/build/pdf.sandbox.mjs",
+				"client/filepreviewer/pdfjs/build/pdf.sandbox.mjs.map",
+				"client/filepreviewer/pdfjs/build/pdf.worker.mjs",
+				"client/filepreviewer/pdfjs/build/pdf.worker.mjs.map",
+				"client/filepreviewer/pdfjs/web/viewer.html",
+				"client/filepreviewer/pdfjs/web/viewer.mjs",
+				"client/filepreviewer/pdfjs/web/viewer.mjs.map",
+				"client/filepreviewer/pdfjs/web/viewer.css",
+				"client/filepreviewer/pdfjs/web/images/",
+				"client/filepreviewer/pdfjs/web/locale/"
+			],
+			"copyright": "Copyright 2012, 2014, 2024 Mozilla Foundation",
+			"purl": "pkg:npm/pdfjs-dist@6.3.289",
+			"website": "https://mozilla.github.io/pdf.js/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "viewerjs",
+			"version": "0.5.8+grommunio.0.7.0",
+			"license": "AGPL-3.0-or-later AND Apache-2.0",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/ViewerJS/viewer.js",
+				"client/filepreviewer/ViewerJS/viewer.css",
+				"client/filepreviewer/ViewerJS/index.html",
+				"client/filepreviewer/ViewerJS/ODFViewerPlugin.js"
+			],
+			"copyright": "Copyright (C) 2012 - 2015 KO GmbH; Copyright 2020 - 2026 grommunio GmbH",
+			"website": "https://viewerjs.org/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "webodf",
+			"version": "0.0.0-buildca87b663",
+			"license": "AGPL-3.0-or-later AND (MIT OR GPL-3.0-only) AND MIT",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/ViewerJS/webodf.js"
+			],
+			"copyright": "Copyright (C) 2010 - 2015 KO GmbH <copyright@kogmbh.com>",
+			"website": "https://webodf.org/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "video.js",
+			"version": "8.24.0",
+			"license": "Apache-2.0",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/ViewerJS/video-js/video.js",
+				"client/filepreviewer/ViewerJS/video-js/video-js.css",
+				"client/filepreviewer/ViewerJS/video-js/font/VideoJS.svg",
+				"client/filepreviewer/ViewerJS/video-js/font/VideoJS.ttf",
+				"client/filepreviewer/ViewerJS/video-js/font/VideoJS.woff",
+				"client/filepreviewer/ViewerJS/video-js/lang/"
+			],
+			"copyright": "Copyright (c) Brightcove, Inc. and the Video.js contributors",
+			"purl": "pkg:npm/video.js@8.24.0",
+			"website": "https://videojs.com/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "@videojs/themes",
+			"version": "1.0.1",
+			"license": "MIT",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/ViewerJS/video-js/sea.css"
+			],
+			"purl": "pkg:npm/%40videojs%2Fthemes@1.0.1",
+			"website": "https://github.com/videojs/themes"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "docx-preview",
+			"version": "0.3.7",
+			"license": "Apache-2.0",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/ViewerJS/vendor/docx-preview.min.js"
+			],
+			"copyright": "Copyright (c) Volodymyr Baydalka and the docx-preview contributors",
+			"purl": "pkg:npm/docx-preview@0.3.7",
+			"website": "https://github.com/VolodymyrBaydalka/docxjs"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "jszip",
+			"version": "3.10.1",
+			"license": "MIT OR GPL-3.0-only",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/ViewerJS/vendor/jszip.min.js"
+			],
+			"copyright": "Copyright (c) 2009 - 2016 Stuart Knightley and the JSZip contributors",
+			"purl": "pkg:npm/jszip@3.10.1",
+			"website": "https://stuk.github.io/jszip/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "sheetjs-xlsx",
+			"version": "0.20.3",
+			"license": "Apache-2.0",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/ViewerJS/vendor/xlsx.full.min.js"
+			],
+			"copyright": "Copyright (C) 2012-present SheetJS LLC",
+			"website": "https://sheetjs.com"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "adobe-cmap-resources",
+			"version": "snapshot-20140317",
+			"license": "BSD-3-Clause",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/pdfjs/web/cmaps/"
+			],
+			"copyright": "Copyright 1990 - 2009 Adobe Systems Incorporated",
+			"website": "https://github.com/adobe-type-tools/cmap-resources"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "foxit-standard-pdf-fonts",
+			"version": "6.3.289",
+			"license": "BSD-3-Clause",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/pdfjs/web/standard_fonts/FoxitDingbats.pfb",
+				"client/filepreviewer/pdfjs/web/standard_fonts/FoxitFixed.pfb",
+				"client/filepreviewer/pdfjs/web/standard_fonts/FoxitFixedBold.pfb",
+				"client/filepreviewer/pdfjs/web/standard_fonts/FoxitFixedBoldItalic.pfb",
+				"client/filepreviewer/pdfjs/web/standard_fonts/FoxitFixedItalic.pfb",
+				"client/filepreviewer/pdfjs/web/standard_fonts/FoxitSerif.pfb",
+				"client/filepreviewer/pdfjs/web/standard_fonts/FoxitSerifBold.pfb",
+				"client/filepreviewer/pdfjs/web/standard_fonts/FoxitSerifBoldItalic.pfb",
+				"client/filepreviewer/pdfjs/web/standard_fonts/FoxitSerifItalic.pfb",
+				"client/filepreviewer/pdfjs/web/standard_fonts/FoxitSymbol.pfb",
+				"client/filepreviewer/pdfjs/web/standard_fonts/LICENSE_FOXIT"
+			],
+			"copyright": "Copyright 2014 PDFium Authors; original code copyright 2014 Foxit Software Inc.",
+			"website": "https://pdfium.googlesource.com/pdfium/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "liberation-fonts",
+			"version": "1.07.4",
+			"license": "GPL-2.0-only WITH Font-exception-2.0",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/pdfjs/web/standard_fonts/LiberationSans-Regular.ttf",
+				"client/filepreviewer/pdfjs/web/standard_fonts/LiberationSans-Bold.ttf",
+				"client/filepreviewer/pdfjs/web/standard_fonts/LiberationSans-Italic.ttf",
+				"client/filepreviewer/pdfjs/web/standard_fonts/LiberationSans-BoldItalic.ttf",
+				"client/filepreviewer/pdfjs/web/standard_fonts/LICENSE_LIBERATION"
+			],
+			"copyright": "Copyright (c) 2007 Red Hat, Inc.",
+			"website": "https://github.com/liberationfonts/liberation-fonts"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "compact-icc-profiles",
+			"version": "bdd8466",
+			"license": "CC0-1.0",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/pdfjs/web/iccs/CGATS001Compat-v2-micro.icc",
+				"client/filepreviewer/pdfjs/web/iccs/LICENSE"
+			],
+			"website": "https://github.com/saucecontrol/Compact-ICC-Profiles"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "openjpeg",
+			"version": "2.5.4",
+			"license": "BSD-2-Clause",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/pdfjs/web/wasm/openjpeg.wasm",
+				"client/filepreviewer/pdfjs/web/wasm/openjpeg_nowasm_fallback.js",
+				"client/filepreviewer/pdfjs/web/wasm/LICENSE_OPENJPEG",
+				"client/filepreviewer/pdfjs/web/wasm/LICENSE_PDFJS_OPENJPEG"
+			],
+			"copyright": "Copyright (c) 2002 - 2014 Universite catholique de Louvain (UCL) and the OpenJPEG contributors",
+			"website": "https://www.openjpeg.org/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "pdfium-jbig2-decoder",
+			"version": "0455e82",
+			"license": "Apache-2.0 AND BSD-3-Clause",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/pdfjs/web/wasm/jbig2.wasm",
+				"client/filepreviewer/pdfjs/web/wasm/jbig2_nowasm_fallback.js",
+				"client/filepreviewer/pdfjs/web/wasm/LICENSE_JBIG2",
+				"client/filepreviewer/pdfjs/web/wasm/LICENSE_PDFJS_JBIG2"
+			],
+			"copyright": "Copyright 2014 PDFium Authors; Copyright (c) Mozilla Foundation",
+			"website": "https://pdfium.googlesource.com/pdfium/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "qcms",
+			"version": "0.3.0",
+			"license": "MIT",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/pdfjs/web/wasm/qcms_bg.wasm",
+				"client/filepreviewer/pdfjs/web/wasm/LICENSE_QCMS",
+				"client/filepreviewer/pdfjs/web/wasm/LICENSE_PDFJS_QCMS"
+			],
+			"copyright": "Copyright (C) 2009 - 2024 Mozilla Corporation; Copyright (C) 1998 - 2007 Marti Maria",
+			"website": "https://github.com/FirefoxGraphics/qcms"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "quickjs",
+			"version": "2026-06-04",
+			"license": "MIT",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/pdfjs/web/wasm/quickjs-eval.js",
+				"client/filepreviewer/pdfjs/web/wasm/quickjs-eval.wasm"
+			],
+			"copyright": "Copyright (c) 2017 - 2025 Fabrice Bellard and Charlie Gordon",
+			"website": "https://bellard.org/quickjs/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "css-tree",
+			"version": "2.3.1",
+			"license": "MIT",
+			"scope": "runtime",
+			"paths": [
+				"client/third-party/csstree/csstree.js"
+			],
+			"copyright": "Copyright (c) 2016 - present Roman Dvornov",
+			"purl": "pkg:npm/css-tree@2.3.1",
+			"website": "https://github.com/csstree/csstree"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "mdn-data",
+			"version": "2.0.30",
+			"license": "CC0-1.0",
+			"scope": "runtime",
+			"paths": [
+				"client/third-party/csstree/csstree.js"
+			],
+			"purl": "pkg:npm/mdn-data@2.0.30",
+			"website": "https://github.com/mdn/data"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "source-map-js",
+			"version": "NOASSERTION",
+			"license": "BSD-3-Clause",
+			"scope": "runtime",
+			"paths": [
+				"client/third-party/csstree/csstree.js"
+			],
+			"copyright": "Copyright (c) 2009 - 2011 Mozilla Foundation and contributors",
+			"purl": "pkg:npm/source-map-js",
+			"website": "https://github.com/7rulnik/source-map-js"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "tokenizr",
+			"version": "1.7.0",
+			"license": "MIT",
+			"scope": "runtime",
+			"paths": [
+				"client/third-party/tokenizr/tokenizr.js",
+				"client/third-party/tokenizr/README.md"
+			],
+			"copyright": "Copyright (c) 2015 - 2024 Dr. Ralf S. Engelschall",
+			"purl": "pkg:npm/tokenizr@1.7.0",
+			"website": "https://github.com/rse/tokenizr"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "roboto",
+			"version": "2.137",
+			"license": "Apache-2.0",
+			"scope": "runtime",
+			"paths": [
+				"client/resources/fonts/roboto-400-cyrillic-ext.woff2",
+				"client/resources/fonts/roboto-400-cyrillic.woff2",
+				"client/resources/fonts/roboto-400-greek-ext.woff2",
+				"client/resources/fonts/roboto-400-greek.woff2",
+				"client/resources/fonts/roboto-400-latin-ext.woff2",
+				"client/resources/fonts/roboto-400-latin.woff2",
+				"client/resources/fonts/roboto-400-vietnamese.woff2",
+				"client/resources/fonts/roboto-400-italic-cyrillic-ext.woff2",
+				"client/resources/fonts/roboto-400-italic-cyrillic.woff2",
+				"client/resources/fonts/roboto-400-italic-greek-ext.woff2",
+				"client/resources/fonts/roboto-400-italic-greek.woff2",
+				"client/resources/fonts/roboto-400-italic-latin-ext.woff2",
+				"client/resources/fonts/roboto-400-italic-latin.woff2",
+				"client/resources/fonts/roboto-400-italic-vietnamese.woff2",
+				"client/resources/fonts/roboto-700-cyrillic-ext.woff2",
+				"client/resources/fonts/roboto-700-cyrillic.woff2",
+				"client/resources/fonts/roboto-700-greek-ext.woff2",
+				"client/resources/fonts/roboto-700-greek.woff2",
+				"client/resources/fonts/roboto-700-latin-ext.woff2",
+				"client/resources/fonts/roboto-700-latin.woff2",
+				"client/resources/fonts/roboto-700-vietnamese.woff2"
+			],
+			"copyright": "Copyright 2011 Google Inc.",
+			"website": "https://fonts.google.com/specimen/Roboto"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "fira-mono",
+			"version": "3.201",
+			"license": "OFL-1.1",
+			"scope": "runtime",
+			"paths": [
+				"client/resources/fonts/FiraMono-Regular.woff2"
+			],
+			"copyright": "Copyright (c) The Mozilla Foundation and Telefonica S.A.",
+			"website": "https://github.com/mozilla/Fira"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "fluentui-system-icons",
+			"version": "1.1.159",
+			"license": "MIT",
+			"scope": "runtime",
+			"paths": [
+				"client/resources/iconsets/breeze/src/svg/16x16/",
+				"client/resources/iconsets/breeze/src/svg/large/",
+				"client/resources/iconsets/breeze/breeze-icons.css"
+			],
+			"copyright": "Copyright (c) Microsoft Corporation",
+			"website": "https://github.com/microsoft/fluentui-system-icons"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "videojs-font",
+			"version": "4.2.0",
+			"license": "Apache-2.0",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/ViewerJS/video-js/font/VideoJS.ttf",
+				"client/filepreviewer/ViewerJS/video-js/font/VideoJS.woff",
+				"client/filepreviewer/ViewerJS/video-js/font/VideoJS.svg"
+			],
+			"copyright": "Copyright (c) Brightcove, Inc.",
+			"purl": "pkg:npm/videojs-font@4.2.0",
+			"website": "https://github.com/videojs/font"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "leaflet-geosearch",
+			"version": "3.11.1",
+			"license": "MIT AND Apache-2.0 AND 0BSD",
+			"scope": "runtime",
+			"paths": [
+				"plugins/maps/js/external/geosearch.umd.js",
+				"plugins/maps/js/external/geosearch.umd.js.map",
+				"plugins/maps/resources/css/geocoder.css"
+			],
+			"copyright": "Copyright (c) 2010 - 2016 Stephan Meijer",
+			"purl": "pkg:npm/leaflet-geosearch@3.11.1",
+			"website": "https://github.com/smeijer/leaflet-geosearch"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "leaflet",
+			"version": "1.9.4",
+			"license": "BSD-2-Clause",
+			"scope": "runtime",
+			"paths": [
+				"plugins/maps/js/external/leaflet.js",
+				"plugins/maps/js/external/leaflet.js.map",
+				"plugins/maps/resources/css/leaflet.css",
+				"plugins/maps/resources/css/images/layers.png",
+				"plugins/maps/resources/css/images/layers-2x.png",
+				"plugins/maps/resources/css/images/marker-icon.png",
+				"plugins/maps/resources/css/images/marker-icon-2x.png",
+				"plugins/maps/resources/css/images/marker-shadow.png"
+			],
+			"copyright": "Copyright (c) 2010 - 2023 Volodymyr Agafonkin and CloudMade",
+			"purl": "pkg:npm/leaflet@1.9.4",
+			"website": "https://leafletjs.com"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "@googlemaps/js-api-loader",
+			"version": "1.16.6",
+			"license": "Apache-2.0",
+			"scope": "runtime",
+			"paths": [
+				"plugins/maps/js/external/geosearch.umd.js",
+				"plugins/maps/js/external/geosearch.umd.js.map"
+			],
+			"copyright": "Copyright (c) Google LLC",
+			"purl": "pkg:npm/%40googlemaps%2Fjs-api-loader@1.16.6",
+			"website": "https://github.com/googlemaps/js-api-loader"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "ext-ux-form-field-passwordmeter",
+			"version": "0.1",
+			"license": "MIT",
+			"scope": "runtime",
+			"paths": [
+				"plugins/passwd/js/external/PasswordMeter.js"
+			],
+			"copyright": "Copyright (c) Christoph Haas",
+			"website": "http://testcases.pagebakers.com/PasswordMeter/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "nemid-php",
+			"version": "0.1+git20120512.8bd9249",
+			"license": "MIT",
+			"scope": "runtime",
+			"paths": [
+				"plugins/smime/php/lib/Der.php",
+				"plugins/smime/php/lib/Nemid.php",
+				"plugins/smime/php/lib/Ocsp.php",
+				"plugins/smime/php/lib/Oids.php",
+				"plugins/smime/php/lib/X509.php"
+			],
+			"copyright": "Copyright (c) 2012 Mads Freek Petersen",
+			"website": "https://code.google.com/archive/p/nemid-php"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "open-iconic",
+			"version": "1.1.0",
+			"license": "MIT AND OFL-1.1",
+			"scope": "runtime",
+			"paths": [
+				"plugins/files/php/Files/Backend/Webdav/sabredav/vendor/sabre/dav/lib/DAV/Browser/assets/openiconic"
+			],
+			"copyright": "Copyright (c) 2014 Waybury",
+			"website": "https://useiconic.com/open-iconic/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "openpgp",
+			"version": "6.3.1",
+			"license": "LGPL-3.0-or-later",
+			"scope": "runtime",
+			"paths": [
+				"plugins/pgp/resources/vendor/pgp-vendor.js (bundled by tools/build-pgp-vendor.mjs)",
+				"plugins/pgp/resources/vendor/pgp-vendor.js.LEGAL.txt",
+				"plugins/pgp/resources/vendor/openpgp.LICENSE"
+			],
+			"copyright": "Copyright (c) the OpenPGP.js contributors",
+			"purl": "pkg:npm/openpgp@6.3.1",
+			"website": "https://openpgpjs.org/"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "@noble/ciphers",
+			"version": "NOASSERTION",
+			"license": "MIT",
+			"scope": "runtime",
+			"paths": [
+				"plugins/pgp/resources/vendor/pgp-vendor.js (inlined in the OpenPGP.js bundle)"
+			],
+			"copyright": "Copyright (c) 2023 Paul Miller",
+			"website": "https://github.com/paulmillr/noble-ciphers"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "@noble/hashes",
+			"version": "NOASSERTION",
+			"license": "MIT",
+			"scope": "runtime",
+			"paths": [
+				"plugins/pgp/resources/vendor/pgp-vendor.js (inlined in the OpenPGP.js bundle)"
+			],
+			"copyright": "Copyright (c) 2022 Paul Miller",
+			"website": "https://github.com/paulmillr/noble-hashes"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "@noble/curves",
+			"version": "NOASSERTION",
+			"license": "MIT",
+			"scope": "runtime",
+			"paths": [
+				"plugins/pgp/resources/vendor/pgp-vendor.js (inlined in the OpenPGP.js bundle)"
+			],
+			"copyright": "Copyright (c) 2022 Paul Miller",
+			"website": "https://github.com/paulmillr/noble-curves"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "postal-mime",
+			"version": "2.7.5",
+			"license": "MIT-0",
+			"scope": "runtime",
+			"paths": [
+				"plugins/pgp/resources/vendor/pgp-vendor.js (bundled by tools/build-pgp-vendor.mjs)",
+				"plugins/pgp/resources/vendor/postal-mime.LICENSE"
+			],
+			"copyright": "Copyright (c) 2021 - 2025 Andris Reinman",
+			"purl": "pkg:npm/postal-mime@2.7.5",
+			"website": "https://github.com/postalsys/postal-mime"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "fflate",
+			"version": "0.8.3",
+			"license": "MIT",
+			"scope": "runtime",
+			"paths": [
+				"plugins/pgp/resources/vendor/pgp-vendor.js (bundled by tools/build-pgp-vendor.mjs)",
+				"plugins/pgp/resources/vendor/fflate.LICENSE"
+			],
+			"copyright": "Copyright (c) 2026 Arjun Barrett",
+			"purl": "pkg:npm/fflate@0.8.3",
+			"website": "https://github.com/101arrowz/fflate"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "vtt.js",
+			"version": "NOASSERTION",
+			"license": "Apache-2.0",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/ViewerJS/video-js/video.js (inlined)"
+			],
+			"copyright": "Copyright (c) Mozilla Foundation and the vtt.js contributors",
+			"website": "https://github.com/mozilla/vtt.js"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
+			"name": "pako",
+			"version": "NOASSERTION",
+			"license": "MIT",
+			"scope": "runtime",
+			"paths": [
+				"client/filepreviewer/ViewerJS/vendor/jszip.min.js (inlined)",
+				"client/filepreviewer/ViewerJS/webodf.js (inlined via JSZip)"
+			],
+			"copyright": "Copyright (C) 2014 - 2017 Vitaly Puzrin and Andrei Tuputcyn",
+			"website": "https://github.com/nodeca/pako"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "php",
+			"version": ">=8.2",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP interpreter running the server side"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-gettext",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP gettext extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-iconv",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP iconv extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-zlib",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP zlib extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-json",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP json extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-gd",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP gd extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-session",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP session extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-openssl",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP openssl extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-mbstring",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP mbstring extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-dom",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP dom extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-xmlwriter",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP xmlwriter extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-zip",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP zip extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-sodium",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP sodium extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-sqlite3",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP sqlite3 extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-curl",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP curl extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-bcmath",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP bcmath extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-fileinfo",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP fileinfo extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-posix",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP posix extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-sysvshm",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP sysvshm extension, required at runtime"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "php",
+			"name": "ext-ldap",
+			"version": "NOASSERTION",
+			"license": "PHP-3.01",
+			"scope": "runtime",
+			"paths": [],
+			"description": "PHP ldap extension, optional: only the S/MIME plugin's LDAP certificate lookup uses it"
+		},
+		{
+			"type": "library",
+			"ecosystem": "external",
+			"name": "mapi-header-php",
+			"version": "2.2",
+			"license": "AGPL-3.0-or-later",
+			"scope": "runtime",
+			"paths": [],
+			"website": "https://github.com/grommunio/mapi-header-php",
+			"description": "MAPI PHP bindings loaded from UMAPI_PATH (/usr/share/php-mapi); not vendored here"
+		},
+		{
+			"type": "platform",
+			"ecosystem": "external",
+			"name": "gromox-php-mapi",
+			"version": "NOASSERTION",
+			"license": "NOASSERTION",
+			"scope": "runtime",
+			"paths": [],
+			"website": "https://github.com/grommunio/gromox",
+			"description": "gromox php_mapi extension providing the mapi_* functions; its licence is set by the gromox package and is not determinable from this repository"
+		}
+	]
+}

@@ -1,0 +1,166 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.core.ui');
+
+/**
+ * @class Grommunio.core.ui.WelcomeViewport
+ * @extends Ext.Viewport
+ * The viewport to be used as welcome page for first time users, this will show
+ * a welcome message, and allow the user to configure to initial settings
+ * before continuing to the {@link Grommunio.core.ui.MainViewport Main viewport}.
+ */
+Grommunio.core.ui.WelcomeViewport = Ext.extend(Ext.Viewport, {
+
+	/**
+	 * The reference as returned by {@link Grommunio.core.ui.notifier.Notifier#notify} to reference the
+	 * message in order to remove the message as soon as the save was completed.
+	 * @property
+	 * @type Ext.Element
+	 * @private
+	 */
+	savingEl: undefined,
+
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration object
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		config = Ext.applyIf(config, {
+			layout: {
+				cls: 'grommunio-welcome-viewport',
+				type: 'vbox',
+				align: 'center',
+				pack: 'center'
+			},
+			items: [{
+				xtype: 'panel',
+				cls: 'grommunio-welcome-body',
+				border: false,
+				items: [{
+					xtype: 'container',
+					cls: 'k-welcome-header',
+					layout: 'hbox',
+					items: [{
+						xtype: 'container',
+						cls: 'k-welcome-avatar',
+						html: '<img src="' + Ext.util.Format.htmlEncode(container.getUser().getUserImage()) + '" alt="" />'
+					},{
+						xtype: 'container',
+						flex: 1,
+						cls: 'k-welcome-header-text',
+						items: [{
+							xtype: 'displayfield',
+							cls: 'grommunio-welcome-title',
+							value: _('Welcome to grommunio Web')
+						},{
+							xtype: 'displayfield',
+							cls: 'grommunio-welcome-message',
+							value: _('Set up your preferences to get started.')
+						}]
+					}]
+				},{
+					xtype: 'grommunio.settingswelcomecategory',
+					ref: '../settingsCategory'
+				}],
+				buttonAlign: 'right',
+				buttons: [{
+					cls: 'grommunio-action',
+					text: _('Get Started'),
+					handler: this.onContinueButton,
+					scope: this
+				}]
+			}]
+		});
+
+		Grommunio.core.ui.WelcomeViewport.superclass.constructor.call(this, config);
+
+		this.settingsCategory.update(container.getSettingsModel());
+
+		// Disable autoSave, we want to call the save function manually,
+		// so we can supply a callback function.
+		container.getSettingsModel().autoSave = false;
+	},
+
+	/**
+	 * Event handler which is fired when the user clicks the 'Continue' button
+	 * This will save all settings, and reload the page to continue to the
+	 * {@link Grommunio.core.ui.MainViewport}.
+	 * @private
+	 */
+	onContinueButton: function()
+	{
+		var model = container.getSettingsModel();
+
+		model.beginEdit();
+
+		// Load settings from UI
+		this.settingsCategory.updateSettings(model);
+
+		// Disable the welcome message for next logon
+		model.set('grommunio/v1/main/show_welcome', false);
+
+		// set the default keyboard controls to 'basic'
+		// We must do this explicitly because there is some logic
+		// for backward compatibility that will assume 'disabled'
+		// when no keycontrols are set.
+		model.set('grommunio/v1/main/keycontrols', 'basic');
+
+		model.endEdit();
+
+		// Register event listener, so we can redirect the user
+		// once the save has completed.
+		this.mon(model, 'save', this.onSettingsSave, this, { single: true });
+		this.mon(model, 'exception', this.onSettingsException, this, { single: true });
+
+		// Show an information box indicating that the settings are being saved.
+		this.savingEl = container.getNotifier().notify('info.saving', '', _('Saving') + '...', {
+			container: this.getEl(),
+			persistent: true
+		});
+
+		// Save settings
+		model.save();
+	},
+
+	/**
+	 * Called when the {@link Grommunio.settings.SettingsModel} fires the {@link Grommunio.settings.SettingsModel#save save}
+	 * event to indicate the settings were successfully saved.
+	 * @param {Grommunio.settings.SettingsModel} model The model which fired the event.
+	 * @param {Object} parameters The key-value object containing the action and the corresponding
+	 * settings which were saved to the server.
+	 * @private
+	 */
+	onSettingsSave: function(model, parameters)
+	{
+		container.getNotifier().notify('info.saving', null, null, {
+			container: this.getEl(),
+			destroy: true,
+			reference: this.savingEl
+		});
+
+		Grommunio.core.Util.disableLeaveRequester();
+		window.location.reload();
+	},
+
+	/**
+	 * Called when the {@link Grommunio.settings.SettingsModel} fires the {@link Grommunio.settings.SettingsModel#exception exception}
+	 * event to indicate the settings were not successfully saved.
+	 * @private
+	 */
+	onSettingsException: function()
+	{
+		container.getNotifier().notify('info.saving', null, null, {
+			container: this.getEl(),
+			destroy: true,
+			reference: this.savingEl
+		});
+	}
+});

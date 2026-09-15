@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 namespace Files\Backend\Webdav;
 
 require_once __DIR__ . "/sabredav/FilesWebDavClient.php";
@@ -151,7 +156,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 				"editor" => [
 					"xtype" => "checkbox",
 					"listeners" => [
-						"check" => "Zarafa.plugins.files.data.Actions.onCheckSSL", // this javascript function will be called!
+						"check" => "Grommunio.plugins.files.data.Actions.onCheckSSL", // this javascript function will be called!
 					],
 				],
 			],
@@ -181,7 +186,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 				"editor" => [
 					"xtype" => "checkbox",
 					"listeners" => [
-						"check" => "Zarafa.plugins.files.data.Actions.onCheckCredentials", // this javascript function will be called!
+						"check" => "Grommunio.plugins.files.data.Actions.onCheckCredentials", // this javascript function will be called!
 					],
 				],
 			],

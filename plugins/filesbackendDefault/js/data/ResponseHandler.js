@@ -1,14 +1,19 @@
-Ext.namespace('Zarafa.plugins.files.backend.Default.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.backend.Default.data');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.data.ResponseHandler
- * @extends Zarafa.core.data.AbstractResponseHandler
+ * @class Grommunio.plugins.files.backend.Default.data.ResponseHandler
+ * @extends Grommunio.core.data.AbstractResponseHandler
  * @xtype filesplugin.default.responsehandler
  *
  * Files plugin specific response handler.
  */
-Zarafa.plugins.files.backend.Default.data.ResponseHandler = Ext.extend(
-	Zarafa.core.data.AbstractResponseHandler,
+Grommunio.plugins.files.backend.Default.data.ResponseHandler = Ext.extend(
+	Grommunio.core.data.AbstractResponseHandler,
 	{
 		/**
 		 * @cfg {Function} successCallback The function which
@@ -73,5 +78,5 @@ Zarafa.plugins.files.backend.Default.data.ResponseHandler = Ext.extend(
 
 Ext.reg(
 	'filesplugin.default.responsehandler',
-	Zarafa.plugins.files.backend.Default.data.ResponseHandler,
+	Grommunio.plugins.files.backend.Default.data.ResponseHandler,
 );

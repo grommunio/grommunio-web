@@ -1,10 +1,15 @@
-Ext.namespace('Zarafa.plugins.files.backend.Seafile.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.backend.Seafile.ui');
 
 /**
  * Lightweight content panel that hosts the Seafile share editor grid.
  */
-Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserEditContentPanel =
-	Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.files.backend.Seafile.ui.FilesShareUserEditContentPanel =
+	Ext.extend(Grommunio.core.ui.ContentPanel, {
 		loadMask: undefined,
 		constructor: function (e) {
 			Ext.applyIf(e, {
@@ -22,7 +27,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserEditContentPanel =
 					recordId: e.recordId,
 				},
 			});
-			Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserEditContentPanel.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Seafile.ui.FilesShareUserEditContentPanel.superclass.constructor.call(
 				this,
 				e,
 			);
@@ -30,5 +35,5 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserEditContentPanel =
 	});
 Ext.reg(
 	'filesplugin.seafile.filesshareusereditcontentpanel',
-	Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserEditContentPanel,
+	Grommunio.plugins.files.backend.Seafile.ui.FilesShareUserEditContentPanel,
 );

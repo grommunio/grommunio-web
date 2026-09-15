@@ -1,0 +1,78 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+/*
+ * #dependsFile client/grommunio/common/ui/grid/Renderers.js
+ */
+Ext.namespace('Grommunio.addressbook.ui');
+
+/**
+ * @class Grommunio.addressbook.ui.GABPersonalColumnModel
+ * @extends Grommunio.common.ui.grid.ColumnModel
+ *
+ * Column model which should be used in the Global Addressbook for
+ * personal folders.
+ */
+Grommunio.addressbook.ui.GABPersonalColumnModel = Ext.extend(Grommunio.common.ui.grid.ColumnModel, {
+
+	/**
+	 * @constructor
+	 * @param {Object} config Configuration option
+	 */
+	constructor: function(config)
+	{
+		config = config || {};
+
+		Ext.applyIf(config, {
+			name: 'personal_contacts',
+
+			columns: [{
+				dataIndex: 'icon_index',
+				headerCls: 'grommunio-icon-column icon',
+				header: '',
+				sortable: true,
+				tooltip: _('Sort by: Icon'),
+				width: 25,
+				fixed: true,
+				renderer: Grommunio.common.ui.grid.Renderers.icon
+			},{
+				dataIndex: 'full_name',
+				// gridPanel.autoExpandColumn config will reference to this id
+				id: 'full_name',
+				header: _('Name'),
+				sortable: true,
+				tooltip: _('Sort by: Name'),
+				renderer: Grommunio.common.ui.grid.Renderers.fullName
+			},{
+				dataIndex: 'display_name',
+				header: _('Display Name'),
+				sortable: true,
+				tooltip: _('Sort by: Display Name'),
+				renderer: Ext.util.Format.htmlEncode,
+				width: 250
+			},{
+				dataIndex: 'fileas',
+				header: _('File as'),
+				sortable: true,
+				hidden: true,
+				tooltip: _('Sort by: File As'),
+				renderer: Ext.util.Format.htmlEncode,
+				width: 250
+			},{
+				dataIndex: 'email_address',
+				header: _('Email Address'),
+				sortable: true,
+				hidden: false,
+				tooltip: _('Sort by: Email Address'),
+				renderer: Ext.util.Format.htmlEncode,
+				width: 400
+			}]
+		});
+
+		Grommunio.addressbook.ui.GABPersonalColumnModel.superclass.constructor.call(this, config);
+	}
+});

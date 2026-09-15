@@ -1,14 +1,19 @@
-Ext.namespace('Zarafa.plugins.files.settings');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.settings');
 
 /**
- * @class Zarafa.files.settings.SettingsAccountsWidget
- * @extends Zarafa.settings.ui.SettingsWidget
+ * @class Grommunio.files.settings.SettingsAccountsWidget
+ * @extends Grommunio.settings.ui.SettingsWidget
  * @xtype filesplugin.settingsaccountswidget
  *
- * The {@link Zarafa.settings.ui.SettingsWidget widget} for configuring
- * the general files options in the {@link Zarafa.files.settings.SettingsFilesCategory files category}.
+ * The {@link Grommunio.settings.ui.SettingsWidget widget} for configuring
+ * the general files options in the {@link Grommunio.files.settings.SettingsFilesCategory files category}.
  */
-Zarafa.plugins.files.settings.SettingsAccountsWidget = Ext.extend(Zarafa.settings.ui.SettingsWidget, {
+Grommunio.plugins.files.settings.SettingsAccountsWidget = Ext.extend(Grommunio.settings.ui.SettingsWidget, {
 
 	/**
 	 * @constructor
@@ -20,7 +25,7 @@ Zarafa.plugins.files.settings.SettingsAccountsWidget = Ext.extend(Zarafa.setting
 		Ext.applyIf(config, {
 			title : _('Manage Accounts'),
 			xtype : 'filesplugin.settingsaccountswidget',
-			cls: 'zarafa-settings-widget k-settings-nogap',
+			cls: 'grommunio-settings-widget k-settings-nogap',
 			height: 400,
 			layout: 'fit',
 			items : [{
@@ -30,8 +35,8 @@ Zarafa.plugins.files.settings.SettingsAccountsWidget = Ext.extend(Zarafa.setting
 			}]
 		});
 
-		Zarafa.plugins.files.settings.SettingsAccountsWidget.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.settings.SettingsAccountsWidget.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.settingsaccountswidget', Zarafa.plugins.files.settings.SettingsAccountsWidget);
+Ext.reg('filesplugin.settingsaccountswidget', Grommunio.plugins.files.settings.SettingsAccountsWidget);

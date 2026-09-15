@@ -1,16 +1,23 @@
-Ext.namespace('Zarafa.util');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.util');
 
 // This class is defined counter-intuitively in extjs-mod,
 // because we need the utility function in both extjs-mod as
 // well as the grommunio Web core.
 
 /**
- * @class Zarafa.util.Translations
+ * @class Grommunio.util.Translations
  * @extends Object
  * Utility class containing utility functions for creating
  * translation strings.
  */
-Zarafa.util.Translations = {
+Grommunio.util.Translations = {
 	msg: _('The quick brown fox jumps over the lazy dog'),
 
 	/**
@@ -96,7 +103,7 @@ Zarafa.util.Translations = {
 				// Let SplitTranslation determine if the
 				// split string is inside this piece. If it isn't then it will
 				// return a single string.
-				var splitPiece = Zarafa.util.Translations.SplitTranslation(piece, split[i]);
+				var splitPiece = Grommunio.util.Translations.SplitTranslation(piece, split[i]);
 				if (!Ext.isArray(splitPiece)) {
 					return true;
 				}
@@ -176,7 +183,7 @@ Zarafa.util.Translations = {
 		]
 	});
 
-	Ext.PagingToolbar.tmpPageText = Zarafa.util.Translations.SplitTranslation(_('Page {A} of {0}'), '{A}');
+	Ext.PagingToolbar.tmpPageText = Grommunio.util.Translations.SplitTranslation(_('Page {A} of {0}'), '{A}');
 	Ext.override(Ext.PagingToolbar, {
 		displayMsg: _('Displaying messages {0} - {1} of {2}'),
 		emptyMsg: _('No messages to display'),

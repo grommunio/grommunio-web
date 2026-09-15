@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * ItemModule
  * Module which opens, creates, saves and deletes an item. It
@@ -36,7 +43,7 @@ class ItemModule extends Module {
 	public function __construct($id, $data) {
 		$this->directBookingMeetingRequest = ENABLE_DIRECT_BOOKING;
 		$this->removeRequestOnResponse = $GLOBALS['settings']->get(
-			'zarafa/v1/contexts/calendar/remove_meetingrequest_on_calendar_response',
+			'grommunio/v1/contexts/calendar/remove_meetingrequest_on_calendar_response',
 			false
 		);
 		$this->skipCopyProperties = [];
@@ -587,7 +594,7 @@ class ItemModule extends Module {
 
 			if (empty($message)) {
 				// Without this the client is left with an empty item and no reason.
-				throw new ZarafaException('attachment ' . implode('.', (array) $attachNum) . ' holds no message', 0, null, _("Could not open the attachment."));
+				throw new GrommunioException('attachment ' . implode('.', (array) $attachNum) . ' holds no message', 0, null, _("Could not open the attachment."));
 			}
 
 			$data['item'] = $GLOBALS['operations']->getEmbeddedMessageProps($store, $message, $this->properties, $parentMessage, $attachNum);
@@ -913,7 +920,7 @@ class ItemModule extends Module {
 				if ($softDefault || (isset($msgprops[PR_IPM_WASTEBASKET_ENTRYID]) && $msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid)) {
 					break;
 				}
-				$delegateWastebasketStyle = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/delegate_wastebasket_style', DELEGATE_WASTEBASKET_MAINUSER);
+				$delegateWastebasketStyle = $GLOBALS['settings']->get('grommunio/v1/contexts/mail/delegate_wastebasket_style', DELEGATE_WASTEBASKET_MAINUSER);
 				$targetStore = $store;
 				$targetProps = $msgprops;
 				if ($delegateWastebasketStyle === DELEGATE_WASTEBASKET_MAINUSER) {

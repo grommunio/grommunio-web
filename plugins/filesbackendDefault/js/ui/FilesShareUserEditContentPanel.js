@@ -1,14 +1,19 @@
-Ext.namespace('Zarafa.plugins.files.backend.Default.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.backend.Default.ui');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  * @xtype filesplugin.default.filesshareusereditcontentpanel
  *
  * This content panel contains the sharing edit panel.
  */
-Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel =
-	Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel =
+	Ext.extend(Grommunio.core.ui.ContentPanel, {
 		/**
 		 * The load mask for this content panel
 		 * @property
@@ -36,7 +41,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel =
 					recordId: config.recordId,
 				},
 			});
-			Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -45,5 +50,5 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel =
 
 Ext.reg(
 	'filesplugin.default.filesshareusereditcontentpanel',
-	Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel,
+	Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditContentPanel,
 );

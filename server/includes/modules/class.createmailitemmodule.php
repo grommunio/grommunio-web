@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * Create Mail ItemModule
  * Module which opens, creates, saves and deletes an item. It
@@ -16,7 +23,7 @@ class CreateMailItemModule extends ItemModule {
 		parent::__construct($id, $data);
 
 		$this->properties = $GLOBALS['properties']->getMailProperties();
-		$useHtmlPreview = $GLOBALS['settings']->get('zarafa/v1/contexts/mail/use_html_email_preview', USE_HTML_EMAIL_PREVIEW);
+		$useHtmlPreview = $GLOBALS['settings']->get('grommunio/v1/contexts/mail/use_html_email_preview', USE_HTML_EMAIL_PREVIEW);
 		$this->plaintext = !$useHtmlPreview;
 	}
 

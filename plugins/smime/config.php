@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 define('PLUGIN_SMIME_USER_DEFAULT_ENABLE_SMIME', true);
 // CA certificates used to verify S/MIME certificate chains.
 // Multiple CA locations (bundle files or hashed directories) can be defined

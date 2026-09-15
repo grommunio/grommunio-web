@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.ui.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui.dialogs');
 
 /**
- * @class Zarafa.plugins.files.ui.dialogs.SaveToFilesContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.files.ui.dialogs.SaveToFilesContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  * @xtype filesplugin.savetofilescontentpanel
  *
  * This content panel contains the upload panel for storing files to the backend.
  */
-Zarafa.plugins.files.ui.dialogs.SaveToFilesContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.files.ui.dialogs.SaveToFilesContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
 
 	/**
 	 * @constructor
@@ -29,8 +34,8 @@ Zarafa.plugins.files.ui.dialogs.SaveToFilesContentPanel = Ext.extend(Zarafa.core
 			}]
 		});
 
-		Zarafa.plugins.files.ui.dialogs.SaveToFilesContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.dialogs.SaveToFilesContentPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.savetofilescontentpanel', Zarafa.plugins.files.ui.dialogs.SaveToFilesContentPanel);
+Ext.reg('filesplugin.savetofilescontentpanel', Grommunio.plugins.files.ui.dialogs.SaveToFilesContentPanel);

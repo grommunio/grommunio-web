@@ -9,8 +9,8 @@
 		".x-form-spinner-trigger"
 	],
 	".arrow_down_s_white": [
-		".x-btn.x-btn.zarafa-action .x-btn-split",
-		".x-btn.x-btn.zarafa-action .x-btn-arrow"
+		".x-btn.x-btn.grommunio-action .x-btn-split",
+		".x-btn.x-btn.grommunio-action .x-btn-arrow"
 	],
 	".arrow_down_l": [
 		".x-panel-collapsed .x-tool.x-tool-toggle",
@@ -18,16 +18,16 @@
 		".x-tree-lines .x-tree-elbow-end-minus",
 		".x-tree-lines .x-tree-elbow-minus",
 		".preview-header-collapse-plus",
-		".zarafa-rules-sequence-down"
+		".grommunio-rules-sequence-down"
 	],
 	".arrow_up_l": [
 		".x-tool.x-tool-toggle",
 		"td.sort-asc .x-grid3-sort-icon",
 		".preview-header-collapse-minus",
-		".zarafa-rules-sequence-up"
+		".grommunio-rules-sequence-up"
 	],
 	".arrow_right_l": [
-		".light-background .zarafa-calendar-tab-icon-separate",
+		".light-background .grommunio-calendar-tab-icon-separate",
 		".x-date-right a",
 		".x-date-mp-ybtn a",
 		".x-tree-lines .x-tree-elbow-plus",
@@ -40,7 +40,7 @@
 		".x-tab-scroller-right"
 	],
 	".arrow_left_l": [
-		".light-background .zarafa-calendar-tab-icon-merge",
+		".light-background .grommunio-calendar-tab-icon-merge",
 		".x-date-left a",
 		".x-date-mp-ybtn a.x-date-mp-prev",
 		".x-tool.x-tool-toggle.x-tool-collapse-west",
@@ -49,30 +49,30 @@
 		".x-layout-collapsed .x-tool.x-tool-expand-east",
 		".x-tab-scroller-left"
 	],
-	".arrow_left_l_white": ".zarafa-calendar-tab-icon-merge",
-	".arrow_right_l_white": ".zarafa-calendar-tab-icon-separate",
+	".arrow_left_l_white": ".grommunio-calendar-tab-icon-merge",
+	".arrow_right_l_white": ".grommunio-calendar-tab-icon-separate",
 	".arrow_menubar": [
-		".zarafa-maintabbar-maintab-active button.x-btn-text",
-		".zarafa-maintabbar-maintab-active.x-btn-over button.x-btn-text",
-		".zarafa-maintabbar-maintab-active.x-btn-over.x-btn-click button.x-btn-text"
+		".grommunio-maintabbar-maintab-active button.x-btn-text",
+		".grommunio-maintabbar-maintab-active.x-btn-over button.x-btn-text",
+		".grommunio-maintabbar-maintab-active.x-btn-over.x-btn-click button.x-btn-text"
 	],
 	".arrow_updown": ".x-form-field-wrap .x-form-spinner-trigger",
 	".icon_cross_large": ".x-tool-close",
 	".icon_cross_white": [
-		".zarafa-calendar-tab-icon-close",
+		".grommunio-calendar-tab-icon-close",
 		".k-category-close"
 	],
 	".plus": [
 		".x-tab-add",
 		".x-tool.x-tool-plus",
-		".zarafa-rules-add",
-		".x-zarafa-boxfield-item-expand"
+		".grommunio-rules-add",
+		".x-grommunio-boxfield-item-expand"
 	],
 	".icon_cross": [
 		".icon_remove",
-		".x-zarafa-boxfield-item-close",
-		".x-zarafa-boxfield-suggestion-cross",
-		".light-background .zarafa-calendar-tab-icon-close",
+		".x-grommunio-boxfield-item-close",
+		".x-grommunio-boxfield-suggestion-cross",
+		".light-background .grommunio-calendar-tab-icon-close",
 		".x-freebusy-userrow-remove",
 		".x-tab-strip .x-tab-strip-closable a.x-tab-strip-close"
 	],

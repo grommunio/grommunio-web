@@ -1,0 +1,732 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.core.data');
+
+/**
+ * @class Grommunio.core.data.MessageRecordFields
+ * Array of {@link Ext.data.Field field} configurations for the
+ * {@link Grommunio.core.data.MAPIRecord MAPIRecord} object which is
+ * used as Message (which is sendable/receivable)
+ * @private
+ */
+Grommunio.core.data.MessageRecordFields = [
+	{name: 'received_by_name'},
+	{name: 'received_by_email_address'},
+	{name: 'received_by_username'},
+	{name: 'received_by_address_type'},
+	{name: 'received_by_entryid'},
+	{name: 'received_by_search_key'},
+	{name: 'received_by_presence_status'}, // Note: this field will not be filled by the back-end
+	{name: 'received_representing_name'},
+	{name: 'received_representing_email_address'},
+	{name: 'received_representing_address_type'},
+	{name: 'received_representing_entryid'},
+	{name: 'received_representing_search_key'},
+	{name: 'delegated_by_rule', type: 'boolean', defaultValue: false},
+	{name: 'message_delivery_time', type:'date', dateFormat:'timestamp', defaultValue: null, sortDir: 'DESC'},
+	{name: 'client_submit_time', type:'date', dateFormat:'timestamp', defaultValue: null, sortDir: 'DESC'},
+	{name: 'transport_message_headers'},
+	{name: 'hide_attachments', type: 'boolean', defaultValue: false}
+];
+
+/**
+ * @class Grommunio.core.data.MessageRecord
+ * @extends Grommunio.core.data.IPMRecord
+ *
+ * An extension to the {@link Grommunio.core.data.IPMRecord IPMRecord} specific to records which are
+ * sendable / receivable.
+ */
+Grommunio.core.data.MessageRecord = Ext.extend(Grommunio.core.data.IPMRecord, {
+	/**
+	 * Flag will be used to indicate {@link Grommunio.core.data.MessageRecord MessageRecord} contains external content
+	 * in the body property or not. Flag is used here because every time we load the same mail then we don't have to
+	 * run through {@link Grommunio.core.HTMLParser HTMLParser} to find out if it contains external content or not
+	 * as checking whole body consumes lots of resources so we check only once and store the value for further uses.
+	 * @property
+	 * @type Boolean
+	 */
+	externalContent: null,
+
+	/**
+	 * Cached sanitized HTML body. This avoids running DOMPurify on the
+	 * same message body multiple times when a record is viewed repeatedly.
+	 * @property
+	 * @type String
+	 */
+	sanitizedHTMLBody: null,
+
+	/**
+	 * Function will check if {@link Grommunio.core.data.IPMRecord IPMRecord} contains external content
+	 * in the body property.
+	 * @param {String} body (optional) contents of body property of {@link Grommunio.core.data.IPMRecord IPMRecord}.
+	 * @return {Boolean} true if {@link Grommunio.core.data.IPMRecord IPMRecord} contains external content else false.
+	 */
+	hasExternalContent: function(body)
+	{
+		var hasBodyArgument = Ext.isDefined(body);
+		body = hasBodyArgument ? body : this.getBody();
+
+		if (Ext.isEmpty(body)) {
+			this.externalContent = false;
+			return this.externalContent;
+		}
+
+		// Re-evaluate whenever a specific body was provided or message body fields changed.
+		// This avoids races where isHTML is temporarily stale while html_body is already available.
+		if(hasBodyArgument || !Ext.isBoolean(this.externalContent) || this.isModifiedSinceLastUpdate('html_body') || this.isModifiedSinceLastUpdate('body')) {
+			this.externalContent = Grommunio.core.HTMLParser.hasExternalContent(body);
+		}
+
+		return this.externalContent;
+	},
+
+	/**
+	 * Helper function to get contents of body property of {@link Grommunio.core.data.IPMRecord IPMRecord}
+	 * it will also check {@link Grommunio.core.Settings Settings} if it needs to remove external content and return
+	 * filtered content.
+	 * @param {Boolean} preferHTML True if the HTML body should be returned or not, false if the plain-text
+	 * body should be returned.
+	 * @return {String} filtered contents of body property of {@link Grommunio.core.data.IPMRecord IPMRecord}.
+	 */
+	getBody: function(preferHTML)
+	{
+		var isHTML = this.get('isHTML');
+		var actualBody = Grommunio.core.data.MessageRecord.superclass.getBody.call(this, preferHTML);
+
+		// If plain-text is requested, or this message is in plain-text, then we don't
+		// need to block the external content.
+		if (isHTML === true && preferHTML === true && !Ext.isEmpty(actualBody)) {
+			// if record is not sent yet then it is a new mail or a draft,
+			// so we don't need to block the external content while composing mail.
+			if(this.isUnsent() || !this.isExternalContentBlocked(actualBody)) {
+				return actualBody;
+			}
+			return Grommunio.core.HTMLParser.blockExternalContent(actualBody);
+		} else {
+			return actualBody;
+		}
+	},
+
+	/**
+	 * Return the sanitized HTML body. The result is cached to prevent
+	 * expensive sanitization on subsequent requests for the same record.
+	 *
+	 * @return {String} sanitized HTML body without the DOCTYPE prefix.
+	 */
+	getSanitizedHtmlBody: function()
+	{
+		if (!Ext.isEmpty(this.sanitizedHTMLBody) && !this.isModifiedSinceLastUpdate('html_body')) {
+			return this.sanitizedHTMLBody;
+		}
+
+		var body = this.getBody(true);
+		if (container.getServerConfig().getDOMPurifyEnabled()) {
+			body = DOMPurify.sanitize(body);
+		}
+		this.sanitizedHTMLBody = this.cleanupOutlookStyles(body);
+
+		return this.sanitizedHTMLBody;
+	},
+
+	/**
+	 * Clear the cached sanitized HTML body so memory can be reclaimed when the record leaves the prefetch window.
+	 */
+	clearSanitizedHtmlBody: function()
+	{
+		this.sanitizedHTMLBody = null;
+	},
+
+	/**
+	 * Removes some weird styling that Outlook adds to html mails.
+	 *
+	 * @param {String} body The text that should be cleaned up
+	 * @return {String} The cleaned up text
+	 */
+	cleanupOutlookStyles: function(body) {
+		// clean up some weird Outlook styling
+		const el = document.createElement('div');
+		el.innerHTML = body;
+		const paragraphs = el.querySelectorAll('p');
+		for (let i=0; i<paragraphs.length; i++) {
+			const p = Ext.fly(paragraphs[i]);
+
+			// First check for MsoListParagraph and MsoListNumber elements created by Outlook
+			if (p.hasClass('MsoListParagraph') || p.hasClass('MsoListNumber')) {
+
+				// Outlook uses negative indents for lists.
+				// grommunio Web displays the CSS correctly, but results in cut of text for users.
+				// If the paragraph has a negative text-indent, we replace it by a positive text-indent.
+				// If there is no negative text-indent, we set it to 0.
+				// We exclude items that have 'margin-left' and negative text-indent,
+				// as those items are identified with multi-indent items
+				// and we can still use that CSS.
+				// Ref KW-3437
+				if (Ext.isEmpty(p.getStyle('margin-left'))) {
+					var textIndent = p.getStyle('text-indent').replace('-', '');
+					var newTextIndent = !Ext.isEmpty(textIndent) ? textIndent : 0;
+
+					p.setStyle({
+						'text-indent': newTextIndent
+					});
+				}
+
+				// Remove generic browser margins from paragraphs,
+				// but leave 'margin-left' as is.
+				p.setStyle({
+					'margin-right': 0,
+					'margin-top': 0,
+					'margin-bottom': 0
+				});
+			}
+
+			// Remove generic browser margins from paragraphs, exclude 'MsoListParagraph' and 'MsoListNumber'
+			if (!p.getStyle('margin') && !p.hasClass('MsoListParagraph') && !p.hasClass('MsoListNumber')) {
+				p.setStyle({
+					margin: 0
+				});
+			}
+
+			// Try to find and remove the 'non-breaking spaces' that Outlook
+			// adds after the numbers and bullets of lists
+			var all = paragraphs[i].querySelectorAll('*');
+			for (let j=0; j<all.length; j++) {
+				// Prevent unnecessary innerHtml over writing when node has child nodes.
+				if (all[j].innerText && all[j].innerText.trim() === '' && !all[j].hasChildNodes()) {
+					all[j].innerHTML = '&nbsp;';
+				}
+
+				if ((/^\d+\.(&nbsp;)+$/).test(all[j].innerHTML)) {
+					all[j].innerHTML = all[j].innerHTML.replace(/(&nbsp;)+/, '&nbsp;');
+				}
+			}
+
+			var font = paragraphs[i].querySelector('font[face="Symbol"]');
+			if (font) {
+				font = font.querySelectorAll('font');
+				for (let j=0; j<font.length; j++) {
+					if (font[j].innerText.trim() === '') {
+						font[j].innerHTML = '&nbsp;';
+					}
+				}
+			}
+		}
+
+		// Remove strange margin on tables
+		const tables = el.querySelectorAll('table.MsoNormalTable');
+		for (let i=0; i<tables.length; i++) {
+			const t = Ext.fly(tables[i]);
+
+			if (parseFloat(t.getStyle('margin-left')) < 0) {
+				t.setStyle({
+					'margin-left': null
+				});
+			}
+		}
+
+		return el.innerHTML;
+	},
+
+	/**
+	 * Function is used to convert a mail record to task record.
+	 * @param {Grommunio.core.IPMFolder} folder The target folder in which the new record must be
+	 * created.
+	 * @return {Grommunio.core.data.IPMRecord} record The newly created task.
+	 */
+	convertToTask: function(folder)
+	{
+		return this.convertRecord(folder, 'IPM.Task');
+	},
+
+	/**
+	* Convert a mail record to an appointment record by using the mail's
+	* @param {Grommunio.core.IPMFolder} folder The target folder in which the new record must be
+	* created.
+	* @return {Grommunio.core.data.IPMRecord} record The newly created appointment.
+	*/
+	convertToAppointment: function(folder)
+	{
+		return this.convertRecord(folder, 'IPM.Appointment');
+	},
+
+	/**
+	 * Convert a mail record to a record with the provided messageClass
+	 * @param {Grommunio.core.IPMFolder} folder The target folder in which the new record must be
+	 * created.
+	 * @param {String} messageClass the messageClass of the new item.
+	 * @return {Grommunio.core.data.IPMRecord} record The newly created appointment.
+	 * @private
+	 */
+	convertRecord: function(folder, messageClass)
+	{
+		var defaultStore = folder.getMAPIStore();
+		var isHTML = this.get('isHTML');
+
+		var data = {
+			store_entryid: folder.get('store_entryid'),
+			parent_entryid: folder.get('entryid'),
+			subject: this.get('subject'),
+			importance: this.get('importance'),
+			categories: this.get('categories'),
+			isHTML: isHTML,
+			owner: defaultStore.isPublicStore() ? container.getUser().getFullName() : defaultStore.get('mailbox_owner_name')
+		};
+
+		if (isHTML) {
+			data.html_body = this.getBody(true);
+		} else {
+			data.body = this.getBody(false);
+		}
+
+		var newRecord = Grommunio.core.data.RecordFactory.createRecordObjectByMessageClass(messageClass, data);
+
+		// Set icon based on messageClass
+		newRecord.set('icon_index', Grommunio.core.mapi.IconIndex[Grommunio.common.ui.IconClass.getIconClassFromMessageClass(newRecord)]);
+
+		/**
+		 * By copying the reference to the original mail,
+		 * the server is able to add attachments in to the appointment.
+		 */
+		newRecord.addMessageAction('source_entryid', this.get('entryid'));
+		newRecord.addMessageAction('source_store_entryid', this.get('store_entryid'));
+
+		// Initialize the appointmentRecord with attachments
+		var store = newRecord.getAttachmentStore();
+		var origStore = this.getAttachmentStore();
+		origStore.each(function (attach) {
+			store.add(attach.copy());
+		}, this);
+
+		return newRecord;
+	},
+
+	/**
+	 * Function will check if the {@link Grommunio.core.data.IPMRecord IPMRecord} contains any external content
+	 * in body part and if we should show it or hide it based on {@link Grommunio.core.Settings Settings}.
+	 * @param {String} body (optional) contents of body property of {@link Grommunio.core.data.IPMRecord IPMRecord}.
+	 * @return {String} filtered contents of body property of {@link Grommunio.core.data.IPMRecord IPMRecord}.
+	 */
+	isExternalContentBlocked: function(body)
+	{
+		body = Ext.isDefined(body) ? body : this.getBody();
+
+		if(Ext.isEmpty(body)) {
+			// no point of continuing with empty body
+			return false;
+		}
+
+		if(!this.shouldBlockExternalContent()) {
+			return false;
+		}
+
+		return this.hasExternalContent(body);
+	},
+
+	/**
+	 * Determine if external resources should be blocked for this message,
+	 * regardless of whether external URLs were already detected in the body.
+	 * @return {Boolean} true when policy requires blocking external content.
+	 */
+	shouldBlockExternalContent: function()
+	{
+		// Opening protected mail must not contact remote senders merely because
+		// they are on the safe-sender list. The normal per-message picture action
+		// remains available as an explicit user decision.
+		var pgp = this.get('pgp');
+		if (pgp && pgp.encrypted && !this.checkBlockStatus()) {
+			return true;
+		}
+
+		var senderSMTPAddress = (this.get('sent_representing_email_address') || this.get('sender_email_address') || '').toLowerCase();
+		var junkStore = Grommunio.mail.data.JunkMailStore;
+
+		// Never block external content when originating from safe senders.
+		if (junkStore.isSafeSender(senderSMTPAddress)) {
+			return false;
+		}
+
+		// Fallback: check old webapp safe senders setting during migration window
+		var oldSafeSenders = container.getSettingsModel().get('grommunio/v1/contexts/mail/safe_senders_list', true);
+		if (Ext.isArray(oldSafeSenders) && oldSafeSenders.length > 0) {
+			oldSafeSenders = oldSafeSenders.map(function(s) { return String(s).toLowerCase(); });
+			if (oldSafeSenders.indexOf(senderSMTPAddress) !== -1 ||
+				Grommunio.core.Util.inArray(oldSafeSenders, senderSMTPAddress, true, true)) {
+				return false;
+			}
+		}
+
+		// The user explicitly chose to show this message's pictures.
+		if (this.checkBlockStatus()) {
+			return false;
+		}
+
+		// Blocked senders get content blocked even with the global setting off.
+		if (junkStore.isBlockedSender(senderSMTPAddress)) {
+			return true;
+		}
+
+		if (!container.getSettingsModel().get('grommunio/v1/contexts/mail/block_external_content')) {
+			return false;
+		}
+
+		return true;
+	},
+
+	/**
+	 * Function will check block_status property value and compare it with generated value from
+	 * message_delivery_time property value and if both matches then we can say that external content
+	 * should be shown.
+	 * @return {Boolean} returns true if external content should be blocked else false
+	 */
+	checkBlockStatus: function()
+	{
+		if (this.senderIsUser()) {
+			return true;
+		}
+
+		if (!this.get('block_status') || !Ext.isDate(this.get('message_delivery_time'))) {
+			return false;
+		}
+
+		return this.get('block_status') == this.calculateBlockStatus();
+	},
+
+	/**
+	 * Function will calculate value of block_status property based on message_delivery_time property value.
+	 * Formula for calculation of block status value can be checked at
+	 * http://msdn.microsoft.com/en-us/library/ee219242(v=EXCHG.80).aspx.
+	 * @return {Number} calculated value of block status property.
+	 */
+	calculateBlockStatus: function()
+	{
+		if(!Ext.isDate(this.get('message_delivery_time'))) {
+			return 0;
+		}
+
+		// generate block status value from message_delivery_time property
+		// no of days between 30th december 1899 and 1st jan 1970 = 2209161600 / 86400 = 25569
+		var days = 25569;
+
+		// convert message_delivery_time property to number of days from 1st jan 1970
+		// 86400 = no of seconds in a day, 1000 is used to convert timestamp from milliseconds to seconds
+		days += (this.get('message_delivery_time').getTime() / (86400 * 1000));
+
+		var result = ((days - Math.floor(days)) * 100000000) + 3;
+		result = Math.floor(result);
+
+		return result;
+	},
+
+	/**
+	 * Function is used to check if the sender and receiver in the message is same or different
+	 * first it checks for entryids of sender and receiver and if no entryids are present then it checks
+	 * on smtp/email address of sender and receiver.
+	 * @FIXME when sentItems folder is selected, properties 'received_by_entryid' and 'received_by_email_address' are not set.
+	 * @return {Boolean} true if sender and receiver is same user else false.
+	 */
+	senderIsReceiver: function()
+	{
+		var senderEntryId = this.get('sent_representing_entryid') || this.get('sender_entryid');
+		var receiverEntryId = this.get('received_by_entryid');
+
+		if(!Ext.isEmpty(senderEntryId) && !Ext.isEmpty(receiverEntryId)) {
+			// @FIXME tweak EntryId object to handle addressbook entryids also
+			return Grommunio.core.EntryId.compareABEntryIds(senderEntryId, receiverEntryId);
+		}
+
+		// if no entryids are present then check for smtp address
+		var senderAddress = this.get('sent_representing_email_address') || this.get('sender_email_address');
+		var receiverAddress = this.get('received_by_email_address');
+
+		if(!Ext.isEmpty(senderAddress) && !Ext.isEmpty(receiverAddress)) {
+			return senderAddress === receiverAddress;
+		}
+
+		return false;
+	},
+
+	/**
+	 * Function is used to check if the sender in the message and user logged-in is same or different.
+	 * @return {Boolean} true if sender and user logged-in is same user else false.
+	 */
+	senderIsUser: function()
+	{
+		var senderEntryId = this.get('sent_representing_entryid') || this.get('sender_entryid');
+		var userEntryId = container.getUser().getEntryId();
+
+		if(!Ext.isEmpty(senderEntryId) && !Ext.isEmpty(userEntryId)) {
+			return Grommunio.core.EntryId.compareABEntryIds(senderEntryId, userEntryId);
+		}
+
+		return false;
+	},
+
+	/**
+	 * Function is used to check if the sender in the message and user message sender is same or different.
+	 * @return {Boolean} true if sender and user logged-in is same user else false.
+	 */
+	senderIsStoreOwner: function()
+	{
+		var senderEntryId = this.get('sent_representing_entryid') || this.get('sender_entryid');
+
+		var storeOwner = container.getHierarchyStore().getById(this.get('store_entryid'));
+		if(storeOwner) {
+			var storeOwnerEntryId = storeOwner.get('mailbox_owner_entryid');
+
+			if(!Ext.isEmpty(senderEntryId) && !Ext.isEmpty(storeOwnerEntryId)) {
+				return Grommunio.core.EntryId.compareABEntryIds(senderEntryId, storeOwnerEntryId);
+			}
+		}
+
+		return false;
+	},
+
+	/**
+	 * Function is used to check if the sender in the message and user logged-in is same or different.
+	 * @return {Boolean} true if store owner and user logged-in is same user else false.
+	 */
+	userIsStoreOwner: function()
+	{
+		var userEntryId = container.getUser().getEntryId();
+		var storeRecord = container.getHierarchyStore().getById(this.get('store_entryid'));
+
+		if(storeRecord) {
+			var storeOwnerEntryId = storeRecord.get('mailbox_owner_entryid');
+
+			if(!Ext.isEmpty(userEntryId) && !Ext.isEmpty(storeOwnerEntryId)) {
+				return Grommunio.core.EntryId.compareABEntryIds(userEntryId, storeOwnerEntryId);
+			}
+		}
+
+		return false;
+	},
+
+	/**
+	 * Function sets delegator information on the record.
+	 * Function checks whether message record is in logged-in user's store or other store,
+	 * if it is in other's store then it sent sent_representing_* properties.
+	 * @param {Ext.data.Record} delegatorStore The delegator user store's record which we are looking for
+	 * @param {Boolean} force forcefully save the changes to server even if its not changed
+	 */
+	setDelegatorInfo: function(delegatorStore, force)
+	{
+		if(delegatorStore) {
+			force = force || false;
+
+			// user_name is the store owner's account name (their primary email
+			// address); mailbox_owner_name is only a display name.
+			var ownerAddress = delegatorStore.get('user_name') || '';
+
+			this.set('sent_representing_name', delegatorStore.get('mailbox_owner_name'), force);
+			this.set('sent_representing_email_address', ownerAddress, force);
+			this.set('sent_representing_address_type', 'SMTP', force);
+			this.set('sent_representing_entryid', delegatorStore.get('mailbox_owner_entryid'), force);
+			if (Grommunio.core.Util.validateEmailAddress(ownerAddress)) {
+				this.set('sent_representing_smtp_address', ownerAddress, force);
+			}
+		}
+	},
+
+	/**
+	 * Convert data from the record to an {@link Grommunio.core.data.IPMRecipientRecord}
+	 * Invoke {@link Grommunio.core.data.RecordFactory#createRecordObjectByCustomType} with arguments {@link Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_RECIPIENT} and an {@link Object} containing the mapping of properties.
+	 * If sender_entryid is not present, return false
+	 * @return {Grommunio.core.data.IPMRecipientRecord}
+	 */
+	getSender: function()
+	{
+		if(!this.get('sender_entryid')){
+			return false;
+		}
+
+		var sender = Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_RECIPIENT, {
+			smtp_address : this.get('sender_email_address'),
+			display_name : this.get('sender_name'),
+			address_type : this.get('sender_address_type'),
+			entryid : this.get('sender_entryid'),
+			search_key : this.get('sender_search_key'),
+			user_image : this.get('user_image')
+		});
+
+		return sender;
+	},
+
+	/**
+	 * Convert data from the record to an {@link Grommunio.core.data.IPMRecipientRecord}
+	 * Invoke {@link Grommunio.core.data.RecordFactory#createRecordObjectByCustomType} with arguments {@link Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_RECIPIENT} and an {@link Object} containing the mapping of properties.
+	 * If sent_representing_entryid is not present, return false
+	 * @return {Grommunio.core.data.IPMRecipientRecord}
+	 */
+	getSentRepresenting: function()
+	{
+		if(!this.get('sent_representing_entryid')){
+			return false;
+		}
+
+		var sender = Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_RECIPIENT, {
+			smtp_address : this.get('sent_representing_smtp_address'),
+			display_name : this.get('sent_representing_name'),
+			address_type : this.get('sent_representing_address_type'),
+			entryid : this.get('sent_representing_entryid'),
+			search_key : this.get('sent_representing_search_key'),
+			user_image : this.get('user_image')
+		});
+
+		return sender;
+	},
+
+	/**
+	 * Function will use 'sendas' data and set the default recipient in the from field, with respective action type value from
+	 * {@link Grommunio.mail.data.ActionTypes ActionTypes} of {@link Grommunio.core.data.IPMRecord record}.
+	 * It will not set anything if the 'sendas' data is empty or no default recipient has been set for that action type
+	 * in 'sendas' settings widget.
+	 * @private
+	 */
+	 setDefaultFromRecipeint: function()
+	 {
+		 var actionType = this.getMessageAction('action_type');
+		 var isCreateAction = !this.hasMessageAction('action_type') && this.phantom;
+		 var isReplyAction = actionType === Grommunio.mail.data.ActionTypes.REPLY || actionType === Grommunio.mail.data.ActionTypes.REPLYALL;
+		 var isForwarsAction = actionType === Grommunio.mail.data.ActionTypes.FORWARD;
+ 
+		 // return if mail is not reply, new or forward mail.
+		 if (isCreateAction === false && isReplyAction === false && isForwarsAction === false) {
+			 return;
+		 }
+ 
+		 var settingsModel = container.getSettingsModel();
+		 var defaultFromRecipients = settingsModel.get('grommunio/v1/contexts/mail/sendas', []);
+		 if (!Ext.isEmpty(defaultFromRecipients)) {
+			 for (var i = 0; i < defaultFromRecipients.length; i++) {
+				 var recipient = defaultFromRecipients[i];
+				 if (isCreateAction && recipient['new_mail'] || isReplyAction && recipient['reply_mail'] || isForwarsAction && recipient['forward_mail']) {
+					 this.set('sent_representing_name', recipient['display_name']);
+					 this.set('sent_representing_email_address', recipient['email_address'] || recipient['smtp_address']);
+					 this.set('sent_representing_smtp_address', recipient['smtp_address']);
+					 this.set('sent_representing_address_type', recipient['address_type']);
+					 this.set('sent_representing_entryid', recipient['entryid']);
+					 this.set('sent_representing_search_key', recipient['search_key']);
+					 break;
+				 }
+			 }
+		 }
+	 },
+
+	/**
+	 * Function will use 'sendas' data and return the default {@link Grommunio.core.data.IPMRecipientRecord recipient} for the from field.
+	 * If not found then it will create {@link Grommunio.core.data.IPMRecipientRecord recipient} using sent_representing_* properties if available.
+	 * It will return false if no default from recipient has been set.
+	 * 
+	 * @return {Grommunio.core.data.IPMRecipientRecord}
+	 * @private
+	 */
+	getDefaultFromRecipeint: function ()
+	{
+		var settingsModel = container.getSettingsModel();
+		var defaultFromRecipients = settingsModel.get('grommunio/v1/contexts/mail/sendas') || [];
+
+		if (Ext.isEmpty(this.get('sent_representing_email_address'))) {
+			return false;
+		}
+
+		// Default config to create recipient record.
+		var recipeintConfig = {
+			display_name: this.get('sent_representing_name'),
+			email_address: this.get('sent_representing_email_address'),
+			smtp_address: this.get('sent_representing_smtp_address'),
+			address_type: this.get('sent_representing_address_type'),
+			entryid: this.get('sent_representing_entryid'),
+			search_key: this.get('sent_representing_search_key')
+		};
+		
+		// Check whether the sent_representing_* properties had been set by 'from addresses' functionality.
+		// If so then get that recipient details from the 'sendas' settings and create config object accordingly.
+		var recipient = defaultFromRecipients.find(function (recipient) {
+			var sentRepresentingEmail = this.get('sent_representing_email_address');
+			return sentRepresentingEmail === recipient['email_address'] || sentRepresentingEmail === recipient['smtp_address'];
+		}, this);
+
+		if (Ext.isDefined(recipient)) {
+			Ext.apply(recipeintConfig, {
+				display_name: recipient['display_name'],
+				email_address: recipient['email_address'] || recipient['smtp_address'],
+				address_type: recipient['address_type'],
+				entryid: recipient['entryid'],
+				object_type: recipient['object_type'],
+				display_type: recipient['display_type'],
+				display_type_ex: recipient['display_type_ex']
+			});
+		}
+
+		return Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_RECIPIENT, recipeintConfig);
+	},
+
+	/**
+	 * Function is used to set the default Cc recipient in New or Reply mail as per the user
+	 * configured in settings.
+	 */
+	setDefaultCcRecipients: function ()
+	{
+		var actionType = this.getMessageAction('action_type');
+		var isCreateAction = !this.hasMessageAction('action_type') && this.phantom;
+		var isReplyAction = actionType === Grommunio.mail.data.ActionTypes.REPLY || actionType === Grommunio.mail.data.ActionTypes.REPLYALL;
+
+		// return if mail is not reply or new mail.
+		if (isCreateAction === false && isReplyAction === false) {
+			return;
+		}
+
+		var settingsModel = container.getSettingsModel();
+		var defaultCcRecipients = settingsModel.get('grommunio/v1/contexts/mail/cc_recipients');
+		var recipientStore = this.getRecipientStore();
+
+		for (var i = 0; i < defaultCcRecipients.length; i++) {
+			var recipient = defaultCcRecipients[i];
+			if (recipientStore.isRecipientExists(recipient) || isCreateAction && !recipient['new_mail'] || isReplyAction && !recipient['reply_mail']) {
+				continue;
+			}
+
+			var recipientData = Ext.apply({}, recipient);
+
+			// Create a new recipient containing all data from the original.
+			var record = Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_RECIPIENT, recipientData);
+
+			// We have copied the 'rowid' as well, but new recipients
+			// shouldn't have this property as it will be filled in by PHP.
+			record.set('rowid', undefined);
+
+			recipientStore.add(record);
+		}
+	}
+});
+
+/**
+ * This will initialize the properties for a phantom {@link Grommunio.core.data.MAPIRecord record},
+ * which are needed to correctly send out the message.
+ * @param {Grommunio.core.data.MAPIRecord} record The phantom record to initialize
+ * @method
+ */
+Grommunio.core.data.MessageRecordPhantomHandler = function(record) {
+	var userInfo = container.getUser();
+
+	record.beginEdit();
+	record.set('sender_name', userInfo.getFullName());
+	record.set('sender_address_type', 'SMTP');
+	record.set('sender_email_address', userInfo.getUserName());
+	record.set('sender_entryid', userInfo.getEntryId());
+	record.set('sender_search_key', userInfo.getSearchKey());
+
+	// set delegate properties if needed
+	if(!record.userIsStoreOwner()) {
+		var storeRecord = container.getHierarchyStore().getById(record.get('store_entryid'));
+		if(storeRecord) {
+			record.setDelegatorInfo(storeRecord);
+		}
+	}
+
+	record.endEdit();
+};

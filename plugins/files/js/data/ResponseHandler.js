@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.ResponseHandler
- * @extends Zarafa.core.data.AbstractResponseHandler
+ * @class Grommunio.plugins.files.data.ResponseHandler
+ * @extends Grommunio.core.data.AbstractResponseHandler
  * @xtype filesplugin.responsehandler
  *
  * Files plugin specific response handler.
  */
-Zarafa.plugins.files.data.ResponseHandler = Ext.extend(Zarafa.core.data.IPMResponseHandler, {
+Grommunio.plugins.files.data.ResponseHandler = Ext.extend(Grommunio.core.data.IPMResponseHandler, {
 
 	/**
 	 * @cfg {String} nodeId The ID of the opened node in the file tree received from Files.
@@ -110,4 +115,4 @@ Zarafa.plugins.files.data.ResponseHandler = Ext.extend(Zarafa.core.data.IPMRespo
 	}
 });
 
-Ext.reg('filesplugin.responsehandler', Zarafa.plugins.files.data.ResponseHandler);
+Ext.reg('filesplugin.responsehandler', Grommunio.plugins.files.data.ResponseHandler);

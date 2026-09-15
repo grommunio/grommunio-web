@@ -1,14 +1,19 @@
-Ext.namespace('Zarafa.plugins.files.backend.Seafile.data.singleton');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.backend.Seafile.data.singleton');
 
 /**
  * Singleton wrapper around the share grid store so multiple widgets can share it.
  */
-Zarafa.plugins.files.backend.Seafile.data.singleton.ShareStore = Ext.extend(
+Grommunio.plugins.files.backend.Seafile.data.singleton.ShareStore = Ext.extend(
 	Object,
 	{
 		store: undefined,
 		init: function (e) {
-			this.store = new Zarafa.plugins.files.backend.Seafile.data.ShareGridStore(
+			this.store = new Grommunio.plugins.files.backend.Seafile.data.ShareGridStore(
 				e,
 			);
 		},
@@ -63,5 +68,5 @@ Zarafa.plugins.files.backend.Seafile.data.singleton.ShareStore = Ext.extend(
 		},
 	},
 );
-Zarafa.plugins.files.backend.Seafile.data.singleton.ShareStore =
-	new Zarafa.plugins.files.backend.Seafile.data.singleton.ShareStore();
+Grommunio.plugins.files.backend.Seafile.data.singleton.ShareStore =
+	new Grommunio.plugins.files.backend.Seafile.data.singleton.ShareStore();

@@ -1,3 +1,7 @@
+<!--
+  SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+  SPDX-License-Identifier: AGPL-3.0-or-later
+-->
 <!doctype html>
 <html lang="en">
 <head>
@@ -33,26 +37,26 @@
 	<script src="../../../client/extjs-mod/Ext.menu.Menu.js"></script>
 	<script src="../../../client/extjs-mod/Ext.menu.CheckItem.js"></script>
 	<script src="ui-visual-fixture.js"></script>
-	<script src="../../../client/zarafa/settings/ui/SettingsWidget.js"></script>
-	<script src="../../../client/zarafa/common/ui/SecurityButtons.js"></script>
+	<script src="../../../client/grommunio/settings/ui/SettingsWidget.js"></script>
+	<script src="../../../client/grommunio/common/ui/SecurityButtons.js"></script>
 	<script src="../js/dialogs/PgpDialogs.js"></script>
 	<script src="../js/settings/SettingsPgpWidget.js"></script>
 </head>
-<body class="zarafa-webclient theme-purple dark-mode">
+<body class="grommunio-webclient theme-purple dark-mode">
 	<main class="fixture-shell">
 		<h1>OpenPGP UI regression fixture</h1>
 		<p class="fixture-help">Local, synthetic UI only: no mailbox, account, key material, or network API. Toggle the theme, open Sign/Encrypt options, select the sample key, and inspect key-management dialogs. “Run checks” tests both themes and restores this view. Reload to reset all local state.</p>
 		<div id="fixture-controls"></div>
 		<div id="fixture-compose" class="fixture-section"></div>
 		<div id="fixture-icon-grid" class="fixture-section"></div>
-		<div id="zarafa-mainpanel-contentpanel-settings" class="fixture-section">
-			<div class="zarafa-settings-category-panel">
-				<div class="zarafa-settings-category-tab k-with-icon zarafa-settings-category-tab-active">
+		<div id="grommunio-mainpanel-contentpanel-settings" class="fixture-section">
+			<div class="grommunio-settings-category-panel">
+				<div class="grommunio-settings-category-tab k-with-icon grommunio-settings-category-tab-active">
 					<img id="fixture-category-icon" class="k-settings-category-icon icon_pgp_key" alt="">
 					OpenPGP
 				</div>
 			</div>
-			<div id="fixture-settings" class="zarafa-settings-category-widget-panel"></div>
+			<div id="fixture-settings" class="grommunio-settings-category-widget-panel"></div>
 		</div>
 		<pre id="fixture-results" role="status" aria-live="polite">Loading real application widgets…</pre>
 	</main>

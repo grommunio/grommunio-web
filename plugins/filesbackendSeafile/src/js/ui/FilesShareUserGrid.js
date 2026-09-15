@@ -1,9 +1,14 @@
-Ext.namespace('Zarafa.plugins.files.backend.Seafile.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.backend.Seafile.ui');
 
 /**
  * Grid that displays all Seafile share recipients for the selected record.
  */
-Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGrid = Ext.extend(
+Grommunio.plugins.files.backend.Seafile.ui.FilesShareUserGrid = Ext.extend(
 	Ext.grid.GridPanel,
 	{
 		store: undefined,
@@ -11,7 +16,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGrid = Ext.extend(
 		constructor: function (e) {
 			e = e || {};
 			this.store =
-				Zarafa.plugins.files.backend.Seafile.data.singleton.ShareStore.getStore();
+				Grommunio.plugins.files.backend.Seafile.data.singleton.ShareStore.getStore();
 			Ext.applyIf(e, {
 				xtype: 'filesplugin.seafile.filesshareusergrid',
 				ref: 'sharegrid',
@@ -43,7 +48,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGrid = Ext.extend(
 					},
 				],
 			});
-			Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGrid.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Seafile.ui.FilesShareUserGrid.superclass.constructor.call(
 				this,
 				e,
 			);
@@ -75,7 +80,7 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGrid = Ext.extend(
 			});
 		},
 		initColumnModel: function () {
-			return new Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGridColumnModel(
+			return new Grommunio.plugins.files.backend.Seafile.ui.FilesShareUserGridColumnModel(
 				{
 					fileType: this.store.fileType,
 				},
@@ -85,8 +90,8 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGrid = Ext.extend(
 			this.grid.removeAccountBtn.setDisabled(e.getCount() != 1);
 		},
 		onRowDblClick: function (e, t) {
-			Zarafa.core.data.UIFactory.openLayerComponent(
-				Zarafa.core.data.SharedComponentType['filesplugin.seafile.useredit'],
+			Grommunio.core.data.UIFactory.openLayerComponent(
+				Grommunio.core.data.SharedComponentType['filesplugin.seafile.useredit'],
 				undefined,
 				{
 					store: e.getStore(),
@@ -97,8 +102,8 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGrid = Ext.extend(
 			);
 		},
 		onAdd: function (e, t) {
-			Zarafa.core.data.UIFactory.openLayerComponent(
-				Zarafa.core.data.SharedComponentType['filesplugin.seafile.useredit'],
+			Grommunio.core.data.UIFactory.openLayerComponent(
+				Grommunio.core.data.SharedComponentType['filesplugin.seafile.useredit'],
 				undefined,
 				{
 					store: this.store,
@@ -118,5 +123,5 @@ Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGrid = Ext.extend(
 );
 Ext.reg(
 	'filesplugin.seafile.filesshareusergrid',
-	Zarafa.plugins.files.backend.Seafile.ui.FilesShareUserGrid,
+	Grommunio.plugins.files.backend.Seafile.ui.FilesShareUserGrid,
 );

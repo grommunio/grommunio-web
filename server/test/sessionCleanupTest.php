@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // The session directory config.php points at is cleaned by nobody on a
 // distribution that disables PHP's own garbage collection, so the package
 // brings its own cleaner. Check that it reads the real configuration and

@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.ai.settings');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.ai.settings');
 
 /**
- * @class Zarafa.plugins.ai.settings.SettingsAICategory
- * @extends Zarafa.settings.ui.SettingsCategory
- * @xtype zarafa.settingsaicategory
+ * @class Grommunio.plugins.ai.settings.SettingsAICategory
+ * @extends Grommunio.settings.ui.SettingsCategory
+ * @xtype grommunio.settingsaicategory
  *
  * The settings category for the AI Assistant plugin.
  */
-Zarafa.plugins.ai.settings.SettingsAICategory = Ext.extend(Zarafa.settings.ui.SettingsCategory, {
+Grommunio.plugins.ai.settings.SettingsAICategory = Ext.extend(Grommunio.settings.ui.SettingsCategory, {
 
 	constructor: function(config)
 	{
@@ -17,12 +22,12 @@ Zarafa.plugins.ai.settings.SettingsAICategory = Ext.extend(Zarafa.settings.ui.Se
 			categoryIndex: 9950,
 			iconCls: 'icon_ai',
 			items: [{
-				xtype: 'zarafa.settingsaiwidget',
+				xtype: 'grommunio.settingsaiwidget',
 				settingsContext: config.settingsContext
 			}]
 		});
-		Zarafa.plugins.ai.settings.SettingsAICategory.superclass.constructor.call(this, config);
+		Grommunio.plugins.ai.settings.SettingsAICategory.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('zarafa.settingsaicategory', Zarafa.plugins.ai.settings.SettingsAICategory);
+Ext.reg('grommunio.settingsaicategory', Grommunio.plugins.ai.settings.SettingsAICategory);

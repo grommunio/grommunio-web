@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.ui.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui.dialogs');
 
 /**
- * @class Zarafa.plugins.files.ui.dialogs.AttachFromFilesContentPanel
- * @extends Zarafa.core.ui.ContentPanel
+ * @class Grommunio.plugins.files.ui.dialogs.AttachFromFilesContentPanel
+ * @extends Grommunio.core.ui.ContentPanel
  * @xtype filesplugin.attachfromfilescontentpanel
  *
  * This content panel contains the download tree panel for attaching item to emails.
  */
-Zarafa.plugins.files.ui.dialogs.AttachFromFilesContentPanel = Ext.extend(Zarafa.core.ui.ContentPanel, {
+Grommunio.plugins.files.ui.dialogs.AttachFromFilesContentPanel = Ext.extend(Grommunio.core.ui.ContentPanel, {
 
 	/**
 	 * @constructor
@@ -28,8 +33,8 @@ Zarafa.plugins.files.ui.dialogs.AttachFromFilesContentPanel = Ext.extend(Zarafa.
 			}]
 		});
 
-		Zarafa.plugins.files.ui.dialogs.AttachFromFilesContentPanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.dialogs.AttachFromFilesContentPanel.superclass.constructor.call(this, config);
 	}
 });
 
-Ext.reg('filesplugin.attachfromfilescontentpanel', Zarafa.plugins.files.ui.dialogs.AttachFromFilesContentPanel);
+Ext.reg('filesplugin.attachfromfilescontentpanel', Grommunio.plugins.files.ui.dialogs.AttachFromFilesContentPanel);

@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * JSON Request handler.
  *
@@ -40,9 +47,9 @@ class JSONRequest {
 			$GLOBALS["bus"]->notify(REQUEST_ENTRYID, REQUEST_START);
 
 			// Check if the JSON is parsed correctly into an array
-			$data = $data["zarafa"] ?: false;
+			$data = $data["grommunio"] ?: false;
 
-			// @TODO throw exception if zarafa tag is not present
+			// @TODO throw exception if grommunio tag is not present
 			if (is_array($data)) {
 				// iterate over all module names
 				foreach ($data as $moduleName => $modules) {
@@ -77,13 +84,13 @@ class JSONRequest {
 			$GLOBALS["bus"]->notify(REQUEST_ENTRYID, REQUEST_END);
 
 			// Build the JSON and return it
-			return json_encode(["zarafa" => $GLOBALS["bus"]->getData()], $jsonflags);
+			return json_encode(["grommunio" => $GLOBALS["bus"]->getData()], $jsonflags);
 		}
-		catch (ZarafaException $e) {
+		catch (GrommunioException $e) {
 			if (!$e->isHandled) {
 				$data = [
 					"error" => [
-						"type" => ERROR_ZARAFA,
+						"type" => ERROR_GROMMUNIO,
 						"info" => [
 							"file" => $e->getFileLine(),
 							"display_message" => $e->getDisplayMessage(),
@@ -92,10 +99,10 @@ class JSONRequest {
 					],
 				];
 
-				return json_encode(["zarafa" => $data], $jsonflags);
+				return json_encode(["grommunio" => $data], $jsonflags);
 			}
 		}
-		catch (ZarafaErrorException $e) {
+		catch (GrommunioErrorException $e) {
 			if (!$e->isHandled) {
 				$data = [
 					"error" => [
@@ -108,7 +115,7 @@ class JSONRequest {
 					],
 				];
 
-				return json_encode(["zarafa" => $data], $jsonflags);
+				return json_encode(["grommunio" => $data], $jsonflags);
 			}
 		}
 		catch (Exception $e) {
@@ -126,7 +133,7 @@ class JSONRequest {
 				],
 			];
 
-			return json_encode(["zarafa" => $data], $jsonflags);
+			return json_encode(["grommunio" => $data], $jsonflags);
 		}
 		catch (Throwable $e) {
 			// Catch PHP Errors/TypeErrors as JSON to avoid HTTP 500s
@@ -143,7 +150,7 @@ class JSONRequest {
 				],
 			];
 
-			return json_encode(["zarafa" => $data], $jsonflags);
+			return json_encode(["grommunio" => $data], $jsonflags);
 		}
 	}
 }

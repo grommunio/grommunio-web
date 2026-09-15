@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.Actions
+ * @class Grommunio.plugins.files.Actions
  * @singleton
  *
  * Common actions which can be used within {@link Ext.Button buttons}
  * or other {@link Ext.Component components} with action handlers.
  */
-Zarafa.plugins.files.data.Actions = {
+Grommunio.plugins.files.data.Actions = {
 
 	/**
 	 * The internal 'iframe' which is hidden from the user, which is used for downloading
@@ -25,7 +30,7 @@ Zarafa.plugins.files.data.Actions = {
 	 * @private
 	 */
 	convertDownloadedFileInfoToAttachmentRecord: function (record) {
-		var attachmentRecord = Zarafa.core.data.RecordFactory.createRecordObjectByObjectType(Zarafa.core.mapi.ObjectType.MAPI_ATTACH);
+		var attachmentRecord = Grommunio.core.data.RecordFactory.createRecordObjectByObjectType(Grommunio.core.mapi.ObjectType.MAPI_ATTACH);
 
 		attachmentRecord.set('tmpname', record.tmpname);
 		attachmentRecord.set('name', record.name);
@@ -34,10 +39,10 @@ Zarafa.plugins.files.data.Actions = {
 	},
 
 	/**
-	 * Open a Panel in which a new {@link Zarafa.core.data.IPMRecord record} can be
+	 * Open a Panel in which a new {@link Grommunio.core.data.IPMRecord record} can be
 	 * further edited.
 	 *
-	 * @param {Zarafa.core.data.IPMRecord} emailRecord The email record that will be edited.
+	 * @param {Grommunio.core.data.IPMRecord} emailRecord The email record that will be edited.
 	 * @param {Array} records Filerecords that will be added as attachments.
 	 * @param {Object} config (optional) Configuration object used to create
 	 * the Content Panel.
@@ -50,24 +55,24 @@ Zarafa.plugins.files.data.Actions = {
 			attachmentStore.add(attachmentRecord);
 		}, this);
 
-		Zarafa.core.data.UIFactory.openCreateRecord(emailRecord, config);
+		Grommunio.core.data.UIFactory.openCreateRecord(emailRecord, config);
 	},
 
 	/**
-	 * Open a Panel in which a new {@link Zarafa.core.data.IPMRecord record} can be
+	 * Open a Panel in which a new {@link Grommunio.core.data.IPMRecord record} can be
 	 * further edited.
 	 *
-	 * @param {Zarafa.mail.MailContextModel} model Context Model object that will be used
-	 * to {@link Zarafa.mail.MailContextModel#createRecord create} the E-Mail.
-	 * @param {Zarafa.addressbook.AddressBookRecord} contacts One or more contact records.
+	 * @param {Grommunio.mail.MailContextModel} model Context Model object that will be used
+	 * to {@link Grommunio.mail.MailContextModel#createRecord create} the E-Mail.
+	 * @param {Grommunio.addressbook.AddressBookRecord} contacts One or more contact records.
 	 * @param {Object} config (optional) Configuration object used to create
 	 * the Content Panel.
 	 */
 	openCreateMailContentForContacts: function (model, contacts, config) {
 		var emailRecord = container.getContextByName("mail").getModel().createRecord();
 
-		Zarafa.core.data.UIFactory.openLayerComponent(Zarafa.core.data.SharedComponentType['zarafa.plugins.files.attachdialog'], undefined, {
-			title      : String.format(_('Add attachment from {0}'), container.getSettingsModel().get('zarafa/v1/plugins/files/button_name')),
+		Grommunio.core.data.UIFactory.openLayerComponent(Grommunio.core.data.SharedComponentType['grommunio.plugins.files.attachdialog'], undefined, {
+			title      : String.format(_('Add attachment from {0}'), container.getSettingsModel().get('grommunio/v1/plugins/files/button_name')),
 			emailrecord: emailRecord,
 			manager    : Ext.WindowMgr
 		});
@@ -81,7 +86,7 @@ Zarafa.plugins.files.data.Actions = {
 
 			if (contact.isOpened()) {
 
-				var recipient = contact.convertToRecipient(Zarafa.core.mapi.RecipientType.MAPI_TO, true);
+				var recipient = contact.convertToRecipient(Grommunio.core.mapi.RecipientType.MAPI_TO, true);
 				recipientStore.add(recipient);
 			} else {
 
@@ -94,7 +99,7 @@ Zarafa.plugins.files.data.Actions = {
 							var fn = function (store, record) {
 								if (record === contactRecord) {
 									store.un('open', fn, task);
-									var recipient = contactRecord.convertToRecipient(Zarafa.core.mapi.RecipientType.MAPI_TO, true);
+									var recipient = contactRecord.convertToRecipient(Grommunio.core.mapi.RecipientType.MAPI_TO, true);
 									recipientStore.add(recipient);
 									callback();
 								}
@@ -115,19 +120,19 @@ Zarafa.plugins.files.data.Actions = {
 			}
 		});
 
-		Zarafa.core.data.UIFactory.openCreateRecord(emailRecord, config);
+		Grommunio.core.data.UIFactory.openCreateRecord(emailRecord, config);
 	},
 
 	/**
 	 * Create a new item...
 	 *
-	 * @param {Zarafa.plugins.files.context.FilesContextModel} model Context Model.
+	 * @param {Grommunio.plugins.files.context.FilesContextModel} model Context Model.
 	 * @param {Object} config (optional) Configuration object used to create
 	 * the Content Panel.
 	 */
 	openCreateFilesContent: function (model, config) {
 		var record = model.createRecord();
-		Zarafa.core.data.UIFactory.openCreateRecord(record, config);
+		Grommunio.core.data.UIFactory.openCreateRecord(record, config);
 	},
 
 	/**
@@ -142,15 +147,15 @@ Zarafa.plugins.files.data.Actions = {
 		var firstFileName, firstFolderName;
 
 		Ext.each(records, function (record) {
-			if (record.get('folder_id') === (container.getSettingsModel().get('zarafa/v1/contexts/files/files_path') + "/") || record.get('filename') === "..") {
+			if (record.get('folder_id') === (container.getSettingsModel().get('grommunio/v1/contexts/files/files_path') + "/") || record.get('filename') === "..") {
 				allowDelete = false;
 			}
-			if (record.get('object_type') === Zarafa.plugins.files.data.FileTypes.FOLDER) {
+			if (record.get('object_type') === Grommunio.plugins.files.data.FileTypes.FOLDER) {
 				folderCount += 1;
 				if (!firstFolderName) {
 					firstFolderName = record.get('filename');
 				}
-			} else if (record.get('object_type') === Zarafa.plugins.files.data.FileTypes.FILE) {
+			} else if (record.get('object_type') === Grommunio.plugins.files.data.FileTypes.FILE) {
 				fileCount += 1;
 				if (!firstFileName) {
 					firstFileName = record.get('filename');
@@ -158,7 +163,7 @@ Zarafa.plugins.files.data.Actions = {
 			}
 		}, this);
 
-		var askOnDelete = container.getSettingsModel().get('zarafa/v1/contexts/files/ask_before_delete');
+		var askOnDelete = container.getSettingsModel().get('grommunio/v1/contexts/files/ask_before_delete');
 
 		if (allowDelete) {
 			if (askOnDelete) {
@@ -209,7 +214,7 @@ Zarafa.plugins.files.data.Actions = {
 	/**
 	 * Delete the selected files.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesRecord[]} records The records that must be deleted.
+	 * @param {Grommunio.plugins.files.data.FilesRecord[]} records The records that must be deleted.
 	 * @private
 	 */
 	doDelete: function (records)
@@ -236,17 +241,17 @@ Zarafa.plugins.files.data.Actions = {
 			records: records
 		});
 
-		var componentType = Zarafa.core.data.SharedComponentType['zarafa.plugins.files.sharedialog'];
-		Zarafa.core.data.UIFactory.openLayerComponent(componentType, undefined, config);
+		var componentType = Grommunio.core.data.SharedComponentType['grommunio.plugins.files.sharedialog'];
+		Grommunio.core.data.UIFactory.openLayerComponent(componentType, undefined, config);
 	},
 
 	/**
-	 * Create a new Folder in {@link Zarafa.core.data.IPMRecord node}.
+	 * Create a new Folder in {@link Grommunio.core.data.IPMRecord node}.
 	 *
-	 * @param {Zarafa.plugins.files.context.FilesContextModel} model Context Model.
+	 * @param {Grommunio.plugins.files.context.FilesContextModel} model Context Model.
 	 * @param {Object} config (optional) Configuration object used to create
 	 * the Content Panel.
-	 * @param {Zarafa.plugins.files.data.FilesFolderRecord} folder The destination folder in which the new folder will be created.
+	 * @param {Grommunio.plugins.files.data.FilesFolderRecord} folder The destination folder in which the new folder will be created.
 	 */
 	createFolder: function (model, config, folder) {
 
@@ -257,21 +262,21 @@ Zarafa.plugins.files.data.Actions = {
 			manager: Ext.WindowMgr
 		});
 
-		var record = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.FILES_FOLDER, {
-			"object_type": Zarafa.plugins.files.data.FileTypes.FOLDER
+		var record = Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(Grommunio.core.data.RecordCustomObjectType.FILES_FOLDER, {
+			"object_type": Grommunio.plugins.files.data.FileTypes.FOLDER
 		});
 
-		var componentType = Zarafa.core.data.SharedComponentType['zarafa.plugins.files.createfolderdialog'];
-		Zarafa.core.data.UIFactory.openLayerComponent(componentType, record, config);
+		var componentType = Grommunio.core.data.SharedComponentType['grommunio.plugins.files.createfolderdialog'];
+		Grommunio.core.data.UIFactory.openLayerComponent(componentType, record, config);
 	},
 
 	/**
-	 * Create a new Folder in {@link Zarafa.core.data.IPMRecord node}.
+	 * Create a new Folder in {@link Grommunio.core.data.IPMRecord node}.
 	 *
-	 * @param {Zarafa.plugins.files.context.FilesContextModel} model Context Model.
+	 * @param {Grommunio.plugins.files.context.FilesContextModel} model Context Model.
 	 * @param {Object} config (optional) Configuration object used to create
 	 * the Content Panel.
-	 * @param {Zarafa.plugins.files.data.FilesFolderRecord} folder The destination folder in which the new folder will be created.
+	 * @param {Grommunio.plugins.files.data.FilesFolderRecord} folder The destination folder in which the new folder will be created.
 	 */
 	createFile: function (model, config, folder, button, filetype) {
 		config = Ext.applyIf(config || {}, {
@@ -283,17 +288,17 @@ Zarafa.plugins.files.data.Actions = {
 			filetype: filetype
 		});
 
-		var componentType = Zarafa.core.data.SharedComponentType['zarafa.plugins.files.createfiledialog'];
-		Zarafa.core.data.UIFactory.openLayerComponent(componentType, null, config);
+		var componentType = Grommunio.core.data.SharedComponentType['grommunio.plugins.files.createfiledialog'];
+		Grommunio.core.data.UIFactory.openLayerComponent(componentType, null, config);
 	},
 
 	/**
-	 * Callback for the {@link Zarafa.plugins.files.data.FilesRecordStore#load} event.
+	 * Callback for the {@link Grommunio.plugins.files.data.FilesRecordStore#load} event.
 	 * This function will refresh the view of the main panel.
 	 */
 	doRefreshIconView: function () {
-		if (Zarafa.plugins.files.data.ComponentBox.getContext().getCurrentView() === Zarafa.plugins.files.data.Views.ICON) {
-			Zarafa.plugins.files.data.ComponentBox.getItemsView().refresh();
+		if (Grommunio.plugins.files.data.ComponentBox.getContext().getCurrentView() === Grommunio.plugins.files.data.Views.ICON) {
+			Grommunio.plugins.files.data.ComponentBox.getItemsView().refresh();
 		}
 	},
 
@@ -308,7 +313,7 @@ Zarafa.plugins.files.data.Actions = {
 	{
 		if (!Ext.isDefined(destination.data)) {
 			var parent = destination.parentNode;
-			destination = Zarafa.core.data.RecordFactory.createRecordObjectByObjectType(Zarafa.core.mapi.ObjectType.ZARAFA_FILES, {
+			destination = Grommunio.core.data.RecordFactory.createRecordObjectByObjectType(Grommunio.core.mapi.ObjectType.GROMMUNIO_FILES, {
 				id            : destination.id,
 				entryid       : destination.id,
 				parent_entryid: Ext.isDefined(parent) ? parent.id : "/"
@@ -334,7 +339,7 @@ Zarafa.plugins.files.data.Actions = {
 	/**
 	 * Helper function which used to check folder is already exists in destination folder.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesHierarchyStore} hierarchyStore the hierarchy store.
+	 * @param {Grommunio.plugins.files.data.FilesHierarchyStore} hierarchyStore the hierarchy store.
 	 * @param {Ext.data.Record} records The records which needs to move.
 	 * @param {Ext.data.Record} destination The destination folder where records going to move.
 	 * @returns {boolean}
@@ -372,7 +377,7 @@ Zarafa.plugins.files.data.Actions = {
 				record.moveTo(destination);
 				record.set("deleted", true);
 				record.addMessageAction('overwrite', Ext.isDefined(overwrite) ? overwrite : 'no');
-				record.addMessageAction('isFolder', record.get('type') === Zarafa.plugins.files.data.FileTypes.FOLDER);
+				record.addMessageAction('isFolder', record.get('type') === Grommunio.plugins.files.data.FileTypes.FOLDER);
 				record.dirty = true;
 				record.endEdit();
 				record.save();
@@ -382,15 +387,15 @@ Zarafa.plugins.files.data.Actions = {
 			store.reload();
 		}
 
-		if (Zarafa.plugins.files.data.ComponentBox.getContext().getCurrentView() === Zarafa.plugins.files.data.Views.ICON) {
-			Zarafa.plugins.files.data.ComponentBox.getItemsView().refresh();
+		if (Grommunio.plugins.files.data.ComponentBox.getContext().getCurrentView() === Grommunio.plugins.files.data.Views.ICON) {
+			Grommunio.plugins.files.data.ComponentBox.getItemsView().refresh();
 		}
 	},
 
 	/**
 	 * Open a rename dialog and rename the item
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesRecord} record
+	 * @param {Grommunio.plugins.files.data.FilesRecord} record
 	 */
 	openRenameDialog: function (record) {
 		Ext.MessageBox.prompt(
@@ -408,7 +413,7 @@ Zarafa.plugins.files.data.Actions = {
 	 * @param {String} button The value of the button
 	 * @param {String} text Inputfield value, new name
 	 * @param {Object} options Unused
-	 * @param {Zarafa.plugins.files.data.FilesRecord} record
+	 * @param {Grommunio.plugins.files.data.FilesRecord} record
 	 * @private
 	 */
 	doCheckRenameDuplicate: function (button, text, options, record) {
@@ -422,7 +427,7 @@ Zarafa.plugins.files.data.Actions = {
 
 			var store = record.getStore();
 			var index = 0;
-			if (store instanceof Zarafa.plugins.files.data.FilesFoldersSubStore) {
+			if (store instanceof Grommunio.plugins.files.data.FilesFoldersSubStore) {
 				var parentFolder = record.getParentFolder();
 				index = parentFolder.getChildren().findIndex(function(item) {
 					return item.get('filename') === text;
@@ -445,7 +450,7 @@ Zarafa.plugins.files.data.Actions = {
 	 * Rename a record on the server
 	 *
 	 * @param {String} text Inputfield value, new name
-	 * @param {Zarafa.plugins.files.data.FilesRecord} record
+	 * @param {Grommunio.plugins.files.data.FilesRecord} record
 	 * @private
 	 */
 	doRename: function (text, record)
@@ -493,8 +498,8 @@ Zarafa.plugins.files.data.Actions = {
 	 * upload the files to the server.
 	 *
 	 * @param {Array} files An array of files
-	 * @param {Zarafa.plugins.files.data.FilesRecordStore} store which
-	 * contains {@link Zarafa.plugins.files.data.FilesRecord FilesRecord}
+	 * @param {Grommunio.plugins.files.data.FilesRecordStore} store which
+	 * contains {@link Grommunio.plugins.files.data.FilesRecord FilesRecord}
 	 * @param {string} destination The destination folder id where file gets uploaded.
 	 */
 	uploadAsyncItems: function (files, store, destination) {
@@ -508,7 +513,7 @@ Zarafa.plugins.files.data.Actions = {
 		var fileTooLarge = false;
 
 		Ext.each(files, function (file) {
-			if (file.size > Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize()) {
+			if (file.size > Grommunio.plugins.files.data.Utils.Core.getMaxUploadFilesize()) {
 				fileTooLarge = true;
 			}
 			var id = destination + file.name;
@@ -520,7 +525,7 @@ Zarafa.plugins.files.data.Actions = {
 
 		if (fileTooLarge) {
 			container.getNotifier().notify('error.files', _('Upload'),
-				String.format(_('At least one file is too large! Maximum allowed filesize: {0}.'), Zarafa.plugins.files.data.Utils.Format.fileSize(Zarafa.plugins.files.data.Utils.Core.getMaxUploadFilesize())));
+				String.format(_('At least one file is too large! Maximum allowed filesize: {0}.'), Grommunio.plugins.files.data.Utils.Format.fileSize(Grommunio.plugins.files.data.Utils.Core.getMaxUploadFilesize())));
 		} else {
 			// check for duplicates
 			container.getRequest().singleRequest(
@@ -531,7 +536,7 @@ Zarafa.plugins.files.data.Actions = {
 					destination: destination
 				},
 
-				new Zarafa.core.data.AbstractResponseHandler({
+				new Grommunio.core.data.AbstractResponseHandler({
 					doCheckifexists:  this.checkForExistingFilesDone.createDelegate(this, [files, destination, fileStore, this.doAsyncUpload], true)
 				})
 			);
@@ -541,15 +546,15 @@ Zarafa.plugins.files.data.Actions = {
 	/**
 	 * Actually uploads all the files to the server.
 	 *
-	 * @param {Zarafa.common.dialogs.MessageBox.addCustomButtons} button
+	 * @param {Grommunio.common.dialogs.MessageBox.addCustomButtons} button
 	 * @param {Array} files An array of files
 	 * @param {string} destination The destination folder id where file gets uploaded.
-	 * @param {Zarafa.plugins.files.data.FilesRecordStore} store which contains {@link Zarafa.plugins.files.data.FilesRecord FilesRecord}
+	 * @param {Grommunio.plugins.files.data.FilesRecordStore} store which contains {@link Grommunio.plugins.files.data.FilesRecord FilesRecord}
 	 */
 	doAsyncUpload: function (button, files, destination, store) {
 		if (button === "overwrite" || button === "keepboth") {
-			var componentType = Zarafa.core.data.SharedComponentType['zarafa.plugins.files.uploadstatusdialog'];
-			Zarafa.core.data.UIFactory.openLayerComponent(componentType, undefined, {
+			var componentType = Grommunio.core.data.SharedComponentType['grommunio.plugins.files.uploadstatusdialog'];
+			Grommunio.core.data.UIFactory.openLayerComponent(componentType, undefined, {
 				files : files,
 				destination : destination,
 				keepBoth : button === "keepboth",
@@ -565,7 +570,7 @@ Zarafa.plugins.files.data.Actions = {
 	 *
 	 * @param {Array} files An array of files
 	 * @param {string} destination The destination folder id where file gets uploaded.
-	 * @param {Zarafa.plugins.files.data.FilesRecordStore} store which contains {@link Zarafa.plugins.files.data.FilesRecord FilesRecord}
+	 * @param {Grommunio.plugins.files.data.FilesRecordStore} store which contains {@link Grommunio.plugins.files.data.FilesRecord FilesRecord}
 	 */
 	uploadDone: function (files, destination, store)
 	{
@@ -576,21 +581,21 @@ Zarafa.plugins.files.data.Actions = {
 	},
 
 	/**
-	 * This function is called after the {@Zarafa.plugins.files.data.FilesStore} has loaded the target folder.
+	 * This function is called after the {@Grommunio.plugins.files.data.FilesStore} has loaded the target folder.
 	 * It will check if one of the selected files already exists in the store. If there is a duplicate file
 	 * a warning will be shown.
 	 *
 	 * @param {Object} response
 	 * @param {File[]} files The files that should be uploaded
 	 * @param {string} destination record id
- 	 * @param {Zarafa.plugins.files.data.FilesRecordStore} store which contains
-	 * {@link Zarafa.plugins.files.data.FilesRecord FilesRecord}
+ 	 * @param {Grommunio.plugins.files.data.FilesRecordStore} store which contains
+	 * {@link Grommunio.plugins.files.data.FilesRecord FilesRecord}
 	 * @param {Function} callback function which triggers {@link #doAsyncUpload} function.
 	 * @private
 	 */
 	checkForExistingFilesDone: function (response, files, destination, store, callback) {
 		if (response.duplicate === true) {
-			Zarafa.common.dialogs.MessageBox.addCustomButtons({
+			Grommunio.common.dialogs.MessageBox.addCustomButtons({
 				title : _('Confirm overwrite'),
 				icon: Ext.MessageBox.QUESTION,
 				msg : _('File already exists. Do you want to overwrite it?'),
@@ -615,7 +620,7 @@ Zarafa.plugins.files.data.Actions = {
 	/**
 	 * Returns a download link for the client.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesRecord} record a file record
+	 * @param {Grommunio.plugins.files.data.FilesRecord} record a file record
 	 * @param {Boolean} inline (optional)
 	 * @return {String}
 	 */
@@ -626,7 +631,7 @@ Zarafa.plugins.files.data.Actions = {
 	/**
 	 * Returns a download link for the client to download multiple items.
 	 *
-	 * @param {Array} records a array of {Zarafa.plugins.files.data.FilesRecord}
+	 * @param {Array} records a array of {Grommunio.plugins.files.data.FilesRecord}
 	 * @return {String}
 	 */
 	getDownloadLinkForMultipleFiles: function (records) {
@@ -655,7 +660,7 @@ Zarafa.plugins.files.data.Actions = {
 	},
 
 	/**
-	 * Event handler called when the "use Zarafa credentials" checkbox has been modified
+	 * Event handler called when the "use Grommunio credentials" checkbox has been modified
 	 *
 	 * @param {Ext.form.CheckBox} checkbox Checkbox element from which the event originated
 	 * @param {Boolean} checked State of the checkbox
@@ -719,11 +724,11 @@ Zarafa.plugins.files.data.Actions = {
 
 	/**
 	 * Open the folder. This will check if the user has rights to open
-	 * the given folder, and will call {@link Zarafa.core.Container#selectFolder}
+	 * the given folder, and will call {@link Grommunio.core.Container#selectFolder}
 	 * if that is the case. Otherwise if this is a shared store, it will ask
 	 * if the store can be closed.
 	 *
-	 * @param {Zarafa.plugins.files.FilesContextModel} model The {Zarafa.plugins.files.FilesContextModel FilesContextModel}.
+	 * @param {Grommunio.plugins.files.FilesContextModel} model The {Grommunio.plugins.files.FilesContextModel FilesContextModel}.
 	 * @param {String} entryId The entryId is id of folder which is going to open.
 	 */
 	openFolder : function(model, entryId)
@@ -735,11 +740,11 @@ Zarafa.plugins.files.data.Actions = {
 	},
 
 	/**
-	 * Function which open the {@link Zarafa.plugins.files.ui.dialogs.SaveToFilesContentPanel SaveToFilesContentPanel}
+	 * Function which open the {@link Grommunio.plugins.files.ui.dialogs.SaveToFilesContentPanel SaveToFilesContentPanel}
 	 * in dialog.
 	 *
-	 * @param {Zarafa.plugins.files.FilesContextModel} model The model is {@link Zarafa.plugins.files.FilesContextModel FilesContextModel}.
-	 * @param {Object} config The configuration object which used to open {@link Zarafa.plugins.files.ui.dialogs.SaveToFilesContentPanel SaveToFilesContentPanel}.
+	 * @param {Grommunio.plugins.files.FilesContextModel} model The model is {@link Grommunio.plugins.files.FilesContextModel FilesContextModel}.
+	 * @param {Object} config The configuration object which used to open {@link Grommunio.plugins.files.ui.dialogs.SaveToFilesContentPanel SaveToFilesContentPanel}.
 	 */
 	openSaveToFilesDialog : function (model, config)
 	{
@@ -748,8 +753,8 @@ Zarafa.plugins.files.data.Actions = {
 			modal : true
 		});
 
-		var component = Zarafa.core.data.SharedComponentType['common.dialog.attachments.savetofiles'];
-		Zarafa.core.data.UIFactory.openLayerComponent(component, undefined, config);
+		var component = Grommunio.core.data.SharedComponentType['common.dialog.attachments.savetofiles'];
+		Grommunio.core.data.UIFactory.openLayerComponent(component, undefined, config);
 	},
 
 	/**
@@ -758,7 +763,7 @@ Zarafa.plugins.files.data.Actions = {
 	 * is where a file is edited. Everything grommunio Web can render is
 	 * previewed, and what is left over is downloaded.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesRecord} record The file to open
+	 * @param {Grommunio.plugins.files.data.FilesRecord} record The file to open
 	 */
 	openFile: function(record)
 	{
@@ -775,19 +780,19 @@ Zarafa.plugins.files.data.Actions = {
 	 * Whether the OnlyOffice editor is configured for this file type. The
 	 * editor edits documents; reading one is the previewer's job.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesRecord} record The file
+	 * @param {Grommunio.plugins.files.data.FilesRecord} record The file
 	 * @return {Boolean} True when the file can be opened in OnlyOffice
 	 */
 	isEditableInOffice: function(record)
 	{
 		var settings = container.getSettingsModel();
-		if (!settings.get('zarafa/v1/plugins/files/onlyoffice_enabled')) {
+		if (!settings.get('grommunio/v1/plugins/files/onlyoffice_enabled')) {
 			return false;
 		}
 
 		var name = String(record.get('folder_id') || '').toLowerCase();
 
-		return String(settings.get('zarafa/v1/plugins/files/onlyoffice_filetypes') || '').split(',').some(function(type) {
+		return String(settings.get('grommunio/v1/plugins/files/onlyoffice_filetypes') || '').split(',').some(function(type) {
 			type = type.trim().toLowerCase();
 
 			return type && name.endsWith(type);
@@ -797,21 +802,21 @@ Zarafa.plugins.files.data.Actions = {
 	/**
 	 * Whether the previewer can render this file.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesRecord} record The file
+	 * @param {Grommunio.plugins.files.data.FilesRecord} record The file
 	 * @return {Boolean} True when the file has a preview
 	 */
 	isPreviewable: function(record)
 	{
-		return record.get('type') === Zarafa.plugins.files.data.FileTypes.FILE &&
-			Zarafa.common.Actions.isFilePreviewerEnabled() &&
-			Zarafa.common.previewer.data.Formats.isSupported(record.get('filename'));
+		return record.get('type') === Grommunio.plugins.files.data.FileTypes.FILE &&
+			Grommunio.common.Actions.isFilePreviewerEnabled() &&
+			Grommunio.common.previewer.data.Formats.isSupported(record.get('filename'));
 	},
 
 	/**
 	 * Open a file in the previewer, in the layer the file preview setting
 	 * asks for.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesRecord} record The file to preview
+	 * @param {Grommunio.plugins.files.data.FilesRecord} record The file to preview
 	 * @return {Boolean} False when the file has no preview
 	 */
 	previewFile: function(record)
@@ -822,7 +827,7 @@ Zarafa.plugins.files.data.Actions = {
 
 		// 'modal' is accepted by the dialog layer alone, and passing it forces
 		// that layer whatever the setting asks for.
-		var layerType = Zarafa.common.Actions.getFilePreviewerTarget();
+		var layerType = Grommunio.common.Actions.getFilePreviewerTarget();
 		var modal = layerType === 'dialogs';
 		var config = {
 			modal: modal,
@@ -835,8 +840,8 @@ Zarafa.plugins.files.data.Actions = {
 			config.layerType = layerType;
 		}
 
-		Zarafa.core.data.UIFactory.openLayerComponent(
-			Zarafa.core.data.SharedComponentType['filesplugin.documentpreview'], record, config);
+		Grommunio.core.data.UIFactory.openLayerComponent(
+			Grommunio.core.data.SharedComponentType['filesplugin.documentpreview'], record, config);
 
 		return true;
 	},
@@ -846,14 +851,14 @@ Zarafa.plugins.files.data.Actions = {
 	 * shows it. With config.create the file does not exist yet: the editor
 	 * is asked to create it and config.callback runs once it has.
 	 *
-	 * @param {Zarafa.plugins.files.data.FilesRecord} record The file, its folder_id carrying the account
+	 * @param {Grommunio.plugins.files.data.FilesRecord} record The file, its folder_id carrying the account
 	 * @param {Object} config Optional create, callback and scope
 	 * @return {Boolean} False when the account is not a Nextcloud with an OnlyOffice app
 	 */
 	openTab: function(record, config)
 	{
 		config = config || {};
-		var office = Zarafa.plugins.files.data.Utils.File.getOfficeUrls(record.getAccount());
+		var office = Grommunio.plugins.files.data.Utils.File.getOfficeUrls(record.getAccount());
 		if (!office) {
 			return false;
 		}
@@ -872,19 +877,19 @@ Zarafa.plugins.files.data.Actions = {
 			return true;
 		}
 
-		var path = Zarafa.plugins.files.data.Utils.File.stripAccountId(url);
+		var path = Grommunio.plugins.files.data.Utils.File.stripAccountId(url);
 		var src;
 		if (config.create) {
 			// The GET route creates the file and redirects into the editor; unlike
 			// ajax/new it needs neither a CSRF token nor a cross-origin request.
-			var dir = Zarafa.plugins.files.data.Utils.File.getDirName(path) || '/';
+			var dir = Grommunio.plugins.files.data.Utils.File.getDirName(path) || '/';
 			src = office.app + 'new?name=' + encodeURIComponent(displayName) + '&dir=' + encodeURIComponent(dir);
 		} else {
 			src = office.app + record.getFileid() + '?filePath=' + encodeURIComponent(path);
 		}
 
-		var component = Zarafa.core.data.SharedComponentType['plugins.files.onlyofficepanel'];
-		Zarafa.core.data.UIFactory.openLayerComponent(component, record, {
+		var component = Grommunio.core.data.SharedComponentType['plugins.files.onlyofficepanel'];
+		Grommunio.core.data.UIFactory.openLayerComponent(component, record, {
 			url: url,
 			src: src,
 			origin: office.origin,

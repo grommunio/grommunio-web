@@ -1,14 +1,19 @@
-Ext.namespace('Zarafa.plugins.files.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.FileTypes
- * @extends Zarafa.core.Enum
+ * @class Grommunio.plugins.files.data.FileTypes
+ * @extends Grommunio.core.Enum
  *
  * Enum containing the different file types of the files context.
  *
  * @singleton
  */
-Zarafa.plugins.files.data.FileTypes = Zarafa.core.Enum.create({
+Grommunio.plugins.files.data.FileTypes = Grommunio.core.Enum.create({
 
 	/**
 	 * Filetype: folder

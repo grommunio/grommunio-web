@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 define('TYPE_PLUGIN', 1);
 define('TYPE_MODULE', 2);
 define('TYPE_CONFIG', 3);
@@ -1067,7 +1074,7 @@ class PluginManager {
 			if ($settingsname === null || in_array($pluginname, $alwaysEnabled, true)) {
 				continue;
 			}
-			if ($GLOBALS['settings']->get('zarafa/v1/plugins/' . $settingsname . '/enable') !== true) {
+			if ($GLOBALS['settings']->get('grommunio/v1/plugins/' . $settingsname . '/enable') !== true) {
 				$this->unloaded[$pluginname] = true;
 			}
 		}
@@ -1108,7 +1115,7 @@ class PluginManager {
 				'name' => $pluginname,
 				'display_name' => _($plugin['title'] ?? $pluginname),
 				'allow_disable' => isset($plugin['optional']),
-				'settings_base' => 'zarafa/v1/plugins/' . ($plugin['optional'] ?? $pluginname),
+				'settings_base' => 'grommunio/v1/plugins/' . ($plugin['optional'] ?? $pluginname),
 			];
 		}
 

@@ -1,43 +1,50 @@
-Ext.namespace('Zarafa.plugins.desktopnotifications');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.desktopnotifications');
 
 /**
- * @class Zarafa.plugins.desktopnotifications.DesktopNotificationsPlugin
- * @extends Zarafa.core.Plugin
+ * @class Grommunio.plugins.desktopnotifications.DesktopNotificationsPlugin
+ * @extends Grommunio.core.Plugin
  * This class is used for adding files from the users's Dropbox folder
  * to his emails as attachments
  */
-Zarafa.plugins.desktopnotifications.DesktopNotificationsPlugin = Ext.extend(Zarafa.core.Plugin, {
+Grommunio.plugins.desktopnotifications.DesktopNotificationsPlugin = Ext.extend(Grommunio.core.Plugin, {
 	/**
 	 * initialises insertion point for plugin
 	 * @protected
 	 */
 	initPlugin : function()
 	{	
-		Zarafa.plugins.desktopnotifications.DesktopNotificationsPlugin.superclass.initPlugin.apply(this, arguments);
+		Grommunio.plugins.desktopnotifications.DesktopNotificationsPlugin.superclass.initPlugin.apply(this, arguments);
 
 		this.registerInsertionPoint('context.settings.categories', this.createSettingsCategory, this);
 	},
 
 	/**
-	 * Return the instance of {@link Zarafa.plugins.desktopnotifications.js.settings.SettingsDesktopNotificationsCategory SettingsDesktopNotificationsCategory}.
+	 * Return the instance of {@link Grommunio.plugins.desktopnotifications.js.settings.SettingsDesktopNotificationsCategory SettingsDesktopNotificationsCategory}.
 	 *
-	 * @return {Zarafa.plugins.desktopnotifications.js.settings.SettingsDesktopNotificationsCategory} An instance of the settings category
+	 * @return {Grommunio.plugins.desktopnotifications.js.settings.SettingsDesktopNotificationsCategory} An instance of the settings category
 	 * @private
 	 */
 	createSettingsCategory : function()
 	{
 		return {
-			xtype : 'zarafa.settingsdesktopnotificationscategory',
+			xtype : 'grommunio.settingsdesktopnotificationscategory',
 			plugin : this
 		};
 	}
 });
 
-Zarafa.onReady(function() {
-	container.registerPlugin(new Zarafa.core.PluginMetaData({
+Grommunio.onReady(function() {
+	container.registerPlugin(new Grommunio.core.PluginMetaData({
 		name : 'desktopnotifications',
 		displayName : _('Desktop Notifications Plugin'),
-		about : Zarafa.plugins.desktopnotifications.ABOUT,
-		pluginConstructor : Zarafa.plugins.desktopnotifications.DesktopNotificationsPlugin
+		about : Grommunio.plugins.desktopnotifications.ABOUT,
+		pluginConstructor : Grommunio.plugins.desktopnotifications.DesktopNotificationsPlugin
 	}));
 });

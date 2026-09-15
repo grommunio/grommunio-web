@@ -1,16 +1,21 @@
-Ext.namespace('Zarafa.plugins.files');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files');
 
 /**
- * @class Zarafa.plugins.files.FilesContext
- * @extends Zarafa.core.Context
+ * @class Grommunio.plugins.files.FilesContext
+ * @extends Grommunio.core.Context
  *
  * This class will add a new context to grommunio Web. The new context
  * offers a filebrowser for the Files backend.
  */
-Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
+Grommunio.plugins.files.FilesContext = Ext.extend(Grommunio.core.Context, {
 
 	/**
-	 * When searching, this property marks the {@link Zarafa.core.Context#getCurrentView view}
+	 * When searching, this property marks the {@link Grommunio.core.Context#getCurrentView view}
 	 * which was used before {@link #onSearchStart searching started}.
 	 *
 	 * @property
@@ -20,7 +25,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	oldView: undefined,
 
 	/**
-	 * When searching, this property marks the {@link Zarafa.core.Context#getCurrentViewMode viewmode}
+	 * When searching, this property marks the {@link Grommunio.core.Context#getCurrentViewMode viewmode}
 	 * which was used before {@link #onSearchStart searching started}.
 	 *
 	 * @property
@@ -31,10 +36,10 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 
 	/**
 	 * accountsStore which contains all configured
-	 * {@link Zarafa.plugins.files.data.AccountRecord accounts}.
+	 * {@link Grommunio.plugins.files.data.AccountRecord accounts}.
 	 *
 	 * @property
-	 * @type Zarafa.plugins.files.data.AccountStore
+	 * @type Grommunio.plugins.files.data.AccountStore
 	 * @private
 	 */
 	accountsStore: undefined,
@@ -47,8 +52,8 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 		config = config || {};
 
 		Ext.applyIf(config, {
-			current_view     : Zarafa.plugins.files.data.Views.LIST,
-			current_view_mode: Zarafa.plugins.files.data.ViewModes.RIGHT_PREVIEW
+			current_view     : Grommunio.plugins.files.data.Views.LIST,
+			current_view_mode: Grommunio.plugins.files.data.ViewModes.RIGHT_PREVIEW
 		});
 
 		this.registerInsertionPoint('context.settings.categories', this.createSettingCategories, this);
@@ -61,21 +66,21 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 		this.registerInsertionPoint('common.contextmenu.attachment.actions', this.createAttachmentUploadInsertionPoint, this);
 		this.registerInsertionPoint('context.mail.contextmenu.actions', this.createEmailUploadInsertionPoint, this);
 
-		Zarafa.plugins.files.FilesContext.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.FilesContext.superclass.constructor.call(this, config);
 
 		var notificationResolver = container.getNotificationResolver();
 		if (Ext.isFunction(notificationResolver.addIPFNotificationModule)) {
 			notificationResolver.addIPFNotificationModule("fileshierarchynotifier");
 		}
 
-		Zarafa.core.data.SharedComponentType.addProperty('zarafa.plugins.files.attachdialog');
-		Zarafa.core.data.SharedComponentType.addProperty('zarafa.plugins.files.createfolderdialog');
-		Zarafa.core.data.SharedComponentType.addProperty('zarafa.plugins.files.createfiledialog');
-		Zarafa.core.data.SharedComponentType.addProperty('zarafa.plugins.files.fileinfopanel');
-		Zarafa.core.data.SharedComponentType.addProperty('zarafa.plugins.files.sharedialog');
-		Zarafa.core.data.SharedComponentType.addProperty('zarafa.plugins.files.uploadstatusdialog');
-		Zarafa.core.data.SharedComponentType.addProperty('zarafa.plugins.files.treecontextmenu');
-		Zarafa.core.data.SharedComponentType.addProperty('common.dialog.attachments.files');
+		Grommunio.core.data.SharedComponentType.addProperty('grommunio.plugins.files.attachdialog');
+		Grommunio.core.data.SharedComponentType.addProperty('grommunio.plugins.files.createfolderdialog');
+		Grommunio.core.data.SharedComponentType.addProperty('grommunio.plugins.files.createfiledialog');
+		Grommunio.core.data.SharedComponentType.addProperty('grommunio.plugins.files.fileinfopanel');
+		Grommunio.core.data.SharedComponentType.addProperty('grommunio.plugins.files.sharedialog');
+		Grommunio.core.data.SharedComponentType.addProperty('grommunio.plugins.files.uploadstatusdialog');
+		Grommunio.core.data.SharedComponentType.addProperty('grommunio.plugins.files.treecontextmenu');
+		Grommunio.core.data.SharedComponentType.addProperty('common.dialog.attachments.files');
 	},
 
 	/**
@@ -112,7 +117,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * This method will open the {@link Zarafa.plugins.files.ui.dialogs.AttachFromFilesContentPanel file chooser panel}.
+	 * This method will open the {@link Grommunio.plugins.files.ui.dialogs.AttachFromFilesContentPanel file chooser panel}.
 	 *
 	 * @param btn
 	 */
@@ -121,8 +126,8 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 		// TODO: Move this function to action.js
 
 		var activeMenuItem = this.menu.activeItem;
-		var component = Zarafa.core.data.SharedComponentType['common.dialog.attachments.files'];
-		Zarafa.core.data.UIFactory.openLayerComponent(component, this.record, {
+		var component = Grommunio.core.data.SharedComponentType['common.dialog.attachments.files'];
+		Grommunio.core.data.UIFactory.openLayerComponent(component, this.record, {
 			title: _('Add attachment from Files'),
 			modal: true,
 			model: activeMenuItem.context.getModel()
@@ -137,7 +142,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	{
 		var accountStore = this.getAccountsStore();
 		var foundActiveStore =  accountStore.findBy(function (item) {
-			if (item.get("status") === Zarafa.plugins.files.data.AccountRecordStatus.OK) {
+			if (item.get("status") === Grommunio.plugins.files.data.AccountRecordStatus.OK) {
 				return true;
 			}
 		});
@@ -164,10 +169,10 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * Function will be called before {@link Zarafa.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
+	 * Function will be called before {@link Grommunio.common.attachment.ui.AttachmentContextMenu AttachmentContextMenu} is shown
 	 * so we can decide which item should be disabled.
-	 * @param {Zarafa.core.ui.menu.ConditionalItem} item context menu item
-	 * @param {Zarafa.core.data.IPMAttachmentRecord} record attachment record on which context menu is shown
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item context menu item
+	 * @param {Grommunio.core.data.IPMAttachmentRecord} record attachment record on which context menu is shown
 	 */
 	onAttachmentUploadBeforeShow : function(item, record) {
 		// embedded messages can not be downloaded to files
@@ -179,7 +184,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * This method will open the {@link Zarafa.plugins.files.ui.dialogs.SaveToFilesContentPanel folder chooser panel}.
+	 * This method will open the {@link Grommunio.plugins.files.ui.dialogs.SaveToFilesContentPanel folder chooser panel}.
 	 */
 	showFilesUploadAttachmentDialog: function(button)
 	{
@@ -213,7 +218,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 		};
 
 		var model = this.activeItem.plugin.getModel();
-		Zarafa.plugins.files.data.Actions.openSaveToFilesDialog(model, {response : configRecord});
+		Grommunio.plugins.files.data.Actions.openSaveToFilesDialog(model, {response : configRecord});
 	},
 
 	/**
@@ -236,7 +241,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * This method will open the {@link Zarafa.plugins.files.ui.dialogs.SaveToFilesContentPanel folder chooser panel}.
+	 * This method will open the {@link Grommunio.plugins.files.ui.dialogs.SaveToFilesContentPanel folder chooser panel}.
 	 */
 	showFilesUploadEmailDialog: function ()
 	{
@@ -263,14 +268,14 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 		};
 
 		var model = this.activeItem.plugin.getModel();
-		Zarafa.plugins.files.data.Actions.openSaveToFilesDialog(model, {response : configRecord});
+		Grommunio.plugins.files.data.Actions.openSaveToFilesDialog(model, {response : configRecord});
 	},
 
 	/**
-	 * Create the files {@link Zarafa.settings.SettingsMainCategory Settings Category}
-	 * to the {@link Zarafa.settings.SettingsContext}. This will create new
-	 * {@link Zarafa.settings.ui.SettingsCategoryTab tabs} for the
-	 * {@link Zarafa.plugins.files.settings.SettingsFilesCategory Files Plugin}.
+	 * Create the files {@link Grommunio.settings.SettingsMainCategory Settings Category}
+	 * to the {@link Grommunio.settings.SettingsContext}. This will create new
+	 * {@link Grommunio.settings.ui.SettingsCategoryTab tabs} for the
+	 * {@link Grommunio.plugins.files.settings.SettingsFilesCategory Files Plugin}.
 	 * @return {Object} configuration object for the categories to register
 	 */
 	createSettingCategories: function () {
@@ -285,12 +290,12 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	 * This method returns the context model for the files context.
 	 * If the model was not yet initialized, it will create a new model.
 	 *
-	 * @return {Zarafa.plugins.files.FilesContextModel} The files context model.
+	 * @return {Grommunio.plugins.files.FilesContextModel} The files context model.
 	 */
 	getModel: function ()
 	{
 		if (!Ext.isDefined(this.model)) {
-			this.model = new Zarafa.plugins.files.FilesContextModel({
+			this.model = new Grommunio.plugins.files.FilesContextModel({
 				accountStore : this.getAccountsStore()
 			});
 		}
@@ -298,29 +303,29 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * Function will create an object of {@link Zarafa.plugins.files.data.AccountStore AccountStore} if
+	 * Function will create an object of {@link Grommunio.plugins.files.data.AccountStore AccountStore} if
 	 * it is not created yet.
-	 * @return {Zarafa.plugins.files.data.AccountStore} return {@link Zarafa.plugins.files.data.AccountStore AccountStore}
+	 * @return {Grommunio.plugins.files.data.AccountStore} return {@link Grommunio.plugins.files.data.AccountStore AccountStore}
 	 * object.
 	 */
 	getAccountsStore : function ()
 	{
 		if(!Ext.isDefined(this.accountsStore)) {
-			this.accountsStore = new Zarafa.plugins.files.data.AccountStore();
+			this.accountsStore = new Grommunio.plugins.files.data.AccountStore();
 		}
 		return this.accountsStore;
 	},
 
 	/**
-	 * Bid for the given {@link Zarafa.hierarchy.data.MAPIFolderRecord folder}
+	 * Bid for the given {@link Grommunio.hierarchy.data.MAPIFolderRecord folder}
 	 * This will bid on any folder of container class 'IPF.Files'.
 	 *
-	 * @param {Zarafa.hierarchy.data.MAPIFolderRecord} folder The folder for which the context is bidding.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder for which the context is bidding.
 	 * @return {Number} 1 when the contexts supports the folder, -1 otherwise.
 	 */
 	bid: function (folder) {
 
-		if (folder instanceof Zarafa.plugins.files.data.FilesFolderRecord) {
+		if (folder instanceof Grommunio.plugins.files.data.FilesFolderRecord) {
 			return 1;
 		}
 
@@ -330,7 +335,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	/**
 	 * Bid for the type of shared component and the given record.
 	 *
-	 * @param {Zarafa.core.data.SharedComponentType} type Type of component a context can bid for.
+	 * @param {Grommunio.core.data.SharedComponentType} type Type of component a context can bid for.
 	 * @param {Ext.data.Record} record Optionally passed record.
 	 * @returns {Number}
 	 */
@@ -342,32 +347,32 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 		}
 
 		switch (type) {
-			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.attachdialog']:
-			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.fileinfopanel']:
-			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.sharedialog']:
-			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.uploadstatusdialog']:
-			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.treecontextmenu']:
-			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.createfolderdialog']:
-			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.createfiledialog']:
-			case Zarafa.core.data.SharedComponentType['common.dialog.attachments.savetofiles']:
+			case Grommunio.core.data.SharedComponentType['grommunio.plugins.files.attachdialog']:
+			case Grommunio.core.data.SharedComponentType['grommunio.plugins.files.fileinfopanel']:
+			case Grommunio.core.data.SharedComponentType['grommunio.plugins.files.sharedialog']:
+			case Grommunio.core.data.SharedComponentType['grommunio.plugins.files.uploadstatusdialog']:
+			case Grommunio.core.data.SharedComponentType['grommunio.plugins.files.treecontextmenu']:
+			case Grommunio.core.data.SharedComponentType['grommunio.plugins.files.createfolderdialog']:
+			case Grommunio.core.data.SharedComponentType['grommunio.plugins.files.createfiledialog']:
+			case Grommunio.core.data.SharedComponentType['common.dialog.attachments.savetofiles']:
 				bid = 1;
 				break;
-			case Zarafa.core.data.SharedComponentType['common.create']:
-			case Zarafa.core.data.SharedComponentType['common.view']:
-			case Zarafa.core.data.SharedComponentType['common.preview']:
-				if (record instanceof Zarafa.core.data.IPMRecord && record.isMessageClass('IPM.Files', true)) {
+			case Grommunio.core.data.SharedComponentType['common.create']:
+			case Grommunio.core.data.SharedComponentType['common.view']:
+			case Grommunio.core.data.SharedComponentType['common.preview']:
+				if (record instanceof Grommunio.core.data.IPMRecord && record.isMessageClass('IPM.Files', true)) {
 					bid = 1;
 				}
 				break;
-			case Zarafa.core.data.SharedComponentType['common.dialog.attachments.files']:
-				if (record instanceof Zarafa.core.data.IPMRecord) {
+			case Grommunio.core.data.SharedComponentType['common.dialog.attachments.files']:
+				if (record instanceof Grommunio.core.data.IPMRecord) {
 					if (record.supportsAttachments()) {
 						bid = 1;
 					}
 				}
 				break;
-			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
-				if (record instanceof Zarafa.core.data.IPMRecord && record.isMessageClass('IPM.Files', true)) {
+			case Grommunio.core.data.SharedComponentType['common.contextmenu']:
+				if (record instanceof Grommunio.core.data.IPMRecord && record.isMessageClass('IPM.Files', true)) {
 					bid = 1;
 				}
 				break;
@@ -381,46 +386,46 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	 * Will return the reference to the shared component.
 	 * Based on the type of component requested a component is returned.
 	 *
-	 * @param {Zarafa.core.data.SharedComponentType} type Type of component a context can bid for.
+	 * @param {Grommunio.core.data.SharedComponentType} type Type of component a context can bid for.
 	 * @param {Ext.data.Record} record Optionally passed record.
 	 * @return {Ext.Component} Component
 	 */
 	getSharedComponent: function (type, record) {
 		var component;
 		switch (type) {
-			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.fileinfopanel']:
-				component = Zarafa.plugins.files.ui.dialogs.FilesRecordContentPanel;
+			case Grommunio.core.data.SharedComponentType['grommunio.plugins.files.fileinfopanel']:
+				component = Grommunio.plugins.files.ui.dialogs.FilesRecordContentPanel;
 				break;
-			case Zarafa.core.data.SharedComponentType['common.create']:
-				component = Zarafa.plugins.files.ui.dialogs.FilesUploadContentPanel;
+			case Grommunio.core.data.SharedComponentType['common.create']:
+				component = Grommunio.plugins.files.ui.dialogs.FilesUploadContentPanel;
 				break;
-			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.createfiledialog']:
-				component = Zarafa.plugins.files.ui.dialogs.CreateFileContentPanel;
+			case Grommunio.core.data.SharedComponentType['grommunio.plugins.files.createfiledialog']:
+				component = Grommunio.plugins.files.ui.dialogs.CreateFileContentPanel;
 				break;
-			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.createfolderdialog']:
-				component = Zarafa.plugins.files.ui.dialogs.CreateFolderContentPanel;
+			case Grommunio.core.data.SharedComponentType['grommunio.plugins.files.createfolderdialog']:
+				component = Grommunio.plugins.files.ui.dialogs.CreateFolderContentPanel;
 				break;
-			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.sharedialog']:
-				component = Zarafa.plugins.files.ui.dialogs.ShareContentPanel;
+			case Grommunio.core.data.SharedComponentType['grommunio.plugins.files.sharedialog']:
+				component = Grommunio.plugins.files.ui.dialogs.ShareContentPanel;
 				break;
-			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.uploadstatusdialog']:
-				component = Zarafa.plugins.files.ui.dialogs.UploadStatusContentPanel;
+			case Grommunio.core.data.SharedComponentType['grommunio.plugins.files.uploadstatusdialog']:
+				component = Grommunio.plugins.files.ui.dialogs.UploadStatusContentPanel;
 				break;
-			case Zarafa.core.data.SharedComponentType['common.view']:
-			case Zarafa.core.data.SharedComponentType['common.preview']:
-				component = Zarafa.plugins.files.ui.FilesRecordViewPanel;
+			case Grommunio.core.data.SharedComponentType['common.view']:
+			case Grommunio.core.data.SharedComponentType['common.preview']:
+				component = Grommunio.plugins.files.ui.FilesRecordViewPanel;
 				break;
-			case Zarafa.core.data.SharedComponentType['common.contextmenu']:
-				component = Zarafa.plugins.files.ui.FilesMainContextMenu;
+			case Grommunio.core.data.SharedComponentType['common.contextmenu']:
+				component = Grommunio.plugins.files.ui.FilesMainContextMenu;
 				break;
-			case Zarafa.core.data.SharedComponentType['zarafa.plugins.files.treecontextmenu']:
-				component = Zarafa.plugins.files.ui.FilesTreeContextMenu;
+			case Grommunio.core.data.SharedComponentType['grommunio.plugins.files.treecontextmenu']:
+				component = Grommunio.plugins.files.ui.FilesTreeContextMenu;
 				break;
-			case Zarafa.core.data.SharedComponentType['common.dialog.attachments.files']:
-				component = Zarafa.plugins.files.ui.dialogs.AttachFromFilesContentPanel;
+			case Grommunio.core.data.SharedComponentType['common.dialog.attachments.files']:
+				component = Grommunio.plugins.files.ui.dialogs.AttachFromFilesContentPanel;
 				break;
-			case Zarafa.core.data.SharedComponentType['common.dialog.attachments.savetofiles']:
-				component = Zarafa.plugins.files.ui.dialogs.SaveToFilesContentPanel;
+			case Grommunio.core.data.SharedComponentType['common.dialog.attachments.savetofiles']:
+				component = Grommunio.plugins.files.ui.dialogs.SaveToFilesContentPanel;
 				break;
 			default:
 				break;
@@ -436,21 +441,21 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	createFilesNavigationPanel : function()
 	{
 		return {
-			xtype : 'zarafa.contextnavigation',
+			xtype : 'grommunio.contextnavigation',
 			context : this,
 			store : this.getAccountsStore(),
 			restrictToShowAllFolderList : true,
 			items : [{
 				xtype : 'panel',
-				id: 'zarafa-navigationpanel-file-navigation',
-				cls: 'zarafa-context-navigation-block',
+				id: 'grommunio-navigationpanel-file-navigation',
+				cls: 'grommunio-context-navigation-block',
 				ref: 'filesnavigation',
 				layout: 'fit',
 				items : [{
 					xtype : 'filesplugin.navigatortreepanel',
-					id: 'zarafa-navigationpanel-files-navigation-tree',
+					id: 'grommunio-navigationpanel-files-navigation-tree',
 					model: this.getModel(),
-					FilesFilter: Zarafa.plugins.files.data.FileTypes.FOLDER,
+					FilesFilter: Grommunio.plugins.files.data.FileTypes.FOLDER,
 					hideDeletedFolders : false,
 					enableDD : true,
 					enableItemDrop : true,
@@ -461,7 +466,7 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * This method creates the {@link Zarafa.plugins.files.ui.FilesMainPanel main content panel}
+	 * This method creates the {@link Grommunio.plugins.files.ui.FilesMainPanel main content panel}
 	 * which will contain the file browser.
 	 *
 	 * @returns {Object}
@@ -476,8 +481,8 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 
 	/**
 	 * Create "New File" {@link Ext.menu.MenuItem item} for the "New item"
-	 * {@link Ext.menu.Menu menu} in the {@link Zarafa.core.ui.MainToolbar toolbar}.
-	 * This button should be shown in all {@link Zarafa.core.Context contexts} and
+	 * {@link Ext.menu.Menu menu} in the {@link Grommunio.core.ui.MainToolbar toolbar}.
+	 * This button should be shown in all {@link Grommunio.core.Context contexts} and
 	 * is used to upload a new file.
 	 *
 	 * @returns {Object}
@@ -486,12 +491,12 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 		return {
 			xtype       : 'menuitem',
 			text        : _('Upload file'),
-			plugins     : 'zarafa.menuitemtooltipplugin',
+			plugins     : 'grommunio.menuitemtooltipplugin',
 			iconCls     : 'files_icon_action_upload',
 			newMenuIndex: 6,
 			context     : this.getName(),
 			handler     : function () {
-				Zarafa.plugins.files.data.Actions.openCreateFilesContent(this.getModel());
+				Grommunio.plugins.files.data.Actions.openCreateFilesContent(this.getModel());
 			},
 			scope       : this
 		};
@@ -510,24 +515,24 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 			overflowText : _('No preview'),
 			iconCls      : 'icon_previewpanel_off',
 			text         : _('No preview'),
-			valueViewMode: Zarafa.plugins.files.data.ViewModes.NO_PREVIEW,
-			valueDataMode: Zarafa.plugins.files.data.DataModes.ALL,
+			valueViewMode: Grommunio.plugins.files.data.ViewModes.NO_PREVIEW,
+			valueDataMode: Grommunio.plugins.files.data.DataModes.ALL,
 			handler      : this.onContextSelectView,
 			scope        : this
 		}, {
 			overflowText : _('Right preview'),
 			iconCls      : 'icon_previewpanel_right',
 			text         : _('Right preview'),
-			valueViewMode: Zarafa.plugins.files.data.ViewModes.RIGHT_PREVIEW,
-			valueDataMode: Zarafa.plugins.files.data.DataModes.ALL,
+			valueViewMode: Grommunio.plugins.files.data.ViewModes.RIGHT_PREVIEW,
+			valueDataMode: Grommunio.plugins.files.data.DataModes.ALL,
 			handler      : this.onContextSelectView,
 			scope        : this
 		}, {
 			overflowText : _('Bottom preview'),
 			iconCls      : 'icon_previewpanel_bottom',
 			text         : _('Bottom preview'),
-			valueViewMode: Zarafa.plugins.files.data.ViewModes.BOTTOM_PREVIEW,
-			valueDataMode: Zarafa.plugins.files.data.DataModes.ALL,
+			valueViewMode: Grommunio.plugins.files.data.ViewModes.BOTTOM_PREVIEW,
+			valueDataMode: Grommunio.plugins.files.data.DataModes.ALL,
 			handler      : this.onContextSelectView,
 			scope        : this
 		}];
@@ -558,14 +563,14 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 					text        : _('List'),
 					overflowText: _('List'),
 					iconCls     : 'icon_contact_list',
-					valueView   : Zarafa.plugins.files.data.Views.LIST,
+					valueView   : Grommunio.plugins.files.data.Views.LIST,
 					handler     : this.onSwitchView,
 					scope       : this
 				}, {
 					text        : _('Icons'),
 					overflowText: _('Icons'),
 					iconCls     : 'icon_note_icon_view',
-					valueView   : Zarafa.plugins.files.data.Views.ICON,
+					valueView   : Grommunio.plugins.files.data.Views.ICON,
 					handler     : this.onSwitchView,
 					scope       : this
 				}]
@@ -592,8 +597,8 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 	},
 
 	/**
-	 * Registers to the {@link Zarafa.core.Container#contextswitch contextswitch} event on the
-	 * {@link Zarafa.core.Container container} so the visibility of the button can be toggled
+	 * Registers to the {@link Grommunio.core.Container#contextswitch contextswitch} event on the
+	 * {@link Grommunio.core.Container container} so the visibility of the button can be toggled
 	 * whenever the context is switched. We do this after the button is rendered.
 	 *
 	 * @param {Ext.Button} btn The button
@@ -612,11 +617,11 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
 
 	/**
 	 * Determines whether the passed button has to be shown or not based on what
-	 * {@link Zarafa.core.Context Context} is active. If no Context is supplied as an argument it
-	 * will get that from the {@link Zarafa.core.Container container}.
+	 * {@link Grommunio.core.Context Context} is active. If no Context is supplied as an argument it
+	 * will get that from the {@link Grommunio.core.Container container}.
 	 *
 	 * @param {Ext.Button} btn The button.
-	 * @param {Zarafa.core.Context} activeContext (Optional) The active Context.
+	 * @param {Grommunio.core.Context} activeContext (Optional) The active Context.
 	 */
 	setVisiblityMainToolbarButton: function (btn, activeContext) {
 		activeContext = activeContext || container.getCurrentContext();
@@ -669,13 +674,13 @@ Zarafa.plugins.files.FilesContext = Ext.extend(Zarafa.core.Context, {
  * This code gets executed after grommunio Web has loaded.
  * It hooks the context to grommunio Web.
  */
-Zarafa.onReady(function () {
-	if (container.getSettingsModel().get('zarafa/v1/plugins/files/enable') === true) {
-		container.registerContext(new Zarafa.core.ContextMetaData({
+Grommunio.onReady(function () {
+	if (container.getSettingsModel().get('grommunio/v1/plugins/files/enable') === true) {
+		container.registerContext(new Grommunio.core.ContextMetaData({
 			name             : 'filescontext',
 			displayName      : _('Files'),
 			allowUserVisible : false,
-			pluginConstructor: Zarafa.plugins.files.FilesContext
+			pluginConstructor: Grommunio.plugins.files.FilesContext
 		}));
 	}
 });

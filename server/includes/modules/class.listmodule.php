@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * ListModule
  * Superclass of every module, which retrieves a MAPI message list. It
@@ -168,7 +175,7 @@ class ListModule extends Module {
 			$limit = $action['restriction']['limit'];
 		}
 		else {
-			$limit = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
+			$limit = $GLOBALS['settings']->get('grommunio/v1/main/page_size', 50);
 		}
 
 		$isSearchFolder = isset($action['search_folder_entryid']);
@@ -460,7 +467,7 @@ class ListModule extends Module {
 			mapi_table_sort($table, $this->sort, TBL_BATCH);
 		}
 
-		$rowCount = $GLOBALS['settings']->get('zarafa/v1/main/page_size', 50);
+		$rowCount = $GLOBALS['settings']->get('grommunio/v1/main/page_size', 50);
 
 		$searchResults = [];
 		$entryid = bin2hex($entryid);

@@ -1,19 +1,24 @@
-Ext.namespace('Zarafa.plugins.files.data');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.data');
 
 /**
- * @class Zarafa.plugins.files.data.FilesProxy
- * @extends Zarafa.core.data.IPMProxy
+ * @class Grommunio.plugins.files.data.FilesProxy
+ * @extends Grommunio.core.data.IPMProxy
  *
- * Special Proxy for the {@link Zarafa.plugins.files.data.FilesRecordStore FilesRecord Store}.
+ * Special Proxy for the {@link Grommunio.plugins.files.data.FilesRecordStore FilesRecord Store}.
  */
-Zarafa.plugins.files.data.FilesProxy = Ext.extend(Zarafa.core.data.IPMProxy, {
+Grommunio.plugins.files.data.FilesProxy = Ext.extend(Grommunio.core.data.IPMProxy, {
 	/**
-	 * This will create a {@link Zarafa.core.data.ProxyResponseHandler ProxyResponseHandler} object
-	 * which will be used by the {@link Zarafa.core.data.ResponseRouter ResponseRouter} when the
+	 * This will create a {@link Grommunio.core.data.ProxyResponseHandler ProxyResponseHandler} object
+	 * which will be used by the {@link Grommunio.core.data.ResponseRouter ResponseRouter} when the
 	 * response for the given request has returned.
 	 *
 	 * @param {String} modulename The modulename which is being accessed with this request
-	 * @param {Zarafa.core.Actions} serverAction The action to perform on the server.
+	 * @param {Grommunio.core.Actions} serverAction The action to perform on the server.
 	 * @param {Ext.data.Api.action} action name of the action to perform.
 	 * @param {Ext.data.Record[]} records list of records to operate on.
 	 * @param {Object} parameters object containing user parameters such as range (pagination) information, sorting information, etc.
@@ -21,13 +26,13 @@ Zarafa.plugins.files.data.FilesProxy = Ext.extend(Zarafa.core.data.IPMProxy, {
 	 * @param {Function} callback call back function to call when the request has finished successfully.
 	 * @param {Object} scope scope for the call back function.
 	 * @param {Object} args arguments object. This will be passed to the call back function on successful read.
-	 * @return {Object} An instance of the {@link Zarafa.core.data.ProxyResponseHandler ProxyResponseHandler}
+	 * @return {Object} An instance of the {@link Grommunio.core.data.ProxyResponseHandler ProxyResponseHandler}
 	 * which should be used for this request.
 	 * @private
 	 */
 	getResponseHandlerForRequest : function(modulename, serverAction, action, records, parameters, reader, callback, scope, args)
 	{
-		return new Zarafa.plugins.files.data.ResponseHandler({
+		return new Grommunio.plugins.files.data.ResponseHandler({
 			proxy: this,
 			action: action,
 			reader: reader,

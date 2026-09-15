@@ -1,3 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 (function() {
 	var orig_getValue = Ext.form.DateField.prototype.getValue;
 	var orig_initComponent = Ext.form.DateField.prototype.initComponent;
@@ -18,7 +25,7 @@
 		{
 			// if startDay is not specified through config then use one specified in settings
 			if(!this.initialConfig.startDay) {
-				this.startDay = container.getSettingsModel().get('zarafa/v1/main/week_start');
+				this.startDay = container.getSettingsModel().get('grommunio/v1/main/week_start');
 			}
 
 			orig_initComponent.apply(this, arguments);
@@ -61,7 +68,7 @@
 				return;
 			}
 
-			var value = Zarafa.core.Util.getDateByLanguageFormat(rawValue, undefined, this.format);
+			var value = Grommunio.core.Util.getDateByLanguageFormat(rawValue, undefined, this.format);
 			var newDate = new Date();
 
 			var day = value[0];

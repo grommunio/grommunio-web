@@ -1,18 +1,19 @@
 {
 	"name": "grommunio-web",
-	"version": "3.9.0",
+	"version": "5.0.0",
 	"description": "Main grommunio web client",
 	"license": "AGPL-3.0",
 	"repository": "https://github.com/grommunio/grommunio-web",
 	"scripts": {
 		"phplint": "phpmd server text .phpmd.xml || true",
-		"lint": "eslint client/zarafa",
+		"lint": "eslint client/grommunio",
 		"phplintci": "phpmd server xml .phpmd.xml --ignore-violations-on-exit | python tools/violations_to_junit.py > phpmd.xml",
 		"build:icons": "node tools/build-icons.js",
 		"build:pgp-vendor": "node tools/build-pgp-vendor.mjs",
 		"test:pgp-browser": "node plugins/pgp/test/testBrowserCrypto.cjs && node plugins/pgp/test/testBrowserTransport.cjs",
 		"sync:images": "node tools/sync-images.js --extract",
-		"sync:images:report": "node tools/sync-images.js --report"
+		"sync:images:report": "node tools/sync-images.js --report",
+		"bom": "node tools/build-bom.mjs"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.22.0",

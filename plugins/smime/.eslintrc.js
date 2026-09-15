@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 module.exports = {
     "env": {
         "browser": true
@@ -256,7 +261,7 @@ module.exports = {
         ]
     },
     "globals": {
-	    "Zarafa": true,
+	    "Grommunio": true,
 	    "_": true,
 	    "container": true,
 	    "Ext": true,

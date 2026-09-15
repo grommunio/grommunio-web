@@ -1,16 +1,21 @@
-Ext.namespace('Zarafa.plugins.files.ui.dialogs');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.ui.dialogs');
 
 /**
- * @class Zarafa.plugins.files.ui.dialogs.CreateFolderPanel
+ * @class Grommunio.plugins.files.ui.dialogs.CreateFolderPanel
  * @extends Ext.Panel
  * @xtype filesplugin.createfolderpanel
  *
  * Panel for users to create folder record in different supported backends.
  */
-Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
+Grommunio.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 
 	/**
-	 * @cfg {Zarafa.plugins.files.data.FilesFolderRecord} parentFolder (optional) The parent folder
+	 * @cfg {Grommunio.plugins.files.data.FilesFolderRecord} parentFolder (optional) The parent folder
 	 * underneath the new folder will be created.
 	 */
 	parentFolder : undefined,
@@ -27,7 +32,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 		config = config || {};
 
 		config.plugins = Ext.value(config.plugins, []);
-		config.plugins.push('zarafa.recordcomponentupdaterplugin');
+		config.plugins.push('grommunio.recordcomponentupdaterplugin');
 
 		config = Ext.applyIf(config, {
 			xtype : 'filesplugin.createfilepanel',
@@ -41,7 +46,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 			buttons: [{
 				text: _('Ok'),
 				ref: '../okButton',
-				cls: 'zarafa-action',
+				cls: 'grommunio-action',
 				handler : this.onOk,
 				scope: this
 			},{
@@ -55,15 +60,15 @@ Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 		this.filetype = config.filetype || '.xlsx';
 		this.model = config.model;
 
-		Zarafa.plugins.files.ui.dialogs.CreateFilePanel.superclass.constructor.call(this, config);
+		Grommunio.plugins.files.ui.dialogs.CreateFilePanel.superclass.constructor.call(this, config);
 	},
 
 	/**
-	 * Creates body for {@link Zarafa.plugins.files.ui.dialogs.CreateFolderContentPanel CreateFolderContentPanel}
-	 * @param {Object} config The config options contains the {@link Zarafa.plugins.files.FilesContextModel FilesContextModel} and
-	 * {@link Zarafa.plugins.files.ui.Tree#accountFilter}. which used by {@link Zarafa.plugins.files.ui.Tree Tree}.
+	 * Creates body for {@link Grommunio.plugins.files.ui.dialogs.CreateFolderContentPanel CreateFolderContentPanel}
+	 * @param {Object} config The config options contains the {@link Grommunio.plugins.files.FilesContextModel FilesContextModel} and
+	 * {@link Grommunio.plugins.files.ui.Tree#accountFilter}. which used by {@link Grommunio.plugins.files.ui.Tree Tree}.
 	 *
-	 * @return {Array} Array which contains configuration object to create the {@link Zarafa.plugins.files.ui.Tree TreePanel}.
+	 * @return {Array} Array which contains configuration object to create the {@link Grommunio.plugins.files.ui.Tree TreePanel}.
 	 * @private
 	 */
 	createPanel : function(config)
@@ -100,7 +105,7 @@ Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 	 */
 	initEvents : function ()
 	{
-		Zarafa.plugins.files.ui.dialogs.CreateFolderPanel.superclass.initEvents.apply(this, arguments);
+		Grommunio.plugins.files.ui.dialogs.CreateFolderPanel.superclass.initEvents.apply(this, arguments);
 	},
 
 	/**
@@ -133,24 +138,24 @@ Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 			return;
 		}
 
-		if (!Zarafa.plugins.files.data.Utils.File.isValidFilename(fileName)) {
-			Zarafa.plugins.files.data.Actions.msgWarning(_('Incorrect filename'));
+		if (!Grommunio.plugins.files.data.Utils.File.isValidFilename(fileName)) {
+			Grommunio.plugins.files.data.Actions.msgWarning(_('Incorrect filename'));
 			return;
 		}
 
 		fileName += this.filetype;
-		var record = Zarafa.core.data.RecordFactory.createRecordObjectByCustomType(Zarafa.core.data.RecordCustomObjectType.ZARAFA_FILES, {
-			'object_type': Zarafa.plugins.files.data.FileTypes.FILE,
+		var record = Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_FILES, {
+			'object_type': Grommunio.plugins.files.data.FileTypes.FILE,
 			'folder_id': accId + dir + fileName,
 			'display_name': fileName,
 			'path': dir + fileName
 		});
 
 		// The editor creates the file; the listing is refreshed once it has.
-		var opened = Zarafa.plugins.files.data.Actions.openTab(record, {
+		var opened = Grommunio.plugins.files.data.Actions.openTab(record, {
 			create: true,
 			callback: function() {
-				Zarafa.plugins.files.data.Actions.updateCache(accId + dir);
+				Grommunio.plugins.files.data.Actions.updateCache(accId + dir);
 				if (this.model) {
 					this.model.reload();
 				}
@@ -183,4 +188,4 @@ Zarafa.plugins.files.ui.dialogs.CreateFilePanel = Ext.extend(Ext.Panel, {
 
 });
 
-Ext.reg('filesplugin.createfilepanel', Zarafa.plugins.files.ui.dialogs.CreateFilePanel);
+Ext.reg('filesplugin.createfilepanel', Grommunio.plugins.files.ui.dialogs.CreateFilePanel);

@@ -1,13 +1,18 @@
-Ext.namespace('Zarafa.plugins.files.backend.Default.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.files.backend.Default.ui');
 
 /**
- * @class Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel
+ * @class Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditPanel
  * @extends Ext.form.FormPanel
  * @xtype filesplugin.default.filesshareusereditpanel
  *
  * This content panel contains the sharing edit panel.
  */
-Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
+Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 	Ext.form.FormPanel,
 	{
 		/**
@@ -60,7 +65,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 				],
 			});
 
-			Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel.superclass.constructor.call(
+			Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditPanel.superclass.constructor.call(
 				this,
 				config,
 			);
@@ -97,13 +102,13 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 				this.record.set('permissionChange', this.permissionChange.getValue());
 				this.record.set(
 					'permissionCreate',
-					this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER
+					this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER
 						? this.permissionCreate.getValue()
 						: false,
 				);
 				this.record.set(
 					'permissionDelete',
-					this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER
+					this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER
 						? this.permissionDelete.getValue()
 						: false,
 				);
@@ -115,12 +120,12 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 					shareWith: recipientRecord.data.shareWith,
 					shareWithDisplayname: recipientRecord.data.display_name,
 					permissionCreate:
-						this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER
+						this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER
 							? this.permissionCreate.getValue()
 							: false,
 					permissionChange: this.permissionChange.getValue(),
 					permissionDelete:
-						this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER
+						this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER
 							? this.permissionDelete.getValue()
 							: false,
 					permissionShare: this.permissionShare.getValue(),
@@ -131,7 +136,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 		},
 
 		/**
-		 * Function will create panel items for {@link Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel FilesShareUserEditPanel}
+		 * Function will create panel items for {@link Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditPanel FilesShareUserEditPanel}
 		 * @return {Array} array of items that should be added to panel.
 		 * @private
 		 */
@@ -148,7 +153,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 				permissionShare = this.record.get('permissionShare');
 				permissionChange = this.record.get('permissionChange');
 				if (
-					this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER
+					this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER
 				) {
 					permissionCreate = this.record.get('permissionCreate');
 					permissionDelete = this.record.get('permissionDelete');
@@ -171,7 +176,7 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 					checked: permissionChange,
 				},
 			];
-			if (this.store.fileType === Zarafa.plugins.files.data.FileTypes.FOLDER) {
+			if (this.store.fileType === Grommunio.plugins.files.data.FileTypes.FOLDER) {
 				permissionItems.push(
 					{
 						xtype: 'checkbox',
@@ -230,5 +235,5 @@ Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel = Ext.extend(
 
 Ext.reg(
 	'filesplugin.default.filesshareusereditpanel',
-	Zarafa.plugins.files.backend.Default.ui.FilesShareUserEditPanel,
+	Grommunio.plugins.files.backend.Default.ui.FilesShareUserEditPanel,
 );

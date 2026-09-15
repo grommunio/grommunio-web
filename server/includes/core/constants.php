@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * This file contains only some constants used anywhere in grommunio Web.
  */
@@ -28,7 +35,8 @@ define("HIERARCHY_GET_ONE", 2);
 
 // Constants are used to indicate error type on client
 define("ERROR_MAPI", 1);
-define("ERROR_ZARAFA", 2);
+define("ERROR_GROMMUNIO", 2);
+define("ERROR_ZARAFA", ERROR_GROMMUNIO);
 define("ERROR_GENERAL", 3);
 
 define("LOGLEVEL_OFF", 0);

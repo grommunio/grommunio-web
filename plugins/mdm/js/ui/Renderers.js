@@ -1,12 +1,17 @@
-Ext.namespace('Zarafa.plugins.mdm.ui');
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+Ext.namespace('Grommunio.plugins.mdm.ui');
 
 /**
- * @class Zarafa.plugins.mdm.ui.Renderers
+ * @class Grommunio.plugins.mdm.ui.Renderers
  * Methods of this object can be used as renderers for grid panels, to render
  * cells in custom format according to data type
  * @singleton
  */
-Zarafa.plugins.mdm.ui.Renderers = {
+Grommunio.plugins.mdm.ui.Renderers = {
 
 	/**
 	 * Render the Provisioning Status.
@@ -18,6 +23,6 @@ Zarafa.plugins.mdm.ui.Renderers = {
 	 */
 	provisioningStatus : function(value, p, record)
 	{
-		return Zarafa.plugins.mdm.data.ProvisioningStatus.getDisplayName(parseInt(value));
+		return Grommunio.plugins.mdm.data.ProvisioningStatus.getDisplayName(parseInt(value));
 	}
 };
