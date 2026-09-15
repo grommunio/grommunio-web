@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * AIConfig — resolves the admin-central plugin configuration (the PLUGIN_AI_*
  * constants from config.php) into a single immutable object.

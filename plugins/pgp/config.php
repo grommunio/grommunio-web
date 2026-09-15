@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // Protected keys live in MAPI; OpenPGP.js unlocks only in browser memory.
 defined('PLUGIN_PGP_ENABLE') || define('PLUGIN_PGP_ENABLE', false);
 defined('PLUGIN_PGP_USER_DEFAULT_ENABLE') || define('PLUGIN_PGP_USER_DEFAULT_ENABLE', false);

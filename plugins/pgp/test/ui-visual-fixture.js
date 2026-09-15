@@ -1,4 +1,9 @@
 /*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+/*
  * Serve the repository root over loopback and open
  * /plugins/pgp/test/ui-visual-fixture.html in a browser. No test dependency needed.
  * Only the surrounding app and data services are stand-ins; widgets and CSS are real.

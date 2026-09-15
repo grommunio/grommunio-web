@@ -1,4 +1,7 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 #
 # Update the vendored Mozilla PDF.js viewer to a given release.
 #

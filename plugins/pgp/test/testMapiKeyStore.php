@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /** Fault-injected mailbox persistence plus real OpenPGP packet fixtures. */
 if (extension_loaded('mapi')) { fwrite(STDERR, "Run using php -n, without php-mapi.\n"); exit(2); }
 define('PLUGIN_PGP_ENABLE', true);

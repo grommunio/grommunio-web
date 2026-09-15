@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 defined('BASE_PATH') || define('BASE_PATH', dirname(__DIR__, 2) . '/');
 if (!class_exists('SQLite3')) {
 	class SQLite3 {}

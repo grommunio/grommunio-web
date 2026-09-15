@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /** Shared controls must retain icons when neither plugin supplies stylesheets. */
 define('DEBUG_LOADER', 1);
 require_once dirname(__DIR__) . '/includes/loader.php';

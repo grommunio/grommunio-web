@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 defined('PR_IPM_CONTACT_ENTRYID') || define('PR_IPM_CONTACT_ENTRYID', 1);
 defined('DL_DIST') || define('DL_DIST', 2);
 defined('DL_DIST_AB') || define('DL_DIST_AB', 3);

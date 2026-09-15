@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 namespace Files\Backend\Webdav;
 
 require_once __DIR__ . "/sabredav/FilesWebDavClient.php";

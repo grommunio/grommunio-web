@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # package mirror: https://php-package-mirror.scrutinizer-ci.com/$VER.tar.bz2 
 build:
   image: default-jammy

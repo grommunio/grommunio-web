@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /** Threading headers inherited by a response, independent of php-mapi. */
 if (function_exists('mapi_msgstore_openentry')) {
 	echo "Threading property checks skipped with php-mapi loaded\n";

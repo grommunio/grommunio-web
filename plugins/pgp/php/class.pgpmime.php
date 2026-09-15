@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /** RFC 3156 envelopes. Signed MIME bytes are never parsed and reserialized. */
 class PgpMime {
 	public static function split(string $mime): array {

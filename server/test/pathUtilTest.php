@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 require_once dirname(__DIR__, 2) . '/plugins/files/php/Files/Core/Util/class.pathutil.php';
 
 use Files\Core\Util\PathUtil;

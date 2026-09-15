@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 'use strict';
 /* Real browser crypto with deterministic Ext/store lifecycle stand-ins. */
 const assert = require('node:assert/strict');

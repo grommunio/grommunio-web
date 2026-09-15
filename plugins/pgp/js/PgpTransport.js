@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /* global PostalMime, DOMPurify, fflate */
 Ext.namespace('Grommunio.plugins.pgp');
 

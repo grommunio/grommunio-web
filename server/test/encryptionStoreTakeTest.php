@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /** Real PHP file-session locks; skip only the unrelated web bootstrap. */
 $source = file_get_contents(dirname(__DIR__) . '/includes/core/class.encryptionstore.php');
 $source = str_replace("require_once BASE_PATH . 'server/includes/core/class.webappsession.php';", '', $source);

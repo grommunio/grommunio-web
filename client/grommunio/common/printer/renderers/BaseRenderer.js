@@ -1,3 +1,11 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-FileCopyrightText: Copyright 2016 Kopano and its licensors
+ * SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
+ * SPDX-FileCopyrightText: Copyright (c) 2010 Ed Spencer
+ * SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+ */
+
 // -*- coding: utf-8; indent-tabs-mode: nil -*-
 Ext.namespace('Grommunio.common.printer.renderers');
 

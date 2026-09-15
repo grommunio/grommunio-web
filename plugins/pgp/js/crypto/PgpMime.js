@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /* RFC 3156 framing. Never decode and reserialize the bytes being verified. */
 (function(root, factory) {
 	'use strict';

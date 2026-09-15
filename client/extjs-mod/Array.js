@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 (function() {
 	// Ext 3 augments Array.prototype with remove/indexOf helpers. In some cases
 	// third-party code may clobber the `indexOf` reference on the array instance,

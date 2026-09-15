@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /**
  * Real transport/module/MIME code with explicit MAPI, key-storage and session
  * doubles. Key storage and browser cryptography have their own real suites.

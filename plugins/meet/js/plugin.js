@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 Ext.namespace('Grommunio.plugins.meet');
 
 Grommunio.plugins.meet.Plugin = Ext.extend(Grommunio.core.Plugin, {

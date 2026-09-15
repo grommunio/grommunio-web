@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // Settings pulls in the exception chain, which bottoms out in BaseException.
 if (!class_exists('BaseException')) {
 	class BaseException extends Exception {}

@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 defined('BASE_PATH') || define('BASE_PATH', dirname(__DIR__, 2) . '/');
 defined('ecLoginPerm') || define('ecLoginPerm', 1);
 defined('MAPI_E_CALL_FAILED') || define('MAPI_E_CALL_FAILED', 2);

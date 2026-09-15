@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 Ext.namespace('Grommunio.plugins.pgp');
 
 /** OpenPGP/MIME presentation; private-key unlocking stays in the browser. */

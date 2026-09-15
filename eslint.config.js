@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // Flat config (ESLint 9). Replaces .eslintrc.js; rules carried over unchanged
 // except where noted below.
 const js = require("@eslint/js");

@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 // A json theme has to feed the custom properties grommunio.css is written against,
 // not only the handful of selectors Theming::$styles names.
 if (extension_loaded('mapi')) {

@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 if (!extension_loaded('sqlite3')) {
 	echo "SQLite resource checks skipped (sqlite3 is unavailable)\n";
 

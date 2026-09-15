@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 /* Template snippets toolbar icon: document with bold "T" */
 .icon_templatesnippets {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%23212121' viewBox='0 0 24 24'%3E%3Cpath d='M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.5L13.5 2H6Zm0 1.5h7V7a2 2 0 0 0 2 2h3.5v11a.5.5 0 0 1-.5.5H6a.5.5 0 0 1-.5-.5V4a.5.5 0 0 1 .5-.5Z'/%3E%3Cpath d='M8 12h8v2h-3v6h-2v-6H8z'/%3E%3C/svg%3E") !important;

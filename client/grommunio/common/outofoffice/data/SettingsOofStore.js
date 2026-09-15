@@ -1,4 +1,9 @@
 /*
+ * SPDX-FileCopyrightText: Copyright 2020 - 2026 grommunio GmbH
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+/*
  * #dependsFile client/grommunio/core/data/ListModuleStore.js
  */
 Ext.namespace('Grommunio.common.outofoffice.data');
