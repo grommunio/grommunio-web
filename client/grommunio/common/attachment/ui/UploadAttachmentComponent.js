@@ -36,6 +36,12 @@ Grommunio.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Compon
 	accept: undefined,
 
 	/**
+	 * @cfg {Array} supportedImageTypes The mime types accepted when {@link #accept}
+	 * is image/*. Callers which re-encode the picture themselves can widen this.
+	 */
+	supportedImageTypes: ['image/bmp', 'image/jpg', 'image/jpeg', 'image/gif', 'image/png'],
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
@@ -153,8 +159,7 @@ Grommunio.common.attachment.ui.UploadAttachmentComponent = Ext.extend(Ext.Compon
 	 */
 	isSupportedImage: function(fileType)
 	{
-		var mimeType = ['image/bmp','image/jpg','image/jpeg','image/gif','image/png'];
-		return mimeType.indexOf(fileType.toLowerCase()) >= 0;
+		return this.supportedImageTypes.indexOf(fileType.toLowerCase()) >= 0;
 	}
 });
 
