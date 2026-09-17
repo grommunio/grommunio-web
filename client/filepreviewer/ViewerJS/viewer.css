@@ -962,6 +962,14 @@ html[dir='rtl'] .dropdownToolbarButton {
     .no-print, .no-print * {
         display: none !important;
     }
+
+    /* Scale the previewed image down to the printable page width */
+    #image {
+        max-width:  calc(100% - 20mm) !important;
+        height:     auto !important;
+        margin:     0 10mm !important;
+        box-shadow: none !important;
+    }
 }
 
 #loading-document:after {
