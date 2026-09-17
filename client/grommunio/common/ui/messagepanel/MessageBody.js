@@ -33,13 +33,42 @@ Grommunio.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	linkPattern: /((?:http|ftp)s?:\/\/|www.)([\w.-]+)\.(\w{2,6})([\w/\-_+.,?=&!:;%#|]+)*/gi,
 
 	/**
-	 * The scroll position of the document in the iframe that holds the message body
-	 * when the message body is inside a tab in the {@link Grommunio.core.ui.MainContentTabPanel}
-	 * and the tab is deactivated.
+	 * The entryid of the message whose body is in the iframe right now, which
+	 * is not the record being set while a message is still being opened.
+	 * @property
+	 * @type {String}
+	 */
+	renderedEntryId: null,
+
+	/**
+	 * The scroll position each message was left at, keyed by entryid. Kept in
+	 * memory for as long as the folder is open, so stepping back and forth
+	 * through a list of messages returns to where the reader was.
 	 * @property
 	 * @type {Object}
 	 */
-	scrollPos: null,
+	scrollPositions: null,
+
+	/**
+	 * The entryids in {@link #scrollPositions}, oldest first.
+	 * @property
+	 * @type {Array}
+	 */
+	scrollOrder: null,
+
+	/**
+	 * The position this component last scrolled the message to itself, which
+	 * tells its own scrolling apart from the reader's.
+	 * @property
+	 * @type {Number}
+	 */
+	restoredTo: undefined,
+
+	/**
+	 * @cfg {Number} maxScrollPositions The number of messages to remember a
+	 * scroll position for. Older entries are dropped.
+	 */
+	maxScrollPositions: 100,
 
 	/**
 	 * @constructor
@@ -89,6 +118,9 @@ Grommunio.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 			entryId: null,
 			renderedHtml: false
 		};
+
+		this.scrollPositions = {};
+		this.scrollOrder = [];
 	},
 
 	/**
@@ -104,6 +136,122 @@ Grommunio.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 		if ( tabPanel ){
 			this.mon(tabPanel, 'beforetabchange', this.onBeforeTabChange, this);
 		}
+
+		// The remembered scroll positions belong to the folder that is open.
+		var previewPanel = this.findParentByType('grommunio.previewpanel');
+		if (previewPanel && previewPanel.model) {
+			this.mon(previewPanel.model, 'folderchange', this.forgetScrollPositions, this);
+		}
+	},
+
+	/**
+	 * Drops every remembered scroll position, leaving each message to open at
+	 * its top again.
+	 */
+	forgetScrollPositions: function()
+	{
+		this.scrollPositions = {};
+		this.scrollOrder = [];
+	},
+
+	/**
+	 * Follows the reader through the message, so the position is known without
+	 * having to catch the moment the message is replaced.
+	 * @private
+	 */
+	setScrollListener: function()
+	{
+		var iframeWindow = this.getEl().dom.contentWindow;
+
+		if (!iframeWindow || !iframeWindow.addEventListener) {
+			return;
+		}
+
+		iframeWindow.addEventListener('scroll', this.onBodyScroll.createDelegate(this), { passive: true });
+	},
+
+	/**
+	 * Event handler for a scroll of the message body.
+	 * @private
+	 */
+	onBodyScroll: function()
+	{
+		// A hidden iframe reports 0, and a scroll this component made itself is
+		// already where the message is meant to be.
+		if (!this.isVisible() || Math.round(this.getEl().dom.contentWindow.pageYOffset) === this.restoredTo) {
+			return;
+		}
+
+		this.rememberScrollPosition();
+	},
+
+	/**
+	 * Remembers where the message that is currently in the iframe was scrolled to.
+	 * @private
+	 */
+	rememberScrollPosition: function()
+	{
+		var entryId = this.renderedEntryId;
+		if (!entryId || !this.rendered || !this.getEl().dom) {
+			return;
+		}
+
+		var iframeWindow = this.getEl().dom.contentWindow;
+		if (!iframeWindow) {
+			return;
+		}
+
+		if (!this.scrollPositions[entryId]) {
+			this.scrollOrder.push(entryId);
+			while (this.scrollOrder.length > this.maxScrollPositions) {
+				delete this.scrollPositions[this.scrollOrder.shift()];
+			}
+		}
+
+		this.scrollPositions[entryId] = {
+			x: iframeWindow.pageXOffset,
+			y: iframeWindow.pageYOffset
+		};
+	},
+
+	/**
+	 * Scrolls the iframe back to where this message was left. Replacing the
+	 * document puts it at the top, so this always scrolls, if only to 0.
+	 * @param {String} entryId The entryid of the message in the iframe
+	 * @param {Boolean} retry True when the document has grown since the first
+	 * attempt, which is the only reason to scroll a second time
+	 * @private
+	 */
+	restoreScrollPosition: function(entryId, retry)
+	{
+		if (retry && (this.renderedEntryId !== entryId || !this.rendered || !this.getEl().dom)) {
+			return;
+		}
+
+		var iframeWindow = this.getEl().dom.contentWindow;
+		var pos = this.scrollPositions[entryId];
+
+		if (!pos || (!pos.x && !pos.y)) {
+			if (!retry) {
+				iframeWindow.scrollTo(0, 0);
+				this.restoredTo = 0;
+			}
+			return;
+		}
+
+		// The first attempt runs before the images have given the document its
+		// height, so it can fall short. Only take a second one while the reader
+		// has not scrolled away from where that left them.
+		if (retry && Math.round(iframeWindow.pageYOffset) !== this.restoredTo) {
+			return;
+		}
+
+		if (!retry) {
+			// Chrome needs a reset to work properly
+			iframeWindow.scrollTo(0, 0);
+		}
+		iframeWindow.scrollTo(pos.x, pos.y);
+		this.restoredTo = Math.round(iframeWindow.pageYOffset);
 	},
 
 	/**
@@ -137,11 +285,7 @@ Grommunio.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 	{
 		// Store the scroll position of the iframe that holds the message body
 		if ( currentTab === this.ownerCt.ownerCt ){
-			var iframeWindow = this.getEl().dom.contentWindow;
-			this.scrollPos = {
-				x: iframeWindow.pageXOffset,
-				y: iframeWindow.pageYOffset
-			};
+			this.rememberScrollPosition();
 		}
 	},
 
@@ -326,6 +470,7 @@ Grommunio.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 				if (pendingHtmlBody) {
 					pendingHtmlBody.innerHTML = '';
 				}
+				this.renderedEntryId = null;
 
 				this.currentRenderInfo = {
 					entryId: entryId,
@@ -431,6 +576,7 @@ Grommunio.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 
 		var htmlBody = iframeDocument.getElementsByTagName('body')[0];
 		htmlBody.innerHTML = body;
+		this.renderedEntryId = entryId;
 		this.normalizeHostnameLinks(iframeDocument);
 		this.setFragmentLinkClickHandler(iframeDocument);
 
@@ -441,16 +587,11 @@ Grommunio.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 				img.setAttribute('src', img.getAttribute('data-src'));
 				img.removeAttribute('data-src');
 			});
-		}, 100);
 
-		// Restore the scroll position if the tab panel was deactivated
-		if ( this.scrollPos ){
-			// Chrome needs a reset to work properly
-			iframeWindow.scrollTo(0, 0);
-
-			iframeWindow.scrollTo(this.scrollPos.x, this.scrollPos.y);
-			this.scrollPos = null;
-		}
+			// The images give the document its final height, which is what a
+			// scroll position further down the message needs.
+			this.restoreScrollPosition(entryId, true);
+		}, 100, this);
 
 		// Disable drag and drop
 		Ext.EventManager.on(iframeWindow, 'dragover', Grommunio.onWindowDragDrop);
@@ -459,6 +600,10 @@ Grommunio.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 		// Add CSS document to the previewbody
 		// so the text can be styled.
 		this.addCSSText(iframeDocument);
+
+		// Replacing the document leaves it at the top, so every message is put
+		// back where it was read to - or at 0 when it was not read before.
+		this.restoreScrollPosition(entryId);
 
 		// Add listener to enlarge image
 		this.setImageClickHandler(iframeDocument);
@@ -822,6 +967,7 @@ Grommunio.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 
 		// Wait for the iframe to load before calling setRelayEventListeners()
 		this.getEl().on('load', this.setRelayEventListeners, this);
+		this.getEl().on('load', this.setScrollListener, this);
 
 		this.wrap = this.el.wrap({cls: 'preview-body'});
 		this.resizeEl = this.positionEl = this.wrap;
