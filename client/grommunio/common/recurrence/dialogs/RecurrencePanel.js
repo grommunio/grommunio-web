@@ -60,13 +60,14 @@ Grommunio.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 				align: 'stretch'
 			},
 			anchor: '100%',
-			height: 110,
+			height: 120,
 			items: [{
 				xtype: 'displayfield',
 				ref: '../timeperiodLabel',
+				cls: 'k-recurrence-duration',
 				htmlEncode: true,
 				hideLabel: true,
-				height: 20
+				height: 24
 			},{
 				xtype: 'panel',
 				layout: 'hbox',
@@ -80,6 +81,10 @@ Grommunio.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 					defaultPeriod: 30,
 					defaultPeriodType: Date.MINUTE,
 					flex: 0.7,
+					// The start label holds the column the duration above aligns to
+					// (its widest translation is 115px); the end label only has
+					// to fit itself.
+					startFieldConfig: { labelWidth: 125, width: 228 },
 					spacerConfig: {
 						width: 5
 					},
@@ -128,7 +133,7 @@ Grommunio.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 			items: [{
 				xtype: 'radiogroup',
 				ref: '../recurrencePatternSelect',
-				width: 100,
+				width: 130,
 				border: false,
 				columns: 1,
 				items: [{
