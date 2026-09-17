@@ -487,27 +487,17 @@ body.dark-mode .preview-body {
    so it inverts to match var(--dm-fg) (#d4d4d4). */
 /* Meeting request buttons with monochrome icons: dark text so filter:invert
    on the button makes both icon and text light */
-body.dark-mode .grommunio-previewpanel-toolbar .x-btn.x-btn-text-icon .x-btn-small button.x-btn-text:not(.icon_calendar_appt_accept):not(.icon_calendar_appt_tentative) {
+body.dark-mode .grommunio-previewpanel-toolbar .x-btn.x-btn-text-icon .x-btn-small button.x-btn-text:not(.icon_calendar_appt_accept):not(.icon_calendar_appt_tentative):not(.icon_calendar_appt_cancelled):not(.icon_no_response_required) {
 	color: #101010 !important;
 }
-/* Meeting request buttons with COLORED icons (accept, tentative): these are
-   NOT in the icon invert block, so they need filter:none and light text.
-   Use high-specificity selectors and target both button and inner span. */
-body.dark-mode .x-toolbar button.icon_calendar_appt_accept,
-body.dark-mode .x-toolbar button.icon_calendar_appt_tentative,
-body.dark-mode .grommunio-previewpanel-toolbar button.icon_calendar_appt_accept,
-body.dark-mode .grommunio-previewpanel-toolbar button.icon_calendar_appt_tentative,
-body.dark-mode .grommunio-dialogtoolbar button.icon_calendar_appt_accept,
-body.dark-mode .grommunio-dialogtoolbar button.icon_calendar_appt_tentative {
+/* Buttons whose icon keeps its colour are not inverted, so their label has to
+   be light rather than pre-inverted dark. Keep this list and the :not() chains
+   above in step with the "Coloured iconset images keep their colour" block. */
+body.dark-mode :is(.x-toolbar, .grommunio-previewpanel-toolbar, .grommunio-dialogtoolbar) button:is(.icon_calendar_appt_accept, .icon_calendar_appt_tentative, .icon_calendar_appt_cancelled, .icon_no_response_required) {
 	filter: none !important;
 	color: #d4d4d4 !important;
 }
-body.dark-mode .x-toolbar button.icon_calendar_appt_accept *,
-body.dark-mode .x-toolbar button.icon_calendar_appt_tentative *,
-body.dark-mode .grommunio-previewpanel-toolbar button.icon_calendar_appt_accept *,
-body.dark-mode .grommunio-previewpanel-toolbar button.icon_calendar_appt_tentative *,
-body.dark-mode .grommunio-dialogtoolbar button.icon_calendar_appt_accept *,
-body.dark-mode .grommunio-dialogtoolbar button.icon_calendar_appt_tentative * {
+body.dark-mode :is(.x-toolbar, .grommunio-previewpanel-toolbar, .grommunio-dialogtoolbar) button:is(.icon_calendar_appt_accept, .icon_calendar_appt_tentative, .icon_calendar_appt_cancelled, .icon_no_response_required) * {
 	color: #d4d4d4 !important;
 }
 
@@ -1077,8 +1067,8 @@ body.dark-mode .x-btn.x-btn-selected :is(.x-btn-small, .x-btn-medium, .x-btn-lar
 
 /* Text-icon buttons (non-action): invert(1) flips icon+text together.
    Set text to dark so invert makes it light. Exclude action buttons - they have white icons already.
-   Also exclude colored-icon buttons (accept/tentative) which are NOT inverted and need light text. */
-body.dark-mode .x-btn.x-btn-text-icon:not(.grommunio-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text:not(.icon_calendar_appt_accept):not(.icon_calendar_appt_tentative) {
+   Also exclude the coloured-icon buttons, which are NOT inverted and need light text. */
+body.dark-mode .x-btn.x-btn-text-icon:not(.grommunio-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text:not(.icon_calendar_appt_accept):not(.icon_calendar_appt_tentative):not(.icon_calendar_appt_cancelled):not(.icon_no_response_required) {
 	color: #1a1a1a !important;
 }
 
