@@ -20,6 +20,15 @@ Ext.namespace('Grommunio.common.dialogs');
 // the existing object.
 Grommunio.common.dialogs.MessageBox = Ext.apply({}, {
 	/**
+	 * The widest a {@link #select} messagebox may become. Its choices are whole
+	 * sentences, which need the room in the longer languages.
+	 *
+	 * @property
+	 * @type Number
+	 */
+	maxSelectWidth: 420,
+
+	/**
 	 * The items which the last call to {@link #initDialog} must add to the
 	 * {@link Ext.MessageBox messagebox} when it is shown.
 	 *
@@ -223,7 +232,7 @@ Grommunio.common.dialogs.MessageBox = Ext.apply({}, {
 		var radioGroup = Ext.create({
 			xtype: 'radiogroup',
 			hideLabel: true,
-			style: 'padding-left: 50px;',
+			cls: 'k-messagebox-choices',
 			columns: 1,
 			items: selections,
 			value: value,
@@ -245,7 +254,7 @@ Grommunio.common.dialogs.MessageBox = Ext.apply({}, {
 				title: title,
 				msg: msg + '<br />',
 				minWidth: this.minPromptWidth,
-				maxWidth: 250,
+				maxWidth: this.maxSelectWidth,
 				scope: scope,
 				fn: fn,
 				prompt: false,
@@ -264,7 +273,7 @@ Grommunio.common.dialogs.MessageBox = Ext.apply({}, {
 					Ext.callback(fn, scope || window, [button, radioGroup.getValue()], 1);
 				},
 				minWidth: this.minPromptWidth,
-				maxWidth: 250,
+				maxWidth: this.maxSelectWidth,
 				scope: scope,
 				prompt: false,
 				value: value

@@ -8820,3 +8820,24 @@ body.k-keyboard .grommunio-settings-category-tab:focus-visible {
   70% { box-shadow: 0 0 0 12px color-mix(in srgb, var(--theme-primary-color) 0%, transparent); }
   100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--theme-primary-color) 0%, transparent); }
 }
+
+/* A choice whose label wraps keeps the continuation beside the button instead
+   of underneath it. */
+.k-recurrence-dialog .x-form-check-wrap,
+.x-window-dlg .k-messagebox-choices .x-form-check-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.k-recurrence-dialog .x-form-check-wrap > input,
+.x-window-dlg .k-messagebox-choices .x-form-check-wrap input {
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.k-recurrence-dialog .x-form-check-wrap > .x-form-cb-label,
+.x-window-dlg .k-messagebox-choices .x-form-cb-label {
+  flex: 1 1 auto;
+  line-height: 18px;
+}
