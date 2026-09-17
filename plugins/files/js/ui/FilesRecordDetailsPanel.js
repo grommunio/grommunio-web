@@ -35,7 +35,7 @@ Grommunio.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPan
 			border     : false,
 			bodyStyle  : 'padding: 10px;',
 			items      : [
-				this.fieldSetFileInfo(),
+				this.fileHeader(),
 				this.fieldSetFilePreview()
 			]
 		});
@@ -58,116 +58,43 @@ Grommunio.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPan
 
 	refresh: function () {
 		this.removeAll();
-		this.add(this.fieldSetFileInfo());
+		this.add(this.fileHeader());
 		this.add(this.fieldSetFilePreview());
 	},
 
-	fieldSetFileInfo: function () {
-    return {
-        xtype: 'fieldset',
-        title: _('File information'),
-        border: false,
-        defaults: {
-            anchor: '100%',
-            readOnly: true
-        },
-        style: 'margin-bottom: 10px;',
-        items: [{
-            xtype: 'container',
-            layout: 'hbox',
-            style: 'margin-bottom: 6px;',
-            items: [{
-                xtype: 'label',
-                text: _('Filename'),
-                width: 125
-            }, {
-                xtype: 'textfield',
-                fieldLabel: _('Filename'),
-                hideLabel: true,
-                ref: '../../filename',
-                value: "unknown",
-                flex: 1
-            }]
-        }, {
-            xtype: 'container',
-            ref: '../filesizeContainer',
-            layout: 'hbox',
-            style: 'margin-bottom: 6px;',
-            items: [{
-                xtype: 'label',
-                text: _('Filesize'),
-                width: 125
-            }, {
-                xtype: 'textfield',
-                fieldLabel: _('Filesize'),
-                hideLabel: true,
-                ref: '../../filesize',
-                value: "unknown",
-                flex: 1
-            }]
-        }, {
-            xtype: 'container',
-            layout: 'hbox',
-            style: 'margin-bottom: 6px;',
-            items: [{
-                xtype: 'label',
-                text: _('Last modified'),
-                width: 125
-            }, {
-                xtype: 'textfield',
-                fieldLabel: _('Last modified'),
-                hideLabel: true,
-                ref: '../../lastmodified',
-                value: "unknown",
-                flex: 1
-            }]
-        }, {
-            xtype: 'container',
-            layout: 'hbox',
-            style: 'margin-bottom: 6px;',
-            items: [{
-                xtype: 'label',
-                text: _('Type'),
-                width: 125
-            }, {
-                xtype: 'textfield',
-                fieldLabel: _('Type'),
-                hideLabel: true,
-                ref: '../../type',
-                value: "unknown",
-                flex: 1
-            }]
-        }, {
-	    xtype: 'container',
-	    ref: '../sharedContainer',
-	    layout: 'hbox',
-	    style: 'padding-top: 2px;',
-	    items: [{
-		xtype: 'label',
-		text: _('Is shared'),
-		width: 125
-	    }, {
-		xtype: 'checkbox',
-		ref: '../../shared',
-		flex: 1,
-		inputValue: _('Yes'),
-		uncheckedValue: _('No'),
-		readOnly: true,
-		checked: ("unknown" === _("Yes")) ? true : false
-	    }]
-        }]
-    };
-},
-
+	/**
+	 * The name of the file with a line of its properties underneath. The grid
+	 * already carries the same values in its columns, so they are shown as one
+	 * compact line rather than as a form.
+	 * @return {Object} The configuration of the header
+	 * @private
+	 */
+	fileHeader: function () {
+		return {
+			xtype: 'box',
+			ref: 'fileHeader',
+			cls: 'files-preview-header',
+			// both lines are kept to one line each, so this is the whole of it
+			height: 56,
+			autoEl: {
+				tag: 'div',
+				cn: [
+					{ tag: 'div', cls: 'files-preview-name' },
+					{ tag: 'div', cls: 'files-preview-meta' }
+				]
+			}
+		};
+	},
 
 	fieldSetFilePreview: function () {
 		return {
-			xtype: 'fieldset',
-			title: _('File preview'),
+			xtype: 'panel',
 			ref  : 'filepreview',
+			cls  : 'files-preview-area',
+			border: false,
 			flex : 1,
 			layout: 'fit',
-			items      : [this.placeholder()]
+			items: [this.placeholder()]
 		};
 	},
 
@@ -230,29 +157,25 @@ Grommunio.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPan
 
 	update: function (record)
 	{
-		this.filename.setValue(record.get('filename'));
+		var isFile = record.get('type') == Grommunio.plugins.files.data.FileTypes.FILE;
+		var meta = [isFile ? String.format(_('File ({0})'), this.getExtension(record.get('filename'))) : _('Folder')];
 
-		var recordType = record.get('type') == Grommunio.plugins.files.data.FileTypes.FILE;
-		this.filesizeContainer.setVisible(recordType);
-		if (recordType) {
-			this.filesize.setValue(Grommunio.plugins.files.data.Utils.Format.fileSize(record.get('message_size')));
+		if (isFile) {
+			meta.push(Grommunio.plugins.files.data.Utils.Format.fileSize(record.get('message_size')));
+		}
+		meta.push(Ext.util.Format.date(new Date(record.get('lastmodified')), _('d.m.Y G:i')));
+		if (record.getAccount().supportsFeature(Grommunio.plugins.files.data.AccountRecordFeature.SHARING) &&
+			record.get('isshared')) {
+			meta.push(_('Is shared'));
 		}
 
-		var lastModifiedDate = Ext.util.Format.date(new Date(record.get('lastmodified')), _('d.m.Y G:i'));
-		this.lastmodified.setValue(lastModifiedDate);
-
-		var type = _('Folder');
-		if (recordType) {
-			type = String.format(_('File ({0})'), this.getExtension(record.get('filename')));
+		if (this.fileHeader && this.fileHeader.el) {
+			var name = record.get('filename');
+			this.fileHeader.el.child('.files-preview-name').update(Ext.util.Format.htmlEncode(name)).set({ title: name });
+			this.fileHeader.el.child('.files-preview-meta').update(Ext.util.Format.htmlEncode(meta.join(' · ')));
 		}
-		this.type.setValue(type);
 
-		var supportSharing = record.getAccount().supportsFeature(Grommunio.plugins.files.data.AccountRecordFeature.SHARING);
-		this.sharedContainer.setVisible(supportSharing);
-		if (supportSharing) {
-			this.shared.setValue(record.get("isshared") ? _('Yes') : _('No'));
-		}
-		this.setPreviewPanel(record, recordType &&
+		this.setPreviewPanel(record, isFile &&
 			Grommunio.common.Actions.isFilePreviewerEnabled() &&
 			Grommunio.common.previewer.data.Formats.isSupported(record.get('filename')));
 	},
