@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:48+0200\n"
+"POT-Creation-Date: 2026-09-17 16:44+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: import\n"
 "Language: he_IL\n"
@@ -2058,6 +2058,18 @@ msgstr "גרור קבצים לכאן כדי לצרף אותם"
 msgid "Picture format is not supported. Supported format for contact pictures are"
 msgstr "פורמט תמונה אינו נתמך. פורמט נתמך עבור תמונות אנשי קשר הם"
 
+msgid "This browser cannot download a picture from a service."
+msgstr "הדפדפן הזה אינו יכול להוריד תמונה משירות."
+
+msgid "{0} has no picture for your address."
+msgstr "ל-{0} אין תמונה עבור הכתובת שלך."
+
+msgid "{0} answered with an error."
+msgstr "{0} החזיר שגיאה."
+
+msgid "{0} could not be reached."
+msgstr "לא ניתן היה ליצור קשר עם {0}."
+
 msgid "Could not save the category list."
 msgstr "לא ניתן לשמור את רשימת הקטגוריות."
 
@@ -3207,6 +3219,18 @@ msgstr "{0}באיחור"
 
 msgid "Message body editor"
 msgstr "עורך גוף ההודעה"
+
+msgid "Adjust picture"
+msgstr "התאמת תמונה"
+
+msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
+msgstr "גרור כדי להזיז את התמונה, השתמש במחוון או בגלגל העכבר כדי להגדיל ולהקטין את התצוגה"
+
+msgid "This picture could not be read."
+msgstr "לא ניתן היה לקרוא תמונה זו."
+
+msgid "This picture could not be converted."
+msgstr "לא ניתן היה להמיר תמונה זו."
 
 msgid "Message could not be loaded"
 msgstr "לא ניתן היה לטעון את ההודעה"
@@ -5381,6 +5405,24 @@ msgstr "נוֹשֵׂא"
 
 msgid "Personal information"
 msgstr "מידע אישי"
+
+msgid "Change your profile picture"
+msgstr "שנה את תמונת הפרופיל שלך"
+
+msgid "Upload a picture…"
+msgstr "העלה תמונה…"
+
+msgid "Get it from {0}"
+msgstr "קבל אותה מ-{0}"
+
+msgid "Looking for a picture…"
+msgstr "מחפש תמונה…"
+
+msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
+msgstr "התמונה מועתקת לחשבון שלך. היא תישאר כפי שהיא כעת, גם אם תשנה אותה ב-{0}."
+
+msgid "Click here to change your profile picture"
+msgstr "לחץ כאן כדי לשנות את תמונת הפרופיל שלך"
 
 msgid "Last Name, First Name"
 msgstr "שם משפחה, שם פרטי"

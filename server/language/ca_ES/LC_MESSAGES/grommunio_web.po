@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Catalan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:48+0200\n"
+"POT-Creation-Date: 2026-09-17 16:44+0200\n"
 "PO-Revision-Date: 2025-05-01 05:29+0000\n"
 "Last-Translator: Roger VC <rogervilarasau@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/grommunio/grommunio-web/ca/>\n"
@@ -2060,6 +2060,18 @@ msgstr "Deixeu anar els fitxers aquí per adjuntar-los"
 msgid "Picture format is not supported. Supported format for contact pictures are"
 msgstr "El format d'imatge no és compatible. El format compatible per a les imatges de contacte és"
 
+msgid "This browser cannot download a picture from a service."
+msgstr "Aquest navegador no pot descarregar una imatge d'un servei."
+
+msgid "{0} has no picture for your address."
+msgstr "{0} no té cap imatge per a la vostra adreça."
+
+msgid "{0} answered with an error."
+msgstr "{0} ha respost amb un error."
+
+msgid "{0} could not be reached."
+msgstr "No s'ha pogut contactar amb {0}."
+
 msgid "Could not save the category list."
 msgstr "No s'ha pogut desar la llista de categories."
 
@@ -3209,6 +3221,18 @@ msgstr "{0}vençut"
 
 msgid "Message body editor"
 msgstr "Editor de cos de missatge"
+
+msgid "Adjust picture"
+msgstr "Ajusta la imatge"
+
+msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
+msgstr "Arrossegueu per moure la imatge, utilitzeu el control lliscant o la roda del ratolí per fer zoom"
+
+msgid "This picture could not be read."
+msgstr "No s'ha pogut llegir aquesta imatge."
+
+msgid "This picture could not be converted."
+msgstr "No s'ha pogut convertir aquesta imatge."
 
 msgid "Message could not be loaded"
 msgstr "No s'ha pogut carregar el missatge"
@@ -5383,6 +5407,24 @@ msgstr "Tema"
 
 msgid "Personal information"
 msgstr "Informació personal"
+
+msgid "Change your profile picture"
+msgstr "Canvia la imatge del vostre perfil"
+
+msgid "Upload a picture…"
+msgstr "Carrega una imatge…"
+
+msgid "Get it from {0}"
+msgstr "Obtén-la de {0}"
+
+msgid "Looking for a picture…"
+msgstr "S'està cercant una imatge…"
+
+msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
+msgstr "La imatge es copia al vostre compte. Es mantindrà tal com és ara, encara que la canvieu a {0}."
+
+msgid "Click here to change your profile picture"
+msgstr "Feu clic aquí per canviar la imatge del vostre perfil"
 
 msgid "Last Name, First Name"
 msgstr "Cognom, Nom"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Korean (Korea)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:48+0200\n"
+"POT-Creation-Date: 2026-09-17 16:44+0200\n"
 "PO-Revision-Date: 2017-10-05 20:07+0200\n"
 "Last-Translator: import\n"
 "Language: ko_KR\n"
@@ -2039,6 +2039,18 @@ msgstr "첨부할 파일을 여기에 끌어다 놓으세요"
 msgid "Picture format is not supported. Supported format for contact pictures are"
 msgstr "사진 형식은 지원되지 않습니다. 연락처 사진에 지원되는 형식은 다음과 같습니다."
 
+msgid "This browser cannot download a picture from a service."
+msgstr "이 브라우저에서는 서비스에서 사진을 다운로드할 수 없습니다."
+
+msgid "{0} has no picture for your address."
+msgstr "{0}에 사용자의 주소로 등록된 사진이 없습니다."
+
+msgid "{0} answered with an error."
+msgstr "{0}에서 오류가 반환되었습니다."
+
+msgid "{0} could not be reached."
+msgstr "{0}에 연결할 수 없습니다."
+
 msgid "Could not save the category list."
 msgstr "카테고리 목록을 저장할 수 없습니다."
 
@@ -3183,6 +3195,18 @@ msgstr "{0} 기한 초과"
 
 msgid "Message body editor"
 msgstr "메시지 본문 편집기"
+
+msgid "Adjust picture"
+msgstr "사진 조정"
+
+msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
+msgstr "끌어서 사진을 이동하고, 슬라이더나 마우스 휠로 확대/축소하세요"
+
+msgid "This picture could not be read."
+msgstr "이 사진을 읽을 수 없습니다."
+
+msgid "This picture could not be converted."
+msgstr "이 사진을 변환할 수 없습니다."
 
 msgid "Message could not be loaded"
 msgstr "메시지를 로드할 수 없습니다."
@@ -5351,6 +5375,24 @@ msgstr "테마"
 
 msgid "Personal information"
 msgstr "개인 정보"
+
+msgid "Change your profile picture"
+msgstr "프로필 사진 변경"
+
+msgid "Upload a picture…"
+msgstr "사진 업로드…"
+
+msgid "Get it from {0}"
+msgstr "{0}에서 가져오기"
+
+msgid "Looking for a picture…"
+msgstr "사진 찾는 중…"
+
+msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
+msgstr "사진이 계정에 복사됩니다. 나중에 {0}에서 사진을 변경하더라도 지금 상태 그대로 유지됩니다."
+
+msgid "Click here to change your profile picture"
+msgstr "프로필 사진을 변경하려면 여기를 클릭하세요"
 
 msgid "Last Name, First Name"
 msgstr "성, 이름"

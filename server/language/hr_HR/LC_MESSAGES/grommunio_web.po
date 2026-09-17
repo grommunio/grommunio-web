@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:48+0200\n"
+"POT-Creation-Date: 2026-09-17 16:44+0200\n"
 "PO-Revision-Date: 2025-02-25 15:04+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hr/>\n"
@@ -2079,6 +2079,18 @@ msgstr "Ispustite datoteke ovdje da biste ih priložili"
 msgid "Picture format is not supported. Supported format for contact pictures are"
 msgstr "Format slike nije podržan. Podržani formati za slike kontakata su"
 
+msgid "This browser cannot download a picture from a service."
+msgstr "Ovaj preglednik ne može preuzeti sliku s usluge."
+
+msgid "{0} has no picture for your address."
+msgstr "{0} nema sliku za vašu adresu."
+
+msgid "{0} answered with an error."
+msgstr "{0} je odgovorio s greškom."
+
+msgid "{0} could not be reached."
+msgstr "Nije moguće doći do usluge {0}."
+
 msgid "Could not save the category list."
 msgstr "Nije bilo moguće spremiti popis kategorija."
 
@@ -3233,6 +3245,18 @@ msgstr "{0}kasni"
 
 msgid "Message body editor"
 msgstr "Uređivač tijela poruke"
+
+msgid "Adjust picture"
+msgstr "Prilagodba slike"
+
+msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
+msgstr "Povucite za pomicanje slike, za zumiranje upotrijebite klizač ili kotačić miša"
+
+msgid "This picture could not be read."
+msgstr "Ovu sliku nije bilo moguće pročitati."
+
+msgid "This picture could not be converted."
+msgstr "Ovu sliku nije bilo moguće pretvoriti."
 
 msgid "Message could not be loaded"
 msgstr "Poruka se ne može učitati"
@@ -5413,6 +5437,24 @@ msgstr "Tema"
 
 msgid "Personal information"
 msgstr "Osobni podaci"
+
+msgid "Change your profile picture"
+msgstr "Promijenite profilnu sliku"
+
+msgid "Upload a picture…"
+msgstr "Učitaj sliku…"
+
+msgid "Get it from {0}"
+msgstr "Preuzmi s usluge {0}"
+
+msgid "Looking for a picture…"
+msgstr "Tražim sliku…"
+
+msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
+msgstr "Slika se kopira u vaš račun. Ostaje ovakva kakva jest i ako je promijenite na usluzi {0}."
+
+msgid "Click here to change your profile picture"
+msgstr "Kliknite ovdje za promjenu profilne slike"
 
 msgid "Last Name, First Name"
 msgstr "Prezime, Ime"

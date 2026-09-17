@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web French (Canada)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:48+0200\n"
+"POT-Creation-Date: 2026-09-17 16:44+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: French (Canada) <https://hosted.weblate.org/projects/grommunio/grommunio-web/fr_CA/>\n"
@@ -2060,6 +2060,18 @@ msgstr "Déposez des fichiers ici pour les joindre"
 msgid "Picture format is not supported. Supported format for contact pictures are"
 msgstr "Le format d'image n'est pas pris en charge. Le format supporté de fichier pour la photo de contact est"
 
+msgid "This browser cannot download a picture from a service."
+msgstr "Ce navigateur ne peut pas télécharger une photo depuis un service."
+
+msgid "{0} has no picture for your address."
+msgstr "{0} n'a aucune photo pour votre adresse."
+
+msgid "{0} answered with an error."
+msgstr "{0} a répondu par une erreur."
+
+msgid "{0} could not be reached."
+msgstr "Impossible de joindre {0}."
+
 msgid "Could not save the category list."
 msgstr "Impossible d'enregistrer la liste des catégories."
 
@@ -3209,6 +3221,18 @@ msgstr "{0} en retard"
 
 msgid "Message body editor"
 msgstr "Éditeur de corps de message"
+
+msgid "Adjust picture"
+msgstr "Ajuster la photo"
+
+msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
+msgstr "Faites glisser pour déplacer la photo, utilisez le curseur ou la molette de la souris pour zoomer"
+
+msgid "This picture could not be read."
+msgstr "Cette photo n'a pas pu être lue."
+
+msgid "This picture could not be converted."
+msgstr "Cette photo n'a pas pu être convertie."
 
 msgid "Message could not be loaded"
 msgstr "Le message n'a pas pu être chargé"
@@ -5383,6 +5407,24 @@ msgstr "Thème"
 
 msgid "Personal information"
 msgstr "Informations personnelles"
+
+msgid "Change your profile picture"
+msgstr "Changer votre photo de profil"
+
+msgid "Upload a picture…"
+msgstr "Téléverser une photo…"
+
+msgid "Get it from {0}"
+msgstr "La récupérer depuis {0}"
+
+msgid "Looking for a picture…"
+msgstr "Recherche d'une photo…"
+
+msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
+msgstr "La photo est copiée dans votre compte. Elle reste telle quelle, même si vous la modifiez plus tard sur {0}."
+
+msgid "Click here to change your profile picture"
+msgstr "Cliquez ici pour changer votre photo de profil"
 
 msgid "Last Name, First Name"
 msgstr "Nom, Prénom"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:48+0200\n"
+"POT-Creation-Date: 2026-09-17 16:44+0200\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/grommunio-web/da/>\n"
@@ -2060,6 +2060,18 @@ msgstr "Slip filer her for at vedhæfte dem"
 msgid "Picture format is not supported. Supported format for contact pictures are"
 msgstr "Billede formatet er ikke understøttet. Tilladte formater for kontaktbilleder er"
 
+msgid "This browser cannot download a picture from a service."
+msgstr "Denne browser kan ikke hente et billede fra en tjeneste."
+
+msgid "{0} has no picture for your address."
+msgstr "{0} har intet billede til din adresse."
+
+msgid "{0} answered with an error."
+msgstr "{0} svarede med en fejl."
+
+msgid "{0} could not be reached."
+msgstr "{0} kunne ikke nås."
+
 msgid "Could not save the category list."
 msgstr "Kategorilisten kunne ikke gemmes."
 
@@ -3209,6 +3221,18 @@ msgstr "{0} overskredet"
 
 msgid "Message body editor"
 msgstr "Redigeringsværktøj til meddelelsestekst"
+
+msgid "Adjust picture"
+msgstr "Tilpas billede"
+
+msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
+msgstr "Træk for at flytte billedet, brug skyderen eller musehjulet til at zoome"
+
+msgid "This picture could not be read."
+msgstr "Billedet kunne ikke læses."
+
+msgid "This picture could not be converted."
+msgstr "Billedet kunne ikke konverteres."
 
 msgid "Message could not be loaded"
 msgstr "Meddelelsen kunne ikke indlæses"
@@ -5383,6 +5407,24 @@ msgstr "Tema"
 
 msgid "Personal information"
 msgstr "Personlig information"
+
+msgid "Change your profile picture"
+msgstr "Skift dit profilbillede"
+
+msgid "Upload a picture…"
+msgstr "Upload et billede…"
+
+msgid "Get it from {0}"
+msgstr "Hent det fra {0}"
+
+msgid "Looking for a picture…"
+msgstr "Søger efter et billede…"
+
+msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
+msgstr "Billedet kopieres ind i din konto. Det forbliver, som det er nu, også når du ændrer det hos {0}."
+
+msgid "Click here to change your profile picture"
+msgstr "Klik her for at skifte dit profilbillede"
 
 msgid "Last Name, First Name"
 msgstr "Efternavn, fornavn"

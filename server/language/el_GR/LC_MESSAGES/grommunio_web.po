@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:48+0200\n"
+"POT-Creation-Date: 2026-09-17 16:44+0200\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2060,6 +2060,18 @@ msgstr "Αποθέστε αρχεία εδώ για να τα επισυνάψε
 msgid "Picture format is not supported. Supported format for contact pictures are"
 msgstr "Η μορφή εικόνας δεν υποστηρίζεται. Η υποστηριζόμενη μορφή για τις εικόνες επαφής είναι"
 
+msgid "This browser cannot download a picture from a service."
+msgstr "Αυτό το πρόγραμμα περιήγησης δεν μπορεί να κάνει λήψη εικόνας από υπηρεσία."
+
+msgid "{0} has no picture for your address."
+msgstr "Το {0} δεν έχει εικόνα για τη διεύθυνσή σας."
+
+msgid "{0} answered with an error."
+msgstr "Το {0} απάντησε με σφάλμα."
+
+msgid "{0} could not be reached."
+msgstr "Δεν ήταν δυνατή η σύνδεση με το {0}."
+
 msgid "Could not save the category list."
 msgstr "Δεν ήταν δυνατή η αποθήκευση της λίστας κατηγοριών."
 
@@ -3209,6 +3221,18 @@ msgstr "{0} ληξιπρόθεσμο"
 
 msgid "Message body editor"
 msgstr "Επεξεργαστής σώματος μηνύματος"
+
+msgid "Adjust picture"
+msgstr "Προσαρμογή εικόνας"
+
+msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
+msgstr "Σύρετε για να μετακινήσετε την εικόνα, χρησιμοποιήστε το ρυθμιστικό ή τον τροχό του ποντικιού για ζουμ"
+
+msgid "This picture could not be read."
+msgstr "Δεν ήταν δυνατή η ανάγνωση αυτής της εικόνας."
+
+msgid "This picture could not be converted."
+msgstr "Δεν ήταν δυνατή η μετατροπή αυτής της εικόνας."
 
 msgid "Message could not be loaded"
 msgstr "Το μήνυμα δεν μπορούσε να φορτωθεί"
@@ -5383,6 +5407,24 @@ msgstr "Θέμα"
 
 msgid "Personal information"
 msgstr "Προσωπικές πληροφορίες"
+
+msgid "Change your profile picture"
+msgstr "Αλλαγή της εικόνας προφίλ σας"
+
+msgid "Upload a picture…"
+msgstr "Μεταφόρτωση εικόνας…"
+
+msgid "Get it from {0}"
+msgstr "Λήψη από το {0}"
+
+msgid "Looking for a picture…"
+msgstr "Αναζήτηση εικόνας…"
+
+msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
+msgstr "Η εικόνα αντιγράφεται στον λογαριασμό σας. Παραμένει όπως είναι τώρα, ακόμη και αν την αλλάξετε στο {0}."
+
+msgid "Click here to change your profile picture"
+msgstr "Κάντε κλικ εδώ για να αλλάξετε την εικόνα προφίλ σας"
 
 msgid "Last Name, First Name"
 msgstr "Επώνυμο, Όνομα"

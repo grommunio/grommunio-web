@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:48+0200\n"
+"POT-Creation-Date: 2026-09-17 16:44+0200\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2100,6 +2100,18 @@ msgstr "Spustite datoteke sem, da jih priložite"
 msgid "Picture format is not supported. Supported format for contact pictures are"
 msgstr "Format slike ni podprt. Podprti formati za kontaktne slike so"
 
+msgid "This browser cannot download a picture from a service."
+msgstr "Ta brskalnik ne more prenesti slike iz storitve."
+
+msgid "{0} has no picture for your address."
+msgstr "Storitev {0} nima slike za vaš naslov."
+
+msgid "{0} answered with an error."
+msgstr "Storitev {0} je odgovorila z napako."
+
+msgid "{0} could not be reached."
+msgstr "Storitve {0} ni mogoče doseči."
+
 msgid "Could not save the category list."
 msgstr "Seznama kategorij ni bilo mogoče shraniti."
 
@@ -3259,6 +3271,18 @@ msgstr "{0} zapadlo"
 
 msgid "Message body editor"
 msgstr "Urejevalnik besedila sporočila"
+
+msgid "Adjust picture"
+msgstr "Prilagodi sliko"
+
+msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
+msgstr "Povlecite, da premaknete sliko, za povečavo pa uporabite drsnik ali kolesce miške"
+
+msgid "This picture could not be read."
+msgstr "Te slike ni bilo mogoče prebrati."
+
+msgid "This picture could not be converted."
+msgstr "Te slike ni bilo mogoče pretvoriti."
 
 msgid "Message could not be loaded"
 msgstr "Sporočila ni bilo mogoče naložiti"
@@ -5445,6 +5469,24 @@ msgstr "Tema"
 
 msgid "Personal information"
 msgstr "Osebni podatki"
+
+msgid "Change your profile picture"
+msgstr "Spremenite svojo profilno sliko"
+
+msgid "Upload a picture…"
+msgstr "Naloži sliko…"
+
+msgid "Get it from {0}"
+msgstr "Pridobi jo iz storitve {0}"
+
+msgid "Looking for a picture…"
+msgstr "Iskanje slike…"
+
+msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
+msgstr "Slika se kopira v vaš račun. Ostala bo takšna, kot je zdaj, tudi če jo pozneje spremenite pri storitvi {0}."
+
+msgid "Click here to change your profile picture"
+msgstr "Kliknite tukaj, da spremenite svojo profilno sliko"
 
 msgid "Last Name, First Name"
 msgstr "Priimek, ime"

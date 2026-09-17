@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:48+0200\n"
+"POT-Creation-Date: 2026-09-17 16:44+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/grommunio/grommunio-web/zh_Hant/>\n"
@@ -2039,6 +2039,18 @@ msgstr "將檔案拖放到此處以新增為附件"
 msgid "Picture format is not supported. Supported format for contact pictures are"
 msgstr "不支援圖片格式。 連絡人圖片的支援格式為"
 
+msgid "This browser cannot download a picture from a service."
+msgstr "此瀏覽器無法從服務下載圖片。"
+
+msgid "{0} has no picture for your address."
+msgstr "{0} 沒有與您的地址相符的圖片。"
+
+msgid "{0} answered with an error."
+msgstr "{0} 傳回了錯誤。"
+
+msgid "{0} could not be reached."
+msgstr "無法連線到 {0}。"
+
 msgid "Could not save the category list."
 msgstr "無法儲存類別清單。"
 
@@ -3183,6 +3195,18 @@ msgstr "{0} 過期"
 
 msgid "Message body editor"
 msgstr "訊息正文編輯器"
+
+msgid "Adjust picture"
+msgstr "調整圖片"
+
+msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
+msgstr "拖曳以移動圖片，使用滑桿或滑鼠滾輪縮放"
+
+msgid "This picture could not be read."
+msgstr "無法讀取此圖片。"
+
+msgid "This picture could not be converted."
+msgstr "無法轉換此圖片。"
 
 msgid "Message could not be loaded"
 msgstr "訊息無法載入"
@@ -5351,6 +5375,24 @@ msgstr "主題"
 
 msgid "Personal information"
 msgstr "個人資訊"
+
+msgid "Change your profile picture"
+msgstr "變更您的個人資料圖片"
+
+msgid "Upload a picture…"
+msgstr "上傳圖片…"
+
+msgid "Get it from {0}"
+msgstr "從 {0} 取得圖片"
+
+msgid "Looking for a picture…"
+msgstr "正在尋找圖片…"
+
+msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
+msgstr "圖片會複製到您的帳號中。即使您日後在 {0} 變更圖片，這裡的圖片仍會維持現在的樣子。"
+
+msgid "Click here to change your profile picture"
+msgstr "點擊此處以變更您的個人資料圖片"
 
 msgid "Last Name, First Name"
 msgstr "姓氏，名字"

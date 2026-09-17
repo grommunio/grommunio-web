@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:48+0200\n"
+"POT-Creation-Date: 2026-09-17 16:44+0200\n"
 "PO-Revision-Date: 2022-07-26 17:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2081,6 +2081,18 @@ msgstr "Upuść pliki tutaj, aby je załączyć"
 msgid "Picture format is not supported. Supported format for contact pictures are"
 msgstr "Nie rozpoznano formatu obrazu. Następujące formaty są obsługiwane dla zdjęć kontaktów"
 
+msgid "This browser cannot download a picture from a service."
+msgstr "Ta przeglądarka nie może pobrać zdjęcia z usługi."
+
+msgid "{0} has no picture for your address."
+msgstr "W usłudze {0} nie ma zdjęcia dla Twojego adresu."
+
+msgid "{0} answered with an error."
+msgstr "Usługa {0} odpowiedziała błędem."
+
+msgid "{0} could not be reached."
+msgstr "Nie można było połączyć się z usługą {0}."
+
 msgid "Could not save the category list."
 msgstr "Nie można zapisać listy kategorii."
 
@@ -3237,6 +3249,18 @@ msgstr "{0} przedawniony"
 
 msgid "Message body editor"
 msgstr "Edytor treści wiadomości"
+
+msgid "Adjust picture"
+msgstr "Dopasuj zdjęcie"
+
+msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
+msgstr "Przeciągnij, aby przesunąć zdjęcie, użyj suwaka lub kółka myszy, aby zmienić powiększenie"
+
+msgid "This picture could not be read."
+msgstr "Nie można było odczytać tego zdjęcia."
+
+msgid "This picture could not be converted."
+msgstr "Nie można było przekonwertować tego zdjęcia."
 
 msgid "Message could not be loaded"
 msgstr "Wiadomość nie mogła zostać załadowana"
@@ -5417,6 +5441,24 @@ msgstr "Temat"
 
 msgid "Personal information"
 msgstr "Dane osobowe"
+
+msgid "Change your profile picture"
+msgstr "Zmień zdjęcie profilowe"
+
+msgid "Upload a picture…"
+msgstr "Prześlij zdjęcie…"
+
+msgid "Get it from {0}"
+msgstr "Pobierz z usługi {0}"
+
+msgid "Looking for a picture…"
+msgstr "Wyszukiwanie zdjęcia…"
+
+msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
+msgstr "Zdjęcie zostanie skopiowane do Twojego konta. Pozostanie takie, jakie jest teraz, także po jego zmianie w usłudze {0}."
+
+msgid "Click here to change your profile picture"
+msgstr "Kliknij tutaj, aby zmienić zdjęcie profilowe"
 
 msgid "Last Name, First Name"
 msgstr "Nazwisko, imię"
