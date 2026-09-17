@@ -8828,12 +8828,19 @@ body.k-keyboard .grommunio-settings-category-tab:focus-visible {
   100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--theme-primary-color) 0%, transparent); }
 }
 
-/* The duration reads as the value of the row below it, so it starts where that
-   row's fields do. */
+/* The duration is the label and value of the row below it: its label holds the
+   same column as "Start time", its value starts where that field does. */
 .k-recurrence-dialog .k-recurrence-duration {
-  padding-left: calc(var(--k-form-label-width, 125px) + 6px);
   margin-bottom: 6px;
 }
+
+.k-recurrence-dialog .k-recurrence-duration-label {
+  display: inline-block;
+  box-sizing: border-box;
+  width: calc(var(--k-form-label-width, 125px) + 6px);
+  padding-right: 6px;
+}
+
 
 /* A choice whose label wraps keeps the continuation beside the button instead
    of underneath it. */

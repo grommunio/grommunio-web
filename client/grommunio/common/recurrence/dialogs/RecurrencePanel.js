@@ -62,12 +62,17 @@ Grommunio.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 			anchor: '100%',
 			height: 120,
 			items: [{
-				xtype: 'displayfield',
+				xtype: 'box',
 				ref: '../timeperiodLabel',
 				cls: 'k-recurrence-duration',
-				htmlEncode: true,
-				hideLabel: true,
-				height: 24
+				height: 24,
+				autoEl: {
+					tag: 'div',
+					cn: [
+						{ tag: 'span', cls: 'k-recurrence-duration-label' },
+						{ tag: 'span', cls: 'k-recurrence-duration-value' }
+					]
+				}
 			},{
 				xtype: 'panel',
 				layout: 'hbox',
@@ -86,7 +91,8 @@ Grommunio.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 					// to fit itself.
 					startFieldConfig: { labelWidth: 125, width: 228 },
 					spacerConfig: {
-						width: 5
+						// room between the start field and the end label
+						width: 24
 					},
 					listeners: {
 						change: this.onDurationChange,
@@ -374,7 +380,27 @@ Grommunio.common.recurrence.dialogs.RecurrencePanel = Ext.extend(Ext.Panel, {
 			label = label.replace('{M}', '');
 		}
 
-		this.timeperiodLabel.setValue(label);
+		this.setDurationLabel(label);
+	},
+
+	/**
+	 * Writes the duration into its two columns. The string is one sentence, so
+	 * its colon is what separates the two; without one it is all value.
+	 * @param {String} text The rendered duration sentence
+	 * @private
+	 */
+	setDurationLabel: function(text)
+	{
+		if (!this.timeperiodLabel || !this.timeperiodLabel.el) {
+			return;
+		}
+
+		var at = Math.max(text.indexOf(':'), text.indexOf('\uff1a'));
+		var label = at < 0 ? '' : text.substr(0, at + 1);
+		var value = at < 0 ? text : text.substr(at + 1);
+
+		this.timeperiodLabel.el.child('.k-recurrence-duration-label').update(Ext.util.Format.htmlEncode(label));
+		this.timeperiodLabel.el.child('.k-recurrence-duration-value').update(Ext.util.Format.htmlEncode(value.trim()));
 	},
 
 	/**
