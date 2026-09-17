@@ -42,7 +42,8 @@ Grommunio.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.For
 			items: [
 				this.createNameInfoPanel(),
 				this.createDescriptionInfoPanel(),
-				this.createContentInfoPanel()
+				this.createContentInfoPanel(),
+				this.createSendRightsPanel()
 			]
 		});
 
@@ -149,6 +150,29 @@ Grommunio.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.For
 			}]
 		};
 	},
+	/**
+	 * @return {Object} Configuration object for the panel which shows send rights
+	 * @private
+	 */
+	createSendRightsPanel: function()
+	{
+		return {
+			cls: 'send-rights-panel',
+			hidden: true,
+			style: {
+				borderTopWidth: '1px',
+				borderTopStyle: 'solid'
+			},
+			bodyStyle: 'padding-top: 12px; padding-bottom: 6px;',
+			items: [{
+				xtype: 'displayfield',
+				fieldLabel: _('Send rights'),
+				htmlEncode: true,
+				ref: 'sendRightsField'
+			}],
+			ref: 'sendRightsPanel'
+		};
+	},
 
 	/**
 	 * Enable/disable/hide/unhide all {@link Ext.Component Components} within the {@link Ext.Panel Panel}
@@ -196,6 +220,15 @@ Grommunio.hierarchy.dialogs.FolderPropertiesGeneralTab = Ext.extend(Ext.form.For
 		this.record = record;
 		this.updateUI(record, contentReset);
 		this.getForm().loadRecord(record);
+
+		var sendRights = [ _('None'), _('Send on behalf'), _('Send as') ];
+		var sendPermissions = record.get('sendPermissions');
+		if (Ext.isNumber(sendPermissions) && Ext.isDefined(sendRights[sendPermissions])) {
+			this.sendRightsPanel.sendRightsField.setValue(sendRights[sendPermissions]);
+			this.sendRightsPanel.show();
+		} else {
+			this.sendRightsPanel.hide();
+		}
 
 		var entryid = record.get('entryid');
 		if (entryid) {

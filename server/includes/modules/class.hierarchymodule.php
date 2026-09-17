@@ -621,10 +621,13 @@ class HierarchyModule extends Module {
 		// replace "IPM_SUBTREE" with the display name of the store, and use the store message size
 		$store_props = mapi_getprops($store, [PR_IPM_SUBTREE_ENTRYID]);
 		if ($data["entryid"] == bin2hex((string) $store_props[PR_IPM_SUBTREE_ENTRYID])) {
-			$store_props = mapi_getprops($store, [PR_MAILBOX_OWNER_ENTRYID, PR_DISPLAY_NAME, PR_MESSAGE_SIZE_EXTENDED,
-				PR_CONTENT_COUNT, PR_QUOTA_WARNING_THRESHOLD, PR_PROHIBIT_SEND_QUOTA, PR_PROHIBIT_RECEIVE_QUOTA, ]);
+			$store_props = mapi_getprops($store, [PR_MDB_PROVIDER, PR_MAILBOX_OWNER_ENTRYID, PR_DISPLAY_NAME, PR_MESSAGE_SIZE_EXTENDED,
+				PR_CONTENT_COUNT, PR_QUOTA_WARNING_THRESHOLD, PR_PROHIBIT_SEND_QUOTA, PR_PROHIBIT_RECEIVE_QUOTA, PR_ENTRYID]);
 			if (!$GLOBALS['entryid']->compareEntryIds($store_props[PR_MAILBOX_OWNER_ENTRYID], $GLOBALS['mapisession']->getUserEntryID())) {
 				$permissions = $this->getStoreGrants($permissions);
+				if (($store_props[PR_MDB_PROVIDER] ?? null) !== ZARAFA_STORE_PUBLIC_GUID) {
+					$data["props"]["sendPermissions"] = mapi_getsendpermissions($GLOBALS['mapisession']->getSession(), $store_props[PR_ENTRYID]);
+				}
 			}
 			$data["props"]["display_name"] = $store_props[PR_DISPLAY_NAME];
 			$data["props"]["message_size"] = $this->showStoreDetails ? round($store_props[PR_MESSAGE_SIZE_EXTENDED]) : 0;
@@ -640,6 +643,7 @@ class HierarchyModule extends Module {
 			if (isset($store_props[PR_PROHIBIT_RECEIVE_QUOTA])) {
 				$data["props"]["quota_hard"] = $this->showStoreDetails ? round($store_props[PR_PROHIBIT_RECEIVE_QUOTA]) : 0;
 			}
+			
 		}
 
 		// calculating missing message_size
