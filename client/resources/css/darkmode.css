@@ -2488,3 +2488,9 @@ body.dark-mode .k-command-palette-icon.icon_folder_stickynote {
 body.dark-mode .x-menu .x-menu-list li.x-menu-list-item a.x-menu-item-arrow {
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='9'%3E%3Cpath fill='%23d6d6d6' d='M0 0v9l5-4.5z'/%3E%3C/svg%3E") !important;
 }
+
+/* Row action icons (rename, delete, quick access) are dark artwork; the hue
+   rotation keeps their colour instead of turning the slate blue into beige. */
+body.dark-mode .x-grid3 .grommunio-grid-button {
+	filter: invert(1) hue-rotate(180deg);
+}
