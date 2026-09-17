@@ -183,6 +183,8 @@ Grommunio.calendar.dialogs.FreebusyTab = Ext.extend(Ext.form.FormPanel, {
 			this.record.convertToMeeting();
 		}
 
+		this.doLayout();
+		this.freebusyPanel.syncTimelineSize();
 		this.freebusyPanel.scrollTimelineToSelection();
 	},
 
