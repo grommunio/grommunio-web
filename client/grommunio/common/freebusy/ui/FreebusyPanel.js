@@ -407,6 +407,17 @@ Grommunio.common.freebusy.ui.FreebusyPanel = Ext.extend(Ext.Panel, {
 	},
 
 	/**
+	 * Recalculate the timeline after its containing tab becomes visible. ExtJS
+	 * can retain the size measured while the tab was hidden, leaving the
+	 * background grid shorter than the visible timeline body.
+	 */
+	syncTimelineSize: function()
+	{
+		this.doLayout();
+		this.timelineView.syncSize();
+	},
+
+	/**
 	 * Scroll the TimelineView to the provided date argument.
 	 * @param {Date} date Date object
 	 */
