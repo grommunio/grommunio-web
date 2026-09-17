@@ -3814,11 +3814,21 @@ span.preview-header-sender-image {
 /* Expanded: the toggle becomes a right-aligned line below the notices. */
 .grommunio-calendar-appointment-extrainfo:not(.k-extrainfo-collapsed) .k-extrainfo-toggle {
   text-align: right; }
+/* One label column for the whole form: the widest translated label of the
+   first column measures 112px (id_ID "Tampilkan sebagai:"). */
+.k-appointmentcreatetab,
+.k-taskgeneraltab {
+  --k-form-label-width: 125px; }
+
 .k-appointmentcreatetab .k-field-to,
 .k-taskgeneraltab .k-field-to {
   padding: 6px;
   min-height: 24px;
   border-bottom: 1px solid var(--ui-border); }
+  /* The To button stands in for a label, so it holds the same column. */
+  .k-appointmentcreatetab .k-field-to > div:first-child,
+  .k-appointmentcreatetab .k-field-to .x-btn {
+    width: var(--k-form-label-width) !important; }
   .k-appointmentcreatetab .k-field-to .x-btn .x-btn-small,
   .k-taskgeneraltab .k-field-to .x-btn .x-btn-small {
     height: 28px !important;
@@ -3841,15 +3851,14 @@ span.preview-header-sender-image {
   .k-appointmentcreatetab .k-location-panel label,
   .k-appointmentcreatetab .k-recurrence-panel label,
   .k-appointmentcreatetab .k-organizer-panel label,
-  .k-appointmentcreatetab .k-organizer-panel label,
   .k-taskgeneraltab .k-subject-panel label,
   .k-taskgeneraltab .k-createin-panel label,
   .k-taskgeneraltab .k-location-panel label {
+    box-sizing: border-box;
     text-align: left;
-    padding: 0 6px;
+    padding: 2px 6px 0 0;
     line-height: 20px;
-    padding-top: 2px;
-    width: 72px !important; }
+    width: var(--k-form-label-width) !important; }
   /* Display fields (Organizer, Recurrence) have no input chrome; pad them to
      the same baseline and line-height as the labels next to them. */
   .k-appointmentcreatetab .k-organizer-panel .x-form-display-field,
@@ -3868,8 +3877,19 @@ span.preview-header-sender-image {
 .k-taskgeneraltab .k-date-panel {
   padding: 6px; }
   .k-appointmentcreatetab .k-date-panel label.x-form-item-label {
+    box-sizing: border-box;
     text-align: left;
     line-height: 20px; }
+  /* "Time" holds the shared column; "until" sits between the two halves and
+     is centred over the gap it no longer pads out. */
+  .k-appointmentcreatetab .k-date-panel .from-field label.x-form-item-label {
+    box-sizing: border-box;
+    width: var(--k-form-label-width) !important;
+    padding-left: 0; }
+  .k-appointmentcreatetab .k-date-panel .to-field label.x-form-item-label {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0; }
   .k-taskgeneraltab .k-date-panel .x-form-item:first-child label {
     text-align: left;
     padding: 0 6px;
@@ -3916,12 +3936,11 @@ span.preview-header-sender-image {
     padding: 0 6px 0 0;
     line-height: 24px;
     white-space: nowrap; }
-  /* Size the first label like the form rows above it (labelWidth 85 + Ext's
-     default labelPad 5) so the first combo lines up with the inputs above
-     (min-width: longer translations may grow it). */
+  /* The first label shares the column of the rows above, so every field in
+     the tab starts at the same x. */
   .k-appointmentcreatetab .k-appointment-options-panel label.k-options-label-first {
     box-sizing: border-box;
-    min-width: 90px; }
+    width: var(--k-form-label-width); }
   .k-appointmentcreatetab .k-appointment-options-panel label.k-options-label-gap {
     margin-left: 18px; }
   .k-appointmentcreatetab .k-appointment-options-panel .x-form-check-wrap {

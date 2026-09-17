@@ -592,14 +592,18 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 					fieldLabel: _('Time'),
 					labelWidth: 125,
 					cls: 'from-field',
+					// The label sits in the shared first column, so this half
+					// needs the extra width to keep both date fields equal.
+					flex: 0.55,
 					timeFieldConfig: {
 						width: 95
 					}
 				},
 				endFieldConfig: {
 					fieldLabel: _('until'),
-					labelWidth: 85,
+					labelWidth: 60,
 					cls: 'to-field',
+					flex: 0.45,
 					timeFieldConfig: {
 						width: 95
 					}
