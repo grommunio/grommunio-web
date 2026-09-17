@@ -33,7 +33,7 @@ Grommunio.plugins.files.ui.FilesRecordDetailsPanel = Ext.extend(Ext.form.FormPan
 			autoDestroy: true,
 			layout     : layout,
 			border     : false,
-			bodyStyle  : 'padding: 10px;',
+			bodyStyle  : 'padding: 0;',
 			items      : [
 				this.fileHeader(),
 				this.fieldSetFilePreview()
