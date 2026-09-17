@@ -469,36 +469,76 @@ Grommunio.settings.ui.SettingsAccountWidget = Ext.extend(Grommunio.settings.ui.S
 
 	/**
 	 * Points out the profile picture and explains what it does. Used by the
-	 * profile url action.
+	 * profile url action. The callout sits in the header rather than floating,
+	 * so it keeps its place when the settings scroll.
 	 */
 	highlightPhoto : function()
 	{
+		var header = this.el.child('.k-settings-profile-header');
 		var imgEl = Ext.get(this.getPhotoImgEl());
 
-		if (!imgEl) {
+		if (!header || !imgEl || this.photoHint) {
 			return;
 		}
 
 		imgEl.scrollIntoView(this.el, false);
 		imgEl.addClass('k-settings-profile-photo-hint');
 
+		// Its own row in the header, so it lands under the picture
+		this.photoHint = header.createChild({
+			tag : 'div',
+			cls : 'k-settings-profile-callout-row',
+			cn : [{
+				tag : 'div',
+				cls : 'k-settings-profile-callout',
+				cn : [{
+					tag : 'span',
+					html : _('Click here to change your profile picture')
+				},{
+					tag : 'button',
+					type : 'button',
+					cls : 'k-settings-profile-callout-close',
+					title : _('Close'),
+					html : '&#215;'
+				}]
+			}]
+		});
+
+		this.mon(this.photoHint.first(), 'click', this.onPhotoHintClick, this);
+		this.mon(imgEl, 'click', this.clearPhotoHint, this);
+	},
+
+	/**
+	 * The callout is an invitation, so it opens the menu unless the close
+	 * button was hit.
+	 * @param {Ext.EventObject} eventObj The click event
+	 * @param {Element} target The clicked element
+	 * @private
+	 */
+	onPhotoHintClick : function(eventObj, target)
+	{
+		var closing = Ext.fly(target).hasClass('k-settings-profile-callout-close');
+
+		this.clearPhotoHint();
+		if (!closing) {
+			this.onPhotoClick();
+		}
+	},
+
+	/**
+	 * Takes the callout and the ring off the picture again.
+	 * @private
+	 */
+	clearPhotoHint : function()
+	{
 		if (!this.photoHint) {
-			this.photoHint = new Ext.ToolTip({
-				target : imgEl,
-				anchor : 'top',
-				cls : 'k-settings-profile-hint',
-				html : _('Click here to change your profile picture'),
-				autoHide : false,
-				closable : true,
-				listeners : {
-					'hide' : function() { imgEl.removeClass('k-settings-profile-photo-hint'); }
-				}
-			});
-			this.on('beforedestroy', this.photoHint.destroy, this.photoHint);
-			this.mon(imgEl, 'click', this.photoHint.hide, this.photoHint);
+			return;
 		}
 
-		this.photoHint.show();
+		Ext.get(this.getPhotoImgEl()).removeClass('k-settings-profile-photo-hint');
+		this.mun(this.photoHint.first(), 'click', this.onPhotoHintClick, this);
+		this.photoHint.remove();
+		delete this.photoHint;
 	},
 
 	/**
