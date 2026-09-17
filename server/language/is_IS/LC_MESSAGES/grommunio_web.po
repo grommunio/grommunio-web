@@ -2059,16 +2059,16 @@ msgid "Picture format is not supported. Supported format for contact pictures ar
 msgstr "Myndasnið er ekki stutt. Studd snið fyrir tengiliðamyndir eru"
 
 msgid "This browser cannot download a picture from a service."
-msgstr ""
+msgstr "Þessi vafri getur ekki sótt mynd frá þjónustu."
 
 msgid "{0} has no picture for your address."
-msgstr ""
+msgstr "{0} hefur enga mynd fyrir tölvupóstfangið þitt."
 
 msgid "{0} answered with an error."
-msgstr ""
+msgstr "{0} svaraði með villu."
 
 msgid "{0} could not be reached."
-msgstr ""
+msgstr "Ekki náðist samband við {0}."
 
 msgid "Could not save the category list."
 msgstr "Ekki tókst að vista flokkalistann."
@@ -3221,16 +3221,16 @@ msgid "Message body editor"
 msgstr "Ritill fyrir skilaboðatexta"
 
 msgid "Adjust picture"
-msgstr ""
+msgstr "Stilla mynd"
 
 msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
-msgstr ""
+msgstr "Dragðu til að færa myndina, notaðu sleðann eða músarhjólið til að breyta aðdrætti"
 
 msgid "This picture could not be read."
-msgstr ""
+msgstr "Ekki tókst að lesa þessa mynd."
 
 msgid "This picture could not be converted."
-msgstr ""
+msgstr "Ekki tókst að umbreyta þessari mynd."
 
 msgid "Message could not be loaded"
 msgstr "Ekki tókst að hlaða skilaboðum"
@@ -5407,22 +5407,22 @@ msgid "Personal information"
 msgstr "Persónulegar upplýsingar"
 
 msgid "Change your profile picture"
-msgstr ""
+msgstr "Breyta prófílmyndinni þinni"
 
 msgid "Upload a picture…"
-msgstr ""
+msgstr "Hlaða upp mynd…"
 
 msgid "Get it from {0}"
-msgstr ""
+msgstr "Sækja mynd frá {0}"
 
 msgid "Looking for a picture…"
-msgstr ""
+msgstr "Leita að mynd…"
 
 msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
-msgstr ""
+msgstr "Myndin er afrituð í notandaaðganginn þinn. Hún helst eins og hún er núna, jafnvel þótt þú breytir henni hjá {0}."
 
 msgid "Click here to change your profile picture"
-msgstr ""
+msgstr "Smelltu hér til að breyta prófílmyndinni þinni"
 
 msgid "Last Name, First Name"
 msgstr "Eftirnafn, Fornafnið"

@@ -2062,16 +2062,16 @@ msgid "Picture format is not supported. Supported format for contact pictures ar
 msgstr "Formato de imagen no soportado. Los formatos soportados para las imágenes de los contactos son"
 
 msgid "This browser cannot download a picture from a service."
-msgstr ""
+msgstr "Este navegador no puede descargar una imagen desde un servicio."
 
 msgid "{0} has no picture for your address."
-msgstr ""
+msgstr "{0} no tiene ninguna imagen para su dirección."
 
 msgid "{0} answered with an error."
-msgstr ""
+msgstr "{0} ha respondido con un error."
 
 msgid "{0} could not be reached."
-msgstr ""
+msgstr "No se ha podido contactar con {0}."
 
 msgid "Could not save the category list."
 msgstr "No se pudo guardar la lista de categorías."
@@ -3226,16 +3226,16 @@ msgid "Message body editor"
 msgstr "Editor del cuerpo del mensaje"
 
 msgid "Adjust picture"
-msgstr ""
+msgstr "Ajustar imagen"
 
 msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
-msgstr ""
+msgstr "Arrastre para mover la imagen, use el control deslizante o la rueda del ratón para hacer zoom"
 
 msgid "This picture could not be read."
-msgstr ""
+msgstr "No se ha podido leer esta imagen."
 
 msgid "This picture could not be converted."
-msgstr ""
+msgstr "No se ha podido convertir esta imagen."
 
 msgid "Message could not be loaded"
 msgstr "No se ha podido cargar el mensaje"
@@ -5416,22 +5416,22 @@ msgid "Personal information"
 msgstr "Información personal"
 
 msgid "Change your profile picture"
-msgstr ""
+msgstr "Cambiar su imagen de perfil"
 
 msgid "Upload a picture…"
-msgstr ""
+msgstr "Subir una imagen…"
 
 msgid "Get it from {0}"
-msgstr ""
+msgstr "Obtenerla de {0}"
 
 msgid "Looking for a picture…"
-msgstr ""
+msgstr "Buscando una imagen…"
 
 msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
-msgstr ""
+msgstr "La imagen se copia en su cuenta. Se mantendrá tal y como está ahora, aunque la cambie en {0}."
 
 msgid "Click here to change your profile picture"
-msgstr ""
+msgstr "Haga clic aquí para cambiar su imagen de perfil"
 
 msgid "Last Name, First Name"
 msgstr "Apellidos, Nombre"

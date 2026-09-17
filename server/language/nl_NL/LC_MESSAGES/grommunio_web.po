@@ -2066,16 +2066,16 @@ msgid "Picture format is not supported. Supported format for contact pictures ar
 msgstr "Formaat van de afbeelding wordt niet ondersteund. Ondersteunde formaten voor afbeeldingen van contactpersonen zijn"
 
 msgid "This browser cannot download a picture from a service."
-msgstr ""
+msgstr "Deze browser kan geen afbeelding van een service downloaden."
 
 msgid "{0} has no picture for your address."
-msgstr ""
+msgstr "{0} heeft geen afbeelding voor uw adres."
 
 msgid "{0} answered with an error."
-msgstr ""
+msgstr "{0} heeft met een fout geantwoord."
 
 msgid "{0} could not be reached."
-msgstr ""
+msgstr "{0} kon niet worden bereikt."
 
 msgid "Could not save the category list."
 msgstr "De categorielijst kan niet worden opgeslagen."
@@ -3228,16 +3228,16 @@ msgid "Message body editor"
 msgstr "Editor voor berichttekst"
 
 msgid "Adjust picture"
-msgstr ""
+msgstr "Afbeelding aanpassen"
 
 msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
-msgstr ""
+msgstr "Sleep om de afbeelding te verplaatsen, gebruik de schuifregelaar of het muiswiel om te zoomen"
 
 msgid "This picture could not be read."
-msgstr ""
+msgstr "Deze afbeelding kon niet worden gelezen."
 
 msgid "This picture could not be converted."
-msgstr ""
+msgstr "Deze afbeelding kon niet worden geconverteerd."
 
 msgid "Message could not be loaded"
 msgstr "Bericht kan niet geladen worden"
@@ -5414,22 +5414,22 @@ msgid "Personal information"
 msgstr "Persoonlijke informatie"
 
 msgid "Change your profile picture"
-msgstr ""
+msgstr "Uw profielafbeelding wijzigen"
 
 msgid "Upload a picture…"
-msgstr ""
+msgstr "Afbeelding uploaden…"
 
 msgid "Get it from {0}"
-msgstr ""
+msgstr "Van {0} ophalen"
 
 msgid "Looking for a picture…"
-msgstr ""
+msgstr "Afbeelding zoeken…"
 
 msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
-msgstr ""
+msgstr "De afbeelding wordt naar uw account gekopieerd. Deze blijft zoals deze nu is, ook wanneer u deze bij {0} wijzigt."
 
 msgid "Click here to change your profile picture"
-msgstr ""
+msgstr "Klik hier om uw profielafbeelding te wijzigen"
 
 msgid "Last Name, First Name"
 msgstr "Achternaam, Voornaam"

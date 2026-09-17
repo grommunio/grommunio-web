@@ -2043,16 +2043,16 @@ msgid "Picture format is not supported. Supported format for contact pictures ar
 msgstr "不支持图片格式。 支持的联系人图片格式为"
 
 msgid "This browser cannot download a picture from a service."
-msgstr ""
+msgstr "此浏览器无法从服务下载图片。"
 
 msgid "{0} has no picture for your address."
-msgstr ""
+msgstr "{0}没有与您的地址对应的图片。"
 
 msgid "{0} answered with an error."
-msgstr ""
+msgstr "{0}返回了错误。"
 
 msgid "{0} could not be reached."
-msgstr ""
+msgstr "无法连接到{0}。"
 
 msgid "Could not save the category list."
 msgstr "无法保存类别列表。"
@@ -3200,16 +3200,16 @@ msgid "Message body editor"
 msgstr "邮件正文编辑器"
 
 msgid "Adjust picture"
-msgstr ""
+msgstr "调整图片"
 
 msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
-msgstr ""
+msgstr "拖动以移动图片，使用滑块或鼠标滚轮进行缩放"
 
 msgid "This picture could not be read."
-msgstr ""
+msgstr "无法读取此图片。"
 
 msgid "This picture could not be converted."
-msgstr ""
+msgstr "无法转换此图片。"
 
 msgid "Message could not be loaded"
 msgstr "无法加载消息"
@@ -5380,22 +5380,22 @@ msgid "Personal information"
 msgstr "个人信息"
 
 msgid "Change your profile picture"
-msgstr ""
+msgstr "更改您的头像"
 
 msgid "Upload a picture…"
-msgstr ""
+msgstr "上传图片…"
 
 msgid "Get it from {0}"
-msgstr ""
+msgstr "从{0}获取图片"
 
 msgid "Looking for a picture…"
-msgstr ""
+msgstr "正在查找图片…"
 
 msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
-msgstr ""
+msgstr "该图片将复制到您的账户中。即使您日后在{0}更改图片，此处的图片也将保持不变。"
 
 msgid "Click here to change your profile picture"
-msgstr ""
+msgstr "点击此处更改您的头像"
 
 msgid "Last Name, First Name"
 msgstr "姓，名"

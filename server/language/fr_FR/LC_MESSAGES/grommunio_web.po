@@ -2061,16 +2061,16 @@ msgid "Picture format is not supported. Supported format for contact pictures ar
 msgstr "Le format d'image n'est pas pris en charge. Le format supporté de fichier pour la photo de contact est"
 
 msgid "This browser cannot download a picture from a service."
-msgstr ""
+msgstr "Ce navigateur ne peut pas télécharger de photo depuis un service."
 
 msgid "{0} has no picture for your address."
-msgstr ""
+msgstr "{0} n'a aucune photo pour votre adresse."
 
 msgid "{0} answered with an error."
-msgstr ""
+msgstr "{0} a répondu par une erreur."
 
 msgid "{0} could not be reached."
-msgstr ""
+msgstr "{0} n'a pas pu être contacté."
 
 msgid "Could not save the category list."
 msgstr "Impossible d’enregistrer la liste des catégories."
@@ -3223,16 +3223,16 @@ msgid "Message body editor"
 msgstr "Éditeur de corps de message"
 
 msgid "Adjust picture"
-msgstr ""
+msgstr "Ajuster la photo"
 
 msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
-msgstr ""
+msgstr "Faites glisser pour déplacer la photo, utilisez le curseur ou la molette de la souris pour zoomer"
 
 msgid "This picture could not be read."
-msgstr ""
+msgstr "Cette photo n'a pas pu être lue."
 
 msgid "This picture could not be converted."
-msgstr ""
+msgstr "Cette photo n'a pas pu être convertie."
 
 msgid "Message could not be loaded"
 msgstr "Le message n'a pas pu être chargé"
@@ -5409,22 +5409,22 @@ msgid "Personal information"
 msgstr "Informations personnelles"
 
 msgid "Change your profile picture"
-msgstr ""
+msgstr "Modifier votre photo de profil"
 
 msgid "Upload a picture…"
-msgstr ""
+msgstr "Téléverser une photo…"
 
 msgid "Get it from {0}"
-msgstr ""
+msgstr "Récupérer depuis {0}"
 
 msgid "Looking for a picture…"
-msgstr ""
+msgstr "Recherche d'une photo…"
 
 msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
-msgstr ""
+msgstr "La photo est copiée dans votre compte. Elle reste telle quelle, même si vous la modifiez sur {0}."
 
 msgid "Click here to change your profile picture"
-msgstr ""
+msgstr "Cliquez ici pour modifier votre photo de profil"
 
 msgid "Last Name, First Name"
 msgstr "Nom, Prénom"

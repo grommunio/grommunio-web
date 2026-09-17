@@ -2061,16 +2061,16 @@ msgid "Picture format is not supported. Supported format for contact pictures ar
 msgstr "Pildivorming ei ole toetatud. Toetatud kontaktpiltide vorming on"
 
 msgid "This browser cannot download a picture from a service."
-msgstr ""
+msgstr "See brauser ei saa teenusest pilti alla laadida."
 
 msgid "{0} has no picture for your address."
-msgstr ""
+msgstr "Teenusel {0} ei ole teie aadressi jaoks pilti."
 
 msgid "{0} answered with an error."
-msgstr ""
+msgstr "Teenus {0} vastas veaga."
 
 msgid "{0} could not be reached."
-msgstr ""
+msgstr "Teenusega {0} ei õnnestunud ühendust luua."
 
 msgid "Could not save the category list."
 msgstr "Kategooriate loendi salvestamine ei õnnestunud."
@@ -3223,16 +3223,16 @@ msgid "Message body editor"
 msgstr "Sõnumi sisu redigeerija"
 
 msgid "Adjust picture"
-msgstr ""
+msgstr "Pildi kohandamine"
 
 msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
-msgstr ""
+msgstr "Pildi liigutamiseks lohistage seda, suurendamiseks kasutage liugurit või hiireratast"
 
 msgid "This picture could not be read."
-msgstr ""
+msgstr "Seda pilti ei õnnestunud lugeda."
 
 msgid "This picture could not be converted."
-msgstr ""
+msgstr "Seda pilti ei õnnestunud teisendada."
 
 msgid "Message could not be loaded"
 msgstr "Sõnumit ei saanud laadida"
@@ -5409,22 +5409,22 @@ msgid "Personal information"
 msgstr "Isiklik teave"
 
 msgid "Change your profile picture"
-msgstr ""
+msgstr "Muutke oma profiilipilti"
 
 msgid "Upload a picture…"
-msgstr ""
+msgstr "Laadi pilt üles…"
 
 msgid "Get it from {0}"
-msgstr ""
+msgstr "Hangi teenusest {0}"
 
 msgid "Looking for a picture…"
-msgstr ""
+msgstr "Pildi otsimine…"
 
 msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
-msgstr ""
+msgstr "Pilt kopeeritakse teie kontole. See jääb praegusel kujul alles ka siis, kui muudate seda teenuses {0}."
 
 msgid "Click here to change your profile picture"
-msgstr ""
+msgstr "Profiilipildi muutmiseks klõpsake siin"
 
 msgid "Last Name, First Name"
 msgstr "Perekonnanimi, eesnimi"

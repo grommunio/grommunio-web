@@ -2081,16 +2081,16 @@ msgid "Picture format is not supported. Supported format for contact pictures ar
 msgstr "Formát obrázku není podporován. Podporovaný formát pro kontaktní obrázky je"
 
 msgid "This browser cannot download a picture from a service."
-msgstr ""
+msgstr "Tento prohlížeč neumí stáhnout obrázek ze služby."
 
 msgid "{0} has no picture for your address."
-msgstr ""
+msgstr "Služba {0} nemá pro vaši adresu žádný obrázek."
 
 msgid "{0} answered with an error."
-msgstr ""
+msgstr "Služba {0} odpověděla chybou."
 
 msgid "{0} could not be reached."
-msgstr ""
+msgstr "Službu {0} se nepodařilo kontaktovat."
 
 msgid "Could not save the category list."
 msgstr "Seznam kategorií se nepodařilo uložit."
@@ -3248,16 +3248,16 @@ msgid "Message body editor"
 msgstr "Editor těla zprávy"
 
 msgid "Adjust picture"
-msgstr ""
+msgstr "Úprava obrázku"
 
 msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
-msgstr ""
+msgstr "Přetažením posunete obrázek, posuvníkem nebo kolečkem myši změníte přiblížení"
 
 msgid "This picture could not be read."
-msgstr ""
+msgstr "Tento obrázek se nepodařilo načíst."
 
 msgid "This picture could not be converted."
-msgstr ""
+msgstr "Tento obrázek se nepodařilo převést."
 
 msgid "Message could not be loaded"
 msgstr "Zprávu se nepodařilo načíst"
@@ -5447,22 +5447,22 @@ msgid "Personal information"
 msgstr "Osobní údaje"
 
 msgid "Change your profile picture"
-msgstr ""
+msgstr "Změnit profilový obrázek"
 
 msgid "Upload a picture…"
-msgstr ""
+msgstr "Nahrát obrázek…"
 
 msgid "Get it from {0}"
-msgstr ""
+msgstr "Získat ze služby {0}"
 
 msgid "Looking for a picture…"
-msgstr ""
+msgstr "Hledání obrázku…"
 
 msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
-msgstr ""
+msgstr "Obrázek se zkopíruje do vašeho účtu. Zůstane v této podobě i tehdy, když jej ve službě {0} změníte."
 
 msgid "Click here to change your profile picture"
-msgstr ""
+msgstr "Kliknutím sem změníte profilový obrázek"
 
 msgid "Last Name, First Name"
 msgstr "Příjmení, Jméno"

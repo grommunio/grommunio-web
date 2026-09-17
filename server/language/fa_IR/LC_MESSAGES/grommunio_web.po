@@ -2059,16 +2059,16 @@ msgid "Picture format is not supported. Supported format for contact pictures ar
 msgstr "فرمت تصویر پشتیبانی نمی شود. فرمت های پشتیبانی شده برای تصاویر تماس می باشد"
 
 msgid "This browser cannot download a picture from a service."
-msgstr ""
+msgstr "این مرورگر نمی‌تواند تصویری را از یک سرویس دانلود کند."
 
 msgid "{0} has no picture for your address."
-msgstr ""
+msgstr "{0} هیچ تصویری برای آدرس شما ندارد."
 
 msgid "{0} answered with an error."
-msgstr ""
+msgstr "{0} با خطا پاسخ داد."
 
 msgid "{0} could not be reached."
-msgstr ""
+msgstr "دسترسی به {0} ممکن نشد."
 
 msgid "Could not save the category list."
 msgstr "فهرست دسته‌بندی‌ها ذخیره نشد."
@@ -3221,16 +3221,16 @@ msgid "Message body editor"
 msgstr "ویرایشگر متن پیام"
 
 msgid "Adjust picture"
-msgstr ""
+msgstr "تنظیم تصویر"
 
 msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
-msgstr ""
+msgstr "برای جابه‌جایی تصویر آن را بکشید، برای تغییر بزرگ‌نمایی از لغزنده یا چرخ ماوس استفاده کنید"
 
 msgid "This picture could not be read."
-msgstr ""
+msgstr "این تصویر خوانده نشد."
 
 msgid "This picture could not be converted."
-msgstr ""
+msgstr "این تصویر تبدیل نشد."
 
 msgid "Message could not be loaded"
 msgstr "پیام بارگیری نشد"
@@ -5407,22 +5407,22 @@ msgid "Personal information"
 msgstr "اطلاعات شخصی"
 
 msgid "Change your profile picture"
-msgstr ""
+msgstr "تصویر نمایهٔ خود را تغییر دهید"
 
 msgid "Upload a picture…"
-msgstr ""
+msgstr "یک تصویر بارگذاری کنید…"
 
 msgid "Get it from {0}"
-msgstr ""
+msgstr "آن را از {0} دریافت کنید"
 
 msgid "Looking for a picture…"
-msgstr ""
+msgstr "در حال جستجوی تصویر…"
 
 msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
-msgstr ""
+msgstr "تصویر در حساب شما کپی می‌شود. به همین شکل باقی می‌ماند، حتی اگر بعداً آن را در {0} تغییر دهید."
 
 msgid "Click here to change your profile picture"
-msgstr ""
+msgstr "برای تغییر تصویر نمایهٔ خود اینجا کلیک کنید"
 
 msgid "Last Name, First Name"
 msgstr "نام خانوادگی، نام"

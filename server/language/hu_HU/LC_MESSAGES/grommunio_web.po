@@ -2073,16 +2073,16 @@ msgid "Picture format is not supported. Supported format for contact pictures ar
 msgstr "Nem támogatott képformátum. A támogatott képformátumok"
 
 msgid "This browser cannot download a picture from a service."
-msgstr ""
+msgstr "Ez a böngésző nem tud képet letölteni egy szolgáltatásból."
 
 msgid "{0} has no picture for your address."
-msgstr ""
+msgstr "A {0} nem tárol képet az Ön címéhez."
 
 msgid "{0} answered with an error."
-msgstr ""
+msgstr "A {0} hibával válaszolt."
 
 msgid "{0} could not be reached."
-msgstr ""
+msgstr "A {0} nem érhető el."
 
 msgid "Could not save the category list."
 msgstr "Nem sikerült menteni a kategórialistát."
@@ -3237,16 +3237,16 @@ msgid "Message body editor"
 msgstr "Üzenet szövegszerkesztő"
 
 msgid "Adjust picture"
-msgstr ""
+msgstr "Kép igazítása"
 
 msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
-msgstr ""
+msgstr "Húzza a képet a mozgatáshoz, a nagyításhoz használja a csúszkát vagy az egérgörgőt"
 
 msgid "This picture could not be read."
-msgstr ""
+msgstr "A képet nem sikerült beolvasni."
 
 msgid "This picture could not be converted."
-msgstr ""
+msgstr "A képet nem sikerült átalakítani."
 
 msgid "Message could not be loaded"
 msgstr "Az üzenet nem tölthető be"
@@ -5430,22 +5430,22 @@ msgid "Personal information"
 msgstr "Személyes információk"
 
 msgid "Change your profile picture"
-msgstr ""
+msgstr "Profilkép módosítása"
 
 msgid "Upload a picture…"
-msgstr ""
+msgstr "Kép feltöltése…"
 
 msgid "Get it from {0}"
-msgstr ""
+msgstr "Kép letöltése innen: {0}"
 
 msgid "Looking for a picture…"
-msgstr ""
+msgstr "Kép keresése…"
 
 msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
-msgstr ""
+msgstr "A kép a fiókjába másolódik. Ilyen marad akkor is, ha később megváltoztatja a {0} szolgáltatásban."
 
 msgid "Click here to change your profile picture"
-msgstr ""
+msgstr "Kattintson ide a profilkép módosításához"
 
 msgid "Last Name, First Name"
 msgstr "Vezetéknév, Keresztnév"

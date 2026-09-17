@@ -2061,16 +2061,16 @@ msgid "Picture format is not supported. Supported format for contact pictures ar
 msgstr "Kuvaformaattia ei tueta. Tuetut kontaktikuvien muodot ovat"
 
 msgid "This browser cannot download a picture from a service."
-msgstr ""
+msgstr "Tämä selain ei voi ladata kuvaa palvelusta."
 
 msgid "{0} has no picture for your address."
-msgstr ""
+msgstr "Palvelussa {0} ei ole kuvaa osoitteellesi."
 
 msgid "{0} answered with an error."
-msgstr ""
+msgstr "Palvelu {0} vastasi virheellä."
 
 msgid "{0} could not be reached."
-msgstr ""
+msgstr "Palveluun {0} ei saatu yhteyttä."
 
 msgid "Could not save the category list."
 msgstr "Kategorialuettelon tallentaminen epäonnistui."
@@ -3223,16 +3223,16 @@ msgid "Message body editor"
 msgstr "Viestin tekstin muokkaus"
 
 msgid "Adjust picture"
-msgstr ""
+msgstr "Säädä kuvaa"
 
 msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
-msgstr ""
+msgstr "Siirrä kuvaa vetämällä, zoomaa liukusäätimellä tai hiiren rullalla"
 
 msgid "This picture could not be read."
-msgstr ""
+msgstr "Tätä kuvaa ei voitu lukea."
 
 msgid "This picture could not be converted."
-msgstr ""
+msgstr "Tätä kuvaa ei voitu muuntaa."
 
 msgid "Message could not be loaded"
 msgstr "Viestiä ei voitu ladata"
@@ -5409,22 +5409,22 @@ msgid "Personal information"
 msgstr "Henkilökohtaiset tiedot"
 
 msgid "Change your profile picture"
-msgstr ""
+msgstr "Vaihda profiilikuvasi"
 
 msgid "Upload a picture…"
-msgstr ""
+msgstr "Lähetä kuva…"
 
 msgid "Get it from {0}"
-msgstr ""
+msgstr "Hae se palvelusta {0}"
 
 msgid "Looking for a picture…"
-msgstr ""
+msgstr "Etsitään kuvaa…"
 
 msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
-msgstr ""
+msgstr "Kuva kopioidaan tiliisi. Se säilyy sellaisena kuin se on nyt, vaikka vaihtaisit sen palvelussa {0}."
 
 msgid "Click here to change your profile picture"
-msgstr ""
+msgstr "Vaihda profiilikuvasi napsauttamalla tästä"
 
 msgid "Last Name, First Name"
 msgstr "Sukunimi, Etunimi"

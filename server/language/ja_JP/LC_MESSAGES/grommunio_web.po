@@ -2049,16 +2049,16 @@ msgid "Picture format is not supported. Supported format for contact pictures ar
 msgstr "ピクチャーフォーマットに対応していません。連絡先写真のフォーマット"
 
 msgid "This browser cannot download a picture from a service."
-msgstr ""
+msgstr "このブラウザではサービスから画像をダウンロードできません。"
 
 msgid "{0} has no picture for your address."
-msgstr ""
+msgstr "{0}にはお使いのアドレスの画像がありません。"
 
 msgid "{0} answered with an error."
-msgstr ""
+msgstr "{0}がエラーを返しました。"
 
 msgid "{0} could not be reached."
-msgstr ""
+msgstr "{0}に接続できませんでした。"
 
 msgid "Could not save the category list."
 msgstr "カテゴリ一覧を保存できませんでした。"
@@ -3207,16 +3207,16 @@ msgid "Message body editor"
 msgstr "メッセージ本文エディタ"
 
 msgid "Adjust picture"
-msgstr ""
+msgstr "画像の調整"
 
 msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
-msgstr ""
+msgstr "ドラッグで画像を移動し、スライダーまたはマウスホイールで拡大・縮小します"
 
 msgid "This picture could not be read."
-msgstr ""
+msgstr "この画像を読み込めませんでした。"
 
 msgid "This picture could not be converted."
-msgstr ""
+msgstr "この画像を変換できませんでした。"
 
 msgid "Message could not be loaded"
 msgstr "メッセージが読み込めませんでした"
@@ -5387,22 +5387,22 @@ msgid "Personal information"
 msgstr "個人情報"
 
 msgid "Change your profile picture"
-msgstr ""
+msgstr "プロフィール画像を変更"
 
 msgid "Upload a picture…"
-msgstr ""
+msgstr "画像をアップロード…"
 
 msgid "Get it from {0}"
-msgstr ""
+msgstr "{0}から取得"
 
 msgid "Looking for a picture…"
-msgstr ""
+msgstr "画像を検索中…"
 
 msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
-msgstr ""
+msgstr "画像はお使いのアカウントにコピーされます。後で{0}の画像を変更しても、ここに保存された画像は変わりません。"
 
 msgid "Click here to change your profile picture"
-msgstr ""
+msgstr "プロフィール画像を変更するにはここをクリックしてください"
 
 msgid "Last Name, First Name"
 msgstr "姓、名"

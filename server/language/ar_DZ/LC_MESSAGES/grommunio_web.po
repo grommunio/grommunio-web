@@ -2139,16 +2139,16 @@ msgid "Picture format is not supported. Supported format for contact pictures ar
 msgstr "تنسيق الصورة غير مدعوم. التنسيق المعتمد لصور جهة الاتصال هو"
 
 msgid "This browser cannot download a picture from a service."
-msgstr ""
+msgstr "لا يمكن لهذا المتصفح تنزيل صورة من إحدى الخدمات."
 
 msgid "{0} has no picture for your address."
-msgstr ""
+msgstr "لا توجد لدى {0} صورة لعنوانك."
 
 msgid "{0} answered with an error."
-msgstr ""
+msgstr "ردّ {0} بخطأ."
 
 msgid "{0} could not be reached."
-msgstr ""
+msgstr "تعذّر الوصول إلى {0}."
 
 msgid "Could not save the category list."
 msgstr "تعذّر حفظ قائمة الفئات."
@@ -3321,16 +3321,16 @@ msgid "Message body editor"
 msgstr "محرر نص الرسالة"
 
 msgid "Adjust picture"
-msgstr ""
+msgstr "ضبط الصورة"
 
 msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
-msgstr ""
+msgstr "اسحب لتحريك الصورة، واستخدم شريط التمرير أو عجلة الماوس للتكبير والتصغير"
 
 msgid "This picture could not be read."
-msgstr ""
+msgstr "تعذّرت قراءة هذه الصورة."
 
 msgid "This picture could not be converted."
-msgstr ""
+msgstr "تعذّر تحويل هذه الصورة."
 
 msgid "Message could not be loaded"
 msgstr "لا يمكن تحميل الرسالة"
@@ -5531,22 +5531,22 @@ msgid "Personal information"
 msgstr "معلومات شخصية"
 
 msgid "Change your profile picture"
-msgstr ""
+msgstr "تغيير صورة ملفك الشخصي"
 
 msgid "Upload a picture…"
-msgstr ""
+msgstr "رفع صورة…"
 
 msgid "Get it from {0}"
-msgstr ""
+msgstr "الحصول عليها من {0}"
 
 msgid "Looking for a picture…"
-msgstr ""
+msgstr "جارٍ البحث عن صورة…"
 
 msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
-msgstr ""
+msgstr "يتم نسخ الصورة إلى حسابك. وستبقى كما هي الآن، حتى لو غيّرتها في {0}."
 
 msgid "Click here to change your profile picture"
-msgstr ""
+msgstr "انقر هنا لتغيير صورة ملفك الشخصي"
 
 msgid "Last Name, First Name"
 msgstr "الاسم الأخير، الاسم الأول"
