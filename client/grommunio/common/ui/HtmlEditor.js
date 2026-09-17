@@ -100,6 +100,9 @@ Grommunio.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				quickbars_insert_toolbar: false,
 				cache_suffix: "?version=" + cacheBuster,
 				link_assume_external_targets: true,
+				link_attributes_postprocess: function(attributes) {
+					attributes.href = self.normalizeHostnameHref(attributes.href);
+				},
 				toolbar: "undo redo | fontfamily fontsizeinput bold italic underline strikethrough | backcolor forecolor removeformat | bullist numlist outdent indent align lineheight | ltr rtl | subscript superscript | link anchor image media table | charmap emoticons | searchreplace",
 				quickbars_selection_toolbar: "fontsizeinput | bold italic underline strikethrough | backcolor forecolor removeformat | quicklink blockquote quickimage quicktable",
 				toolbar_mode: "sliding",
@@ -131,6 +134,9 @@ Grommunio.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 					"}" +
 					(themeIsDark ? " ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #2a2a2a; } ::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; } ::-webkit-scrollbar-thumb:hover { background: #777; }" : ""),
 				setup: function(editor) {
+					editor.on("PreProcess", function(e) {
+						self.normalizeHostnameLinks(e.node);
+					});
 					editor.on("PostProcess", function (e) {
 						if (e.get) {
 							e.content = inlineCSS(e.content);
@@ -482,6 +488,59 @@ Grommunio.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		// Check if the editor was activated
 		if (editor) {
 			editor.remove();
+		}
+	},
+
+	/**
+	 * Convert a hostname-style href to an absolute HTTPS URL while preserving
+	 * schemes, fragments, protocol-relative URLs and application-relative paths.
+	 *
+	 * @param {String} href The href to normalize
+	 * @return {String} The normalized href
+	 * @private
+	 */
+	normalizeHostnameHref: function(href)
+	{
+		if (!Ext.isString(href)) {
+			return href;
+		}
+
+		var trimmedHref = href.replace(/^\s+|\s+$/g, '');
+		var hostnamePattern = /^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?::\d+)?(?:[\/?#]|$)/i;
+
+		return hostnamePattern.test(trimmedHref) ? 'https://' + trimmedHref : href;
+	},
+
+	/**
+	 * Normalize hostname-style links in editor content before TinyMCE serializes
+	 * relative URLs against the grommunio-web location.
+	 *
+	 * @param {HTMLElement} root The editor content root
+	 * @private
+	 */
+	normalizeHostnameLinks: function(root)
+	{
+		if (!root || !root.querySelectorAll) {
+			return;
+		}
+
+		var links = root.querySelectorAll('a[href], a[data-mce-href]');
+		for (var i = 0; i < links.length; i++) {
+			// href retains the value entered by the user. TinyMCE may already have
+			// resolved its data-mce-href copy against the web-client URL, and gives
+			// that copy precedence during serialization, so update both values.
+			var storedHref = links[i].getAttribute('data-mce-href');
+			var href = links[i].getAttribute('href');
+			if (href === null) {
+				href = storedHref;
+			}
+			var normalizedHref = this.normalizeHostnameHref(href);
+			if (normalizedHref !== href) {
+				links[i].setAttribute('href', normalizedHref);
+				if (storedHref !== null) {
+					links[i].setAttribute('data-mce-href', normalizedHref);
+				}
+			}
 		}
 	},
 
