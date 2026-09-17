@@ -49,7 +49,7 @@ SERVERROOTFILES = $(addprefix $(DESTDIR)/,server/manifest.dtd manifest.webmanife
 # Client files
 
 # the ExtJS stylesheets arrive with the mirrored extjs tree
-CSS = $(filter-out client/resources/css/icon-masks.css client/resources/css/plugin-icons.css, $(wildcard client/resources/css/*.* client/resources/css/*/*.*))
+CSS = $(wildcard client/resources/css/*.* client/resources/css/*/*.*)
 CSSDEST = $(addprefix $(DESTDIR)/, $(CSS))
 IMAGEDIR = client/resources/images
 IMAGES = $(filter-out client/resources/images/app-icons.extensions.json, $(wildcard $(IMAGEDIR)/*.*))
@@ -100,10 +100,6 @@ css: client plugins
 
 svgo: node_modules
 	find client plugins -type f -name "*.svg" -exec $(SVGCOMPRESS) --multipass {} \;
-
-.PHONY: build-icons
-build-icons: node_modules svgo
-	node tools/build-icons.js
 
 .PHONY: sync-images
 sync-images: node_modules
