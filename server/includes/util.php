@@ -475,6 +475,10 @@ function storeURLDataToSession() {
 		$data['mailto'] .= $subString;
 	}
 
+	if (!empty($_GET['action']) && $_GET['action'] === 'profile') {
+		$data['profile'] = true;
+	}
+
 	if (!empty($data)) {
 		// finally store all data to session
 		$_SESSION['url_action'] = $data;

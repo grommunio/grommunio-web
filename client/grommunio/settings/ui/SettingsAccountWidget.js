@@ -288,10 +288,9 @@ Grommunio.settings.ui.SettingsAccountWidget = Ext.extend(Grommunio.settings.ui.S
 	},
 
 	/**
-	 * Event handler which is fired after the {@link Ext.form.FormPanel FormPanel}
-	 * has been {@link Ext.Component#afterrender rendered}. Here thumbnail photo box has
-	 * listen {@link Ext.Element#click single click}, {@link Ext.Element#dblclick double click} and
-	 * {@link Ext.Element#contextmenu context menu} events.
+	 * Event handler which is fired after the thumbnail photo box has been
+	 * {@link Ext.Component#afterrender rendered}. Makes the picture operable
+	 * and, for the profile url action, points it out.
 	 * @param {Ext.Component} thumbnailPhotoBox which show the thumbnail picture.
 	 * @private
 	 */
@@ -299,11 +298,24 @@ Grommunio.settings.ui.SettingsAccountWidget = Ext.extend(Grommunio.settings.ui.S
 	{
 		var el = thumbnailPhotoBox.getEl();
 		var imgEl = el.child('img.k-settings-profile-photo') || el;
+
+		imgEl.set({
+			tabindex: 0,
+			role: 'button',
+			title: _('Change your profile picture'),
+			'aria-label': _('Change your profile picture')
+		});
 		this.mon(imgEl, {
-			'click' : this.onSingleClick,
-			'dblclick' : this.onDoubleClick,
+			'click' : this.onPhotoClick,
+			'keydown' : this.onPhotoKeyDown,
 			'scope' : this
 		});
+
+		var context = container.getContextByName('settings');
+		if (context && context.highlightProfilePhoto) {
+			delete context.highlightProfilePhoto;
+			this.highlightPhoto.defer(300, this);
+		}
 	},
 
 	/**
@@ -322,21 +334,10 @@ Grommunio.settings.ui.SettingsAccountWidget = Ext.extend(Grommunio.settings.ui.S
 	 * Callback function for {@link Grommunio.common.attachment.ui.UploadAttachmentComponent}.
 	 *
 	 * @param {Object/Array} files The files is contains file information.
-	 * @param {Object} form the form is contains {@link Ext.form.BasicForm bacisform} info.
 	 */
-	uploadThumbnailPhotoCallback : function(files, form)
+	uploadThumbnailPhotoCallback : function(files)
 	{
-		try {
-			var imgDom = this.getPhotoImgEl();
-			var file = files[0];
-			const fr = new FileReader(file);
-			fr.readAsDataURL(file);
-			fr.onload = function () {
-				imgDom.src = this.result;
-			};
-		}  catch(e) {
-			console.log('File Upload not supported: ' + e);
-		}
+		this.openPictureEditor(files[0]);
 	},
 
 	/**
@@ -349,6 +350,9 @@ Grommunio.settings.ui.SettingsAccountWidget = Ext.extend(Grommunio.settings.ui.S
 		var attachComponent = new Grommunio.common.attachment.ui.UploadAttachmentComponent({
 			callback : this.uploadThumbnailPhotoCallback,
 			accept : 'image/*',
+			// The crop dialog re-encodes to JPEG, so whatever the browser decodes will do
+			supportedImageTypes : ['image/bmp', 'image/jpg', 'image/jpeg', 'image/gif',
+				'image/png', 'image/webp', 'image/avif'],
 			scope : this
 		});
 
@@ -356,31 +360,185 @@ Grommunio.settings.ui.SettingsAccountWidget = Ext.extend(Grommunio.settings.ui.S
 	},
 
 	/**
-	 * Event handler which is fired when the thumbnail
-	 * picture field is being clicked this will call the
-	 * {@link #uploadThumbnailPhoto} function to open upload dialog.
-	 *
-	 * @param {Ext.EventObject} eventObj eventObj object of the event
-	 * @param {Element} target Event target
-	 * @param {Object} object Configuration object
+	 * Lets the user cut a square out of the given picture and shows the result.
+	 * @param {Blob} source The picture to edit
+	 * @param {String} note Text shown below the crop frame
+	 * @private
 	 */
-	onSingleClick : function(eventObj, target, object)
+	openPictureEditor : function(source, note)
 	{
-		this.uploadThumbnailPhoto();
+		var serverConfig = container.getServerConfig();
+
+		new Grommunio.common.ui.ImageCropPanel({
+			source : source,
+			note : note,
+			outputSize : serverConfig.getProfilePictureMaxEdge(),
+			maxBytes : serverConfig.getProfilePictureMaxBytes(),
+			callback : this.onPictureCropped,
+			scope : this
+		}).show();
 	},
 
 	/**
-	 * Event handler which is fired when thumbnail picture field is being
-	 * double-clicked and this will call the {@link #uploadThumbnailPhoto}
-	 * function to open upload dialog.
-	 *
-	 * @param {Ext.EventObject} eventObj eventObj object of the event
-	 * @param {Element} target Event target
-	 * @param {Object} object Configuration object
+	 * Shows the cropped picture and marks it for saving.
+	 * @param {String} dataUrl The picture as a data url
+	 * @private
 	 */
-	onDoubleClick : function(eventObj, target, object)
+	onPictureCropped : function(dataUrl)
 	{
-		this.uploadThumbnailPhoto();
+		this.getPhotoImgEl().src = dataUrl;
+		if (this.model) {
+			this.model.set(this.thumbnail_photo.name, dataUrl);
+		}
+	},
+
+	/**
+	 * Offers the ways to get a new picture.
+	 * @private
+	 */
+	onPhotoClick : function()
+	{
+		if (!this.photoMenu) {
+			var items = [{
+				text : _('Upload a picture…'),
+				handler : this.uploadThumbnailPhoto,
+				scope : this
+			}];
+
+			if (Grommunio.common.Avatar.isAvailable()) {
+				Ext.iterate(Grommunio.common.Avatar.providers, function(key, provider) {
+					items.push({
+						text : String.format(_('Get it from {0}'), provider.name),
+						handler : this.onFetchAvatar.createDelegate(this, [key]),
+						scope : this
+					});
+				}, this);
+			}
+
+			this.photoMenu = new Ext.menu.Menu({ items : items });
+			this.on('beforedestroy', this.photoMenu.destroy, this.photoMenu);
+		}
+
+		this.photoMenu.show(this.getPhotoImgEl());
+	},
+
+	/**
+	 * Opens the menu from the keyboard.
+	 * @param {Ext.EventObject} eventObj The key event
+	 * @private
+	 */
+	onPhotoKeyDown : function(eventObj)
+	{
+		var key = eventObj.getKey();
+
+		if (key === eventObj.ENTER || key === eventObj.SPACE) {
+			eventObj.preventDefault();
+			this.onPhotoClick();
+		}
+	},
+
+	/**
+	 * Downloads the user's picture from an avatar service and opens it for
+	 * cropping. The service is only told the hash of the address.
+	 * @param {String} key The service in {@link Grommunio.common.Avatar#providers}
+	 * @private
+	 */
+	onFetchAvatar : function(key)
+	{
+		var provider = Grommunio.common.Avatar.providers[key];
+		var notifier = container.getNotifier();
+
+		this.fetchingEl = notifier.notify('info.avatar', provider.name, _('Looking for a picture…'), {
+			persistent : true
+		});
+
+		Grommunio.common.Avatar.get(key, container.getUser().getSMTPAddress(), function(blob, error) {
+			notifier.notify('info.avatar', null, null, { destroy : true, reference : this.fetchingEl });
+			delete this.fetchingEl;
+
+			if (!blob) {
+				notifier.notify('error.avatar', provider.name, error);
+				return;
+			}
+
+			this.openPictureEditor(blob, String.format(
+				_('The picture is copied into your account. It stays as it is now, also when you change it at {0}.'),
+				provider.name));
+		}, this);
+	},
+
+	/**
+	 * Points out the profile picture and explains what it does. Used by the
+	 * profile url action. The callout sits in the header rather than floating,
+	 * so it keeps its place when the settings scroll.
+	 */
+	highlightPhoto : function()
+	{
+		var header = this.el.child('.k-settings-profile-header');
+		var imgEl = Ext.get(this.getPhotoImgEl());
+
+		if (!header || !imgEl || this.photoHint) {
+			return;
+		}
+
+		imgEl.scrollIntoView(this.el, false);
+		imgEl.addClass('k-settings-profile-photo-hint');
+
+		// Its own row in the header, so it lands under the picture
+		this.photoHint = header.createChild({
+			tag : 'div',
+			cls : 'k-settings-profile-callout-row',
+			cn : [{
+				tag : 'div',
+				cls : 'k-settings-profile-callout',
+				cn : [{
+					tag : 'span',
+					html : _('Click here to change your profile picture')
+				},{
+					tag : 'button',
+					type : 'button',
+					cls : 'k-settings-profile-callout-close',
+					title : _('Close'),
+					html : '&#215;'
+				}]
+			}]
+		});
+
+		this.mon(this.photoHint.first(), 'click', this.onPhotoHintClick, this);
+		this.mon(imgEl, 'click', this.clearPhotoHint, this);
+	},
+
+	/**
+	 * The callout is an invitation, so it opens the menu unless the close
+	 * button was hit.
+	 * @param {Ext.EventObject} eventObj The click event
+	 * @param {Element} target The clicked element
+	 * @private
+	 */
+	onPhotoHintClick : function(eventObj, target)
+	{
+		var closing = Ext.fly(target).hasClass('k-settings-profile-callout-close');
+
+		this.clearPhotoHint();
+		if (!closing) {
+			this.onPhotoClick();
+		}
+	},
+
+	/**
+	 * Takes the callout and the ring off the picture again.
+	 * @private
+	 */
+	clearPhotoHint : function()
+	{
+		if (!this.photoHint) {
+			return;
+		}
+
+		Ext.get(this.getPhotoImgEl()).removeClass('k-settings-profile-photo-hint');
+		this.mun(this.photoHint.first(), 'click', this.onPhotoHintClick, this);
+		this.photoHint.remove();
+		delete this.photoHint;
 	},
 
 	/**
@@ -570,6 +728,11 @@ Grommunio.settings.ui.SettingsAccountWidget = Ext.extend(Grommunio.settings.ui.S
 		Grommunio.settings.ui.SettingsAccountWidget.superclass.update.apply(this, arguments);
 
 		this.model = settingsModel;
+
+		if (this.thumbnail_photo.rendered) {
+			this.getPhotoImgEl().src = settingsModel.get(this.thumbnail_photo.name) ||
+				container.getUser().getUserImage();
+		}
 
 		// Load the original language from the settings
 		this.origLanguage = settingsModel.get(this.languageCombo.name);

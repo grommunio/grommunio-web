@@ -178,6 +178,11 @@ Grommunio.common.ui.ContextMainPanelToolbar = Ext.extend(Ext.Toolbar, {
 	 */
 	resizeSearchField: function()
 	{
+		// The afterlayout listener is delayed, the context may be gone by then
+		if (!this.rendered || !this.el || !this.el.dom) {
+			return;
+		}
+
 		// Get the width of the container without the padding
 		var containerWidth = this.el.getStyleSize().width;
 		var copyButtonWidth = 0;
