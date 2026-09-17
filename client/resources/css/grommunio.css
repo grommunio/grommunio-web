@@ -7120,12 +7120,18 @@ body .k-category-block {
     gap: 4px;
     flex: none;
     padding-top: 2px; }
+    /* The iconset paints these classes with its own artwork at its own size,
+       so the box has to size it and the header tone has to colour it. */
     .k-appt-tip .k-appt-tip-icons .k-icon {
       display: inline-block;
       width: 16px;
       height: 16px;
-      -webkit-mask-size: contain;
-      mask-size: contain; }
+      background-size: contain !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      filter: none !important; }
+    .k-appt-tip.k-dark .k-appt-tip-icons .k-icon {
+      filter: invert(1) !important; }
   .k-appt-tip .k-appt-tip-when {
     margin-top: 2px;
     font-size: 12.5px;
