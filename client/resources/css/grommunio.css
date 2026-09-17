@@ -8464,9 +8464,20 @@ input[type="radio"]:checked:focus-visible {
   box-shadow: none !important;
 }
 
-/* Settings combo boxes wider for content */
+/* Settings combo boxes wider for content. The wrap draws the field box, so a
+   combo with a width of its own has to span it: otherwise the input stops
+   early and the trigger, which Ext places right after it, sits mid-field. */
 #grommunio-mainpanel-contentpanel-settings .x-form-field-trigger-wrap {
   min-width: 200px;
+}
+
+#grommunio-mainpanel-contentpanel-settings .x-form-field-trigger-wrap > input.x-form-text {
+  width: calc(100% - 24px) !important;
+}
+
+#grommunio-mainpanel-contentpanel-settings .x-form-field-trigger-wrap > .x-form-trigger:not(.x-form-spinner-trigger) {
+  left: auto !important;
+  right: 0;
 }
 
 /* Settings search */
