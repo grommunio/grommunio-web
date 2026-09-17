@@ -599,3 +599,33 @@ span.error_files {
 	margin: auto;
 	display: block;
 }
+
+/* The file name and its properties above the preview */
+.files-preview-header {
+	padding: 10px 12px 8px;
+	border-bottom: 1px solid var(--ui-border);
+}
+
+.files-preview-header .files-preview-name {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--ui-text);
+	line-height: 19px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.files-preview-header .files-preview-meta {
+	margin-top: 2px;
+	font-size: 12px;
+	color: var(--ui-text-3);
+	line-height: 16px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.files-preview-area {
+	padding: 0;
+}

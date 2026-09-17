@@ -40,6 +40,24 @@ Grommunio.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion = Ext.extend(Ext
 	oldSize: undefined,
 
 	/**
+	 * The share of the container this region takes, between 0 and 1. Seeded from
+	 * the size the panel starts with and updated whenever the user resizes it.
+	 * @property
+	 * @type Number
+	 * @private
+	 */
+	share: undefined,
+
+	/**
+	 * The size this region last handed to the {@link #panel}, so a size set by
+	 * anyone else can be told apart from one this region applied itself.
+	 * @property
+	 * @type Number
+	 * @private
+	 */
+	appliedSize: undefined,
+
+	/**
 	 * @constructor
 	 * @param {Grommunio.common.ui.layout.SwitchBorderLayout} layout The parent layout
 	 * @param {Object} config The configuration object to apply
@@ -84,7 +102,59 @@ Grommunio.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion = Ext.extend(Ext
 	 */
 	getSize: function() {
 		var size = Grommunio.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion.superclass.getSize.call(this);
+		var prop = this.isVertical() ? 'height' : 'width';
+		var total = this.getTargetSize();
+
+		// Ask for the share of the container the user gave this region rather
+		// than for the pixels it happens to have. A narrow window restricts the
+		// size, and that restricted size lands on the panel - so without a share
+		// to fall back on the space is gone for good once the window grows again.
+		if (!this.isCollapsed && total > 0) {
+			if (Ext.isNumber(this.appliedSize) && Math.abs(this.appliedSize - size[prop]) <= 1) {
+				size[prop] = Math.round(total * this.share);
+			} else {
+				// A size this region did not apply itself comes from the user,
+				// from the stored settings or from a switch of orientation.
+				this.share = this.takeShare(size[prop], total);
+			}
+		}
+
 		return this.restrictSize(size);
+	},
+
+	/**
+	 * @return {Boolean} True when this region sits above or below the centre
+	 * @private
+	 */
+	isVertical: function()
+	{
+		return this.position === 'north' || this.position === 'south';
+	},
+
+	/**
+	 * @return {Number} The size of the container along the split axis
+	 * @private
+	 */
+	getTargetSize: function()
+	{
+		return this.isVertical() ? this.targetEl.getHeight() : this.targetEl.getWidth();
+	},
+
+	/**
+	 * @param {Number} size The size the panel has along the split axis
+	 * @param {Number} total The size of the container along the same axis
+	 * @return {Number} The share to keep from here on
+	 * @private
+	 */
+	takeShare: function(size, total)
+	{
+		// A panel may ask for a share instead of a size, for as long as the
+		// user has not chosen one of their own.
+		if (Ext.isNumber(this.panel.splitShare)) {
+			return this.panel.splitShare;
+		}
+
+		return size / total;
 	},
 
 	/**
@@ -126,6 +196,7 @@ Grommunio.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion = Ext.extend(Ext
 	preApplyLayout: function(box)
 	{
 		this.splitEl.setPositioning({ left: box.x + 'px', top: box.y + box.height + 'px' });
+		this.appliedSize = box[this.isVertical() ? 'height' : 'width'];
 	},
 
 	/**
@@ -138,7 +209,16 @@ Grommunio.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion = Ext.extend(Ext
 	onSplitMove: function(split, newSize)
 	{
 		var s = this.panel.getSize();
+		var total = this.getTargetSize();
+
 		this.lastSplitSize = newSize;
+
+		// From here on this is the split the user chose.
+		delete this.panel.splitShare;
+		if (total > 0) {
+			this.share = newSize / total;
+		}
+
 		if(this.position == 'north' || this.position == 'south'){
 			this.panel.setSize(s.width, newSize);
 			this.state.height = newSize;
@@ -150,6 +230,10 @@ Grommunio.common.ui.layout.SwitchBorderLayout.SwitchSplitRegion = Ext.extend(Ext
 		// ensure that all subchildren will also be laid
 		// out correctly again.
 		this.layout.container.doLayout();
+
+		// Ext saves the panel here, and the size the user dragged to is only
+		// kept for the next session when it does.
+		this.panel.saveState();
 		return false;
 	}
 });
