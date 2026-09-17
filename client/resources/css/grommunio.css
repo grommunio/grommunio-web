@@ -3942,7 +3942,8 @@ span.preview-header-sender-image {
      the tab starts at the same x. */
   .k-appointmentcreatetab .k-appointment-options-panel label.k-options-label-first {
     box-sizing: border-box;
-    width: var(--k-form-label-width); }
+    /* the 6px is what the form layout puts between label and field above */
+    width: calc(var(--k-form-label-width) + 6px); }
   .k-appointmentcreatetab .k-appointment-options-panel label.k-options-label-gap {
     margin-left: 18px; }
   .k-appointmentcreatetab .k-appointment-options-panel .x-form-check-wrap {
