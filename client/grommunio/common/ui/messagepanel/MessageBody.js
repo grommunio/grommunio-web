@@ -431,6 +431,8 @@ Grommunio.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 
 		var htmlBody = iframeDocument.getElementsByTagName('body')[0];
 		htmlBody.innerHTML = body;
+		this.normalizeHostnameLinks(iframeDocument);
+		this.setFragmentLinkClickHandler(iframeDocument);
 
 		// Lazy load inline images after the text has been rendered
 		var inlineImgs = htmlBody.querySelectorAll('img[data-src]');
@@ -619,6 +621,104 @@ Grommunio.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 
 		var href = this.href || element.href;
 		Grommunio.core.URLActionMgr.execute({mailto: href});
+	},
+
+	/**
+	 * Turn hostname-style href values into absolute HTTPS URLs. Otherwise the
+	 * browser resolves values such as "www.example.com/path" relative to the
+	 * web client's URL because the preview iframe inherits its fallback base URL.
+	 *
+	 * Links with a scheme, protocol-relative links, fragments and application
+	 * relative paths are intentionally left unchanged.
+	 *
+	 * @param {Document} iframeDocument The document containing the message body
+	 * @private
+	 */
+	normalizeHostnameLinks: function(iframeDocument)
+	{
+		var hostnamePattern = /^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?::\d+)?(?:[\/?#]|$)/i;
+		var links = iframeDocument.querySelectorAll('a[href]');
+
+		for (var i = 0; i < links.length; i++) {
+			var href = links[i].getAttribute('href');
+			if (!href) {
+				continue;
+			}
+
+			href = href.replace(/^\s+|\s+$/g, '');
+			if (hostnamePattern.test(href)) {
+				links[i].setAttribute('href', 'https://' + href);
+			}
+		}
+	},
+
+	/**
+	 * Keep fragment-only links inside the message preview. The preview document is
+	 * loaded from about:blank, whose fallback base URL is inherited from the web
+	 * client. Without handling these links explicitly, a href such as "#section"
+	 * is resolved to the web client's URL and replaces the preview document.
+	 *
+	 * @param {Document} iframeDocument The document containing the message body
+	 * @private
+	 */
+	setFragmentLinkClickHandler: function(iframeDocument)
+	{
+		iframeDocument.removeEventListener('click', this.onFragmentLinkClick);
+		iframeDocument.addEventListener('click', this.onFragmentLinkClick);
+	},
+
+	/**
+	 * Scroll to an id or legacy named anchor referenced by a fragment-only link.
+	 *
+	 * @param {Event} event The click event from the message preview document
+	 * @private
+	 */
+	onFragmentLinkClick: function(event)
+	{
+		var document = event.currentTarget;
+		var anchor = event.target;
+
+		while (anchor && anchor !== document && anchor.nodeName !== 'A') {
+			anchor = anchor.parentNode;
+		}
+
+		if (!anchor || anchor === document) {
+			return;
+		}
+
+		var href = anchor.getAttribute('href');
+		if (!href || href.charAt(0) !== '#') {
+			return;
+		}
+
+		event.preventDefault();
+
+		var fragment = href.substring(1);
+		if (!fragment) {
+			document.defaultView.scrollTo(0, 0);
+			return;
+		}
+
+		try {
+			fragment = decodeURIComponent(fragment);
+		} catch (ex) {
+			// Keep the literal fragment when it contains invalid URL encoding.
+		}
+
+		var destination = document.getElementById(fragment);
+		if (!destination) {
+			var namedAnchors = document.querySelectorAll('a[name]');
+			for (var i = 0; i < namedAnchors.length; i++) {
+				if (namedAnchors[i].getAttribute('name') === fragment) {
+					destination = namedAnchors[i];
+					break;
+				}
+			}
+		}
+
+		if (destination) {
+			destination.scrollIntoView();
+		}
 	},
 
 	/**
