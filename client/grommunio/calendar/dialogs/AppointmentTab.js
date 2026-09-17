@@ -484,6 +484,18 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 	},
 
 	/**
+	 * Paints the calendar colour of the selected folder into the "Create in"
+	 * combo, which has no icon of its own when collapsed.
+	 * @param {String} colour The calendar colour
+	 * @private
+	 */
+	setCreateInIcon : function(colour)
+	{
+		this.comboCreateIn.el.setStyle('background-image',
+			'url(\'' + Grommunio.calendar.ui.IconCache.getCalendarSvgIcon(colour) + '\')');
+	},
+
+	/**
 	 * Create the {@link Ext.Panel panel} containing the form element
 	 * to set the calendar in which the appointment or meeting-request will be
 	 * created. It is placed as the last cell of the
@@ -592,14 +604,18 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 					fieldLabel: _('Time'),
 					labelWidth: 125,
 					cls: 'from-field',
+					// The label sits in the shared first column, so this half
+					// needs the extra width to keep both date fields equal.
+					flex: 0.55,
 					timeFieldConfig: {
 						width: 95
 					}
 				},
 				endFieldConfig: {
 					fieldLabel: _('until'),
-					labelWidth: 85,
+					labelWidth: 60,
 					cls: 'to-field',
+					flex: 0.45,
 					timeFieldConfig: {
 						width: 95
 					}
@@ -929,24 +945,27 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			this.editorField.setValue(record.getBody(this.editorField.isHtmlEditor()));
 		}
 
-		if (contentReset && this.comboCreateIn.isVisible()) {
+		// A new appointment is never "content reset", so it needs the folder
+		// taken from the record just the same.
+		if (contentReset || record.phantom) {
 			if (record.isSubMessage()) {
 				this.createInPanel.setVisible(false);
 				return;
 			}
-            const folderToSelect = record.get('parent_entryid');
-            const folder = container.getHierarchyStore().getFolder(folderToSelect);
-            const hasCreateRight = folder.hasCreateRights();
-            // hide the createInPanel when calendar folder does not have
-            // create rights or only one calendar folder.
-			var store = this.comboCreateIn.getStore();
-            this.createInPanel.setVisible(store.getRange().length > 1 && hasCreateRight);
+			var folderToSelect = record.get('parent_entryid');
+			var folder = container.getHierarchyStore().getFolder(folderToSelect);
+			var hasCreateRight = !!folder && folder.hasCreateRights();
 
-		    if(this.comboCreateIn.isVisible() && hasCreateRight) {
-                this.comboCreateIn.setValue(folderToSelect);
-                const folderColor = this.getFolderColor(folderToSelect);
-                this.comboCreateIn.el.setStyle('background-image', 'url(\'' + Grommunio.calendar.ui.IconCache.getCalendarSvgIcon(folderColor) + '\')');
-            }
+			// Only worth offering with more than one calendar to choose from.
+			// isVisible() still answers false while the dialog lays itself out,
+			// so the panel's own state decides, not the query.
+			var showCreateIn = this.comboCreateIn.getStore().getCount() > 1 && hasCreateRight;
+
+			this.createInPanel.setVisible(showCreateIn);
+			if (showCreateIn) {
+				this.comboCreateIn.setValue(folderToSelect);
+				this.setCreateInIcon(this.getFolderColor(folderToSelect));
+			}
 		}
 
 		this.updateExtraInfoPanel();
@@ -1249,7 +1268,7 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			this.record.moveTo(record);
 		}
 
-		combo.el.setStyle('background-image', 'url(\'' + Grommunio.calendar.ui.IconCache.getCalendarSvgIcon(record.get('iconColor')) + '\')');
+		this.setCreateInIcon(record.get('iconColor'));
 	},
 
 	/**

@@ -362,8 +362,13 @@ Grommunio.common.ui.IconClass = {
 			'</g>';
 
 		if (hasCounter) {
-			svg +='<circle fill="#ee162d" cx="16" cy="2.5" r="8"/>' +
-				'<text x="16" y="5.5" id="counter" style="fill:#FFF; font-weight: bold; font-family: Arial,Helvetica,sans-serif; font-size: 10px;" text-anchor="middle">'+counter+'</text>';
+			// The badge is read at 30px, so it takes as much of the icon as it
+			// can without the bell losing its shape.
+			var label = counter > 99 ? '99+' : String(counter);
+			var fontSize = label.length > 2 ? 9 : (label.length > 1 ? 11 : 12);
+
+			svg += '<circle fill="#ee162d" cx="15.5" cy="2" r="10"/>' +
+				'<text x="15.5" y="' + (label.length > 2 ? 5.4 : 6) + '" id="counter" style="fill:#FFF; font-weight: bold; font-family: Arial,Helvetica,sans-serif; font-size: ' + fontSize + 'px;" text-anchor="middle">' + label + '</text>';
 		}
 		svg += '</svg>';
 		return svg;

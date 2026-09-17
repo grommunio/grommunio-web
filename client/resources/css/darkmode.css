@@ -1743,6 +1743,12 @@ body.dark-mode .tox .tox-tbtn__select-label {
 	color: var(--dm-fg) !important;
 }
 
+/* The font size stepper carries class="plus", which is also an app icon class
+   and therefore in the icon inversion list. Keep the editor out of it. */
+body.dark-mode .tox .tox-number-input button.plus {
+	filter: none !important;
+}
+
 /* TinyMCE number input - style ALL buttons inside number input */
 body.dark-mode .tox .tox-number-input button {
 	background-color: var(--dm-bg-elevated) !important;
