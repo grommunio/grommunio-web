@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:48+0200\n"
+"POT-Creation-Date: 2026-09-17 16:44+0200\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -2058,6 +2058,18 @@ msgstr "Slepptu skrám hér til að hengja þær við"
 msgid "Picture format is not supported. Supported format for contact pictures are"
 msgstr "Myndasnið er ekki stutt. Studd snið fyrir tengiliðamyndir eru"
 
+msgid "This browser cannot download a picture from a service."
+msgstr ""
+
+msgid "{0} has no picture for your address."
+msgstr ""
+
+msgid "{0} answered with an error."
+msgstr ""
+
+msgid "{0} could not be reached."
+msgstr ""
+
 msgid "Could not save the category list."
 msgstr "Ekki tókst að vista flokkalistann."
 
@@ -3207,6 +3219,18 @@ msgstr "{0} í vanskilum"
 
 msgid "Message body editor"
 msgstr "Ritill fyrir skilaboðatexta"
+
+msgid "Adjust picture"
+msgstr ""
+
+msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
+msgstr ""
+
+msgid "This picture could not be read."
+msgstr ""
+
+msgid "This picture could not be converted."
+msgstr ""
 
 msgid "Message could not be loaded"
 msgstr "Ekki tókst að hlaða skilaboðum"
@@ -5381,6 +5405,24 @@ msgstr "Þema"
 
 msgid "Personal information"
 msgstr "Persónulegar upplýsingar"
+
+msgid "Change your profile picture"
+msgstr ""
+
+msgid "Upload a picture…"
+msgstr ""
+
+msgid "Get it from {0}"
+msgstr ""
+
+msgid "Looking for a picture…"
+msgstr ""
+
+msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
+msgstr ""
+
+msgid "Click here to change your profile picture"
+msgstr ""
 
 msgid "Last Name, First Name"
 msgstr "Eftirnafn, Fornafnið"

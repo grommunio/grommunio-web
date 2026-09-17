@@ -4,12 +4,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Germany)\n"
-"Report-Msgid-Bugs-To: dev@grommunio.com\n"
-"POT-Creation-Date: 2026-09-15 22:48+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-17 16:44+0200\n"
 "PO-Revision-Date: 2026-09-16 22:51+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/grommunio/"
-"grommunio-web/de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/grommunio/grommunio-web/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2062,6 +2061,18 @@ msgstr "Dateien hier ablegen, um sie anzuhängen"
 msgid "Picture format is not supported. Supported format for contact pictures are"
 msgstr "Bildformat wird nicht unterstützt. Die folgenden Formate werden für Kontaktbilder unterstützt"
 
+msgid "This browser cannot download a picture from a service."
+msgstr ""
+
+msgid "{0} has no picture for your address."
+msgstr ""
+
+msgid "{0} answered with an error."
+msgstr ""
+
+msgid "{0} could not be reached."
+msgstr ""
+
 msgid "Could not save the category list."
 msgstr "Die Kategorienliste konnte nicht gespeichert werden."
 
@@ -3213,6 +3224,18 @@ msgstr "{0} überfällig"
 
 msgid "Message body editor"
 msgstr "Editor für den Nachrichtentext"
+
+msgid "Adjust picture"
+msgstr ""
+
+msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
+msgstr ""
+
+msgid "This picture could not be read."
+msgstr ""
+
+msgid "This picture could not be converted."
+msgstr ""
 
 msgid "Message could not be loaded"
 msgstr "Nachricht konnte nicht geladen werden"
@@ -5387,6 +5410,24 @@ msgstr "Theme"
 
 msgid "Personal information"
 msgstr "Persönliche Informationen"
+
+msgid "Change your profile picture"
+msgstr ""
+
+msgid "Upload a picture…"
+msgstr ""
+
+msgid "Get it from {0}"
+msgstr ""
+
+msgid "Looking for a picture…"
+msgstr ""
+
+msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
+msgstr ""
+
+msgid "Click here to change your profile picture"
+msgstr ""
 
 msgid "Last Name, First Name"
 msgstr "Nachname, Vorname"
@@ -8379,9 +8420,7 @@ msgid "Unexpected error occurred. Please contact your system administrator. Erro
 msgstr "Unerwarteter Fehler aufgetreten. Bitte kontaktieren Sie Ihren Systemadministrator. Fehlercode: %s"
 
 msgid "Managing shared folders is not supported by this server."
-msgstr ""
-"Die Verwaltung von freigegebenen Ordnern wird von diesem Server nicht "
-"unterstützt."
+msgstr "Die Verwaltung von freigegebenen Ordnern wird von diesem Server nicht unterstützt."
 
 msgid "No data received."
 msgstr "Keine Daten erhalten."
@@ -8490,9 +8529,7 @@ msgid "Certificate is revoked, but was imported."
 msgstr "Das Zertifikat ist widerrufen, wurde aber importiert."
 
 msgid "Certificate revocation status could not be verified. Certificate was imported."
-msgstr ""
-"Der Status der Zertifikatssperrung konnte nicht überprüft werden. Das "
-"Zertifikat wurde importiert."
+msgstr "Der Status der Zertifikatssperrung konnte nicht überprüft werden. Das Zertifikat wurde importiert."
 
 msgid "Unable to read public certificate"
 msgstr "Kann öffentliches Zertifikat nicht lesen"

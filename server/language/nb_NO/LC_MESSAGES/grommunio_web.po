@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-15 22:48+0200\n"
+"POT-Creation-Date: 2026-09-17 16:44+0200\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/grommunio/grommunio-web/nb_NO/>\n"
@@ -2060,6 +2060,18 @@ msgstr "Slipp filer her for å legge dem ved"
 msgid "Picture format is not supported. Supported format for contact pictures are"
 msgstr "Bildeformatet er ikke støttet. Støttede filformater for kontaktfoto er"
 
+msgid "This browser cannot download a picture from a service."
+msgstr ""
+
+msgid "{0} has no picture for your address."
+msgstr ""
+
+msgid "{0} answered with an error."
+msgstr ""
+
+msgid "{0} could not be reached."
+msgstr ""
+
 msgid "Could not save the category list."
 msgstr "Kunne ikke lagre kategorilisten."
 
@@ -3209,6 +3221,18 @@ msgstr "{0} forfall"
 
 msgid "Message body editor"
 msgstr "Redigeringsverktøy for meldingstekst"
+
+msgid "Adjust picture"
+msgstr ""
+
+msgid "Drag to move the picture, use the slider or the mouse wheel to zoom"
+msgstr ""
+
+msgid "This picture could not be read."
+msgstr ""
+
+msgid "This picture could not be converted."
+msgstr ""
 
 msgid "Message could not be loaded"
 msgstr "Meldingen kunne ikke lastes inn"
@@ -5383,6 +5407,24 @@ msgstr "Tema"
 
 msgid "Personal information"
 msgstr "Personlig informasjon"
+
+msgid "Change your profile picture"
+msgstr ""
+
+msgid "Upload a picture…"
+msgstr ""
+
+msgid "Get it from {0}"
+msgstr ""
+
+msgid "Looking for a picture…"
+msgstr ""
+
+msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
+msgstr ""
+
+msgid "Click here to change your profile picture"
+msgstr ""
 
 msgid "Last Name, First Name"
 msgstr "Etternavn, fornavn"
