@@ -25,7 +25,13 @@ Grommunio.plugins.files.ui.FilesPreviewPanel = Ext.extend(Ext.Panel, {
 			xtype   : 'filesplugin.filespreviewpanel',
 			layout  : 'fit',
 			stateful: true,
+			// Without these the panel never saves the size the user dragged it to.
+			stateEvents: ['resize', 'collapse', 'expand'],
+			minWidth: 200,
+			minHeight: 200,
 			cls     : 'grommunio-files-previewpanel',
+			// An even split until the user drags the separator somewhere else.
+			splitShare: 0.5,
 			width   : 300,
 			height  : 300
 		});
@@ -39,6 +45,20 @@ Grommunio.plugins.files.ui.FilesPreviewPanel = Ext.extend(Ext.Panel, {
 		}
 
 		Grommunio.plugins.files.ui.FilesPreviewPanel.superclass.constructor.call(this, config);
+	},
+
+	/**
+	 * Applies the state which was saved for this panel. A stored size takes
+	 * precedence over the {@link #splitShare even split} we start out with.
+	 * @param {Object} state The state to apply
+	 */
+	applyState: function (state)
+	{
+		if (state && (Ext.isNumber(state.width) || Ext.isNumber(state.height))) {
+			delete this.splitShare;
+		}
+
+		Grommunio.plugins.files.ui.FilesPreviewPanel.superclass.applyState.apply(this, arguments);
 	}
 });
 
