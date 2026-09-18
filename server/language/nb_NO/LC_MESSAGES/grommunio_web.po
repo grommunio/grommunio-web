@@ -100,7 +100,7 @@ msgstr[0] "{0} uke"
 msgstr[1] "{0} uker"
 
 msgid "The quick brown fox jumps over the lazy dog"
-msgstr "Den raske brune reven hopper over den late hunden"
+msgstr "Høvdingens kjære squaw får litt pizza i Mexico by"
 
 msgid "Sunday"
 msgstr "Søndag"
@@ -184,7 +184,7 @@ msgid "Page {A} of {0}"
 msgstr "Side {A} av {0}"
 
 msgid "Displaying messages {0} - {1} of {2}"
-msgstr "Viser melding {0} - {1} av {2}"
+msgstr "Viser meldinger {0} - {1} av {2}"
 
 msgid "No messages to display"
 msgstr "Ingen meldinger å vise"
@@ -591,28 +591,28 @@ msgid "No preview"
 msgstr "Ingen forhåndsvisning"
 
 msgid "Right preview"
-msgstr "Forhåndsvisning på høyre side"
+msgstr "Forhåndsvisning til høyre"
 
 msgid "Bottom preview"
 msgstr "Forhåndsvisning under"
 
 msgid "Any date"
-msgstr "Alle datoer"
+msgstr "Enhver dato"
 
 msgid "Past week"
-msgstr "Forrige uke"
+msgstr "Siste uke"
 
 msgid "Past 2 weeks"
-msgstr "Forrige 2 uker"
+msgstr "Siste 2 uker"
 
 msgid "Past month"
-msgstr "Forrige måned"
+msgstr "Siste måned"
 
 msgid "Past 6 month"
-msgstr "Forrige 6 måneder"
+msgstr "Siste 6 måneder"
 
 msgid "Past year"
-msgstr "Forrige år"
+msgstr "Siste år"
 
 msgid "Custom date"
 msgstr "Selvvalgt dato"
@@ -624,7 +624,7 @@ msgid "Add"
 msgstr "Legg til"
 
 msgid "Empty folder name"
-msgstr "Mangler mappenavn"
+msgstr "Tomt mappenavn"
 
 msgid "You must specify a name."
 msgstr "Du må oppgi et navn."
@@ -698,7 +698,7 @@ msgid "To"
 msgstr "Til"
 
 msgid "Filter category…"
-msgstr "Filtrerings kategori…"
+msgstr "Filtrer kategorier…"
 
 msgid "Add Category"
 msgstr "Legg til kategori"
