@@ -5116,7 +5116,7 @@ msgid "Location of preview pane"
 msgstr "Plassering av forhåndsvisningsrute"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr "Bruk emneprefisker ifølge RFC 5256/5322"
+msgstr "Bruk emneprefikser ifølge RFC 5256/5322"
 
 msgid "Close original message on reply or forward"
 msgstr "Lukk original melding etter at du har svart eller videresendt den"
