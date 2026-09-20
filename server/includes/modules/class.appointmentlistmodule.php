@@ -672,26 +672,8 @@ class AppointmentListModule extends ListModule {
 		// Set the start and endtimes to the midnight of the client's timezone
 		// if that's not the case already.
 		if (!$isTzdefstartSet) {
-			$calItemStart = new DateTime();
-			$calItemStart->setTimestamp($calendaritem['props']['startdate']);
-			$clientDate = DateTime::createFromInterface($calItemStart);
-			$clientDate->setTimezone(new DateTimeZone($this->tziana));
-			// It's only necessary to calculate new start and end times
-			// if the appointment does not start at midnight
-			if ((int) $clientDate->format("His") != 0) {
-				$clientMidnight = DateTimeImmutable::createFromFormat(
-					"Y-m-d H:i:s",
-					$clientDate->format("Y-m-d ") . "00:00:00",
-					$clientDate->getTimezone()
-				);
-				$interval = $clientDate->getTimestamp() - $clientMidnight->getTimestamp();
-				// The code here is based on assumption that if the interval
-				// is greater than 12 hours then the appointment takes place
-				// on the day before or after. This should be fine for all the
-				// timezones which do not exceed 12 hour difference to UTC.
-				$localStart = $interval > 0 ?
-					$calendaritem['props']['startdate'] - ($interval < 43200 ? $interval : $interval - 86400) :
-					$calendaritem['props']['startdate'] + ($interval > -43200 ? $interval : $interval - 86400);
+			$localStart = getLocalStart($calendaritem['props']['startdate'], $this->tziana);
+			if ($localStart != $calendaritem['props']['startdate']) {
 				$calendaritem['props']['startdate'] = $calendaritem['props']['commonstart'] = $localStart;
 				$calendaritem['props']['duedate'] = $calendaritem['props']['commonend'] = $localStart + $duration;
 			}
