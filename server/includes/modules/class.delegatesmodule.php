@@ -251,17 +251,14 @@ class DelegatesModule extends Module {
 	 * Function will return all the delegates information for current user.
 	 */
 	public function delegateList() {
-		$delegateProps = $this->getDelegateProps();
-
 		$data = [];
-
-		// get delegate meeting rule
-		$delegateMeetingRule = $this->getDelegateMeetingRule();
-
-		// Get permissions of all delegates.
-		if (!empty($delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS])) {
-			for ($i = 0, $len = count($delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS]); $i < $len; ++$i) {
-				array_push($data, $this->getDelegatePermissions($delegateProps[PR_SCHDINFO_DELEGATE_ENTRYIDS][$i], $delegateMeetingRule));
+		$delegates = mapi_getdelegates($GLOBALS['mapisession']->getSession(), 0);
+		if (!empty($delegates)) {
+			$delegateMeetingRule = $this->getDelegateMeetingRule();
+			$ab = $GLOBALS['mapisession']->getAddressbook();
+			foreach ($delegates as $emailAddress) {
+				$user = mapi_ab_resolvename($ab, [[PR_DISPLAY_NAME => $emailAddress]], EMS_AB_ADDRESS_LOOKUP);
+				array_push($data, $this->getDelegatePermissions($user[0][PR_ENTRYID], $delegateMeetingRule));
 			}
 		}
 
