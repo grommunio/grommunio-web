@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+    <info>
+        <version>1.0</version>
+        <name>passkey</name>
+        <title>Passkey Authentication</title>
+        <author>grommunio GmbH</author>
+        <authorURL>http://www.grommunio.com</authorURL>
+        <description>Integrate passkey authentication support into grommunio web</description>
+    </info>
+    <config>
+        <configfile>config.php</configfile>
+    </config>
+    <components>
+        <component>
+            <files>
+                <server>
+                    <serverfile type="module" module="passkeymodule">php/class.passkeymodule.php</serverfile>
+                    <serverfile>php/plugin.passkey.php</serverfile>
+                </server>
+                <client>
+                    <clientfile load="release">js/passkey.js?debug=false</clientfile>
+                    <clientfile load="debug">js/passkey-debug.js?debug=true</clientfile>
+                    <clientfile load="source">js/data/Configuration.js</clientfile>
+                    <clientfile load="source">js/data/ResponseHandler.js</clientfile>
+                    <clientfile load="source">js/PasskeyPlugin.js</clientfile>
+                    <clientfile load="source">js/settings/Category.js</clientfile>
+                    <clientfile load="source">js/settings/GeneralSettingsWidget.js</clientfile>
+                </client>
+                <resources>
+                    <resourcefile load="release">resources/css/passkey.css?debug=false</resourcefile>
+                    <resourcefile load="debug">resources/css/passkey.css?debug=true</resourcefile>
+                    <resourcefile load="source">resources/css/passkey.css?debug=true&amp;source=true</resourcefile>
+                </resources>
+            </files>
+        </component>
+    </components>
+</plugin>
