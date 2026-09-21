@@ -248,6 +248,22 @@
 	//define("DEBUG_FULLTEXT_SEARCH", true);
 
 	/**************************************\
+	* Plugins                              *
+	\**************************************/
+
+	// Passkey plugin (plugins/passkey): WebAuthn Relying Party ID.
+	//
+	// Set this to the domain users log in to (e.g. "mail.example.com"). It is the
+	// server-authoritative WebAuthn RP ID / expected origin and is NEVER derived
+	// from the request Host header or the browser. If it is left unset the passkey
+	// second-factor ceremony fails closed (authentication is denied).
+	//
+	// Defining it here (rather than in plugins/passkey/config.php) means the value
+	// is kept in the admin-owned config and is NOT reset when the grommunio Web
+	// package or the plugin is updated.
+	//define("PLUGIN_PASSKEY_RP_ID", "mail.example.com");
+
+	/**************************************\
 	* Languages                            *
 	\**************************************/
 
