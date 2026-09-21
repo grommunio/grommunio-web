@@ -64,6 +64,15 @@
 
 						<input id="submitbutton" class="button" type="submit" value="<?php echo _("Sign in"); ?>">
 					</form>
+					<?php
+					// Allow plugins to inject additional login options (e.g. passkey).
+					// Runs pre-authentication: plugins may only use public settings.
+					if (isset($GLOBALS['PluginManager'])) {
+						$loginButtonsHtml = '';
+						$GLOBALS['PluginManager']->triggerHook('server.index.load.login.buttons', ['html' => &$loginButtonsHtml]);
+						echo $loginButtonsHtml;
+					}
+					?>
 				</div>
 			</div>
 		</div>
