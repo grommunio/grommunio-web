@@ -28,6 +28,8 @@
  *     with FREE cloud tiers (Google Gemini, Groq, OpenRouter), with OpenAI,
  *     Mistral, Together, Azure OpenAI, ..., and with a LOCAL, self-hosted model
  *     (Ollama, LM Studio, vLLM, llama.cpp, LocalAI) for full data sovereignty.
+ *     OpenAI models that are only served through the newer Responses API
+ *     (/v1/responses) are switched over automatically.
  *   - Anthropic Messages API — the native Claude API (api.anthropic.com).
  */
 
@@ -80,11 +82,14 @@ define('PLUGIN_AI_MODEL_FAST', 'gemini-3.5-flash-lite');
 // define('PLUGIN_AI_API_KEY', '');
 // define('PLUGIN_AI_MODEL', 'llama3.1:8b');
 //
-// OpenAI:
+// OpenAI — GPT-6 (gpt-6-astra, gpt-6.1-sol, gpt-6-luna), GPT-5.x, o-series
+// and the classic gpt-4.1 / gpt-4o all work. GPT-5 and later are reasoning
+// models; PLUGIN_AI_REASONING_EFFORT 'low' (below) keeps answers quick and
+// the token bill small:
 // define('PLUGIN_AI_PROVIDER', 'openai');
 // define('PLUGIN_AI_API_BASE', 'https://api.openai.com/v1');
 // define('PLUGIN_AI_API_KEY', 'sk-...');
-// define('PLUGIN_AI_MODEL', 'gpt-4o-mini');
+// define('PLUGIN_AI_MODEL', 'gpt-6-luna');
 //
 // Anthropic / Claude:
 // define('PLUGIN_AI_PROVIDER', 'anthropic');
@@ -113,6 +118,25 @@ define('PLUGIN_AI_TIMEOUT', 120);
 // Token-by-token streaming via Server-Sent Events. Falls back automatically
 // to a single response if streaming is unavailable.
 define('PLUGIN_AI_STREAMING', true);
+
+// --- Reasoning models (OpenAI GPT-5+, o-series, gpt-oss, Qwen3, ...) -------
+// How hard the model thinks before it answers: '' leaves the model's own
+// default, otherwise 'none', 'minimal', 'low', 'medium', 'high', 'xhigh' or
+// 'max'. Which values a model accepts differs — gpt-6-astra and gpt-6.1-sol
+// refuse 'none'.
+define('PLUGIN_AI_REASONING_EFFORT', '');
+// The same for PLUGIN_AI_MODEL_FAST.
+define('PLUGIN_AI_REASONING_EFFORT_FAST', '');
+// Whether the model is a reasoning model, which takes no custom temperature
+// and no 'max_tokens'. 'auto' recognizes OpenAI's model names; set true or
+// false when the name does not tell, e.g. for an Azure OpenAI deployment.
+define('PLUGIN_AI_REASONING_MODEL', 'auto');
+// OpenAI-compatible API to use: 'chat' (/chat/completions, understood by
+// every provider above), 'responses' (/responses, OpenAI's newer API, also
+// offered by Azure; not by Gemini) or 'auto' — chat, except for the models
+// api.openai.com only serves on /responses (gpt-5.5-pro and the other pro
+// and codex models).
+define('PLUGIN_AI_API_MODE', 'auto');
 
 // --- Feature master switches (turn a capability off for the whole server) --
 define('PLUGIN_AI_ENABLE_SUMMARIZE', true);
