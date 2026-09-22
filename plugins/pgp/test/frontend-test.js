@@ -190,7 +190,7 @@ test('both shared security menus and every provider submenu use the scoped menu 
 test('key settings retain native section spacing and direct form references', () => {
 	const {context} = runtime();
 	const widget = new context.Grommunio.plugins.pgp.settings.SettingsPgpWidget();
-	assert.deepEqual(widget.cls.split(/\s+/).sort(), ['pgp-settings', 'grommunio-settings-widget']);
+	assert.deepEqual(widget.cls.split(/\s+/).sort(), ['grommunio-settings-widget', 'pgp-settings']);
 	assert.equal(widget.layout, 'form');
 	assert.equal(widget.labelWidth, 200);
 	assert.deepEqual(Array.from(widget.items.filter(item => item.ref), item => [item.ref, item.xtype]), [
