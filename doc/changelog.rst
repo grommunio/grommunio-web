@@ -1,3 +1,50 @@
+grommunio-web 5.1 (2026-09-24)
+==============================
+
+Fixes:
+
+* Calendar items with broken recurrence data aborted the calendar; they are
+  skipped and logged
+* Hostname-style and fragment-only links opened relative to grommunio-web,
+  in messages and in the editor
+* Images are scaled to fit when printing from the viewer
+* The preview returned to the top of a message the reader had scrolled into
+* Divider between the mail list and the preview was invisible
+* Timezone shift of an appointment was applied when either the client's or
+  the appointment's timezone definition had no effective rule
+* Appointment dialog: labels have room for their translations and line up on
+  one column, the options row and the recurrence pattern and duration sit in
+  their columns, the calendar icon scales into its box, tooltip icons take the
+  header's colour
+* Dark mode: editor font-size stepper, labels of buttons whose icon keeps its
+  colour, row action icons and the count on the reminder bell are readable
+* Toolbar resize no longer runs on a context that has been switched away
+* Settings dropdown arrow stays at the right edge of the field
+* Files: the preview has its own panel, opens at half the width, reaches the
+  panel edges, and a split region keeps its share of a narrow window
+* Damaged entries in the shipped catalogues (627 entries across 34 languages)
+
+Enhancements:
+
+* Profile picture: take it from a file, Gravatar or Libravatar, cut a square
+  out of it in a pan-and-zoom dialog, stored bounded in size;
+  index.php?action=profile opens the picture in the settings
+* Send rights of the user shown on the top of the information store
+* Target calendar of a new appointment shown, with the calendar's colour
+* Scheduling view adapts to the attendee list
+* All delegates shown in the settings
+* Assembled sentences, the strings of the MAPI headers and the remaining form
+  labels are translatable; catalogues refreshed, Norwegian, German and
+  Indonesian updated, U+2026 for the ellipsis
+* Shared MAPI helpers from mapi-header-php 2.3, which is now required:
+  property streams, timezone definitions, codepage table, conversation tags,
+  entryid comparison and gettext replace the local copies
+
+Changes:
+
+* Icon mask stylesheets dropped from the build, the built files stylesheet
+  from the sources
+
 grommunio-web 5.0 (2026-09-15)
 ==============================
 grommunio Web 5.0 is the first release under the new major number. The
