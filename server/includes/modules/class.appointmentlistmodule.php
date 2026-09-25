@@ -39,7 +39,7 @@ class AppointmentListModule extends ListModule {
 	/**
 	 * @var mixed client timezone effective rule id
 	 */
-	protected $tzEffRuleIdx;
+	protected $tzEffRule;
 
 	/**
 	 * @var int number of appointments skipped while processing a list request
@@ -665,33 +665,15 @@ class AppointmentListModule extends ListModule {
 				// Open the message and add it to the openedMessages property
 				$openedMessages[$calendaritem['entryid']] = mapi_msgstore_openentry($store, hex2bin((string) $calendaritem['entryid']));
 			}
-			$tzdefstart = streamProperty($openedMessages[$calendaritem['entryid']], $this->properties['tzdefstart']);
+			$tzdefstart = readMapiPropStream($openedMessages[$calendaritem['entryid']], $this->properties['tzdefstart']);
 		}
 
 		$duration = $calendaritem['props']['duedate'] - $calendaritem['props']['startdate'];
 		// Set the start and endtimes to the midnight of the client's timezone
 		// if that's not the case already.
 		if (!$isTzdefstartSet) {
-			$calItemStart = new DateTime();
-			$calItemStart->setTimestamp($calendaritem['props']['startdate']);
-			$clientDate = DateTime::createFromInterface($calItemStart);
-			$clientDate->setTimezone(new DateTimeZone($this->tziana));
-			// It's only necessary to calculate new start and end times
-			// if the appointment does not start at midnight
-			if ((int) $clientDate->format("His") != 0) {
-				$clientMidnight = DateTimeImmutable::createFromFormat(
-					"Y-m-d H:i:s",
-					$clientDate->format("Y-m-d ") . "00:00:00",
-					$clientDate->getTimezone()
-				);
-				$interval = $clientDate->getTimestamp() - $clientMidnight->getTimestamp();
-				// The code here is based on assumption that if the interval
-				// is greater than 12 hours then the appointment takes place
-				// on the day before or after. This should be fine for all the
-				// timezones which do not exceed 12 hour difference to UTC.
-				$localStart = $interval > 0 ?
-					$calendaritem['props']['startdate'] - ($interval < 43200 ? $interval : $interval - 86400) :
-					$calendaritem['props']['startdate'] + ($interval > -43200 ? $interval : $interval - 86400);
+			$localStart = getLocalStart($calendaritem['props']['startdate'], $this->tziana);
+			if ($localStart != $calendaritem['props']['startdate']) {
 				$calendaritem['props']['startdate'] = $calendaritem['props']['commonstart'] = $localStart;
 				$calendaritem['props']['duedate'] = $calendaritem['props']['commonend'] = $localStart + $duration;
 			}
@@ -700,22 +682,19 @@ class AppointmentListModule extends ListModule {
 		// Further processing is only required if they don't match.
 		elseif ($isTzdefstartSet && !$GLOBALS['entryid']->compareEntryIds($this->tzdef, $tzdefstart)) {
 			if ($this->tzdefObj === false) {
-				$this->tzdefObj = $GLOBALS['entryid']->createTimezoneDefinitionObject($this->tzdef);
+				$this->tzdefObj = parseTimezoneDefinition($this->tzdef);
+				$this->tzEffRule = getEffectiveTimezoneRule($this->tzdefObj);
 			}
-			$this->tzEffRuleIdx = getEffectiveTzreg($this->tzdefObj['rules']);
+			$appTzEffRule = getEffectiveTimezoneRule(parseTimezoneDefinition($tzdefstart));
 
-			$appTzDefStart = $GLOBALS['entryid']->createTimezoneDefinitionObject($tzdefstart);
-			// Find TZRULE_FLAG_EFFECTIVE_TZREG rule for the appointment's timezone
-			$appTzEffRuleIdx = getEffectiveTzreg($appTzDefStart['rules']);
-
-			if (!is_null($this->tzEffRuleIdx) && !is_null($appTzEffRuleIdx)) {
+			if ($this->tzEffRule !== null && $appTzEffRule !== null) {
 				// first apply the bias of the appointment timezone and the bias of the browser
-				$localStart = $calendaritem['props']['startdate'] - $appTzDefStart['rules'][$appTzEffRuleIdx]['bias'] * 60 + $this->tzdefObj['rules'][$this->tzEffRuleIdx]['bias'] * 60;
-				if (isDst($appTzDefStart['rules'][$appTzEffRuleIdx], $calendaritem['props']['startdate'])) {
-					$localStart -= $appTzDefStart['rules'][$appTzEffRuleIdx]['dstbias'] * 60;
+				$localStart = $calendaritem['props']['startdate'] - $appTzEffRule['bias'] * 60 + $this->tzEffRule['bias'] * 60;
+				if (isDst($appTzEffRule, $calendaritem['props']['startdate'])) {
+					$localStart -= $appTzEffRule['dstbias'] * 60;
 				}
-				if (isDst($this->tzdefObj['rules'][$this->tzEffRuleIdx], $calendaritem['props']['startdate'])) {
-					$localStart += $this->tzdefObj['rules'][$this->tzEffRuleIdx]['dstbias'] * 60;
+				if (isDst($this->tzEffRule, $calendaritem['props']['startdate'])) {
+					$localStart += $this->tzEffRule['dstbias'] * 60;
 				}
 				$calendaritem['props']['startdate'] = $calendaritem['props']['commonstart'] = $localStart;
 				$calendaritem['props']['duedate'] = $calendaritem['props']['commonend'] = $localStart + $duration;

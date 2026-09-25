@@ -1781,8 +1781,9 @@ class Operations {
 			$itemprops = mapi_getprops($message, $properties);
 
 			/* If necessary stream the property, if it's > 8KB */
-			if (isset($itemprops[PR_TRANSPORT_MESSAGE_HEADERS]) || propIsError(PR_TRANSPORT_MESSAGE_HEADERS, $itemprops) == MAPI_E_NOT_ENOUGH_MEMORY) {
-				$itemprops[PR_TRANSPORT_MESSAGE_HEADERS] = mapi_openproperty($message, PR_TRANSPORT_MESSAGE_HEADERS);
+			$headers = readMapiProp($message, PR_TRANSPORT_MESSAGE_HEADERS, $itemprops);
+			if ($headers !== null) {
+				$itemprops[PR_TRANSPORT_MESSAGE_HEADERS] = $headers;
 			}
 
 			$props = Conversion::mapMAPI2XML($properties, $itemprops);
@@ -2231,10 +2232,7 @@ class Operations {
 
 			if ($property != false) {
 				// Stream the body to the PR_BODY or PR_HTML property
-				$stream = mapi_openproperty($message, $property, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
-				mapi_stream_setsize($stream, strlen((string) $body));
-				mapi_stream_write($stream, $body);
-				mapi_stream_commit($stream);
+				writeMapiPropStream($message, $property, (string) $body);
 			}
 
 			/*
@@ -2627,9 +2625,7 @@ class Operations {
 				// Append body if the request action requires this
 				if (isset($action['message_action'], $action['message_action']['append_body'])) {
 					$bodyProps = mapi_getprops($message, [$tag]);
-					if (isset($bodyProps[$tag]) || propIsError($tag, $bodyProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-						$bodyProps[$tag] = streamProperty($message, $tag);
-					}
+					$bodyProps[$tag] = readMapiProp($message, $tag, $bodyProps);
 					if (isset($action['message_action']['meetingTimeInfo'], $bodyProps[$tag])) {
 						$action['message_action']['meetingTimeInfo'] .= $bodyProps[$tag];
 					}
@@ -4585,7 +4581,7 @@ class Operations {
 				if ($isInlineAttachment) {
 					// Cache body, so we stream it once
 					if ($body === false) {
-						$body = streamProperty($message, PR_HTML);
+						$body = readMapiPropStream($message, PR_HTML);
 					}
 
 					$contentID = (string) $props[PR_ATTACH_CONTENT_ID];
@@ -5458,12 +5454,9 @@ class Operations {
 		$storeProps = mapi_getprops($store, [PR_EC_RECIPIENT_HISTORY_JSON]);
 		$recipient_history = [];
 
-		if (isset($storeProps[PR_EC_RECIPIENT_HISTORY_JSON]) || propIsError(PR_EC_RECIPIENT_HISTORY_JSON, $storeProps) == MAPI_E_NOT_ENOUGH_MEMORY) {
-			$datastring = streamProperty($store, PR_EC_RECIPIENT_HISTORY_JSON);
-
-			if (!empty($datastring)) {
-				$recipient_history = json_decode_data($datastring, true);
-			}
+		$datastring = readMapiProp($store, PR_EC_RECIPIENT_HISTORY_JSON, $storeProps);
+		if (!empty($datastring)) {
+			$recipient_history = json_decode_data($datastring, true);
 		}
 
 		if (!isset($recipient_history['recipients']) || !is_array($recipient_history['recipients'])) {
@@ -5499,10 +5492,7 @@ class Operations {
 
 		$l_sNewRecipientHistoryJSON = json_encode($recipient_history);
 
-		$stream = mapi_openproperty($store, PR_EC_RECIPIENT_HISTORY_JSON, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
-		mapi_stream_setsize($stream, strlen($l_sNewRecipientHistoryJSON));
-		mapi_stream_write($stream, $l_sNewRecipientHistoryJSON);
-		mapi_stream_commit($stream);
+		writeMapiPropStream($store, PR_EC_RECIPIENT_HISTORY_JSON, $l_sNewRecipientHistoryJSON);
 		mapi_savechanges($store);
 	}
 
@@ -5791,7 +5781,7 @@ class Operations {
 	 * @param resource $message distribution list message
 	 */
 	public function convertInlineImage($message) {
-		$body = streamProperty($message, PR_HTML);
+		$body = readMapiPropStream($message, PR_HTML);
 		$imageIDs = [];
 
 		// Only load the DOM if the HTML contains a img or data:text/plain due to a bug
@@ -5844,10 +5834,7 @@ class Operations {
 					];
 					mapi_setprops($inlineImage, $props);
 
-					$stream = mapi_openproperty($inlineImage, PR_ATTACH_DATA_BIN, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
-					mapi_stream_setsize($stream, strlen($rawImage));
-					mapi_stream_write($stream, $rawImage);
-					mapi_stream_commit($stream);
+					writeMapiPropStream($inlineImage, PR_ATTACH_DATA_BIN, $rawImage);
 					mapi_savechanges($inlineImage);
 				}
 				elseif (str_contains($src, "cid:")) {
@@ -5863,10 +5850,7 @@ class Operations {
 			if ($saveChanges) {
 				// Write the <img src="cid:data"> changes to the HTML property
 				$body = $doc->saveHTML();
-				$stream = mapi_openproperty($message, PR_HTML, IID_IStream, 0, MAPI_MODIFY);
-				mapi_stream_setsize($stream, strlen($body));
-				mapi_stream_write($stream, $body);
-				mapi_stream_commit($stream);
+				writeMapiPropStream($message, PR_HTML, $body);
 				mapi_savechanges($message);
 			}
 		}

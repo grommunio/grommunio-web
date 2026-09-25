@@ -706,41 +706,15 @@ function isSmimePluginEnabled() {
 }
 
 /**
- * Helper to stream a MAPI property.
+ * Kept for plugins; new code calls readMapiPropStream() directly.
  *
  * @param resource $mapiobj MAPI message or store
  * @param int      $proptag MAPI property tag
  *
- * @return string $datastring the streamed data
+ * @return string the streamed data
  */
 function streamProperty($mapiobj, $proptag) {
-	$stream = mapi_openproperty($mapiobj, $proptag, IID_IStream, 0, 0);
-	$stat = mapi_stream_stat($stream);
-	mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-
-	// A read may return less than a full block, so count bytes rather than
-	// iterations: advancing by BLOCK_SIZE regardless returns a short value.
-	$datastring = '';
-	while (strlen($datastring) < $stat['cb']) {
-		$chunk = mapi_stream_read($stream, BLOCK_SIZE);
-		if ($chunk === false || $chunk === '') {
-			break;
-		}
-
-		$datastring .= $chunk;
-	}
-
-	// The caller cannot tell a short value from a complete one, so say so here.
-	if (strlen($datastring) < $stat['cb']) {
-		error_log(sprintf(
-			"streamProperty(): property 0x%08X is truncated, read %d of %d bytes",
-			$proptag,
-			strlen($datastring),
-			$stat['cb']
-		));
-	}
-
-	return $datastring;
+	return readMapiPropStream($mapiobj, $proptag);
 }
 
 /**
@@ -1097,7 +1071,7 @@ function openAttachedMessage($attachment) {
 	}
 
 	try {
-		$eml = streamProperty($attachment, PR_ATTACH_DATA_BIN);
+		$eml = readMapiPropStream($attachment, PR_ATTACH_DATA_BIN);
 	}
 	catch (MAPIException $e) {
 		$e->setHandled();
@@ -1249,23 +1223,6 @@ function convertOffset($minutes) {
 	$m = (int) abs($minutes);
 
 	return sprintf("%s%02d%02d", $minutes > 0 ? '-' : '+', intdiv($m, 60), $m % 60);
-}
-
-/**
- * Returns the index of effective rule (TZRULE_FLAG_EFFECTIVE_TZREG).
- *
- * @param array $tzrules
- *
- * @return null|int
- */
-function getEffectiveTzreg($tzrules) {
-	foreach ($tzrules as $idx => $tzDefRule) {
-		if ($tzDefRule['tzruleflags'] & TZRULE_FLAG_EFFECTIVE_TZREG) {
-			return $idx;
-		}
-	}
-
-	return null;
 }
 
 /**

@@ -154,7 +154,7 @@ class JunkMailModule extends Module {
 
 		if ($message !== false) {
 			$props = mapi_getprops($message, [PR_EXTENDED_RULE_MSG_CONDITION, PR_JUNK_INCLUDE_CONTACTS]);
-			$blob = $props[PR_EXTENDED_RULE_MSG_CONDITION] ?? streamProperty($message, PR_EXTENDED_RULE_MSG_CONDITION);
+			$blob = $props[PR_EXTENDED_RULE_MSG_CONDITION] ?? readMapiPropStream($message, PR_EXTENDED_RULE_MSG_CONDITION);
 			$parsed = is_string($blob) ? JunkRule::parseCondition($blob) : false;
 			if ($parsed !== false) {
 				$lists['safe_senders'] = $parsed['safe_senders'];
@@ -277,7 +277,7 @@ class JunkMailModule extends Module {
 		// zcore silently rejects an oversized or non-FAI condition write.
 		// mapi_setprops still succeeds, so the only proof is reading back.
 		$check = mapi_getprops($message, [PR_EXTENDED_RULE_MSG_CONDITION]);
-		$stored = $check[PR_EXTENDED_RULE_MSG_CONDITION] ?? streamProperty($message, PR_EXTENDED_RULE_MSG_CONDITION);
+		$stored = $check[PR_EXTENDED_RULE_MSG_CONDITION] ?? readMapiPropStream($message, PR_EXTENDED_RULE_MSG_CONDITION);
 		if ($stored !== $condition) {
 			if ($created) {
 				// Do not leave an enabled rule without a condition behind.

@@ -52,8 +52,8 @@ class InlineTestAttachmentState {
 	}
 }
 
-if (!function_exists('streamProperty')) {
-	function streamProperty($object, $tag) {
+if (!function_exists('readMapiPropStream')) {
+	function readMapiPropStream($object, $tag) {
 		return $object->props[$tag] ?? '';
 	}
 }
@@ -160,6 +160,15 @@ if (!function_exists('mapi_getprops')) {
 	}
 
 	function mapi_savechanges($object) {}
+
+	function writeMapiPropStream($object, $tag, $data) {
+		$stream = mapi_openproperty($object, $tag, null, 0, 0);
+		mapi_stream_setsize($stream, strlen($data));
+		mapi_stream_write($stream, $data);
+		mapi_stream_commit($stream);
+
+		return true;
+	}
 }
 
 require_once dirname(__DIR__) . '/includes/core/class.operations.php';

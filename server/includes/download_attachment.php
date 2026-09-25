@@ -727,7 +727,7 @@ class DownloadAttachment extends DownloadBase {
 
 		$newMessage = mapi_folder_createmessage($this->destinationFolder);
 		$attachmentProps = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME]);
-		$attachmentStream = streamProperty($attachment, PR_ATTACH_DATA_BIN);
+		$attachmentStream = readMapiPropStream($attachment, PR_ATTACH_DATA_BIN);
 		$extension = strtolower((string) pathinfo((string) $attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION));
 		$ok = false;
 

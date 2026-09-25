@@ -62,7 +62,7 @@ class PluginMDMModule extends Module {
 					if (mapi_table_getrowcount($deviceStateFolderContents) == 1) {
 						$rows = mapi_table_queryrows($deviceStateFolderContents, [PR_ENTRYID], 0, 1);
 						$message = mapi_msgstore_openentry($store, $rows[0][PR_ENTRYID]);
-						$state = base64_decode(streamProperty($message, PR_BODY));
+						$state = base64_decode(readMapiPropStream($message, PR_BODY));
 						$unserializedState = json_decode($state);
 						// fallback for "old-style" states
 						if (isset($unserializedState->data->devices)) {

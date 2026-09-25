@@ -133,10 +133,7 @@ class AlgorithmStore {
 			PR_CLIENT_SUBMIT_TIME => $signingTime ?? time(),
 		]);
 
-		$stream = mapi_openproperty($msg, PR_BODY, IID_IStream, 0, MAPI_CREATE | MAPI_MODIFY);
-		mapi_stream_setsize($stream, strlen($json));
-		mapi_stream_write($stream, $json);
-		mapi_stream_commit($stream);
+		writeMapiPropStream($msg, PR_BODY, $json);
 		mapi_message_savechanges($msg);
 	}
 

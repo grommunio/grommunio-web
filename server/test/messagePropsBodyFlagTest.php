@@ -58,6 +58,9 @@ function mapi_ab_openentry($book, $entryid) {
 function propIsError($property, $props) {
 	return false;
 }
+function readMapiProp($object, $tag, $props) {
+	return $props[$tag] ?? null;
+}
 function mapi_message_getrecipienttable($message) {
 	return 'recipients';
 }
