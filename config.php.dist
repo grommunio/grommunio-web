@@ -57,6 +57,12 @@
 	// Overrides defaults.php
 	//define("ATTACHMENT_DRAG_OUT_MAX_SIZE", 26214400);
 
+	// CSS properties removed from content that is pasted into the editor from
+	// other applications or web pages, separated by spaces. Set to "" to keep
+	// the formatting of the source.
+	// Overrides defaults.php
+	//define("PASTE_STRIP_STYLES", "font-family font-size line-height color background-color background");
+
 	// Enable resolving hidden address book entries (disabled by default).
 	// Overrides defaults.php
 	//define("ENABLE_RESOLVE_HIDDEN_USERS", true);

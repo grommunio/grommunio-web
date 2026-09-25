@@ -709,6 +709,12 @@ if (!defined("POWERPASTE_ALLOW_LOCAL_IMAGES")) {
 	define("POWERPASTE_ALLOW_LOCAL_IMAGES", true);
 }
 
+// CSS properties removed from content pasted from outside the editor,
+// separated by spaces. An empty string keeps the formatting of the source.
+if (!defined("PASTE_STRIP_STYLES")) {
+	define("PASTE_STRIP_STYLES", "font-family font-size line-height color background-color background");
+}
+
 /*
  * Defaults for sqlite search index
  */

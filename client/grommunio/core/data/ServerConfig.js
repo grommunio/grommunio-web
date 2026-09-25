@@ -369,6 +369,15 @@ Grommunio.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {String} The CSS properties, separated by spaces, which are removed
+	 * from content pasted into the editor from outside of it.
+	 */
+	getPasteStripStyles: function ()
+	{
+		return this.meta.paste_strip_styles;
+	},
+
+	/**
 	 * @return {Number} return the shared stores polling interval in microseconds
 	 */
 	getSharedStorePollingInterval: function()
