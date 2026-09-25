@@ -1628,47 +1628,70 @@ body.dark-mode .grommunio-welcome-body .grommunio-settings-widget-welcome .x-pan
 
 body.dark-mode.grommunio-welcome,
 body.dark-mode #loading-mask {
-	background:
-		url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIwIDEwODAiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA3Ij48cGF0aCBkPSJNMCAyNjUuMTZzMi41Ny0yLjkzIDIxLjYxIDE1LjkzbDM2NC44NCAzNjEuNTcgMzY0Ljg0IDM2MS41N2MzMC43MSAzMC40MyAyOC4zOCA3NS43NCAyOC4zOCA3NS43NEgwVjI2NS4xNloiLz48cGF0aCBkPSJNMCAwdjYyNGwxMzQuMzkgMTMzLjA3YzE5LjAzIDE4Ljg2IDQzLjk4IDI4LjMgNjguOTMgMjguM3M0OS45LTkuNDMgNjguOTMtMjguM0w2MzcuMDkgMzk1LjVsMzY0Ljg0LTM2MS41OEMxMDI4LjI5IDExLjY2IDEwMjQgMCAxMDI0IDBIMFpNMTkyMCAxMDgwaC0zNzdsLTE0NS43MS0xNDYuMWMtMTguOTQtMTkuMTItMjguNDItNDQuMTctMjguNDItNjkuMjIgMC0yNS4wNSA5LjQ3LTUwLjExIDI4LjQyLTY5LjIyTDE5MjAgMjY4djgxMloiLz48L2c+PC9zdmc+) no-repeat center center / cover,
-		linear-gradient(150deg, color-mix(in srgb, var(--theme-gradient-start) 55%, #0b0f14), color-mix(in srgb, var(--theme-gradient-end) 55%, #0b0f14)) !important;
+	background-color: #055e94 !important;
+	background-image:
+		var(--brand-bg-overlay, url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIwIDEwODAiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA3Ij48cGF0aCBkPSJNMCAyNjUuMTZzMi41Ny0yLjkzIDIxLjYxIDE1LjkzbDM2NC44NCAzNjEuNTcgMzY0Ljg0IDM2MS41N2MzMC43MSAzMC40MyAyOC4zOCA3NS43NCAyOC4zOCA3NS43NEgwVjI2NS4xNloiLz48cGF0aCBkPSJNMCAwdjYyNGwxMzQuMzkgMTMzLjA3YzE5LjAzIDE4Ljg2IDQzLjk4IDI4LjMgNjguOTMgMjguM3M0OS45LTkuNDMgNjguOTMtMjguM0w2MzcuMDkgMzk1LjVsMzY0Ljg0LTM2MS41OEMxMDI4LjI5IDExLjY2IDEwMjQgMCAxMDI0IDBIMFpNMTkyMCAxMDgwaC0zNzdsLTE0NS43MS0xNDYuMWMtMTguOTQtMTkuMTItMjguNDItNDQuMTctMjguNDItNjkuMjIgMC0yNS4wNSA5LjQ3LTUwLjExIDI4LjQyLTY5LjIyTDE5MjAgMjY4djgxMloiLz48L2c+PC9zdmc+)),
+		var(--brand-bg-image, none),
+		linear-gradient(rgba(11, 15, 20, 0.45), rgba(11, 15, 20, 0.45)),
+		linear-gradient(var(--brand-gradient-angle, 150deg), var(--theme-gradient-start), var(--theme-gradient-end)) !important;
+	background-size: cover, var(--brand-bg-size, cover), auto, auto !important;
+	background-position: center, var(--brand-bg-position, center), center, center !important;
+	background-repeat: no-repeat !important;
+}
+
+@supports (color: color-mix(in srgb, red, blue)) {
+	body.dark-mode.grommunio-welcome,
+	body.dark-mode #loading-mask {
+		background-color: color-mix(in srgb, var(--theme-gradient-start) 55%, #0b0f14) !important;
+	}
 }
 
 body.dark-mode {
-	--login-card: #23262b;
-	--login-text: #e6e6e6;
-	--login-muted: #98a2b3;
-	--login-input: #2b2f36;
-	--login-input-hover: #323740;
-	--login-error: #fda29b;
-	--login-error-bg: #3a2320;
-	--login-error-border: #5c2e2a;
+	--login-card: var(--brand-surface, #23262b);
+	--login-text: var(--brand-text, #e6e6e6);
+	--login-muted: var(--brand-muted, #98a2b3);
+	--login-input: var(--brand-field, #2b2f36);
+	--login-input-hover: var(--brand-field-hover, #323740);
+	--login-error: var(--brand-error, #fda29b);
+	--login-error-bg: var(--brand-error-bg, #3a2320);
+	--login-error-border: var(--brand-error-border, #5c2e2a);
 }
 
 body.dark-mode.login #form-container #logo,
 body.dark-mode #loading-mask #form-container #logo {
-	filter: invert(1) hue-rotate(180deg);
+	filter: var(--brand-logo-filter, invert(1) hue-rotate(180deg));
 }
 
+/* An explicit light choice on <html data-theme="light"> keeps the page light */
 @media (prefers-color-scheme: dark) {
-	body.login {
-		background:
-			url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIwIDEwODAiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA3Ij48cGF0aCBkPSJNMCAyNjUuMTZzMi41Ny0yLjkzIDIxLjYxIDE1LjkzbDM2NC44NCAzNjEuNTcgMzY0Ljg0IDM2MS41N2MzMC43MSAzMC40MyAyOC4zOCA3NS43NCAyOC4zOCA3NS43NEgwVjI2NS4xNloiLz48cGF0aCBkPSJNMCAwdjYyNGwxMzQuMzkgMTMzLjA3YzE5LjAzIDE4Ljg2IDQzLjk4IDI4LjMgNjguOTMgMjguM3M0OS45LTkuNDMgNjguOTMtMjguM0w2MzcuMDkgMzk1LjVsMzY0Ljg0LTM2MS41OEMxMDI4LjI5IDExLjY2IDEwMjQgMCAxMDI0IDBIMFpNMTkyMCAxMDgwaC0zNzdsLTE0NS43MS0xNDYuMWMtMTguOTQtMTkuMTItMjguNDItNDQuMTctMjguNDItNjkuMjIgMC0yNS4wNSA5LjQ3LTUwLjExIDI4LjQyLTY5LjIyTDE5MjAgMjY4djgxMloiLz48L2c+PC9zdmc+) no-repeat center center / cover,
-			linear-gradient(150deg, color-mix(in srgb, var(--theme-gradient-start) 55%, #0b0f14), color-mix(in srgb, var(--theme-gradient-end) 55%, #0b0f14)) !important;
+	:root:not([data-theme="light"]) body.login {
+		--login-card: var(--brand-surface, #23262b);
+		--login-text: var(--brand-text, #e6e6e6);
+		--login-muted: var(--brand-muted, #98a2b3);
+		--login-input: var(--brand-field, #2b2f36);
+		--login-input-hover: var(--brand-field-hover, #323740);
+		--login-error: var(--brand-error, #fda29b);
+		--login-error-bg: var(--brand-error-bg, #3a2320);
+		--login-error-border: var(--brand-error-border, #5c2e2a);
+		background-color: #055e94 !important;
+		background-image:
+			var(--brand-bg-overlay, url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIwIDEwODAiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA3Ij48cGF0aCBkPSJNMCAyNjUuMTZzMi41Ny0yLjkzIDIxLjYxIDE1LjkzbDM2NC44NCAzNjEuNTcgMzY0Ljg0IDM2MS41N2MzMC43MSAzMC40MyAyOC4zOCA3NS43NCAyOC4zOCA3NS43NEgwVjI2NS4xNloiLz48cGF0aCBkPSJNMCAwdjYyNGwxMzQuMzkgMTMzLjA3YzE5LjAzIDE4Ljg2IDQzLjk4IDI4LjMgNjguOTMgMjguM3M0OS45LTkuNDMgNjguOTMtMjguM0w2MzcuMDkgMzk1LjVsMzY0Ljg0LTM2MS41OEMxMDI4LjI5IDExLjY2IDEwMjQgMCAxMDI0IDBIMFpNMTkyMCAxMDgwaC0zNzdsLTE0NS43MS0xNDYuMWMtMTguOTQtMTkuMTItMjguNDItNDQuMTctMjguNDItNjkuMjIgMC0yNS4wNSA5LjQ3LTUwLjExIDI4LjQyLTY5LjIyTDE5MjAgMjY4djgxMloiLz48L2c+PC9zdmc+)),
+			var(--brand-bg-image, none),
+			linear-gradient(rgba(11, 15, 20, 0.45), rgba(11, 15, 20, 0.45)),
+			linear-gradient(var(--brand-gradient-angle, 150deg), var(--theme-gradient-start), var(--theme-gradient-end)) !important;
+		background-size: cover, var(--brand-bg-size, cover), auto, auto !important;
+		background-position: center, var(--brand-bg-position, center), center, center !important;
+		background-repeat: no-repeat !important;
 	}
 
-	body.login {
-		--login-card: #23262b;
-		--login-text: #e6e6e6;
-		--login-muted: #98a2b3;
-		--login-input: #2b2f36;
-		--login-input-hover: #323740;
-		--login-error: #fda29b;
-		--login-error-bg: #3a2320;
-		--login-error-border: #5c2e2a;
+	@supports (color: color-mix(in srgb, red, blue)) {
+		:root:not([data-theme="light"]) body.login {
+			background-color: color-mix(in srgb, var(--theme-gradient-start) 55%, #0b0f14) !important;
+		}
 	}
 
-	body.login #form-container #logo {
-		filter: invert(1) hue-rotate(180deg);
+	:root:not([data-theme="light"]) body.login #form-container #logo {
+		filter: var(--brand-logo-filter, invert(1) hue-rotate(180deg));
 	}
 }
 
