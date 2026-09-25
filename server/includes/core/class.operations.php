@@ -576,7 +576,8 @@ class Operations {
 		$faultyLinkMsg = [];
 		foreach ($rows as $row) {
 			$props = null;
-			if (isset($row[PR_WLINK_TYPE]) && $row[PR_WLINK_TYPE] > wblSharedFolder) {
+			// Navigation shortcuts set by Outlook have PR_WLINK_FOLDER_TYPE property set
+			if (isset($row[PR_WLINK_TYPE]) && $row[PR_WLINK_TYPE] > wblSharedFolder || !empty($row[PR_WLINK_FOLDER_TYPE])) {
 				continue;
 			}
 
