@@ -178,6 +178,7 @@ Grommunio.mail.settings.SettingsSignaturesWidget = Ext.extend(Grommunio.settings
 				height: 300,
 				useHtml: container.getSettingsModel().get('grommunio/v1/contexts/mail/dialogs/mailcreate/use_html_editor'),
 				disableEditor: true,
+				keepPastedStyles: true,
 				listeners: {
 					change: this.onEditorFieldChange,
 					valuecorrection: this.onValueCorrection,

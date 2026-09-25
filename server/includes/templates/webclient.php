@@ -53,6 +53,7 @@ $serverConfig = array_merge($serverConfig, [
 		'powerpaste_html_import' => POWERPASTE_HTML_IMPORT,
 		'powerpaste_allow_local_images' => POWERPASTE_ALLOW_LOCAL_IMAGES,
 	],
+	'paste_strip_styles' => PASTE_STRIP_STYLES,
 	'shared_store_polling_interval' => SHARED_STORE_POLLING_INTERVAL,
 	'enable_dompurify' => ENABLE_DOMPURIFY_FILTER,
 	'enable_file_previewer' => ENABLE_FILE_PREVIEWER,

@@ -38,6 +38,12 @@ Grommunio.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 	defaultFontSize: undefined,
 
 	/**
+	 * @cfg {Boolean} keepPastedStyles True to keep the fonts and colours of content
+	 * pasted from other applications, which PASTE_STRIP_STYLES removes otherwise.
+	 */
+	keepPastedStyles: false,
+
+	/**
 	 * Reference to the document inside the TinyMCE iframe for event cleanup.
 	 * @property
 	 * @type Document
@@ -116,6 +122,7 @@ Grommunio.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				extended_valid_elements: 'img[src|data-mce-src|alt|width|height],p[class|style],span[class|style],a[href|style],*[*]',
 				valid_children: '+body[p],+p[span|a|b|strong|i|em|u|#text]',
 				paste_as_text: false,
+				officepaste_strip_styles: config.keepPastedStyles ? [] : container.getServerConfig().getPasteStripStyles(),
 				width: "100%",
 				menubar: false,
 				contextmenu: false,
