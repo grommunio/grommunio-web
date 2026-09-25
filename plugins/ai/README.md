@@ -29,11 +29,11 @@ major LLM:
 
 - **OpenAI-compatible** `/v1/chat/completions` — the de-facto standard, used by
   **free cloud tiers** (Google **Gemini**, **Groq**, **OpenRouter**), by OpenAI,
-  Mistral, Together, Azure OpenAI, …, **and** by local/self-hosted servers
-  (**Ollama**, LM Studio, vLLM, llama.cpp, LocalAI). OpenAI models that are
-  only served on the newer **Responses API** (`/v1/responses`, e.g.
-  `gpt-5.5-pro`) are switched over automatically; `PLUGIN_AI_API_MODE` forces
-  either API.
+  **IONOS AI Model Hub** (hosted in Germany), Mistral, Together, Azure OpenAI,
+  …, **and** by local/self-hosted servers (**Ollama**, LM Studio, vLLM,
+  llama.cpp, LocalAI). OpenAI models that are only served on the newer
+  **Responses API** (`/v1/responses`, e.g. `gpt-5.5-pro`) are switched over
+  automatically; `PLUGIN_AI_API_MODE` forces either API.
 - **Anthropic Messages API** — the native Claude API.
 
 The shipped default is **Google Gemini's free tier** (`gemini-2.0-flash`): strong
@@ -73,8 +73,8 @@ define('PLUGIN_AI_MODEL', 'gemini-2.0-flash');
 ```
 
 Ready-to-use commented presets for **Groq**, **OpenRouter**, **local Ollama**,
-**OpenAI** and **Anthropic/Claude** are included in `config.php`; uncomment one
-block to switch. Additional knobs: generation limits
+**OpenAI**, **IONOS AI Model Hub** and **Anthropic/Claude** are included in
+`config.php`; uncomment one block to switch. Additional knobs: generation limits
 (`PLUGIN_AI_MAX_INPUT_CHARS`, `..._MAX_OUTPUT_TOKENS`, `..._TEMPERATURE`,
 `..._TIMEOUT`), streaming on/off, reasoning models (`..._REASONING_EFFORT`,
 `..._REASONING_MODEL`, `..._API_MODE`), and master switches to disable

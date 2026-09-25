@@ -23,7 +23,7 @@ class AIConfig {
 	 * Cloud providers that require an API key. Local dialects (ollama and the
 	 * generic openai_compatible, which may point at a keyless LAN server) do not.
 	 */
-	private const CLOUD_PROVIDERS = ['openai', 'anthropic', 'gemini', 'groq', 'openrouter'];
+	private const CLOUD_PROVIDERS = ['openai', 'anthropic', 'gemini', 'groq', 'openrouter', 'ionos'];
 
 	private function __construct(
 		public readonly bool $enabled,
@@ -91,6 +91,7 @@ class AIConfig {
 			'gemini' => 'https://generativelanguage.googleapis.com/v1beta/openai',
 			'groq' => 'https://api.groq.com/openai/v1',
 			'openrouter' => 'https://openrouter.ai/api/v1',
+			'ionos' => 'https://openai.inference.de-txl.ionos.com/v1',
 			'ollama' => 'http://localhost:11434/v1',
 			default => '',
 		};
@@ -107,6 +108,7 @@ class AIConfig {
 			'gemini' => 'gemini-2.0-flash',
 			'groq' => 'llama-3.3-70b-versatile',
 			'openrouter' => 'meta-llama/llama-3.3-70b-instruct:free',
+			'ionos' => 'mistralai/Mistral-Small-24B-Instruct',
 			'ollama' => 'llama3.1:8b',
 			default => '',
 		};
@@ -177,6 +179,15 @@ class AIConfig {
 
 		// gpt-35-turbo is Azure's GPT-3.5
 		return (bool) preg_match('/^(o[1-9]|gpt-(?![34])\d|chat-latest)/', self::bareModel($model));
+	}
+
+	/**
+	 * IONOS AI Model Hub, also when reached as openai_compatible.
+	 */
+	public function isIonos(): bool {
+		$host = strtolower((string) parse_url($this->apiBase, PHP_URL_HOST));
+
+		return $this->provider === 'ionos' || str_ends_with($host, '.ionos.com');
 	}
 
 	/**

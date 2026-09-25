@@ -94,7 +94,7 @@ abstract class AIProvider {
 	 * @throws AIException on transport or HTTP error
 	 */
 	public function chat(array $messages, array $opts = [], ?callable $onDelta = null): string {
-		$stream = $onDelta !== null;
+		$stream = $onDelta !== null && $this->canStream($opts);
 		$body = $this->buildBody($messages, $opts, $stream);
 		$this->finishReason = null;
 
@@ -112,8 +112,19 @@ abstract class AIProvider {
 		if ($stream) {
 			return $this->execStreaming($ch, $onDelta);
 		}
+		$text = $this->execBuffered($ch);
+		if ($onDelta !== null && $text !== '') {
+			$onDelta($text);
+		}
 
-		return $this->execBuffered($ch);
+		return $text;
+	}
+
+	/**
+	 * Whether the request for these options can be streamed.
+	 */
+	protected function canStream(array $opts): bool {
+		return true;
 	}
 
 	/**
@@ -266,8 +277,9 @@ abstract class AIProvider {
 	 * message. Never includes credentials.
 	 */
 	protected function httpError(int $code, ?array $json): string {
-		// OpenAI: {error:{message}}; Anthropic: {error:{message}} or {message}
-		$providerMsg = (string) ($json['error']['message'] ?? $json['message'] ?? '');
+		// OpenAI: {error:{message}}; Anthropic: {error:{message}} or {message};
+		// IONOS: {httpStatus, messages:[{errorCode, message}]}
+		$providerMsg = (string) ($json['error']['message'] ?? $json['message'] ?? $json['messages'][0]['message'] ?? '');
 		$providerMsg = mb_substr(trim($providerMsg), 0, 200);
 
 		$base = match (true) {

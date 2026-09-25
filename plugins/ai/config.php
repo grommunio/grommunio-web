@@ -26,10 +26,10 @@
  * major LLM:
  *   - OpenAI-compatible /v1/chat/completions — the de-facto standard. Works
  *     with FREE cloud tiers (Google Gemini, Groq, OpenRouter), with OpenAI,
- *     Mistral, Together, Azure OpenAI, ..., and with a LOCAL, self-hosted model
- *     (Ollama, LM Studio, vLLM, llama.cpp, LocalAI) for full data sovereignty.
- *     OpenAI models that are only served through the newer Responses API
- *     (/v1/responses) are switched over automatically.
+ *     IONOS AI Model Hub, Mistral, Together, Azure OpenAI, ..., and with a
+ *     LOCAL, self-hosted model (Ollama, LM Studio, vLLM, llama.cpp, LocalAI)
+ *     for full data sovereignty. OpenAI models that are only served through
+ *     the newer Responses API (/v1/responses) are switched over automatically.
  *   - Anthropic Messages API — the native Claude API (api.anthropic.com).
  */
 
@@ -91,6 +91,17 @@ define('PLUGIN_AI_MODEL_FAST', 'gemini-3.5-flash-lite');
 // define('PLUGIN_AI_API_KEY', 'sk-...');
 // define('PLUGIN_AI_MODEL', 'gpt-6-luna');
 //
+// IONOS AI Model Hub — hosted in Germany, prompts are neither logged nor
+// used for training. Create the API token in the DCD under Management ->
+// Token Manager (a valid token starts with "eyJ"):
+// define('PLUGIN_AI_PROVIDER', 'ionos');
+// define('PLUGIN_AI_API_BASE', 'https://openai.inference.de-txl.ionos.com/v1');
+// define('PLUGIN_AI_API_KEY', 'eyJ...');
+// define('PLUGIN_AI_MODEL', 'mistralai/Mistral-Small-24B-Instruct');
+// Larger alternatives: 'meta-llama/Llama-3.3-70B-Instruct', or the reasoning
+// models 'openai/gpt-oss-120b' and 'Qwen/Qwen3.8-27B' (see
+// PLUGIN_AI_REASONING_EFFORT below).
+//
 // Anthropic / Claude:
 // define('PLUGIN_AI_PROVIDER', 'anthropic');
 // define('PLUGIN_AI_API_BASE', 'https://api.anthropic.com');
@@ -123,7 +134,7 @@ define('PLUGIN_AI_STREAMING', true);
 // How hard the model thinks before it answers: '' leaves the model's own
 // default, otherwise 'none', 'minimal', 'low', 'medium', 'high', 'xhigh' or
 // 'max'. Which values a model accepts differs — gpt-6-astra and gpt-6.1-sol
-// refuse 'none'.
+// refuse 'none', the Qwen models on IONOS think unless it is 'none'.
 define('PLUGIN_AI_REASONING_EFFORT', '');
 // The same for PLUGIN_AI_MODEL_FAST.
 define('PLUGIN_AI_REASONING_EFFORT_FAST', '');
@@ -133,9 +144,9 @@ define('PLUGIN_AI_REASONING_EFFORT_FAST', '');
 define('PLUGIN_AI_REASONING_MODEL', 'auto');
 // OpenAI-compatible API to use: 'chat' (/chat/completions, understood by
 // every provider above), 'responses' (/responses, OpenAI's newer API, also
-// offered by Azure; not by Gemini) or 'auto' — chat, except for the models
-// api.openai.com only serves on /responses (gpt-5.5-pro and the other pro
-// and codex models).
+// offered by IONOS, which cannot stream it, and Azure; not by Gemini) or
+// 'auto' — chat, except for the models OpenAI only serves on /responses
+// (gpt-5.5-pro and the other pro and codex models).
 define('PLUGIN_AI_API_MODE', 'auto');
 
 // --- Feature master switches (turn a capability off for the whole server) --

@@ -11,7 +11,7 @@
 		<title>AI Assistant</title>
 		<author>grommunio</author>
 		<authorURL>https://grommunio.com</authorURL>
-		<description>Provider-agnostic AI assistant: summarize and translate mail, compose and reply assistance, and confirm-first smart actions (meeting/task/contact/reply). Works with a local LLM (Ollama, LM Studio, vLLM, ...), OpenAI, or Anthropic/Claude — configured centrally by the administrator; the API key never leaves the server.</description>
+		<description>Provider-agnostic AI assistant: summarize and translate mail, compose and reply assistance, and confirm-first smart actions (meeting/task/contact/reply). Works with a local LLM (Ollama, LM Studio, vLLM, ...), OpenAI, IONOS AI Model Hub, or Anthropic/Claude — configured centrally by the administrator; the API key never leaves the server.</description>
 	</info>
 	<config>
 		<configfile>config.php</configfile>

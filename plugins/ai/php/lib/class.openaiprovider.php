@@ -10,8 +10,9 @@
  *
  * This single implementation covers OpenAI itself plus the many servers that
  * expose the same API: Ollama, LM Studio, vLLM, llama.cpp, LocalAI, Groq,
- * Mistral, Together, OpenRouter, Azure OpenAI, ... Authentication is a Bearer
- * token, omitted entirely when no key is configured (the local default).
+ * Mistral, Together, OpenRouter, IONOS AI Model Hub, Azure OpenAI, ...
+ * Authentication is a Bearer token, omitted entirely when no key is configured
+ * (the local default).
  */
 class OpenAIProvider extends AIProvider {
 	/** Whether the request being built goes to the Responses API. */
@@ -28,6 +29,15 @@ class OpenAIProvider extends AIProvider {
 		}
 
 		return $headers;
+	}
+
+	/**
+	 * IONOS rejects "stream" on its Responses endpoint.
+	 */
+	protected function canStream(array $opts): bool {
+		$model = $opts['model'] ?? $this->config->model;
+
+		return !($this->config->isIonos() && $this->config->apiFor($model) === AIConfig::API_RESPONSES);
 	}
 
 	protected function buildBody(array $messages, array $opts, bool $stream): array {
@@ -101,7 +111,10 @@ class OpenAIProvider extends AIProvider {
 		if ($instructions !== '') {
 			$body['instructions'] = $instructions;
 		}
-		$body['store'] = false;
+		// IONOS rejects "store"
+		if (!$this->config->isIonos()) {
+			$body['store'] = false;
+		}
 		if ($stream) {
 			$body['stream'] = true;
 		}
