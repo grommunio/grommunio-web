@@ -34,6 +34,14 @@ class Theming {
 	private static $jsonThemePropsCache = [];
 
 	/**
+	 * The title and favicon override of the requested host: false until
+	 * looked up, then null or an array.
+	 *
+	 * @var null|array|false
+	 */
+	private static $brandCache = false;
+
+	/**
 	 * Retrieves all installed json themes.
 	 *
 	 * @return array An array with the directory names of the json themes as keys and their display names
@@ -155,6 +163,77 @@ class Theming {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Returns the host name of the request, lower-case and without the port.
+	 *
+	 * @return string empty when the header is missing or malformed
+	 */
+	public static function getRequestHost() {
+		$host = strtolower(trim((string) ($_SERVER['HTTP_HOST'] ?? '')));
+		$host = preg_replace('/:\d+$/', '', $host);
+
+		return preg_match('/^[a-z0-9.-]+$/', $host) ? $host : '';
+	}
+
+	/**
+	 * Returns the title and favicon that apply to the requested host, or
+	 * null when none is installed. Hosts are matched exactly, then by the
+	 * longest "*.suffix" pattern, then by "*". The title is HTML-escaped,
+	 * the favicon is a same-origin absolute path.
+	 *
+	 * @return null|array{title: string, favicon: string}
+	 */
+	public static function getBrand() {
+		if (self::$brandCache !== false) {
+			return self::$brandCache;
+		}
+		self::$brandCache = null;
+
+		$file = '/run/grommunio-brand/brand/brand.json';
+		if (!is_readable($file)) {
+			return null;
+		}
+		$data = json_decode((string) file_get_contents($file), true);
+		$hosts = is_array($data['hosts'] ?? null) ? $data['hosts'] : [];
+		$host = self::getRequestHost();
+
+		$entry = $host !== '' ? ($hosts[$host] ?? null) : null;
+		if (!is_array($entry)) {
+			$suffixLength = 0;
+			foreach ($hosts as $pattern => $values) {
+				$pattern = (string) $pattern;
+				if (!is_array($values) || !str_starts_with($pattern, '*.')) {
+					continue;
+				}
+				$suffix = substr($pattern, 1);
+				if (strlen($suffix) > $suffixLength && strlen($host) > strlen($suffix) && str_ends_with($host, $suffix)) {
+					$entry = $values;
+					$suffixLength = strlen($suffix);
+				}
+			}
+		}
+		if (!is_array($entry)) {
+			$entry = $hosts['*'] ?? null;
+		}
+		if (!is_array($entry)) {
+			return null;
+		}
+
+		$title = $entry['title'] ?? '';
+		$title = is_string($title) ? trim(preg_replace('/[\x00-\x1f\x7f]/', '', strip_tags($title))) : '';
+		$title = htmlspecialchars($title, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+		$favicon = $entry['favicon'] ?? '';
+		if (!is_string($favicon) || !preg_match('#^/(?!/)[A-Za-z0-9._~/%-]+$#', $favicon)) {
+			$favicon = '';
+		}
+		if ($title === '' && $favicon === '') {
+			return null;
+		}
+		self::$brandCache = ['title' => $title, 'favicon' => $favicon];
+
+		return self::$brandCache;
 	}
 
 	/**

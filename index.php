@@ -22,6 +22,11 @@ require_once 'server/includes/bootstrap.php';
  * @return string favicon
  */
 function getFavicon($theme) {
+	$favicon = Theming::getBrand()['favicon'] ?? '';
+	if ($favicon !== '') {
+		return $favicon;
+	}
+
 	$favicon = Theming::getFavicon($theme);
 
 	if ($favicon === false) {
@@ -48,7 +53,10 @@ function getIndexRedirectPath() {
 
 	return rtrim($directory, '/') . '/';
 }
-$webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'grommunio Web';
+$webappTitle = Theming::getBrand()['title'] ?? '';
+if ($webappTitle === '') {
+	$webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'grommunio Web';
+}
 // If the user wants to logout (and is not using single-signon)
 // then destroy the session and redirect to this page, so the login page
 // will be shown
