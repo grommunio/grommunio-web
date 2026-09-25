@@ -1024,7 +1024,7 @@ class HierarchyModule extends Module {
 				}
 				elseif ($message[PR_MESSAGE_CLASS] === "IPM.Microsoft.WunderBar.Link") {
 					if (isset($message[$prop]) && $GLOBALS['entryid']->compareEntryIds($message[$prop], $entryid)) {
-						mapi_folder_deletemessages($commonViewsFolder, [$message[PR_ENTRYID]]);
+						mapi_folder_deletemessages($commonViewsFolder, [$message[PR_ENTRYID]], DEL_ASSOCIATED | DELETE_HARD_DELETE);
 						if ($doNotify) {
 							$GLOBALS["bus"]->notify(bin2hex((string) $message[PR_ENTRYID]), OBJECT_SAVE, $message);
 						}
