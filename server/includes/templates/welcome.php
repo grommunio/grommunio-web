@@ -30,7 +30,7 @@ $serverConfig = [
 ];
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $Language->getSelectedIetf(); ?>">
+<html lang="<?php echo $Language->getSelectedIetf(); ?>" data-host="<?php echo htmlspecialchars(Theming::getRequestHost(), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?>">
 
 	<head>
                 <meta name="Generator" content="grommunio-web v<?php echo $loader->getVersion(); ?>">
@@ -50,16 +50,19 @@ $serverConfig = [
 			$loader->cssOrder();
 echo Theming::getStyles($theme);
 ?>
+		<link rel="stylesheet" href="/brand/brand.css">
 	</head>
 
 	<body class="grommunio-welcome theme-<?php echo strtolower((string) $theme ?: 'basic'); ?>">
 		<div id="loading-mask" role="status" aria-label="<?php echo _("Loading"); ?>">
 			<div id="form-container" class="loading" style="visibility: hidden;">
 				<div id="bg"></div>
+				<span class="product-badge" aria-hidden="true"></span>
 				<div id="content">
 					<div class="left">
 						<div id="logo" role="img" aria-label="grommunio"></div>
 					</div>
+					<div class="product-chip"><span class="icon"></span>Web</div>
 					<div class="right">
 					</div>
 				</div>

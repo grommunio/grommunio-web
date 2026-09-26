@@ -17,6 +17,9 @@
   /usr/share/php-mapi/** r,
   /usr/share/grommunio-web/** r,
 
+  /run/grommunio-brand/ r,
+  /run/grommunio-brand/** r,
+
   /var/lib/grommunio-web/tmp/** rwk,
   /var/lib/grommunio-web/sqlite-index/** rwk,
   /var/lib/grommunio-web/session/** rwk,

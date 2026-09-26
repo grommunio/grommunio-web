@@ -148,6 +148,13 @@ Grommunio.core.DarkMode = {
 			document.body.classList.add('dark-mode-system');
 		}
 
+		// Mirror the data-theme attribute webclient.php renders on <html>
+		if (this.mode === 'system') {
+			delete document.documentElement.dataset.theme;
+		} else {
+			document.documentElement.dataset.theme = this.mode;
+		}
+
 		// Update OnlyOffice integration
 		var ooTheme = this.resolvedTheme === 'dark'
 			? '{"id":"theme-dark","type":"dark"}'

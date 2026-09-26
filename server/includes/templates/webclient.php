@@ -78,15 +78,20 @@ if (defined('ADDITIONAL_CATEGORIES')) {
 if ($GLOBALS['settings']->get('grommunio/v1/contexts/mail/attachment_reminder_enable') === true) {
 	$serverConfig['attachment_reminder_keywords'] = ATTACHMENT_REMINDER_KEYWORDS;
 }
+$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('grommunio/v1/main/dark_mode') : 'light';
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $Language->getSelectedIetf(); ?>">
+<html lang="<?php echo $Language->getSelectedIetf(); ?>" data-host="<?php echo htmlspecialchars(Theming::getRequestHost(), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?>"<?php
+// The system setting leaves the choice to the browser
+if ($darkMode !== 'system') {
+	echo ' data-theme="' . ($darkMode === 'dark' ? 'dark' : 'light') . '"';
+}
+?>>
 
 	<head>
 		<meta name="Generator" content="grommunio-web v<?php echo $loader->getVersion(); ?>">
 <?php
 // The canvas is dark before any stylesheet arrives, so a reload does not flash white
-$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('grommunio/v1/main/dark_mode') : 'light';
 if ($darkMode === 'dark') {
 	echo "\t\t<style>html { background: #121212; }</style>\n";
 }
@@ -122,13 +127,13 @@ echo Theming::getStyles($theme);
 $iconsetStylesheet = Iconsets::getActiveStylesheet();
 ?>
 		<link id="grommunio-iconset-stylesheet" rel="stylesheet" href="<?php echo $iconsetStylesheet; ?>" >
+		<link rel="stylesheet" href="/brand/brand.css">
 	</head>
 
 	<body class="grommunio-webclient theme-<?php echo strtolower((string) $theme ?: 'basic');
 echo ' ' . $hideFavorites;
 echo ' ' . $scrollFavorites;
 echo ' ' . $unreadBorders;
-$darkMode = WebAppAuthentication::isAuthenticated() ? $GLOBALS['settings']->get('grommunio/v1/main/dark_mode') : 'light';
 if ($darkMode === 'dark') {
 	echo ' dark-mode';
 }
@@ -147,10 +152,12 @@ elseif ($darkMode === 'system') {
 		<div id="loading-mask" class="theme-<?php echo strtolower(THEME !== "" ? THEME : 'basic'); ?>" role="status" aria-label="<?php echo _("Loading"); ?>">
 			<div id="form-container" class="loading">
 				<div id="bg"></div>
+				<span class="product-badge" aria-hidden="true"></span>
 				<div id="content">
 					<div class="left">
 						<div id="logo" role="img" aria-label="grommunio"></div>
 					</div>
+					<div class="product-chip"><span class="icon"></span>Web</div>
 					<div class="right">
 					</div>
 				</div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-host="<?php echo htmlspecialchars(Theming::getRequestHost(), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?>">
 	<head>
 		<meta charset="utf-8">
 		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
@@ -23,6 +23,7 @@
 			/* Add the styling of the theme */
 			echo Theming::getStyles($theme);
 		?>
+		<link rel="stylesheet" href="/brand/brand.css">
 
 		<script><?php require BASE_PATH . 'client/fingerprint.js'; ?></script>
 	</head>
@@ -43,10 +44,12 @@
 		}
 		?>
 			<div id="bg"></div>
+			<span class="product-badge" aria-hidden="true"></span>
 			<div id="content" role="main">
 				<div class="left">
 					<div id="logo" role="img" aria-label="grommunio"></div>
 				</div>
+				<div class="product-chip"><span class="icon"></span>Web</div>
 				<div class="right">
 					<form action="<?php echo $url; ?>" method="post" aria-label="<?php echo _("Sign in"); ?>">
 						<label for="username" class="sr-only"><?php echo _("Username"); ?></label>

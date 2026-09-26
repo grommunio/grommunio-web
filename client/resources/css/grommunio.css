@@ -7404,15 +7404,16 @@ body {
   --ui-shadow-3: 0 20px 48px rgba(16, 24, 40, 0.18), 0 4px 12px rgba(16, 24, 40, 0.08);
   --ui-scrim: rgba(29, 41, 57, 0.5);
 
-  --theme-primary-color: #1976d2;
-  --theme-primary-hover: #1976d2;
-  --theme-primary-dark: #065fa5;
+  /* The default palette yields to the --brand-* properties of /brand/brand.css */
+  --theme-primary-color: var(--brand-primary, #1976d2);
+  --theme-primary-hover: var(--brand-primary-hover, #1976d2);
+  --theme-primary-dark: var(--brand-primary-hover, #065fa5);
   --theme-selection-bg: color-mix(in srgb, var(--theme-primary-color) 13%, #ffffff);
   --theme-border-color: color-mix(in srgb, var(--theme-primary-color) 10%, #ffffff);
   --theme-border-hover: color-mix(in srgb, var(--theme-primary-color) 45%, #ffffff);
   --theme-panel-bg: color-mix(in srgb, var(--theme-primary-color) 6%, #ffffff);
-  --theme-gradient-start: #009FFD;
-  --theme-gradient-end: #2a2a72;
+  --theme-gradient-start: var(--brand-gradient-start, #009FFD);
+  --theme-gradient-end: var(--brand-gradient-end, #2a2a72);
   /* A theme may replace the spinner; the url resolves against this file */
   --theme-spinner-image: url(../images/spinner.svg);
 
