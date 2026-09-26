@@ -89,6 +89,11 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	public $pass = "";
 
 	/**
+	 * @var string bearer token used instead of the password
+	 */
+	public $bearer = "";
+
+	/**
 	 * @var FilesWebDavClient the SabreDAV client object
 	 */
 	public $sabre_client;
@@ -229,7 +234,13 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 				// Get the username and password from the Encryption store
 				$encryptionStore = \EncryptionStore::getInstance();
 				$this->set_user($encryptionStore->get('username'));
-				$this->set_pass($encryptionStore->get('password'));
+				if (isset($_SESSION['_keycloak_auth'])) {
+					// Keycloak logins keep the access token in place of a password
+					$this->set_bearer($encryptionStore->get('password'));
+				}
+				else {
+					$this->set_pass($encryptionStore->get('password'));
+				}
 			}
 			else {
 				$this->set_user($GLOBALS['mapisession']->getUserName());
@@ -307,6 +318,15 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	}
 
 	/**
+	 * Set bearer token for authentication, used instead of the password.
+	 *
+	 * @param string $bearer access token
+	 */
+	public function set_bearer($bearer) {
+		$this->bearer = $bearer;
+	}
+
+	/**
 	 * set debug on (1) or off (0).
 	 * produces a lot of debug messages in webservers error log if set to on (1).
 	 *
@@ -314,6 +334,25 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 */
 	public function set_debug($debug) {
 		$this->debug = $debug;
+	}
+
+	/**
+	 * Settings for the SabreDAV client: bearer token if set, basic auth otherwise.
+	 *
+	 * @return array
+	 */
+	protected function davSettings() {
+		$davsettings = ['baseUri' => $this->webdavUrl()];
+		if ($this->bearer !== "") {
+			$davsettings['bearer'] = $this->bearer;
+		}
+		else {
+			$davsettings['userName'] = $this->user;
+			$davsettings['password'] = $this->pass;
+			$davsettings['authType'] = Client::AUTH_BASIC;
+		}
+
+		return $davsettings;
 	}
 
 	/**
@@ -333,15 +372,8 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			throw $e;
 		}
 
-		$davsettings = [
-			'baseUri' => $this->webdavUrl(),
-			'userName' => $this->user,
-			'password' => $this->pass,
-			'authType' => Client::AUTH_BASIC,
-		];
-
 		try {
-			$this->sabre_client = new FilesWebDavClient($davsettings);
+			$this->sabre_client = new FilesWebDavClient($this->davSettings());
 			$this->sabre_client->addCurlSetting(CURLOPT_SSL_VERIFYPEER, !$this->allowselfsigned);
 
 			return true;

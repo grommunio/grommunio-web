@@ -34,6 +34,11 @@ class FilesWebDavClient extends Client {
 	 */
 	public $password;
 
+	/**
+	 * @var string bearer token, used instead of userName and password
+	 */
+	public $bearer;
+
 	public function __construct(array $settings) {
 		if (isset($settings['userName'])) {
 			$this->userName = $settings['userName'];
@@ -42,6 +47,11 @@ class FilesWebDavClient extends Client {
 			$this->password = $settings['password'];
 		}
 		parent::__construct($settings);
+		if (isset($settings['bearer'])) {
+			$this->bearer = $settings['bearer'];
+			$this->addCurlSetting(CURLOPT_HTTPAUTH, CURLAUTH_BEARER);
+			$this->addCurlSetting(CURLOPT_XOAUTH2_BEARER, $this->bearer);
+		}
 	}
 
 	/**
@@ -87,7 +97,13 @@ class FilesWebDavClient extends Client {
 				curl_setopt($curl, CURLOPT_CAINFO, $this->curlSettings[CURLOPT_CAINFO]);
 			}
 
-			curl_setopt($curl, CURLOPT_USERPWD, $this->userName . ":" . $this->password);
+			if ($this->bearer !== null) {
+				curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BEARER);
+				curl_setopt($curl, CURLOPT_XOAUTH2_BEARER, $this->bearer);
+			}
+			else {
+				curl_setopt($curl, CURLOPT_USERPWD, $this->userName . ":" . $this->password);
+			}
 			curl_setopt($curl, CURLOPT_FILE, $file_handle);
 			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 			curl_setopt($curl, CURLOPT_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
