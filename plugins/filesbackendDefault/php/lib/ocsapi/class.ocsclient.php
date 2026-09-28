@@ -82,6 +82,7 @@ class ocsclient {
 	 * @param string $user
 	 * @param string $pass
 	 * @param bool   $allowSelfSignedCerts
+	 * @param string $bearer
 	 *
 	 * @throws ConnectionException
 	 */
@@ -97,7 +98,10 @@ class ocsclient {
 		private $pass, /**
 	 * @var bool Allow self signed certs
 	 */
-		private $allowSelfSignedCerts = false
+		private $allowSelfSignedCerts = false, /**
+	 * @var string Bearer token, used instead of user and pass
+	 */
+		private $bearer = ""
 	) {
 		// check if curl is available
 		$serverHasCurl = function_exists('curl_version');
@@ -116,6 +120,22 @@ class ocsclient {
 	 */
 	private function getOCSUrl() {
 		return $this->baseurl . self::OCS_PATH . "/shares";
+	}
+
+	/**
+	 * Curl options authenticating a request: bearer token if set, basic auth otherwise.
+	 *
+	 * @return array
+	 */
+	private function curlAuthOptions() {
+		if ($this->bearer !== "") {
+			return [
+				CURLOPT_HTTPAUTH => CURLAUTH_BEARER,
+				CURLOPT_XOAUTH2_BEARER => $this->bearer,
+			];
+		}
+
+		return [CURLOPT_USERPWD => $this->user . ":" . $this->pass];
 	}
 
 	/**
@@ -148,7 +168,7 @@ class ocsclient {
 		if ($this->allowSelfSignedCerts) {
 			curl_setopt_array($ch, $this->curlSSLVerifyOptions);
 		}
-		curl_setopt($ch, CURLOPT_USERPWD, $this->user . ":" . $this->pass);
+		curl_setopt_array($ch, $this->curlAuthOptions());
 		if (!empty($curlOptions)) {
 			curl_setopt_array($ch, $curlOptions);
 		}
@@ -269,7 +289,7 @@ class ocsclient {
 		if ($this->allowSelfSignedCerts) {
 			curl_setopt_array($ch, $this->curlSSLVerifyOptions);
 		}
-		curl_setopt($ch, CURLOPT_USERPWD, $this->user . ":" . $this->pass);
+		curl_setopt_array($ch, $this->curlAuthOptions());
 		$responsedata = curl_exec($ch);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 

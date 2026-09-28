@@ -24,7 +24,6 @@ use OCSAPI\Exception\ConnectionException;
 use OCSAPI\Exception\FileNotFoundException;
 use OCSAPI\ocsclient;
 use OCSAPI\ocsshare;
-use Sabre\DAV\Client;
 use Sabre\DAV\Exception;
 
 /**
@@ -167,18 +166,11 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 			throw $e;
 		}
 
-		$davsettings = [
-			'baseUri' => $this->webdavUrl(),
-			'userName' => $this->user,
-			'password' => $this->pass,
-			'authType' => Client::AUTH_BASIC,
-		];
-
 		try {
-			$this->sabre_client = new FilesWebDavClient($davsettings);
+			$this->sabre_client = new FilesWebDavClient($this->davSettings());
 			$this->sabre_client->addCurlSetting(CURLOPT_SSL_VERIFYPEER, !$this->allowselfsigned);
 
-			$this->ocs_client = new ocsclient($this->getOwncloudBaseURL(), $this->user, $this->pass, $this->allowselfsigned);
+			$this->ocs_client = new ocsclient($this->getOwncloudBaseURL(), $this->user, $this->pass, $this->allowselfsigned, $this->bearer);
 
 			return true;
 		}
