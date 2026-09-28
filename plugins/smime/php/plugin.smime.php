@@ -384,7 +384,14 @@ class Pluginsmime extends Plugin {
 			return $emailAddr;
 		}
 
-		if (!empty($userProps[PR_SENT_REPRESENTING_NAME])) {
+		$smtpProps = mapi_getprops($message, [PR_SENT_REPRESENTING_SMTP_ADDRESS, PR_SENDER_SMTP_ADDRESS]);
+		$smtpAddr = $smtpProps[PR_SENT_REPRESENTING_SMTP_ADDRESS] ?? $smtpProps[PR_SENDER_SMTP_ADDRESS] ?? '';
+		if (!empty($smtpAddr)) {
+			return $smtpAddr;
+		}
+
+		// Only a display name that is an address can match a stored certificate
+		if (str_contains((string) ($userProps[PR_SENT_REPRESENTING_NAME] ?? ''), '@')) {
 			return $userProps[PR_SENT_REPRESENTING_NAME];
 		}
 
