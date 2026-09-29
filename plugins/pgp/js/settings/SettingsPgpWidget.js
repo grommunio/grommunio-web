@@ -193,13 +193,28 @@ Grommunio.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Grommunio.settings
 						reader.readAsText(file);
 					});
 				}}},
-			{xtype: 'textarea', name: 'armored', fieldLabel: _('Armored key'), height: 240, allowBlank: false, cls: 'pgp-armored'},
-			{xtype: 'textfield', name: 'passphrase', inputType: 'password', fieldLabel: _('Protect unencrypted key'), minLength: 12,
-				emptyText: _('Optional: new passphrase for an unprotected private key'), autoCreate: {tag: 'input', type: 'password', autocomplete: 'new-password'}}
+			{xtype: 'textarea', name: 'armored', fieldLabel: _('Armored key'), height: 200, allowBlank: false, cls: 'pgp-armored'},
+			{xtype: 'textfield', name: 'currentPassphrase', inputType: 'password', fieldLabel: _('Current passphrase'),
+				autoCreate: {tag: 'input', type: 'password', autocomplete: 'new-password'}},
+			{xtype: 'textfield', name: 'passphrase', inputType: 'password', fieldLabel: _('New passphrase'), minLength: 12,
+				autoCreate: {tag: 'input', type: 'password', autocomplete: 'new-password'}},
+			{xtype: 'textfield', name: 'confirmPassphrase', inputType: 'password', fieldLabel: _('Repeat new passphrase'),
+				autoCreate: {tag: 'input', type: 'password', autocomplete: 'new-password'},
+				validator: function(value) { return value === this.ownerCt.getForm().findField('passphrase').getValue() || _('Passphrases do not match.'); }}
 		], _('Import'), function(values, done) {
-			var operation = values.passphrase ? utils.crypto().protect(values.armored, values.passphrase) : utils.crypto().inspect(values.armored);
-			widget.complete(operation.then(function(key) { return utils.importKey(key); }), done, _('Key imported. Verify recipient fingerprints before encrypting to them.'));
-		}, _('Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted.'));
+			var current = values.currentPassphrase, next = values.passphrase;
+			var operation = utils.crypto().importable(values.armored, current, next).then(function(keys) { return utils.importKeys(keys); });
+			widget.complete(operation, done).then(function(keys) {
+				current = ''; next = '';
+				if (!keys) { return; }
+				var message = String.format(_('{0} public keys imported. Verify their fingerprints before encrypting to their owners.'), keys.length);
+				if (keys.length === 1) {
+					message = keys[0].encrypted_private_key ? _('Private key imported. Make a private-key backup if you changed its passphrase.')
+						: _('Public key imported. Verify its fingerprint before encrypting to its owner.');
+				}
+				widget.feedback(message);
+			});
+		}, _('Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted.'));
 	},
 	exportPublic: function()
 	{

@@ -24,6 +24,7 @@
 	'use strict';
 	var states = new WeakMap();
 	var KEY_LIMIT = 10 * 1024 * 1024;
+	var IMPORT_KEYS_LIMIT = 100;
 	var DEFAULT_LIMIT = 50 * 1024 * 1024;
 	var DIGESTS = {8: 'pgp-sha256', 9: 'pgp-sha384', 10: 'pgp-sha512', 12: 'pgp-sha3-256', 14: 'pgp-sha3-512'};
 
@@ -108,36 +109,54 @@
 			showComment: false
 		});
 	}
-	async function readKey(input, cfg, requireProtected) {
-		var options = {config: cfg};
+	async function readArmorBlock(text, cfg) {
+		var isSecret = text.startsWith('-----BEGIN PGP PRIVATE KEY BLOCK-----');
+		return pgp.readKeys({config: cfg, armoredKeys: armor(text, isSecret ? 'PRIVATE KEY BLOCK' : 'PUBLIC KEY BLOCK', KEY_LIMIT)});
+	}
+	/** All keys of an import: one armor block or binary blob, or several concatenated armor blocks. */
+	async function parseKeys(input, cfg) {
+		var keys = [];
 		if (typeof input === 'string') {
-			var isSecret = input.trim().startsWith('-----BEGIN PGP PRIVATE KEY BLOCK-----');
-			options.armoredKeys = armor(input, isSecret ? 'PRIVATE KEY BLOCK' : 'PUBLIC KEY BLOCK', KEY_LIMIT);
+			if (input.length > KEY_LIMIT) { fail(_('Invalid or oversized OpenPGP armor.')); }
+			var blocks = input.trim().split(/(?=-----BEGIN PGP (?:PUBLIC|PRIVATE) KEY BLOCK-----)/);
+			for (var block of blocks) {
+				keys = keys.concat(await readArmorBlock(block.trim(), cfg));
+			}
 		} else {
-			options.binaryKeys = bytes(input, KEY_LIMIT);
+			keys = await pgp.readKeys({config: cfg, binaryKeys: bytes(input, KEY_LIMIT)});
 		}
-		var keys = await pgp.readKeys(options);
+		if (!keys.length || keys.length > IMPORT_KEYS_LIMIT) {
+			keys.forEach(wipe);
+			fail(_('Import between 1 and {0} OpenPGP keys at a time.').replace('{0}', IMPORT_KEYS_LIMIT));
+		}
+		keys.forEach(function(key) {
+			fingerprint(key.getFingerprint());
+			if (key.getKeys().length > 32 || key.users.length > 100) {
+				keys.forEach(wipe);
+				fail(_('This key exceeds the supported subkey or identity limit.'));
+			}
+		});
+		return keys;
+	}
+	/** Every non-stub secret packet is encrypted with a checksummed S2K, the only form the key store accepts. */
+	function protectedParts(key) {
+		return key.getKeys().every(function(part) {
+			var packet = part.keyPacket;
+			return packet.isDummy() || (!packet.isDecrypted() && [253, 254].includes(packet.s2kUsage));
+		});
+	}
+	async function readKey(input, cfg, requireProtected) {
+		var keys = await parseKeys(input, cfg);
 		if (keys.length !== 1) {
 			keys.forEach(wipe);
 			fail(_('Import one complete OpenPGP key at a time.'));
 		}
 		var key = keys[0];
-		fingerprint(key.getFingerprint());
-		if (key.getKeys().length > 32 || key.users.length > 100) {
+		// PrivateKey.isDecrypted() is intentionally true if ANY packet is
+		// unlocked. Inspect every packet as well, including mixed key exports.
+		if (key.isPrivate() && requireProtected && !protectedParts(key)) {
 			wipe(key);
-			fail(_('This key exceeds the supported subkey or identity limit.'));
-		}
-		if (key.isPrivate() && requireProtected) {
-			// PrivateKey.isDecrypted() is intentionally true if ANY packet is
-			// unlocked. Inspect every packet as well, including mixed key exports.
-			var unsafe = key.getKeys().some(function(part) {
-				var packet = part.keyPacket;
-				return packet.isDecrypted() || (!packet.isDummy() && ![253, 254].includes(packet.s2kUsage));
-			});
-			if (unsafe) {
-				wipe(key);
-				fail(_('Private keys must be passphrase protected before upload. Protect this key locally first.'), 'OPENPGP_UNPROTECTED_KEY');
-			}
+			fail(_('Private keys must be passphrase protected before upload. Protect this key locally first.'), 'OPENPGP_UNPROTECTED_KEY');
 		}
 		return key;
 	}
@@ -283,6 +302,50 @@
 			var out = await this.inspect(result.privateKey);
 			out.revocation_certificate = result.revocationCertificate;
 			return out;
+		}
+
+		/**
+		 * Prepare the keys of an import for storage. Public keys pass through, a
+		 * file may hold several. A private key comes alone: an unprotected one is
+		 * protected with the new passphrase, a protected one is stored as is, or
+		 * unlocked with its current passphrase and protected again with the new
+		 * one (or the current one, which also replaces a weak protection).
+		 */
+		async importable(input, currentPassphrase, newPassphrase) {
+			var cfg = states.get(this).config;
+			var keys = await parseKeys(input, cfg), unlocked;
+			try {
+				var secret = keys.filter(function(key) { return key.isPrivate(); });
+				if (!secret.length) {
+					return await Promise.all(keys.map(function(key) { return exported(key, cfg); }));
+				}
+				if (keys.length !== 1) {
+					fail(_('Import a private key on its own, not together with other keys.'));
+				}
+				var key = keys[0];
+				var parts = key.getKeys().filter(function(part) { return !part.keyPacket.isDummy(); });
+				var open = parts.filter(function(part) { return part.keyPacket.isDecrypted(); });
+				if (open.length && open.length !== parts.length) {
+					fail(_('This private key is only partly protected. Protect it completely before importing it.'), 'OPENPGP_UNPROTECTED_KEY');
+				}
+				if (open.length) {
+					if (!newPassphrase) {
+						fail(_('This private key is not protected by a passphrase. Enter a new passphrase to protect it.'), 'OPENPGP_UNPROTECTED_KEY');
+					}
+					unlocked = key;
+				} else if (currentPassphrase) {
+					try { unlocked = await pgp.decryptKey({privateKey: key, passphrase: passphrase(currentPassphrase, false), config: cfg}); }
+					catch (error) { fail(_('The current passphrase could not unlock this private key.'), 'OPENPGP_BAD_PASSPHRASE'); }
+				} else if (newPassphrase) {
+					fail(_('Enter the current passphrase of this key to give it a new one.'), 'OPENPGP_BAD_PASSPHRASE');
+				} else if (!protectedParts(key)) {
+					fail(_('This private key uses an outdated protection. Enter its current passphrase to protect it again.'), 'OPENPGP_UNPROTECTED_KEY');
+				} else {
+					return [await exported(key, cfg)];
+				}
+				var encrypted = await pgp.encryptKey({privateKey: unlocked, passphrase: passphrase(newPassphrase || currentPassphrase, !!newPassphrase), config: cfg});
+				return [await exported(encrypted, cfg)];
+			} finally { keys.forEach(wipe); wipe(unlocked); }
 		}
 
 		async protect(input, newPassphrase) {

@@ -79,6 +79,14 @@ Grommunio.plugins.pgp.PgpUtils = {
 			});
 		});
 	},
+	/** Import keys one after another, so that each merge sees the previous one. */
+	importKeys: function(keys)
+	{
+		var utils = this;
+		return keys.reduce(function(previous, key) {
+			return previous.then(function() { return utils.importKey(key); });
+		}, Promise.resolve()).then(function() { return keys; });
+	},
 	notify: function(message, error)
 	{
 		container.getNotifier().notify('info.saved', _('OpenPGP'), this.encode(message));
