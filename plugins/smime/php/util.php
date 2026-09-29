@@ -111,6 +111,106 @@ function readCertificateMessageBody($message) {
 }
 
 /**
+ * Issuer of a certificate in the form stored in PR_SENDER_EMAIL_ADDRESS
+ * of its certificate message.
+ *
+ * @param array $certData parsed certificate data
+ *
+ * @return string one key=value line per issuer component
+ */
+function certIssuerString($certData) {
+	$issuedBy = '';
+	foreach (array_keys($certData['issuer']) as $key) {
+		$issuedBy .= $key . '=' . $certData['issuer'][$key] . "\n";
+	}
+
+	return $issuedBy;
+}
+
+/**
+ * Read the public certificate messages of a store.
+ *
+ * @param resource $store  user's store
+ * @param string   $serial restrict to this serial number (PR_SENDER_NAME) when not empty
+ *
+ * @return array<int, array<int, mixed>> certificate message rows
+ */
+function getPublicCertRows($store, $serial = '') {
+	$restrict = [RES_PROPERTY,
+		[
+			RELOP => RELOP_EQ,
+			ULPROPTAG => PR_MESSAGE_CLASS,
+			VALUE => [PR_MESSAGE_CLASS => 'WebApp.Security.Public'],
+		],
+	];
+	if ($serial !== '') {
+		$restrict = [RES_AND, [
+			$restrict,
+			[RES_PROPERTY,
+				[
+					RELOP => RELOP_EQ,
+					ULPROPTAG => PR_SENDER_NAME,
+					VALUE => [PR_SENDER_NAME => $serial],
+				],
+			],
+		]];
+	}
+	$root = mapi_msgstore_openentry($store);
+	$table = mapi_folder_getcontentstable($root, MAPI_ASSOCIATED);
+	mapi_table_restrict($table, $restrict, TBL_BATCH);
+	$rows = mapi_table_queryallrows($table, [PR_ENTRYID, PR_SENDER_NAME, PR_SENDER_EMAIL_ADDRESS, PR_SUBJECT, PR_SUBJECT_PREFIX]);
+
+	return is_array($rows) ? $rows : [];
+}
+
+/**
+ * SHA-256 fingerprint of the certificate held by a public certificate message.
+ *
+ * @param resource $store   user's store
+ * @param string   $entryid certificate message entryid
+ *
+ * @return null|string fingerprint, or null when the body cannot be read
+ */
+function storedCertFingerprint($store, $entryid) {
+	$body = readCertificateMessageBody(mapi_msgstore_openentry($store, $entryid));
+	$fingerprint = $body === null ? false : @openssl_x509_fingerprint(base64_decode($body), 'sha256');
+
+	return $fingerprint === false ? null : $fingerprint;
+}
+
+/**
+ * Find a stored public certificate. Issuer and serial number select the
+ * candidates, the certificate body confirms them.
+ *
+ * @param resource $store    user's store
+ * @param string   $serial   serial number
+ * @param string   $issuedBy issuer as built by certIssuerString()
+ * @param string   $cert     certificate (PEM)
+ *
+ * @return null|array the certificate message row, or null when not stored
+ */
+function findPublicCert($store, $serial, $issuedBy, $cert) {
+	$fingerprint = @openssl_x509_fingerprint($cert, 'sha256');
+	if ($serial === null || $serial === '' || $fingerprint === false) {
+		return null;
+	}
+
+	try {
+		foreach (getPublicCertRows($store, (string) $serial) as $row) {
+			if (($row[PR_SENDER_EMAIL_ADDRESS] ?? null) === $issuedBy &&
+				storedCertFingerprint($store, $row[PR_ENTRYID]) === $fingerprint) {
+				return $row;
+			}
+		}
+	}
+	catch (MAPIException $e) {
+		error_log(sprintf("[smime] Unable to check stored public certificates: %s", $e->getMessage()));
+	}
+
+	return null;
+}
+
+/**
  * Function that will decrypt the private certificate using a supplied password
  * If multiple private certificates can be decrypted with the supplied password,
  * all of them will be returned, if $singleCert == false, otherwise only the first one.

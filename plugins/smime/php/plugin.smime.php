@@ -1496,7 +1496,8 @@ class Pluginsmime extends Plugin {
 	 * @param string $cert     certificate body as a string
 	 * @param mixed  $certData an array with the parsed certificate data
 	 * @param string $type     certificate type, default 'public'
-	 * @param bool   $force    force import the certificate even though we have one already stored in the MAPI Store.
+	 * @param bool   $force    force import the certificate even though we have one already stored in the MAPI Store
+	 *                         for its email address; the same certificate is never stored twice.
 	 *                         FIXME: remove $force in the future and move the check for newer certificate in this function.
 	 */
 	public function importCertificate($cert, $certData, $type = 'public', $force = false) {
@@ -1504,9 +1505,19 @@ class Pluginsmime extends Plugin {
 		if ($this->pubcertExists($certEmail) && !$force && $type !== 'private') {
 			return;
 		}
-		$issued_by = "";
-		foreach (array_keys($certData['issuer']) as $key) {
-			$issued_by .= $key . '=' . $certData['issuer'][$key] . "\n";
+		$issued_by = certIssuerString($certData);
+		if ($type === 'public') {
+			$stored = findPublicCert($this->getStore(), $certData['serialNumber'], $issued_by, $cert);
+			if ($stored !== null) {
+				// Rows of older versions carry a subject the email lookup misses
+				if (strcasecmp((string) ($stored[PR_SUBJECT] ?? ''), $certEmail) !== 0) {
+					$storedMessage = mapi_msgstore_openentry($this->getStore(), $stored[PR_ENTRYID]);
+					mapi_setprops($storedMessage, [PR_SUBJECT => $certEmail, PR_SUBJECT_PREFIX => '']);
+					mapi_message_savechanges($storedMessage);
+				}
+
+				return;
+			}
 		}
 
 		// Get key type metadata for storage
