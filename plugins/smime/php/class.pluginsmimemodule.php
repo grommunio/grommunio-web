@@ -238,6 +238,7 @@ class PluginSmimeModule extends Module {
 		$items = [];
 		$data = ['page' => []];
 
+		dedupePublicCerts($this->store);
 		$root = mapi_msgstore_openentry($this->store);
 		$table = mapi_folder_getcontentstable($root, MAPI_ASSOCIATED);
 

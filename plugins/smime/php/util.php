@@ -211,6 +211,69 @@ function findPublicCert($store, $serial, $issuedBy, $cert) {
 }
 
 /**
+ * Collapse public certificate messages holding the same certificate into
+ * one and give the kept message the subject the email lookup expects.
+ *
+ * @param resource $store user's store
+ */
+function dedupePublicCerts($store) {
+	try {
+		$groups = [];
+		foreach (getPublicCertRows($store) as $row) {
+			$serial = (string) ($row[PR_SENDER_NAME] ?? '');
+			if ($serial !== '') {
+				$groups[$serial . "\0" . ($row[PR_SENDER_EMAIL_ADDRESS] ?? '')][] = $row;
+			}
+		}
+
+		$duplicates = [];
+		foreach ($groups as $rows) {
+			$subject = (string) ($rows[0][PR_SUBJECT] ?? '');
+			if (count($rows) === 1 && empty($rows[0][PR_SUBJECT_PREFIX]) && preg_match('/^[^\s,]+@[^\s,]+$/', $subject)) {
+				continue;
+			}
+			$certs = [];
+			foreach ($rows as $row) {
+				$body = readCertificateMessageBody(mapi_msgstore_openentry($store, $row[PR_ENTRYID]));
+				$pem = $body === null ? '' : base64_decode($body);
+				$fingerprint = @openssl_x509_fingerprint($pem, 'sha256');
+				if ($fingerprint !== false) {
+					$certs[$fingerprint]['pem'] = $pem;
+					$certs[$fingerprint]['rows'][] = $row;
+				}
+			}
+			foreach ($certs as $cert) {
+				$parsed = openssl_x509_parse($cert['pem']);
+				$certEmail = $parsed === false ? '' : getCertEmail($parsed);
+				$keep = $cert['rows'][0];
+				foreach ($cert['rows'] as $row) {
+					if (empty($row[PR_SUBJECT_PREFIX]) && strcasecmp((string) ($row[PR_SUBJECT] ?? ''), $certEmail) === 0) {
+						$keep = $row;
+						break;
+					}
+				}
+				foreach ($cert['rows'] as $row) {
+					if ($row !== $keep) {
+						$duplicates[] = $row[PR_ENTRYID];
+					}
+				}
+				if ($certEmail !== '' && (!empty($keep[PR_SUBJECT_PREFIX]) || strcasecmp((string) ($keep[PR_SUBJECT] ?? ''), $certEmail) !== 0)) {
+					$message = mapi_msgstore_openentry($store, $keep[PR_ENTRYID]);
+					mapi_setprops($message, [PR_SUBJECT => $certEmail, PR_SUBJECT_PREFIX => '']);
+					mapi_message_savechanges($message);
+				}
+			}
+		}
+		if (!empty($duplicates)) {
+			mapi_folder_deletemessages(mapi_msgstore_openentry($store), $duplicates);
+		}
+	}
+	catch (MAPIException $e) {
+		error_log(sprintf("[smime] Unable to remove duplicate public certificates: %s", $e->getMessage()));
+	}
+}
+
+/**
  * Function that will decrypt the private certificate using a supplied password
  * If multiple private certificates can be decrypted with the supplied password,
  * all of them will be returned, if $singleCert == false, otherwise only the first one.
