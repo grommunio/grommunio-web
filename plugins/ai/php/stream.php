@@ -22,6 +22,8 @@
  */
 
 $root = dirname(__DIR__, 3);
+// LANGUAGE_DIR and other config.php paths are relative to the web root
+chdir($root);
 require_once $root . '/server/includes/bootstrap.php';
 
 // The plugin's own config.php (PLUGIN_AI_* constants) is normally loaded by the
@@ -63,6 +65,8 @@ if (!WebAppAuthentication::isAuthenticated()) {
 }
 $mapisession = WebAppAuthentication::getMAPISession();
 $GLOBALS['mapisession'] = $mapisession;
+
+(new Language())->setLanguage($_SESSION['lang'] ?? LANG);
 
 // Read the JSON request body.
 $input = json_decode((string) file_get_contents('php://input'), true);
