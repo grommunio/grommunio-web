@@ -42,6 +42,26 @@ function getCertEmail($certificate) {
 }
 
 /**
+ * All email addresses of a certificate: subject emailAddress and every
+ * subjectAltName email entry.
+ *
+ * @param array $certificate parsed certificate data
+ *
+ * @return string[] lower-case addresses
+ */
+function getCertEmails($certificate) {
+	$emails = (array) ($certificate['subject']['emailAddress'] ?? []);
+	foreach (explode(',', (string) ($certificate['extensions']['subjectAltName'] ?? '')) as $altName) {
+		$altName = trim($altName);
+		if (str_starts_with($altName, 'email:')) {
+			$emails[] = substr($altName, 6);
+		}
+	}
+
+	return array_values(array_unique(array_map(static fn ($email) => strtolower(trim((string) $email)), $emails)));
+}
+
+/**
  * Function that will return the private certificate of the user from the user store where it is stored in pkcs#12 format.
  *
  * @param resource $store        user's store

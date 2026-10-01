@@ -45,6 +45,8 @@ define('SMIME_SIGNING_TIME_SKEW', 19);
 // (missing/untrusted root or intermediate). Distinct from SMIME_CA,
 // which is reserved for an unreachable OCSP/CRL verification service.
 define('SMIME_CA_UNTRUSTED', 20);
+// Valid signature, but neither From nor Sender is an address of the certificate (RFC 8550 §3)
+define('SMIME_SENDER_MISMATCH', 21);
 
 // OpenSSL Error Constants
 // openssl_error_string() returns error codes when an operation fails, since we return custom error strings
@@ -302,11 +304,9 @@ class Pluginsmime extends Plugin {
 
 		[$fromGAB, $availableCerts] = $this->collectGabCertificate($userProps);
 
-		if (!$fromGAB && isset($GLOBALS['operations'])) {
-			$emailAddr = $this->resolveSenderEmail($message, $userProps);
-			if (!empty($emailAddr)) {
-				$availableCerts = array_merge($availableCerts, $this->getUserStoreCertificates($emailAddr));
-			}
+		$emailAddr = isset($GLOBALS['operations']) ? $this->resolveSenderEmail($message, $userProps) : null;
+		if (!$fromGAB && !empty($emailAddr)) {
+			$availableCerts = array_merge($availableCerts, $this->getUserStoreCertificates($emailAddr));
 		}
 
 		try {
@@ -317,6 +317,10 @@ class Pluginsmime extends Plugin {
 
 			if ($verification['status'] === 'import' && !$fromGAB && !empty($verification['parsedImportCert'])) {
 				$this->importVerifiedCertificate($verification['importCert'], $verification['parsedImportCert']);
+			}
+
+			if (($this->message['success'] ?? null) === SMIME_STATUS_SUCCESS) {
+				$this->checkSenderAddress($message, $userProps, $emailAddr, $tmpOutCert);
 			}
 		}
 		finally {
@@ -405,6 +409,66 @@ class Pluginsmime extends Plugin {
 		}
 
 		return null;
+	}
+
+	/**
+	 * Downgrade a verified signature to a warning when neither the From nor
+	 * the Sender address of the message is an address of a signer certificate.
+	 *
+	 * @param mixed       $message    MAPI message resource
+	 * @param array       $userProps  sender related MAPI properties
+	 * @param null|string $emailAddr  sender address from resolveSenderEmail()
+	 * @param string      $signerFile file holding the signer certificates
+	 */
+	private function checkSenderAddress($message, array $userProps, $emailAddr, $signerFile) {
+		$certEmails = [];
+		foreach (extractPemCerts(@file_get_contents($signerFile)) as $pem) {
+			$parsed = openssl_x509_parse($pem);
+			if ($parsed !== false) {
+				$certEmails = array_merge($certEmails, getCertEmails($parsed));
+			}
+		}
+		// RFC 8550 §3 only compares addresses a certificate has
+		if (empty($certEmails)) {
+			return;
+		}
+
+		$props = mapi_getprops($message, [PR_SENT_REPRESENTING_SMTP_ADDRESS, PR_SENDER_SMTP_ADDRESS, PR_SENT_REPRESENTING_ENTRYID, PR_SENDER_ENTRYID]);
+		$senders = [$props[PR_SENT_REPRESENTING_SMTP_ADDRESS] ?? null, $props[PR_SENDER_SMTP_ADDRESS] ?? null];
+		if ($emailAddr !== ($userProps[PR_SENT_REPRESENTING_NAME] ?? null)) {
+			$senders[] = $emailAddr;
+		}
+		foreach ([PR_SENT_REPRESENTING_ENTRYID, PR_SENDER_ENTRYID] as $tag) {
+			if (empty($props[$tag])) {
+				continue;
+			}
+
+			try {
+				$user = mapi_ab_openentry($GLOBALS['mapisession']->getAddressbook(), $props[$tag]);
+				$proxies = mapi_getprops($user, [PR_EMS_AB_PROXY_ADDRESSES])[PR_EMS_AB_PROXY_ADDRESSES] ?? [];
+				foreach ((array) $proxies as $proxy) {
+					if (stripos((string) $proxy, 'smtp:') === 0) {
+						$senders[] = substr((string) $proxy, 5);
+					}
+				}
+			}
+			catch (MAPIException $e) {
+				$e->setHandled();
+			}
+		}
+
+		$senders = array_filter($senders, static fn ($address) => str_contains((string) $address, '@'));
+		if (empty($senders)) {
+			return;
+		}
+		foreach ($senders as $sender) {
+			if (in_array(strtolower(trim((string) $sender)), $certEmails, true)) {
+				return;
+			}
+		}
+		$this->message['success'] = SMIME_STATUS_PARTIAL;
+		$this->message['info'] = SMIME_SENDER_MISMATCH;
+		$this->message['signer'] = implode(', ', array_unique($certEmails));
 	}
 
 	/**
