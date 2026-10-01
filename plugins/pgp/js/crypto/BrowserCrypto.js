@@ -255,7 +255,14 @@
 			var key = candidates.length === 1 ? candidates[0] : null;
 			var info = key ? await metadata(key, cfg) : null;
 			var accepted = valid && !!key && !info.revoked && !info.disabled;
-			return {keyid: keyid, fingerprint: info ? info.fingerprint : '', primary_fingerprint: info ? info.fingerprint : '',
+			// The issuer fingerprint subpacket names the signing (sub)key in full, which
+			// lets a missing certificate be looked up. It is not authenticated until then.
+			var packet = await Promise.resolve(signature.signature).then(function(sig) { return sig && sig.packets && sig.packets[0]; }, function() { return null; });
+			var issuer = packet && packet.issuerFingerprint instanceof Uint8Array ? Array.from(packet.issuerFingerprint, function(byte) {
+				return ('0' + byte.toString(16)).slice(-2);
+			}).join('').toUpperCase() : '';
+			return {keyid: keyid, issuer_fingerprint: /^(?:[A-F0-9]{40}|[A-F0-9]{64})$/.test(issuer) ? issuer : '',
+				fingerprint: info ? info.fingerprint : '', primary_fingerprint: info ? info.fingerprint : '',
 				valid: accepted, status: accepted ? (info.expired ? 'expired' : 'valid') : (candidates.length ? 'invalid' : 'missing-key'),
 				uids: info ? info.uids : [], expired: info ? info.expired : false, revoked: info ? info.revoked : false};
 		}));

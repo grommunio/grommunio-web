@@ -121,7 +121,33 @@ Grommunio.plugins.pgp.PgpPlugin = Ext.extend(Grommunio.core.Plugin, {
 		if (info.fingerprint) { details += '<br><br>' + String.format(_('Signing key: {0}'), utils.encode(utils.formatFingerprint(info.fingerprint))); }
 		if (info.message) { details += '<br><br>' + utils.encode(info.message); }
 		if (info.encrypted && info.decrypted) { details += '<br><br>' + _('Decryption alone does not authenticate the sender.'); }
-		Ext.Msg.alert(_('OpenPGP security information'), details);
+		var missing = utils.missingSigners(info);
+		if (!missing.length) {
+			Ext.Msg.alert(_('OpenPGP security information'), details);
+			return;
+		}
+		details += '<br><br>' + utils.encode(_('Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender.'));
+		Ext.Msg.show({title: _('OpenPGP security information'), msg: details, icon: Ext.Msg.INFO,
+			buttons: {yes: _('Find key on keyserver'), cancel: _('Close')},
+			fn: function(button) {
+				if (button === 'yes') { this.findSigningKeys(missing); }
+			}, scope: this});
+	},
+	/**
+	 * Fetch the missing signing keys from the keyservers and import them. Storing a
+	 * key rechecks the open messages, so the signature status updates by itself.
+	 * @param {Object[]} missing See {@link Grommunio.plugins.pgp.PgpUtils#missingSigners}
+	 */
+	findSigningKeys: function(missing)
+	{
+		var utils = Grommunio.plugins.pgp.PgpUtils;
+		Promise.all(missing.map(function(signer) { return utils.findPublicKey(signer.queries); })).then(function(keys) {
+			return utils.importKeys(keys);
+		}).then(function(keys) {
+			utils.notify(String.format(_('Imported the signing key {0}. Verify its fingerprint before you trust the sender.'), keys.map(function(key) {
+				return utils.formatFingerprint(key.fingerprint);
+			}).join(', ')));
+		}).catch(function(error) { utils.notify(error.message, true); });
 	},
 	defaultColumn: function()
 	{

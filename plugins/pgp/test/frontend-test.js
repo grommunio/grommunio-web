@@ -105,6 +105,13 @@ test('decryption and valid cryptography do not falsely authenticate the sender',
 	assert.equal(utils.status({signed: true, signature_valid: true, sender_match: true, signer_trusted: true, signer_expired: true}).severity, 'warning');
 	assert.match(utils.status({signed: true, signature_valid: true, trailer: true}).text, /not shown/);
 	assert.match(utils.status({encrypted: true, decrypted: true, bundle_error: true}).text, /could not be loaded/);
+	const missing = {signed: true, signature_valid: false, signatures: [{status: 'missing-key', valid: false, keyid: 'B87667E1BE80E6B1', issuer_fingerprint: 'F18B64D6E239B7777CD5CDD2B87667E1BE80E6B1'}]};
+	assert.equal(utils.status(missing).severity, 'warning', 'a missing signing key is not a bad signature');
+	assert.match(utils.status(missing).text, /B87667E1BE80E6B1 is not in your keyring/);
+	assert.equal(JSON.stringify(utils.missingSigners(missing)), JSON.stringify([{keyid: 'B87667E1BE80E6B1', queries: ['F18B64D6E239B7777CD5CDD2B87667E1BE80E6B1', 'B87667E1BE80E6B1']}]));
+	assert.equal(JSON.stringify(utils.missingSigners({signatures: [{status: 'missing-key', keyid: 'B87667E1BE80E6B1', issuer_fingerprint: ''}]})[0].queries), JSON.stringify(['B87667E1BE80E6B1']));
+	missing.signatures.push({status: 'invalid', valid: false, keyid: '0123456789ABCDEF'});
+	assert.equal(utils.status(missing).severity, 'bad', 'an invalid signature next to a missing key stays bad');
 	assert.match(utils.status({unverifiable: true, encrypted: true}).text, /decrypt it with an OpenPGP tool/);
 });
 

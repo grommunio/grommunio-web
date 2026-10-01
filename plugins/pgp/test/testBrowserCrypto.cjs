@@ -191,6 +191,8 @@ async function main() {
 	check(clear.valid && BrowserCrypto.decodeUtf8(clear.data).includes('Clear-signed text'), 'GnuPG cleartext signature verified in browser');
 	await rejects(() => service.verifyCleartext(cleartext + '\nunsigned attacker text', [gpgPublic]), 'Clear-signed appended attacker text rejected');
 	check(!(await service.verifyCleartext(cleartext.replace('Second line.', 'Modified line.'), [gpgPublic])).valid, 'Clear-signed content tampering rejected');
+	const unknown = (await service.verifyCleartext(cleartext, [rsa.public_key])).signatures[0];
+	check(unknown.status === 'missing-key' && unknown.issuer_fingerprint === gpgFp, 'Missing signer reported with its issuer fingerprint');
 	const kept = (await service.importable(gpgPrivate))[0];
 	await service.unlock(kept.encrypted_private_key, password);
 	check(kept.metadata.protected, 'Protected private key imported as is keeps its passphrase');
