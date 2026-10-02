@@ -51,7 +51,7 @@ class OpenAIProvider extends AIProvider {
 
 		$effort = $this->config->effortFor($model);
 		$reasoning = $this->config->isReasoningModel($model);
-		if (!$reasoning || $effort === 'none') {
+		if ((!$reasoning || $effort === 'none') && $this->config->takesTemperature($model)) {
 			$body['temperature'] = $opts['temperature'] ?? $this->config->temperature;
 		}
 		// OpenAI rejects an effort for gpt-4.1/gpt-4o
@@ -74,8 +74,9 @@ class OpenAIProvider extends AIProvider {
 			'stream' => $stream,
 		];
 
-		// OpenAI deprecated max_tokens, its reasoning models reject it
-		if ($this->config->provider === 'openai' || $this->config->isReasoningModel($model)) {
+		// Ollama reads only max_tokens
+		$provider = $this->config->provider;
+		if (in_array($provider, ['openai', 'groq'], true) || ($provider !== 'ollama' && $this->config->isReasoningModel($model))) {
 			$body['max_completion_tokens'] = $maxTokens;
 		}
 		else {
@@ -124,7 +125,7 @@ class OpenAIProvider extends AIProvider {
 
 	protected function extractContent(array $json): string {
 		if (!$this->responses) {
-			return (string) ($json['choices'][0]['message']['content'] ?? '');
+			return (string) self::contentText($json['choices'][0]['message']['content'] ?? null);
 		}
 
 		// Reasoning items precede the message, so walk the whole output.
@@ -152,7 +153,24 @@ class OpenAIProvider extends AIProvider {
 			return ($json['type'] ?? '') === 'response.output_text.delta' ? ($json['delta'] ?? null) : null;
 		}
 
-		return $json['choices'][0]['delta']['content'] ?? null;
+		return self::contentText($json['choices'][0]['delta']['content'] ?? null);
+	}
+
+	/**
+	 * Message content as text; Mistral reasoning models send a list of chunks.
+	 */
+	private static function contentText(mixed $content): ?string {
+		if (!is_array($content)) {
+			return is_string($content) ? $content : null;
+		}
+		$text = '';
+		foreach ($content as $part) {
+			if (is_array($part) && ($part['type'] ?? '') === 'text') {
+				$text .= (string) ($part['text'] ?? '');
+			}
+		}
+
+		return $text;
 	}
 
 	protected function parseFinishReason(array $json): ?string {

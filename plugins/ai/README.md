@@ -36,7 +36,7 @@ major LLM:
   automatically; `PLUGIN_AI_API_MODE` forces either API.
 - **Anthropic Messages API** — the native Claude API.
 
-The shipped default is **Google Gemini's free tier** (`gemini-2.0-flash`): strong
+The shipped default is **Google Gemini's free tier** (`gemini-3.6-flash`): strong
 quality and excellent multilingual support, with a key you get in two clicks at
 <https://aistudio.google.com/apikey> (no credit card). For **full data
 sovereignty** — nothing leaves your server — switch to the local **Ollama**
@@ -69,7 +69,7 @@ define('PLUGIN_AI_ENABLE', true);
 define('PLUGIN_AI_PROVIDER', 'gemini');
 define('PLUGIN_AI_API_BASE', 'https://generativelanguage.googleapis.com/v1beta/openai');
 define('PLUGIN_AI_API_KEY', 'AIza...');           // from aistudio.google.com/apikey
-define('PLUGIN_AI_MODEL', 'gemini-2.0-flash');
+define('PLUGIN_AI_MODEL', 'gemini-3.6-flash');
 ```
 
 Ready-to-use commented presets for **Groq**, **OpenRouter**, **local Ollama**,

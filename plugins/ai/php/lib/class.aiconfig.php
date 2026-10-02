@@ -104,10 +104,10 @@ class AIConfig {
 	private static function defaultModelFor(string $provider): string {
 		return match ($provider) {
 			'openai' => 'gpt-6-luna',
-			'anthropic' => 'claude-3-5-haiku-latest',
-			'gemini' => 'gemini-2.0-flash',
-			'groq' => 'llama-3.3-70b-versatile',
-			'openrouter' => 'meta-llama/llama-3.3-70b-instruct:free',
+			'anthropic' => 'claude-haiku-5-5',
+			'gemini' => 'gemini-3.6-flash',
+			'groq' => 'openai/gpt-oss-120b',
+			'openrouter' => 'openrouter/free',
 			'ionos' => 'mistralai/Mistral-Small-24B-Instruct',
 			'ollama' => 'llama3.1:8b',
 			default => '',
@@ -179,6 +179,13 @@ class AIConfig {
 
 		// gpt-35-turbo is Azure's GPT-3.5
 		return (bool) preg_match('/^(o[1-9]|gpt-(?![34])\d|chat-latest)/', self::bareModel($model));
+	}
+
+	/**
+	 * Whether the model takes a custom temperature (not Gemini 3+, current Claude).
+	 */
+	public function takesTemperature(string $model): bool {
+		return !preg_match('/^(gemini-([3-9]|\d{2,})|claude-(fable|mythos)|claude-opus-(4-[7-9]|[5-9])|claude-(sonnet|haiku)-[5-9])/', self::bareModel($model));
 	}
 
 	/**
