@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Korean (Korea)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2017-10-05 20:07+0200\n"
 "Last-Translator: import\n"
 "Language: ko_KR\n"
@@ -7915,6 +7915,9 @@ msgstr "메시지 암호화"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "메시지 내용을 암호화하여 메시지의 개인정보 보호를 보장합니다. 메시지 수신자만 메시지를 열 수 있습니다."
 
+msgid "Certificate issued to"
+msgstr "인증서 발급 대상"
+
 msgid "Algorithms used"
 msgstr "사용된 알고리즘"
 
@@ -7997,6 +8000,9 @@ msgstr "디지털 서명의 서명 시간이 예상 시간과 크게 다릅니�
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "발신자 인증서의 인증서 체인을 검증할 수 없습니다. 인증서를 발급한 인증 기관이 서버의 S/MIME용 신뢰할 수 있는 CA 저장소에 없거나 중간 인증서가 누락되었습니다. 누락된 인증 기관 인증서를 설치해 달라고 시스템 관리자에게 요청하세요."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "이 이메일의 디지털 서명은 유효하지만 서명에 사용된 인증서가 발신자 주소의 것이 아닙니다. 메일링 리스트나 전달 서비스를 거쳐 전달된 이메일이거나, 누군가 발신자를 사칭하고 있을 수 있습니다."
+
 msgid "Signature verified successfully"
 msgstr "서명이 성공적으로 확인되었습니다."
 
@@ -8059,6 +8065,9 @@ msgstr "서명 시간이 예상 시간과 다름"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "인증 기관을 신뢰할 수 없어 서명을 검증할 수 없습니다"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "서명이 확인되었지만 인증서가 발신자의 것이 아닙니다."
 
 msgid "Digest"
 msgstr "다이제스트"

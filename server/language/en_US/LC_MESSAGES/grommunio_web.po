@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web English (United States)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2024-04-30 06:29+0000\n"
 "Last-Translator: Mike Williams <mike.williams@grommunio.com>\n"
 "Language-Team: English (United States) <https://hosted.weblate.org/projects/grommunio/grommunio-web/en_US/>\n"
@@ -7952,6 +7952,9 @@ msgstr "Encrypt message"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 
+msgid "Certificate issued to"
+msgstr "Certificate issued to"
+
 msgid "Algorithms used"
 msgstr "Algorithms used"
 
@@ -8034,6 +8037,9 @@ msgstr "The signing time in the digital signature differs significantly from the
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "The sender's certificate chain could not be verified: the issuing certificate authority is not in the server's trusted S/MIME CA store, or an intermediate certificate is missing. Contact your system administrator to install the missing certificate authority."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+
 msgid "Signature verified successfully"
 msgstr "Signature verified successfully"
 
@@ -8096,6 +8102,9 @@ msgstr "Signing time differs from expected time"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Could not verify the signature because the certificate authority is not trusted"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Signature verified, but the certificate does not belong to the sender"
 
 msgid "Digest"
 msgstr "Digest"

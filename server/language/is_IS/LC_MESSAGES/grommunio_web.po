@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -7951,6 +7951,9 @@ msgstr "Dulkóða skilaboð"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Tryggðu friðhelgi skilaboðanna með því að dulkóða efnið. Aðeins viðtakandi skilaboðanna mun geta opnað þau."
 
+msgid "Certificate issued to"
+msgstr "Vottorð gefið út til"
+
 msgid "Algorithms used"
 msgstr "Reiknirit notuð"
 
@@ -8033,6 +8036,9 @@ msgstr "Undirritunartíminn í stafrænu undirskriftinni er verulega frábrugði
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "Ekki tókst að sannreyna vottorðakeðju vottorðs sendandans: Vottunaraðilinn sem gaf það út er ekki í traustri CA-geymslu þjónsins fyrir S/MIME, eða millivottorð vantar. Hafðu samband við kerfisstjóra til að láta setja upp vottunaraðilann sem vantar."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "Rafræna undirskriftin á þessum tölvupósti er gild, en vottorðið sem notað var til að undirrita hann tilheyrir ekki netfangi sendandans. Tölvupósturinn gæti hafa borist í gegnum póstlista eða áframsendingarþjónustu, eða einhver gæti verið að þykjast vera sendandinn."
+
 msgid "Signature verified successfully"
 msgstr "Undirskrift staðfest með góðum árangri"
 
@@ -8095,6 +8101,9 @@ msgstr "Undirritunartími er frábrugðinn áætluðum tíma"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Ekki tókst að sannreyna undirskriftina þar sem vottunaraðilinn er ekki talinn traustur"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Undirskrift staðfest, en vottorðið tilheyrir ekki sendandanum"
 
 msgid "Digest"
 msgstr "Tætigildi"

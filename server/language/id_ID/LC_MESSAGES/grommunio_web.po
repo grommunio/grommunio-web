@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2026-09-16 22:52+0000\n"
 "Last-Translator: Arif Budiman <arifpedia@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/grommunio/grommunio-web/id/>\n"
@@ -7953,6 +7953,9 @@ msgstr "Enkripsi pesan"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Pastikan kerahasiaan pesan dengan mengenkripsi isinya. Hanya penerima pesan yang dapat membukanya."
 
+msgid "Certificate issued to"
+msgstr "Sertifikat diterbitkan untuk"
+
 msgid "Algorithms used"
 msgstr "Algoritma yang digunakan"
 
@@ -8035,6 +8038,9 @@ msgstr "Waktu penandatanganan dalam tanda tangan digital berbeda secara signifik
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "Rantai sertifikat dari sertifikat pengirim tidak dapat diverifikasi: otoritas sertifikat yang menerbitkannya tidak berada dalam penyimpanan CA tepercaya server untuk S/MIME, atau sertifikat perantara tidak tersedia. Hubungi administrator sistem untuk memasang otoritas sertifikat yang tidak tersedia."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "Tanda tangan digital email ini valid, tetapi sertifikat yang digunakan untuk menandatanganinya bukan milik alamat pengirim. Email ini mungkin diteruskan oleh milis atau layanan penerusan, atau seseorang mungkin menyamar sebagai pengirim."
+
 msgid "Signature verified successfully"
 msgstr "Tanda tangan berhasil diverifikasi"
 
@@ -8097,6 +8103,9 @@ msgstr "Waktu penandatanganan berbeda dari waktu yang diharapkan"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Tanda tangan tidak dapat diverifikasi, otoritas sertifikat tidak tepercaya"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Tanda tangan terverifikasi, tetapi sertifikat bukan milik pengirim"
 
 msgid "Digest"
 msgstr "Digest"

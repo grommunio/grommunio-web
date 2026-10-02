@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2022-07-26 17:59+0200\n"
 "Last-Translator: Artem <Localizer_in_Russian@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/grommunio/grommunio-web/ru/>\n"
@@ -7990,6 +7990,9 @@ msgstr "Зашифровать сообщение"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Обеспечьте конфиденциальность сообщения, зашифровав его содержимое. Только получатель сообщения сможет открыть его."
 
+msgid "Certificate issued to"
+msgstr "Кому выдан сертификат"
+
 msgid "Algorithms used"
 msgstr "Используемые алгоритмы"
 
@@ -8072,6 +8075,9 @@ msgstr "Время подписания в цифровой подписи зн�
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "Не удалось проверить цепочку сертификатов отправителя: центр сертификации, выдавший сертификат отправителя, отсутствует в серверном хранилище доверенных центров сертификации для S/MIME либо отсутствует промежуточный сертификат. Обратитесь к системному администратору, чтобы он установил сертификат отсутствующего центра сертификации."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "Цифровая подпись этого сообщения действительна, но сертификат, которым оно подписано, не принадлежит адресу отправителя. Возможно, сообщение было передано через список рассылки или службу пересылки, либо кто-то выдаёт себя за отправителя."
+
 msgid "Signature verified successfully"
 msgstr "Подпись успешно проверена"
 
@@ -8134,6 +8140,9 @@ msgstr "Время подписания отличается от ожидаем
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Не удалось проверить подпись: центр сертификации не является доверенным"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Подпись проверена, но сертификат не принадлежит отправителю"
 
 msgid "Digest"
 msgstr "Дайджест"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: import\n"
 "Language: he_IL\n"
@@ -7951,6 +7951,9 @@ msgstr "הצפין הודעה"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "הבטח את פרטיות ההודעה על ידי הצפנת תוכנה. רק הנמען של ההודעה יוכל לפתוח אותה."
 
+msgid "Certificate issued to"
+msgstr "האישור הונפק עבור"
+
 msgid "Algorithms used"
 msgstr "השתמשו באלגוריתמים"
 
@@ -8033,6 +8036,9 @@ msgstr "זמן החתימה בחתימה הדיגיטלית שונה באופן 
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "לא ניתן לאמת את שרשרת אישור השולח: רשות האישורים שהנפיקה אותו אינה נמצאת במאגר רשויות האישורים המהימנות (⁦CA⁩) של השרת עבור ⁦S/MIME⁩, או שחסר אישור ביניים. יש לפנות למנהל המערכת כדי להתקין את רשות האישורים החסרה."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "החתימה הדיגיטלית של הודעה זו תקפה, אך האישור ששימש לחתימתה אינו שייך לכתובת השולח. ייתכן שההודעה הועברה דרך רשימת דיוור או שירות העברה, או שמישהו מתחזה לשולח."
+
 msgid "Signature verified successfully"
 msgstr "החתימה אומתה בהצלחה"
 
@@ -8095,6 +8101,9 @@ msgstr "זמן החתימה שונה מהזמן הצפוי"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "לא ניתן לאמת את החתימה: רשות האישורים אינה מהימנה"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "החתימה אומתה, אך האישור אינו שייך לשולח"
 
 msgid "Digest"
 msgstr "לְעַכֵּל"

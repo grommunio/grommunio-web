@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2025-02-25 15:04+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hr/>\n"
@@ -7989,6 +7989,9 @@ msgstr "Šifrirajte poruku"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Osigurajte privatnost poruke šifriranjem njezinog sadržaja. Samo primatelj poruke moći će je otvoriti."
 
+msgid "Certificate issued to"
+msgstr "Certifikat izdan za"
+
 msgid "Algorithms used"
 msgstr "Korišteni algoritmi"
 
@@ -8071,6 +8074,9 @@ msgstr "Vrijeme potpisivanja u digitalnom potpisu znatno se razlikuje od očekiv
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "Nije moguće provjeriti lanac certifikata pošiljatelja: izdavatelj certifikata ne nalazi se u poslužiteljskoj pohrani pouzdanih tijela za izdavanje certifikata (CA) za S/MIME ili nedostaje posrednički certifikat. Obratite se administratoru sustava kako bi instalirao certifikat nedostajućeg tijela za izdavanje certifikata."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "Digitalni potpis ove e-poruke je valjan, ali certifikat kojim je potpisana ne pripada adresi pošiljatelja. E-poruku je možda proslijedio popis za slanje e-pošte ili usluga prosljeđivanja, ili se netko možda lažno predstavlja kao pošiljatelj."
+
 msgid "Signature verified successfully"
 msgstr "Potpis je uspješno ovjeren"
 
@@ -8133,6 +8139,9 @@ msgstr "Vrijeme potpisivanja razlikuje se od očekivanog vremena"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Nije moguće provjeriti potpis: tijelo za izdavanje certifikata nije pouzdano"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Potpis je ovjeren, ali certifikat ne pripada pošiljatelju"
 
 msgid "Digest"
 msgstr "Sažetak"

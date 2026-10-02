@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2022-07-26 17:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -7993,6 +7993,9 @@ msgstr "Szyfrowanie wiadomości"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Zapewnij prywatność wiadomości poprzez zaszyfrowanie jej treści. Tylko odbiorca wiadomości będzie mógł ją otworzyć."
 
+msgid "Certificate issued to"
+msgstr "Certyfikat wystawiony dla"
+
 msgid "Algorithms used"
 msgstr "Zastosowane algorytmy"
 
@@ -8075,6 +8078,9 @@ msgstr "Czas podpisania w podpisie cyfrowym znacznie różni się od oczekiwaneg
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "Nie można zweryfikować łańcucha certyfikatów nadawcy: urząd certyfikacji, który wydał certyfikat nadawcy, nie znajduje się w magazynie zaufanych urzędów certyfikacji dla S/MIME na serwerze albo brakuje certyfikatu pośredniego. Skontaktuj się z administratorem systemu i poproś o zainstalowanie certyfikatu brakującego urzędu certyfikacji."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "Podpis cyfrowy tej wiadomości jest prawidłowy, ale certyfikat użyty do jej podpisania nie należy do adresu nadawcy. Wiadomość mogła zostać przekazana dalej przez listę mailingową lub usługę przekierowania poczty albo ktoś może podszywać się pod nadawcę."
+
 msgid "Signature verified successfully"
 msgstr "Podpis zweryfikowany pomyślnie"
 
@@ -8137,6 +8143,9 @@ msgstr "Czas podpisania różni się od oczekiwanego"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Nie można zweryfikować podpisu: urząd certyfikacji nie jest zaufany"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Podpis zweryfikowany, ale certyfikat nie należy do nadawcy"
 
 msgid "Digest"
 msgstr "Digest"

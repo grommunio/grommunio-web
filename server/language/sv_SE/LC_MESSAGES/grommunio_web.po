@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Swedish (Sweden)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2026-02-17 22:26+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/grommunio/grommunio-web/se/>\n"
@@ -7953,6 +7953,9 @@ msgstr "Kryptera meddelande"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Säkerställ integriteten för meddelandet genom att kryptera dess innehåll. Endast mottagaren av meddelandet kommer att kunna öppna det."
 
+msgid "Certificate issued to"
+msgstr "Certifikat utfärdat till"
+
 msgid "Algorithms used"
 msgstr "Algoritmer som används"
 
@@ -8035,6 +8038,9 @@ msgstr "Tidpunkten för signeringen i den digitala signaturen skiljer sig avsev�
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "Certifikatkedjan för avsändarens certifikat kunde inte verifieras: certifikatutfärdaren som utfärdade det finns inte i serverns betrodda CA-lager för S/MIME, eller så saknas ett mellanliggande certifikat. Kontakta systemadministratören för att installera den certifikatutfärdare som saknas."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "Den digitala signaturen i det här e-postmeddelandet är giltig, men certifikatet som användes för att signera det tillhör inte avsändarens adress. Meddelandet kan ha skickats vidare av en e-postlista eller en vidarebefordringstjänst, eller så kan någon utge sig för att vara avsändaren."
+
 msgid "Signature verified successfully"
 msgstr "Signaturen har verifierats"
 
@@ -8097,6 +8103,9 @@ msgstr "Signeringstiden avviker från förväntad tid"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Det gick inte att verifiera signaturen eftersom certifikatutfärdaren inte är betrodd"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Signaturen har verifierats, men certifikatet tillhör inte avsändaren"
 
 msgid "Digest"
 msgstr "Digest"

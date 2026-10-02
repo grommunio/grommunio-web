@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/grommunio/grommunio-web/it/>\n"
@@ -7955,6 +7955,9 @@ msgstr "Cripta il messaggio"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Assicura la privacy del messaggio criptanto il contenuto. Solo il destinatario del messaggio sara` in grado di aprirlo."
 
+msgid "Certificate issued to"
+msgstr "Certificato rilasciato a"
+
 msgid "Algorithms used"
 msgstr "Algoritmi utilizzati"
 
@@ -8037,6 +8040,9 @@ msgstr "L'ora di firma nella firma digitale differisce in modo significativo dal
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "Impossibile verificare la catena del certificato del mittente: l'autorità di certificazione che lo ha emesso non è presente nell'archivio delle CA S/MIME attendibili del server oppure manca un certificato intermedio. Contattare l'amministratore di sistema per installare l'autorità di certificazione mancante."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "La firma digitale di questa e-mail è valida, ma il certificato utilizzato per firmarla non appartiene all'indirizzo del mittente. L'e-mail potrebbe essere stata inoltrata da una mailing list o da un servizio di inoltro, oppure qualcuno potrebbe spacciarsi per il mittente."
+
 msgid "Signature verified successfully"
 msgstr "La firma e` stata verificata con successo"
 
@@ -8099,6 +8105,9 @@ msgstr "Il tempo di firma è diverso da quello previsto"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Impossibile verificare la firma: l'autorità di certificazione non è attendibile"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Firma verificata, ma il certificato non appartiene al mittente"
 
 msgid "Digest"
 msgstr "Digesto"

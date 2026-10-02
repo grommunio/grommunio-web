@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Catalan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2025-05-01 05:29+0000\n"
 "Last-Translator: Roger VC <rogervilarasau@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/grommunio/grommunio-web/ca/>\n"
@@ -7953,6 +7953,9 @@ msgstr "Xifra el missatge"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Assegura la privacitat del missatge xifrant-ne el contingut. Només el destinatari del missatge podrà obrir-lo."
 
+msgid "Certificate issued to"
+msgstr "Certificat emès per a"
+
 msgid "Algorithms used"
 msgstr "Algorismes utilitzats"
 
@@ -8035,6 +8038,9 @@ msgstr "El temps de signatura en la signatura digital difereix significativament
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "No s'ha pogut verificar la cadena del certificat del remitent: l'autoritat de certificació que l'ha emès no es troba al magatzem d'AC de confiança del servidor per a S/MIME, o bé hi falta un certificat intermedi. Contacteu amb l'administrador del sistema perquè instal·li l'autoritat de certificació que falta."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "La signatura digital d'aquest correu és vàlida, però el certificat utilitzat per signar-lo no pertany a l'adreça del remitent. És possible que el correu s'hagi reenviat a través d'una llista de correu o d'un servei de reenviament, o que algú estigui suplantant el remitent."
+
 msgid "Signature verified successfully"
 msgstr "La signatura s'ha verificat correctament"
 
@@ -8097,6 +8103,9 @@ msgstr "L'hora de signatura és diferent de l'hora prevista"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "No s'ha pogut verificar la signatura perquè l'autoritat de certificació no és de confiança"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Signatura verificada, però el certificat no pertany al remitent"
 
 msgid "Digest"
 msgstr "Resum"

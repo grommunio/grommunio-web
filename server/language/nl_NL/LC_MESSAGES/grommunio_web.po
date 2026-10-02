@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/grommunio-web/nl/>\n"
@@ -7958,6 +7958,9 @@ msgstr "Bericht versleutelen"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Garandeer de privacy van het bericht door de inhoud te versleutelen. Alleen de ontvanger van het bericht zal het kunnen openen."
 
+msgid "Certificate issued to"
+msgstr "Certificaat uitgegeven aan"
+
 msgid "Algorithms used"
 msgstr "Gebruikte algoritmen"
 
@@ -8040,6 +8043,9 @@ msgstr "Het tijdstip van ondertekening in de digitale handtekening wijkt aanzien
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "De certificaatketen van het certificaat van de afzender kan niet worden geverifieerd: de certificeringsinstantie die het heeft uitgegeven, staat niet in het vertrouwde CA-archief voor S/MIME op de server, of er ontbreekt een tussencertificaat. Neem contact op met uw systeembeheerder om de ontbrekende certificeringsinstantie te installeren."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "De digitale handtekening van deze e-mail is geldig, maar het certificaat waarmee deze is ondertekend, hoort niet bij het adres van de afzender. De e-mail kan zijn doorgestuurd via een mailinglijst of doorstuurservice, of iemand doet zich mogelijk voor als de afzender."
+
 msgid "Signature verified successfully"
 msgstr "Handtekening succesvol gevalideerd"
 
@@ -8102,6 +8108,9 @@ msgstr "Ondertekeningstijd wijkt af van verwachte tijd"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "De handtekening kan niet worden geverifieerd omdat de certificeringsinstantie niet wordt vertrouwd"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Handtekening gevalideerd, maar het certificaat hoort niet bij de afzender"
 
 msgid "Digest"
 msgstr "Hash"

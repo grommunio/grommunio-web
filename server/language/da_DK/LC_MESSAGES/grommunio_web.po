@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/grommunio-web/da/>\n"
@@ -7953,6 +7953,9 @@ msgstr "Krypter besked"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Sikr meddelelsens fortrolighed ved at kryptere dens indhold. Kun modtageren af meddelelsen kan åbne den."
 
+msgid "Certificate issued to"
+msgstr "Certifikat udstedt til"
+
 msgid "Algorithms used"
 msgstr "Anvendte algoritmer"
 
@@ -8035,6 +8038,9 @@ msgstr "Tidspunktet for underskrivelsen i den digitale signatur afviger væsentl
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "Certifikatkæden for afsenderens certifikat kunne ikke verificeres: Den certifikatudstedende myndighed er ikke registreret i serverens lager over CA-certifikater, der er tillid til for S/MIME, eller også mangler der et mellemcertifikat. Kontakt din systemadministrator for at få installeret den manglende certifikatudstedende myndighed."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "Den digitale signatur på denne e-mail er gyldig, men certifikatet, der blev brugt til at signere den, tilhører ikke afsenderadressen. E-mailen kan være videresendt af en mailingliste eller en videresendelsestjeneste, eller nogen udgiver sig muligvis for at være afsenderen."
+
 msgid "Signature verified successfully"
 msgstr "Signatur verificeret med succes"
 
@@ -8097,6 +8103,9 @@ msgstr "Signeringstiden afviger fra den forventede tid"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Signaturen kunne ikke verificeres, fordi der ikke er tillid til den certifikatudstedende myndighed"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Signatur verificeret, men certifikatet tilhører ikke afsenderen"
 
 msgid "Digest"
 msgstr "Digest"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hu/>\n"
@@ -7974,6 +7974,9 @@ msgstr "Üzenet titkosítása"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Biztosítsa az üzenet titkosságát azzal, hogy titkosítja. Csak az üzenet címzettje fogja tudni megnyitni."
 
+msgid "Certificate issued to"
+msgstr "Tanúsítvány kiállítva a következő részére"
+
 msgid "Algorithms used"
 msgstr "Alkalmazott algoritmusok"
 
@@ -8056,6 +8059,9 @@ msgstr "A digitális aláírásban szereplő aláírási idő jelentősen eltér
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "A feladó tanúsítványának tanúsítványláncát nem sikerült ellenőrizni: a tanúsítványt kibocsátó hitelesítésszolgáltató nem található a kiszolgáló S/MIME-hoz használt megbízható CA-tárolójában, vagy hiányzik egy köztes tanúsítvány. Kérje meg a rendszergazdát a hiányzó hitelesítésszolgáltató tanúsítványának telepítésére."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "Az e-mail digitális aláírása érvényes, de az aláíráshoz használt tanúsítvány nem a feladó címéhez tartozik. Lehet, hogy az e-mailt egy levelezési lista vagy továbbítószolgáltatás küldte tovább, de az is lehet, hogy valaki a feladónak adja ki magát."
+
 msgid "Signature verified successfully"
 msgstr "A tanúsítvány ellenőrzése sikeres"
 
@@ -8118,6 +8124,9 @@ msgstr "Az aláírási idő eltér a várt időtől"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Az aláírás nem ellenőrizhető, mert a hitelesítésszolgáltató nem megbízható"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Aláírás ellenőrizve, de a tanúsítvány nem a feladóhoz tartozik"
 
 msgid "Digest"
 msgstr "Digest"
