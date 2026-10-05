@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+require_once __DIR__ . '/class.smimecapabilities.php';
+
 /**
  * CMS abstraction layer — wraps openssl_cms_*, openssl_pkcs7_*, and
  * OpenSSL CLI to provide a unified interface for S/MIME operations.
@@ -63,10 +65,12 @@ class CmsOperations {
 
 	public function __construct() {
 		$this->hasCmsApi = function_exists('openssl_cms_encrypt');
-		$this->hasCmsStringCipher = $this->hasCmsApi && $this->detectStringCipherSupport();
+		$this->hasCmsStringCipher = $this->hasCmsApi && SmimeCapabilities::detectStringCipherParam();
 		$this->opensslVersion = OPENSSL_VERSION_TEXT;
 		$this->opensslVersionNumber = OPENSSL_VERSION_NUMBER;
-		$this->detectCli();
+		$cli = SmimeCapabilities::findOpensslCli();
+		$this->hasCmsCli = $cli !== false;
+		$this->opensslBin = $cli === false ? '/usr/bin/openssl' : $cli;
 	}
 
 	// ----------------------------------------------------------------
@@ -550,72 +554,6 @@ class CmsOperations {
 	// ----------------------------------------------------------------
 	// Private helpers
 	// ----------------------------------------------------------------
-
-	/**
-	 * Detect whether openssl_cms_encrypt() accepts a string cipher argument.
-	 * Available from PHP 8.5+.
-	 */
-	private function detectStringCipherSupport(): bool {
-		if (!$this->hasCmsApi) {
-			return false;
-		}
-
-		try {
-			$ref = new ReflectionFunction('openssl_cms_encrypt');
-			$params = $ref->getParameters();
-			// The cipher parameter is the 7th parameter (index 6)
-			$param = $params[6] ?? null;
-			if (!$param instanceof ReflectionParameter ||
-				!in_array($param->getName(), ['cipher', 'cipher_algo'], true)) {
-				return false;
-			}
-			$type = $param->getType();
-			if ($type instanceof ReflectionNamedType) {
-				return $type->getName() === 'string';
-			}
-			if ($type instanceof ReflectionUnionType) {
-				foreach ($type->getTypes() as $namedType) {
-					if ($namedType->getName() === 'string') {
-						return true;
-					}
-				}
-			}
-		}
-		catch (ReflectionException $e) {
-			// Ignore
-		}
-
-		return false;
-	}
-
-	/**
-	 * Detect and validate OpenSSL CLI binary.
-	 */
-	private function detectCli(): void {
-		$this->hasCmsCli = false;
-		$this->opensslBin = '/usr/bin/openssl';
-
-		// Check common paths
-		$paths = ['/usr/bin/openssl', '/usr/local/bin/openssl', '/opt/homebrew/bin/openssl'];
-		foreach ($paths as $path) {
-			if (is_executable($path)) {
-				$this->opensslBin = $path;
-				$this->hasCmsCli = true;
-
-				return;
-			}
-		}
-
-		// Try PATH
-		$which = @shell_exec('which openssl 2>/dev/null');
-		if (is_string($which)) {
-			$which = trim($which);
-			if (!empty($which) && is_executable($which)) {
-				$this->opensslBin = $which;
-				$this->hasCmsCli = true;
-			}
-		}
-	}
 
 	/**
 	 * Encrypt using native CMS API with string cipher.

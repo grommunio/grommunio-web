@@ -14,6 +14,10 @@
 class SmimeCapabilities {
 	private static ?SmimeCapabilities $instance = null;
 
+	private static ?bool $stringCipherParam = null;
+
+	private static false|string|null $opensslCli = null;
+
 	/** @var bool openssl_cms_* available */
 	public bool $hasCmsApi;
 
@@ -82,8 +86,8 @@ class SmimeCapabilities {
 		$this->opensslV3 = OPENSSL_VERSION_NUMBER >= 0x30000000;
 
 		$this->hasCmsApi = function_exists('openssl_cms_encrypt');
-		$this->hasCmsStringCipher = $this->hasCmsApi && $this->detectStringCipherParam();
-		$this->hasCmsCli = $this->detectCli();
+		$this->hasCmsStringCipher = $this->hasCmsApi && self::detectStringCipherParam();
+		$this->hasCmsCli = self::findOpensslCli() !== false;
 		$this->supportsEcdsa = defined('OPENSSL_KEYTYPE_EC');
 		$this->supportsEddsa = PHP_VERSION_ID >= 80400 && $this->detectEddsaSupport();
 		$this->supportsAesGcm = $this->hasCmsStringCipher || $this->hasCmsCli;
@@ -188,7 +192,20 @@ class SmimeCapabilities {
 	/**
 	 * Detect whether openssl_cms_encrypt accepts a string cipher parameter.
 	 */
-	private function detectStringCipherParam(): bool {
+	public static function detectStringCipherParam(): bool {
+		return self::$stringCipherParam ??= self::probeStringCipherParam();
+	}
+
+	/**
+	 * Locate a usable OpenSSL CLI binary.
+	 *
+	 * @return false|string binary path, or false when none is usable
+	 */
+	public static function findOpensslCli(): false|string {
+		return self::$opensslCli ??= self::probeOpensslCli();
+	}
+
+	private static function probeStringCipherParam(): bool {
 		try {
 			$ref = new ReflectionFunction('openssl_cms_encrypt');
 			$params = $ref->getParameters();
@@ -216,14 +233,11 @@ class SmimeCapabilities {
 		return false;
 	}
 
-	/**
-	 * Detect OpenSSL CLI availability.
-	 */
-	private function detectCli(): bool {
+	private static function probeOpensslCli(): false|string {
 		$paths = ['/usr/bin/openssl', '/usr/local/bin/openssl', '/opt/homebrew/bin/openssl'];
 		foreach ($paths as $path) {
 			if (is_executable($path)) {
-				return true;
+				return $path;
 			}
 		}
 
@@ -231,7 +245,7 @@ class SmimeCapabilities {
 		if (is_string($which)) {
 			$which = trim($which);
 			if (!empty($which) && is_executable($which)) {
-				return true;
+				return $which;
 			}
 		}
 
