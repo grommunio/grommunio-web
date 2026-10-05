@@ -136,6 +136,30 @@ class ocsclient {
 	}
 
 	/**
+	 * Creates a cURL handle for $url with the default, certificate and auth options.
+	 *
+	 * @param string $url
+	 *
+	 * @return \CurlHandle
+	 *
+	 * @throws ConnectionException
+	 */
+	private function curlHandle($url) {
+		$ch = curl_init();
+		if ($ch === false) {
+			throw new ConnectionException('Unable to initialise cURL session.');
+		}
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt_array($ch, $this->curlDefaultOptions);
+		if ($this->allowSelfSignedCerts) {
+			curl_setopt_array($ch, $this->curlSSLVerifyOptions);
+		}
+		curl_setopt_array($ch, $this->curlAuthOptions());
+
+		return $ch;
+	}
+
+	/**
 	 * Shortcut for curl get requests.
 	 *
 	 * @param string $url URL for the request
@@ -158,14 +182,7 @@ class ocsclient {
 	 * @throws InvalidResponseException
 	 */
 	private function doCurlRequest($url, $curlOptions) {
-		$ch = curl_init();
-
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt_array($ch, $this->curlDefaultOptions);
-		if ($this->allowSelfSignedCerts) {
-			curl_setopt_array($ch, $this->curlSSLVerifyOptions);
-		}
-		curl_setopt_array($ch, $this->curlAuthOptions());
+		$ch = $this->curlHandle($url);
 		if (!empty($curlOptions)) {
 			curl_setopt_array($ch, $curlOptions);
 		}
@@ -280,13 +297,7 @@ class ocsclient {
 	public function getRecipients($search) {
 		$url = $this->baseurl . self::OCS_PATH . "/sharees?itemType=file&search=" . urlencode((string) $search);
 
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt_array($ch, $this->curlDefaultOptions);
-		if ($this->allowSelfSignedCerts) {
-			curl_setopt_array($ch, $this->curlSSLVerifyOptions);
-		}
-		curl_setopt_array($ch, $this->curlAuthOptions());
+		$ch = $this->curlHandle($url);
 		$responsedata = curl_exec($ch);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
