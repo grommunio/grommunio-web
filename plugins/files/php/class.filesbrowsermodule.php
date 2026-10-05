@@ -809,9 +809,14 @@ class FilesBrowserModule extends FilesListModule {
 
 				FilesLogger::debug(self::LOG_CONTEXT, "Uploading to: " . $filePath . " tmpfile: " . $tmpname);
 
-				$result = $result && $initializedBackend->put_file($filePath, $tmpname);
+				$uploaded = $initializedBackend->put_file($filePath, $tmpname);
 				if (!@unlink($tmpname)) {
 					FilesLogger::error(self::LOG_CONTEXT, "Unable to remove temporary file: " . $tmpname);
+				}
+				if (!$uploaded) {
+					$result = false;
+
+					continue;
 				}
 
 				$this->updateDirCache($initializedBackend, $dirName, $filePath, $actionData);
