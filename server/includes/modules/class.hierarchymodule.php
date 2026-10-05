@@ -249,7 +249,7 @@ class HierarchyModule extends Module {
 		}
 		$folder = mapi_msgstore_openentry($store, hex2bin((string) $action["entryid"]));
 		$this->save($store, $folder, $action);
-		if ($data["props"]["container_class"] === "IPF.Contact") {
+		if (($data["props"]["container_class"] ?? null) === "IPF.Contact") {
 			$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
 		}
 		$this->sendFeedback(true, []);
