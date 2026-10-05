@@ -1189,7 +1189,7 @@ class Operations {
 
 		// The PR_ADDITIONAL_REN_ENTRYIDS are a bit special
 		if (isset($rootProps[PR_ADDITIONAL_REN_ENTRYIDS]) && is_array($rootProps[PR_ADDITIONAL_REN_ENTRYIDS])) {
-			if (array_search($entryid, $rootProps[PR_ADDITIONAL_REN_ENTRYIDS])) {
+			if (array_search($entryid, $rootProps[PR_ADDITIONAL_REN_ENTRYIDS]) !== false) {
 				return true;
 			}
 		}
