@@ -85,16 +85,7 @@ class Conversion {
 
 					case PT_MV_STRING8:
 					case PT_MV_STRING8 | MVI_FLAG:
-						$mv_values = explode(";", (string) $value);
-						$values = [];
-
-						foreach ($mv_values as $mv_value) {
-							if (!empty($mv_value)) {
-								$values[] = ltrim($mv_value);
-							}
-						}
-
-						$properties[$mapi_property & ~MV_INSTANCE] = !empty($values) ? $values : [];
+						$properties[$mapi_property & ~MV_INSTANCE] = Conversion::splitMultiValue($value);
 						break;
 
 					case PT_MV_BINARY:
@@ -298,6 +289,24 @@ class Conversion {
 	}
 
 	/**
+	 * Splits a ';' separated multi-valued string, dropping empty entries.
+	 *
+	 * @param mixed $value
+	 *
+	 * @return string[]
+	 */
+	private static function splitMultiValue($value) {
+		$values = [];
+		foreach (explode(";", (string) $value) as $mv_value) {
+			if (!empty($mv_value)) {
+				$values[] = ltrim($mv_value);
+			}
+		}
+
+		return $values;
+	}
+
+	/**
 	 * Convert an JSON restriction structure into a MAPI SRestriction array.
 	 *
 	 * @param array $mapping An associative array mapping property keys to MAPI proptags
@@ -358,17 +367,7 @@ class Conversion {
 						$propValue = hex2bin((string) $propValue);
 					}
 					elseif ($type === PT_MV_STRING8) {
-						// Convert multivalued strings to arrays
-						$mv_values = explode(";", (string) $propValue);
-						$values = [];
-
-						foreach ($mv_values as $mv_value) {
-							if (!empty($mv_value)) {
-								$values[] = ltrim($mv_value);
-							}
-						}
-
-						$propValue = !empty($values) ? $values : [];
+						$propValue = Conversion::splitMultiValue($propValue);
 					}
 
 					$value[$propTag] = $propValue;
