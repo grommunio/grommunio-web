@@ -7,6 +7,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+require_once __DIR__ . '/class.jsloadorder.php';
+
 /**
  * Manager for including JS and CSS files into the desired order.
  */
@@ -46,7 +48,7 @@ class FileLoader {
 			$jsLoadingSequence[] = "client/extjs/ux/ux-all-debug.js";
 			$jsLoadingSequence = array_merge(
 				$jsLoadingSequence,
-				$this->buildJSLoadingSequence(
+				JsLoadOrder::sort(
 					$this->getListOfFiles('js', 'client/extjs-mod')
 				)
 			);
@@ -54,7 +56,7 @@ class FileLoader {
 			$jsLoadingSequence[] = "client/dompurify/purify.js";
 			$jsLoadingSequence = array_merge(
 				$jsLoadingSequence,
-				$this->buildJSLoadingSequence(
+				JsLoadOrder::sort(
 					$this->getListOfFiles('js', 'client/third-party')
 				)
 			);
@@ -93,7 +95,7 @@ class FileLoader {
 			return ["client/grommunio-debug.js"];
 		}
 
-		return $this->buildJSLoadingSequence(
+		return JsLoadOrder::sort(
 			$this->getListOfFiles('js', 'client/grommunio'),
 			['client/grommunio/core'],
 			$libFiles
@@ -110,7 +112,7 @@ class FileLoader {
 	 */
 	public function getPluginJavascriptFiles($load, $libFiles = []) {
 		if ($load === LOAD_SOURCE) {
-			return $this->buildJSLoadingSequence(
+			return JsLoadOrder::sort(
 				$GLOBALS['PluginManager']->getClientFiles($load),
 				[],
 				$libFiles
@@ -246,183 +248,6 @@ class FileLoader {
 		sort($subDirFiles);
 
 		return array_merge($files, $subDirFiles);
-	}
-
-	/**
-	 * Build the correct loading sequence for JS files based on @class, @extends
-	 * and #dependsFile annotations. Only used for LOAD_SOURCE mode.
-	 *
-	 * @param $files     Array List of files that have to be included
-	 * @param $coreFiles Array (Optional) List of folders that contain core files
-	 * @param $libFiles  Array (Optional) List of library files
-	 *
-	 * @return array List of files sorted in the correct loading sequence
-	 */
-	private function buildJSLoadingSequence($files, $coreFiles = [], $libFiles = []) {
-		$libFileLookup = [];
-		$classFileLookup = [];
-		$fileDataLookup = [];
-		$fileDependencies = [];
-
-		for ($i = 0, $len = count($libFiles); $i < $len; ++$i) {
-			$filename = $libFiles[$i];
-			$content = file_get_contents(strtok($filename, '?'));
-
-			$class = [];
-			preg_match_all('(@class\W([^\n\r]*))', $content, $class);
-
-			$libFileLookup[$filename] = ['class' => $class[1]];
-			for ($j = 0, $lenJ = count($class[1]); $j < $lenJ; ++$j) {
-				$libFileLookup[$class[1][$j]] = true;
-			}
-		}
-
-		for ($i = 0, $len = count($files); $i < $len; ++$i) {
-			$content = file_get_contents(strtok($files[$i], '?'));
-			$filename = $files[$i];
-
-			$extends = [];
-			$dependsFile = [];
-			$class = [];
-
-			preg_match_all('(@extends\W([^\n\r]*))', $content, $extends);
-			preg_match_all('(@class\W([^\n\r]*))', $content, $class);
-			preg_match_all('(#dependsFile\W([^\n\r\*]+))', $content, $dependsFile);
-			$core = str_contains($content, '#core');
-
-			for ($j = 0, $lenJ = count($coreFiles); $j < $lenJ; ++$j) {
-				if (str_starts_with((string) $filename, (string) $coreFiles[$j])) {
-					$core = true;
-					break;
-				}
-			}
-
-			$fileDataLookup[$filename] = [
-				'class' => $class[1],
-				'extends' => $extends[1],
-				'dependsFile' => $dependsFile[1],
-			];
-			$fileDependencies[$filename] = [
-				'depends' => [],
-				'core' => $core,
-			];
-
-			for ($j = 0, $lenJ = count($class[1]); $j < $lenJ; ++$j) {
-				$classFileLookup[$class[1][$j]] = $filename;
-			}
-		}
-
-		foreach ($fileDataLookup as $filename => &$fileData) {
-			for ($i = 0, $len = count($fileData['extends']); $i < $len; ++$i) {
-				if (str_starts_with($fileData['extends'][$i], 'Grommunio')) {
-					if (isset($libFileLookup[$fileData['extends'][$i]])) {
-						// Found in library — no dependency needed
-					}
-					elseif (isset($classFileLookup[$fileData['extends'][$i]])) {
-						$dependencyFilename = $classFileLookup[$fileData['extends'][$i]];
-						if ($dependencyFilename != $filename) {
-							$fileDependencies[$filename]['depends'][] = $dependencyFilename;
-						}
-					}
-					else {
-						trigger_error('Unable to find @extends dependency "' . $fileData['extends'][$i] . '" for file "' . $filename . '"');
-					}
-				}
-			}
-
-			for ($i = 0, $len = count($fileData['dependsFile']); $i < $len; ++$i) {
-				$dependencyFilename = $fileData['dependsFile'][$i];
-				if (isset($fileDataLookup[$dependencyFilename])) {
-					if ($dependencyFilename != $filename) {
-						$fileDependencies[$filename]['depends'][] = $dependencyFilename;
-					}
-				}
-				else {
-					trigger_error('Unable to find file #dependsFile dependency "' . $fileData['dependsFile'][$i] . '" for file "' . $filename . '"');
-				}
-			}
-		}
-		unset($fileData);
-
-		return $this->generateDependencyBasedFileSeq($fileDependencies);
-	}
-
-	/**
-	 * Generate a loading sequence based on dependency depth.
-	 * Core files get priority at each depth level.
-	 *
-	 * @param $fileData Array List of files with dependency data
-	 *
-	 * @return array List of filenames in the calculated loading sequence
-	 */
-	private function generateDependencyBasedFileSeq($fileData) {
-		$fileDepths = [];
-
-		$changed = true;
-		while ($changed && (count($fileDepths) < count($fileData))) {
-			$changed = false;
-
-			foreach ($fileData as $file => $dependencyData) {
-				$dependencies = $dependencyData['depends'];
-
-				if (!isset($fileDepths[$file])) {
-					if (count($dependencies) > 0) {
-						$parentsDepthAssigned = true;
-						$highestParentDepth = 0;
-						$dependenciesCount = count($dependencies);
-						for ($i = 0; $i < $dependenciesCount; ++$i) {
-							if (!isset($fileDepths[$dependencies[$i]])) {
-								$parentsDepthAssigned = false;
-								break;
-							}
-							$highestParentDepth = max($highestParentDepth, $fileDepths[$dependencies[$i]]);
-						}
-						if ($parentsDepthAssigned) {
-							$fileDepths[$file] = $highestParentDepth + 1;
-							$changed = true;
-						}
-					}
-					else {
-						$fileDepths[$file] = 0;
-						$changed = true;
-					}
-				}
-			}
-		}
-
-		if (count($fileDepths) < count($fileData)) {
-			$errorMsg = '[LOADER] Could not compute all dependencies. The following files cannot be resolved properly: ';
-			$errorMsg .= implode(', ', array_diff(array_keys($fileData), array_keys($fileDepths)));
-			trigger_error($errorMsg);
-		}
-
-		$fileWeights = [];
-		foreach ($fileData as $file => $dependencyData) {
-			if ($fileDepths[$file] !== null) {
-				$weight = $fileDepths[$file] * 2;
-				if (!$dependencyData['core']) {
-					++$weight;
-				}
-			}
-			else {
-				$weight = count($fileData);
-			}
-			if (!isset($fileWeights[$weight])) {
-				$fileWeights[$weight] = [];
-			}
-			$fileWeights[$weight][] = $file;
-		}
-
-		ksort($fileWeights);
-
-		$fileSequence = [];
-		foreach ($fileWeights as $fileList) {
-			foreach ($fileList as $file) {
-				$fileSequence[] = $file;
-			}
-		}
-
-		return $fileSequence;
 	}
 
 	/**
