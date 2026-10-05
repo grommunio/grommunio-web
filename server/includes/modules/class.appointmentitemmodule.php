@@ -24,16 +24,6 @@ class AppointmentItemModule extends ItemModule {
 	protected $tzdef;
 
 	/**
-	 * @var array|bool client timezone definition array
-	 */
-	protected $tzdefObj;
-
-	/**
-	 * @var mixed client timezone effective rule id
-	 */
-	protected $tzEffRule;
-
-	/**
 	 * Constructor.
 	 *
 	 * @param int   $id   unique id
@@ -54,7 +44,6 @@ class AppointmentItemModule extends ItemModule {
 
 		$this->tziana = 'Etc/UTC';
 		$this->tzdef = false;
-		$this->tzdefObj = false;
 	}
 
 	#[Override]
@@ -88,13 +77,7 @@ class AppointmentItemModule extends ItemModule {
 
 			if (!empty($action["timezone_iana"])) {
 				$this->tziana = $action["timezone_iana"];
-
-				try {
-					$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
-				}
-				catch (Exception) {
-					$this->tzdef = false;
-				}
+				$this->tzdef = TimezoneUtil::GetBinaryTZ($action['timezone_iana']);
 			}
 
 			// if appointment is recurring then only we should get properties of occurrence if basedate is supplied
@@ -405,22 +388,9 @@ class AppointmentItemModule extends ItemModule {
 			$localStart = getLocalStart($calendaritem['props']['startdate'], $this->tziana);
 		}
 		else {
-			if ($this->tzdefObj === false) {
-				$this->tzdefObj = parseTimezoneDefinition($this->tzdef);
-				$this->tzEffRule = getEffectiveTimezoneRule($this->tzdefObj);
-			}
-			$appTzEffRule = getEffectiveTimezoneRule(parseTimezoneDefinition($tzdefstart));
-
-			if ($this->tzEffRule === null || $appTzEffRule === null) {
+			$localStart = TimezoneUtil::ConvertAllDayStart($calendaritem['props']['startdate'], $tzdefstart, $this->tzdef);
+			if ($localStart === null) {
 				return;
-			}
-			// first apply the bias of the appointment timezone and the bias of the browser
-			$localStart = $calendaritem['props']['startdate'] - $appTzEffRule['bias'] * 60 + $this->tzEffRule['bias'] * 60;
-			if (isDst($appTzEffRule, $calendaritem['props']['startdate'])) {
-				$localStart -= $appTzEffRule['dstbias'] * 60;
-			}
-			if (isDst($this->tzEffRule, $calendaritem['props']['startdate'])) {
-				$localStart += $this->tzEffRule['dstbias'] * 60;
 			}
 		}
 		$calendaritem['props']['startdate'] = $calendaritem['props']['commonstart'] = $localStart;
