@@ -73,4 +73,22 @@ catch (MAPIException $e) {
 	}
 }
 
+$GLOBALS['mapisession'] = new class {
+	public function addUserStore($username) {
+		return false;
+	}
+};
+
+try {
+	(new ReflectionMethod(HierarchyModule::class, 'openSharedFolder'))->invoke($module, ['user_name' => 'group', 'folder_type' => 'calendar']);
+
+	throw new RuntimeException('Opening an unopenable store did not fail.');
+}
+catch (MAPIException $e) {
+	$module->handleException($e, 'opensharedfolder', null, null, null, ['folder_type' => 'calendar']);
+	if ($e->displayMessage !== 'Could not open the shared store.') {
+		throw new RuntimeException('An unopenable shared store was reported as missing folder permissions.');
+	}
+}
+
 echo "Hierarchy shared folder message checks passed\n";
