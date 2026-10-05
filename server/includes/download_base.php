@@ -201,7 +201,7 @@ abstract class DownloadBase {
 		// MAPI_E_NOT_FOUND exception contains generalize exception message.
 		// Set proper exception message as display message should be user understandable.
 		if ($exception->getCode() == MAPI_E_NOT_FOUND) {
-			$exception->setDisplayMessage(_('Could not find message, either it has been moved or deleted.'));
+			$exception->setDisplayMessage($this->notFoundMessage());
 		}
 
 		// Set the headers
@@ -275,6 +275,15 @@ abstract class DownloadBase {
 			];
 		}
 		echo json_encode($return);
+	}
+
+	/**
+	 * Display message for a MAPI_E_NOT_FOUND download failure.
+	 *
+	 * @return string
+	 */
+	protected function notFoundMessage() {
+		return _('Could not find message, either it has been moved or deleted.');
 	}
 
 	/**

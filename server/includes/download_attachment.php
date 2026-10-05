@@ -1046,93 +1046,9 @@ class DownloadAttachment extends DownloadBase {
 		}
 	}
 
-	/**
-	 * Function will encode all the necessary information about the exception
-	 * into JSON format and send the response back to client.
-	 *
-	 * @param object $exception exception object
-	 */
 	#[Override]
-	public function handleSaveMessageException($exception) {
-		$return = [];
-
-		// MAPI_E_NOT_FOUND exception contains generalize exception message.
-		// Set proper exception message as display message should be user understandable.
-		if ($exception->getCode() == MAPI_E_NOT_FOUND) {
-			$exception->setDisplayMessage(_('Could not find attachment.'));
-		}
-
-		// Set the headers
-		header('Expires: 0'); // set expiration time
-		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-
-		// Set Content Disposition header
-		header('Content-Disposition: inline');
-		// Set content type header
-		header('Content-Type: text/plain');
-
-		// prepare exception response according to exception class
-		if ($exception instanceof MAPIException) {
-			$return = [
-				'success' => false,
-				'grommunio' => [
-					'error' => [
-						'type' => ERROR_MAPI,
-						'info' => [
-							'hresult' => $exception->getCode(),
-							'hresult_name' => get_mapi_error_name($exception->getCode()),
-							'file' => $exception->getFileLine(),
-							'display_message' => $exception->getDisplayMessage(),
-						],
-					],
-				],
-			];
-		}
-		elseif ($exception instanceof GrommunioException) {
-			$return = [
-				'success' => false,
-				'grommunio' => [
-					'error' => [
-						'type' => ERROR_GROMMUNIO,
-						'info' => [
-							'file' => $exception->getFileLine(),
-							'display_message' => $exception->getDisplayMessage(),
-							'original_message' => $exception->getMessage(),
-						],
-					],
-				],
-			];
-		}
-		elseif ($exception instanceof BaseException) {
-			$return = [
-				'success' => false,
-				'grommunio' => [
-					'error' => [
-						'type' => ERROR_GENERAL,
-						'info' => [
-							'file' => $exception->getFileLine(),
-							'display_message' => $exception->getDisplayMessage(),
-							'original_message' => $exception->getMessage(),
-						],
-					],
-				],
-			];
-		}
-		else {
-			$return = [
-				'success' => false,
-				'grommunio' => [
-					'error' => [
-						'type' => ERROR_GENERAL,
-						'info' => [
-							'display_message' => _('Operation failed'),
-							'original_message' => $exception->getMessage(),
-						],
-					],
-				],
-			];
-		}
-		echo json_encode($return);
+	protected function notFoundMessage() {
+		return _('Could not find attachment.');
 	}
 }
 
