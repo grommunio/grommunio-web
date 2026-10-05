@@ -375,7 +375,13 @@ class HierarchyModule extends Module {
 
 	private function openSharedFolder($action) {
 		$username = strtolower((string) $action["user_name"]);
-		$store = $GLOBALS["mapisession"]->addUserStore($username);
+		try {
+			$store = $GLOBALS["mapisession"]->addUserStore($username);
+		}
+		catch (MAPIException $e) {
+			// the store entry ID cannot be built for an unknown user
+			throw new MAPIException($e->getMessage(), MAPI_E_NOT_FOUND);
+		}
 		if (!$store) {
 			throw new MAPIException(_("Could not open the store."), MAPI_E_NO_ACCESS);
 		}
@@ -399,6 +405,20 @@ class HierarchyModule extends Module {
 		$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
 	}
 
+	private function getSharedFolderAccessMessage($folderType) {
+		$folderType = match ($folderType) {
+			'calendar' => _('Calendar'),
+			'contact' => _('Contacts'),
+			'inbox' => _('Inbox'),
+			'note' => _('Notes'),
+			'task' => _('Tasks'),
+			'all' => _('Entire Inbox'),
+			default => $folderType,
+		};
+
+		return sprintf(_('You have insufficient privileges to open this %1$s folder. The folder owner can set these using the \'permissions\'-tab of the folder properties (right click the %1$s folder > properties > permissions).'), $folderType);
+	}
+
 	/**
 	 * Function does customization of exception based on module data.
 	 * like, here it will generate display message based on actionType
@@ -420,7 +440,11 @@ class HierarchyModule extends Module {
 					break;
 
 				case "opensharedfolder":
-					$e->setDisplayMessage(_("Could not open the shared store."));
+					$e->setDisplayMessage(match ($e->getCode()) {
+						MAPI_E_NOT_FOUND => _("User could not be resolved."),
+						MAPI_E_NO_ACCESS => $this->getSharedFolderAccessMessage($action["folder_type"] ?? 'all'),
+						default => _("Could not open the shared store."),
+					});
 					break;
 
 				case "open":
