@@ -36,6 +36,19 @@ use Files\Core\Util\StringUtil;
 class FilesBrowserModule extends FilesListModule {
 	public const LOG_CONTEXT = "FilesBrowserModule"; // Context for the Logger
 
+	private const ACTION_HANDLERS = [
+		"downloadtotmp" => "downloadSelectedFilesToTmp",
+		"rename" => "rename",
+		"uploadtobackend" => "uploadToBackend",
+		"delete" => "delete",
+		"list" => "loadFiles",
+		"loadsharingdetails" => "getSharingInformation",
+		"createnewshare" => "createNewShare",
+		"updateexistingshare" => "updateExistingShare",
+		"deleteexistingshare" => "deleteExistingShare",
+		"updatecache" => "updateCache",
+	];
+
 	/**
 	 * Creates the notifiers for this module,
 	 * and register them to the Bus.
@@ -55,161 +68,116 @@ class FilesBrowserModule extends FilesListModule {
 		$result = false;
 
 		foreach ($this->data as $actionType => $actionData) {
-			if (isset($actionType)) {
-				try {
-					switch ($actionType) {
-						case "checkifexists":
-							$records = $actionData["records"];
-							$destination = $actionData["destination"] ?? false;
-							$result = $this->checkIfExists($records, $destination);
-							$response = [];
-							$response['status'] = true;
-							$response['duplicate'] = $result;
-							$this->addActionData($actionType, $response);
-							$GLOBALS["bus"]->addData($this->getResponseData());
-							break;
+			try {
+				if (isset(self::ACTION_HANDLERS[$actionType])) {
+					$result = $this->{self::ACTION_HANDLERS[$actionType]}($actionType, $actionData);
 
-						case "downloadtotmp":
-							$result = $this->downloadSelectedFilesToTmp($actionType, $actionData);
-							break;
-
-						case "createdir":
-							$this->save($actionData);
-							$result = true;
-							break;
-
-						case "rename":
-							$result = $this->rename($actionType, $actionData);
-							break;
-
-						case "uploadtobackend":
-							$result = $this->uploadToBackend($actionType, $actionData);
-							break;
-
-						case "save":
-							if ((isset($actionData["props"]["sharedid"]) || isset($actionData["props"]["isshared"])) && (!isset($actionData["props"]["deleted"]) || !isset($actionData["props"]["message_size"]))) {
-								// JUST IGNORE THIS REQUEST - we don't need to interact with the backend if a share was changed
-								$response['status'] = true;
-								$folder = [];
-								$folder[$actionData['entryid']] = [
-									'props' => $actionData["props"],
-									'entryid' => $actionData['entryid'],
-									'store_entryid' => 'files',
-									'parent_entryid' => $actionData['parent_entryid'],
-								];
-
-								$response['item'] = array_values($folder);
-								$this->addActionData("update", $response);
-								$GLOBALS["bus"]->addData($this->getResponseData());
-
-								break;
-							}
-
-							/*
-							 * The "message_action" object has been set, check the action_type field for
-							 * the exact action which must be taken.
-							 * Supported actions:
-							 *   - move: move record to new folder
-							 */
-							if (isset($actionData["message_action"], $actionData["message_action"]["action_type"])) {
-								switch ($actionData["message_action"]["action_type"]) {
-									case "move" :
-										$result = $this->move($actionType, $actionData);
-										break;
-
-									default:
-										// check if we should create something new or edit an existing file/folder
-										if (isset($actionData["entryid"])) {
-											$result = $this->rename($actionType, $actionData);
-										}
-										else {
-											$result = $this->save($actionData);
-										}
-										break;
-								}
-							}
-							else {
-								// check if we should create something new or edit an existing file/folder
-								if (isset($actionData["entryid"])) {
-									$result = $this->rename($actionType, $actionData);
-								}
-								else {
-									$result = $this->save($actionData);
-								}
-							}
-							break;
-
-						case "delete":
-							$result = $this->delete($actionType, $actionData);
-							break;
-
-						case "list":
-							$result = $this->loadFiles($actionType, $actionData);
-							break;
-
-						case "loadsharingdetails":
-							$result = $this->getSharingInformation($actionType, $actionData);
-							break;
-
-						case "createnewshare":
-							$result = $this->createNewShare($actionType, $actionData);
-							break;
-
-						case "updateexistingshare":
-							$result = $this->updateExistingShare($actionType, $actionData);
-							break;
-
-						case "deleteexistingshare":
-							$result = $this->deleteExistingShare($actionType, $actionData);
-							break;
-
-						case "updatecache":
-							$result = $this->updateCache($actionType, $actionData);
-							break;
-
-						default:
-							$this->handleUnknownActionType($actionType);
-					}
+					continue;
 				}
-				catch (MAPIException $e) {
-					$this->sendFeedback(false, $this->errorDetailsFromException($e));
+
+				switch ($actionType) {
+					case "checkifexists":
+						$records = $actionData["records"];
+						$destination = $actionData["destination"] ?? false;
+						$result = $this->checkIfExists($records, $destination);
+						$response = [];
+						$response['status'] = true;
+						$response['duplicate'] = $result;
+						$this->addActionData($actionType, $response);
+						$GLOBALS["bus"]->addData($this->getResponseData());
+						break;
+
+					case "createdir":
+						$this->save($actionData);
+						$result = true;
+						break;
+
+					case "save":
+						$result = $this->saveRecord($actionType, $actionData) ?? $result;
+						break;
+
+					default:
+						$this->handleUnknownActionType($actionType);
 				}
-				catch (AccountException $e) {
-					$this->sendFeedback(false, [
-						'type' => ERROR_GENERAL,
-						'info' => [
-							'title' => $e->getTitle(),
-							'original_message' => $e->getMessage(),
-							'display_message' => $e->getMessage(),
-						],
-					]);
-				}
-				catch (BackendException $e) {
-					$this->sendFeedback(false, [
-						'type' => ERROR_GENERAL,
-						'info' => [
-							'title' => $e->getTitle(),
-							'original_message' => $e->getMessage(),
-							'display_message' => $e->getMessage(),
-							'code' => $e->getCode(),
-						],
-					]);
-				}
-				catch (Exception $e) {
-					$this->sendFeedback(false, [
-						'type' => ERROR_GENERAL,
-						'info' => [
-							'title' => _('Unknown error'),
-							'original_message' => $e->getMessage(),
-							'display_message' => $e->getMessage(),
-							'code' => $e->getCode(),
-						],
-					]);
-				}
+			}
+			catch (MAPIException $e) {
+				$this->sendFeedback(false, $this->errorDetailsFromException($e));
+			}
+			catch (AccountException $e) {
+				$this->sendFeedback(false, [
+					'type' => ERROR_GENERAL,
+					'info' => [
+						'title' => $e->getTitle(),
+						'original_message' => $e->getMessage(),
+						'display_message' => $e->getMessage(),
+					],
+				]);
+			}
+			catch (BackendException $e) {
+				$this->sendFeedback(false, [
+					'type' => ERROR_GENERAL,
+					'info' => [
+						'title' => $e->getTitle(),
+						'original_message' => $e->getMessage(),
+						'display_message' => $e->getMessage(),
+						'code' => $e->getCode(),
+					],
+				]);
+			}
+			catch (Exception $e) {
+				$this->sendFeedback(false, [
+					'type' => ERROR_GENERAL,
+					'info' => [
+						'title' => _('Unknown error'),
+						'original_message' => $e->getMessage(),
+						'display_message' => $e->getMessage(),
+						'code' => $e->getCode(),
+					],
+				]);
 			}
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Handles the "save" action: move, rename or create a file/folder.
+	 *
+	 * @param string $actionType name of the current action
+	 * @param array  $actionData all parameters contained in this request
+	 *
+	 * @return null|array|bool null when a share change was acknowledged without backend access
+	 *
+	 * @throws BackendException if the backend request fails
+	 */
+	private function saveRecord($actionType, $actionData) {
+		if ((isset($actionData["props"]["sharedid"]) || isset($actionData["props"]["isshared"])) && (!isset($actionData["props"]["deleted"]) || !isset($actionData["props"]["message_size"]))) {
+			// share changes need no backend interaction
+			$response = [];
+			$response['status'] = true;
+			$folder = [];
+			$folder[$actionData['entryid']] = [
+				'props' => $actionData["props"],
+				'entryid' => $actionData['entryid'],
+				'store_entryid' => 'files',
+				'parent_entryid' => $actionData['parent_entryid'],
+			];
+
+			$response['item'] = array_values($folder);
+			$this->addActionData("update", $response);
+			$GLOBALS["bus"]->addData($this->getResponseData());
+
+			return null;
+		}
+
+		if (($actionData["message_action"]["action_type"] ?? null) === "move") {
+			return $this->move($actionType, $actionData);
+		}
+		if (isset($actionData["entryid"])) {
+			return $this->rename($actionType, $actionData);
+		}
+
+		return $this->save($actionData);
 	}
 
 	/**
