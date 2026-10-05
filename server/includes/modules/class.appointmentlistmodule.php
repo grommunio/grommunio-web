@@ -32,16 +32,6 @@ class AppointmentListModule extends ListModule {
 	protected $tzdef;
 
 	/**
-	 * @var array|bool client timezone definition array
-	 */
-	protected $tzdefObj;
-
-	/**
-	 * @var mixed client timezone effective rule id
-	 */
-	protected $tzEffRule;
-
-	/**
 	 * @var int number of appointments skipped while processing a list request
 	 */
 	private $skippedCount = 0;
@@ -66,7 +56,6 @@ class AppointmentListModule extends ListModule {
 		$this->enddate = false;
 		$this->tziana = 'Etc/UTC';
 		$this->tzdef = false;
-		$this->tzdefObj = false;
 	}
 
 	/**
@@ -195,13 +184,7 @@ class AppointmentListModule extends ListModule {
 
 		if (!empty($action["timezone_iana"])) {
 			$this->tziana = $action["timezone_iana"];
-
-			try {
-				$this->tzdef = mapi_ianatz_to_tzdef($action['timezone_iana']);
-			}
-			catch (Exception) {
-				$this->tzdef = false;
-			}
+			$this->tzdef = TimezoneUtil::GetBinaryTZ($action['timezone_iana']);
 		}
 
 		if ($this->startdate && $this->enddate) {
@@ -681,21 +664,8 @@ class AppointmentListModule extends ListModule {
 		// Compare the timezone definitions of the client and the appointment.
 		// Further processing is only required if they don't match.
 		elseif ($isTzdefstartSet && !$GLOBALS['entryid']->compareEntryIds($this->tzdef, $tzdefstart)) {
-			if ($this->tzdefObj === false) {
-				$this->tzdefObj = parseTimezoneDefinition($this->tzdef);
-				$this->tzEffRule = getEffectiveTimezoneRule($this->tzdefObj);
-			}
-			$appTzEffRule = getEffectiveTimezoneRule(parseTimezoneDefinition($tzdefstart));
-
-			if ($this->tzEffRule !== null && $appTzEffRule !== null) {
-				// first apply the bias of the appointment timezone and the bias of the browser
-				$localStart = $calendaritem['props']['startdate'] - $appTzEffRule['bias'] * 60 + $this->tzEffRule['bias'] * 60;
-				if (isDst($appTzEffRule, $calendaritem['props']['startdate'])) {
-					$localStart -= $appTzEffRule['dstbias'] * 60;
-				}
-				if (isDst($this->tzEffRule, $calendaritem['props']['startdate'])) {
-					$localStart += $this->tzEffRule['dstbias'] * 60;
-				}
+			$localStart = TimezoneUtil::ConvertAllDayStart($calendaritem['props']['startdate'], $tzdefstart, $this->tzdef);
+			if ($localStart !== null) {
 				$calendaritem['props']['startdate'] = $calendaritem['props']['commonstart'] = $localStart;
 				$calendaritem['props']['duedate'] = $calendaritem['props']['commonend'] = $localStart + $duration;
 			}

@@ -2339,16 +2339,13 @@ class Operations {
 		// PidLidAppointmentTimeZoneDefinitionEndDisplay so that the allday
 		// events are displayed correctly
 		if (!empty($action['props']['timezone_iana'])) {
-			try {
-				$tzdef = mapi_ianatz_to_tzdef($action['props']['timezone_iana']);
-			}
-			catch (Exception) {
-				$tzdef = false;
-			}
+			$tzdef = TimezoneUtil::GetBinaryTZ($action['props']['timezone_iana']);
 			if ($tzdef !== false) {
 				$action['props']['tzdefstart'] = $action['props']['tzdefend'] = bin2hex($tzdef);
 				if (isset($action['props']['recurring']) && $action['props']['recurring'] == true) {
-					$action['props']['tzdefrecur'] = $action['props']['tzdefstart'];
+					// MS-OXOCAL 2.2.1.41.2: the effective rule is flagged for the series
+					$tzdefrecur = TimezoneUtil::SetTimezoneDefinitionFlags($tzdef, TZRULE_FLAG_EFFECTIVE_TZREG | TZRULE_FLAG_RECUR_CURRENT_TZREG);
+					$action['props']['tzdefrecur'] = bin2hex($tzdefrecur !== false ? $tzdefrecur : $tzdef);
 				}
 			}
 		}
