@@ -93,10 +93,8 @@ if (!function_exists('mapi_folder_createmessage')) {
 		return true;
 	}
 
-	function mapi_icaltomapi($session, $store, $ab, $message, $ics, $flags) {
-		$message->props[PR_MESSAGE_CLASS] = $GLOBALS['icsClass'];
-
-		return true;
+	function mapi_icaltomapi2($ab, $folder, $ics) {
+		return array_map(fn ($class) => $GLOBALS['created'][] = new FakeMessage([PR_MESSAGE_CLASS => $class]), $GLOBALS['icsClasses']);
 	}
 
 	function mapi_savechanges($message) {
@@ -173,10 +171,26 @@ foreach (['card.vcf' => 'IPM.Contact', 'mail.eml' => 'IPM.Note'] as $filename =>
 	}
 }
 
-$GLOBALS['icsClass'] = 'IPM.Schedule.Meeting.Request';
+$GLOBALS['icsClasses'] = ['IPM.Schedule.Meeting.Request'];
 importAttachment('invite.ics', "BEGIN:VCALENDAR\r\nEND:VCALENDAR\r\n");
 if ($GLOBALS['accepted'] !== ['IPM.Schedule.Meeting.Request']) {
 	throw new RuntimeException('An imported meeting request was not turned into an appointment.');
+}
+
+$GLOBALS['icsClasses'] = ['IPM.Appointment', 'IPM.Appointment'];
+$response = importAttachment('events.ics', "BEGIN:VCALENDAR\r\nEND:VCALENDAR\r\n");
+$saved = array_map(fn ($message) => $message->saved, $GLOBALS['created']);
+if (empty($response['success']) || $saved !== [true, true] || $GLOBALS['accepted'] !== []) {
+	throw new RuntimeException('A calendar file with two events was not imported as two appointments: ' . json_encode($saved));
+}
+
+$GLOBALS['icsClasses'] = [];
+try {
+	importAttachment('none.ics', "BEGIN:VCALENDAR\r\nEND:VCALENDAR\r\n");
+
+	throw new LogicException('A calendar file without events was reported as imported.');
+}
+catch (GrommunioException $e) {
 }
 
 echo "Attachment import checks passed\n";

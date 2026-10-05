@@ -726,7 +726,7 @@ class DownloadAttachment extends DownloadBase {
 
 		$addrBook = $GLOBALS['mapisession']->getAddressbook();
 
-		$newMessage = mapi_folder_createmessage($this->destinationFolder);
+		$newMessage = null;
 		$attachmentProps = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME]);
 		$attachmentStream = readMapiPropStream($attachment, PR_ATTACH_DATA_BIN);
 		$extension = strtolower((string) pathinfo((string) $attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION));
@@ -737,6 +737,8 @@ class DownloadAttachment extends DownloadBase {
 				if (isBrokenEml($attachmentStream)) {
 					throw new GrommunioException(_("Eml is corrupted"));
 				}
+
+				$newMessage = mapi_folder_createmessage($this->destinationFolder);
 
 				try {
 					// Convert an RFC822-formatted e-mail to a MAPI Message
@@ -749,6 +751,8 @@ class DownloadAttachment extends DownloadBase {
 				break;
 
 			case 'vcf':
+				$newMessage = mapi_folder_createmessage($this->destinationFolder);
+
 				try {
 					// Convert an RFC6350-formatted vCard to a MAPI Contact
 					$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $this->store, $newMessage, $attachmentStream);
@@ -760,26 +764,13 @@ class DownloadAttachment extends DownloadBase {
 
 			case 'vcs':
 			case 'ics':
-				try {
-					// Convert vCalendar 1.0 or iCalendar to a MAPI Appointment
-					$ok = mapi_icaltomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, false);
-				}
-				catch (Exception $e) {
-					throw ImportError::fromException($e, $attachmentProps[PR_ATTACH_LONG_FILENAME], $this->destinationFolder, fn () => $this->otherStore, _("There is no appointment found in this file."));
-				}
+				$ok = $this->importEvents($addrBook, $attachmentStream, $attachmentProps[PR_ATTACH_LONG_FILENAME]);
 				break;
 		}
 
 		if ($ok === true) {
-			mapi_savechanges($newMessage);
-
-			// Only a meeting request from a calendar file is converted to an appointment.
-			$newMessageProps = mapi_getprops($newMessage, [PR_MESSAGE_CLASS]);
-			if (in_array($extension, ['ics', 'vcs'], true) && str_starts_with((string) ($newMessageProps[PR_MESSAGE_CLASS] ?? ''), 'IPM.Schedule.Meeting.')) {
-				// Convert the Meeting request record to proper appointment record so we can
-				// properly show the appointment in calendar.
-				$req = new Meetingrequest($this->store, $newMessage, $GLOBALS['mapisession']->getSession(), ENABLE_DIRECT_BOOKING);
-				$req->doAccept(true, false, false, false, false, false, false, false, false, true);
+			if ($newMessage !== null) {
+				mapi_savechanges($newMessage);
 			}
 			$storeProps = mapi_getprops($this->store, [PR_ENTRYID]);
 			$destinationFolderProps = mapi_getprops($this->destinationFolder, [PR_PARENT_ENTRYID, PR_CONTENT_UNREAD]);
@@ -825,6 +816,36 @@ class DownloadAttachment extends DownloadBase {
 		else {
 			throw new GrommunioException(_("Attachment is not imported successfully"));
 		}
+	}
+
+	/**
+	 * Saves every event of a calendar file into the destination folder,
+	 * turning meeting requests into appointments.
+	 *
+	 * @param mixed  $addrBook
+	 * @param string $stream   the calendar file
+	 * @param string $filename
+	 *
+	 * @return bool true when at least one event was imported
+	 */
+	private function importEvents($addrBook, $stream, $filename) {
+		try {
+			// Convert vCalendar 1.0 or iCalendar to MAPI Appointments
+			$events = mapi_icaltomapi2($addrBook, $this->destinationFolder, $stream) ?: [];
+		}
+		catch (Exception $e) {
+			throw ImportError::fromException($e, $filename, $this->destinationFolder, fn () => $this->otherStore, _("There is no appointment found in this file."));
+		}
+		foreach ($events as $event) {
+			mapi_savechanges($event);
+			$props = mapi_getprops($event, [PR_MESSAGE_CLASS]);
+			if (str_starts_with((string) ($props[PR_MESSAGE_CLASS] ?? ''), 'IPM.Schedule.Meeting.')) {
+				$req = new Meetingrequest($this->store, $event, $GLOBALS['mapisession']->getSession(), ENABLE_DIRECT_BOOKING);
+				$req->doAccept(true, false, false, false, false, false, false, false, false, true);
+			}
+		}
+
+		return !empty($events);
 	}
 
 	/**
