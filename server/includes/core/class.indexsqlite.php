@@ -370,7 +370,7 @@ class IndexSqlite extends SQLite3 {
 		$builder = new FtsQueryBuilder(fn ($message, $context = []) => $this->logDebug($message, $context));
 		$query = $builder->build($descriptor, $whereFolderids);
 		if ($query === null) {
-			error_log(sprintf("FTS query compilation returned empty expression: ast => %s", $ftsAst));
+			error_log(sprintf("FTS query compilation returned empty expression: ast => %s", json_encode($ftsAst)));
 
 			return false;
 		}
