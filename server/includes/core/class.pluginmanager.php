@@ -254,6 +254,10 @@ class PluginManager {
 		foreach ($this->pluginAliases as $legacy => $canonical) {
 			$legacyData = $plugindata[$legacy] ?? null;
 			$canonicalData = $plugindata[$canonical] ?? null;
+			// Disabled or dropped by the requirement checks
+			if (($legacyData ?? $canonicalData) === null) {
+				continue;
+			}
 			$freshData = $this->processPlugin($canonical);
 			if (is_array($freshData)) {
 				$canonicalData = $freshData;
