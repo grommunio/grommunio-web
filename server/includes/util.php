@@ -11,6 +11,7 @@
  * Utility functions.
  */
 require_once BASE_PATH . 'server/includes/exceptions/class.JSONException.php';
+require_once __DIR__ . '/hexutil.php';
 
 /**
  * Function which reads the data stream. This data is send by the WebClient.

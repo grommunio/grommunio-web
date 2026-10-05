@@ -7,6 +7,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+require_once __DIR__ . '/../hexutil.php';
+
 /**
  * ListModule
  * Superclass of every module, which retrieves a MAPI message list. It
@@ -450,8 +452,7 @@ class ListModule extends Module {
 		$listData = [];
 		if (array_key_exists('search_folder_entryid', $action)) {
 			$searchFolderEntryid = $action['search_folder_entryid'];
-			if (!is_string($searchFolderEntryid) || $searchFolderEntryid === '' ||
-				(strlen($searchFolderEntryid) % 2) !== 0 || !ctype_xdigit($searchFolderEntryid)) {
+			if (!is_hex_entryid($searchFolderEntryid)) {
 				return;
 			}
 			$entryid = hex2bin($searchFolderEntryid);

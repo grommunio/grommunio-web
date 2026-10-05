@@ -7,6 +7,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+require_once __DIR__ . '/../hexutil.php';
+
 /**
  * Create Mail ItemModule
  * Module which opens, creates, saves and deletes an item. It
@@ -603,7 +605,7 @@ class CreateMailItemModule extends ItemModule {
 			return '';
 		}
 
-		if ((strlen($value) % 2) !== 0 || !ctype_xdigit($value)) {
+		if (!is_hex_entryid($value)) {
 			return false;
 		}
 

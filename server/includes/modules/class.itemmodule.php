@@ -8,6 +8,7 @@
  */
 
 require_once __DIR__ . '/../core/class.meetingrequestforwarder.php';
+require_once __DIR__ . '/../hexutil.php';
 
 /**
  * ItemModule
@@ -1049,8 +1050,7 @@ class ItemModule extends Module {
 	public function copy($store, $parententryid, $entryids, $action) {
 		if ($store !== false && $parententryid && $entryids) {
 			$destinationParentEntryid = $action["message_action"]["destination_parent_entryid"] ?? null;
-			if (!is_string($destinationParentEntryid) || $destinationParentEntryid === '' ||
-				(strlen($destinationParentEntryid) % 2) !== 0 || !ctype_xdigit($destinationParentEntryid)) {
+			if (!is_hex_entryid($destinationParentEntryid)) {
 				$this->sendFeedback(false);
 
 				return;
@@ -1060,8 +1060,7 @@ class ItemModule extends Module {
 			$dest_store = $store;
 			if (isset($action["message_action"]["destination_store_entryid"])) {
 				$destinationStoreEntryid = $action["message_action"]["destination_store_entryid"];
-				if (!is_string($destinationStoreEntryid) || $destinationStoreEntryid === '' ||
-					(strlen($destinationStoreEntryid) % 2) !== 0 || !ctype_xdigit($destinationStoreEntryid)) {
+				if (!is_hex_entryid($destinationStoreEntryid)) {
 					$this->sendFeedback(false);
 
 					return;
@@ -1083,7 +1082,7 @@ class ItemModule extends Module {
 			$dest_storeentryid = $destStoreProps[PR_ENTRYID];
 
 			$moveMessages = false;
-			if (isset($action["message_action"]["action_type"]) && $action["message_action"]["action_type"] == "move") {
+			if (($action["message_action"]["action_type"] ?? null) == "move") {
 				$moveMessages = true;
 			}
 
@@ -1094,7 +1093,7 @@ class ItemModule extends Module {
 			}
 
 			// if item has some changes made before choosing different calendar from create-in dropdown
-			if (isset($action["props"]) && !empty($action["props"])) {
+			if (!empty($action["props"])) {
 				$copyProps = Conversion::mapXML2MAPI($this->properties, $action["props"]);
 			}
 

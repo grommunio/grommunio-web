@@ -7,6 +7,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+require_once __DIR__ . '/../hexutil.php';
+
 /**
  * Mail Module.
  */
@@ -259,7 +261,7 @@ class MailListModule extends ListModule {
 		if ($this->useConversationView() && is_array($ids) && !empty($ids)) {
 			$validIds = [];
 			foreach ($ids as $id) {
-				if (is_string($id) && $id !== '' && ctype_xdigit($id)) {
+				if (is_hex_string($id)) {
 					$validIds[] = $id;
 					// The client asks per loaded page; cap the restriction size.
 					if (count($validIds) >= 500) {
@@ -328,8 +330,7 @@ class MailListModule extends ListModule {
 		$conversationId = $action['conversation_id'] ?? '';
 		$data['conversation_id'] = $conversationId;
 
-		if ($this->useConversationView() && is_string($conversationId) && $conversationId !== '' &&
-			ctype_xdigit($conversationId)) {
+		if ($this->useConversationView() && is_hex_string($conversationId)) {
 			$restriction = [
 				RES_PROPERTY,
 				[
