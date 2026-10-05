@@ -94,6 +94,10 @@ if (!function_exists('mapi_folder_createmessage')) {
 	}
 
 	function mapi_icaltomapi2($ab, $folder, $ics) {
+		if (stripos($ics, 'VCALENDAR') === false) {
+			throw new Exception('The operation failed for an unspecified reason', MAPI_E_CALL_FAILED);
+		}
+
 		return array_map(fn ($class) => $GLOBALS['created'][] = new FakeMessage([PR_MESSAGE_CLASS => $class]), $GLOBALS['icsClasses']);
 	}
 
@@ -184,6 +188,12 @@ if (empty($response['success']) || $saved !== [true, true] || $GLOBALS['accepted
 	throw new RuntimeException('A calendar file with two events was not imported as two appointments: ' . json_encode($saved));
 }
 
+$GLOBALS['icsClasses'] = ['IPM.Appointment'];
+$response = importAttachment('lower.ics', "begin:vcalendar\r\nend:vcalendar\r\n");
+if (empty($response['success'])) {
+	throw new RuntimeException('A calendar file with lowercase names was not imported.');
+}
+
 $GLOBALS['icsClasses'] = [];
 try {
 	importAttachment('none.ics', "BEGIN:VCALENDAR\r\nEND:VCALENDAR\r\n");
@@ -191,6 +201,19 @@ try {
 	throw new LogicException('A calendar file without events was reported as imported.');
 }
 catch (GrommunioException $e) {
+}
+
+foreach (['', 'garbage'] as $data) {
+	try {
+		importAttachment('empty.ics', $data);
+
+		throw new LogicException('An invalid calendar file was reported as imported.');
+	}
+	catch (GrommunioException $e) {
+		if (!str_ends_with($e->getMessage(), 'The file is invalid.') || $GLOBALS['created'] !== []) {
+			throw new RuntimeException('An invalid calendar file was not reported as invalid: ' . $e->getMessage());
+		}
+	}
 }
 
 echo "Attachment import checks passed\n";

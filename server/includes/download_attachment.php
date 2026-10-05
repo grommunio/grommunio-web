@@ -830,6 +830,10 @@ class DownloadAttachment extends DownloadBase {
 	 */
 	private function importEvents($addrBook, $stream, $filename) {
 		try {
+			// the same check the upload import makes before sending a file
+			if (!preg_match('/VCALENDAR(\r\n|\n|\r)/i', $stream)) {
+				throw new Exception('', MAPI_E_INVALID_PARAMETER);
+			}
 			// Convert vCalendar 1.0 or iCalendar to MAPI Appointments
 			$events = mapi_icaltomapi2($addrBook, $this->destinationFolder, $stream) ?: [];
 		}
