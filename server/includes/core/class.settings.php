@@ -345,6 +345,17 @@ class Settings {
 	}
 
 	/**
+	 * Accept the legacy settings root plugins written before the rename still use.
+	 *
+	 * @param null|string $path
+	 *
+	 * @return null|string
+	 */
+	private function aliasPath($path) {
+		return is_string($path) ? preg_replace('#^/?' . self::LEGACY_SETTINGS_ROOT . '(?=/|$)#', self::SETTINGS_ROOT, $path, 1) : $path;
+	}
+
+	/**
 	 * Move a settings tree that still uses the legacy root onto the current one.
 	 *
 	 * Runs on every load rather than once, because reloadModifiedSettings()
@@ -353,25 +364,10 @@ class Settings {
 	 * shape. The legacy subtree is dropped, and since writeSettings()
 	 * serialises the whole tree the first save persists that removal.
 	 *
-	 * @param mixed $path
+	 * @param array $settings the decoded settings tree
 	 *
 	 * @return array the tree rooted at {@link self::SETTINGS_ROOT}
 	 */
-	/**
-	 * Accept the legacy settings root plugins written before the rename still use.
-	 *
-	 * @param null|string $path
-	 *
-	 * @return null|string
-	 */
-	private function aliasPath($path) {
-		if (is_string($path) && preg_match('#^/?' . self::LEGACY_SETTINGS_ROOT . '(?=/|$)#', $path)) {
-			return preg_replace('#^/?' . self::LEGACY_SETTINGS_ROOT . '#', self::SETTINGS_ROOT, $path, 1);
-		}
-
-		return $path;
-	}
-
 	private function migrateLegacyRoot($settings) {
 		if (!isset($settings[self::LEGACY_SETTINGS_ROOT])) {
 			return $settings;
@@ -407,6 +403,8 @@ class Settings {
 		// first check if property exist and we can open that using mapi_openproperty
 		$storeProps = mapi_getprops($this->store, [PR_EC_WEBACCESS_SETTINGS_JSON, PR_EC_USER_LANGUAGE]);
 
+		$language = $storeProps[PR_EC_USER_LANGUAGE] ?? $_COOKIE['lang'] ?? null;
+
 		$settings = ["settings" => ["grommunio" => ["v1" => ["main" => []]]]];
 		// Check if property exists, if it does not exist then we can continue with empty set of settings
 		$settingsString = readMapiProp($this->store, PR_EC_WEBACCESS_SETTINGS_JSON, $storeProps);
@@ -420,11 +418,8 @@ class Settings {
 				}
 				$settings['settings'] = $this->migrateLegacyRoot($settings['settings']);
 			}
-			if (isset($storeProps[PR_EC_USER_LANGUAGE])) {
-				$settings["settings"]["grommunio"]["v1"]["main"]["language"] = $storeProps[PR_EC_USER_LANGUAGE];
-			}
-			elseif (isset($_COOKIE['lang'])) {
-				$settings["settings"]["grommunio"]["v1"]["main"]["language"] = $_COOKIE['lang'];
+			if ($language !== null) {
+				$settings["settings"]["grommunio"]["v1"]["main"]["language"] = $language;
 			}
 			// Get and apply the System Administrator default settings
 			$sysadminSettings = $this->getDefaultSysAdminSettings();
@@ -438,11 +433,8 @@ class Settings {
 			 * contains plugin default enable/disable and other plugins related settings information which required
 			 * while webapp loads.
 			 */
-			if (isset($storeProps[PR_EC_USER_LANGUAGE])) {
-				$settings["settings"]["grommunio"]["v1"]["main"]["language"] = $storeProps[PR_EC_USER_LANGUAGE];
-			}
-			elseif (isset($_COOKIE['lang'])) {
-				$settings["settings"]["grommunio"]["v1"]["main"]["language"] = $_COOKIE['lang'];
+			if ($language !== null) {
+				$settings["settings"]["grommunio"]["v1"]["main"]["language"] = $language;
 			}
 			$sysadminSettings = $this->getDefaultSysAdminSettings();
 			$this->settings = array_replace_recursive($sysadminSettings, $settings['settings']);
