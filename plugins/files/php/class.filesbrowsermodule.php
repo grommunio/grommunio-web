@@ -15,6 +15,7 @@ require_once __DIR__ . "/Files/Backend/class.backendstore.php";
 
 require_once __DIR__ . "/Files/Core/Util/class.arrayutil.php";
 require_once __DIR__ . "/Files/Core/Util/class.logger.php";
+require_once __DIR__ . "/Files/Core/Util/class.mapiexport.php";
 require_once __DIR__ . "/Files/Core/Util/class.stringutil.php";
 require_once __DIR__ . "/Files/Core/Util/class.pathutil.php";
 
@@ -27,6 +28,7 @@ use Files\Core\Account;
 use Files\Core\Exception as AccountException;
 use Files\Core\Util\ArrayUtil;
 use Files\Core\Util\Logger as FilesLogger;
+use Files\Core\Util\MapiExport;
 use Files\Core\Util\PathUtil;
 use Files\Core\Util\StringUtil;
 
@@ -796,32 +798,15 @@ class FilesBrowserModule extends FilesListModule {
 
 		$result = true;
 
-		if ($actionData["type"] === "attachment") {
+		$export = match ($actionData["type"]) {
+			"attachment" => MapiExport::attachmentToTempFile(...),
+			"mail" => MapiExport::messageToTempFile(...),
+			default => null,
+		};
+
+		if ($export !== null) {
 			foreach ($actionData["items"] as $item) {
-				$prepared = $this->prepareAttachmentForUpload($item);
-				if ($prepared === false) {
-					$result = false;
-
-					continue;
-				}
-				[$tmpname, $filename] = $prepared;
-
-				$dirName = substr((string) $actionData["destdir"], strpos((string) $actionData["destdir"], '/'));
-				$filePath = $dirName . $filename;
-
-				FilesLogger::debug(self::LOG_CONTEXT, "Uploading to: " . $filePath . " tmpfile: " . $tmpname);
-
-				$result = $result && $initializedBackend->put_file($filePath, $tmpname);
-				if (!@unlink($tmpname)) {
-					FilesLogger::error(self::LOG_CONTEXT, "Unable to remove temporary file: " . $tmpname);
-				}
-
-				$this->updateDirCache($initializedBackend, $dirName, $filePath, $actionData);
-			}
-		}
-		elseif ($actionData["type"] === "mail") {
-			foreach ($actionData["items"] as $item) {
-				$prepared = $this->prepareEmailForUpload($item);
+				$prepared = $export($item);
 				if ($prepared === false) {
 					$result = false;
 
@@ -883,200 +868,6 @@ class FilesBrowserModule extends FilesListModule {
 		$cacheDir = $this->getCache($accountID, $cachePath);
 		$cacheDir[$filePath] = $dir[$filePath];
 		$this->setCache($accountID, $cachePath, $cacheDir);
-	}
-
-	/**
-	 * This function will prepare an attachment for the upload to the backend.
-	 * It will store the attachment to the TMP folder and return its temporary
-	 * path and filename as array.
-	 *
-	 * @param mixed $item
-	 *
-	 * @return array|false temporary path and filename, or false on error
-	 */
-	private function prepareAttachmentForUpload($item) {
-		// Get store id
-		$storeid = false;
-		if (isset($item["store"])) {
-			$storeid = $item["store"];
-		}
-
-		// Get message entryid
-		$entryid = false;
-		if (isset($item["entryid"])) {
-			$entryid = $item["entryid"];
-		}
-
-		// Get number of attachment which should be opened.
-		$attachNum = false;
-		if (isset($item["attachNum"])) {
-			$attachNum = $item["attachNum"];
-		}
-
-		// Check if storeid and entryid isset
-		if ($storeid && $entryid) {
-			// Open the store
-			$store = $GLOBALS["mapisession"]->openMessageStore(hex2bin((string) $storeid));
-
-			if ($store) {
-				// Open the message
-				$message = mapi_msgstore_openentry($store, hex2bin((string) $entryid));
-
-				if ($message) {
-					$attachment = false;
-
-					// Check if attachNum isset
-					if ($attachNum) {
-						// Loop through the attachNums, message in message in message ...
-						for ($i = 0; $i < (count($attachNum) - 1); ++$i) {
-							// Open the attachment
-							$tempattach = mapi_message_openattach($message, (int) $attachNum[$i]);
-							if ($tempattach) {
-								// Open the object in the attachment
-								$message = mapi_attach_openobj($tempattach);
-							}
-						}
-
-						// Open the attachment
-						$attachment = mapi_message_openattach($message, (int) $attachNum[count($attachNum) - 1]);
-					}
-
-					// Check if the attachment is opened
-					if ($attachment) {
-						// Get the props of the attachment
-						$props = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME, PR_ATTACH_FILENAME, PR_DISPLAY_NAME]);
-						// Filename
-						$filename = "ERROR";
-
-						// Set filename
-						if (isset($props[PR_ATTACH_LONG_FILENAME])) {
-							$filename = PathUtil::sanitizeFilename($props[PR_ATTACH_LONG_FILENAME]);
-						}
-						else {
-							if (isset($props[PR_ATTACH_FILENAME])) {
-								$filename = PathUtil::sanitizeFilename($props[PR_ATTACH_FILENAME]);
-							}
-							else {
-								if (isset($props[PR_DISPLAY_NAME])) {
-									$filename = PathUtil::sanitizeFilename($props[PR_DISPLAY_NAME]);
-								}
-							}
-						}
-
-						$tmpname = tempnam(TMP_PATH, stripslashes($filename));
-
-						// Open a stream to get the attachment data
-						$stream = mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0);
-						$stat = mapi_stream_stat($stream);
-						// File length =  $stat["cb"]
-
-						FilesLogger::debug(self::LOG_CONTEXT, "filesize: " . $stat["cb"]);
-
-						$fhandle = fopen($tmpname, 'w');
-						for ($i = 0; $i < $stat["cb"]; $i += BLOCK_SIZE) {
-							// Write stream
-							$buffer = mapi_stream_read($stream, BLOCK_SIZE);
-							if ($buffer === false) {
-								fclose($fhandle);
-								unlink($tmpname);
-								FilesLogger::error(self::LOG_CONTEXT, "attachment stream could not be read");
-
-								return false;
-							}
-							fwrite($fhandle, $buffer, strlen($buffer));
-						}
-						fclose($fhandle);
-
-						FilesLogger::debug(self::LOG_CONTEXT, "temp attachment written to " . $tmpname);
-
-						return [$tmpname, $filename];
-					}
-				}
-			}
-			else {
-				FilesLogger::error(self::LOG_CONTEXT, "store could not be opened");
-			}
-		}
-		else {
-			FilesLogger::error(self::LOG_CONTEXT, "wrong call, store and entryid have to be set");
-		}
-
-		return false;
-	}
-
-	/**
-	 * Store the email as eml to a temporary directory and return its temporary filename.
-	 *
-	 * @param mixed $item
-	 *
-	 * @return array|false temporary path and filename, or false on error
-	 */
-	private function prepareEmailForUpload($item) {
-		// Get store id
-		$storeid = false;
-		if (isset($item["store"])) {
-			$storeid = $item["store"];
-		}
-
-		// Get message entryid
-		$entryid = false;
-		if (isset($item["entryid"])) {
-			$entryid = $item["entryid"];
-		}
-
-		$store = $GLOBALS['mapisession']->openMessageStore(hex2bin($storeid));
-		$message = mapi_msgstore_openentry($store, hex2bin($entryid));
-
-		// Decode smime signed messages on this message
-		parse_smime($store, $message);
-
-		if ($message && $store) {
-			// get message properties.
-			$messageProps = mapi_getprops($message, [PR_SUBJECT, PR_MESSAGE_CLASS]);
-			$cls = $messageProps[PR_MESSAGE_CLASS];
-			$isSupportedMessage = class_match_prefix($cls, "IPM.Note") ||
-								  class_match_prefix($cls, "Report.IPM.Note") ||
-								  class_match_prefix($cls, "IPM.Schedule");
-
-			if ($isSupportedMessage) {
-				// Get addressbook for current session
-				$addrBook = $GLOBALS['mapisession']->getAddressbook();
-
-				// Read the message as RFC822-formatted e-mail stream.
-				$stream = mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $addrBook, $message, []);
-
-				if (!empty($messageProps[PR_SUBJECT])) {
-					$filename = PathUtil::sanitizeFilename($messageProps[PR_SUBJECT]) . '.eml';
-				}
-				else {
-					$filename = _('Untitled') . '.eml';
-				}
-
-				$tmpname = tempnam(TMP_PATH, "email2filez");
-
-				// Set the file length
-				$stat = mapi_stream_stat($stream);
-
-				$fhandle = fopen($tmpname, 'w');
-				for ($i = 0; $i < $stat["cb"]; $i += BLOCK_SIZE) {
-					// Write stream
-					$buffer = mapi_stream_read($stream, BLOCK_SIZE);
-					if ($buffer === false) {
-						fclose($fhandle);
-						unlink($tmpname);
-						FilesLogger::error(self::LOG_CONTEXT, "message stream could not be read");
-
-						return false;
-					}
-					fwrite($fhandle, $buffer, strlen($buffer));
-				}
-				fclose($fhandle);
-
-				return [$tmpname, $filename];
-			}
-		}
-
-		return false;
 	}
 
 	/**
