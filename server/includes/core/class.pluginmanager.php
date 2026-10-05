@@ -864,31 +864,64 @@ class PluginManager {
 			'notifiers' => [],
 		];
 
+		foreach ($this->collectComponentFiles('serverfiles', $load, [$this, 'getServerFilesForComponent'], []) as $componentfiles) {
+			$files['server'] = array_merge($files['server'], $componentfiles['server']);
+			$files['modules'] = array_merge($files['modules'], $componentfiles['modules']);
+			$files['notifiers'] = array_merge($files['notifiers'], $componentfiles['notifiers']);
+		}
+
+		return $files;
+	}
+
+	/**
+	 * Runs $forComponent on every component of the loaded plugins, falling
+	 * back from 'source' to 'debug' to 'release' files where a level is empty.
+	 *
+	 * @param string   $group        serverfiles, clientfiles or resourcefiles
+	 * @param number   $load         one of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE
+	 * @param callable $forComponent one of the get*FilesForComponent() methods
+	 * @param array    $skip         [pluginname] = true for plugins to leave out
+	 *
+	 * @return array the results of $forComponent
+	 */
+	private function collectComponentFiles($group, $load, callable $forComponent, array $skip) {
+		$result = [];
 		foreach ($this->pluginorder as $pluginname) {
+			if (isset($skip[$pluginname])) {
+				continue;
+			}
 			$plugin = &$this->plugindata[$pluginname];
 			foreach ($plugin['components'] as &$component) {
-				if (!empty($component['serverfiles'][$load])) {
-					$componentfiles = $this->getServerFilesForComponent($pluginname, $component, $load);
-				}
-				elseif ($load === LOAD_SOURCE && !empty($component['serverfiles'][LOAD_DEBUG])) {
-					$componentfiles = $this->getServerFilesForComponent($pluginname, $component, LOAD_DEBUG);
-				}
-				elseif ($load !== LOAD_RELEASE && !empty($component['serverfiles'][LOAD_RELEASE])) {
-					$componentfiles = $this->getServerFilesForComponent($pluginname, $component, LOAD_RELEASE);
-				} // else tough luck, at least release should be present
-
-				if (isset($componentfiles)) {
-					$files['server'] = array_merge($files['server'], $componentfiles['server']);
-					$files['modules'] = array_merge($files['modules'], $componentfiles['modules']);
-					$files['notifiers'] = array_merge($files['notifiers'], $componentfiles['notifiers']);
-					unset($componentfiles);
+				$effectiveLoad = $this->effectiveLoad($component[$group] ?? null, $load);
+				if ($effectiveLoad !== null) {
+					$result[] = $forComponent($pluginname, $component, $effectiveLoad);
 				}
 			}
 			unset($component);
 		}
 		unset($plugin);
 
-		return $files;
+		return $result;
+	}
+
+	/**
+	 * @param mixed  $groupFiles the files of one component group, keyed by load level
+	 * @param number $load       the requested load level
+	 *
+	 * @return null|number the load level to use, or null when there are no usable files
+	 */
+	private function effectiveLoad($groupFiles, $load) {
+		if (!empty($groupFiles[$load])) {
+			return $load;
+		}
+		if ($load === LOAD_SOURCE && !empty($groupFiles[LOAD_DEBUG])) {
+			return LOAD_DEBUG;
+		}
+		if ($load !== LOAD_RELEASE && !empty($groupFiles[LOAD_RELEASE])) {
+			return LOAD_RELEASE;
+		}
+
+		return null;
 	}
 
 	/**
@@ -937,35 +970,7 @@ class PluginManager {
 	 * @return array list of paths to files
 	 */
 	public function getClientFiles($load = LOAD_RELEASE) {
-		$files = [];
-		$unloaded = $this->getUnloadedPlugins();
-
-		foreach ($this->pluginorder as $pluginname) {
-			if (isset($unloaded[$pluginname])) {
-				continue;
-			}
-			$plugin = &$this->plugindata[$pluginname];
-			foreach ($plugin['components'] as &$component) {
-				if (!empty($component['clientfiles'][$load])) {
-					$componentfiles = $this->getClientFilesForComponent($pluginname, $component, $load);
-				}
-				elseif ($load === LOAD_SOURCE && !empty($component['clientfiles'][LOAD_DEBUG])) {
-					$componentfiles = $this->getClientFilesForComponent($pluginname, $component, LOAD_DEBUG);
-				}
-				elseif ($load !== LOAD_RELEASE && !empty($component['clientfiles'][LOAD_RELEASE])) {
-					$componentfiles = $this->getClientFilesForComponent($pluginname, $component, LOAD_RELEASE);
-				} // else tough luck, at least release should be present
-
-				if (isset($componentfiles)) {
-					$files = array_merge($files, $componentfiles);
-					unset($componentfiles);
-				}
-			}
-			unset($component);
-		}
-		unset($plugin);
-
-		return $files;
+		return array_merge(...$this->collectComponentFiles('clientfiles', $load, [$this, 'getClientFilesForComponent'], $this->getUnloadedPlugins()));
 	}
 
 	/**
@@ -1014,35 +1019,7 @@ class PluginManager {
 	 * @return array list of paths to files
 	 */
 	public function getResourceFiles($load = LOAD_RELEASE) {
-		$files = [];
-		$unloaded = $this->getUnloadedPlugins();
-
-		foreach ($this->pluginorder as $pluginname) {
-			if (isset($unloaded[$pluginname])) {
-				continue;
-			}
-			$plugin = &$this->plugindata[$pluginname];
-			foreach ($plugin['components'] as &$component) {
-				if (!empty($component['resourcefiles'][$load])) {
-					$componentfiles = $this->getResourceFilesForComponent($pluginname, $component, $load);
-				}
-				elseif ($load === LOAD_SOURCE && !empty($component['resourcefiles'][LOAD_DEBUG])) {
-					$componentfiles = $this->getResourceFilesForComponent($pluginname, $component, LOAD_DEBUG);
-				}
-				elseif ($load !== LOAD_RELEASE && !empty($component['resourcefiles'][LOAD_RELEASE])) {
-					$componentfiles = $this->getResourceFilesForComponent($pluginname, $component, LOAD_RELEASE);
-				} // else tough luck, at least release should be present
-
-				if (isset($componentfiles)) {
-					$files = array_merge($files, $componentfiles);
-					unset($componentfiles);
-				}
-			}
-			unset($component);
-		}
-		unset($plugin);
-
-		return $files;
+		return array_merge(...$this->collectComponentFiles('resourcefiles', $load, [$this, 'getResourceFilesForComponent'], $this->getUnloadedPlugins()));
 	}
 
 	/**
