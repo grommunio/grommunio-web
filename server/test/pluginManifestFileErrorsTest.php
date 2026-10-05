@@ -57,4 +57,16 @@ check($dumps === [
 check(array_column($component['serverfiles'][LOAD_RELEASE], 'file') === ['php/c.php'] && count($component['serverfiles']) === 3, 'Unknown server files were not dropped.');
 check(array_column($component['clientfiles'][LOAD_RELEASE], 'file') === ['js/b.js'] && count($component['clientfiles']) === 3, 'Unknown client files were not dropped.');
 
+// An unknown dependency type is reported and skipped.
+$GLOBALS['dumps'] = [];
+set_error_handler(static function ($errno, $errstr) {
+	throw new ErrorException($errstr, 0, $errno);
+});
+$deps = (new PluginManager(false))->extractPluginDataFromXML('<plugin version="2"><info><version>1</version></info><dependencies>'
+	. '<depends type="maybe"><dependsname>x</dependsname></depends><depends type="depends"><dependsname>y</dependsname></depends></dependencies>'
+	. '<components><component><files></files></component></components></plugin>', 'sample')['dependencies'];
+restore_error_handler();
+check($dumps === ['[PLUGIN ERROR] Plugin sample manifest declares dependency x with unknown type "maybe", the dependency is ignored'], 'An unknown dependency type was not reported.');
+check(array_merge(...array_values($deps)) === [['plugin' => 'y']], 'An unknown dependency type was not dropped.');
+
 echo "Plugin manifest file error checks passed\n";

@@ -71,7 +71,7 @@ class PluginManifestParser {
 		}
 
 		if (isset($data->dependencies, $data->dependencies->depends)) {
-			$plugindata['dependencies'] = $this->parseDependencies($data->dependencies->depends);
+			$plugindata['dependencies'] = $this->parseDependencies($data->dependencies->depends, $dirname);
 		}
 
 		if (isset($data->optional)) {
@@ -140,10 +140,11 @@ class PluginManifestParser {
 
 	/**
 	 * @param SimpleXMLElement $dependsList the <depends> elements
+	 * @param string           $dirname
 	 *
 	 * @return array
 	 */
-	private function parseDependencies($dependsList) {
+	private function parseDependencies($dependsList, $dirname) {
 		$dependencies = [
 			DEPEND_DEPENDS => [],
 			DEPEND_REQUIRES => [],
@@ -151,7 +152,12 @@ class PluginManifestParser {
 			DEPEND_SUGGESTS => [],
 		];
 		foreach ($dependsList as $depends) {
-			$type = $this->dependMap[(string) $depends->attributes()->type];
+			$type = $this->dependMap[(string) $depends['type']] ?? null;
+			if ($type === null) {
+				dump("[PLUGIN ERROR] Plugin {$dirname} manifest declares dependency {$depends->dependsname} with unknown type \"{$depends['type']}\", the dependency is ignored");
+
+				continue;
+			}
 			$dependencies[$type][] = [
 				'plugin' => (string) $depends->dependsname,
 			];
