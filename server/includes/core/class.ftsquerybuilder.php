@@ -34,7 +34,8 @@ class FtsQueryBuilder {
 		$unread = !empty($descriptor['unread']);
 		$has_attachments = !empty($descriptor['has_attachments']);
 
-		$ftsQuery = $this->compile($descriptor['ast'] ?? null);
+		[$ast, $excluded] = self::splitNegation($descriptor['ast'] ?? null);
+		$ftsQuery = $this->compile($ast);
 		if ($ftsQuery === null || $ftsQuery === '') {
 			return null;
 		}
@@ -52,7 +53,8 @@ class FtsQueryBuilder {
 			$whereClauses[] = "c.folder_id in (" . implode(", ", $folderPlaceholders) . ")";
 		}
 
-		$whereClauses[] = "messages MATCH :fts_query";
+		// FTS5 NOT is binary, so a query of exclusions only is matched as a set difference
+		$whereClauses[] = $excluded ? "c.message_id NOT IN (SELECT rowid FROM messages WHERE messages MATCH :fts_query)" : "messages MATCH :fts_query";
 		$bindings[] = [":fts_query", $ftsQuery, SQLITE3_TEXT];
 
 		// Push filters into SQL so LIMIT applies to already-filtered rows.
@@ -90,6 +92,28 @@ class FtsQueryBuilder {
 			" ORDER BY c.date DESC LIMIT :limit";
 
 		return [$sql, $bindings, $ftsQuery];
+	}
+
+	/**
+	 * Split a NOT node, or an AND of NOT nodes only, into the AST to exclude.
+	 *
+	 * @param mixed $ast
+	 *
+	 * @return array [ast, excluded]
+	 */
+	private static function splitNegation($ast) {
+		$op = $ast['op'] ?? null;
+		$children = $ast['children'] ?? [];
+		if ($op === 'NOT') {
+			return [$children[0] ?? null, true];
+		}
+		$negated = array_filter($children, fn ($child) => ($child['op'] ?? null) === 'NOT' && isset($child['children'][0]));
+		if ($op !== 'AND' || $children === [] || count($negated) !== count($children)) {
+			return [$ast, false];
+		}
+		$excluded = array_map(fn ($child) => $child['children'][0], array_values($negated));
+
+		return [count($excluded) > 1 ? ['op' => 'OR', 'children' => $excluded] : $excluded[0], true];
 	}
 
 	/**

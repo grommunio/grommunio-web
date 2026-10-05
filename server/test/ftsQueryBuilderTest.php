@@ -84,4 +84,35 @@ if (!str_contains($sql, 'WHERE messages MATCH :fts_query ORDER BY') || count($bi
 	throw new RuntimeException("Unexpected unfiltered query: {$sql}");
 }
 
+// exclusion-only queries run against a real FTS5 table
+$db = new SQLite3(':memory:');
+$db->exec('CREATE TABLE msg_content (message_id INTEGER PRIMARY KEY, entryid BLOB, folder_id INTEGER, message_class TEXT, ' .
+	'date INTEGER, readflag INTEGER, attach_indexed INTEGER);' .
+	"CREATE VIRTUAL TABLE messages USING fts5 (subject, content, tokenize='trigram', content='', contentless_delete=1);");
+foreach ([1 => 'spam offer', 2 => 'weekly report', 3 => 'phishing alert'] as $id => $subject) {
+	$db->exec("INSERT INTO msg_content VALUES ({$id}, 'e{$id}', 1, 'IPM.Note', {$id}, 0, 0)");
+	$db->exec("INSERT INTO messages (rowid, subject, content) VALUES ({$id}, '{$subject}', '')");
+}
+$not = fn ($value) => ['op' => 'NOT', 'children' => [term($value)]];
+$cases = [
+	[$not('spam'), ['e3', 'e2']],
+	[['op' => 'AND', 'children' => [$not('spam'), $not('phishing')]], ['e2']],
+	[['op' => 'AND', 'children' => [term('report'), $not('spam')]], ['e2']],
+];
+foreach ($cases as [$ast, $expected]) {
+	[$sql, $bindings] = (new FtsQueryBuilder())->build(['ast' => $ast], []);
+	$stmt = $db->prepare($sql);
+	foreach ($bindings as $binding) {
+		$stmt->bindValue(...$binding);
+	}
+	$rows = [];
+	$result = $stmt->execute();
+	while ($result && ($row = $result->fetchArray(SQLITE3_ASSOC))) {
+		$rows[] = $row['entryid'];
+	}
+	if ($rows !== $expected) {
+		throw new RuntimeException('Query ' . json_encode($ast) . ' matched ' . json_encode($rows));
+	}
+}
+
 echo "FTS query builder checks passed\n";
