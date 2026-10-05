@@ -22,7 +22,7 @@ $constants = [
 	'PR_ADDRTYPE', 'PR_RECIPIENT_TYPE', 'PR_SEARCH_KEY', 'MAPI_TO', 'DT_MAILUSER', 'MAPI_MAILUSER',
 	'MODRECIP_ADD', 'olMeetingReceived', 'olResponseNotResponded', 'fbTentative',
 	'PidLidAppointmentStartWhole', 'PidLidAppointmentEndWhole', 'PidLidLocation', 'PidLidGlobalObjectId',
-	'PidLidCleanGlobalObjectId',
+	'PidLidCleanGlobalObjectId', 'MAPI_E_NOT_FOUND',
 ];
 foreach ($constants as $index => $constant) {
 	defined($constant) || define($constant, 1000 + $index);
@@ -30,6 +30,7 @@ foreach ($constants as $index => $constant) {
 
 $GLOBALS['fwdCalls'] = [];
 $GLOBALS['fwdLocalOrganiser'] = false;
+$GLOBALS['fwdOutboxFails'] = false;
 
 function fwdLog($call, ...$args) {
 	$GLOBALS['fwdCalls'][] = array_merge([$call], $args);
@@ -56,8 +57,14 @@ if (!function_exists('mapi_getprops')) {
 	}
 
 	function mapi_msgstore_openentry($store, $entryid) {
-		return 'outbox';
+		return $GLOBALS['fwdOutboxFails'] ? false : 'outbox';
 	}
+
+	function mapi_last_hresult() {
+		return 0;
+	}
+
+	class MAPIException extends Exception {}
 
 	function mapi_folder_createmessage($folder) {
 		static $count = 0;
@@ -220,5 +227,18 @@ $GLOBALS['fwdCalls'] = [];
 $GLOBALS['fwdLocalOrganiser'] = true;
 assertForwarder($forwarder->forward('store', 'appt', $action) === true, 'Forward by the organizer failed');
 assertForwarder(count(callsOf('submit')) === 1, 'The organizer was notified about their own forward');
+
+$GLOBALS['fwdCalls'] = [];
+$GLOBALS['fwdOutboxFails'] = true;
+
+try {
+	$forwarder->forward('store', 'appt', $action);
+	$thrown = null;
+}
+catch (MAPIException $e) {
+	$thrown = $e;
+}
+assertForwarder($thrown !== null && $thrown->getCode() === MAPI_E_NOT_FOUND, 'An unopenable outbox did not fail through MAPIException');
+assertForwarder(callsOf('copyto') === [], 'An unopenable outbox reached MAPI');
 
 echo "Meeting request forwarder checks passed\n";

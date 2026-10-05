@@ -60,9 +60,7 @@ class MeetingRequestForwarder {
 		// so that forwarding works without Send As permission on shared
 		// calendars.
 		$userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
-		$storeProps = mapi_getprops($userStore, [PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]);
-		$outbox = mapi_msgstore_openentry($userStore, $storeProps[PR_IPM_OUTBOX_ENTRYID]);
-		$fwdMsg = mapi_folder_createmessage($outbox);
+		[$fwdMsg, $sentmailEntryid] = $this->createOutboxMessage($userStore);
 
 		// Copy properties and attachments from the source, excluding
 		// envelope/identity properties. PR_SENDER_* will be set to
@@ -91,7 +89,7 @@ class MeetingRequestForwarder {
 			PR_SENT_REPRESENTING_SMTP_ADDRESS,
 		], $fwdMsg, 0);
 
-		mapi_setprops($fwdMsg, $this->buildForwardProps($sourceProps, $props, $action, $storeProps[PR_IPM_SENTMAIL_ENTRYID]));
+		mapi_setprops($fwdMsg, $this->buildForwardProps($sourceProps, $props, $action, $sentmailEntryid));
 
 		// The icon index is cleared so the mail list derives it from the message class.
 		$deleteProps = [PR_ICON_INDEX, PR_MESSAGE_DELIVERY_TIME];
@@ -119,6 +117,24 @@ class MeetingRequestForwarder {
 		$this->sendForwardNotification($store, $message, $sourceProps, $recipientRows, $props, $userStore);
 
 		return true;
+	}
+
+	/**
+	 * @param resource $userStore current user's default store
+	 *
+	 * @return array new outbox message and the sent items entryid
+	 *
+	 * @throws MAPIException when the outbox cannot be opened or written
+	 */
+	private function createOutboxMessage($userStore) {
+		$storeProps = $userStore ? mapi_getprops($userStore, [PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]) : [];
+		$outbox = isset($storeProps[PR_IPM_OUTBOX_ENTRYID]) ? mapi_msgstore_openentry($userStore, $storeProps[PR_IPM_OUTBOX_ENTRYID]) : false;
+		$message = $outbox ? mapi_folder_createmessage($outbox) : false;
+		if (!$message) {
+			throw new MAPIException(_('Could not forward meeting request.'), mapi_last_hresult() ?: MAPI_E_NOT_FOUND);
+		}
+
+		return [$message, $storeProps[PR_IPM_SENTMAIL_ENTRYID] ?? null];
 	}
 
 	/**
@@ -232,9 +248,7 @@ class MeetingRequestForwarder {
 			return;
 		}
 
-		$userStoreProps = mapi_getprops($userStore, [PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]);
-		$outbox = mapi_msgstore_openentry($userStore, $userStoreProps[PR_IPM_OUTBOX_ENTRYID]);
-		$notifMsg = mapi_folder_createmessage($outbox);
+		[$notifMsg, $sentmailEntryid] = $this->createOutboxMessage($userStore);
 
 		$meeting = $this->getMeetingDetails($messageProps, $props);
 		$subject = $messageProps[PR_SUBJECT] ?? '';
@@ -242,7 +256,7 @@ class MeetingRequestForwarder {
 			PR_MESSAGE_CLASS => 'IPM.Schedule.Meeting.Notification.Forward',
 			PR_SUBJECT => _('Your meeting has been forwarded') . ': ' . $subject,
 			PR_BODY => $this->buildNotificationBody($subject, $meeting, $recipientRows),
-			PR_SENTMAIL_ENTRYID => $userStoreProps[PR_IPM_SENTMAIL_ENTRYID],
+			PR_SENTMAIL_ENTRYID => $sentmailEntryid,
 		];
 		$notifProps += $this->getNotificationAppointmentProps($messageProps, $props, $meeting, $userStore);
 
