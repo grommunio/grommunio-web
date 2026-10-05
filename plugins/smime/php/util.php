@@ -48,12 +48,9 @@ function getCertEmail($certificate) {
  * @param string   $type         of message_class
  * @param string   $emailAddress email address to specify
  *
- * @return array<int, array<int, mixed>> certificate message rows
+ * @return array<int, array<int, mixed>> certificate message rows, or an empty array when the lookup fails
  */
 function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = '') {
-	$root = mapi_msgstore_openentry($store);
-	$table = mapi_folder_getcontentstable($root, MAPI_ASSOCIATED);
-
 	$restrict = [RES_PROPERTY,
 		[
 			RELOP => RELOP_EQ,
@@ -74,11 +71,21 @@ function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = 
 		]];
 	}
 
-	// PR_MESSAGE_DELIVERY_TIME validTo / PR_CLIENT_SUBMIT_TIME validFrom
-	mapi_table_restrict($table, $restrict, TBL_BATCH);
-	mapi_table_sort($table, [PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND], TBL_BATCH);
+	try {
+		$root = mapi_msgstore_openentry($store);
+		$table = mapi_folder_getcontentstable($root, MAPI_ASSOCIATED);
+		// PR_MESSAGE_DELIVERY_TIME validTo / PR_CLIENT_SUBMIT_TIME validFrom
+		mapi_table_restrict($table, $restrict, TBL_BATCH);
+		mapi_table_sort($table, [PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND], TBL_BATCH);
+		$rows = mapi_table_queryallrows($table, [PR_ENTRYID, PR_SUBJECT, PR_SUBJECT_PREFIX, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME]);
+	}
+	catch (MAPIException $e) {
+		error_log(sprintf("[smime] Unable to read %s certificates: %s", $type, $e->getMessage()));
 
-	return mapi_table_queryallrows($table, [PR_ENTRYID, PR_SUBJECT, PR_SUBJECT_PREFIX, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME]);
+		return [];
+	}
+
+	return is_array($rows) ? $rows : [];
 }
 
 /**
