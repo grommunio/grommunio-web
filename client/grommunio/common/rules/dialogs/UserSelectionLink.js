@@ -270,7 +270,7 @@ Grommunio.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, 
 						if(value[1] && value[1][Restrictions.PROPS] && value[1][Restrictions.PROPS]['0x0001001E']) {
 							var recipient = this.store.parseRecipient(value[1][Restrictions.PROPS]['0x0001001E']);
 							recipient.set('display_type', value[1][Restrictions.PROPS]['PR_DISPLAY_TYPE']);
-							recipient.set('search_key', value[1][Restrictions.RESTRICTION][1][Restrictions.VALUE]['0x00010102']);
+							recipient.set('search_key', this.getSearchKey(value[1][Restrictions.RESTRICTION][1][Restrictions.VALUE]));
 
 							this.store.add(recipient);
 							this.isValid = true;
@@ -294,7 +294,7 @@ Grommunio.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, 
 						if(value[Restrictions.PROPS] && value[Restrictions.PROPS]['0x0001001E']) {
 							var recipient = this.store.parseRecipient(value[Restrictions.PROPS]['0x0001001E']);
 							recipient.set('display_type', value[Restrictions.PROPS]['PR_DISPLAY_TYPE']);
-							recipient.set('search_key', value[Restrictions.RESTRICTION][1][Restrictions.VALUE]['0x00010102']);
+							recipient.set('search_key', this.getSearchKey(value[Restrictions.RESTRICTION][1][Restrictions.VALUE]));
 
 							this.store.add(recipient);
 							this.isValid = true;
@@ -311,6 +311,17 @@ Grommunio.common.rules.dialogs.UserSelectionLink = Ext.extend(Ext.BoxComponent, 
 		this.userStringSeparator = _('or');
 		this.isModified = !Ext.isDefined(condition);
 		this.update(this.store);
+	},
+
+	/**
+	 * The server names tag 0x00010102 by its symbolic constant.
+	 * @param {Object} value The VALUE of the search key restriction
+	 * @return {String} The search key
+	 * @private
+	 */
+	getSearchKey: function(value)
+	{
+		return Ext.isDefined(value['0x00010102']) ? value['0x00010102'] : value['PR_EMS_TEMPLATE_BLOB'];
 	},
 
 	/**
