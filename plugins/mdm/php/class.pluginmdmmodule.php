@@ -544,14 +544,8 @@ class PluginMDMModule extends Module {
 	public function getLastConnectionTime($deviceid, $fallback) {
 		// retrieve the LAST CONNECT from the Admin API
 		$api_response = file_get_contents(PLUGIN_MDM_ADMIN_API_LASTCONNECT_ENDPOINT . $GLOBALS["mapisession"]->getUserName() . "?devices=" . $deviceid);
-		if ($api_response) {
-			$data = json_decode($api_response, true);
-			if (isset($data['data'][$deviceid]["lastconnecttime"])) {
-				return $data['data'][$deviceid]["lastconnecttime"];
-			}
-		}
 
-		return $fallback;
+		return json_decode((string) $api_response, true)['data'][$deviceid]["lastconnecttime"] ?? $fallback;
 	}
 
 	/**
@@ -564,13 +558,7 @@ class PluginMDMModule extends Module {
 	public function getProvisioningWipeStatus($deviceid) {
 		// retrieve the WIPE STATUS from the Admin API
 		$api_response = file_get_contents(PLUGIN_MDM_ADMIN_API_WIPE_ENDPOINT . $GLOBALS["mapisession"]->getUserName() . "?devices=" . $deviceid);
-		if ($api_response) {
-			$data = json_decode($api_response, true);
-			if (isset($data['data'][$deviceid]["status"])) {
-				return $data['data'][$deviceid]["status"];
-			}
-		}
 
-		return SYNC_PROVISION_RWSTATUS_NA;
+		return json_decode((string) $api_response, true)['data'][$deviceid]["status"] ?? SYNC_PROVISION_RWSTATUS_NA;
 	}
 }
