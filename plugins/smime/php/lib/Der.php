@@ -9,6 +9,7 @@
 namespace WAYF;
 
 require_once 'Oids.php';
+require_once __DIR__ . '/DecimalString.php';
 
 class Der extends Oids {
 	protected $tag;
@@ -89,7 +90,7 @@ class Der extends Oids {
 				}
 				$int = '0';
 				foreach (str_split($value) as $byte) {
-					$int = $this->decimalMultiplyAndAdd($int, 256, ord($byte));
+					$int = DecimalString::multiplyAndAdd($int, 256, ord($byte));
 				}
 				$this->value = $int;
 			}
@@ -137,7 +138,7 @@ class Der extends Oids {
 
 		$number = '0';
 		foreach (str_split($value) as $byte) {
-			$number = $this->decimalMultiplyAndAdd($number, 256, ord($byte));
+			$number = DecimalString::multiplyAndAdd($number, 256, ord($byte));
 		}
 
 		return $number;
@@ -320,20 +321,20 @@ class Der extends Oids {
 			if ($atArcStart && $x === 0x80) {
 				throw new \UnexpectedValueException('Non-minimal DER OBJECT IDENTIFIER arc');
 			}
-			$n = $this->decimalMultiplyAndAdd($n, 128, $x & 0x7F);
+			$n = DecimalString::multiplyAndAdd($n, 128, $x & 0x7F);
 			if (($x & 0x80) === 0) {
 				if ($arcs === []) {
-					if ($this->compareDecimalToInt($n, 40) < 0) {
+					if (DecimalString::compareToInt($n, 40) < 0) {
 						$arcs[] = '0';
 						$arcs[] = $n;
 					}
-					elseif ($this->compareDecimalToInt($n, 80) < 0) {
+					elseif (DecimalString::compareToInt($n, 80) < 0) {
 						$arcs[] = '1';
-						$arcs[] = $this->decimalSubtractInt($n, 40);
+						$arcs[] = DecimalString::subtractInt($n, 40);
 					}
 					else {
 						$arcs[] = '2';
-						$arcs[] = $this->decimalSubtractInt($n, 80);
+						$arcs[] = DecimalString::subtractInt($n, 80);
 					}
 				}
 				else {
@@ -384,55 +385,5 @@ class Der extends Oids {
 		if ($length < 0 || $this->i > $limit - $length) {
 			throw new \UnexpectedValueException('Truncated DER value');
 		}
-	}
-
-	/**
-	 * Compare an unsigned normalized decimal string with a small integer.
-	 */
-	private function compareDecimalToInt(string $number, int $value): int {
-		$other = (string) $value;
-		if (strlen($number) !== strlen($other)) {
-			return strlen($number) <=> strlen($other);
-		}
-
-		return strcmp($number, $other);
-	}
-
-	/**
-	 * Subtract a small integer from an unsigned decimal string.
-	 */
-	private function decimalSubtractInt(string $number, int $subtrahend): string {
-		$result = '';
-		$borrow = $subtrahend;
-		for ($i = strlen($number) - 1; $i >= 0; --$i) {
-			$value = (ord($number[$i]) - 48) - ($borrow % 10);
-			$borrow = intdiv($borrow, 10);
-			if ($value < 0) {
-				$value += 10;
-				++$borrow;
-			}
-			$result = $value . $result;
-		}
-
-		return ltrim($result, '0') ?: '0';
-	}
-
-	/**
-	 * Multiply an unsigned decimal string and add a byte without requiring BCMath.
-	 */
-	private function decimalMultiplyAndAdd(string $number, int $multiplier, int $addend): string {
-		$result = '';
-		$carry = $addend;
-		for ($i = strlen($number) - 1; $i >= 0; --$i) {
-			$value = ((ord($number[$i]) - 48) * $multiplier) + $carry;
-			$result = ($value % 10) . $result;
-			$carry = intdiv($value, 10);
-		}
-		while ($carry > 0) {
-			$result = ($carry % 10) . $result;
-			$carry = intdiv($carry, 10);
-		}
-
-		return ltrim($result, '0') ?: '0';
 	}
 }
