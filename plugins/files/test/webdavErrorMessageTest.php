@@ -90,5 +90,9 @@ $backend->sabre_client->status = 201;
 if ($backend->mkcol('/d') !== true || $backend->put('/a.txt', 'x') !== true) {
 	throw new RuntimeException('Write with 201 failed.');
 }
+$backend->sabre_client->status = 404;
+if ($backend->delete('/gone.txt') !== true) {
+	throw new RuntimeException('DELETE of a missing item failed.');
+}
 
 echo "webdavErrorMessageTest: OK\n";

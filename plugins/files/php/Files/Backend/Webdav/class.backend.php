@@ -527,7 +527,10 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 			$this->log("[DELETE] done in {$time} seconds: " . $response['statusCode']);
-			$this->failOnErrorStatus($response, _('Deletion failed'));
+			// already gone counts as deleted
+			if ($response['statusCode'] != 404) {
+				$this->failOnErrorStatus($response, _('Deletion failed'));
+			}
 
 			return true;
 		}
