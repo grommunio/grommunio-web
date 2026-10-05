@@ -131,4 +131,8 @@ $list->parseSortOrder(['sort' => [
 ]], ['mapped' => 0x0E060040]);
 assertPrivate($list->sort === [0x0037001E => TABLE_SORT_DESCEND, 0x0E060040 => TABLE_SORT_ASCEND, 0x8001101E => TABLE_SORT_ASCEND], 'Sort order parsed wrongly');
 
+$list->sort = [];
+$list->parseSortOrder(['sort' => [['field' => 'mappedmv', 'direction' => 'asc']]], ['mappedmv' => 0x8002101E], true);
+assertPrivate($list->sort === [0x8002301E => TABLE_SORT_ASCEND], 'A mapped multi-value sort column was lost');
+
 echo "List private item checks passed\n";

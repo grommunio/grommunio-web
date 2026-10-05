@@ -934,9 +934,8 @@ class ListModule extends Module {
 						// Set MVI_FLAG.
 						// The server will generate multiple rows for one item (for example: categories)
 						if ($allow_multi_instance) {
-							$properties[$column["field"]] = $properties[$column["field"]] | MVI_FLAG;
+							$property |= MVI_FLAG;
 						}
-						$property = $properties[$column["field"]];
 						break;
 				}
 
