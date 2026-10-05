@@ -14,6 +14,14 @@ define('CHANGE_PASSPHRASE_ERROR', 2);
 define('CHANGE_PASSPHRASE_WRONG', 3);
 
 class PluginSmimeModule extends Module {
+	private const DATA_ACTIONS = [
+		'list' => 'getPublicCertificates',
+		'algorithms' => 'getSupportedAlgorithms',
+		'certsonly' => 'generateCertsOnlyMessage',
+		'danelookup' => 'lookupDaneCertificates',
+		'ldaplookup' => 'lookupLdapCertificates',
+	];
+
 	/** @var resource MAPI message store */
 	private $store;
 
@@ -77,12 +85,6 @@ class PluginSmimeModule extends Module {
 						$GLOBALS['bus']->addData($this->getResponseData());
 						break;
 
-					case 'list':
-						$data = $this->getPublicCertificates();
-						$this->addActionData('list', $data);
-						$GLOBALS['bus']->addData($this->getResponseData());
-						break;
-
 					case 'delete':
 						// FIXME: handle multiple deletes? Separate function?
 						$entryid = $actionData['entryid'];
@@ -92,32 +94,14 @@ class PluginSmimeModule extends Module {
 						$this->sendFeedback(true);
 						break;
 
-					case 'algorithms':
-						$data = $this->getSupportedAlgorithms();
-						$this->addActionData('algorithms', $data);
-						$GLOBALS['bus']->addData($this->getResponseData());
-						break;
-
-					case 'certsonly':
-						$data = $this->generateCertsOnlyMessage($actionData);
-						$this->addActionData('certsonly', $data);
-						$GLOBALS['bus']->addData($this->getResponseData());
-						break;
-
-					case 'danelookup':
-						$data = $this->lookupDaneCertificates($actionData);
-						$this->addActionData('danelookup', $data);
-						$GLOBALS['bus']->addData($this->getResponseData());
-						break;
-
-					case 'ldaplookup':
-						$data = $this->lookupLdapCertificates($actionData);
-						$this->addActionData('ldaplookup', $data);
-						$GLOBALS['bus']->addData($this->getResponseData());
-						break;
-
 					default:
-						$this->handleUnknownActionType($actionType);
+						$method = self::DATA_ACTIONS[$actionType] ?? null;
+						if ($method === null) {
+							$this->handleUnknownActionType($actionType);
+							break;
+						}
+						$this->addActionData($actionType, $this->{$method}($actionData));
+						$GLOBALS['bus']->addData($this->getResponseData());
 				}
 			}
 			catch (Exception $e) {
