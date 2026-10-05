@@ -738,6 +738,13 @@ Grommunio.settings.SettingsModel = Ext.extend(Ext.util.Observable, {
 	{
 		path = this.getPath(path);
 
+		// Setting nothing is a removal. Queued as a set it would cancel its own
+		// delete and then be dropped by save, so the old value stayed on the server.
+		if (!Ext.isDefined(value)) {
+			this.remove(path);
+			return;
+		}
+
 		// Compare the value with the current saved setting.
 		if (JSON.stringify(this.get(path, true)) === JSON.stringify(value)) {
 			return;
