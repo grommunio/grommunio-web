@@ -11,7 +11,7 @@ define('PLUGIN_PGP_ENABLE', true);
 define('PLUGIN_PGP_MAX_KEY_BYTES', 1048576);
 foreach (['PR_ENTRYID' => 0x0fff0102, 'PR_MESSAGE_CLASS' => 0x001a001f, 'PR_SUBJECT' => 0x0037001f,
 	'MAPI_ASSOCIATED' => 0x40, 'MAPI_CREATE' => 2, 'MAPI_MODIFY' => 1,
-	'RES_PROPERTY' => 4, 'RELOP' => 0, 'RELOP_EQ' => 4, 'ULPROPTAG' => 1, 'VALUE' => 2] as $name => $value) { define($name, $value); }
+	'RES_PROPERTY' => 4, 'RELOP' => 0, 'RELOP_EQ' => 4, 'ULPROPTAG' => 1, 'VALUE' => 2, 'TBL_BATCH' => 1] as $name => $value) { define($name, $value); }
 define('IID_IStream', 'stream');
 class KeyTestStore {
 	public array $saved = [];
@@ -47,10 +47,16 @@ function mapi_msgstore_openentry($store, $id = null) {
 }
 function mapi_folder_getcontentstable($root, $flags = 0) {
 	if (isset($root->faults['table'])) { return false; }
-	return [$root, $flags];
+	return (object) ['store' => $root, 'flags' => $flags, 'restriction' => null];
+}
+function mapi_table_restrict($table, $restriction, $flags = 0) {
+	$table->restriction = $restriction;
+	return true;
 }
 function mapi_table_queryallrows($table, $columns, $restriction = null) {
-	[$store, $flags] = $table;
+	$store = $table->store;
+	$flags = $table->flags;
+	$restriction ??= $table->restriction;
 	if (isset($store->faults['query'])) { return false; }
 	$rows = [];
 	foreach ($store->saved as $record) {
