@@ -53,7 +53,7 @@ foreach ($expected as $code => $message) {
 $backend->sabre_client = new class {
 	public $status = 404;
 
-	public function request($method, $url, $body, $headers) {
+	public function request($method, $url, $body = null, $headers = []) {
 		return ['statusCode' => $this->status];
 	}
 };
@@ -70,6 +70,25 @@ catch (Files\Backend\Exception $e) {
 $backend->sabre_client->status = 201;
 if ($backend->move('/a.txt', '/b.txt') !== true) {
 	throw new RuntimeException('MOVE with 201 failed.');
+}
+
+// the other write operations must fail the same way
+$backend->sabre_client->status = 403;
+foreach (['mkcol' => ['/d'], 'delete' => ['/a.txt'], 'put' => ['/a.txt', 'x'], 'copy_file' => ['/a.txt', '/b.txt'], 'copy_coll' => ['/d', '/e']] as $method => $args) {
+	try {
+		$backend->{$method}(...$args);
+
+		throw new RuntimeException("{$method} answered 403 but no exception was thrown.");
+	}
+	catch (Files\Backend\Exception $e) {
+		if ($e->getCode() !== 403) {
+			throw new RuntimeException("{$method} failure carries code " . $e->getCode());
+		}
+	}
+}
+$backend->sabre_client->status = 201;
+if ($backend->mkcol('/d') !== true || $backend->put('/a.txt', 'x') !== true) {
+	throw new RuntimeException('Write with 201 failed.');
 }
 
 echo "webdavErrorMessageTest: OK\n";

@@ -489,6 +489,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 			$this->log("[MKCOL] done in {$time} seconds: " . $response['statusCode']);
+			$this->failOnErrorStatus($response, _('Directory creation failed'));
 
 			return true;
 		}
@@ -526,6 +527,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 			$this->log("[DELETE] done in {$time} seconds: " . $response['statusCode']);
+			$this->failOnErrorStatus($response, _('Deletion failed'));
 
 			return true;
 		}
@@ -573,12 +575,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 			$this->log("[MOVE] done in {$time} seconds: " . $response['statusCode']);
-			if ($response['statusCode'] >= 400) {
-				$e = new BackendException($this->parseErrorCodeToMessage($response['statusCode']), $response['statusCode']);
-				$e->setTitle($this->backendTransName . _('Moving failed'));
-
-				throw $e;
-			}
+			$this->failOnErrorStatus($response, _('Moving failed'));
 
 			return true;
 		}
@@ -619,6 +616,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 			$this->log("[PUT] done in {$time} seconds: " . $response['statusCode']);
+			$this->failOnErrorStatus($response, _('Connection failed'));
 
 			return true;
 		}
@@ -876,6 +874,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 			$this->log("[COPY] done in {$time} seconds: " . $response['statusCode']);
+			$this->failOnErrorStatus($response, _('Copying failed'));
 
 			return true;
 		}
@@ -889,6 +888,22 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$this->log('[COPY] - FATAL - ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
 			$e->setTitle($this->backendTransName . _('Copying failed'));
+
+			throw $e;
+		}
+	}
+
+	/**
+	 * @param array  $response Sabre request() result
+	 * @param string $title    exception title
+	 *
+	 * @throws BackendException if the server answered with an error status
+	 */
+	private function failOnErrorStatus($response, $title) {
+		$code = $response['statusCode'];
+		if ($code >= 400) {
+			$e = new BackendException($this->parseErrorCodeToMessage($code), $code);
+			$e->setTitle($this->backendTransName . $title);
 
 			throw $e;
 		}
