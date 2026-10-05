@@ -116,15 +116,8 @@ class Pluginsmime extends Plugin {
 	 */
 	private function resolveCipher(): string {
 		if (defined('PLUGIN_SMIME_CIPHER_NAME')) {
-			$name = PLUGIN_SMIME_CIPHER_NAME;
-			// Validate GCM availability
-			if ($this->cms->isGcmCipher($name) && !$this->cms->supportsAesGcm()) {
-				error_log("[smime] AES-GCM cipher '{$name}' not available, falling back to aes-256-cbc");
-
-				return 'aes-256-cbc';
-			}
-
-			return $name;
+			// CmsOperations::encrypt() falls back from unsupported GCM when it is used
+			return PLUGIN_SMIME_CIPHER_NAME;
 		}
 
 		// Map legacy integer constant to string
