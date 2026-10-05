@@ -5,6 +5,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+require_once __DIR__ . '/lib/class.aiactionparser.php';
 require_once __DIR__ . '/lib/class.aiconfig.php';
 require_once __DIR__ . '/lib/class.aiprovider.php';
 require_once __DIR__ . '/lib/class.openaiprovider.php';
@@ -193,143 +194,9 @@ class PluginAIModule extends Module {
 		$raw = $provider->chatFull($built['messages'], ['model' => $built['model'], 'temperature' => 0.1])['text'];
 
 		$this->sendFeedback(true, [
-			'actions' => $this->parseActions($raw, $built['allowed']),
+			'actions' => AIActionParser::parse($raw, $built['allowed']),
 			'model' => $config->model,
 		]);
-	}
-
-	/**
-	 * Parse the model's JSON action list, keeping only allowed, well-formed
-	 * actions (and at most six).
-	 */
-	private function parseActions(string $raw, array $allowed): array {
-		$json = json_decode($raw, true);
-		if (!is_array($json) && preg_match('/\{.*\}/s', $raw, $matches)) {
-			$json = json_decode($matches[0], true);
-		}
-
-		$list = (is_array($json) && isset($json['actions']) && is_array($json['actions'])) ? $json['actions'] : [];
-		$out = [];
-		foreach ($list as $item) {
-			if (!is_array($item)) {
-				continue;
-			}
-			$type = (string) ($item['type'] ?? '');
-			if (!in_array($type, $allowed, true)) {
-				continue;
-			}
-			$clean = $this->sanitizeAction($type, $item);
-			if ($clean !== null) {
-				$out[] = $clean;
-			}
-			if (count($out) >= 6) {
-				break;
-			}
-		}
-
-		return $out;
-	}
-
-	/**
-	 * Normalize and bound one action of a given type; return null if it lacks
-	 * the fields needed to be useful.
-	 */
-	private function sanitizeAction(string $type, array $action): ?array {
-		$str = static fn ($value, int $max = 500): string => mb_substr(trim((string) ($value ?? '')), 0, $max);
-
-		switch ($type) {
-			case 'meeting':
-				$title = $str($action['title'] ?? '', 256);
-				if ($title === '') {
-					return null;
-				}
-				$attendees = [];
-				if (isset($action['attendees']) && is_array($action['attendees'])) {
-					foreach ($action['attendees'] as $attendee) {
-						$name = $str($attendee, 256);
-						if ($name !== '') {
-							$attendees[] = $name;
-						}
-						if (count($attendees) >= 25) {
-							break;
-						}
-					}
-				}
-
-				return [
-					'type' => 'meeting',
-					'title' => $title,
-					'attendees' => $attendees,
-					'date' => $this->normalizeDate($action['date'] ?? ''),
-					'time' => $this->normalizeTime($action['time'] ?? ''),
-					// 0 (or missing) means "use the client default"; cap at 24h.
-					'duration_minutes' => min(1440, max(0, (int) ($action['duration_minutes'] ?? 30))),
-					'location' => $str($action['location'] ?? '', 256),
-					'notes' => $str($action['notes'] ?? '', 2000),
-				];
-
-			case 'task':
-				$title = $str($action['title'] ?? '', 256);
-				if ($title === '') {
-					return null;
-				}
-
-				return [
-					'type' => 'task',
-					'title' => $title,
-					'due' => $this->normalizeDate($action['due'] ?? ''),
-					'notes' => $str($action['notes'] ?? '', 2000),
-				];
-
-			case 'contact':
-				$name = $str($action['name'] ?? '', 256);
-				$email = $str($action['email'] ?? '', 256);
-				if ($name === '' && $email === '') {
-					return null;
-				}
-
-				return ['type' => 'contact', 'name' => $name, 'email' => $email];
-
-			case 'reply':
-				$intent = $str($action['intent'] ?? '', 1000);
-
-				return ['type' => 'reply', 'intent' => $intent];
-		}
-
-		return null;
-	}
-
-	/**
-	 * Normalize a model-supplied date to a strict YYYY-MM-DD, or '' when it is
-	 * not a plausible calendar date. This keeps malformed values from reaching
-	 * the client's Date parser.
-	 */
-	private function normalizeDate(mixed $value): string {
-		$value = trim((string) $value);
-		if (!preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', $value, $m)) {
-			return '';
-		}
-
-		return checkdate((int) $m[2], (int) $m[3], (int) $m[1]) ? $value : '';
-	}
-
-	/**
-	 * Normalize a model-supplied time to a strict, zero-padded HH:MM, or '' when
-	 * it is not a valid 24-hour time. A bad time must never discard a good date,
-	 * so the client treats '' as "use the default time".
-	 */
-	private function normalizeTime(mixed $value): string {
-		$value = trim((string) $value);
-		if (!preg_match('/^(\d{1,2}):(\d{2})$/', $value, $m)) {
-			return '';
-		}
-		$hours = (int) $m[1];
-		$minutes = (int) $m[2];
-		if ($hours > 23 || $minutes > 59) {
-			return '';
-		}
-
-		return sprintf('%02d:%02d', $hours, $minutes);
 	}
 
 	/**
