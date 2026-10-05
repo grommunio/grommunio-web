@@ -76,7 +76,7 @@ class MAPISession {
 	 * @param string $server       the server address
 	 * @param string $sslcert_file the optional ssl certificate file
 	 * @param string $sslcert_pass the optional ssl certificate password
-	 * @param string $flags        the optional logon flags
+	 * @param int    $flags        the optional logon flags
 	 *
 	 * @return int 0 on no error, otherwise a MAPI error code
 	 */

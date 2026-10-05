@@ -231,10 +231,10 @@ Grommunio.calendar.AppointmentRecord = Ext.extend(Grommunio.core.data.MessageRec
 				}
 				break;
 			case Grommunio.common.recurrence.data.RecurrenceType.YEARLY:
-				if (everyn <= 12) {
+				// The period of a yearly recurrence is given in years.
+				if (everyn <= 1) {
 					frequency = pgettext('recurrence', 'every year');
 				} else {
-					everyn /= 12;
 					// # TRANSLATORS: {0} is the number of years between two occurrences, always 2 or more
 					frequency = String.format(npgettext('recurrence', 'every {0} year', 'every {0} years', everyn), everyn);
 				}

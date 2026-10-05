@@ -314,7 +314,14 @@ Grommunio.common.recurrence.dialogs.YearlyPanel = Ext.extend(Grommunio.common.re
 	 */
 	onYearlyChange: function(field, value)
 	{
-		this.onSubtypePropertyChange(Grommunio.common.recurrence.data.RecurrenceSubtype.YEARLY_N, field, value);
+		var subTypes = Grommunio.common.recurrence.data.RecurrenceSubtype;
+
+		// The spinner belongs to both the "month day" and the "nth weekday" subtypes.
+		if (this.isRecordSubtype(this.record, subTypes.YEARLY_N_WEEKDAY)) {
+			this.onSubtypePropertyChange(subTypes.YEARLY_N_WEEKDAY, field, value);
+		} else {
+			this.onSubtypePropertyChange(subTypes.YEARLY_N, field, value);
+		}
 	},
 
 	/**
@@ -387,7 +394,8 @@ Grommunio.common.recurrence.dialogs.YearlyPanel = Ext.extend(Grommunio.common.re
 	 */
 	updateEveryNYearsValues: function(record, useDefaultValues)
 	{
-		var everyn = useDefaultValues ? 1: record.get('recurrence_everyn') / 12;
+		// The period of a yearly recurrence is given in years.
+		var everyn = useDefaultValues ? 1 : record.get('recurrence_everyn');
 		this.everyNYearsSpinner.setValue(everyn);
 	},
 
@@ -463,8 +471,9 @@ Grommunio.common.recurrence.dialogs.YearlyPanel = Ext.extend(Grommunio.common.re
 	 */
 	updateRegenerateValues: function(record, useDefaultValues)
 	{
-		// Convert everyn value from minutes, to days
-		this.regenNYearsSpinner.setValue(1);
+		// The period of a yearly recurrence is given in years.
+		var everyn = useDefaultValues ? 1 : record.get('recurrence_everyn');
+		this.regenNYearsSpinner.setValue(everyn);
 	},
 
 	/**
@@ -507,8 +516,11 @@ Grommunio.common.recurrence.dialogs.YearlyPanel = Ext.extend(Grommunio.common.re
 	{
 		var subTypes = Grommunio.common.recurrence.data.RecurrenceSubtype;
 
-		if (this.isSubtype(subTypes.YEARLY_N, pattern)) {
-			this.updateEveryNYearsValues(record, useDefaultValues);
+		// Both the "month day" and the "nth weekday" subtypes use the "every N years" spinner.
+		if (this.isSubtype(subTypes.YEARLY_N, pattern) || this.isSubtype(subTypes.YEARLY_N_WEEKDAY, pattern)) {
+			var usesEveryNYears = record.get('recurrence_type') === this.recurrenceType &&
+				(this.isRecordSubtype(record, subTypes.YEARLY_N) || this.isRecordSubtype(record, subTypes.YEARLY_N_WEEKDAY));
+			this.updateEveryNYearsValues(record, !usesEveryNYears);
 		}
 		if (this.isSubtype(subTypes.YEARLY_MONTH, pattern)) {
 			this.updateEveryNWeekdayValues(record, useDefaultValues);

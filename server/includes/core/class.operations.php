@@ -4809,16 +4809,21 @@ class Operations {
 
 				// check if EX-type recipients are really in the address book
 				if ($props['address_type'] === 'EX') {
-					try {
-						mapi_ab_openentry($addrBook, hex2bin($props['entryid']));
-					}
-					catch (MAPIException $e) {
-						if ($e->getCode() == MAPI_E_NOT_FOUND || $e->getCode() == MAPI_E_INVALID_PARAMETER) {
-							$props['email_address'] = $props['smtp_address'];
-							$props['address_type'] = 'SMTP';
-							$oneOffEntryId = mapi_createoneoff($props['display_name'], $props['address_type'], $props['smtp_address'], MAPI_UNICODE);
-							$props['entryid'] = $oneOffEntryId === false ? '' : bin2hex($oneOffEntryId);
+					$inAddressBook = false;
+					if (!empty($props['entryid'])) {
+						try {
+							mapi_ab_openentry($addrBook, hex2bin($props['entryid']));
+							$inAddressBook = true;
 						}
+						catch (MAPIException $e) {
+							$inAddressBook = $e->getCode() != MAPI_E_NOT_FOUND && $e->getCode() != MAPI_E_INVALID_PARAMETER;
+						}
+					}
+					if (!$inAddressBook) {
+						$props['email_address'] = $props['smtp_address'];
+						$props['address_type'] = 'SMTP';
+						$oneOffEntryId = mapi_createoneoff($props['display_name'], $props['address_type'], $props['smtp_address'], MAPI_UNICODE);
+						$props['entryid'] = $oneOffEntryId === false ? '' : bin2hex($oneOffEntryId);
 					}
 				}
 				array_push($recipientsInfo, ["props" => $props]);
@@ -4850,23 +4855,21 @@ class Operations {
 	 *
 	 * @param array  $recipientList a list of recipients as XML array structure
 	 * @param string $opType        the type of operation that will be performed on this recipient list (add, remove, modify)
+	 * @param bool   $isException   true if the recipients are for an exception of a recurring meeting,
+	 *                              the organizer is then skipped
 	 * @param bool   $send          true if we are going to send this message else false
-	 * @param mixed  $isException
 	 *
-	 * @return array list of recipients with the correct MAPI properties ready for mapi_message_modifyrecipients()
+	 * @return null|array list of recipients with the correct MAPI properties ready for mapi_message_modifyrecipients(),
+	 *                    null if $send is set and a recipient has neither an email address nor an entryid
 	 */
 	public function createRecipientList($recipientList, $opType = 'add', $isException = false, $send = false) {
 		$recipients = [];
 		$addrbook = $GLOBALS["mapisession"]->getAddressbook();
 
 		foreach ($recipientList as $recipientItem) {
-			if ($isException) {
-				// We do not add organizer to exception msg in organizer's calendar.
-				if (isset($recipientItem[PR_RECIPIENT_FLAGS]) && $recipientItem[PR_RECIPIENT_FLAGS] == (recipSendable | recipOrganizer)) {
-					continue;
-				}
-
-				$recipient[PR_RECIPIENT_FLAGS] = (recipSendable | recipExceptionalResponse | recipReserved);
+			// We do not add organizer to exception msg in organizer's calendar.
+			if ($isException && !empty($recipientItem["recipient_flags"]) && ((int) $recipientItem["recipient_flags"] & recipOrganizer)) {
+				continue;
 			}
 
 			if (!empty($recipientItem["smtp_address"]) && empty($recipientItem["email_address"])) {
@@ -4875,7 +4878,7 @@ class Operations {
 
 			// When saving a mail we can allow an empty email address or entryid, but not when sending it
 			if ($send && empty($recipientItem["email_address"]) && empty($recipientItem['entryid'])) {
-				return;
+				return null;
 			}
 
 			// to modify or remove recipients we need PR_ROWID property
@@ -5935,22 +5938,23 @@ class Operations {
 	/**
 	 * Function used to compressed the image.
 	 *
-	 * @param string $image the image which is going to compress
-	 * @param int $compressedQuality compression factor from 0 (high quality) to 100 (low quality)
+	 * @param string $image             the image which is going to compress
+	 * @param int    $compressedQuality compression factor from 0 (high quality) to 100 (low quality)
 	 *
-	 * @return string A base64 encoded string (data url)
+	 * @return string A base64 encoded string (data url), empty if the image cannot be read
 	 */
 	public function compressedImage($image, $compressedQuality = 10) {
 		// Proceed only when GD library's functions and user image data are available.
-		if (function_exists('imagecreatefromstring')) {
+		if (function_exists('imagecreatefromstring') && is_string($image) && $image !== '') {
 			try {
 				$image = imagecreatefromstring($image);
 			}
-			catch (Exception $e) {
+			catch (Throwable $e) {
 				$msg = "Problem while creating image from string. Error %s : %s.";
 				$formattedMsg = sprintf($msg, $e->getCode(), $e->getMessage());
 				error_log($formattedMsg);
 				Log::Write(LOGLEVEL_ERROR, "Operations:compressedImage() " . $formattedMsg);
+				$image = false;
 			}
 
 			if ($image !== false) {

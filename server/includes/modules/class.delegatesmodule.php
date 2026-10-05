@@ -236,6 +236,8 @@ class DelegatesModule extends Module {
 
 				return $result;
 			}
+
+			throw $e;
 		}
 
 		$props = mapi_getprops($user, [PR_DISPLAY_NAME]);

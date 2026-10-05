@@ -256,6 +256,9 @@ class ReminderListModule extends ListModule {
 				$this->reminderEntryId = $this->createReminderFolder($store);
 				$reminderfolder = mapi_msgstore_openentry($store, $this->reminderEntryId);
 			}
+			else {
+				throw $e;
+			}
 		}
 
 		$remindertable = mapi_folder_getcontentstable($reminderfolder, MAPI_DEFERRED_ERRORS);

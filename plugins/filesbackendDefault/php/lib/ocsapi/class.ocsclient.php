@@ -393,7 +393,7 @@ class ocsclient {
 		foreach ($fields as $key => $value) {
 			$fields_string .= $key . '=' . $value . '&';
 		}
-		rtrim($fields_string, '&');
+		$fields_string = rtrim($fields_string, '&');
 		$curlExtraOptions = [
 			CURLOPT_POST => 1,
 			CURLOPT_POSTFIELDS => $fields_string,

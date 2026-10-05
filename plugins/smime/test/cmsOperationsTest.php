@@ -68,6 +68,23 @@ class CmsOperationsTest extends SMIMETest {
 		$this->assertSame(file_get_contents($this->inputFile), file_get_contents($this->secondOutputFile));
 	}
 
+	public function testVerifyAcceptsDetachedSignature() {
+		$cms = new CmsOperations();
+		if (!$cms->hasCmsApi()) {
+			$this->markTestSkipped('OpenSSL CMS API is unavailable');
+		}
+
+		$signedFile = $this->temporaryFile('smime_verify_signed_');
+		$signerFile = $this->temporaryFile('smime_verify_signer_');
+		$contentFile = $this->temporaryFile('smime_verify_content_');
+		$this->assertTrue($cms->sign($this->inputFile, $signedFile, $this->certificates[0], $this->keys[0], [], PKCS7_DETACHED));
+
+		// PKCS7_DETACHED makes openssl_cms_verify() read its sigfile argument.
+		$this->assertTrue($cms->verify($signedFile, PKCS7_NOVERIFY | PKCS7_DETACHED, $signerFile, [], null, $contentFile));
+		$this->assertSame($this->certificates[0], file_get_contents($signerFile));
+		$this->assertStringContainsString(file_get_contents($this->inputFile), file_get_contents($contentFile));
+	}
+
 	public function testStringCipherDetectionMatchesRuntimeSignature() {
 		$expected = $this->runtimeAcceptsStringCipher();
 		$cms = new CmsOperations();

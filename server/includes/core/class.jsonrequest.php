@@ -152,5 +152,8 @@ class JSONRequest {
 
 			return json_encode(["grommunio" => $data], $jsonflags);
 		}
+
+		// A handled exception already put its error response on the bus.
+		return json_encode(["grommunio" => $GLOBALS["bus"]->getData()], $jsonflags);
 	}
 }
