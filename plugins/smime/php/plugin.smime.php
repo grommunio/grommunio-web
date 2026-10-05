@@ -1363,19 +1363,12 @@ class Pluginsmime extends Plugin {
 
 		foreach ($certs as $cert) {
 			$pubkey = mapi_msgstore_openentry($this->getStore(), $cert[PR_ENTRYID]);
-			$certificate = "";
 			if ($pubkey === false) {
 				continue;
 			}
-			// Retrieve the PKCS#12 certificate from the message body.
-			$stream = mapi_openproperty($pubkey, PR_BODY, IID_IStream, 0, 0);
-			if (!$stream) {
+			$certificate = readCertificateMessageBody($pubkey);
+			if ($certificate === null) {
 				continue;
-			}
-			$stat = mapi_stream_stat($stream);
-			mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-			for ($i = 0; $i < $stat['cb']; $i += 1024) {
-				$certificate .= mapi_stream_read($stream, 1024);
 			}
 			array_push($certificates, $certificate);
 		}

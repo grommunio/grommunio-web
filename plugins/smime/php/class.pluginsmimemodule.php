@@ -370,19 +370,7 @@ class PluginSmimeModule extends Module {
 			return '';
 		}
 
-		$stream = mapi_openproperty($msg, PR_BODY, IID_IStream, 0, 0);
-		if (!$stream) {
-			return '';
-		}
-
-		$stat = mapi_stream_stat($stream);
-		mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-		$body = '';
-		for ($i = 0; $i < $stat['cb']; $i += 1024) {
-			$body .= mapi_stream_read($stream, 1024);
-		}
-
-		return $body;
+		return readCertificateMessageBody($msg) ?? '';
 	}
 
 	/**
@@ -472,21 +460,7 @@ class PluginSmimeModule extends Module {
 
 		$certPems = [];
 		foreach ($certs as $cert) {
-			$msg = mapi_msgstore_openentry($this->store, $cert[PR_ENTRYID]);
-			if ($msg === false) {
-				continue;
-			}
-			$stream = mapi_openproperty($msg, PR_BODY, IID_IStream, 0, 0);
-			if (!$stream) {
-				continue;
-			}
-			$stat = mapi_stream_stat($stream);
-			mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-			$body = '';
-			for ($i = 0; $i < $stat['cb']; $i += 1024) {
-				$body .= mapi_stream_read($stream, 1024);
-			}
-			$decoded = base64_decode($body);
+			$decoded = base64_decode($this->readCertificateBody($cert[PR_ENTRYID]));
 			if (!empty($decoded)) {
 				$certPems[] = $decoded;
 			}

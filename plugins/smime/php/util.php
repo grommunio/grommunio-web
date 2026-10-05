@@ -80,6 +80,28 @@ function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = 
 }
 
 /**
+ * Read the body of a stored certificate message.
+ *
+ * @param resource $message certificate message
+ *
+ * @return null|string base64-encoded certificate, or null when the body cannot be opened
+ */
+function readCertificateMessageBody($message) {
+	$stream = mapi_openproperty($message, PR_BODY, IID_IStream, 0, 0);
+	if (!$stream) {
+		return null;
+	}
+	$stat = mapi_stream_stat($stream);
+	mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
+	$body = '';
+	for ($i = 0; $i < $stat['cb']; $i += 1024) {
+		$body .= mapi_stream_read($stream, 1024);
+	}
+
+	return $body;
+}
+
+/**
  * Function that will decrypt the private certificate using a supplied password
  * If multiple private certificates can be decrypted with the supplied password,
  * all of them will be returned, if $singleCert == false, otherwise only the first one.
@@ -107,17 +129,10 @@ function readPrivateCert($store, $passphrase, $singleCert = true) {
 		if ($privateCertMessage === false) {
 			continue;
 		}
-		$pkcs12 = "";
 		$certs = [];
-		// Read pkcs12 cert from message
-		$stream = mapi_openproperty($privateCertMessage, PR_BODY, IID_IStream, 0, 0);
-		if (!$stream) {
+		$pkcs12 = readCertificateMessageBody($privateCertMessage);
+		if ($pkcs12 === null) {
 			continue;
-		}
-		$stat = mapi_stream_stat($stream);
-		mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-		for ($i = 0; $i < $stat['cb']; $i += 1024) {
-			$pkcs12 .= mapi_stream_read($stream, 1024);
 		}
 		$ok = openssl_pkcs12_read(base64_decode($pkcs12), $certs, $passphrase);
 		if ($ok !== false) {
