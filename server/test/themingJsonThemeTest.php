@@ -6,7 +6,7 @@
  */
 
 // A json theme has to feed the custom properties grommunio.css is written against,
-// not only the handful of selectors Theming::$styles names.
+// not only the handful of selectors JsonThemeStyles::$styles names.
 if (extension_loaded('mapi')) {
 	echo "Json theme checks skipped with php-mapi loaded\n";
 
