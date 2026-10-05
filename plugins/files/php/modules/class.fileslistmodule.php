@@ -104,6 +104,13 @@ class FilesListModule extends ListModule {
 	}
 
 	#[Override]
+	public function sendFeedback($success = false, $data = [], $addResponseDataToBus = true) {
+		// earlier actions are already on the bus, adding them again throws
+		$this->responseData = [];
+		parent::sendFeedback($success, $data, $addResponseDataToBus);
+	}
+
+	#[Override]
 	protected function afterLoadSessionData() {
 		$GLOBALS['settings']->refreshSettings();
 		$this->accountStore = new AccountStore();

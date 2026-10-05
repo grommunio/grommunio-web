@@ -88,6 +88,12 @@ namespace {
 		public $failing = [];
 		public $moveFails = false;
 		public $lsFails = false;
+		public $backendDisplayName = 'fake';
+		public $backendVersion = '1';
+
+		public function getAccountID() {
+			return 'acc';
+		}
 
 		public function put_file($path, $tmpname) {
 			if (in_array($path, $this->failing, true)) {
@@ -149,6 +155,16 @@ namespace {
 		public function deleteCache($accountID, $path) {
 			unset($this->cached[$path]);
 		}
+
+		public function getVersionFromCache($displayName, $accountID = '') {
+			return null;
+		}
+
+		public function setVersionInCache($displayName, $version, $accountID = '') {}
+	}
+
+	class QuietBus extends Bus {
+		public function notify($entryID, $event, $data = null) {}
 	}
 
 	function check($cond, $msg) {
@@ -177,6 +193,32 @@ namespace {
 	check(array_keys($module->cached['/dir']) === ['/dir/a.txt', '/dir/c.txt'], 'only uploaded files are cached');
 	check($GLOBALS['bus']->getData()[$module->getModuleName()]['browser']['uploadtobackend']['status'] === false, 'failure status');
 	check(glob($temporaryDirectory . '/*') === [], 'temporary files removed');
+
+	function runRename($backend) {
+		$GLOBALS['bus'] = new QuietBus();
+		$module = new TestBrowser();
+		$module->backend = $backend;
+		$module->data = ['save' => [
+			'entryid' => 'e', 'parent_entryid' => 'p', 'store_entryid' => 's',
+			'props' => ['filename' => 'q'],
+			'message_action' => ['source_folder_id' => '#R#acc/dir/old/'],
+		]];
+		$module->execute();
+
+		return $GLOBALS['bus']->getData()[$module->getModuleName()]['browser'];
+	}
+
+	// a failure after the rename response reaches the bus adds only the error
+	$backend = new FakeBackend();
+	$backend->lsFails = true;
+	$response = runRename($backend);
+	check(isset($response['update']['item']), 'rename response kept');
+	check($response['error']['info']['code'] === 404, 'follow-up error reported');
+
+	$backend = new FakeBackend();
+	$backend->moveFails = true;
+	$response = runRename($backend);
+	check(array_keys($response) === ['error'], 'failed rename reports only the error');
 
 	rmdir($temporaryDirectory);
 	echo "browserModuleTest: OK\n";
