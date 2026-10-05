@@ -498,6 +498,27 @@
 		{
 			"type": "library",
 			"ecosystem": "vendored",
+			"name": "outfit",
+			"version": "1.100",
+			"license": "OFL-1.1",
+			"scope": "runtime",
+			"paths": [
+				"client/resources/fonts/Outfit-Black.woff2",
+				"client/resources/fonts/Outfit-Bold.woff2",
+				"client/resources/fonts/Outfit-ExtraBold.woff2",
+				"client/resources/fonts/Outfit-ExtraLight.woff2",
+				"client/resources/fonts/Outfit-Light.woff2",
+				"client/resources/fonts/Outfit-Medium.woff2",
+				"client/resources/fonts/Outfit-Regular.woff2",
+				"client/resources/fonts/Outfit-SemiBold.woff2",
+				"client/resources/fonts/Outfit-Thin.woff2"
+			],
+			"copyright": "Copyright 2021 The Outfit Project Authors",
+			"website": "https://github.com/Outfitio/Outfit-Fonts"
+		},
+		{
+			"type": "library",
+			"ecosystem": "vendored",
 			"name": "fluentui-system-icons",
 			"version": "1.1.159",
 			"license": "MIT",

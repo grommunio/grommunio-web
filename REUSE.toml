@@ -208,6 +208,7 @@ precedence = "override"
 SPDX-FileCopyrightText = [
   "Copyright (c) Christian Robertson (Roboto)",
   "Copyright (c) The Mozilla Foundation and Telefonica S.A. (Fira Mono)",
+  "Copyright 2021 The Outfit Project Authors (Outfit)",
 ]
 SPDX-License-Identifier = "Apache-2.0 AND OFL-1.1"
 

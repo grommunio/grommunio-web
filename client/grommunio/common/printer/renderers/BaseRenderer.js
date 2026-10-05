@@ -119,11 +119,12 @@ Grommunio.common.printer.renderers.BaseRenderer = Ext.extend(Object, {
 	 * @return {String} The HTML fragment to place inside the print window's <head> element
 	 */
 	generateHeadTemplate: function() {
+		var fonts = '<style type="text/css">' + Grommunio.common.ui.htmleditor.Fonts.getFontFaceCss() + '</style>\n';
 		if ( !Ext.isString(this.customStylesheetPath) || Ext.isEmpty(this.customStylesheetPath) ) {
-			return '';
+			return fonts;
 		}
 
-		return '<link href="' +this.customStylesheetPath + '?' + new Date().getTime() + '" rel="stylesheet" type="text/css" media="screen,print" />\n';
+		return fonts + '<link href="' +this.customStylesheetPath + '?' + new Date().getTime() + '" rel="stylesheet" type="text/css" media="screen,print" />\n';
 	},
 
 	/**
