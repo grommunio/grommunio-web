@@ -40,6 +40,32 @@ if ($decode->invoke($api, '[]', $nullableFlag) !== null) {
 	throw new RuntimeException('Nullable single-object mode rejected an empty array.');
 }
 
+$expectations = [
+	'JSON_DECODE_ACCEPT_ARRAY_OF_OBJECTS' => [['[]', '[{},{}]'], ['{}', '[{},1]']],
+	'JSON_DECODE_ACCEPT_ARRAY_SINGLE_OBJECT' => [['[{"a":1}]'], ['[]', '[{},{}]', '{}']],
+	'JSON_DECODE_ACCEPT_SUCCESS_OBJECT' => [['{"success":true}'], ['{"success":1}', '{"success":true,"x":1}']],
+	'JSON_DECODE_ACCEPT_SUCCESS_STRING' => [['"success"'], ['"Success"', '{"success":true}']],
+];
+foreach ($expectations as $name => [$accepted, $rejected]) {
+	$flag = $reflection->getConstant($name);
+	foreach ($accepted as $json) {
+		$decode->invoke($api, $json, $flag);
+	}
+	foreach ($rejected as $json) {
+		try {
+			$decode->invoke($api, $json, $flag);
+		}
+		catch (UnexpectedJsonTextResponseException) {
+			continue;
+		}
+
+		throw new RuntimeException("{$name} accepted {$json}.");
+	}
+}
+if ($decode->invoke($api, '[{"a":1}]', $reflection->getConstant('JSON_DECODE_ACCEPT_ARRAY_SINGLE_OBJECT'))->a !== 1) {
+	throw new RuntimeException('Single-object mode did not return the item.');
+}
+
 try {
 	$decode->invoke($api, 'null', $nullableFlag);
 }
