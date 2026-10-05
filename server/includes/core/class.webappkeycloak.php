@@ -12,6 +12,17 @@ class WebAppKeyCloak extends KeyCloak {
 	private const MAX_PENDING_STATES = 8;
 	private const STATE_LIFETIME = 600;
 	private const STATE_SESSION_KEY = '_keycloak_oauth_states';
+	// checked in order; a nested path is only reached once its parent passed
+	private const TYPE_RULES = [
+		[['realm'], 'is_string', 'Invalid Keycloak configuration value'],
+		[['resource'], 'is_string', 'Invalid Keycloak configuration value'],
+		[['redirect-url'], 'is_string', 'Invalid Keycloak configuration value'],
+		[['realm-public-key'], 'is_string', 'Invalid Keycloak configuration value'],
+		[['secret'], 'is_string', 'Invalid Keycloak configuration value'],
+		[['public-client'], 'is_bool', 'Invalid Keycloak public-client setting'],
+		[['credentials'], 'is_array', 'Invalid Keycloak credentials'],
+		[['credentials', 'secret'], 'is_string', 'Invalid Keycloak credentials'],
+	];
 
 	/** @var null|self */
 	private static $instance;
@@ -29,18 +40,13 @@ class WebAppKeyCloak extends KeyCloak {
 		if (!is_array($keycloakConfig)) {
 			$keycloakConfig = [];
 		}
-		foreach (['realm', 'resource', 'redirect-url', 'realm-public-key', 'secret'] as $stringKey) {
-			if (isset($keycloakConfig[$stringKey]) && !is_string($keycloakConfig[$stringKey])) {
-				throw new InvalidArgumentException('Invalid Keycloak configuration value');
+		foreach (self::TYPE_RULES as [$path, $isValid, $message]) {
+			$value = $keycloakConfig;
+			foreach ($path as $key) {
+				$value = $value[$key] ?? null;
 			}
-		}
-		if (isset($keycloakConfig['public-client']) && !is_bool($keycloakConfig['public-client'])) {
-			throw new InvalidArgumentException('Invalid Keycloak public-client setting');
-		}
-		if (isset($keycloakConfig['credentials'])) {
-			if (!is_array($keycloakConfig['credentials']) ||
-				(isset($keycloakConfig['credentials']['secret']) && !is_string($keycloakConfig['credentials']['secret']))) {
-				throw new InvalidArgumentException('Invalid Keycloak credentials');
+			if ($value !== null && !$isValid($value)) {
+				throw new InvalidArgumentException($message);
 			}
 		}
 		$authServerUrl = $keycloakConfig['auth-server-url'] ?? null;
@@ -70,13 +76,7 @@ class WebAppKeyCloak extends KeyCloak {
 
 		$configFile = GROMOX_CONFIG_PATH . 'keycloak.json';
 		if (self::$instance === null && is_file($configFile)) {
-			$configJson = @file_get_contents($configFile);
-			if ($configJson === false) {
-				error_log('Unable to load webapp Keycloak configuration');
-
-				return null;
-			}
-			$config = json_decode($configJson, true);
+			$config = json_decode((string) @file_get_contents($configFile), true);
 			if (!is_array($config)) {
 				error_log('Unable to load webapp Keycloak configuration');
 
