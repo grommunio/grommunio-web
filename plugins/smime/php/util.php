@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+require_once (defined('BASE_PATH') ? BASE_PATH : dirname(__DIR__, 3) . '/') . 'server/includes/core/class.privatefilecache.php';
+
 /*
  * This file contains functions which are used in plugin.smime.php and class.pluginsmimemodule.php and therefore
  * exists here to avoid code-duplication.
@@ -282,27 +284,7 @@ function decodeCaIssuerResponse($data) {
  * @return bool true when the directory is safe and writable
  */
 function ensureAiaCacheDir($cacheDir) {
-	if (is_link($cacheDir)) {
-		return false;
-	}
-	if (!is_dir($cacheDir) && !@mkdir($cacheDir, 0700, true) && !is_dir($cacheDir)) {
-		return false;
-	}
-	// Older releases created this directory group-writable. Tighten it when
-	// possible; otherwise do not trust or write cache entries in it.
-	if (!@chmod($cacheDir, 0700)) {
-		return false;
-	}
-	clearstatcache(true, $cacheDir);
-	$stat = @lstat($cacheDir);
-	if ($stat === false || ($stat['mode'] & 0170000) !== 0040000 || ($stat['mode'] & 0077) !== 0) {
-		return false;
-	}
-	if (function_exists('posix_geteuid') && $stat['uid'] !== posix_geteuid()) {
-		return false;
-	}
-
-	return is_writable($cacheDir);
+	return PrivateFileCache::ensureDir($cacheDir);
 }
 
 /**
@@ -313,23 +295,7 @@ function ensureAiaCacheDir($cacheDir) {
  * @return null|string cached data, or null for an unsafe/unreadable entry
  */
 function readAiaCacheFile($cacheFile) {
-	if (!is_file($cacheFile) || is_link($cacheFile)) {
-		return null;
-	}
-	$stat = @lstat($cacheFile);
-	$dirStat = @lstat(dirname($cacheFile));
-	if ($stat === false || $dirStat === false ||
-		($stat['mode'] & 0170000) !== 0100000 ||
-		($dirStat['mode'] & 0170000) !== 0040000 ||
-		($dirStat['mode'] & 0077) !== 0 ||
-		($stat['mode'] & 0077) !== 0 ||
-		$stat['uid'] !== $dirStat['uid']) {
-		return null;
-	}
-
-	$cached = @file_get_contents($cacheFile);
-
-	return is_string($cached) ? $cached : null;
+	return PrivateFileCache::read($cacheFile);
 }
 
 /**
@@ -342,27 +308,7 @@ function readAiaCacheFile($cacheFile) {
  * @return bool true when the cache entry was written
  */
 function writeAiaCacheFile($cacheDir, $cacheFile, $data) {
-	if (!ensureAiaCacheDir($cacheDir)) {
-		return false;
-	}
-	$tmpFile = tempnam($cacheDir, '.aia-');
-	if ($tmpFile === false) {
-		return false;
-	}
-
-	try {
-		$written = file_put_contents($tmpFile, $data, LOCK_EX);
-		if ($written !== strlen($data) || !@chmod($tmpFile, 0600)) {
-			return false;
-		}
-
-		return @rename($tmpFile, $cacheFile);
-	}
-	finally {
-		if ((is_file($tmpFile) || is_link($tmpFile)) && !@unlink($tmpFile)) {
-			error_log("[smime] Could not remove temporary AIA cache file: {$tmpFile}");
-		}
-	}
+	return PrivateFileCache::write($cacheDir, $cacheFile, $data, '.aia-', '[smime] Could not remove temporary AIA cache file');
 }
 
 /**

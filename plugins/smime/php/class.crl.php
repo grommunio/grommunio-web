@@ -9,6 +9,7 @@ use WAYF\CrlParser;
 use WAYF\X509;
 
 require_once __DIR__ . '/lib/Crl.php';
+require_once (defined('BASE_PATH') ? BASE_PATH : dirname(__DIR__, 3) . '/') . 'server/includes/core/class.privatefilecache.php';
 
 /**
  * CRL manager — fetches, caches, and checks certificate revocation lists.
@@ -305,24 +306,8 @@ class CrlManager {
 		if (!$this->ensureCacheDir()) {
 			return false;
 		}
-		$tmpFile = tempnam($this->cacheDir, '.crl-');
-		if ($tmpFile === false) {
-			return false;
-		}
 
-		try {
-			$written = file_put_contents($tmpFile, $data, LOCK_EX);
-			if ($written !== strlen($data) || !@chmod($tmpFile, 0640)) {
-				return false;
-			}
-
-			return @rename($tmpFile, $cacheFile);
-		}
-		finally {
-			if ((is_file($tmpFile) || is_link($tmpFile)) && !@unlink($tmpFile)) {
-				error_log("[smime] Could not remove temporary CRL cache file: {$tmpFile}");
-			}
-		}
+		return PrivateFileCache::writeAtomic($this->cacheDir, $cacheFile, $data, '.crl-', 0640, '[smime] Could not remove temporary CRL cache file');
 	}
 
 	/**

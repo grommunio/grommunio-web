@@ -5,6 +5,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+require_once BASE_PATH . 'server/includes/core/class.privatefilecache.php';
 require_once BASE_PATH . 'server/includes/core/class.publichttpsresource.php';
 
 /**
@@ -22,15 +23,15 @@ class BimiLogo {
 		$base = $dir . DIRECTORY_SEPARATOR . hash('sha256', $domain);
 		$logo = $base . '.svg';
 		$miss = $base . '.miss';
-		$cacheReady = $this->ensureCacheDir($dir);
+		$cacheReady = PrivateFileCache::ensureDir($dir);
 
-		$cachedLogo = $cacheReady ? $this->readCacheFile($logo, self::TTL, self::MAX_SIZE) : null;
+		$cachedLogo = $cacheReady ? PrivateFileCache::read($logo, self::TTL, self::MAX_SIZE) : null;
 		if ($cachedLogo !== null && $this->isLogo($cachedLogo)) {
 			$this->output($cachedLogo);
 
 			return;
 		}
-		$cachedMiss = $cacheReady ? $this->readCacheFile($miss, self::NEGATIVE_TTL, 0) : null;
+		$cachedMiss = $cacheReady ? PrivateFileCache::read($miss, self::NEGATIVE_TTL, 0) : null;
 		if ($cachedMiss !== null) {
 			$this->notFound();
 
@@ -56,71 +57,8 @@ class BimiLogo {
 		$this->output($data);
 	}
 
-	private function ensureCacheDir($dir) {
-		if (is_link($dir)) {
-			return false;
-		}
-		if (!is_dir($dir) && !@mkdir($dir, 0700, true) && !is_dir($dir)) {
-			return false;
-		}
-
-		// Tighten directories made group-writable by older releases. If the
-		// process does not own the directory, never trust entries from it.
-		if (!@chmod($dir, 0700)) {
-			return false;
-		}
-		clearstatcache(true, $dir);
-		$stat = @lstat($dir);
-		if ($stat === false || ($stat['mode'] & 0170000) !== 0040000 || ($stat['mode'] & 0077) !== 0 ||
-			(function_exists('posix_geteuid') && $stat['uid'] !== posix_geteuid())) {
-			return false;
-		}
-
-		return is_writable($dir);
-	}
-
-	private function readCacheFile($file, $maxAge, $maxSize) {
-		if (!is_file($file) || is_link($file)) {
-			return null;
-		}
-		$stat = @lstat($file);
-		$dirStat = @lstat(dirname($file));
-		if ($stat === false || $dirStat === false ||
-			($stat['mode'] & 0170000) !== 0100000 ||
-			($dirStat['mode'] & 0170000) !== 0040000 ||
-			($stat['mode'] & 0077) !== 0 || ($dirStat['mode'] & 0077) !== 0 ||
-			$stat['uid'] !== $dirStat['uid'] || $stat['size'] > $maxSize ||
-			time() - $stat['mtime'] >= $maxAge) {
-			return null;
-		}
-
-		$data = @file_get_contents($file);
-
-		return is_string($data) && strlen($data) <= $maxSize ? $data : null;
-	}
-
 	private function writeCacheFile($dir, $file, $data) {
-		if (!$this->ensureCacheDir($dir)) {
-			return false;
-		}
-		$tmpFile = tempnam($dir, '.bimi-');
-		if ($tmpFile === false) {
-			return false;
-		}
-
-		try {
-			$written = file_put_contents($tmpFile, $data, LOCK_EX);
-			if ($written !== strlen($data) || !@chmod($tmpFile, 0600)) {
-				return false;
-			}
-
-			return @rename($tmpFile, $file);
-		}
-		finally {
-			if ((is_file($tmpFile) || is_link($tmpFile)) && !@unlink($tmpFile)) {
-				error_log("[bimi] Could not remove temporary cache file: {$tmpFile}");
-			}
-		}
+		return PrivateFileCache::write($dir, $file, $data, '.bimi-', '[bimi] Could not remove temporary cache file');
 	}
 
 	private function fetch($domain) {
