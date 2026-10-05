@@ -228,26 +228,14 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$this->set_pass($backend_config["password"]);
 		}
 		else {
-			// For backward compatibility we will check if the Encryption store exists. If not,
-			// we will fall back to the old way of retrieving the password from the session.
-			if (class_exists('EncryptionStore')) {
-				// Get the username and password from the Encryption store
-				$encryptionStore = \EncryptionStore::getInstance();
-				$this->set_user($encryptionStore->get('username'));
-				if (isset($_SESSION['_keycloak_auth'])) {
-					// Keycloak logins keep the access token in place of a password
-					$this->set_bearer($encryptionStore->get('password'));
-				}
-				else {
-					$this->set_pass($encryptionStore->get('password'));
-				}
+			$encryptionStore = \EncryptionStore::getInstance();
+			$this->set_user($encryptionStore->get('username'));
+			if (isset($_SESSION['_keycloak_auth'])) {
+				// Keycloak logins keep the access token in place of a password
+				$this->set_bearer($encryptionStore->get('password'));
 			}
 			else {
-				$this->set_user($GLOBALS['mapisession']->getUserName());
-				$password = $_SESSION['password'];
-				if (function_exists('openssl_decrypt')) {
-					$this->set_pass(openssl_decrypt($password, "des-ede3-cbc", PASSWORD_KEY, 0, PASSWORD_IV));
-				}
+				$this->set_pass($encryptionStore->get('password'));
 			}
 		}
 	}
