@@ -948,54 +948,39 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * @return string userfriendly error message
 	 */
 	private function parseErrorCodeToMessage($error_code) {
-		$error = intval($error_code);
+		$contactAdmin = ' ' . _('Please contact your system administrator.');
+		$unauthorized = _('Unauthorized. Wrong username or password.');
+		$unreachable = _('File server is not reachable. Please verify the connection.');
 
-		$msg = _('Unknown error');
-		$contactAdmin = _('Please contact your system administrator.');
-
-		// Avoid referencing CURLE_* constants if curl extension isn't loaded (PHP 8.1/8.2 fatal otherwise)
-		if ((defined('CURLE_BAD_PASSWORD_ENTERED') && $error === CURLE_BAD_PASSWORD_ENTERED) || $error === self::WD_ERR_UNAUTHORIZED) {
-			return _('Unauthorized. Wrong username or password.');
-		}
-		if ((defined('CURLE_SSL_CONNECT_ERROR') && $error === CURLE_SSL_CONNECT_ERROR) ||
-			(defined('CURLE_COULDNT_RESOLVE_HOST') && $error === CURLE_COULDNT_RESOLVE_HOST) ||
-			(defined('CURLE_COULDNT_CONNECT') && $error === CURLE_COULDNT_CONNECT) ||
-			(defined('CURLE_OPERATION_TIMEOUTED') && $error === CURLE_OPERATION_TIMEOUTED) ||
-			$error === self::WD_ERR_UNREACHABLE) {
-			return _('File server is not reachable. Please verify the connection.');
-		}
-		if ($error === self::WD_ERR_NOTALLOWED) {
-			return _('File server is not reachable. Please verify the file server URL.');
-		}
-		if ($error === self::WD_ERR_FORBIDDEN) {
-			return _('You don\'t have enough permissions to view this file or folder.');
-		}
-		if ($error === self::WD_ERR_NOTFOUND) {
-			return _('The file or folder is not available anymore.');
-		}
-		if ($error === self::WD_ERR_TIMEOUT) {
-			return _('Connection to the file server timed out. Please check again later.');
-		}
-		if ($error === self::WD_ERR_LOCKED) {
-			return _('This file is locked by another user. Please try again later.');
-		}
-		if ($error === self::WD_ERR_FAILED_DEPENDENCY) {
-			return _('The request failed.') . ' ' . $contactAdmin;
-		}
-		if ($error === self::WD_ERR_INTERNAL) {
-			return _('The file server encountered an internal problem.') . ' ' . $contactAdmin;
-		}
-		if ($error === self::WD_ERR_TMP) {
-			return _('We could not write to temporary directory.') . ' ' . $contactAdmin;
-		}
-		if ($error === self::WD_ERR_FEATURES) {
-			return _('We could not retrieve list of server features.') . ' ' . $contactAdmin;
-		}
-		if ($error === self::WD_ERR_NO_CURL) {
-			return _('PHP-Curl is not available.') . ' ' . $contactAdmin;
+		$messages = [
+			self::WD_ERR_UNAUTHORIZED => $unauthorized,
+			self::WD_ERR_UNREACHABLE => $unreachable,
+			self::WD_ERR_NOTALLOWED => _('File server is not reachable. Please verify the file server URL.'),
+			self::WD_ERR_FORBIDDEN => _('You don\'t have enough permissions to view this file or folder.'),
+			self::WD_ERR_NOTFOUND => _('The file or folder is not available anymore.'),
+			self::WD_ERR_TIMEOUT => _('Connection to the file server timed out. Please check again later.'),
+			self::WD_ERR_LOCKED => _('This file is locked by another user. Please try again later.'),
+			self::WD_ERR_FAILED_DEPENDENCY => _('The request failed.') . $contactAdmin,
+			self::WD_ERR_INTERNAL => _('The file server encountered an internal problem.') . $contactAdmin,
+			self::WD_ERR_TMP => _('We could not write to temporary directory.') . $contactAdmin,
+			self::WD_ERR_FEATURES => _('We could not retrieve list of server features.') . $contactAdmin,
+			self::WD_ERR_NO_CURL => _('PHP-Curl is not available.') . $contactAdmin,
+		];
+		// CURLE_* constants are missing without the curl extension
+		$curlErrors = [
+			'CURLE_BAD_PASSWORD_ENTERED' => $unauthorized,
+			'CURLE_SSL_CONNECT_ERROR' => $unreachable,
+			'CURLE_COULDNT_RESOLVE_HOST' => $unreachable,
+			'CURLE_COULDNT_CONNECT' => $unreachable,
+			'CURLE_OPERATION_TIMEOUTED' => $unreachable,
+		];
+		foreach ($curlErrors as $name => $message) {
+			if (defined($name)) {
+				$messages[constant($name)] ??= $message;
+			}
 		}
 
-		return $msg;
+		return $messages[intval($error_code)] ?? _('Unknown error');
 	}
 
 	public function getFormConfig() {
