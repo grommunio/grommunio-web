@@ -137,149 +137,21 @@ class ItemModule extends Module {
 							break;
 						}
 
-						switch ($action["message_action"]["action_type"]) {
+						$subActionType = $action["message_action"]["action_type"];
+						if ($singleEntryid === false && in_array($subActionType, ["declineMeetingRequest", "acceptMeetingRequest", "acceptTaskRequest", "declineTaskRequest", "forwardMeetingRequest", "removeAttachments"])) {
+							$this->sendFeedback(false);
+							break;
+						}
+
+						switch ($subActionType) {
 							case "declineMeetingRequest":
 							case "acceptMeetingRequest":
-								if ($singleEntryid === false) {
-									$this->sendFeedback(false);
-
-									break;
-								}
-								$message = $GLOBALS["operations"]->openMessage($store, $singleEntryid);
-								$basedate = ($action['basedate'] ?? false);
-								$delete = false;
-
-								if ($basedate) {
-									$recurrence = new Recurrence($store, $message);
-									$exceptionatt = $recurrence->getExceptionAttachment($basedate);
-									if ($exceptionatt) {
-										// get properties of existing exception.
-										$exceptionattProps = mapi_getprops($exceptionatt, [PR_ATTACH_NUM]);
-										$attach_num = $exceptionattProps[PR_ATTACH_NUM];
-									}
-								}
-
-								/**
-								 * Get message class from original message. This can be changed to
-								 * IPM.Appointment if the item is a Meeting Request in the maillist.
-								 * After Accepting/Declining the message is moved and changed.
-								 */
-								$originalMessageProps = mapi_getprops($message, [PR_MESSAGE_CLASS]);
-
-								// Clear PR_PROCESSED so that doAccept fully copies
-								// all properties from the meeting request to the
-								// calendar item.  Without this, an update that changes
-								// a single meeting into a recurring series is not
-								// applied because the flag was already set during
-								// auto-processing in open().
-								mapi_deleteprops($message, [PR_PROCESSED]);
-
-								$req = $this->createMeetingRequest($store, $message);
-
-								// Update extra body information
-								if (isset($action["message_action"]['meetingTimeInfo']) && !empty($action["message_action"]['meetingTimeInfo'])) {
-									$req->setMeetingTimeInfo($action["message_action"]['meetingTimeInfo'],
-										$action["message_action"]['mti_html'] ?? false);
-									unset($action["message_action"]['meetingTimeInfo']);
-								}
-
-								// sendResponse flag if it is set then send the mail response to the organzer.
-								$sendResponse = true;
-								if (isset($action["message_action"]["sendResponse"]) && $action["message_action"]["sendResponse"] == false) {
-									$sendResponse = false;
-								}
-
-								// @FIXME: fix body
-								$body = false;
-								if (isset($action["props"]["isHTML"]) && $action["props"]["isHTML"] === true) {
-									$body = $action["props"]["html_body"] ?? false;
-								}
-								else {
-									$body = $action["props"]["body"] ?? false;
-								}
-
-								if ($action["message_action"]["action_type"] == "acceptMeetingRequest") {
-									$tentative = $action["message_action"]["responseType"] === olResponseTentative;
-									$newProposedStartTime = $action["message_action"]["proposed_starttime"] ?? false;
-									$newProposedEndTime = $action["message_action"]["proposed_endtime"] ?? false;
-
-									// We are accepting MR from preview-read-mail so set delete the actual mail flag.
-									$delete = $req->isMeetingRequest($originalMessageProps[PR_MESSAGE_CLASS]);
-
-									$req->doAccept($tentative, $sendResponse, $delete, $newProposedStartTime, $newProposedEndTime, $body, true, $store, $basedate);
-								}
-								else {
-									$delete = $req->doDecline($sendResponse, $basedate, $body);
-								}
-
-								/**
-								 * Now if the item is the Meeting Request that was sent to the attendee
-								 * it is removed when the user has clicked on Accept/Decline. If the
-								 * item is the appointment in the calendar it will not be moved. To only
-								 * notify the bus when the item is a Meeting Request we are going to
-								 * check the PR_MESSAGE_CLASS and see if it is "IPM.Meeting*".
-								 */
-								$messageProps = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
-
-								// if opened appointment is exception then it will add
-								// the attach_num and basedate in messageProps.
-								if (isset($attach_num)) {
-									$messageProps[PR_ATTACH_NUM] = [$attach_num];
-									$messageProps[$this->properties["basedate"]] = $basedate;
-								}
-
-								if ($delete) {
-									// send TABLE_DELETE event because the message has moved
-									$this->sendFeedback(true);
-									$GLOBALS["bus"]->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), TABLE_DELETE, $messageProps);
-								}
-								else {
-									$this->addActionData("update", ["item" => Conversion::mapMAPI2XML($this->properties, $messageProps)]);
-									$GLOBALS["bus"]->addData($this->getResponseData());
-
-									// send TABLE_SAVE event because an occurrence is deleted
-									$GLOBALS["bus"]->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $messageProps);
-								}
-
+								$this->respondToMeetingRequest($store, $singleEntryid, $action);
 								break;
 
 							case "acceptTaskRequest":
 							case "declineTaskRequest":
-								if ($singleEntryid === false) {
-									$this->sendFeedback(false);
-
-									break;
-								}
-								$message = $GLOBALS["operations"]->openMessage($store, $singleEntryid);
-
-								if (isset($action["props"]) && !empty($action["props"])) {
-									$properties = $GLOBALS["properties"]->getTaskProperties();
-									mapi_setprops($message, Conversion::mapXML2MAPI($properties, $action["props"]));
-									mapi_savechanges($message);
-								}
-								// The task may be a delegated task, do an update if needed (will fail for non-delegated tasks)
-								$tr = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
-								$isAccept = $action["message_action"]["action_type"] == "acceptTaskRequest";
-								if (isset($action["message_action"]["task_comments_info"]) && !empty($action["message_action"]["task_comments_info"])) {
-									$tr->setTaskCommentsInfo($action["message_action"]["task_comments_info"]);
-								}
-								if ($isAccept) {
-									$result = $tr->doAccept();
-								}
-								else {
-									$result = $tr->doDecline();
-								}
-
-								$this->sendFeedback(true);
-								if ($result !== false) {
-									$GLOBALS["bus"]->notify(bin2hex((string) $result[PR_PARENT_ENTRYID]), TABLE_DELETE, $result);
-								}
-
-								$props = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
-								if (!$tr->isTaskRequest()) {
-									unset($props[PR_MESSAGE_CLASS]);
-									$GLOBALS["bus"]->notify(bin2hex((string) $props[PR_PARENT_ENTRYID]), $isAccept ? TABLE_SAVE : TABLE_DELETE, $props);
-								}
+								$this->respondToTaskRequest($store, $singleEntryid, $action);
 								break;
 
 							case "copy":
@@ -288,20 +160,10 @@ class ItemModule extends Module {
 								break;
 
 							case "forwardMeetingRequest":
-								if ($singleEntryid === false) {
-									$this->sendFeedback(false);
-
-									break;
-								}
 								$this->forwardMeetingRequest($store, $singleEntryid, $action, $this->directBookingMeetingRequest);
 								break;
 
 							case "removeAttachments":
-								if ($singleEntryid === false) {
-									$this->sendFeedback(false);
-
-									break;
-								}
 								$this->removeAttachments($store, $singleEntryid, $action);
 								break;
 
@@ -318,6 +180,10 @@ class ItemModule extends Module {
 						if (isset($action["message_action"], $action["message_action"]["action_type"])) {
 							$subActionType = $action["message_action"]["action_type"];
 						}
+						if (($store === false || $singleEntryid === false) && in_array($subActionType, ["removeFromCalendar", "cancelInvitation", "declineMeeting"])) {
+							$this->sendFeedback(false);
+							break;
+						}
 
 						/*
 						 * The "message_action" object has been set, check the action_type field for
@@ -328,52 +194,19 @@ class ItemModule extends Module {
 						 */
 						switch ($subActionType) {
 							case "removeFromCalendar":
-								if ($store === false || $singleEntryid === false) {
-									$this->sendFeedback(false);
-
-									break;
-								}
-								$basedate = (isset($action['basedate']) && !empty($action['basedate'])) ? $action['basedate'] : false;
+								$basedate = !empty($action['basedate']) ? $action['basedate'] : false;
 
 								$this->removeFromCalendar($store, $singleEntryid, $basedate, $this->directBookingMeetingRequest);
 								$this->sendFeedback(true);
 								break;
 
 							case "cancelInvitation":
-								if ($store === false || $singleEntryid === false) {
-									$this->sendFeedback(false);
-
-									break;
-								}
 								$this->cancelInvitation($store, $singleEntryid, $action, $this->directBookingMeetingRequest);
 								$this->sendFeedback(true);
 								break;
 
 							case "declineMeeting":
-								if ($store === false || $singleEntryid === false) {
-									$this->sendFeedback(false);
-
-									break;
-								}
-								// @FIXME can we somehow merge declineMeeting and declineMeetingRequest sub actions?
-								$message = $GLOBALS["operations"]->openMessage($store, $singleEntryid);
-								$basedate = (isset($action['basedate']) && !empty($action['basedate'])) ? $action['basedate'] : false;
-
-								$req = $this->createMeetingRequest($store, $message);
-
-								// @FIXME: may be we can remove this body check any get it while declining meeting 'body'
-								$body = false;
-								if (isset($action["props"]["isHTML"]) && $action["props"]["isHTML"] === true) {
-									$body = $action["props"]["html_body"] ?? false;
-								}
-								else {
-									$body = $action["props"]["body"] ?? false;
-								}
-								$req->doDecline(true, $basedate, $body);
-
-								$messageProps = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
-								$GLOBALS["bus"]->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), $basedate ? TABLE_SAVE : TABLE_DELETE, $messageProps);
-
+								$this->declineMeeting($store, $singleEntryid, $action);
 								break;
 
 							case "snooze":
@@ -385,7 +218,7 @@ class ItemModule extends Module {
 								// Deleting an occurrence means that we have to save the message to
 								// generate an exception. So when the basedate is provided, we actually
 								// perform a save rather then delete.
-								if (isset($action['basedate']) && !empty($action['basedate'])) {
+								if (!empty($action['basedate'])) {
 									$this->save($store, $parententryid, $singleEntryid, $action, "delete");
 								}
 								else {
@@ -403,6 +236,171 @@ class ItemModule extends Module {
 				$this->processException($e, $actionType, $store, $parententryid, $singleEntryid, $action);
 			}
 		}
+	}
+
+	/**
+	 * Accepts or declines a meeting request as the attendee.
+	 *
+	 * @param resource $store   MAPI store of the message
+	 * @param string   $entryid entryid of the meeting request or appointment
+	 * @param array    $action  the action data, sent by the client
+	 */
+	private function respondToMeetingRequest($store, $entryid, $action) {
+		$message = $GLOBALS["operations"]->openMessage($store, $entryid);
+		$basedate = ($action['basedate'] ?? false);
+		$delete = false;
+
+		if ($basedate) {
+			$recurrence = new Recurrence($store, $message);
+			$exceptionatt = $recurrence->getExceptionAttachment($basedate);
+			if ($exceptionatt) {
+				// get properties of existing exception.
+				$exceptionattProps = mapi_getprops($exceptionatt, [PR_ATTACH_NUM]);
+				$attach_num = $exceptionattProps[PR_ATTACH_NUM];
+			}
+		}
+
+		/**
+		 * Get message class from original message. This can be changed to
+		 * IPM.Appointment if the item is a Meeting Request in the maillist.
+		 * After Accepting/Declining the message is moved and changed.
+		 */
+		$originalMessageProps = mapi_getprops($message, [PR_MESSAGE_CLASS]);
+
+		// Clear PR_PROCESSED so that doAccept fully copies
+		// all properties from the meeting request to the
+		// calendar item.  Without this, an update that changes
+		// a single meeting into a recurring series is not
+		// applied because the flag was already set during
+		// auto-processing in open().
+		mapi_deleteprops($message, [PR_PROCESSED]);
+
+		$req = $this->createMeetingRequest($store, $message);
+
+		// Update extra body information
+		if (!empty($action["message_action"]['meetingTimeInfo'])) {
+			$req->setMeetingTimeInfo($action["message_action"]['meetingTimeInfo'],
+				$action["message_action"]['mti_html'] ?? false);
+			unset($action["message_action"]['meetingTimeInfo']);
+		}
+
+		// sendResponse flag if it is set then send the mail response to the organzer.
+		$sendResponse = ($action["message_action"]["sendResponse"] ?? true) != false;
+
+		$body = $this->getResponseBody($action);
+
+		if ($action["message_action"]["action_type"] == "acceptMeetingRequest") {
+			$tentative = $action["message_action"]["responseType"] === olResponseTentative;
+			$newProposedStartTime = $action["message_action"]["proposed_starttime"] ?? false;
+			$newProposedEndTime = $action["message_action"]["proposed_endtime"] ?? false;
+
+			// We are accepting MR from preview-read-mail so set delete the actual mail flag.
+			$delete = $req->isMeetingRequest($originalMessageProps[PR_MESSAGE_CLASS]);
+
+			$req->doAccept($tentative, $sendResponse, $delete, $newProposedStartTime, $newProposedEndTime, $body, true, $store, $basedate);
+		}
+		else {
+			$delete = $req->doDecline($sendResponse, $basedate, $body);
+		}
+
+		/**
+		 * Now if the item is the Meeting Request that was sent to the attendee
+		 * it is removed when the user has clicked on Accept/Decline. If the
+		 * item is the appointment in the calendar it will not be moved. To only
+		 * notify the bus when the item is a Meeting Request we are going to
+		 * check the PR_MESSAGE_CLASS and see if it is "IPM.Meeting*".
+		 */
+		$messageProps = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
+
+		// if opened appointment is exception then it will add
+		// the attach_num and basedate in messageProps.
+		if (isset($attach_num)) {
+			$messageProps[PR_ATTACH_NUM] = [$attach_num];
+			$messageProps[$this->properties["basedate"]] = $basedate;
+		}
+
+		if ($delete) {
+			// send TABLE_DELETE event because the message has moved
+			$this->sendFeedback(true);
+			$GLOBALS["bus"]->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), TABLE_DELETE, $messageProps);
+		}
+		else {
+			$this->addActionData("update", ["item" => Conversion::mapMAPI2XML($this->properties, $messageProps)]);
+			$GLOBALS["bus"]->addData($this->getResponseData());
+
+			// send TABLE_SAVE event because an occurrence is deleted
+			$GLOBALS["bus"]->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $messageProps);
+		}
+	}
+
+	/**
+	 * Accepts or declines a task request.
+	 *
+	 * @param resource $store   MAPI store of the message
+	 * @param string   $entryid entryid of the task request
+	 * @param array    $action  the action data, sent by the client
+	 */
+	private function respondToTaskRequest($store, $entryid, $action) {
+		$message = $GLOBALS["operations"]->openMessage($store, $entryid);
+
+		if (!empty($action["props"])) {
+			$properties = $GLOBALS["properties"]->getTaskProperties();
+			mapi_setprops($message, Conversion::mapXML2MAPI($properties, $action["props"]));
+			mapi_savechanges($message);
+		}
+		// The task may be a delegated task, do an update if needed (will fail for non-delegated tasks)
+		$tr = new TaskRequest($store, $message, $GLOBALS["mapisession"]->getSession());
+		$isAccept = $action["message_action"]["action_type"] == "acceptTaskRequest";
+		if (!empty($action["message_action"]["task_comments_info"])) {
+			$tr->setTaskCommentsInfo($action["message_action"]["task_comments_info"]);
+		}
+		if ($isAccept) {
+			$result = $tr->doAccept();
+		}
+		else {
+			$result = $tr->doDecline();
+		}
+
+		$this->sendFeedback(true);
+		if ($result !== false) {
+			$GLOBALS["bus"]->notify(bin2hex((string) $result[PR_PARENT_ENTRYID]), TABLE_DELETE, $result);
+		}
+
+		$props = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
+		if (!$tr->isTaskRequest()) {
+			unset($props[PR_MESSAGE_CLASS]);
+			$GLOBALS["bus"]->notify(bin2hex((string) $props[PR_PARENT_ENTRYID]), $isAccept ? TABLE_SAVE : TABLE_DELETE, $props);
+		}
+	}
+
+	/**
+	 * Declines a meeting from the calendar as the attendee.
+	 *
+	 * @param resource $store   MAPI store of the appointment
+	 * @param string   $entryid entryid of the appointment
+	 * @param array    $action  the action data, sent by the client
+	 */
+	private function declineMeeting($store, $entryid, $action) {
+		// @FIXME can we somehow merge declineMeeting and declineMeetingRequest sub actions?
+		$message = $GLOBALS["operations"]->openMessage($store, $entryid);
+		$basedate = !empty($action['basedate']) ? $action['basedate'] : false;
+
+		$req = $this->createMeetingRequest($store, $message);
+
+		$body = $this->getResponseBody($action);
+		$req->doDecline(true, $basedate, $body);
+
+		$messageProps = mapi_getprops($message, [PR_ENTRYID, PR_STORE_ENTRYID, PR_PARENT_ENTRYID]);
+		$GLOBALS["bus"]->notify(bin2hex((string) $messageProps[PR_PARENT_ENTRYID]), $basedate ? TABLE_SAVE : TABLE_DELETE, $messageProps);
+	}
+
+	/**
+	 * @param array $action the action data, sent by the client
+	 *
+	 * @return false|string the response body in the format the client edited it in
+	 */
+	private function getResponseBody($action) {
+		return ($action["props"]["isHTML"] ?? null) === true ? ($action["props"]["html_body"] ?? false) : ($action["props"]["body"] ?? false);
 	}
 
 	/**
