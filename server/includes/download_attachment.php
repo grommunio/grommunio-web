@@ -773,10 +773,9 @@ class DownloadAttachment extends DownloadBase {
 		if ($ok === true) {
 			mapi_savechanges($newMessage);
 
-			// Check that record is not appointment record. we have to only convert the
-			// Meeting request record to appointment record.
+			// Only a meeting request from a calendar file is converted to an appointment.
 			$newMessageProps = mapi_getprops($newMessage, [PR_MESSAGE_CLASS]);
-			if (isset($newMessageProps[PR_MESSAGE_CLASS]) && $newMessageProps[PR_MESSAGE_CLASS] !== 'IPM.Appointment') {
+			if (in_array($extension, ['ics', 'vcs'], true) && str_starts_with((string) ($newMessageProps[PR_MESSAGE_CLASS] ?? ''), 'IPM.Schedule.Meeting.')) {
 				// Convert the Meeting request record to proper appointment record so we can
 				// properly show the appointment in calendar.
 				$req = new Meetingrequest($this->store, $newMessage, $GLOBALS['mapisession']->getSession(), ENABLE_DIRECT_BOOKING);
