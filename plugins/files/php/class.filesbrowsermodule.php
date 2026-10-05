@@ -477,6 +477,7 @@ class FilesBrowserModule extends FilesListModule {
 			// initialize the backend
 			$initializedBackend = $this->initializeBackend($account);
 
+			$result = false;
 			try {
 				$result = $initializedBackend->delete($relNodeId);
 			}
