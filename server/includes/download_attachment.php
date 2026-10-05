@@ -485,6 +485,9 @@ class DownloadAttachment extends DownloadBase {
 					$content_length = 0;
 					foreach ($ranges as $range) {
 						$this->downloadSetRange($range, $bodysize, $first, $last);
+						if ($first > $last) {
+							return;
+						}
 						$content_length += strlen("\r\n--{$boundary}\r\n");
 						$content_length += strlen("Content-Type: {$contentType}\r\n");
 						$content_length += strlen("Content-Range: bytes {$first}-{$last}/{$bodysize}\r\n\r\n");
@@ -511,6 +514,9 @@ class DownloadAttachment extends DownloadBase {
 					// Single range specified
 					$range = $ranges[0];
 					$this->downloadSetRange($range, $bodysize, $first, $last);
+					if ($first > $last) {
+						return;
+					}
 					header("Content-Length: " . ($last - $first + 1));
 					header("Content-Range: bytes {$first}-{$last}/{$bodysize}");
 					header("Content-Type: {$contentType}");

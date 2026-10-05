@@ -64,6 +64,11 @@ if (!function_exists('mapi_attach_openobj')) {
 		return $chunk;
 	}
 
+	function mapi_stream_seek($stream, $offset) {
+		$stream->pos = $offset;
+		++$GLOBALS['seeks'];
+	}
+
 	function mapi_message_getattachmenttable($message) {
 		return 'table';
 	}
@@ -125,6 +130,25 @@ $body = ob_get_clean();
 if ($body !== EML) {
 	throw new RuntimeException('An embedded message was not downloaded as a mail: ' . json_encode($body));
 }
+
+$GLOBALS['seeks'] = 0;
+foreach (['bytes=50-60', 'bytes=0-1,50-60'] as $range) {
+	$_SERVER['HTTP_RANGE'] = $range;
+	ob_start();
+	$download->downloadSavedAttachment(1);
+	$body = ob_get_clean();
+	if ($body !== '' || $GLOBALS['seeks'] !== 0 || http_response_code() !== 416) {
+		throw new RuntimeException("An unsatisfiable range {$range} was still streamed: " . json_encode($body));
+	}
+}
+$_SERVER['HTTP_RANGE'] = 'bytes=6-';
+ob_start();
+$download->downloadSavedAttachment(1);
+$body = ob_get_clean();
+if ($body !== 'text' || http_response_code() !== 206) {
+	throw new RuntimeException('A satisfiable range was not served: ' . json_encode($body));
+}
+unset($_SERVER['HTTP_RANGE']);
 
 $zip = new class {
 	public $files = [];
