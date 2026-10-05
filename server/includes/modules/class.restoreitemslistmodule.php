@@ -162,8 +162,8 @@ class RestoreItemsListModule extends ListModule {
 			}
 			catch (MAPIException $e) {
 				if ($e->getCode() == MAPI_E_COLLISION) {
-					$folder = mapi_msgstore_openentry($store, $restoreItem, SHOW_SOFT_DELETES);
-					$folderNameProps = mapi_getprops($folder, [PR_DISPLAY_NAME]);
+					$child = mapi_msgstore_openentry($store, $restoreItem, SHOW_SOFT_DELETES);
+					$folderNameProps = mapi_getprops($child, [PR_DISPLAY_NAME]);
 					$foldername = $GLOBALS["operations"]->checkFolderNameConflict($store, $folder, $folderNameProps[PR_DISPLAY_NAME]);
 					mapi_folder_copyfolder($folder, $restoreItem, $folder, $foldername, FOLDER_MOVE);
 				}
