@@ -20,6 +20,9 @@ define('PR_CONTENT_COUNT', 6);
 define('PR_QUOTA_WARNING_THRESHOLD', 7);
 define('PR_PROHIBIT_SEND_QUOTA', 8);
 define('PR_PROHIBIT_RECEIVE_QUOTA', 9);
+define('PR_MDB_PROVIDER', 10);
+define('PR_ENTRYID', 11);
+define('ZARAFA_STORE_PUBLIC_GUID', 'public-provider');
 define('ADDRESSBOOK_ENTRYID', 'addressbook');
 define('OBJECT_SAVE', 1);
 
@@ -60,6 +63,8 @@ if (!function_exists('mapi_msgstore_openentry')) {
 			PR_DISPLAY_NAME => 'store',
 			PR_MESSAGE_SIZE_EXTENDED => 0,
 			PR_CONTENT_COUNT => 0,
+			PR_MDB_PROVIDER => ZARAFA_STORE_PUBLIC_GUID,
+			PR_ENTRYID => 'store',
 		];
 	}
 }
