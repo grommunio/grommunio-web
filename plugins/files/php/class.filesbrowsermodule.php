@@ -298,6 +298,11 @@ class FilesBrowserModule extends FilesListModule {
 			FilesLogger::debug(self::LOG_CONTEXT, "Checking for shared took {$time} s!");
 		}
 
+		$sharedIds = [];
+		foreach ($sharingInfo[$relNodeId] ?? [] as $sid => $sdetails) {
+			$sharedIds[$sdetails["path"]][] = $sid;
+		}
+
 		if ($dir !== []) {
 			$updateCache = false;
 			foreach ($dir as $id => $node) {
@@ -327,16 +332,8 @@ class FilesBrowserModule extends FilesListModule {
 
 				$fileid = $node['fileid'] === "-1" ? -1 : intval($node['fileid']);
 
-				$shared = false;
-				$sharedid = [];
-				if (isset($sharingInfo) && count($sharingInfo[$relNodeId]) > 0) {
-					foreach ($sharingInfo[$relNodeId] as $sid => $sdetails) {
-						if ($sdetails["path"] == rtrim((string) $id, "/")) {
-							$shared = true;
-							$sharedid[] = $sid;
-						}
-					}
-				}
+				$sharedid = $sharedIds[rtrim((string) $id, "/")] ?? [];
+				$shared = $sharedid !== [];
 
 				$nodeId = stringToUTF8Encode($id);
 				$dirName = dirname($nodeId, 1);
@@ -347,7 +344,7 @@ class FilesBrowserModule extends FilesListModule {
 					$path = stringToUTF8Encode($nodeIdPrefix . $dirName . '/');
 				}
 
-				if (!isset($node['entryid']) || !isset($node['parent_entryid']) || !isset($node['store_entryid'])) {
+				if (!isset($node['entryid'], $node['parent_entryid'], $node['store_entryid'])) {
 					$entryid = $this->createId($realID);
 					$parentEntryid = $this->createId($path);
 					$storeEntryid = $this->createId($nodeIdPrefix . '/');
@@ -681,25 +678,18 @@ class FilesBrowserModule extends FilesListModule {
 				// ignore - if file not found -> does not exist :)
 			}
 			if (isset($lsdata) && is_array($lsdata)) {
+				$existing = [];
+				foreach ($lsdata as $argsid => $args) {
+					$existing[basename($argsid) . "\0" . (int) ((string) $args['resourcetype'] === "collection")] ??= $argsid;
+				}
 				foreach ($records as $record) {
 					$relRecId = substr((string) $record["id"], strpos((string) $record["id"], '/'));
 					FilesLogger::debug(self::LOG_CONTEXT, "Checking rec: " . $relRecId);
-					foreach ($lsdata as $argsid => $args) {
-						if (strcmp((string) $args['resourcetype'], "collection") == 0 && $record["isFolder"] && strcmp(basename($argsid), basename($relRecId)) == 0) { // we have a folder
-							FilesLogger::debug(self::LOG_CONTEXT, "Duplicate folder found: " . $argsid);
-							$duplicate = true;
-							break;
-						}
-						if (strcmp((string) $args['resourcetype'], "collection") != 0 && !$record["isFolder"] && strcmp(basename($argsid), basename($relRecId)) == 0) {
-							FilesLogger::debug(self::LOG_CONTEXT, "Duplicate file found: " . $argsid);
-							$duplicate = true;
-							break;
-						}
-						$duplicate = false;
-					}
-
-					if ($duplicate) {
+					$key = basename($relRecId) . "\0" . (int) (bool) $record["isFolder"];
+					if (isset($existing[$key])) {
+						FilesLogger::debug(self::LOG_CONTEXT, ($record["isFolder"] ? "Duplicate folder found: " : "Duplicate file found: ") . $existing[$key]);
 						FilesLogger::debug(self::LOG_CONTEXT, "Duplicate entry: " . $relRecId);
+						$duplicate = true;
 						break;
 					}
 				}
