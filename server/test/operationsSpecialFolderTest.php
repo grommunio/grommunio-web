@@ -24,26 +24,28 @@ class MAPIException extends Exception {
 	public function setHandled() {}
 }
 
-function mapi_getprops($object, $tags) {
-	if ($tags === [PR_MDB_PROVIDER]) {
-		return [PR_MDB_PROVIDER => 'private-provider'];
-	}
-	if (in_array(PR_ADDITIONAL_REN_ENTRYIDS, $tags, true)) {
-		return [PR_ADDITIONAL_REN_ENTRYIDS => ['conflicts', 'sync-issues', 'local-failures']];
-	}
-	if ($tags === [PR_ENTRYID]) {
-		return [PR_ENTRYID => 'inbox'];
+if (!function_exists('mapi_getprops')) {
+	function mapi_getprops($object, $tags) {
+		if ($tags === [PR_MDB_PROVIDER]) {
+			return [PR_MDB_PROVIDER => 'private-provider'];
+		}
+		if (in_array(PR_ADDITIONAL_REN_ENTRYIDS, $tags, true)) {
+			return [PR_ADDITIONAL_REN_ENTRYIDS => ['conflicts', 'sync-issues', 'local-failures']];
+		}
+		if ($tags === [PR_ENTRYID]) {
+			return [PR_ENTRYID => 'inbox'];
+		}
+
+		return [];
 	}
 
-	return [];
-}
+	function mapi_msgstore_openentry($store, $entryid = null) {
+		return 'root';
+	}
 
-function mapi_msgstore_openentry($store, $entryid = null) {
-	return 'root';
-}
-
-function mapi_msgstore_getreceivefolder($store) {
-	return 'inbox-folder';
+	function mapi_msgstore_getreceivefolder($store) {
+		return 'inbox-folder';
+	}
 }
 
 require_once dirname(__DIR__) . '/includes/core/class.operations.php';

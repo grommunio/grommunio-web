@@ -32,26 +32,28 @@ class StubTable {
 	public function __construct(public WeakReference $folder) {}
 }
 
-function mapi_getprops($object, $tags = null) {
-	return [PR_IPM_SENTMAIL_ENTRYID => 'sent'];
-}
-
-function mapi_msgstore_openentry($store, $entryid) {
-	return new StubFolder();
-}
-
-function mapi_folder_getcontentstable($folder, $flags) {
-	return new StubTable(WeakReference::create($folder));
-}
-
-function mapi_table_restrict($table, $restriction, $flags) {
-	if ($table->folder->get() === null) {
-		throw new MAPIException('ecNullObject');
+if (!function_exists('mapi_getprops')) {
+	function mapi_getprops($object, $tags = null) {
+		return [PR_IPM_SENTMAIL_ENTRYID => 'sent'];
 	}
-}
 
-function mapi_table_queryallrows($table, $props) {
-	return [[PR_CONVERSATION_ID => "\x01\x02"], [PR_CONVERSATION_ID => "\x01\x02"]];
+	function mapi_msgstore_openentry($store, $entryid) {
+		return new StubFolder();
+	}
+
+	function mapi_folder_getcontentstable($folder, $flags) {
+		return new StubTable(WeakReference::create($folder));
+	}
+
+	function mapi_table_restrict($table, $restriction, $flags) {
+		if ($table->folder->get() === null) {
+			throw new MAPIException('ecNullObject');
+		}
+	}
+
+	function mapi_table_queryallrows($table, $props) {
+		return [[PR_CONVERSATION_ID => "\x01\x02"], [PR_CONVERSATION_ID => "\x01\x02"]];
+	}
 }
 
 $GLOBALS['bus'] = new class {
