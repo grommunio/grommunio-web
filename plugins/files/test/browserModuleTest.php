@@ -194,6 +194,14 @@ namespace {
 	check($GLOBALS['bus']->getData()[$module->getModuleName()]['browser']['uploadtobackend']['status'] === false, 'failure status');
 	check(glob($temporaryDirectory . '/*') === [], 'temporary files removed');
 
+	// an unknown type answers with the error alone
+	$GLOBALS['bus'] = new Bus();
+	$module = new TestBrowser();
+	$module->backend = new FakeBackend();
+	$result = $upload->invoke($module, 'uploadtobackend', ['destdir' => '#R#acc/dir/', 'type' => 'contact', 'items' => []]);
+	check($result === false, 'unknown type fails');
+	check(array_keys($GLOBALS['bus']->getData()[$module->getModuleName()]['browser']) === ['error'], 'unknown type reports only the error');
+
 	function runRename($backend) {
 		$GLOBALS['bus'] = new QuietBus();
 		$module = new TestBrowser();

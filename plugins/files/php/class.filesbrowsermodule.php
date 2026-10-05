@@ -823,7 +823,6 @@ class FilesBrowserModule extends FilesListModule {
 			}
 		}
 		else {
-			$result = false;
 			$this->sendFeedback(false, [
 				'type' => ERROR_GENERAL,
 				'info' => [
@@ -832,6 +831,8 @@ class FilesBrowserModule extends FilesListModule {
 					'display_message' => _("Unknown type - cannot save this file to the Files backend!"),
 				],
 			]);
+
+			return false;
 		}
 
 		$response = [];
