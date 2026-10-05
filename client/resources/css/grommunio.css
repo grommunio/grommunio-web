@@ -274,6 +274,61 @@ body.k-keyboard :focus-visible {
      the -0.05 adjustment. */
   src: url(../fonts/FiraMono-Regular.woff2) format('woff2');
 }
+/* Outfit, selectable in the editor and as default font */
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 100;
+  src: url(../fonts/Outfit-Thin.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 200;
+  src: url(../fonts/Outfit-ExtraLight.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 300;
+  src: url(../fonts/Outfit-Light.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/Outfit-Regular.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500;
+  src: url(../fonts/Outfit-Medium.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 600;
+  src: url(../fonts/Outfit-SemiBold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts/Outfit-Bold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 800;
+  src: url(../fonts/Outfit-ExtraBold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 900;
+  src: url(../fonts/Outfit-Black.woff2) format('woff2');
+}
 
 html, body, html * {
   font-family: 'Roboto', sans-serif;

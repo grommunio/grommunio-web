@@ -899,12 +899,10 @@ Grommunio.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 		css.textContent = ('body { margin: 0; padding: 9px; ' + bodyFont + '} ' +
 			// Make the blockquote element not use the default right margin of 40px
 			'blockquote { margin-right: 0px; }' +
+			// The bundled fonts, so that messages written in them
+			// (and the default-font setting) render as composed
+			Grommunio.common.ui.htmleditor.Fonts.getFontFaceCss() +
 			// Make text in pre tags wrapped if too long for a line
-			// The font is registered under 'fira mono' as well,
-			// because that is the family name the default-font
-			// setting uses.
-			"@font-face { font-family: firamono; font-style: normal; font-weight: 400; src: url(" + window.location.pathname + "/client/resources/fonts/FiraMono-Regular.woff2) format('woff2'); }" +
-			"@font-face { font-family: fira mono; font-style: normal; font-weight: 400; src: url(" + window.location.pathname + "/client/resources/fonts/FiraMono-Regular.woff2) format('woff2'); }" +
 			"pre { white-space: pre-wrap; overflow-wrap: anywhere; word-wrap: break-word; margin: 0; font-family: firamono, monospace; }" +
 
 			// Scale images

@@ -136,7 +136,8 @@ Grommunio.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				forced_root_block_attrs: {
 					'style': defaultBlockStyle
 				},
-				content_style: "body{ word-wrap: break-word; margin: 1rem !important;" +
+				content_style: Grommunio.common.ui.htmleditor.Fonts.getFontFaceCss() +
+					"body{ word-wrap: break-word; margin: 1rem !important;" +
 					(themeIsDark ? " background-color: #1e1e1e !important; color: #e0e0e0 !important; color-scheme: dark;" : "") +
 					"}" +
 					(themeIsDark ? " ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #2a2a2a; } ::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; } ::-webkit-scrollbar-thumb:hover { background: #777; }" : ""),

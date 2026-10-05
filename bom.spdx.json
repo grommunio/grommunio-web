@@ -3,9 +3,9 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.1",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.1-7edc5481491d63d3",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.1-4efeba77ce4a7760",
 	"creationInfo": {
-		"created": "2026-09-24T05:29:41Z",
+		"created": "2026-10-05T19:03:08Z",
 		"creators": [
 			"Tool: tools/build-bom.mjs",
 			"Organization: grommunio GmbH"
@@ -6642,6 +6642,16 @@
 			"copyrightText": "Copyright (c) 2002 - 2014 Universite catholique de Louvain (UCL) and the OpenJPEG contributors"
 		},
 		{
+			"SPDXID": "SPDXRef-vendored-outfit-1.100",
+			"name": "outfit",
+			"versionInfo": "1.100",
+			"downloadLocation": "https://github.com/Outfitio/Outfit-Fonts",
+			"filesAnalyzed": false,
+			"licenseConcluded": "OFL-1.1",
+			"licenseDeclared": "OFL-1.1",
+			"copyrightText": "Copyright 2021 The Outfit Project Authors"
+		},
+		{
 			"SPDXID": "SPDXRef-vendored-pako-NOASSERTION",
 			"name": "pako",
 			"versionInfo": "NOASSERTION",
@@ -8879,6 +8889,11 @@
 		},
 		{
 			"spdxElementId": "SPDXRef-vendored-openjpeg-2.5.4",
+			"relationshipType": "RUNTIME_DEPENDENCY_OF",
+			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
+		},
+		{
+			"spdxElementId": "SPDXRef-vendored-outfit-1.100",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},

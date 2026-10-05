@@ -73,6 +73,7 @@ Grommunio.common.ui.htmleditor.Fonts = function(){
 				"Georgia=georgia,palatino,serif;" +
 				"Helvetica=helvetica,arial,sans-serif;" +
 				"Impact=impact,sans-serif;" +
+				"Outfit=outfit,sans-serif;" +
 				"Symbol=symbol;" +
 				"Tahoma=tahoma,arial,helvetica,sans-serif;" +
 				"Terminal=terminal,monaco,monospace;" +
@@ -83,6 +84,32 @@ Grommunio.common.ui.htmleditor.Fonts = function(){
 				"Wingdings=wingdings,zapf dingbats";
 
 			return fontFamilies;
+		},
+
+		/**
+		 * Returns the @font-face rules of the fonts shipped with grommunio
+		 * Web, for documents that do not load grommunio.css: the editor,
+		 * the message body and the print frame.
+		 * @return {String} CSS with @font-face rules
+		 */
+		getFontFaceCss: function()
+		{
+			var fontPath = container.getServerConfig().getBaseUrl() + 'client/resources/fonts/';
+			var version = '?version=' + container.getVersion().getWebApp();
+			var fontFace = function(family, weight, file) {
+				return "@font-face { font-family: '" + family + "'; font-style: normal; font-weight: " + weight + "; " +
+					"src: url(" + fontPath + file + version + ") format('woff2'); }";
+			};
+
+			// The message body declares 'firamono' for <pre>
+			var css = fontFace('Fira Mono', 400, 'FiraMono-Regular.woff2') +
+				fontFace('firamono', 400, 'FiraMono-Regular.woff2');
+			// One file per weight, 100 to 900
+			Ext.each(['Thin', 'ExtraLight', 'Light', 'Regular', 'Medium', 'SemiBold', 'Bold', 'ExtraBold', 'Black'], function(style, index) {
+				css += fontFace('Outfit', (index + 1) * 100, 'Outfit-' + style + '.woff2');
+			});
+
+			return css;
 		},
 
 		/**

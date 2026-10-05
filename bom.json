@@ -12436,6 +12436,77 @@
 			]
 		},
 		{
+			"bom-ref": "vendored:outfit@1.100",
+			"type": "library",
+			"name": "outfit",
+			"version": "1.100",
+			"scope": "required",
+			"licenses": [
+				{
+					"license": {
+						"id": "OFL-1.1"
+					}
+				}
+			],
+			"copyright": "Copyright 2021 The Outfit Project Authors",
+			"properties": [
+				{
+					"name": "grommunio:dependencyScope",
+					"value": "runtime"
+				},
+				{
+					"name": "grommunio:ecosystem",
+					"value": "vendored"
+				},
+				{
+					"name": "grommunio:direct",
+					"value": "true"
+				},
+				{
+					"name": "grommunio:path",
+					"value": "client/resources/fonts/Outfit-Black.woff2"
+				},
+				{
+					"name": "grommunio:path",
+					"value": "client/resources/fonts/Outfit-Bold.woff2"
+				},
+				{
+					"name": "grommunio:path",
+					"value": "client/resources/fonts/Outfit-ExtraBold.woff2"
+				},
+				{
+					"name": "grommunio:path",
+					"value": "client/resources/fonts/Outfit-ExtraLight.woff2"
+				},
+				{
+					"name": "grommunio:path",
+					"value": "client/resources/fonts/Outfit-Light.woff2"
+				},
+				{
+					"name": "grommunio:path",
+					"value": "client/resources/fonts/Outfit-Medium.woff2"
+				},
+				{
+					"name": "grommunio:path",
+					"value": "client/resources/fonts/Outfit-Regular.woff2"
+				},
+				{
+					"name": "grommunio:path",
+					"value": "client/resources/fonts/Outfit-SemiBold.woff2"
+				},
+				{
+					"name": "grommunio:path",
+					"value": "client/resources/fonts/Outfit-Thin.woff2"
+				}
+			],
+			"externalReferences": [
+				{
+					"type": "website",
+					"url": "https://github.com/Outfitio/Outfit-Fonts"
+				}
+			]
+		},
+		{
 			"bom-ref": "vendored:pako@NOASSERTION",
 			"type": "library",
 			"name": "pako",
@@ -13368,6 +13439,7 @@
 				"vendored:nemid-php@0.1+git20120512.8bd9249",
 				"vendored:open-iconic@1.1.0",
 				"vendored:openjpeg@2.5.4",
+				"vendored:outfit@1.100",
 				"vendored:pako@NOASSERTION",
 				"pkg:npm/pdfjs-dist@6.3.289",
 				"vendored:pdfium-jbig2-decoder@0455e82",
