@@ -217,14 +217,14 @@ namespace {
 	check($result === false, 'unknown type fails');
 	check(array_keys($GLOBALS['bus']->getData()[$module->getModuleName()]['browser']) === ['error'], 'unknown type reports only the error');
 
-	function runRename($backend) {
+	function runRename($backend, $source = '#R#acc/dir/old/') {
 		$GLOBALS['bus'] = new QuietBus();
 		$module = new TestBrowser();
 		$module->backend = $backend;
 		$module->data = ['save' => [
 			'entryid' => 'e', 'parent_entryid' => 'p', 'store_entryid' => 's',
 			'props' => ['filename' => 'q'],
-			'message_action' => ['source_folder_id' => '#R#acc/dir/old/'],
+			'message_action' => ['source_folder_id' => $source],
 		]];
 		$module->execute();
 
@@ -242,6 +242,14 @@ namespace {
 	$backend->moveFails = true;
 	$response = runRename($backend);
 	check(array_keys($response) === ['error'], 'failed rename reports only the error');
+
+	// without an isFolder hint only a folder rename refreshes the subfolders
+	$backend = new FakeBackend();
+	runRename($backend, '#R#acc/dir/old.txt');
+	check($backend->listed === [], 'file rename lists no subfolders');
+	$backend = new FakeBackend();
+	runRename($backend);
+	check($backend->listed !== [], 'folder rename lists its subfolders');
 
 	rmdir($temporaryDirectory);
 	echo "browserModuleTest: OK\n";
