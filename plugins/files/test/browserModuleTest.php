@@ -86,6 +86,7 @@ namespace {
 		public $uploaded = [];
 		public $listed = [];
 		public $failing = [];
+		public $throwing = [];
 		public $moveFails = false;
 		public $lsFails = false;
 		public $backendDisplayName = 'fake';
@@ -96,6 +97,9 @@ namespace {
 		}
 
 		public function put_file($path, $tmpname) {
+			if (in_array($path, $this->throwing, true)) {
+				throw new BackendException('Connection failed', 500);
+			}
 			if (in_array($path, $this->failing, true)) {
 				return false;
 			}
@@ -193,6 +197,17 @@ namespace {
 	check(array_keys($module->cached['/dir']) === ['/dir/a.txt', '/dir/c.txt'], 'only uploaded files are cached');
 	check($GLOBALS['bus']->getData()[$module->getModuleName()]['browser']['uploadtobackend']['status'] === false, 'failure status');
 	check(glob($temporaryDirectory . '/*') === [], 'temporary files removed');
+
+	// a throwing upload still removes its temporary file
+	$module->backend = new FakeBackend();
+	$module->backend->throwing = ['/dir/a.txt'];
+	try {
+		$upload->invoke($module, 'uploadtobackend', ['destdir' => '#R#acc/dir/', 'type' => 'attachment', 'items' => [attachment('a')]]);
+		check(false, 'upload exception swallowed');
+	}
+	catch (BackendException $e) {
+		check(glob($temporaryDirectory . '/*') === [], 'temporary file removed after an exception');
+	}
 
 	// an unknown type answers with the error alone
 	$GLOBALS['bus'] = new Bus();
