@@ -186,7 +186,7 @@ class PluginManifestParser {
 		foreach ($elements as $element) {
 			$entry = $server ? $this->serverFileEntry($element) : $this->clientFileEntry($element);
 			if (empty($entry['file'])) {
-				$this->reportEmptyFile($dirname, $server);
+				$this->reportEmptyFile($dirname, $element);
 
 				continue;
 			}
@@ -235,15 +235,13 @@ class PluginManifestParser {
 	}
 
 	/**
-	 * @param string $dirname
-	 * @param bool   $server
+	 * @param string           $dirname
+	 * @param SimpleXMLElement $element
 	 */
-	private function reportEmptyFile($dirname, $server) {
-		if ($server) {
-			dump("[PLUGIN ERROR] Plugin {$dirname} manifest contains empty serverfile declaration");
-		}
-		elseif (DEBUG_PLUGINS) {
-			dump("[PLUGIN ERROR] Plugin {$dirname} manifest contains empty resourcefile declaration");
+	private function reportEmptyFile($dirname, $element) {
+		$name = $element->getName();
+		if ($name === 'serverfile' || DEBUG_PLUGINS) {
+			dump("[PLUGIN ERROR] Plugin {$dirname} manifest contains empty {$name} declaration");
 		}
 	}
 }
