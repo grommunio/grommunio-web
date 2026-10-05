@@ -285,12 +285,11 @@ Grommunio.hierarchy.ui.HierarchyTreePanel = Ext.extend(Grommunio.hierarchy.ui.Tr
 		if  (value !== this.filterSearchBoxValue) {
 			this.filterSearchBoxValue = value;
 			if (Ext.isEmpty(value) && !Ext.isEmpty(this.treeFilter)) {
-				this.treeFilter.clear();
+				this.treeFilter.reset();
 				this.checkTreeHeight();
 				return;
 			}
-			var regEx = new RegExp('' + value + '', 'i');
-			this.treeFilter.filter(regEx);
+			this.treeFilter.filter(new RegExp(Ext.escapeRe(value), 'i'), undefined, undefined, value);
 			this.checkTreeHeight();
 		}
 	},
@@ -844,7 +843,7 @@ Grommunio.hierarchy.ui.HierarchyTreePanel = Ext.extend(Grommunio.hierarchy.ui.Tr
 	 */
 	saveFolderState: function(node)
 	{
-		if (this.stateful === true && !node.isRoot) {
+		if (this.stateful === true && !node.isRoot && !(this.treeFilter && this.treeFilter.isRevealed && this.treeFilter.isRevealed(node))) {
 			var folder = node.getFolder();
 			var state = container.getHierarchyStore().getState(folder, 'tree');
 

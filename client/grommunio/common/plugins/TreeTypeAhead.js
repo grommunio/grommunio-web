@@ -12,7 +12,8 @@ Ext.namespace('Grommunio.common.plugins');
  *
  * Selects a node of a {@link Ext.tree.TreePanel tree} while its name is typed, the
  * way a file manager does. Typing the same letter again steps through the folders
- * starting with it, the arrow keys keep working as before.
+ * starting with it, the arrow keys keep working as before. Folders in collapsed
+ * branches are found too when no visible folder matches.
  */
 Grommunio.common.plugins.TreeTypeAhead = Ext.extend(Object, {
 	/**
@@ -127,6 +128,16 @@ Grommunio.common.plugins.TreeTypeAhead = Ext.extend(Object, {
 			}
 		}
 
+		// Nothing visible matches, look in the collapsed branches
+		if (Ext.isFunction(this.tree.findFolders)) {
+			var folders = this.tree.findFolders(function(folder) {
+				return String(folder.get('display_name') || '').toLowerCase().indexOf(prefix) === 0;
+			}, 1);
+			if (folders.length) {
+				return this.tree.revealFolder(folders[0]) || null;
+			}
+		}
+
 		return null;
 	},
 
@@ -142,7 +153,7 @@ Grommunio.common.plugins.TreeTypeAhead = Ext.extend(Object, {
 
 		var collect = function(node) {
 			Ext.each(node.childNodes, function(child) {
-				if (!child.ui || !child.ui.rendered || child.ui.hidden) {
+				if (!child.ui || !child.ui.rendered || child.hidden) {
 					return;
 				}
 				nodes.push(child);

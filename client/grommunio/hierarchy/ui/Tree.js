@@ -508,6 +508,62 @@ Grommunio.hierarchy.ui.Tree = Ext.extend(Ext.tree.TreePanel, {
 	},
 
 	/**
+	 * Find the folders this tree can show which pass the given test, including
+	 * those in collapsed branches that have no node yet.
+	 * @param {Function} test Called with a {@link Grommunio.hierarchy.data.MAPIFolderRecord folder}, returns true to accept it
+	 * @param {Number} limit (optional) The maximum number of folders to return
+	 * @return {Grommunio.hierarchy.data.MAPIFolderRecord[]} The folders
+	 */
+	findFolders: function(test, limit)
+	{
+		var folders = [];
+
+		container.getHierarchyStore().each(function(store) {
+			store.getFolderStore().each(function(folder) {
+				if (folders.length === limit) {
+					return false;
+				}
+				if (!folder.isIPMSubTree() && this.nodeFilter(folder) && test(folder)) {
+					folders.push(folder);
+				}
+			}, this);
+			return folders.length !== limit;
+		}, this);
+
+		return folders;
+	},
+
+	/**
+	 * Expand the nodes above the given folder so that its node is created, without
+	 * scrolling to it. Folders hidden by the {@link #nodeFilter} are skipped, the
+	 * loader places their subfolders one level up.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder to reveal
+	 * @param {Ext.tree.TreeNode[]} expanded (optional) Collects the nodes this call expanded
+	 * @return {Grommunio.hierarchy.ui.FolderNode} The node, or undefined when the folder is not part of this tree
+	 */
+	revealFolder: function(folder, expanded)
+	{
+		var ancestors = [];
+		for (var parent = folder.getParentFolder(); parent; parent = parent.getParentFolder()) {
+			ancestors.unshift(parent);
+		}
+
+		Ext.each(ancestors, function(ancestor) {
+			var node = this.getTreeNode(ancestor);
+			if (node && !node.isExpanded()) {
+				// Load the children synchronously, the loader defers them otherwise
+				this.getLoader().deferExpandNode = false;
+				node.expand(false, false);
+				if (expanded) {
+					expanded.push(node);
+				}
+			}
+		}, this);
+
+		return this.getTreeNode(folder);
+	},
+
+	/**
 	 * Check if the folder should be opened by default or not.
 	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder to check
 	 * @return {Boolean} True if the folder should be expanded by default
