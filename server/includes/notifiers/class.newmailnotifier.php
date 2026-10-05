@@ -7,6 +7,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+require_once BASE_PATH . 'server/includes/core/class.newmailfolderquery.php';
+
 /**
  * NewMailNotifier.
  *
@@ -203,9 +205,7 @@ class NewMailNotifier extends Notifier {
 			}
 		}
 
-		if ($cacheKey === null) {
-			$cacheKey = 'sessionData';
-		}
+		$cacheKey ??= 'sessionData';
 		if ($username) {
 			$cacheKey = $username;
 		}
@@ -259,16 +259,12 @@ class NewMailNotifier extends Notifier {
 
 		if ($folderStatCache !== $sessionData) {
 			$data = ["item" => []];
+			$name = null;
 
 			foreach ($folderStatCache as $entryid => $props) {
 				if (isset($sessionData[$entryid]) &&
 					$sessionData[$entryid]['commit_time'] !== $props['commit_time']) {
-					if ($username) {
-						$name = $GLOBALS["mapisession"]->getDisplayNameofUser($username);
-					}
-					else {
-						$name = $displayName;
-					}
+					$name ??= $username ? $GLOBALS["mapisession"]->getDisplayNameofUser($username) : $displayName;
 					$item = [
 						'entryid' => $props['entryid'],
 						'store_entryid' => $props['store_entryid'],
@@ -286,7 +282,7 @@ class NewMailNotifier extends Notifier {
 						$isMailFolder = strcasecmp($props['container_class'] ?? '', 'IPF.Note') === 0;
 
 						if ($delta === 1 && $isMailFolder && !$this->isExcludedFolder($store, $props['store_entryid'], $entryid)) {
-							$newMessage = $this->getNewestUnreadMessage($store, $entryid);
+							$newMessage = NewMailFolderQuery::newestUnreadMessage($store, $entryid);
 							if ($newMessage !== null) {
 								$item['new_message'] = $newMessage;
 							}
@@ -326,13 +322,7 @@ class NewMailNotifier extends Notifier {
 	 * @return bool true when the folder never shows a notification
 	 */
 	private function isExcludedFolder($store, $storeEntryid, $entryid) {
-		foreach ($this->getExcludedFolders($store, $storeEntryid) as $excluded) {
-			if ($GLOBALS["entryid"]->compareEntryIds($excluded, $entryid)) {
-				return true;
-			}
-		}
-
-		return false;
+		return NewMailFolderQuery::containsEntryid($this->getExcludedFolders($store, $storeEntryid), $entryid);
 	}
 
 	/**
@@ -346,84 +336,6 @@ class NewMailNotifier extends Notifier {
 	 * @return array hex entryids of the excluded folders
 	 */
 	private function getExcludedFolders($store, $storeEntryid) {
-		if (isset($this->excludedFolders[$storeEntryid])) {
-			return $this->excludedFolders[$storeEntryid];
-		}
-
-		$excluded = [];
-
-		try {
-			$storeProps = mapi_getprops($store, [PR_IPM_WASTEBASKET_ENTRYID, PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID]);
-			$root = mapi_msgstore_openentry($store);
-			$rootProps = $root ? mapi_getprops($root, [PR_IPM_DRAFTS_ENTRYID, PR_IPM_JOURNAL_ENTRYID, PR_ADDITIONAL_REN_ENTRYIDS]) : [];
-
-			$entryids = [
-				$storeProps[PR_IPM_WASTEBASKET_ENTRYID] ?? null,
-				$storeProps[PR_IPM_OUTBOX_ENTRYID] ?? null,
-				$storeProps[PR_IPM_SENTMAIL_ENTRYID] ?? null,
-				$rootProps[PR_IPM_DRAFTS_ENTRYID] ?? null,
-				$rootProps[PR_IPM_JOURNAL_ENTRYID] ?? null,
-				// Junk mail, see MS-OXOSFLD.
-				$rootProps[PR_ADDITIONAL_REN_ENTRYIDS][4] ?? null,
-			];
-
-			foreach ($entryids as $folderEntryid) {
-				if (!empty($folderEntryid)) {
-					$excluded[] = bin2hex((string) $folderEntryid);
-				}
-			}
-		}
-		catch (MAPIException $e) {
-			$e->setHandled();
-		}
-
-		$this->excludedFolders[$storeEntryid] = $excluded;
-
-		return $excluded;
-	}
-
-	/**
-	 * Fetch sender and subject of the newest unread message in a folder, used
-	 * to enrich the notification when exactly one new message arrived.
-	 *
-	 * @param mixed  $store   store containing the folder
-	 * @param string $entryid hex folder entryid
-	 *
-	 * @return null|array sender_name and subject, or null when unavailable
-	 */
-	private function getNewestUnreadMessage($store, $entryid) {
-		try {
-			$folder = mapi_msgstore_openentry($store, hex2bin($entryid));
-			$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS);
-			mapi_table_restrict($table, [RES_BITMASK,
-				[
-					ULTYPE => BMR_EQZ,
-					ULPROPTAG => PR_MESSAGE_FLAGS,
-					ULMASK => MSGFLAG_READ,
-				],
-			], TBL_BATCH);
-			mapi_table_sort($table, [PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND], TBL_BATCH);
-			$rows = mapi_table_queryrows($table, [PR_SENT_REPRESENTING_NAME, PR_SENDER_NAME, PR_SENT_REPRESENTING_SMTP_ADDRESS, PR_SUBJECT], 0, 1);
-			if (empty($rows)) {
-				return null;
-			}
-
-			$row = $rows[0];
-			$sender = $row[PR_SENT_REPRESENTING_NAME] ?? $row[PR_SENDER_NAME] ?? $row[PR_SENT_REPRESENTING_SMTP_ADDRESS] ?? '';
-			$subject = $row[PR_SUBJECT] ?? '';
-			if ($sender === '' && $subject === '') {
-				return null;
-			}
-
-			return [
-				'sender_name' => $sender,
-				'subject' => $subject,
-			];
-		}
-		catch (MAPIException $e) {
-			$e->setHandled();
-
-			return null;
-		}
+		return $this->excludedFolders[$storeEntryid] ??= NewMailFolderQuery::excludedFolders($store);
 	}
 }
