@@ -400,7 +400,7 @@ class PluginManager {
 					foreach ($plugin['dependencies'][DEPEND_DEPENDS] as &$depends) {
 						if (!$this->pluginExists($depends['plugin'])) {
 							if (DEBUG_PLUGINS) {
-								dump('[PLUGIN ERROR] Plugin "' . $pluginname . '" requires "' . $depends['plugin'] . '" which could not be found');
+								dump('[PLUGIN ERROR] Plugin "' . $pluginname . '" depends on "' . $depends['plugin'] . '" which could not be found');
 							}
 							unset($this->plugindata[$pluginname]);
 							// Indicate failure, as we have removed a plugin, and the requirements
