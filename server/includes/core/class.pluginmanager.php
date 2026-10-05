@@ -8,6 +8,7 @@
  */
 
 require_once __DIR__ . '/class.pluginmanifestparser.php';
+require_once __DIR__ . '/class.pluginsessionstore.php';
 
 define('TYPE_PLUGIN', 1);
 define('TYPE_MODULE', 2);
@@ -82,9 +83,9 @@ class PluginManager {
 	public $sessionData;
 
 	/**
-	 * Serialized plugin session data at load time, keyed by plugin name.
+	 * @var PluginSessionStore
 	 */
-	private $sessionDataSnapshots;
+	private $sessionStore;
 
 	/**
 	 * Plugins whose client files are not sent to the current user,
@@ -139,7 +140,7 @@ class PluginManager {
 		$this->modules = [];
 		$this->notifiers = [];
 		$this->sessionData = false;
-		$this->sessionDataSnapshots = [];
+		$this->sessionStore = new PluginSessionStore();
 		if ($this->enabled) {
 			$this->pluginpath = PATH_PLUGIN_DIR;
 			$this->pluginconfigpath = PATH_PLUGIN_CONFIG_DIR;
@@ -577,36 +578,9 @@ class PluginManager {
 	 */
 	public function loadSessionData($pluginname) {
 		$canonicalName = $this->normalizePluginName($pluginname);
-
-		// lazy reading of sessionData
-		if ($this->sessionData === false) {
-			$sessState = new State('plugin_sessiondata');
-			if (!$sessState->open()) {
-				throw new RuntimeException('Unable to read plugin session state');
-			}
-
-			try {
-				$this->sessionData = $sessState->read("sessionData");
-			}
-			finally {
-				$sessState->close();
-			}
-			if (!isset($this->sessionData) || $this->sessionData == "") {
-				$this->sessionData = [];
-			}
-		}
-
-		if ($pluginname !== $canonicalName && isset($this->sessionData[$pluginname])) {
-			// migrate legacy session data key to canonical name
-			$this->sessionData[$canonicalName] = $this->sessionData[$pluginname];
-			unset($this->sessionData[$pluginname]);
-		}
-
-		if ($this->pluginExists($canonicalName)) {
-			if (!isset($this->sessionData[$canonicalName])) {
-				$this->sessionData[$canonicalName] = [];
-			}
-			$this->sessionDataSnapshots[$canonicalName] = serialize($this->sessionData[$canonicalName]);
+		$exists = $this->pluginExists($canonicalName);
+		$this->sessionStore->load($this->sessionData, $pluginname, $canonicalName, $exists);
+		if ($exists) {
 			$this->plugins[$canonicalName]->setSessionData($this->sessionData[$canonicalName]);
 		}
 	}
@@ -625,78 +599,9 @@ class PluginManager {
 		}
 
 		$pluginSessionData = $this->plugins[$canonicalName]->getSessionData();
-		if (isset($this->sessionDataSnapshots[$canonicalName])) {
-			$baseSessionData = unserialize($this->sessionDataSnapshots[$canonicalName]);
+		if ($this->sessionStore->save($this->sessionData, $pluginname, $canonicalName, $pluginSessionData)) {
+			$this->plugins[$canonicalName]->setSessionData($this->sessionData[$canonicalName]);
 		}
-		else {
-			$baseSessionData = is_array($this->sessionData) && array_key_exists($canonicalName, $this->sessionData) ?
-				$this->sessionData[$canonicalName] : [];
-		}
-		if (!is_array($this->sessionData)) {
-			$this->sessionData = [];
-		}
-
-		$sessState = new State('plugin_sessiondata');
-		if (!$sessState->open()) {
-			error_log('Unable to save plugin session state: ' . $canonicalName);
-
-			return;
-		}
-
-		try {
-			$currentSessionData = $sessState->read("sessionData");
-			if (!is_array($currentSessionData)) {
-				$currentSessionData = [];
-			}
-			if ($pluginname !== $canonicalName) {
-				if (!isset($currentSessionData[$canonicalName]) && isset($currentSessionData[$pluginname])) {
-					$currentSessionData[$canonicalName] = $currentSessionData[$pluginname];
-				}
-				unset($currentSessionData[$pluginname]);
-			}
-			$currentPluginData = $currentSessionData[$canonicalName] ?? [];
-			$currentSessionData[$canonicalName] = $this->mergePluginSessionData(
-				$currentPluginData,
-				$pluginSessionData,
-				$baseSessionData
-			);
-			$sessState->write("sessionData", $currentSessionData);
-			$this->sessionData = $currentSessionData;
-			$this->plugins[$canonicalName]->setSessionData($currentSessionData[$canonicalName]);
-			$this->sessionDataSnapshots[$canonicalName] = serialize($currentSessionData[$canonicalName]);
-		}
-		finally {
-			$sessState->close();
-		}
-	}
-
-	/**
-	 * Merge keys changed by one plugin instance into the latest state.
-	 *
-	 * @param mixed $current
-	 * @param mixed $local
-	 * @param mixed $base
-	 */
-	private function mergePluginSessionData($current, $local, $base) {
-		if (!is_array($current) || !is_array($local) || !is_array($base)) {
-			return $local;
-		}
-
-		foreach ($base as $key => $value) {
-			if (!array_key_exists($key, $local)) {
-				unset($current[$key]);
-			}
-			elseif (serialize($local[$key]) !== serialize($value)) {
-				$current[$key] = $local[$key];
-			}
-		}
-		foreach ($local as $key => $value) {
-			if (!array_key_exists($key, $base)) {
-				$current[$key] = $value;
-			}
-		}
-
-		return $current;
 	}
 
 	/**
