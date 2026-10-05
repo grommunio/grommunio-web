@@ -36,7 +36,6 @@ Grommunio.contact.dialogs.DistlistNotesTab = Ext.extend(Ext.form.FormPanel, {
 				useHtml: true,
 				readOnly: false,
 				ref: 'editorField',
-				plaintextName: 'body',
 				listeners: {
 					// Use the afterlayout event to place the placeholder attribute
 					afterlayout: function(){
@@ -44,7 +43,7 @@ Grommunio.contact.dialogs.DistlistNotesTab = Ext.extend(Ext.form.FormPanel, {
 							placeholder: _('Type your note here…')
 						});
 					},
-					change: this.onPropertyChange,
+					change: this.onBodyChange,
 					scope: this
 				}
 			}]
@@ -70,7 +69,9 @@ Grommunio.contact.dialogs.DistlistNotesTab = Ext.extend(Ext.form.FormPanel, {
 		this.editorField.setAllowEdit(true);
 		this.editorField.setReadOnly(false);
 
-		this.getForm().loadRecord(this.record);
+		if (contentReset && record.isOpened()) {
+			this.editorField.setValue(record.getBody(this.editorField.isHtmlEditor()));
+		}
 	},
 
 	/**
@@ -81,21 +82,26 @@ Grommunio.contact.dialogs.DistlistNotesTab = Ext.extend(Ext.form.FormPanel, {
 	 */
 	updateRecord: function(record)
 	{
-		this.getForm().updateRecord(record);
+		this.onBodyChange(this.editorField.getEditor(), this.editorField.getValue());
 	},
 
 	/**
-	 * Event handler which is triggered when one of the Input fields
-	 * has been changed by the user. It will validate the new value,
-	 * and if correct, will apply it to the {@link Grommunio.core.data.IPMRecord record}.
+	 * Event handler which is triggered when the note has been changed by
+	 * the user. The editor fields carry no name, so the body is applied
+	 * to the {@link Grommunio.core.data.IPMRecord record} in the format
+	 * of the active editor.
 	 * @param {Ext.form.Field} field The {@link Ext.form.Field field} which was changed.
 	 * @param {Mixed} newValue The new value
 	 * @param {Mixed} oldValue The old value
 	 * @private
 	 */
-	onPropertyChange: function(field, newValue, oldValue)
+	onBodyChange: function(field, newValue, oldValue)
 	{
-		this.record.set(field.getName(), newValue);
+		var isHtmlEditor = field.isXType && field.isXType('grommunio.htmleditor');
+
+		this.record.beginEdit();
+		this.record.setBody(newValue, isHtmlEditor);
+		this.record.endEdit();
 	}
 });
 
