@@ -429,12 +429,17 @@ class DownloadAttachment extends DownloadBase {
 			if (isset($props[PR_ATTACH_MIME_TAG])) {
 				$contentType = normalizeHTTPContentType($props[PR_ATTACH_MIME_TAG]);
 			}
+			$embedded = ($props[PR_ATTACH_METHOD] ?? null) == ATTACH_EMBEDDED_MSG;
+			if ($embedded) {
+				$filename = self::emlFileName($filename);
+				$contentType = 'message/rfc822';
+			}
 
 			// Open the stream before sending headers so a missing
 			// or empty PR_ATTACH_DATA_BIN can be handled cleanly
 			// without leaving the browser connection hanging.
 			try {
-				$stream = mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0);
+				$stream = $embedded ? $this->openEmbeddedAsEml($attachment) : mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0);
 				$stat = mapi_stream_stat($stream);
 				$bodysize = $stat['cb'] ?? 0;
 			}
@@ -529,6 +534,29 @@ class DownloadAttachment extends DownloadBase {
 	}
 
 	/**
+	 * An embedded message as RFC822 mail, its attachment has no data of its own.
+	 *
+	 * @param resource $attachment
+	 *
+	 * @return resource
+	 */
+	private function openEmbeddedAsEml($attachment) {
+		return mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $GLOBALS['mapisession']->getAddressbook(), mapi_attach_openobj($attachment), []);
+	}
+
+	/**
+	 * @param string $name
+	 *
+	 * @return string the name with an .eml extension
+	 */
+	private static function emlFileName($name) {
+		// a subject may hold path separators that would nest the archive entry
+		$name = strtr($name, '/\\', '__');
+
+		return str_ends_with(strtolower($name), '.eml') ? $name : $name . '.eml';
+	}
+
+	/**
 	 * Helper function to configure header information which is required to send response as a ZIP archive
 	 * containing all the attachments.
 	 *
@@ -577,28 +605,33 @@ class DownloadAttachment extends DownloadBase {
 				continue;
 			}
 
-			if ($attachmentRow[PR_ATTACH_METHOD] !== ATTACH_EMBEDDED_MSG) {
-				$attachment = mapi_message_openattach($this->message, $attachmentRow[PR_ATTACH_NUM]);
+			$attachment = mapi_message_openattach($this->message, $attachmentRow[PR_ATTACH_NUM]);
 
-				// Keep inline attachments and contact photos out of an archive of everything
-				// only: this test is wider than the one the attachment list hides by.
-				if ($isSelection || (!$attachment_state->isInlineAttachment($attachment) && !$attachment_state->isContactPhoto($attachment))) {
-					$props = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME]);
+			// Keep inline attachments and contact photos out of an archive of everything
+			// only: this test is wider than the one the attachment list hides by.
+			if ($isSelection || (!$attachment_state->isInlineAttachment($attachment) && !$attachment_state->isContactPhoto($attachment))) {
+				$props = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME, PR_DISPLAY_NAME]);
+				$name = $props[PR_ATTACH_LONG_FILENAME] ?? $props[PR_DISPLAY_NAME] ?? _('Untitled');
 
-					// Open a stream to get the attachment data
-					$stream = mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0);
-					$stat = mapi_stream_stat($stream);
-
-					// Get the stream
-					$datastring = '';
-					for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
-						$datastring .= mapi_stream_read($stream, BLOCK_SIZE);
-					}
-
-					// Add file into zip by stream
-					$fileDownloadName = $this->handleDuplicateFileNames($props[PR_ATTACH_LONG_FILENAME]);
-					$zip->addFromString($fileDownloadName, $datastring);
+				// Open a stream to get the attachment data
+				if ($attachmentRow[PR_ATTACH_METHOD] == ATTACH_EMBEDDED_MSG) {
+					$stream = $this->openEmbeddedAsEml($attachment);
+					$name = self::emlFileName($name);
 				}
+				else {
+					$stream = mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0);
+				}
+				$stat = mapi_stream_stat($stream);
+
+				// Get the stream
+				$datastring = '';
+				for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
+					$datastring .= mapi_stream_read($stream, BLOCK_SIZE);
+				}
+
+				// Add file into zip by stream
+				$fileDownloadName = $this->handleDuplicateFileNames($name);
+				$zip->addFromString($fileDownloadName, $datastring);
 			}
 		}
 
