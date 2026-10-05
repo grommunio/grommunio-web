@@ -15,15 +15,7 @@ define('PROFILE_PICTURE_MAX_EDGE', 512);
 define('PROFILE_PICTURE_MAX_BYTES', 524288);
 define('PROFILE_PICTURE_MAX_PIXELS', 30000000);
 
-if (!class_exists('BaseException')) {
-	class BaseException extends Exception {}
-}
-require_once dirname(__DIR__) . '/includes/exceptions/class.GrommunioException.php';
-require_once dirname(__DIR__) . '/includes/core/class.settings.php';
-
-$settings = (new ReflectionClass('Settings'))->newInstanceWithoutConstructor();
-$normalize = new ReflectionMethod('Settings', 'normalizeProfilePicture');
-$normalize->setAccessible(true);
+require_once dirname(__DIR__) . '/includes/core/class.profilepicture.php';
 
 /**
  * Builds a data url for a generated image.
@@ -68,7 +60,7 @@ function dimensions($photo): array {
 }
 
 // A landscape picture is cropped to its centre square, never stretched.
-$photo = $normalize->invoke($settings, picture(1200, 600, 'png'));
+$photo = ProfilePicture::normalize(picture(1200, 600, 'png'));
 if ($photo === false) {
 	throw new RuntimeException('A landscape PNG was rejected.');
 }
@@ -85,20 +77,20 @@ if ($width !== PROFILE_PICTURE_MAX_EDGE) {
 
 // A square JPEG within the bounds is kept byte for byte.
 $source = picture(400, 400);
-$photo = $normalize->invoke($settings, $source);
+$photo = ProfilePicture::normalize($source);
 if ($photo !== base64_decode(substr($source, strpos($source, ',') + 1), true)) {
 	throw new RuntimeException('A picture which already fits was re-encoded.');
 }
 
 // Small pictures are not blown up.
-$photo = $normalize->invoke($settings, picture(64, 96, 'png'));
+$photo = ProfilePicture::normalize(picture(64, 96, 'png'));
 [$width, $height] = dimensions($photo);
 if ($width !== 64 || $height !== 64) {
 	throw new RuntimeException("A 64x96 picture was stored as {$width}x{$height}.");
 }
 
 // Transparency becomes white, not black.
-$photo = $normalize->invoke($settings, picture(200, 200, 'png', true));
+$photo = ProfilePicture::normalize(picture(200, 200, 'png', true));
 $image = imagecreatefromstring($photo);
 $colour = imagecolorsforindex($image, imagecolorat($image, 100, 100));
 imagedestroy($image);
@@ -107,7 +99,7 @@ if ($colour['red'] < 250 || $colour['green'] < 250 || $colour['blue'] < 250) {
 }
 
 // The result stays within the byte limit.
-$photo = $normalize->invoke($settings, picture(2000, 2000, 'png'));
+$photo = ProfilePicture::normalize(picture(2000, 2000, 'png'));
 if (strlen($photo) > PROFILE_PICTURE_MAX_BYTES) {
 	throw new RuntimeException('The stored picture exceeds the limit: ' . strlen($photo));
 }
@@ -118,13 +110,13 @@ foreach ([
 	'an unsupported format' => 'data:image/webp;base64,' . base64_encode('nonsense'),
 	'undecodable data' => 'data:image/png;base64,' . base64_encode('nonsense'),
 ] as $what => $value) {
-	if ($normalize->invoke($settings, $value) !== false) {
+	if (ProfilePicture::normalize($value) !== false) {
 		throw new RuntimeException("The picture check accepted {$what}.");
 	}
 }
 
 $oversized = 'data:image/jpeg;base64,' . base64_encode(str_repeat('x', PROFILE_PICTURE_MAX_BYTES + 1));
-if ($normalize->invoke($settings, $oversized) !== false) {
+if (ProfilePicture::normalize($oversized) !== false) {
 	throw new RuntimeException('The picture check accepted more than the byte limit.');
 }
 
@@ -135,7 +127,7 @@ imagepng($bomb, null, 9);
 $bombBytes = ob_get_clean();
 imagedestroy($bomb);
 if (strlen($bombBytes) < PROFILE_PICTURE_MAX_BYTES &&
-	$normalize->invoke($settings, 'data:image/png;base64,' . base64_encode($bombBytes)) !== false) {
+	ProfilePicture::normalize('data:image/png;base64,' . base64_encode($bombBytes)) !== false) {
 	throw new RuntimeException('The picture check accepted a 64 megapixel canvas.');
 }
 
