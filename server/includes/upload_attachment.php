@@ -10,6 +10,7 @@
 // required to handle php errors
 require_once __DIR__ . '/exceptions/class.GrommunioErrorException.php';
 require_once __DIR__ . '/exceptions/class.GrommunioException.php';
+require_once __DIR__ . '/exceptions/class.ImportError.php';
 
 /**
  * Upload Attachment
@@ -339,37 +340,7 @@ class UploadAttachment {
 			throw $e;
 		}
 		catch (Exception $e) {
-			$destinationFolderProps = mapi_getprops($this->destinationFolder, [PR_DISPLAY_NAME, PR_MDB_PROVIDER]);
-			$fullyQualifiedFolderName = $destinationFolderProps[PR_DISPLAY_NAME];
-			if ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
-				$publicStore = $GLOBALS["mapisession"]->getPublicMessageStore();
-				$publicStoreName = mapi_getprops($publicStore, [PR_DISPLAY_NAME]);
-				$fullyQualifiedFolderName .= " - " . $publicStoreName[PR_DISPLAY_NAME];
-			}
-			elseif ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_DELEGATE_GUID) {
-				$otherStore = $GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId);
-				$sharedStoreOwnerName = mapi_getprops($otherStore, [PR_MAILBOX_OWNER_NAME]);
-				$fullyQualifiedFolderName .= " - " . $sharedStoreOwnerName[PR_MAILBOX_OWNER_NAME];
-			}
-
-			$message = sprintf(_("Unable to import '%s' to '%s'. "), $filename, $fullyQualifiedFolderName);
-			if ($e->getCode() === MAPI_E_TABLE_EMPTY) {
-				$message .= _("There is no contact found in this file.");
-			}
-			elseif ($e->getCode() === MAPI_E_CORRUPT_DATA) {
-				$message .= _("The file is corrupt.");
-			}
-			elseif ($e->getCode() === MAPI_E_INVALID_PARAMETER) {
-				$message .= _("The file is invalid.");
-			}
-			else {
-				$message = sprintf(_("Unable to import '%s'. "), $filename) . $e->getMessage();
-			}
-
-			$e = new GrommunioException($message);
-			$e->setTitle(_("Import error"));
-
-			throw $e;
+			throw ImportError::fromException($e, $filename, $this->destinationFolder, fn () => $GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId), _("There is no contact found in this file."));
 		}
 
 		if (is_array($contacts) && !empty($contacts)) {
@@ -529,39 +500,7 @@ class UploadAttachment {
 			throw $e;
 		}
 		catch (Exception $e) {
-			$destinationFolderProps = mapi_getprops($this->destinationFolder, [PR_DISPLAY_NAME, PR_MDB_PROVIDER]);
-			$fullyQualifiedFolderName = $destinationFolderProps[PR_DISPLAY_NAME];
-			// Condition true if folder is belongs to Public store.
-			if ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
-				$publicStore = $GLOBALS["mapisession"]->getPublicMessageStore();
-				$publicStoreName = mapi_getprops($publicStore, [PR_DISPLAY_NAME]);
-				$fullyQualifiedFolderName .= " - " . $publicStoreName[PR_DISPLAY_NAME];
-			}
-			elseif ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_DELEGATE_GUID) {
-				// Condition true if folder is belongs to delegate store.
-				$otherStore = $GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId);
-				$sharedStoreOwnerName = mapi_getprops($otherStore, [PR_MAILBOX_OWNER_NAME]);
-				$fullyQualifiedFolderName .= " - " . $sharedStoreOwnerName[PR_MAILBOX_OWNER_NAME];
-			}
-
-			$message = sprintf(_("Unable to import '%s' to '%s'. "), $filename, $fullyQualifiedFolderName);
-			if ($e->getCode() === MAPI_E_TABLE_EMPTY) {
-				$message .= _("There is no appointment found in this file.");
-			}
-			elseif ($e->getCode() === MAPI_E_CORRUPT_DATA) {
-				$message .= _("The file is corrupt.");
-			}
-			elseif ($e->getCode() === MAPI_E_INVALID_PARAMETER) {
-				$message .= _("The file is invalid.");
-			}
-			else {
-				$message = sprintf(_("Unable to import '%s'. "), $filename) . $e->getMessage();
-			}
-
-			$e = new GrommunioException($message);
-			$e->setTitle(_("Import error"));
-
-			throw $e;
+			throw ImportError::fromException($e, $filename, $this->destinationFolder, fn () => $GLOBALS['operations']->getOtherStoreFromEntryid($this->destinationFolderId), _("There is no appointment found in this file."));
 		}
 
 		if (is_array($events) && !empty($events)) {

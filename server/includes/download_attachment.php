@@ -10,6 +10,7 @@
 // required to handle php errors
 require_once __DIR__ . '/exceptions/class.GrommunioErrorException.php';
 require_once __DIR__ . '/download_base.php';
+require_once __DIR__ . '/exceptions/class.ImportError.php';
 
 /**
  * DownloadAttachment.
@@ -764,36 +765,7 @@ class DownloadAttachment extends DownloadBase {
 					$ok = mapi_icaltomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, false);
 				}
 				catch (Exception $e) {
-					$destinationFolderProps = mapi_getprops($this->destinationFolder, [PR_DISPLAY_NAME, PR_MDB_PROVIDER]);
-					$fullyQualifiedFolderName = $destinationFolderProps[PR_DISPLAY_NAME];
-					if ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
-						$publicStore = $GLOBALS["mapisession"]->getPublicMessageStore();
-						$publicStoreName = mapi_getprops($publicStore, [PR_DISPLAY_NAME]);
-						$fullyQualifiedFolderName .= " - " . $publicStoreName[PR_DISPLAY_NAME];
-					}
-					elseif ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_DELEGATE_GUID) {
-						$sharedStoreOwnerName = mapi_getprops($this->otherStore, [PR_MAILBOX_OWNER_NAME]);
-						$fullyQualifiedFolderName .= " - " . $sharedStoreOwnerName[PR_MAILBOX_OWNER_NAME];
-					}
-
-					$message = sprintf(_("Unable to import '%s' to '%s'. "), $attachmentProps[PR_ATTACH_LONG_FILENAME], $fullyQualifiedFolderName);
-					if ($e->getCode() === MAPI_E_TABLE_EMPTY) {
-						$message .= _("There is no appointment found in this file.");
-					}
-					elseif ($e->getCode() === MAPI_E_CORRUPT_DATA) {
-						$message .= _("The file is corrupt.");
-					}
-					elseif ($e->getCode() === MAPI_E_INVALID_PARAMETER) {
-						$message .= _("The file is invalid.");
-					}
-					else {
-						$message = sprintf(_("Unable to import '%s'. "), $attachmentProps[PR_ATTACH_LONG_FILENAME]) . $e->getMessage();
-					}
-
-					$e = new GrommunioException($message);
-					$e->setTitle(_("Import error"));
-
-					throw $e;
+					throw ImportError::fromException($e, $attachmentProps[PR_ATTACH_LONG_FILENAME], $this->destinationFolder, fn () => $this->otherStore, _("There is no appointment found in this file."));
 				}
 				break;
 		}
