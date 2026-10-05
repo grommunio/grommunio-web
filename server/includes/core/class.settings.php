@@ -528,8 +528,11 @@ class Settings {
 	 * @param mixed $value
 	 */
 	private function setPathValue(&$settings, $path, $value) {
-		$path = explode('/', $path);
+		$path = self::pathKeys($path);
 		$lastKey = array_pop($path);
+		if ($lastKey === null) {
+			return;
+		}
 		$pointer = &$settings;
 
 		foreach ($path as $key) {
@@ -543,13 +546,24 @@ class Settings {
 	}
 
 	/**
+	 * Split a slash-separated settings path into its non-empty keys.
+	 *
+	 * @param mixed $path
+	 *
+	 * @return array
+	 */
+	private static function pathKeys($path) {
+		return array_values(array_filter(explode('/', $path), static fn ($key) => $key !== ''));
+	}
+
+	/**
 	 * Remove one slash-separated path from a settings array.
 	 *
 	 * @param mixed $settings
 	 * @param mixed $path
 	 */
 	private function deletePathValue(&$settings, $path) {
-		$keys = array_values(array_filter(explode('/', $path), static fn ($key) => $key !== ''));
+		$keys = self::pathKeys($path);
 		$lastKey = array_pop($keys);
 		if ($lastKey === null) {
 			return false;
