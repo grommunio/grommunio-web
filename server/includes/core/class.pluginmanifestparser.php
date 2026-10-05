@@ -190,6 +190,12 @@ class PluginManifestParser {
 
 				continue;
 			}
+			$unknown = $this->unknownAttribute($entry);
+			if ($unknown !== null) {
+				dump("[PLUGIN ERROR] Plugin {$dirname} manifest declares {$element->getName()} {$entry['file']} with unknown {$unknown} \"{$element[$unknown]}\", the file is ignored");
+
+				continue;
+			}
 			$files[$entry['load']][] = $entry;
 		}
 
@@ -208,7 +214,7 @@ class PluginManifestParser {
 	private function serverFileEntry($element) {
 		return [
 			'file' => (string) $element,
-			'type' => isset($element['type']) ? $this->typeMap[(string) $element['type']] : TYPE_PLUGIN,
+			'type' => isset($element['type']) ? $this->typeMap[(string) $element['type']] ?? null : TYPE_PLUGIN,
 			'load' => $this->fileLoad($element),
 			'module' => isset($element['module']) ? (string) $element['module'] : null,
 			'notifier' => isset($element['notifier']) ? (string) $element['notifier'] : null,
@@ -231,7 +237,22 @@ class PluginManifestParser {
 	 * @param SimpleXMLElement $element
 	 */
 	private function fileLoad($element) {
-		return isset($element['load']) ? $this->loadMap[(string) $element['load']] : LOAD_RELEASE;
+		return isset($element['load']) ? $this->loadMap[(string) $element['load']] ?? null : LOAD_RELEASE;
+	}
+
+	/**
+	 * @param array $entry the parsed file entry
+	 *
+	 * @return null|string the attribute whose value is not known
+	 */
+	private function unknownAttribute($entry) {
+		foreach (['load', 'type'] as $attribute) {
+			if (array_key_exists($attribute, $entry) && $entry[$attribute] === null) {
+				return $attribute;
+			}
+		}
+
+		return null;
 	}
 
 	/**
