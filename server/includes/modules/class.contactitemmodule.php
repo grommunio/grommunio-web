@@ -14,6 +14,14 @@
  */
 class ContactItemModule extends ItemModule {
 	/**
+	 * Special date properties and the entry ID property of their appointment.
+	 */
+	private const SPECIAL_DATE_EVENTIDS = [
+		'birthday' => 'birthday_eventid',
+		'wedding_anniversary' => 'anniversary_eventid',
+	];
+
+	/**
 	 * Constructor.
 	 *
 	 * @param int   $id   unique id
@@ -177,174 +185,11 @@ class ContactItemModule extends ItemModule {
 
 		if ($store !== false && $parententryid && isset($action['props'])) {
 			if (isset($action['members'])) {
-				// DistList
-
-				// for distlist we need to use different set of properties
-				$this->properties = $GLOBALS['properties']->getDistListProperties();
-
-				// do conversion of client data
-				$props = Conversion::mapXML2MAPI($this->properties, $action['props']);
-
-				// collect members
-				$members = [];
-				$oneoff_members = [];
-
-				$items = $action['members'];
-
-				foreach ($items as $item) {
-					if (empty($item['email_address'])) {
-						// if no email address is given then mapi_parseoneoff fails, so always give
-						// email address, OL07 uses Unknown as email address so we do same here
-						$item['email_address'] = 'Unknown';
-					}
-					if (empty($item['address_type']) && in_array($item['distlist_type'], [DL_DIST, DL_DIST_AB])) {
-						$item['address_type'] = 'MAPIPDL';
-					}
-
-					$oneoff = $this->createOneOffEntryId($item['display_name'], $item['address_type'], $item['email_address']);
-
-					if ($item['distlist_type'] == DL_EXTERNAL_MEMBER) {
-						$member = $oneoff;
-					}
-					else {
-						$parts = [];
-						$parts['distlist_guid'] = WAB_GUID;
-						$parts['distlist_type'] = $item['distlist_type'];
-						$parts['entryid'] = hex2bin((string) $item['entryid']);
-						$member = pack('VA16CA*', 0, $parts['distlist_guid'], $parts['distlist_type'], $parts['entryid']);
-					}
-
-					$oneoff_members[] = $oneoff;
-					$members[] = $member;
-				}
-
-				if (!empty($members) && !empty($oneoff_members)) {
-					$props[$this->properties['members']] = $members;
-					$props[$this->properties['oneoff_members']] = $oneoff_members;
-				}
-				else {
-					$propertiesToDelete[] = $this->properties['members'];
-					$propertiesToDelete[] = $this->properties['oneoff_members'];
-				}
-
-				unset($action['members']);
+				$props = $this->prepareDistListProps($action, $propertiesToDelete);
 			}
 			else {
-				// Contact
-
-				$isCopyGABToContact = isset($action["message_action"], $action["message_action"]["action_type"]) &&
-					$action["message_action"]["action_type"] === "copyToContact";
-
-				if ($isCopyGABToContact) {
-					$this->copyGABRecordProps($action);
-				}
-				// generate one-off entryids for email addresses
-				for ($index = 1; $index < 4; ++$index) {
-					if (!empty($action['props']['email_address_' . $index]) && !empty($action['props']['email_address_display_name_' . $index])) {
-						$action['props']['email_address_entryid_' . $index] = bin2hex($this->createOneOffEntryId($action['props']['email_address_display_name_' . $index], $action['props']['email_address_type_' . $index], $action['props']['email_address_' . $index]));
-					}
-				}
-
-				// set properties for primary fax number
-				if (isset($action['props']['fax_1_email_address']) && !empty($action['props']['fax_1_email_address'])) {
-					$action['props']['fax_1_original_entryid'] = bin2hex($this->createOneOffEntryId($action['props']['fax_1_original_display_name'], $action['props']['fax_1_address_type'], $action['props']['fax_1_email_address'], MAPI_UNICODE));
-				}
-				else {
-					// delete properties to remove previous values
-					$propertiesToDelete[] = $this->properties['fax_1_address_type'];
-					$propertiesToDelete[] = $this->properties['fax_1_original_display_name'];
-					$propertiesToDelete[] = $this->properties['fax_1_email_address'];
-					$propertiesToDelete[] = $this->properties['fax_1_original_entryid'];
-				}
-
-				// set properties for business fax number
-				if (isset($action['props']['fax_2_email_address']) && !empty($action['props']['fax_2_email_address'])) {
-					$action['props']['fax_2_original_entryid'] = bin2hex($this->createOneOffEntryId($action['props']['fax_2_original_display_name'], $action['props']['fax_2_address_type'], $action['props']['fax_2_email_address'], MAPI_UNICODE));
-				}
-				else {
-					$propertiesToDelete[] = $this->properties['fax_2_address_type'];
-					$propertiesToDelete[] = $this->properties['fax_2_original_display_name'];
-					$propertiesToDelete[] = $this->properties['fax_2_email_address'];
-					$propertiesToDelete[] = $this->properties['fax_2_original_entryid'];
-				}
-
-				// set properties for home fax number
-				if (isset($action['props']['fax_3_email_address']) && !empty($action['props']['fax_3_email_address'])) {
-					$action['props']['fax_3_original_entryid'] = bin2hex($this->createOneOffEntryId($action['props']['fax_3_original_display_name'], $action['props']['fax_3_address_type'], $action['props']['fax_3_email_address'], MAPI_UNICODE));
-				}
-				else {
-					$propertiesToDelete[] = $this->properties['fax_3_address_type'];
-					$propertiesToDelete[] = $this->properties['fax_3_original_display_name'];
-					$propertiesToDelete[] = $this->properties['fax_3_email_address'];
-					$propertiesToDelete[] = $this->properties['fax_3_original_entryid'];
-				}
-
-				// check for properties which should be deleted
-				if (isset($action['entryid']) && !empty($action['entryid'])) {
-					// check for empty email address properties
-					for ($i = 1; $i < 4; ++$i) {
-						if (isset($action['props']['email_address_' . $i]) && empty($action['props']['email_address_' . $i])) {
-							array_push($propertiesToDelete, $this->properties['email_address_entryid_' . $i]);
-							array_push($propertiesToDelete, $this->properties['email_address_' . $i]);
-							array_push($propertiesToDelete, $this->properties['email_address_display_name_' . $i]);
-							array_push($propertiesToDelete, $this->properties['email_address_display_name_email_' . $i]);
-							array_push($propertiesToDelete, $this->properties['email_address_type_' . $i]);
-						}
-					}
-
-					// check for empty address_book_mv and address_book_long properties
-					if (isset($action['props']['address_book_long']) && $action['props']['address_book_long'] === 0) {
-						$propertiesToDelete[] = $this->properties['address_book_mv'];
-						$propertiesToDelete[] = $this->properties['address_book_long'];
-					}
-
-					// Check if the birthday and anniversary properties are empty. If so delete them.
-					if (array_key_exists('birthday', $action['props']) && empty($action['props']['birthday'])) {
-						array_push($propertiesToDelete, $this->properties['birthday']);
-						array_push($propertiesToDelete, $this->properties['birthday_eventid']);
-						if (!empty($action['props']['birthday_eventid'])) {
-							$this->deleteSpecialDateAppointment($store, $action['props']['birthday_eventid']);
-						}
-					}
-
-					if (array_key_exists('wedding_anniversary', $action['props']) && empty($action['props']['wedding_anniversary'])) {
-						array_push($propertiesToDelete, $this->properties['wedding_anniversary']);
-						array_push($propertiesToDelete, $this->properties['anniversary_eventid']);
-						if (!empty($action['props']['anniversary_eventid'])) {
-							$this->deleteSpecialDateAppointment($store, $action['props']['anniversary_eventid']);
-						}
-					}
-				}
-
-				/*
-				 * convert all line endings(LF) into CRLF
-				 * XML parser will normalize all CR, LF and CRLF into LF
-				 * but outlook(windows) uses CRLF as line ending
-				 */
-				if (isset($action['props']['business_address'])) {
-					$action['props']['business_address'] = str_replace('\n', '\r\n', $action['props']['business_address']);
-				}
-
-				if (isset($action['props']['home_address'])) {
-					$action['props']['home_address'] = str_replace('\n', '\r\n', $action['props']['home_address']);
-				}
-
-				if (isset($action['props']['other_address'])) {
-					$action['props']['other_address'] = str_replace('\n', '\r\n', $action['props']['other_address']);
-				}
-
-				// check birthday props to make an appointment
-				if (!empty($action['props']['birthday'])) {
-					$action['props']['birthday_eventid'] = $this->updateAppointments($store, $action, 'birthday');
-				}
-
-				// check anniversary props to make an appointment
-				if (!empty($action['props']['wedding_anniversary'])) {
-					$action['props']['anniversary_eventid'] = $this->updateAppointments($store, $action, 'wedding_anniversary');
-				}
-
-				// do the conversion when all processing has been finished
-				$props = Conversion::mapXML2MAPI($this->properties, $action['props']);
+				$isCopyGABToContact = ($action["message_action"]["action_type"] ?? null) === "copyToContact";
+				$props = $this->prepareContactProps($store, $action, $isCopyGABToContact, $propertiesToDelete);
 			}
 
 			$messageProps = [];
@@ -361,6 +206,149 @@ class ContactItemModule extends ItemModule {
 
 				$this->addActionData('update', ['item' => Conversion::mapMAPI2XML($this->properties, $messageProps)]);
 				$GLOBALS['bus']->addData($this->getResponseData());
+			}
+		}
+	}
+
+	/**
+	 * Converts the client data of a distribution list, packing its members.
+	 *
+	 * @param array $action             action data sent by the client
+	 * @param array $propertiesToDelete receives the properties to remove
+	 *
+	 * @return array MAPI properties to save
+	 */
+	private function prepareDistListProps($action, &$propertiesToDelete) {
+		$this->properties = $GLOBALS['properties']->getDistListProperties();
+
+		$props = Conversion::mapXML2MAPI($this->properties, $action['props']);
+
+		$members = [];
+		$oneoff_members = [];
+		foreach ($action['members'] as $item) {
+			if (empty($item['email_address'])) {
+				// mapi_parseoneoff fails without an address; OL07 uses Unknown as well
+				$item['email_address'] = 'Unknown';
+			}
+			if (empty($item['address_type']) && in_array($item['distlist_type'], [DL_DIST, DL_DIST_AB])) {
+				$item['address_type'] = 'MAPIPDL';
+			}
+
+			$oneoff = $this->createOneOffEntryId($item['display_name'], $item['address_type'], $item['email_address']);
+
+			if ($item['distlist_type'] == DL_EXTERNAL_MEMBER) {
+				$member = $oneoff;
+			}
+			else {
+				$member = pack('VA16CA*', 0, WAB_GUID, $item['distlist_type'], hex2bin((string) $item['entryid']));
+			}
+
+			$oneoff_members[] = $oneoff;
+			$members[] = $member;
+		}
+
+		if (!empty($members) && !empty($oneoff_members)) {
+			$props[$this->properties['members']] = $members;
+			$props[$this->properties['oneoff_members']] = $oneoff_members;
+		}
+		else {
+			$propertiesToDelete[] = $this->properties['members'];
+			$propertiesToDelete[] = $this->properties['oneoff_members'];
+		}
+
+		return $props;
+	}
+
+	/**
+	 * Converts the client data of a contact, deriving one-off entry IDs and
+	 * the birthday and anniversary appointments.
+	 *
+	 * @param resource $store              MAPI message store
+	 * @param array    $action             action data sent by the client
+	 * @param bool     $isCopyGABToContact whether the contact is copied from the address book
+	 * @param array    $propertiesToDelete receives the properties to remove
+	 *
+	 * @return array MAPI properties to save
+	 */
+	private function prepareContactProps($store, $action, $isCopyGABToContact, &$propertiesToDelete) {
+		if ($isCopyGABToContact) {
+			$this->copyGABRecordProps($action);
+		}
+		for ($index = 1; $index < 4; ++$index) {
+			if (!empty($action['props']['email_address_' . $index]) && !empty($action['props']['email_address_display_name_' . $index])) {
+				$action['props']['email_address_entryid_' . $index] = bin2hex($this->createOneOffEntryId($action['props']['email_address_display_name_' . $index], $action['props']['email_address_type_' . $index], $action['props']['email_address_' . $index]));
+			}
+		}
+
+		// fax 1 is primary, 2 business, 3 home
+		for ($index = 1; $index < 4; ++$index) {
+			$fax = 'fax_' . $index . '_';
+			if (!empty($action['props'][$fax . 'email_address'])) {
+				$action['props'][$fax . 'original_entryid'] = bin2hex($this->createOneOffEntryId($action['props'][$fax . 'original_display_name'], $action['props'][$fax . 'address_type'], $action['props'][$fax . 'email_address'], MAPI_UNICODE));
+			}
+			else {
+				$propertiesToDelete[] = $this->properties[$fax . 'address_type'];
+				$propertiesToDelete[] = $this->properties[$fax . 'original_display_name'];
+				$propertiesToDelete[] = $this->properties[$fax . 'email_address'];
+				$propertiesToDelete[] = $this->properties[$fax . 'original_entryid'];
+			}
+		}
+
+		if (!empty($action['entryid'])) {
+			$this->collectClearedContactProps($store, $action['props'], $propertiesToDelete);
+		}
+
+		/*
+		 * convert all line endings(LF) into CRLF
+		 * XML parser will normalize all CR, LF and CRLF into LF
+		 * but outlook(windows) uses CRLF as line ending
+		 */
+		foreach (['business_address', 'home_address', 'other_address'] as $address) {
+			if (isset($action['props'][$address])) {
+				$action['props'][$address] = preg_replace('/\r?\n/', "\r\n", (string) $action['props'][$address]);
+			}
+		}
+
+		foreach (self::SPECIAL_DATE_EVENTIDS as $date => $eventid) {
+			if (!empty($action['props'][$date])) {
+				$action['props'][$eventid] = $this->updateAppointments($store, $action, $date);
+			}
+		}
+
+		return Conversion::mapXML2MAPI($this->properties, $action['props']);
+	}
+
+	/**
+	 * Adds the properties an existing contact had cleared to the delete list,
+	 * removing the appointments of cleared special dates.
+	 *
+	 * @param resource $store              MAPI message store
+	 * @param array    $props              contact properties sent by the client
+	 * @param array    $propertiesToDelete receives the properties to remove
+	 */
+	private function collectClearedContactProps($store, $props, &$propertiesToDelete) {
+		for ($i = 1; $i < 4; ++$i) {
+			if (isset($props['email_address_' . $i]) && empty($props['email_address_' . $i])) {
+				array_push($propertiesToDelete, $this->properties['email_address_entryid_' . $i]);
+				array_push($propertiesToDelete, $this->properties['email_address_' . $i]);
+				array_push($propertiesToDelete, $this->properties['email_address_display_name_' . $i]);
+				array_push($propertiesToDelete, $this->properties['email_address_display_name_email_' . $i]);
+				array_push($propertiesToDelete, $this->properties['email_address_type_' . $i]);
+			}
+		}
+
+		if (isset($props['address_book_long']) && $props['address_book_long'] === 0) {
+			$propertiesToDelete[] = $this->properties['address_book_mv'];
+			$propertiesToDelete[] = $this->properties['address_book_long'];
+		}
+
+		foreach (self::SPECIAL_DATE_EVENTIDS as $date => $eventid) {
+			if (array_key_exists($date, $props) && empty($props[$date])) {
+				array_push($propertiesToDelete, $this->properties[$date]);
+				array_push($propertiesToDelete, $this->properties[$eventid]);
+				if (!empty($props[$eventid])) {
+					$this->deleteSpecialDateAppointment($store, $props[$eventid]);
+				}
 			}
 		}
 	}

@@ -144,12 +144,22 @@ class UploadHandler {
 				}
 
 				// upload tmp file to backend
+				$error = null;
 				try {
 					$initializedBackend->put_file($targetPath, $temp_file);
+				}
+				catch (BackendException $e) {
+					$error = $e;
 				}
 				finally {
 					// The backend only reads this file; retain no upload data locally.
 					unlink($temp_file);
+				}
+				if ($error !== null) {
+					Logger::error(self::LOG_CONTEXT, "upload failed: " . $error->getMessage());
+					echo json_encode(['success' => false, 'response' => $error->getCode(), 'message' => $error->getMessage()]);
+
+					exit;
 				}
 			}
 			echo json_encode(['success' => true, 'parent' => $dstID, 'item' => $targetPath]);

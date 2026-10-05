@@ -14,6 +14,14 @@ define('CHANGE_PASSPHRASE_ERROR', 2);
 define('CHANGE_PASSPHRASE_WRONG', 3);
 
 class PluginSmimeModule extends Module {
+	private const DATA_ACTIONS = [
+		'list' => 'getPublicCertificates',
+		'algorithms' => 'getSupportedAlgorithms',
+		'certsonly' => 'generateCertsOnlyMessage',
+		'danelookup' => 'lookupDaneCertificates',
+		'ldaplookup' => 'lookupLdapCertificates',
+	];
+
 	/** @var resource MAPI message store */
 	private $store;
 
@@ -77,12 +85,6 @@ class PluginSmimeModule extends Module {
 						$GLOBALS['bus']->addData($this->getResponseData());
 						break;
 
-					case 'list':
-						$data = $this->getPublicCertificates();
-						$this->addActionData('list', $data);
-						$GLOBALS['bus']->addData($this->getResponseData());
-						break;
-
 					case 'delete':
 						// FIXME: handle multiple deletes? Separate function?
 						$entryid = $actionData['entryid'];
@@ -92,32 +94,14 @@ class PluginSmimeModule extends Module {
 						$this->sendFeedback(true);
 						break;
 
-					case 'algorithms':
-						$data = $this->getSupportedAlgorithms();
-						$this->addActionData('algorithms', $data);
-						$GLOBALS['bus']->addData($this->getResponseData());
-						break;
-
-					case 'certsonly':
-						$data = $this->generateCertsOnlyMessage($actionData);
-						$this->addActionData('certsonly', $data);
-						$GLOBALS['bus']->addData($this->getResponseData());
-						break;
-
-					case 'danelookup':
-						$data = $this->lookupDaneCertificates($actionData);
-						$this->addActionData('danelookup', $data);
-						$GLOBALS['bus']->addData($this->getResponseData());
-						break;
-
-					case 'ldaplookup':
-						$data = $this->lookupLdapCertificates($actionData);
-						$this->addActionData('ldaplookup', $data);
-						$GLOBALS['bus']->addData($this->getResponseData());
-						break;
-
 					default:
-						$this->handleUnknownActionType($actionType);
+						$method = self::DATA_ACTIONS[$actionType] ?? null;
+						if ($method === null) {
+							$this->handleUnknownActionType($actionType);
+							break;
+						}
+						$this->addActionData($actionType, $this->{$method}($actionData));
+						$GLOBALS['bus']->addData($this->getResponseData());
 				}
 			}
 			catch (Exception $e) {
@@ -280,8 +264,7 @@ class PluginSmimeModule extends Module {
 			$table,
 			[
 				PR_SUBJECT, PR_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME, PR_MESSAGE_CLASS, PR_SENDER_NAME,
-				PR_SENDER_EMAIL_ADDRESS, PR_SUBJECT_PREFIX, PR_RECEIVED_BY_NAME, PR_INTERNET_MESSAGE_ID, PR_SUPPLEMENTARY_INFO],
-			$restrict
+				PR_SENDER_EMAIL_ADDRESS, PR_SUBJECT_PREFIX, PR_RECEIVED_BY_NAME, PR_INTERNET_MESSAGE_ID, PR_SUPPLEMENTARY_INFO]
 		);
 		foreach ($certs as $cert) {
 			$item = [];
@@ -386,19 +369,7 @@ class PluginSmimeModule extends Module {
 			return '';
 		}
 
-		$stream = mapi_openproperty($msg, PR_BODY, IID_IStream, 0, 0);
-		if (!$stream) {
-			return '';
-		}
-
-		$stat = mapi_stream_stat($stream);
-		mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-		$body = '';
-		for ($i = 0; $i < $stat['cb']; $i += 1024) {
-			$body .= mapi_stream_read($stream, 1024);
-		}
-
-		return $body;
+		return readCertificateMessageBody($msg) ?? '';
 	}
 
 	/**
@@ -488,21 +459,7 @@ class PluginSmimeModule extends Module {
 
 		$certPems = [];
 		foreach ($certs as $cert) {
-			$msg = mapi_msgstore_openentry($this->store, $cert[PR_ENTRYID]);
-			if ($msg === false) {
-				continue;
-			}
-			$stream = mapi_openproperty($msg, PR_BODY, IID_IStream, 0, 0);
-			if (!$stream) {
-				continue;
-			}
-			$stat = mapi_stream_stat($stream);
-			mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-			$body = '';
-			for ($i = 0; $i < $stat['cb']; $i += 1024) {
-				$body .= mapi_stream_read($stream, 1024);
-			}
-			$decoded = base64_decode($body);
+			$decoded = base64_decode($this->readCertificateBody($cert[PR_ENTRYID]));
 			if (!empty($decoded)) {
 				$certPems[] = $decoded;
 			}

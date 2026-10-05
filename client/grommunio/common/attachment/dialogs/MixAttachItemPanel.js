@@ -93,7 +93,7 @@ Grommunio.common.attachment.dialogs.MixAttachItemPanel = Ext.extend(Ext.Panel, {
 		var leftOutList = "";
 
 		Ext.each(this.records, function(record) {
-			if(record.isEmbeddedMessage()){
+			if(record.isUnsavedEmbeddedMessage()){
 				leftOutList += record.get('name') + "\n";
 			}
 		});

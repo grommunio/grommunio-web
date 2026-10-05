@@ -6,6 +6,7 @@
  */
 
 require_once BASE_PATH . 'server/includes/core/class.junkrule.php';
+require_once BASE_PATH . 'server/includes/core/class.junksenderlist.php';
 
 /**
  * JunkMailModule Module.
@@ -18,7 +19,7 @@ require_once BASE_PATH . 'server/includes/core/class.junkrule.php';
  */
 class JunkMailModule extends Module {
 	public const MAX_ENTRIES = 1024;
-	public const MAX_ENTRY_LENGTH = 256;
+	public const MAX_ENTRY_LENGTH = JunkSenderList::MAX_ENTRY_LENGTH;
 
 	/**
 	 * Per-request cache of parsed lists.
@@ -165,24 +166,7 @@ class JunkMailModule extends Module {
 			$lists['junk_include_contacts'] = ($props[PR_JUNK_INCLUDE_CONTACTS] ?? 0) ? 1 : 0;
 		}
 
-		$old = $GLOBALS['settings']->get('grommunio/v1/contexts/mail/safe_senders_list');
-		if (is_array($old) && !empty($old)) {
-			$known = array_map('strtolower', $lists['safe_senders']);
-			foreach ($old as $entry) {
-				$entry = trim((string) $entry);
-				if ($entry === '' || !self::isSaneEntry($entry)) {
-					continue;
-				}
-				if (!str_contains($entry, '@')) {
-					$entry = '@' . $entry;
-				}
-				if (!in_array(strtolower($entry), $known, true)) {
-					$lists['safe_senders'][] = $entry;
-					$known[] = strtolower($entry);
-					$lists['migrated_pending'] = true;
-				}
-			}
-		}
+		JunkSenderList::mergeLegacy($GLOBALS['settings']->get('grommunio/v1/contexts/mail/safe_senders_list'), $lists);
 
 		self::$cachedLists = $lists;
 
@@ -321,7 +305,7 @@ class JunkMailModule extends Module {
 			if ($entry === '') {
 				continue;
 			}
-			if (!self::isSaneEntry($entry)) {
+			if (!JunkSenderList::isSaneEntry($entry)) {
 				return false;
 			}
 			$lower = strtolower($entry);
@@ -393,32 +377,11 @@ class JunkMailModule extends Module {
 			return;
 		}
 
-		if (!$explicit) {
-			$known = array_map('strtolower', $safeSenders);
-			foreach ($old as $entry) {
-				$entry = trim((string) $entry);
-				if ($entry === '' || !self::isSaneEntry($entry)) {
-					continue;
-				}
-				if (!str_contains($entry, '@')) {
-					$entry = '@' . $entry;
-				}
-				if (!in_array(strtolower($entry), $known, true)) {
-					return;
-				}
-			}
+		if (!$explicit && !JunkSenderList::legacyCoveredBy($old, $safeSenders)) {
+			return;
 		}
 
 		$GLOBALS['settings']->delete('grommunio/v1/contexts/mail/safe_senders_list');
 		$GLOBALS['settings']->saveSettings();
-	}
-
-	/**
-	 * @param string $entry
-	 *
-	 * @return bool True when the entry can live in a sender list
-	 */
-	private static function isSaneEntry($entry) {
-		return strlen($entry) <= self::MAX_ENTRY_LENGTH && !preg_match('/[;,\s\x00-\x1F]/', $entry);
 	}
 }

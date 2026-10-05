@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+require_once (defined('BASE_PATH') ? BASE_PATH : dirname(__DIR__, 3) . '/') . 'server/includes/core/class.privatefilecache.php';
+
 /*
  * This file contains functions which are used in plugin.smime.php and class.pluginsmimemodule.php and therefore
  * exists here to avoid code-duplication.
@@ -46,12 +48,9 @@ function getCertEmail($certificate) {
  * @param string   $type         of message_class
  * @param string   $emailAddress email address to specify
  *
- * @return array<int, array<int, mixed>> certificate message rows
+ * @return array<int, array<int, mixed>> certificate message rows, or an empty array when the lookup fails
  */
 function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = '') {
-	$root = mapi_msgstore_openentry($store);
-	$table = mapi_folder_getcontentstable($root, MAPI_ASSOCIATED);
-
 	$restrict = [RES_PROPERTY,
 		[
 			RELOP => RELOP_EQ,
@@ -72,11 +71,43 @@ function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = 
 		]];
 	}
 
-	// PR_MESSAGE_DELIVERY_TIME validTo / PR_CLIENT_SUBMIT_TIME validFrom
-	mapi_table_restrict($table, $restrict, TBL_BATCH);
-	mapi_table_sort($table, [PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND], TBL_BATCH);
+	try {
+		$root = mapi_msgstore_openentry($store);
+		$table = mapi_folder_getcontentstable($root, MAPI_ASSOCIATED);
+		// PR_MESSAGE_DELIVERY_TIME validTo / PR_CLIENT_SUBMIT_TIME validFrom
+		mapi_table_restrict($table, $restrict, TBL_BATCH);
+		mapi_table_sort($table, [PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND], TBL_BATCH);
+		$rows = mapi_table_queryallrows($table, [PR_ENTRYID, PR_SUBJECT, PR_SUBJECT_PREFIX, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME]);
+	}
+	catch (MAPIException $e) {
+		error_log(sprintf("[smime] Unable to read %s certificates: %s", $type, $e->getMessage()));
 
-	return mapi_table_queryallrows($table, [PR_ENTRYID, PR_SUBJECT, PR_SUBJECT_PREFIX, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME], $restrict);
+		return [];
+	}
+
+	return is_array($rows) ? $rows : [];
+}
+
+/**
+ * Read the body of a stored certificate message.
+ *
+ * @param resource $message certificate message
+ *
+ * @return null|string base64-encoded certificate, or null when the body cannot be opened
+ */
+function readCertificateMessageBody($message) {
+	$stream = mapi_openproperty($message, PR_BODY, IID_IStream, 0, 0);
+	if (!$stream) {
+		return null;
+	}
+	$stat = mapi_stream_stat($stream);
+	mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
+	$body = '';
+	for ($i = 0; $i < $stat['cb']; $i += 1024) {
+		$body .= mapi_stream_read($stream, 1024);
+	}
+
+	return $body;
 }
 
 /**
@@ -107,17 +138,10 @@ function readPrivateCert($store, $passphrase, $singleCert = true) {
 		if ($privateCertMessage === false) {
 			continue;
 		}
-		$pkcs12 = "";
 		$certs = [];
-		// Read pkcs12 cert from message
-		$stream = mapi_openproperty($privateCertMessage, PR_BODY, IID_IStream, 0, 0);
-		if (!$stream) {
+		$pkcs12 = readCertificateMessageBody($privateCertMessage);
+		if ($pkcs12 === null) {
 			continue;
-		}
-		$stat = mapi_stream_stat($stream);
-		mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-		for ($i = 0; $i < $stat['cb']; $i += 1024) {
-			$pkcs12 .= mapi_stream_read($stream, 1024);
 		}
 		$ok = openssl_pkcs12_read(base64_decode($pkcs12), $certs, $passphrase);
 		if ($ok !== false) {
@@ -267,27 +291,7 @@ function decodeCaIssuerResponse($data) {
  * @return bool true when the directory is safe and writable
  */
 function ensureAiaCacheDir($cacheDir) {
-	if (is_link($cacheDir)) {
-		return false;
-	}
-	if (!is_dir($cacheDir) && !@mkdir($cacheDir, 0700, true) && !is_dir($cacheDir)) {
-		return false;
-	}
-	// Older releases created this directory group-writable. Tighten it when
-	// possible; otherwise do not trust or write cache entries in it.
-	if (!@chmod($cacheDir, 0700)) {
-		return false;
-	}
-	clearstatcache(true, $cacheDir);
-	$stat = @lstat($cacheDir);
-	if ($stat === false || ($stat['mode'] & 0170000) !== 0040000 || ($stat['mode'] & 0077) !== 0) {
-		return false;
-	}
-	if (function_exists('posix_geteuid') && $stat['uid'] !== posix_geteuid()) {
-		return false;
-	}
-
-	return is_writable($cacheDir);
+	return PrivateFileCache::ensureDir($cacheDir);
 }
 
 /**
@@ -298,23 +302,7 @@ function ensureAiaCacheDir($cacheDir) {
  * @return null|string cached data, or null for an unsafe/unreadable entry
  */
 function readAiaCacheFile($cacheFile) {
-	if (!is_file($cacheFile) || is_link($cacheFile)) {
-		return null;
-	}
-	$stat = @lstat($cacheFile);
-	$dirStat = @lstat(dirname($cacheFile));
-	if ($stat === false || $dirStat === false ||
-		($stat['mode'] & 0170000) !== 0100000 ||
-		($dirStat['mode'] & 0170000) !== 0040000 ||
-		($dirStat['mode'] & 0077) !== 0 ||
-		($stat['mode'] & 0077) !== 0 ||
-		$stat['uid'] !== $dirStat['uid']) {
-		return null;
-	}
-
-	$cached = @file_get_contents($cacheFile);
-
-	return is_string($cached) ? $cached : null;
+	return PrivateFileCache::read($cacheFile);
 }
 
 /**
@@ -327,27 +315,7 @@ function readAiaCacheFile($cacheFile) {
  * @return bool true when the cache entry was written
  */
 function writeAiaCacheFile($cacheDir, $cacheFile, $data) {
-	if (!ensureAiaCacheDir($cacheDir)) {
-		return false;
-	}
-	$tmpFile = tempnam($cacheDir, '.aia-');
-	if ($tmpFile === false) {
-		return false;
-	}
-
-	try {
-		$written = file_put_contents($tmpFile, $data, LOCK_EX);
-		if ($written !== strlen($data) || !@chmod($tmpFile, 0600)) {
-			return false;
-		}
-
-		return @rename($tmpFile, $cacheFile);
-	}
-	finally {
-		if ((is_file($tmpFile) || is_link($tmpFile)) && !@unlink($tmpFile)) {
-			error_log("[smime] Could not remove temporary AIA cache file: {$tmpFile}");
-		}
-	}
+	return PrivateFileCache::write($cacheDir, $cacheFile, $data, '.aia-', '[smime] Could not remove temporary AIA cache file');
 }
 
 /**

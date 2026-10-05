@@ -228,26 +228,14 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$this->set_pass($backend_config["password"]);
 		}
 		else {
-			// For backward compatibility we will check if the Encryption store exists. If not,
-			// we will fall back to the old way of retrieving the password from the session.
-			if (class_exists('EncryptionStore')) {
-				// Get the username and password from the Encryption store
-				$encryptionStore = \EncryptionStore::getInstance();
-				$this->set_user($encryptionStore->get('username'));
-				if (isset($_SESSION['_keycloak_auth'])) {
-					// Keycloak logins keep the access token in place of a password
-					$this->set_bearer($encryptionStore->get('password'));
-				}
-				else {
-					$this->set_pass($encryptionStore->get('password'));
-				}
+			$encryptionStore = \EncryptionStore::getInstance();
+			$this->set_user($encryptionStore->get('username'));
+			if (isset($_SESSION['_keycloak_auth'])) {
+				// Keycloak logins keep the access token in place of a password
+				$this->set_bearer($encryptionStore->get('password'));
 			}
 			else {
-				$this->set_user($GLOBALS['mapisession']->getUserName());
-				$password = $_SESSION['password'];
-				if (function_exists('openssl_decrypt')) {
-					$this->set_pass(openssl_decrypt($password, "des-ede3-cbc", PASSWORD_KEY, 0, PASSWORD_IV));
-				}
+				$this->set_pass($encryptionStore->get('password'));
 			}
 		}
 	}
@@ -501,6 +489,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 			$this->log("[MKCOL] done in {$time} seconds: " . $response['statusCode']);
+			$this->failOnErrorStatus($response, _('Directory creation failed'));
 
 			return true;
 		}
@@ -538,6 +527,10 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 			$this->log("[DELETE] done in {$time} seconds: " . $response['statusCode']);
+			// already gone counts as deleted
+			if ($response['statusCode'] != 404) {
+				$this->failOnErrorStatus($response, _('Deletion failed'));
+			}
 
 			return true;
 		}
@@ -585,6 +578,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 			$this->log("[MOVE] done in {$time} seconds: " . $response['statusCode']);
+			$this->failOnErrorStatus($response, _('Moving failed'));
 
 			return true;
 		}
@@ -625,6 +619,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 			$this->log("[PUT] done in {$time} seconds: " . $response['statusCode']);
+			$this->failOnErrorStatus($response, _('Connection failed'));
 
 			return true;
 		}
@@ -882,6 +877,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 			$this->log("[COPY] done in {$time} seconds: " . $response['statusCode']);
+			$this->failOnErrorStatus($response, _('Copying failed'));
 
 			return true;
 		}
@@ -895,6 +891,22 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$this->log('[COPY] - FATAL - ' . $e->getMessage());
 			$e = new BackendException($this->parseErrorCodeToMessage($e->getHTTPCode()), $e->getHTTPCode());
 			$e->setTitle($this->backendTransName . _('Copying failed'));
+
+			throw $e;
+		}
+	}
+
+	/**
+	 * @param array  $response Sabre request() result
+	 * @param string $title    exception title
+	 *
+	 * @throws BackendException if the server answered with an error status
+	 */
+	private function failOnErrorStatus($response, $title) {
+		$code = $response['statusCode'];
+		if ($code >= 400) {
+			$e = new BackendException($this->parseErrorCodeToMessage($code), $code);
+			$e->setTitle($this->backendTransName . $title);
 
 			throw $e;
 		}
@@ -948,54 +960,39 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	 * @return string userfriendly error message
 	 */
 	private function parseErrorCodeToMessage($error_code) {
-		$error = intval($error_code);
+		$contactAdmin = ' ' . _('Please contact your system administrator.');
+		$unauthorized = _('Unauthorized. Wrong username or password.');
+		$unreachable = _('File server is not reachable. Please verify the connection.');
 
-		$msg = _('Unknown error');
-		$contactAdmin = _('Please contact your system administrator.');
-
-		// Avoid referencing CURLE_* constants if curl extension isn't loaded (PHP 8.1/8.2 fatal otherwise)
-		if ((defined('CURLE_BAD_PASSWORD_ENTERED') && $error === CURLE_BAD_PASSWORD_ENTERED) || $error === self::WD_ERR_UNAUTHORIZED) {
-			return _('Unauthorized. Wrong username or password.');
-		}
-		if ((defined('CURLE_SSL_CONNECT_ERROR') && $error === CURLE_SSL_CONNECT_ERROR) ||
-			(defined('CURLE_COULDNT_RESOLVE_HOST') && $error === CURLE_COULDNT_RESOLVE_HOST) ||
-			(defined('CURLE_COULDNT_CONNECT') && $error === CURLE_COULDNT_CONNECT) ||
-			(defined('CURLE_OPERATION_TIMEOUTED') && $error === CURLE_OPERATION_TIMEOUTED) ||
-			$error === self::WD_ERR_UNREACHABLE) {
-			return _('File server is not reachable. Please verify the connection.');
-		}
-		if ($error === self::WD_ERR_NOTALLOWED) {
-			return _('File server is not reachable. Please verify the file server URL.');
-		}
-		if ($error === self::WD_ERR_FORBIDDEN) {
-			return _('You don\'t have enough permissions to view this file or folder.');
-		}
-		if ($error === self::WD_ERR_NOTFOUND) {
-			return _('The file or folder is not available anymore.');
-		}
-		if ($error === self::WD_ERR_TIMEOUT) {
-			return _('Connection to the file server timed out. Please check again later.');
-		}
-		if ($error === self::WD_ERR_LOCKED) {
-			return _('This file is locked by another user. Please try again later.');
-		}
-		if ($error === self::WD_ERR_FAILED_DEPENDENCY) {
-			return _('The request failed.') . ' ' . $contactAdmin;
-		}
-		if ($error === self::WD_ERR_INTERNAL) {
-			return _('The file server encountered an internal problem.') . ' ' . $contactAdmin;
-		}
-		if ($error === self::WD_ERR_TMP) {
-			return _('We could not write to temporary directory.') . ' ' . $contactAdmin;
-		}
-		if ($error === self::WD_ERR_FEATURES) {
-			return _('We could not retrieve list of server features.') . ' ' . $contactAdmin;
-		}
-		if ($error === self::WD_ERR_NO_CURL) {
-			return _('PHP-Curl is not available.') . ' ' . $contactAdmin;
+		$messages = [
+			self::WD_ERR_UNAUTHORIZED => $unauthorized,
+			self::WD_ERR_UNREACHABLE => $unreachable,
+			self::WD_ERR_NOTALLOWED => _('File server is not reachable. Please verify the file server URL.'),
+			self::WD_ERR_FORBIDDEN => _('You don\'t have enough permissions to view this file or folder.'),
+			self::WD_ERR_NOTFOUND => _('The file or folder is not available anymore.'),
+			self::WD_ERR_TIMEOUT => _('Connection to the file server timed out. Please check again later.'),
+			self::WD_ERR_LOCKED => _('This file is locked by another user. Please try again later.'),
+			self::WD_ERR_FAILED_DEPENDENCY => _('The request failed.') . $contactAdmin,
+			self::WD_ERR_INTERNAL => _('The file server encountered an internal problem.') . $contactAdmin,
+			self::WD_ERR_TMP => _('We could not write to temporary directory.') . $contactAdmin,
+			self::WD_ERR_FEATURES => _('We could not retrieve list of server features.') . $contactAdmin,
+			self::WD_ERR_NO_CURL => _('PHP-Curl is not available.') . $contactAdmin,
+		];
+		// CURLE_* constants are missing without the curl extension
+		$curlErrors = [
+			'CURLE_BAD_PASSWORD_ENTERED' => $unauthorized,
+			'CURLE_SSL_CONNECT_ERROR' => $unreachable,
+			'CURLE_COULDNT_RESOLVE_HOST' => $unreachable,
+			'CURLE_COULDNT_CONNECT' => $unreachable,
+			'CURLE_OPERATION_TIMEOUTED' => $unreachable,
+		];
+		foreach ($curlErrors as $name => $message) {
+			if (defined($name)) {
+				$messages[constant($name)] ??= $message;
+			}
 		}
 
-		return $msg;
+		return $messages[intval($error_code)] ?? _('Unknown error');
 	}
 
 	public function getFormConfig() {

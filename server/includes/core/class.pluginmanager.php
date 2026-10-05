@@ -7,6 +7,9 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+require_once __DIR__ . '/class.pluginmanifestparser.php';
+require_once __DIR__ . '/class.pluginsessionstore.php';
+
 define('TYPE_PLUGIN', 1);
 define('TYPE_MODULE', 2);
 define('TYPE_CONFIG', 3);
@@ -80,9 +83,9 @@ class PluginManager {
 	public $sessionData;
 
 	/**
-	 * Serialized plugin session data at load time, keyed by plugin name.
+	 * @var PluginSessionStore
 	 */
-	private $sessionDataSnapshots;
+	private $sessionStore;
 
 	/**
 	 * Plugins whose client files are not sent to the current user,
@@ -137,7 +140,7 @@ class PluginManager {
 		$this->modules = [];
 		$this->notifiers = [];
 		$this->sessionData = false;
-		$this->sessionDataSnapshots = [];
+		$this->sessionStore = new PluginSessionStore();
 		if ($this->enabled) {
 			$this->pluginpath = PATH_PLUGIN_DIR;
 			$this->pluginconfigpath = PATH_PLUGIN_CONFIG_DIR;
@@ -251,6 +254,10 @@ class PluginManager {
 		foreach ($this->pluginAliases as $legacy => $canonical) {
 			$legacyData = $plugindata[$legacy] ?? null;
 			$canonicalData = $plugindata[$canonical] ?? null;
+			// Disabled or dropped by the requirement checks
+			if (($legacyData ?? $canonicalData) === null) {
+				continue;
+			}
 			$freshData = $this->processPlugin($canonical);
 			if (is_array($freshData)) {
 				$canonicalData = $freshData;
@@ -393,7 +400,7 @@ class PluginManager {
 					foreach ($plugin['dependencies'][DEPEND_DEPENDS] as &$depends) {
 						if (!$this->pluginExists($depends['plugin'])) {
 							if (DEBUG_PLUGINS) {
-								dump('[PLUGIN ERROR] Plugin "' . $pluginname . '" requires "' . $depends['plugin'] . '" which could not be found');
+								dump('[PLUGIN ERROR] Plugin "' . $pluginname . '" depends on "' . $depends['plugin'] . '" which could not be found');
 							}
 							unset($this->plugindata[$pluginname]);
 							// Indicate failure, as we have removed a plugin, and the requirements
@@ -549,16 +556,7 @@ class PluginManager {
 	 * @return array|false the plugin data, or false for an invalid manifest
 	 */
 	public function processPlugin($dirname) {
-		// Read XML manifest file of plugin
-		$handle = fopen($this->pluginpath . DIRECTORY_SEPARATOR . $dirname . DIRECTORY_SEPARATOR . 'manifest.xml', 'rb');
-		$xml = '';
-		if ($handle) {
-			while (!feof($handle)) {
-				$xml .= fread($handle, 4096);
-			}
-			fclose($handle);
-		}
-
+		$xml = (string) file_get_contents($this->pluginpath . DIRECTORY_SEPARATOR . $dirname . DIRECTORY_SEPARATOR . 'manifest.xml');
 		$plugindata = $this->extractPluginDataFromXML($xml, $dirname);
 		if ($plugindata) {
 			// Apply the name to the object
@@ -584,36 +582,9 @@ class PluginManager {
 	 */
 	public function loadSessionData($pluginname) {
 		$canonicalName = $this->normalizePluginName($pluginname);
-
-		// lazy reading of sessionData
-		if ($this->sessionData === false) {
-			$sessState = new State('plugin_sessiondata');
-			if (!$sessState->open()) {
-				throw new RuntimeException('Unable to read plugin session state');
-			}
-
-			try {
-				$this->sessionData = $sessState->read("sessionData");
-			}
-			finally {
-				$sessState->close();
-			}
-			if (!isset($this->sessionData) || $this->sessionData == "") {
-				$this->sessionData = [];
-			}
-		}
-
-		if ($pluginname !== $canonicalName && isset($this->sessionData[$pluginname])) {
-			// migrate legacy session data key to canonical name
-			$this->sessionData[$canonicalName] = $this->sessionData[$pluginname];
-			unset($this->sessionData[$pluginname]);
-		}
-
-		if ($this->pluginExists($canonicalName)) {
-			if (!isset($this->sessionData[$canonicalName])) {
-				$this->sessionData[$canonicalName] = [];
-			}
-			$this->sessionDataSnapshots[$canonicalName] = serialize($this->sessionData[$canonicalName]);
+		$exists = $this->pluginExists($canonicalName);
+		$this->sessionStore->load($this->sessionData, $pluginname, $canonicalName, $exists);
+		if ($exists) {
 			$this->plugins[$canonicalName]->setSessionData($this->sessionData[$canonicalName]);
 		}
 	}
@@ -632,78 +603,9 @@ class PluginManager {
 		}
 
 		$pluginSessionData = $this->plugins[$canonicalName]->getSessionData();
-		if (isset($this->sessionDataSnapshots[$canonicalName])) {
-			$baseSessionData = unserialize($this->sessionDataSnapshots[$canonicalName]);
+		if ($this->sessionStore->save($this->sessionData, $pluginname, $canonicalName, $pluginSessionData)) {
+			$this->plugins[$canonicalName]->setSessionData($this->sessionData[$canonicalName]);
 		}
-		else {
-			$baseSessionData = is_array($this->sessionData) && array_key_exists($canonicalName, $this->sessionData) ?
-				$this->sessionData[$canonicalName] : [];
-		}
-		if (!is_array($this->sessionData)) {
-			$this->sessionData = [];
-		}
-
-		$sessState = new State('plugin_sessiondata');
-		if (!$sessState->open()) {
-			error_log('Unable to save plugin session state: ' . $canonicalName);
-
-			return;
-		}
-
-		try {
-			$currentSessionData = $sessState->read("sessionData");
-			if (!is_array($currentSessionData)) {
-				$currentSessionData = [];
-			}
-			if ($pluginname !== $canonicalName) {
-				if (!isset($currentSessionData[$canonicalName]) && isset($currentSessionData[$pluginname])) {
-					$currentSessionData[$canonicalName] = $currentSessionData[$pluginname];
-				}
-				unset($currentSessionData[$pluginname]);
-			}
-			$currentPluginData = $currentSessionData[$canonicalName] ?? [];
-			$currentSessionData[$canonicalName] = $this->mergePluginSessionData(
-				$currentPluginData,
-				$pluginSessionData,
-				$baseSessionData
-			);
-			$sessState->write("sessionData", $currentSessionData);
-			$this->sessionData = $currentSessionData;
-			$this->plugins[$canonicalName]->setSessionData($currentSessionData[$canonicalName]);
-			$this->sessionDataSnapshots[$canonicalName] = serialize($currentSessionData[$canonicalName]);
-		}
-		finally {
-			$sessState->close();
-		}
-	}
-
-	/**
-	 * Merge keys changed by one plugin instance into the latest state.
-	 *
-	 * @param mixed $current
-	 * @param mixed $local
-	 * @param mixed $base
-	 */
-	private function mergePluginSessionData($current, $local, $base) {
-		if (!is_array($current) || !is_array($local) || !is_array($base)) {
-			return $local;
-		}
-
-		foreach ($base as $key => $value) {
-			if (!array_key_exists($key, $local)) {
-				unset($current[$key]);
-			}
-			elseif (serialize($local[$key]) !== serialize($value)) {
-				$current[$key] = $local[$key];
-			}
-		}
-		foreach ($local as $key => $value) {
-			if (!array_key_exists($key, $base)) {
-				$current[$key] = $value;
-			}
-		}
-
-		return $current;
 	}
 
 	/**
@@ -871,31 +773,64 @@ class PluginManager {
 			'notifiers' => [],
 		];
 
+		foreach ($this->collectComponentFiles('serverfiles', $load, [$this, 'getServerFilesForComponent'], []) as $componentfiles) {
+			$files['server'] = array_merge($files['server'], $componentfiles['server']);
+			$files['modules'] = array_merge($files['modules'], $componentfiles['modules']);
+			$files['notifiers'] = array_merge($files['notifiers'], $componentfiles['notifiers']);
+		}
+
+		return $files;
+	}
+
+	/**
+	 * Runs $forComponent on every component of the loaded plugins, falling
+	 * back from 'source' to 'debug' to 'release' files where a level is empty.
+	 *
+	 * @param string   $group        serverfiles, clientfiles or resourcefiles
+	 * @param number   $load         one of LOAD_RELEASE, LOAD_DEBUG, LOAD_SOURCE
+	 * @param callable $forComponent one of the get*FilesForComponent() methods
+	 * @param array    $skip         [pluginname] = true for plugins to leave out
+	 *
+	 * @return array the results of $forComponent
+	 */
+	private function collectComponentFiles($group, $load, callable $forComponent, array $skip) {
+		$result = [];
 		foreach ($this->pluginorder as $pluginname) {
+			if (isset($skip[$pluginname])) {
+				continue;
+			}
 			$plugin = &$this->plugindata[$pluginname];
 			foreach ($plugin['components'] as &$component) {
-				if (!empty($component['serverfiles'][$load])) {
-					$componentfiles = $this->getServerFilesForComponent($pluginname, $component, $load);
-				}
-				elseif ($load === LOAD_SOURCE && !empty($component['serverfiles'][LOAD_DEBUG])) {
-					$componentfiles = $this->getServerFilesForComponent($pluginname, $component, LOAD_DEBUG);
-				}
-				elseif ($load !== LOAD_RELEASE && !empty($component['serverfiles'][LOAD_RELEASE])) {
-					$componentfiles = $this->getServerFilesForComponent($pluginname, $component, LOAD_RELEASE);
-				} // else tough luck, at least release should be present
-
-				if (isset($componentfiles)) {
-					$files['server'] = array_merge($files['server'], $componentfiles['server']);
-					$files['modules'] = array_merge($files['modules'], $componentfiles['modules']);
-					$files['notifiers'] = array_merge($files['notifiers'], $componentfiles['notifiers']);
-					unset($componentfiles);
+				$effectiveLoad = $this->effectiveLoad($component[$group] ?? null, $load);
+				if ($effectiveLoad !== null) {
+					$result[] = $forComponent($pluginname, $component, $effectiveLoad);
 				}
 			}
 			unset($component);
 		}
 		unset($plugin);
 
-		return $files;
+		return $result;
+	}
+
+	/**
+	 * @param mixed  $groupFiles the files of one component group, keyed by load level
+	 * @param number $load       the requested load level
+	 *
+	 * @return null|number the load level to use, or null when there are no usable files
+	 */
+	private function effectiveLoad($groupFiles, $load) {
+		if (!empty($groupFiles[$load])) {
+			return $load;
+		}
+		if ($load === LOAD_SOURCE && !empty($groupFiles[LOAD_DEBUG])) {
+			return LOAD_DEBUG;
+		}
+		if ($load !== LOAD_RELEASE && !empty($groupFiles[LOAD_RELEASE])) {
+			return LOAD_RELEASE;
+		}
+
+		return null;
 	}
 
 	/**
@@ -944,35 +879,7 @@ class PluginManager {
 	 * @return array list of paths to files
 	 */
 	public function getClientFiles($load = LOAD_RELEASE) {
-		$files = [];
-		$unloaded = $this->getUnloadedPlugins();
-
-		foreach ($this->pluginorder as $pluginname) {
-			if (isset($unloaded[$pluginname])) {
-				continue;
-			}
-			$plugin = &$this->plugindata[$pluginname];
-			foreach ($plugin['components'] as &$component) {
-				if (!empty($component['clientfiles'][$load])) {
-					$componentfiles = $this->getClientFilesForComponent($pluginname, $component, $load);
-				}
-				elseif ($load === LOAD_SOURCE && !empty($component['clientfiles'][LOAD_DEBUG])) {
-					$componentfiles = $this->getClientFilesForComponent($pluginname, $component, LOAD_DEBUG);
-				}
-				elseif ($load !== LOAD_RELEASE && !empty($component['clientfiles'][LOAD_RELEASE])) {
-					$componentfiles = $this->getClientFilesForComponent($pluginname, $component, LOAD_RELEASE);
-				} // else tough luck, at least release should be present
-
-				if (isset($componentfiles)) {
-					$files = array_merge($files, $componentfiles);
-					unset($componentfiles);
-				}
-			}
-			unset($component);
-		}
-		unset($plugin);
-
-		return $files;
+		return array_merge(...$this->collectComponentFiles('clientfiles', $load, [$this, 'getClientFilesForComponent'], $this->getUnloadedPlugins()));
 	}
 
 	/**
@@ -1021,35 +928,7 @@ class PluginManager {
 	 * @return array list of paths to files
 	 */
 	public function getResourceFiles($load = LOAD_RELEASE) {
-		$files = [];
-		$unloaded = $this->getUnloadedPlugins();
-
-		foreach ($this->pluginorder as $pluginname) {
-			if (isset($unloaded[$pluginname])) {
-				continue;
-			}
-			$plugin = &$this->plugindata[$pluginname];
-			foreach ($plugin['components'] as &$component) {
-				if (!empty($component['resourcefiles'][$load])) {
-					$componentfiles = $this->getResourceFilesForComponent($pluginname, $component, $load);
-				}
-				elseif ($load === LOAD_SOURCE && !empty($component['resourcefiles'][LOAD_DEBUG])) {
-					$componentfiles = $this->getResourceFilesForComponent($pluginname, $component, LOAD_DEBUG);
-				}
-				elseif ($load !== LOAD_RELEASE && !empty($component['resourcefiles'][LOAD_RELEASE])) {
-					$componentfiles = $this->getResourceFilesForComponent($pluginname, $component, LOAD_RELEASE);
-				} // else tough luck, at least release should be present
-
-				if (isset($componentfiles)) {
-					$files = array_merge($files, $componentfiles);
-					unset($componentfiles);
-				}
-			}
-			unset($component);
-		}
-		unset($plugin);
-
-		return $files;
+		return array_merge(...$this->collectComponentFiles('resourcefiles', $load, [$this, 'getResourceFilesForComponent'], $this->getUnloadedPlugins()));
 	}
 
 	/**
@@ -1163,235 +1042,7 @@ class PluginManager {
 	 * @return array|false plugin data, or false when the manifest is unsupported or incomplete
 	 */
 	public function extractPluginDataFromXML($xml, $dirname) {
-		$plugindata = [
-			'components' => [],
-			'dependencies' => null,
-			'translationsdir' => null,
-			'version' => null,
-			'title' => $dirname,
-			'optional' => null,
-		];
-
-		// Parse all XML data
-		$data = new SimpleXMLElement($xml);
-
-		// Parse the <plugin> attributes
-		if (isset($data['version']) && (int) $data['version'] !== 2) {
-			if (DEBUG_PLUGINS) {
-				dump("[PLUGIN ERROR] Plugin {$dirname} manifest uses version " . $data['version'] . " while only version 2 is supported");
-			}
-
-			return false;
-		}
-
-		// Parse the <info> element
-		if (isset($data->info->version)) {
-			$plugindata['version'] = (string) $data->info->version;
-		}
-		else {
-			dump("[PLUGIN WARNING] Plugin {$dirname} has not specified version information in manifest.xml");
-		}
-		if (isset($data->info->title)) {
-			$plugindata['title'] = (string) $data->info->title;
-		}
-
-		// Parse the <config> element
-		if (isset($data->config)) {
-			if (isset($data->config->configfile)) {
-				if (empty($data->config->configfile)) {
-					dump("[PLUGIN ERROR] Plugin {$dirname} manifest contains empty configfile declaration");
-				}
-				if (!file_exists($data->config->configfile)) {
-					dump("[PLUGIN ERROR] Plugin {$dirname} manifest config file does not exists");
-				}
-			}
-			else {
-				dump("[PLUGIN ERROR] Plugin {$dirname} manifest configfile entry is missing");
-			}
-
-			$files = [
-				LOAD_SOURCE => [],
-				LOAD_DEBUG => [],
-				LOAD_RELEASE => [],
-			];
-			foreach ($data->config->configfile as $filename) {
-				$files[LOAD_RELEASE][] = [
-					'file' => (string) $filename,
-					'type' => TYPE_CONFIG,
-					'load' => LOAD_RELEASE,
-					'module' => null,
-					'notifier' => null,
-				];
-			}
-			$plugindata['components'][] = [
-				'serverfiles' => $files,
-				'clientfiles' => [],
-				'resourcefiles' => [],
-			];
-		}
-
-		// Parse the <dependencies> element
-		if (isset($data->dependencies, $data->dependencies->depends)) {
-			$dependencies = [
-				DEPEND_DEPENDS => [],
-				DEPEND_REQUIRES => [],
-				DEPEND_RECOMMENDS => [],
-				DEPEND_SUGGESTS => [],
-			];
-			foreach ($data->dependencies->depends as $depends) {
-				$type = $this->dependMap[(string) $depends->attributes()->type];
-				$plugin = (string) $depends->dependsname;
-				$dependencies[$type][] = [
-					'plugin' => $plugin,
-				];
-			}
-			$plugindata['dependencies'] = $dependencies;
-		}
-
-		// Parse the <optional> element
-		if (isset($data->optional)) {
-			$plugindata['optional'] = ((string) $data->optional['settingsname']) ?: $dirname;
-		}
-
-		// Parse the <translations> element
-		if (isset($data->translations, $data->translations->translationsdir)) {
-			$plugindata['translationsdir'] = [
-				'dir' => (string) $data->translations->translationsdir,
-			];
-		}
-
-		// Parse the <components> element
-		if (isset($data->components, $data->components->component)) {
-			foreach ($data->components->component as $component) {
-				$componentdata = [
-					'serverfiles' => [
-						LOAD_SOURCE => [],
-						LOAD_DEBUG => [],
-						LOAD_RELEASE => [],
-					],
-					'clientfiles' => [
-						LOAD_SOURCE => [],
-						LOAD_DEBUG => [],
-						LOAD_RELEASE => [],
-					],
-					'resourcefiles' => [
-						LOAD_SOURCE => [],
-						LOAD_DEBUG => [],
-						LOAD_RELEASE => [],
-					],
-				];
-				if (isset($component->files)) {
-					if (isset($component->files->server, $component->files->server->serverfile)) {
-						$files = [
-							LOAD_SOURCE => [],
-							LOAD_DEBUG => [],
-							LOAD_RELEASE => [],
-						];
-						foreach ($component->files->server->serverfile as $serverfile) {
-							$load = LOAD_RELEASE;
-							$type = TYPE_PLUGIN;
-							$module = null;
-							$notifier = null;
-
-							$filename = (string) $serverfile;
-							if (empty($filename)) {
-								dump("[PLUGIN ERROR] Plugin {$dirname} manifest contains empty serverfile declaration");
-							}
-							if (isset($serverfile['type'])) {
-								$type = $this->typeMap[(string) $serverfile['type']];
-							}
-							if (isset($serverfile['load'])) {
-								$load = $this->loadMap[(string) $serverfile['load']];
-							}
-							if (isset($serverfile['module'])) {
-								$module = (string) $serverfile['module'];
-							}
-							if (isset($serverfile['notifier'])) {
-								$notifier = (string) $serverfile['notifier'];
-							}
-							if ($filename) {
-								$files[$load][] = [
-									'file' => $filename,
-									'type' => $type,
-									'load' => $load,
-									'module' => $module,
-									'notifier' => $notifier,
-								];
-							}
-						}
-						$componentdata['serverfiles'][LOAD_SOURCE] = array_merge($componentdata['serverfiles'][LOAD_SOURCE], $files[LOAD_SOURCE]);
-						$componentdata['serverfiles'][LOAD_DEBUG] = array_merge($componentdata['serverfiles'][LOAD_DEBUG], $files[LOAD_DEBUG]);
-						$componentdata['serverfiles'][LOAD_RELEASE] = array_merge($componentdata['serverfiles'][LOAD_RELEASE], $files[LOAD_RELEASE]);
-					}
-					if (isset($component->files->client, $component->files->client->clientfile)) {
-						$files = [
-							LOAD_SOURCE => [],
-							LOAD_DEBUG => [],
-							LOAD_RELEASE => [],
-						];
-						foreach ($component->files->client->clientfile as $clientfile) {
-							$load = LOAD_RELEASE;
-							$filename = (string) $clientfile;
-							if (isset($clientfile['load'])) {
-								$load = $this->loadMap[(string) $clientfile['load']];
-							}
-							if (empty($filename)) {
-								if (DEBUG_PLUGINS) {
-									dump("[PLUGIN ERROR] Plugin {$dirname} manifest contains empty resourcefile declaration");
-								}
-							}
-							else {
-								$files[$load][] = [
-									'file' => $filename,
-									'load' => $load,
-								];
-							}
-						}
-						$componentdata['clientfiles'][LOAD_SOURCE] = array_merge($componentdata['clientfiles'][LOAD_SOURCE], $files[LOAD_SOURCE]);
-						$componentdata['clientfiles'][LOAD_DEBUG] = array_merge($componentdata['clientfiles'][LOAD_DEBUG], $files[LOAD_DEBUG]);
-						$componentdata['clientfiles'][LOAD_RELEASE] = array_merge($componentdata['clientfiles'][LOAD_RELEASE], $files[LOAD_RELEASE]);
-					}
-					if (isset($component->files->resources, $component->files->resources->resourcefile)) {
-						$files = [
-							LOAD_SOURCE => [],
-							LOAD_DEBUG => [],
-							LOAD_RELEASE => [],
-						];
-						foreach ($component->files->resources->resourcefile as $resourcefile) {
-							$load = LOAD_RELEASE;
-							$filename = (string) $resourcefile;
-							if (isset($resourcefile['load'])) {
-								$load = $this->loadMap[(string) $resourcefile['load']];
-							}
-							if (empty($filename)) {
-								if (DEBUG_PLUGINS) {
-									dump("[PLUGIN ERROR] Plugin {$dirname} manifest contains empty resourcefile declaration");
-								}
-							}
-							else {
-								$files[$load][] = [
-									'file' => $filename,
-									'load' => $load,
-								];
-							}
-						}
-						$componentdata['resourcefiles'][LOAD_SOURCE] = array_merge($componentdata['resourcefiles'][LOAD_SOURCE], $files[LOAD_SOURCE]);
-						$componentdata['resourcefiles'][LOAD_DEBUG] = array_merge($componentdata['resourcefiles'][LOAD_DEBUG], $files[LOAD_DEBUG]);
-						$componentdata['resourcefiles'][LOAD_RELEASE] = array_merge($componentdata['resourcefiles'][LOAD_RELEASE], $files[LOAD_RELEASE]);
-					}
-					$plugindata['components'][] = $componentdata;
-				}
-			}
-		}
-		else {
-			if (DEBUG_PLUGINS) {
-				dump("[PLUGIN ERROR] Plugin {$dirname} manifest didn't provide any components");
-			}
-
-			return false;
-		}
-
-		return $plugindata;
+		return (new PluginManifestParser($this->loadMap, $this->typeMap, $this->dependMap))->parse($xml, $dirname);
 	}
 
 	/**

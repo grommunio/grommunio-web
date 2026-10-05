@@ -7,6 +7,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+require_once __DIR__ . '/../hexutil.php';
+
 /**
  * ListModule
  * Superclass of every module, which retrieves a MAPI message list. It
@@ -56,6 +58,16 @@ class ListModule extends Module {
 	 *                of a store, this variable will only be populated when user is a delegate
 	 */
 	public $storeProviderGuid;
+
+	/**
+	 * @var false|resource free/busy message the cached private-item permission was read from
+	 */
+	private $privateAccessMessage = false;
+
+	/**
+	 * @var bool whether the delegate may see private items, cached for privateAccessMessage
+	 */
+	private $privateAccessAllowed = false;
 
 	/**
 	 * Constructor.
@@ -450,8 +462,7 @@ class ListModule extends Module {
 		$listData = [];
 		if (array_key_exists('search_folder_entryid', $action)) {
 			$searchFolderEntryid = $action['search_folder_entryid'];
-			if (!is_string($searchFolderEntryid) || $searchFolderEntryid === '' ||
-				(strlen($searchFolderEntryid) % 2) !== 0 || !ctype_xdigit($searchFolderEntryid)) {
+			if (!is_hex_entryid($searchFolderEntryid)) {
 				return;
 			}
 			$entryid = hex2bin($searchFolderEntryid);
@@ -835,8 +846,11 @@ class ListModule extends Module {
 	 */
 	public function sendSearchErrorToClient($store, $entryid, $action, $errorInfo) {
 		if ($errorInfo !== []) {
-			$exception = new SearchException($errorInfo["original_error_message"] ?? $errorInfo['error_message'], mapi_last_hresult());
-			$exception->setDisplayMessage($errorInfo['error_message']);
+			$hresult = mapi_last_hresult();
+			$exception = new SearchException($errorInfo["original_error_message"] ?? $errorInfo['error_message'], $hresult, null, $errorInfo['error_message']);
+			if ($hresult != NOERROR) {
+				$exception->setDisplayMessage($errorInfo['error_message']);
+			}
 
 			throw $exception;
 		}
@@ -908,41 +922,27 @@ class ListModule extends Module {
 
 			// Loop through the sort columns
 			foreach ($action["sort"] as $column) {
-				if (isset($column["direction"])) {
-					if (isset($properties[$column["field"]]) || ($map && isset($map[$column["field"]]))) {
-						if ($map && isset($map[$column["field"]])) {
-							$property = $map[$column["field"]];
-						}
-						else {
-							$property = $properties[$column["field"]];
-						}
-
-						// Check if column is a MV property
-						switch (mapi_prop_type($property)) {
-							case PT_MV_STRING8:
-							case PT_MV_LONG:
-								// Set MVI_FLAG.
-								// The server will generate multiple rows for one item (for example: categories)
-								if ($allow_multi_instance) {
-									$properties[$column["field"]] = $properties[$column["field"]] | MVI_FLAG;
-								}
-								$property = $properties[$column["field"]];
-								break;
-						}
-
-						// Set sort direction
-						switch (strtolower($column["direction"])) {
-							default:
-							case "asc":
-								$this->sort[$property] = TABLE_SORT_ASCEND;
-								break;
-
-							case "desc":
-								$this->sort[$property] = TABLE_SORT_DESCEND;
-								break;
-						}
-					}
+				if (!isset($column["direction"])) {
+					continue;
 				}
+				$property = $map[$column["field"]] ?? $properties[$column["field"]] ?? null;
+				if ($property === null) {
+					continue;
+				}
+
+				// Check if column is a MV property
+				switch (mapi_prop_type($property)) {
+					case PT_MV_STRING8:
+					case PT_MV_LONG:
+						// Set MVI_FLAG.
+						// The server will generate multiple rows for one item (for example: categories)
+						if ($allow_multi_instance) {
+							$property |= MVI_FLAG;
+						}
+						break;
+				}
+
+				$this->sort[$property] = strtolower($column["direction"]) === "desc" ? TABLE_SORT_DESCEND : TABLE_SORT_ASCEND;
 			}
 		}
 	}
@@ -1038,55 +1038,59 @@ class ListModule extends Module {
 	 * @return bool true if items should be processed as private else false
 	 */
 	public function checkPrivateItem($item) {
-		// flag to indicate that item should be considered as private
-		$private = false;
+		$isPrivate = ($item['props']['private'] ?? null) === true;
+		$isSensitive = ($item['props']['sensitivity'] ?? null) === SENSITIVITY_PRIVATE;
+		if (!$isPrivate && !$isSensitive) {
+			return false;
+		}
 
-		$isPrivate = (isset($item['props']['private']) && $item['props']['private'] === true);
-		$isSensitive = (isset($item['props']['sensitivity']) && $item['props']['sensitivity'] === SENSITIVITY_PRIVATE);
+		// by default we should always hide the item if we are in delegate store
+		return $this->storeProviderGuid === ZARAFA_STORE_DELEGATE_GUID && !$this->delegateMaySeePrivate();
+	}
 
-		if ($isPrivate || $isSensitive) {
-			// check for delegate permissions for delegate store
-			if ($this->storeProviderGuid !== false && $this->storeProviderGuid === ZARAFA_STORE_DELEGATE_GUID) {
-				// by default we should always hide the item if we are in delegate store
-				$private = true;
+	/**
+	 * Checks the delegate flags on the local free/busy message for the current
+	 * user. The answer is cached per free/busy message.
+	 *
+	 * @return bool true if the current user may see private items
+	 */
+	private function delegateMaySeePrivate() {
+		if ($this->localFreeBusyMessage === false) {
+			return false;
+		}
+		if ($this->privateAccessMessage === $this->localFreeBusyMessage) {
+			return $this->privateAccessAllowed;
+		}
 
-				// find delegate properties
-				if ($this->localFreeBusyMessage !== false) {
-					try {
-						$localFreeBusyMessageProps = mapi_getprops($this->localFreeBusyMessage, [PR_SCHDINFO_DELEGATE_ENTRYIDS, PR_DELEGATE_FLAGS]);
+		$allowed = false;
 
-						if (isset($localFreeBusyMessageProps[PR_SCHDINFO_DELEGATE_ENTRYIDS], $localFreeBusyMessageProps[PR_DELEGATE_FLAGS])) {
-							// If information for more than one delegate is stored, find the index of the
-							// current user
-							$userEntryId = $GLOBALS['mapisession']->getUserEntryID();
+		try {
+			$localFreeBusyMessageProps = mapi_getprops($this->localFreeBusyMessage, [PR_SCHDINFO_DELEGATE_ENTRYIDS, PR_DELEGATE_FLAGS]);
 
-							$userFound = false;
-							$seePrivate = false;
-							foreach ($localFreeBusyMessageProps[PR_SCHDINFO_DELEGATE_ENTRYIDS] as $key => $entryId) {
-								if ($GLOBALS['entryid']->compareEntryIds(bin2hex((string) $userEntryId), bin2hex((string) $entryId))) {
-									$userFound = true;
-									$seePrivate = $localFreeBusyMessageProps[PR_DELEGATE_FLAGS][$key];
-									break;
-								}
-							}
-
-							if ($userFound !== false && $seePrivate === 1) {
-								// if delegate has permission then don't hide the item
-								$private = false;
-							}
-						}
-					}
-					catch (MAPIException $e) {
-						if ($e->getCode() === MAPI_E_NOT_FOUND) {
-							// no information available for delegates, ignore error
-							$e->setHandled();
-						}
+			if (isset($localFreeBusyMessageProps[PR_SCHDINFO_DELEGATE_ENTRYIDS], $localFreeBusyMessageProps[PR_DELEGATE_FLAGS])) {
+				// If information for more than one delegate is stored, find the index of the
+				// current user
+				$userEntryId = $GLOBALS['mapisession']->getUserEntryID();
+				foreach ($localFreeBusyMessageProps[PR_SCHDINFO_DELEGATE_ENTRYIDS] as $key => $entryId) {
+					if ($GLOBALS['entryid']->compareEntryIds(bin2hex((string) $userEntryId), bin2hex((string) $entryId))) {
+						$allowed = $localFreeBusyMessageProps[PR_DELEGATE_FLAGS][$key] === 1;
+						break;
 					}
 				}
 			}
 		}
+		catch (MAPIException $e) {
+			if ($e->getCode() !== MAPI_E_NOT_FOUND) {
+				return false;
+			}
+			// no information available for delegates, ignore error
+			$e->setHandled();
+		}
 
-		return $private;
+		$this->privateAccessMessage = $this->localFreeBusyMessage;
+		$this->privateAccessAllowed = $allowed;
+
+		return $allowed;
 	}
 
 	/**

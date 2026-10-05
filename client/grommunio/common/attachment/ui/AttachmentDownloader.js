@@ -150,7 +150,7 @@ Grommunio.common.attachment.ui.AttachmentDownloader = Ext.extend(Ext.Component, 
 			// and there is more than one attachments.
 			if(!dontShowWarning && attachmentStore.getCount() > 1) {
 				attachmentStore.each(function(record){
-					if(record.isEmbeddedMessage()){
+					if(record.isUnsavedEmbeddedMessage()){
 						containsEmbedded = true;
 						return false;
 					}

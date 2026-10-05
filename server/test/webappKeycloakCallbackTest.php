@@ -80,4 +80,30 @@ foreach ([['SERVER_NAME' => '_', 'HTTP_HOST' => '', 'SCRIPT_NAME' => '/web/index
 	}
 }
 
+// malformed values are refused with the message of their rule
+$_SERVER = ['SERVER_NAME' => 'mail.example.com', 'SCRIPT_NAME' => '/web/index.php', 'HTTP_HOST' => 'mail.example.com', 'REQUEST_URI' => '/web/'];
+$invalid = [
+	[['realm' => 5], 'Invalid Keycloak configuration value'],
+	[['secret' => ['x'], 'public-client' => 'yes'], 'Invalid Keycloak configuration value'],
+	[['public-client' => 'yes', 'credentials' => 'x'], 'Invalid Keycloak public-client setting'],
+	[['credentials' => 'x'], 'Invalid Keycloak credentials'],
+	[['credentials' => ['secret' => 1]], 'Invalid Keycloak credentials'],
+	[['auth-server-url' => 'not a url'], 'Invalid Keycloak server URL'],
+];
+foreach ($invalid as [$override, $message]) {
+	try {
+		new WebAppKeyCloak($override + $config);
+
+		throw new RuntimeException('Invalid configuration accepted: ' . json_encode($override));
+	}
+	catch (InvalidArgumentException $e) {
+		if ($e->getMessage() !== $message) {
+			throw new RuntimeException('Configuration ' . json_encode($override) . ' failed with ' . $e->getMessage());
+		}
+	}
+}
+foreach ([['credentials' => ['secret' => null]], ['realm' => null, 'public-client' => false]] as $override) {
+	new WebAppKeyCloak($override + $config);
+}
+
 echo "Keycloak callback checks passed\n";

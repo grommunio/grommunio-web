@@ -10,6 +10,7 @@
 // required to handle php errors
 require_once __DIR__ . '/exceptions/class.GrommunioErrorException.php';
 require_once __DIR__ . '/download_base.php';
+require_once __DIR__ . '/exceptions/class.ImportError.php';
 
 /**
  * DownloadAttachment.
@@ -428,12 +429,17 @@ class DownloadAttachment extends DownloadBase {
 			if (isset($props[PR_ATTACH_MIME_TAG])) {
 				$contentType = normalizeHTTPContentType($props[PR_ATTACH_MIME_TAG]);
 			}
+			$embedded = ($props[PR_ATTACH_METHOD] ?? null) == ATTACH_EMBEDDED_MSG;
+			if ($embedded) {
+				$filename = self::emlFileName($filename);
+				$contentType = 'message/rfc822';
+			}
 
 			// Open the stream before sending headers so a missing
 			// or empty PR_ATTACH_DATA_BIN can be handled cleanly
 			// without leaving the browser connection hanging.
 			try {
-				$stream = mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0);
+				$stream = $embedded ? $this->openEmbeddedAsEml($attachment) : mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0);
 				$stat = mapi_stream_stat($stream);
 				$bodysize = $stat['cb'] ?? 0;
 			}
@@ -528,6 +534,29 @@ class DownloadAttachment extends DownloadBase {
 	}
 
 	/**
+	 * An embedded message as RFC822 mail, its attachment has no data of its own.
+	 *
+	 * @param resource $attachment
+	 *
+	 * @return resource
+	 */
+	private function openEmbeddedAsEml($attachment) {
+		return mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $GLOBALS['mapisession']->getAddressbook(), mapi_attach_openobj($attachment), []);
+	}
+
+	/**
+	 * @param string $name
+	 *
+	 * @return string the name with an .eml extension
+	 */
+	private static function emlFileName($name) {
+		// a subject may hold path separators that would nest the archive entry
+		$name = strtr($name, '/\\', '__');
+
+		return str_ends_with(strtolower($name), '.eml') ? $name : $name . '.eml';
+	}
+
+	/**
 	 * Helper function to configure header information which is required to send response as a ZIP archive
 	 * containing all the attachments.
 	 *
@@ -576,28 +605,33 @@ class DownloadAttachment extends DownloadBase {
 				continue;
 			}
 
-			if ($attachmentRow[PR_ATTACH_METHOD] !== ATTACH_EMBEDDED_MSG) {
-				$attachment = mapi_message_openattach($this->message, $attachmentRow[PR_ATTACH_NUM]);
+			$attachment = mapi_message_openattach($this->message, $attachmentRow[PR_ATTACH_NUM]);
 
-				// Keep inline attachments and contact photos out of an archive of everything
-				// only: this test is wider than the one the attachment list hides by.
-				if ($isSelection || (!$attachment_state->isInlineAttachment($attachment) && !$attachment_state->isContactPhoto($attachment))) {
-					$props = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME]);
+			// Keep inline attachments and contact photos out of an archive of everything
+			// only: this test is wider than the one the attachment list hides by.
+			if ($isSelection || (!$attachment_state->isInlineAttachment($attachment) && !$attachment_state->isContactPhoto($attachment))) {
+				$props = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME, PR_DISPLAY_NAME]);
+				$name = $props[PR_ATTACH_LONG_FILENAME] ?? $props[PR_DISPLAY_NAME] ?? _('Untitled');
 
-					// Open a stream to get the attachment data
-					$stream = mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0);
-					$stat = mapi_stream_stat($stream);
-
-					// Get the stream
-					$datastring = '';
-					for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
-						$datastring .= mapi_stream_read($stream, BLOCK_SIZE);
-					}
-
-					// Add file into zip by stream
-					$fileDownloadName = $this->handleDuplicateFileNames($props[PR_ATTACH_LONG_FILENAME]);
-					$zip->addFromString($fileDownloadName, $datastring);
+				// Open a stream to get the attachment data
+				if ($attachmentRow[PR_ATTACH_METHOD] == ATTACH_EMBEDDED_MSG) {
+					$stream = $this->openEmbeddedAsEml($attachment);
+					$name = self::emlFileName($name);
 				}
+				else {
+					$stream = mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0);
+				}
+				$stat = mapi_stream_stat($stream);
+
+				// Get the stream
+				$datastring = '';
+				for ($i = 0; $i < $stat['cb']; $i += BLOCK_SIZE) {
+					$datastring .= mapi_stream_read($stream, BLOCK_SIZE);
+				}
+
+				// Add file into zip by stream
+				$fileDownloadName = $this->handleDuplicateFileNames($name);
+				$zip->addFromString($fileDownloadName, $datastring);
 			}
 		}
 
@@ -725,7 +759,7 @@ class DownloadAttachment extends DownloadBase {
 
 		$addrBook = $GLOBALS['mapisession']->getAddressbook();
 
-		$newMessage = mapi_folder_createmessage($this->destinationFolder);
+		$newMessage = null;
 		$attachmentProps = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME]);
 		$attachmentStream = readMapiPropStream($attachment, PR_ATTACH_DATA_BIN);
 		$extension = strtolower((string) pathinfo((string) $attachmentProps[PR_ATTACH_LONG_FILENAME], PATHINFO_EXTENSION));
@@ -736,6 +770,8 @@ class DownloadAttachment extends DownloadBase {
 				if (isBrokenEml($attachmentStream)) {
 					throw new GrommunioException(_("Eml is corrupted"));
 				}
+
+				$newMessage = mapi_folder_createmessage($this->destinationFolder);
 
 				try {
 					// Convert an RFC822-formatted e-mail to a MAPI Message
@@ -748,6 +784,8 @@ class DownloadAttachment extends DownloadBase {
 				break;
 
 			case 'vcf':
+				$newMessage = mapi_folder_createmessage($this->destinationFolder);
+
 				try {
 					// Convert an RFC6350-formatted vCard to a MAPI Contact
 					$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $this->store, $newMessage, $attachmentStream);
@@ -759,56 +797,13 @@ class DownloadAttachment extends DownloadBase {
 
 			case 'vcs':
 			case 'ics':
-				try {
-					// Convert vCalendar 1.0 or iCalendar to a MAPI Appointment
-					$ok = mapi_icaltomapi($GLOBALS['mapisession']->getSession(), $this->store, $addrBook, $newMessage, $attachmentStream, false);
-				}
-				catch (Exception $e) {
-					$destinationFolderProps = mapi_getprops($this->destinationFolder, [PR_DISPLAY_NAME, PR_MDB_PROVIDER]);
-					$fullyQualifiedFolderName = $destinationFolderProps[PR_DISPLAY_NAME];
-					if ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_PUBLIC_GUID) {
-						$publicStore = $GLOBALS["mapisession"]->getPublicMessageStore();
-						$publicStoreName = mapi_getprops($publicStore, [PR_DISPLAY_NAME]);
-						$fullyQualifiedFolderName .= " - " . $publicStoreName[PR_DISPLAY_NAME];
-					}
-					elseif ($destinationFolderProps[PR_MDB_PROVIDER] === ZARAFA_STORE_DELEGATE_GUID) {
-						$sharedStoreOwnerName = mapi_getprops($this->otherStore, [PR_MAILBOX_OWNER_NAME]);
-						$fullyQualifiedFolderName .= " - " . $sharedStoreOwnerName[PR_MAILBOX_OWNER_NAME];
-					}
-
-					$message = sprintf(_("Unable to import '%s' to '%s'. "), $attachmentProps[PR_ATTACH_LONG_FILENAME], $fullyQualifiedFolderName);
-					if ($e->getCode() === MAPI_E_TABLE_EMPTY) {
-						$message .= _("There is no appointment found in this file.");
-					}
-					elseif ($e->getCode() === MAPI_E_CORRUPT_DATA) {
-						$message .= _("The file is corrupt.");
-					}
-					elseif ($e->getCode() === MAPI_E_INVALID_PARAMETER) {
-						$message .= _("The file is invalid.");
-					}
-					else {
-						$message = sprintf(_("Unable to import '%s'. "), $attachmentProps[PR_ATTACH_LONG_FILENAME]) . $e->getMessage();
-					}
-
-					$e = new GrommunioException($message);
-					$e->setTitle(_("Import error"));
-
-					throw $e;
-				}
+				$ok = $this->importEvents($addrBook, $attachmentStream, $attachmentProps[PR_ATTACH_LONG_FILENAME]);
 				break;
 		}
 
 		if ($ok === true) {
-			mapi_savechanges($newMessage);
-
-			// Check that record is not appointment record. we have to only convert the
-			// Meeting request record to appointment record.
-			$newMessageProps = mapi_getprops($newMessage, [PR_MESSAGE_CLASS]);
-			if (isset($newMessageProps[PR_MESSAGE_CLASS]) && $newMessageProps[PR_MESSAGE_CLASS] !== 'IPM.Appointment') {
-				// Convert the Meeting request record to proper appointment record so we can
-				// properly show the appointment in calendar.
-				$req = new Meetingrequest($this->store, $newMessage, $GLOBALS['mapisession']->getSession(), ENABLE_DIRECT_BOOKING);
-				$req->doAccept(true, false, false, false, false, false, false, false, false, true);
+			if ($newMessage !== null) {
+				mapi_savechanges($newMessage);
 			}
 			$storeProps = mapi_getprops($this->store, [PR_ENTRYID]);
 			$destinationFolderProps = mapi_getprops($this->destinationFolder, [PR_PARENT_ENTRYID, PR_CONTENT_UNREAD]);
@@ -854,6 +849,40 @@ class DownloadAttachment extends DownloadBase {
 		else {
 			throw new GrommunioException(_("Attachment is not imported successfully"));
 		}
+	}
+
+	/**
+	 * Saves every event of a calendar file into the destination folder,
+	 * turning meeting requests into appointments.
+	 *
+	 * @param mixed  $addrBook
+	 * @param string $stream   the calendar file
+	 * @param string $filename
+	 *
+	 * @return bool true when at least one event was imported
+	 */
+	private function importEvents($addrBook, $stream, $filename) {
+		try {
+			// the same check the upload import makes before sending a file
+			if (!preg_match('/VCALENDAR(\r\n|\n|\r)/i', $stream)) {
+				throw new Exception('', MAPI_E_INVALID_PARAMETER);
+			}
+			// Convert vCalendar 1.0 or iCalendar to MAPI Appointments
+			$events = mapi_icaltomapi2($addrBook, $this->destinationFolder, $stream) ?: [];
+		}
+		catch (Exception $e) {
+			throw ImportError::fromException($e, $filename, $this->destinationFolder, fn () => $this->otherStore, _("There is no appointment found in this file."));
+		}
+		foreach ($events as $event) {
+			mapi_savechanges($event);
+			$props = mapi_getprops($event, [PR_MESSAGE_CLASS]);
+			if (str_starts_with((string) ($props[PR_MESSAGE_CLASS] ?? ''), 'IPM.Schedule.Meeting.')) {
+				$req = new Meetingrequest($this->store, $event, $GLOBALS['mapisession']->getSession(), ENABLE_DIRECT_BOOKING);
+				$req->doAccept(true, false, false, false, false, false, false, false, false, true);
+			}
+		}
+
+		return !empty($events);
 	}
 
 	/**
@@ -1046,93 +1075,9 @@ class DownloadAttachment extends DownloadBase {
 		}
 	}
 
-	/**
-	 * Function will encode all the necessary information about the exception
-	 * into JSON format and send the response back to client.
-	 *
-	 * @param object $exception exception object
-	 */
 	#[Override]
-	public function handleSaveMessageException($exception) {
-		$return = [];
-
-		// MAPI_E_NOT_FOUND exception contains generalize exception message.
-		// Set proper exception message as display message should be user understandable.
-		if ($exception->getCode() == MAPI_E_NOT_FOUND) {
-			$exception->setDisplayMessage(_('Could not find attachment.'));
-		}
-
-		// Set the headers
-		header('Expires: 0'); // set expiration time
-		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-
-		// Set Content Disposition header
-		header('Content-Disposition: inline');
-		// Set content type header
-		header('Content-Type: text/plain');
-
-		// prepare exception response according to exception class
-		if ($exception instanceof MAPIException) {
-			$return = [
-				'success' => false,
-				'grommunio' => [
-					'error' => [
-						'type' => ERROR_MAPI,
-						'info' => [
-							'hresult' => $exception->getCode(),
-							'hresult_name' => get_mapi_error_name($exception->getCode()),
-							'file' => $exception->getFileLine(),
-							'display_message' => $exception->getDisplayMessage(),
-						],
-					],
-				],
-			];
-		}
-		elseif ($exception instanceof GrommunioException) {
-			$return = [
-				'success' => false,
-				'grommunio' => [
-					'error' => [
-						'type' => ERROR_GROMMUNIO,
-						'info' => [
-							'file' => $exception->getFileLine(),
-							'display_message' => $exception->getDisplayMessage(),
-							'original_message' => $exception->getMessage(),
-						],
-					],
-				],
-			];
-		}
-		elseif ($exception instanceof BaseException) {
-			$return = [
-				'success' => false,
-				'grommunio' => [
-					'error' => [
-						'type' => ERROR_GENERAL,
-						'info' => [
-							'file' => $exception->getFileLine(),
-							'display_message' => $exception->getDisplayMessage(),
-							'original_message' => $exception->getMessage(),
-						],
-					],
-				],
-			];
-		}
-		else {
-			$return = [
-				'success' => false,
-				'grommunio' => [
-					'error' => [
-						'type' => ERROR_GENERAL,
-						'info' => [
-							'display_message' => _('Operation failed'),
-							'original_message' => $exception->getMessage(),
-						],
-					],
-				],
-			];
-		}
-		echo json_encode($return);
+	protected function notFoundMessage() {
+		return _('Could not find attachment.');
 	}
 }
 

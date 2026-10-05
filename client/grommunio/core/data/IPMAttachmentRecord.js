@@ -200,6 +200,15 @@ Grommunio.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
+	 * An embedded message that is not saved yet, which the server can not deliver as a file.
+	 * @return {Boolean} true if attachment record is an unsaved embedded message
+	 */
+	isUnsavedEmbeddedMessage: function()
+	{
+		return this.isEmbeddedMessage() && this.get('attach_num') === -1;
+	},
+
+	/**
 	 * @return {Boolean} True if this attachment can be imported, false otherwise.
 	 */
 	canBeImported: function()

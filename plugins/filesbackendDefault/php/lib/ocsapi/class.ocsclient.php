@@ -8,6 +8,7 @@
 namespace OCSAPI;
 
 require_once __DIR__ . "/class.ocsshare.php";
+require_once __DIR__ . "/class.ocsresponseparser.php";
 require_once __DIR__ . "/Exception/class.ConnectionException.php";
 require_once __DIR__ . "/Exception/class.FileNotFoundException.php";
 require_once __DIR__ . "/Exception/class.InvalidArgumentException.php";
@@ -17,11 +18,7 @@ require_once __DIR__ . "/Exception/class.InvalidRequestException.php";
 require_once __DIR__ . "/class.ocsshare.php";
 
 use OCSAPI\Exception\ConnectionException;
-use OCSAPI\Exception\FileNotFoundException;
-use OCSAPI\Exception\InvalidArgumentException;
-use OCSAPI\Exception\InvalidRequestException;
 use OCSAPI\Exception\InvalidResponseException;
-use OCSAPI\Exception\PermissionDeniedException;
 
 /**
  * This class provides basic functionality to interact with the owncloud sharing api (OCS).
@@ -139,6 +136,30 @@ class ocsclient {
 	}
 
 	/**
+	 * Creates a cURL handle for $url with the default, certificate and auth options.
+	 *
+	 * @param string $url
+	 *
+	 * @return \CurlHandle
+	 *
+	 * @throws ConnectionException
+	 */
+	private function curlHandle($url) {
+		$ch = curl_init();
+		if ($ch === false) {
+			throw new ConnectionException('Unable to initialise cURL session.');
+		}
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt_array($ch, $this->curlDefaultOptions);
+		if ($this->allowSelfSignedCerts) {
+			curl_setopt_array($ch, $this->curlSSLVerifyOptions);
+		}
+		curl_setopt_array($ch, $this->curlAuthOptions());
+
+		return $ch;
+	}
+
+	/**
 	 * Shortcut for curl get requests.
 	 *
 	 * @param string $url URL for the request
@@ -161,14 +182,7 @@ class ocsclient {
 	 * @throws InvalidResponseException
 	 */
 	private function doCurlRequest($url, $curlOptions) {
-		$ch = curl_init();
-
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt_array($ch, $this->curlDefaultOptions);
-		if ($this->allowSelfSignedCerts) {
-			curl_setopt_array($ch, $this->curlSSLVerifyOptions);
-		}
-		curl_setopt_array($ch, $this->curlAuthOptions());
+		$ch = $this->curlHandle($url);
 		if (!empty($curlOptions)) {
 			curl_setopt_array($ch, $curlOptions);
 		}
@@ -220,7 +234,7 @@ class ocsclient {
 		else {
 			$url = $this->getOCSUrl() . "?path=" . urlencode($path) . "&subfiles=true";
 		}
-		$this->parseListingResponse($this->doCurlGetRequest($url));
+		$this->addShares(ocsresponseparser::parseListingResponse($this->doCurlGetRequest($url), $this->baseurl));
 		$this->loaded = true;
 	}
 
@@ -236,7 +250,7 @@ class ocsclient {
 	 */
 	public function loadShareByID($id) {
 		$url = $this->getOCSUrl() . "/" . $id;
-		$this->parseListingResponse($this->doCurlGetRequest($url));
+		$this->addShares(ocsresponseparser::parseListingResponse($this->doCurlGetRequest($url), $this->baseurl));
 		$this->loaded = true;
 
 		return $this->shares[$id] ?? false;
@@ -255,7 +269,7 @@ class ocsclient {
 	public function loadShareByPath($path) {
 		$path = rtrim((string) $path, "/");
 		$url = $this->getOCSUrl() . "?path=" . urlencode($path);
-		$this->parseListingResponse($this->doCurlGetRequest($url));
+		$this->addShares(ocsresponseparser::parseListingResponse($this->doCurlGetRequest($url), $this->baseurl));
 		$this->loaded = true;
 		$shares = [];
 		foreach ($this->shares as $id => $details) {
@@ -283,24 +297,12 @@ class ocsclient {
 	public function getRecipients($search) {
 		$url = $this->baseurl . self::OCS_PATH . "/sharees?itemType=file&search=" . urlencode((string) $search);
 
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt_array($ch, $this->curlDefaultOptions);
-		if ($this->allowSelfSignedCerts) {
-			curl_setopt_array($ch, $this->curlSSLVerifyOptions);
-		}
-		curl_setopt_array($ch, $this->curlAuthOptions());
+		$ch = $this->curlHandle($url);
 		$responsedata = curl_exec($ch);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
 		if ($httpcode === 200) {
-			$xmldata = $this->parseXMLResponse($responsedata);
-
-			if (!isset($xmldata->meta) || !$this->parseResponseMeta($xmldata->meta) || !isset($xmldata->data)) {
-				return false;
-			}
-
-			return $this->parseRecipientData($xmldata->data);
+			return ocsresponseparser::parseRecipientResponse($responsedata);
 		}
 
 		throw new ConnectionException($httpcode);
@@ -399,7 +401,7 @@ class ocsclient {
 			CURLOPT_POSTFIELDS => $fields_string,
 		];
 
-		return $this->parseModificationResponse($this->doCurlRequest($url, $curlExtraOptions));
+		return ocsresponseparser::parseModificationResponse($this->doCurlRequest($url, $curlExtraOptions));
 	}
 
 	/**
@@ -424,7 +426,7 @@ class ocsclient {
 			CURLOPT_POSTFIELDS => $fields_string,
 		];
 
-		return $this->parseModificationResponse($this->doCurlRequest($url, $curlExtraOptions));
+		return ocsresponseparser::parseModificationResponse($this->doCurlRequest($url, $curlExtraOptions));
 	}
 
 	/**
@@ -455,179 +457,15 @@ class ocsclient {
 			CURLOPT_CUSTOMREQUEST => "DELETE",
 		];
 
-		return $this->parseModificationResponse($this->doCurlRequest($url, $curlExtraOptions));
+		return ocsresponseparser::parseModificationResponse($this->doCurlRequest($url, $curlExtraOptions));
 	}
 
 	/**
-	 * Parse the response of a create or modify request.
-	 *
-	 * @param string $response
-	 *
-	 * @return false|ocsshare
-	 *
-	 * @throws FileNotFoundException
-	 * @throws InvalidArgumentException
-	 * @throws InvalidRequestException
-	 * @throws InvalidResponseException
-	 * @throws PermissionDeniedException
+	 * @param ocsshare[] $shares indexed by share ID
 	 */
-	private function parseModificationResponse($response) {
-		if (!$response) {
-			throw new InvalidResponseException($response);
+	private function addShares($shares) {
+		foreach ($shares as $id => $share) {
+			$this->shares[$id] = $share;
 		}
-		$xmldata = $this->parseXMLResponse($response);
-		if (!isset($xmldata->meta) || !$this->parseResponseMeta($xmldata->meta)) {
-			return false;
-		}
-		if (isset($xmldata->data)) {
-			return new ocsshare($xmldata->data);
-		}
-
-		return false;
-	}
-
-	/**
-	 * Parse the request response.
-	 *
-	 * @param string $response
-	 *
-	 * @throws FileNotFoundException
-	 * @throws InvalidArgumentException
-	 * @throws InvalidRequestException
-	 * @throws InvalidResponseException
-	 * @throws PermissionDeniedException
-	 */
-	private function parseListingResponse($response) {
-		if (!$response) {
-			throw new InvalidResponseException($response);
-		}
-
-		$xmldata = $this->parseXMLResponse($response);
-		if (!isset($xmldata->meta) || !$this->parseResponseMeta($xmldata->meta)) {
-			return;
-		}
-		if (isset($xmldata->data)) {
-			$this->parseResponseData($xmldata->data);
-		}
-	}
-
-	/**
-	 * Convert an OCS response body into XML.
-	 *
-	 * @param bool|string $response response body returned by cURL
-	 *
-	 * @return \SimpleXMLElement parsed response
-	 *
-	 * @throws InvalidResponseException
-	 */
-	private function parseXMLResponse($response) {
-		if (!is_string($response)) {
-			throw new InvalidResponseException('Invalid response body');
-		}
-
-		try {
-			return new \SimpleXMLElement($response);
-		}
-		catch (\Exception) {
-			throw new InvalidResponseException($response);
-		}
-	}
-
-	/**
-	 * Parse the response meta block and its error codes.
-	 *
-	 * @param mixed $response
-	 *
-	 * @return bool
-	 *
-	 * @throws FileNotFoundException
-	 * @throws InvalidArgumentException
-	 * @throws InvalidRequestException
-	 * @throws InvalidResponseException
-	 * @throws PermissionDeniedException
-	 */
-	private function parseResponseMeta($response) {
-		if ($response) {
-			$statuscode = intval($response->statuscode);
-			$message = $response->message;
-
-			// check status code - it must be 100, otherwise it failed
-			if ($statuscode == 100) {
-				return true;
-			}
-
-			match ($statuscode) {
-				400 => throw new InvalidArgumentException($message),
-				403 => throw new PermissionDeniedException($message),
-				404 => throw new FileNotFoundException($message),
-				999 => throw new InvalidRequestException($message),
-				default => throw new InvalidResponseException($message),
-			};
-		}
-		else {
-			throw new InvalidResponseException("Response contains no meta block.");
-		}
-	}
-
-	/**
-	 * Parse the response data block.
-	 *
-	 * @param \SimpleXMLElement $response from ownCloud server
-	 */
-	private function parseResponseData($response) {
-		// parse each element in the data section
-		foreach ($response->element as $element) {
-			$parsedShare = new ocsshare($element);
-			$parsedShare->generateShareURL($this->baseurl);
-
-			$this->shares[$parsedShare->getId()] = $parsedShare;
-		}
-	}
-
-	/**
-	 * Parse the response data for recipients.
-	 * Converts the xml response data to an array,
-	 *  [[label, shareWith, shareType], ...]
-	 * where
-	 *  - label is the display name
-	 *  - shareWith is the user or group id
-	 *  - shareType is type of the recipient: user or group.
-	 *
-	 * @param \SimpleXMLElement $response the response data from the request
-	 *
-	 * @return array array of recipients
-	 */
-	private function parseRecipientData($response) {
-		$result = [];
-		foreach ($response->exact->users->element as $user) {
-			$result[] = [
-				$user->label->__toString(),
-				$user->value->shareWith->__toString(),
-				$user->value->shareType->__toString(),
-			];
-		}
-		foreach ($response->users->element as $user) {
-			$result[] = [
-				$user->label->__toString(),
-				$user->value->shareWith->__toString(),
-				$user->value->shareType->__toString(),
-			];
-		}
-		foreach ($response->exact->groups->element as $group) {
-			$result[] = [
-				$group->label->__toString(),
-				$group->value->shareWith->__toString(),
-				$group->value->shareType->__toString(),
-			];
-		}
-		foreach ($response->groups->element as $group) {
-			$result[] = [
-				$group->label->__toString(),
-				$group->value->shareWith->__toString(),
-				$group->value->shareType->__toString(),
-			];
-		}
-
-		return $result;
 	}
 }

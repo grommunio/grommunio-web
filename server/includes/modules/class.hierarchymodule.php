@@ -126,242 +126,27 @@ class HierarchyModule extends Module {
 						break;
 
 					case "open":
-						if ($entryid === false) {
-							$this->sendFeedback(false);
-
-							break;
-						}
-						$folder = mapi_msgstore_openentry($store, $entryid);
-						$data = $this->getFolderProps($store, $folder);
-
-						// return response
-						$this->addActionData("item", $data);
-						$GLOBALS["bus"]->addData($this->getResponseData());
+						$this->openFolderAction($store, $entryid);
 						break;
 
 					case "foldersize":
-						if ($store === false || $entryid === false) {
-							$this->sendFeedback(false);
-
-							break;
-						}
-						$folders = [];
-						$folder = mapi_msgstore_openentry($store, $entryid);
-						$data = $this->getFolderProps($store, $folder);
-						$info = $this->getFolderSize($store, $folder, '', $folders);
-						$data["props"]["message_size"] = $data["props"]["store_size"] ?? $info["size"];
-						$data["props"]["total_message_size"] = $data["props"]["store_size"] ?? $data["props"]["total_message_size"] ?? $info["total_size"];
-						$data["folders"] = [
-							"item" => $folders,
-						];
-
-						// return response
-						$this->addActionData("item", $data);
-						$GLOBALS["bus"]->addData($this->getResponseData());
+						$this->folderSizeAction($store, $entryid);
 						break;
 
 					case "delete":
-						if (!$store || !$parententryid || !$entryid) {
-							break;
-						}
-						if (!isset($action["message_action"], $action["message_action"]["action_type"]) ||
-							$action["message_action"]["action_type"] !== "removefavorites") {
-							$this->deleteFolder($store, $parententryid, $entryid, $action);
-							break;
-						}
-						if (!isset($action["message_action"]["isSearchFolder"]) ||
-							!$action["message_action"]["isSearchFolder"]) {
-							$this->removeFromFavorite($entryid);
-							break;
-						}
-						$result = $this->deleteSearchFolder($store, $parententryid, $entryid, $action);
-						if ($result) {
-							$this->sendFeedback(true);
-						}
+						$this->deleteFolderAction($store, $parententryid, $entryid, $action);
 						break;
 
 					case "save":
-						if (!$store || !$parententryid) {
-							break;
-						}
-						if ($entryid) {
-							// The "message_action" object has been set, check the action_type field for
-							// the exact action which must be taken.
-							// Supported actions:
-							//   - copy: Copy the folder to the new destination folder
-							//   - move: Move the folder to the new destination folder
-							//   - emptyfolder: Delete all items within the folder
-							//   - readflags: Mark all items within the folder as read
-							//   - addtofavorites: Add the folder to "favorites"
-							$data = null;
-							if (empty($action["message_action"]["isSearchFolder"])) {
-								$folder = mapi_msgstore_openentry($store, $entryid);
-								$data = $this->getFolderProps($store, $folder);
-							}
-							if (isset($action["message_action"], $action["message_action"]["action_type"])) {
-								switch ($action["message_action"]["action_type"]) {
-									case "copy":
-									case "move":
-										$destentryid = false;
-										if (isset($action["message_action"]["destination_parent_entryid"])) {
-											$destentryid = hex2bin($action["message_action"]["destination_parent_entryid"]);
-										}
-
-										$deststore = $store;
-										if (isset($action["message_action"]["destination_store_entryid"])) {
-											$deststore = $GLOBALS['mapisession']->openMessageStore(hex2bin($action["message_action"]["destination_store_entryid"]));
-										}
-
-										if ($destentryid && $deststore) {
-											$this->copyFolder($store, $parententryid, $entryid, $destentryid, $deststore, $action["message_action"]["action_type"] == "move");
-										}
-										if (isset($data["props"]["container_class"]) && $data["props"]["container_class"] === "IPF.Contact") {
-											$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
-										}
-										break;
-
-									case "emptyfolder":
-										$this->emptyFolder($store, $entryid);
-										break;
-
-									case "readflags":
-										$this->setReadFlags($store, $entryid);
-										break;
-
-									case "addtofavorites":
-										if (isset($action["message_action"]["isSearchFolder"]) && $action["message_action"]["isSearchFolder"]) {
-											$searchStoreEntryId = $action["message_action"]["search_store_entryid"];
-											// Set display name to search folder.
-											$searchStore = $GLOBALS["mapisession"]->openMessageStore(hex2bin((string) $searchStoreEntryId));
-											$searchFolder = mapi_msgstore_openentry($searchStore, $entryid);
-											mapi_setprops($searchFolder, [
-												PR_DISPLAY_NAME => $action["props"]["display_name"],
-											]);
-											mapi_savechanges($searchFolder);
-											$this->createLinkedSearchFolder($searchFolder);
-										}
-										else {
-											$this->addToFavorite($store, $entryid);
-										}
-										break;
-								}
-							}
-							else {
-								// save folder
-								$folder = mapi_msgstore_openentry($store, hex2bin((string) $action["entryid"]));
-								$this->save($store, $folder, $action);
-								if ($data["props"]["container_class"] === "IPF.Contact") {
-									$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
-								}
-								$this->sendFeedback(true, []);
-							}
-						}
-						else {
-							// no entryid, create new folder
-							if ($store && $parententryid && isset($action["props"]["display_name"], $action["props"]["container_class"])) {
-								if (isset($action["message_action"], $action["message_action"]["action_type"])) {
-									// We need to create new search folder under the favorites folder
-									// based on give search folder info.
-									if ($action["message_action"]["action_type"] === "addtofavorites") {
-										$storeEntryId = $action["message_action"]["search_store_entryid"];
-										$searchFolderEntryId = $action["message_action"]["search_folder_entryid"];
-
-										// Get the search folder and search criteria using $storeEntryId and $searchFolderEntryId.
-										$Store = $GLOBALS["mapisession"]->openMessageStore(hex2bin((string) $storeEntryId));
-										$searchFolder = mapi_msgstore_openentry($Store, hex2bin((string) $searchFolderEntryId));
-										$searchCriteria = mapi_folder_getsearchcriteria($searchFolder);
-
-										// Get FINDERS_ROOT folder from store.
-										$finderRootFolder = mapi_getprops($Store, [PR_FINDER_ENTRYID]);
-										$searchFolderRoot = mapi_msgstore_openentry($Store, $finderRootFolder[PR_FINDER_ENTRYID]);
-
-										// Create new search folder in FINDERS_ROOT folder and set the search
-										// criteria in newly created search folder.
-										$newSearchFolder = mapi_folder_createfolder($searchFolderRoot, $action["props"]["display_name"], '', 0, FOLDER_SEARCH);
-										$subfolder_flag = 0;
-										if (isset($action["subfolders"]) && $action["subfolders"] == "true") {
-											$subfolder_flag = RECURSIVE_SEARCH;
-										}
-										mapi_folder_setsearchcriteria($newSearchFolder, $searchCriteria['restriction'], $searchCriteria['folderlist'], $subfolder_flag);
-
-										// Sleep for 1 seconds initially, since it usually takes ~  1 seconds to fill the search folder.
-										sleep(1);
-										$this->createLinkedSearchFolder($newSearchFolder);
-									}
-								}
-								else {
-									$this->addFolder($store, $parententryid, $action["props"]["display_name"], $action["props"]["container_class"]);
-								}
-							}
-							if ($action["props"]["container_class"] === "IPF.Contact") {
-								$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
-							}
-						}
+						$this->saveFolderAction($store, $parententryid, $entryid, $action);
 						break;
 
 					case "closesharedfolder":
-						if (isset($action["folder_type"]) && $action["folder_type"] != "all") {
-							// We're closing a Shared folder, check if we still have other
-							// folders for the same user opened, if not we can safely close
-							// the usrstore.
-							$stores = $GLOBALS["settings"]->get("grommunio/v1/contexts/hierarchy/shared_stores/" . strtolower(bin2hex((string) $action["user_name"])));
-							if (!isset($stores) || empty($stores) || (count($stores) == 1 && isset($stores[$action["folder_type"]]))) {
-								$entryid = $GLOBALS["mapisession"]->removeUserStore($action["user_name"]);
-							}
-							else {
-								$entryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser($action["user_name"]);
-								$this->removeFromFavorite(hex2bin((string) $action["entryid"]), $store, PR_WLINK_ENTRYID, false);
-							}
-						}
-						else {
-							// We're closing a Shared Store, simply remove it from the session.
-							$entryid = $GLOBALS["mapisession"]->removeUserStore($action["user_name"]);
-
-							if (isset($action["remove_favorites"]) && $action["remove_favorites"]) {
-								$this->removeFromFavorite(hex2bin((string) $action["store_entryid"]), $store, PR_WLINK_STORE_ENTRYID, false);
-							}
-						}
-
-						$data = [];
-						$data["store_entryid"] = bin2hex((string) $entryid);
-						if (isset($action["folder_type"])) {
-							$data["folder_type"] = $action["folder_type"];
-						}
-
-						$this->addActionData("delete", $data);
-						$GLOBALS["bus"]->addData($this->getResponseData());
-						$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
+						$this->closeSharedFolder($store, $action);
 						break;
 
 					case "opensharedfolder":
-						$username = strtolower((string) $action["user_name"]);
-						$store = $GLOBALS["mapisession"]->addUserStore($username);
-						if (!$store) {
-							throw new MAPIException(_("Could not open the store."), MAPI_E_NO_ACCESS);
-						}
-
-						$options = [$username => [$action["folder_type"] => $action]];
-						$data = $GLOBALS["operations"]->getHierarchyList($this->list_properties, HIERARCHY_GET_ONE, $store, $options, $username);
-
-						if (empty($data["item"][0]["folders"]["item"])) {
-							throw new MAPIException(_("Could not load the hierarchy."), MAPI_E_NO_ACCESS);
-						}
-
-						$folders = count($data["item"][0]["folders"]["item"]);
-						if ($folders === 0) {
-							throw new MAPIException(_("Could not load the hierarchy."), MAPI_E_NO_ACCESS);
-						}
-
-						$noPermissionFolders = array_filter($data['item'][0]['folders']['item'], fn ($item) => $item['props']['access'] === 0);
-						if (count($noPermissionFolders) >= $folders) {
-							// Throw an exception that we couldn't open the shared store,
-							// lets have processException() fill in our error message.
-							throw new MAPIException(_("Could not load the hierarchy."), MAPI_E_NO_ACCESS);
-						}
-
-						$this->addActionData("list", $data);
-						$GLOBALS["bus"]->addData($this->getResponseData());
-						$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
+						$this->openSharedFolder($action);
 						break;
 
 					case "sharedstoreupdate":
@@ -376,8 +161,7 @@ class HierarchyModule extends Module {
 
 					case "emptyfolder_batch":
 						if ($store && $entryid) {
-							$batchSize = isset($action["batch_size"]) ? (int) $action["batch_size"] : 500;
-							$batchSize = max(50, min(2000, $batchSize));
+							$batchSize = max(50, min(2000, (int) ($action["batch_size"] ?? 500)));
 							$this->emptyFolderBatch($store, $entryid, $batchSize);
 						}
 						break;
@@ -390,6 +174,249 @@ class HierarchyModule extends Module {
 				$this->processException($e, $actionType, $store, $parententryid, $entryid, $action);
 			}
 		}
+	}
+
+	private function openFolderAction($store, $entryid) {
+		if ($entryid === false) {
+			$this->sendFeedback(false);
+
+			return;
+		}
+		$folder = mapi_msgstore_openentry($store, $entryid);
+		$data = $this->getFolderProps($store, $folder);
+
+		$this->addActionData("item", $data);
+		$GLOBALS["bus"]->addData($this->getResponseData());
+	}
+
+	private function folderSizeAction($store, $entryid) {
+		if ($entryid === false) {
+			$this->sendFeedback(false);
+
+			return;
+		}
+		$folders = [];
+		$folder = mapi_msgstore_openentry($store, $entryid);
+		$data = $this->getFolderProps($store, $folder);
+		$info = $this->getFolderSize($store, $folder, '', $folders);
+		$data["props"]["message_size"] = $data["props"]["store_size"] ?? $info["size"];
+		$data["props"]["total_message_size"] = $data["props"]["store_size"] ?? $data["props"]["total_message_size"] ?? $info["total_size"];
+		$data["folders"] = [
+			"item" => $folders,
+		];
+
+		$this->addActionData("item", $data);
+		$GLOBALS["bus"]->addData($this->getResponseData());
+	}
+
+	private function deleteFolderAction($store, $parententryid, $entryid, $action) {
+		if (!$store || !$parententryid || !$entryid) {
+			return;
+		}
+		if (($action["message_action"]["action_type"] ?? null) !== "removefavorites") {
+			$this->deleteFolder($store, $parententryid, $entryid, $action);
+
+			return;
+		}
+		if (empty($action["message_action"]["isSearchFolder"])) {
+			$this->removeFromFavorite($entryid);
+
+			return;
+		}
+		if ($this->deleteSearchFolder($store, $parententryid, $entryid, $action)) {
+			$this->sendFeedback(true);
+		}
+	}
+
+	private function saveFolderAction($store, $parententryid, $entryid, $action) {
+		if (!$store || !$parententryid) {
+			return;
+		}
+		if (!$entryid) {
+			$this->createFolderAction($store, $parententryid, $action);
+
+			return;
+		}
+		$data = null;
+		if (empty($action["message_action"]["isSearchFolder"])) {
+			$folder = mapi_msgstore_openentry($store, $entryid);
+			$data = $this->getFolderProps($store, $folder);
+		}
+		if (isset($action["message_action"]["action_type"])) {
+			$this->folderMessageAction($store, $parententryid, $entryid, $action, $data);
+
+			return;
+		}
+		$folder = mapi_msgstore_openentry($store, hex2bin((string) $action["entryid"]));
+		$this->save($store, $folder, $action);
+		if (($data["props"]["container_class"] ?? null) === "IPF.Contact") {
+			$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
+		}
+		$this->sendFeedback(true, []);
+	}
+
+	private function folderMessageAction($store, $parententryid, $entryid, $action, $data) {
+		switch ($action["message_action"]["action_type"]) {
+			case "copy":
+			case "move":
+				$destentryid = false;
+				if (isset($action["message_action"]["destination_parent_entryid"])) {
+					$destentryid = hex2bin($action["message_action"]["destination_parent_entryid"]);
+				}
+
+				$deststore = $store;
+				if (isset($action["message_action"]["destination_store_entryid"])) {
+					$deststore = $GLOBALS['mapisession']->openMessageStore(hex2bin($action["message_action"]["destination_store_entryid"]));
+				}
+
+				if ($destentryid && $deststore) {
+					$this->copyFolder($store, $parententryid, $entryid, $destentryid, $deststore, $action["message_action"]["action_type"] == "move");
+				}
+				if (isset($data["props"]["container_class"]) && $data["props"]["container_class"] === "IPF.Contact") {
+					$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
+				}
+				break;
+
+			case "emptyfolder":
+				$this->emptyFolder($store, $entryid);
+				break;
+
+			case "readflags":
+				$this->setReadFlags($store, $entryid);
+				break;
+
+			case "addtofavorites":
+				if (!empty($action["message_action"]["isSearchFolder"])) {
+					$searchStore = $GLOBALS["mapisession"]->openMessageStore(hex2bin((string) $action["message_action"]["search_store_entryid"]));
+					$searchFolder = mapi_msgstore_openentry($searchStore, $entryid);
+					mapi_setprops($searchFolder, [
+						PR_DISPLAY_NAME => $action["props"]["display_name"],
+					]);
+					mapi_savechanges($searchFolder);
+					$this->createLinkedSearchFolder($searchFolder);
+				}
+				else {
+					$this->addToFavorite($store, $entryid);
+				}
+				break;
+		}
+	}
+
+	private function createFolderAction($store, $parententryid, $action) {
+		if (isset($action["props"]["display_name"], $action["props"]["container_class"])) {
+			if (!isset($action["message_action"]["action_type"])) {
+				$this->addFolder($store, $parententryid, $action["props"]["display_name"], $action["props"]["container_class"]);
+			}
+			elseif ($action["message_action"]["action_type"] === "addtofavorites") {
+				$this->createFavoriteSearchFolder($action);
+			}
+		}
+		if ($action["props"]["container_class"] === "IPF.Contact") {
+			$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
+		}
+	}
+
+	/**
+	 * Creates a search folder in FINDERS_ROOT that copies the criteria of
+	 * an existing search folder, and links it into the favorites.
+	 *
+	 * @param array $action the action data, sent by the client
+	 */
+	private function createFavoriteSearchFolder($action) {
+		$store = $GLOBALS["mapisession"]->openMessageStore(hex2bin((string) $action["message_action"]["search_store_entryid"]));
+		$searchFolder = mapi_msgstore_openentry($store, hex2bin((string) $action["message_action"]["search_folder_entryid"]));
+		$searchCriteria = mapi_folder_getsearchcriteria($searchFolder);
+
+		$finderRootFolder = mapi_getprops($store, [PR_FINDER_ENTRYID]);
+		$searchFolderRoot = mapi_msgstore_openentry($store, $finderRootFolder[PR_FINDER_ENTRYID]);
+
+		$newSearchFolder = mapi_folder_createfolder($searchFolderRoot, $action["props"]["display_name"], '', 0, FOLDER_SEARCH);
+		$subfolder_flag = 0;
+		if (isset($action["subfolders"]) && $action["subfolders"] == "true") {
+			$subfolder_flag = RECURSIVE_SEARCH;
+		}
+		mapi_folder_setsearchcriteria($newSearchFolder, $searchCriteria['restriction'], $searchCriteria['folderlist'], $subfolder_flag);
+
+		// The search folder usually needs about a second to fill.
+		sleep(1);
+		$this->createLinkedSearchFolder($newSearchFolder);
+	}
+
+	private function closeSharedFolder($store, $action) {
+		if (isset($action["folder_type"]) && $action["folder_type"] != "all") {
+			// Keep the user store open while other folders of that user are still shared.
+			$stores = $GLOBALS["settings"]->get("grommunio/v1/contexts/hierarchy/shared_stores/" . strtolower(bin2hex((string) $action["user_name"])));
+			if (empty($stores) || (count($stores) == 1 && isset($stores[$action["folder_type"]]))) {
+				$entryid = $GLOBALS["mapisession"]->removeUserStore($action["user_name"]);
+			}
+			else {
+				$entryid = $GLOBALS["mapisession"]->getStoreEntryIdOfUser($action["user_name"]);
+				$this->removeFromFavorite(hex2bin((string) $action["entryid"]), $store, PR_WLINK_ENTRYID, false);
+			}
+		}
+		else {
+			$entryid = $GLOBALS["mapisession"]->removeUserStore($action["user_name"]);
+
+			if (!empty($action["remove_favorites"])) {
+				$this->removeFromFavorite(hex2bin((string) $action["store_entryid"]), $store, PR_WLINK_STORE_ENTRYID, false);
+			}
+		}
+
+		$data = [];
+		$data["store_entryid"] = bin2hex((string) $entryid);
+		if (isset($action["folder_type"])) {
+			$data["folder_type"] = $action["folder_type"];
+		}
+
+		$this->addActionData("delete", $data);
+		$GLOBALS["bus"]->addData($this->getResponseData());
+		$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
+	}
+
+	private function openSharedFolder($action) {
+		$username = strtolower((string) $action["user_name"]);
+		try {
+			$store = $GLOBALS["mapisession"]->addUserStore($username);
+		}
+		catch (MAPIException $e) {
+			// the store entry ID cannot be built for an unknown user
+			throw new MAPIException($e->getMessage(), MAPI_E_NOT_FOUND);
+		}
+		if (!$store) {
+			throw new MAPIException(_("Could not open the store."), MAPI_E_NO_ACCESS);
+		}
+
+		$options = [$username => [$action["folder_type"] => $action]];
+		$data = $GLOBALS["operations"]->getHierarchyList($this->list_properties, HIERARCHY_GET_ONE, $store, $options, $username);
+
+		if (empty($data["item"][0]["folders"]["item"])) {
+			throw new MAPIException(_("Could not load the hierarchy."), MAPI_E_NO_ACCESS);
+		}
+
+		$folders = count($data["item"][0]["folders"]["item"]);
+		$noPermissionFolders = array_filter($data['item'][0]['folders']['item'], fn ($item) => $item['props']['access'] === 0);
+		if (count($noPermissionFolders) >= $folders) {
+			// Let processException() fill in the error message.
+			throw new MAPIException(_("Could not load the hierarchy."), MAPI_E_NO_ACCESS);
+		}
+
+		$this->addActionData("list", $data);
+		$GLOBALS["bus"]->addData($this->getResponseData());
+		$GLOBALS["bus"]->notify(ADDRESSBOOK_ENTRYID, OBJECT_SAVE);
+	}
+
+	private function getSharedFolderAccessMessage($folderType) {
+		$folderType = match ($folderType) {
+			'calendar' => _('Calendar'),
+			'contact' => _('Contacts'),
+			'inbox' => _('Inbox'),
+			'note' => _('Notes'),
+			'task' => _('Tasks'),
+			'all' => _('Entire Inbox'),
+			default => $folderType,
+		};
+
+		return sprintf(_('You have insufficient privileges to open this %1$s folder. The folder owner can set these using the \'permissions\'-tab of the folder properties (right click the %1$s folder > properties > permissions).'), $folderType);
 	}
 
 	/**
@@ -413,7 +440,11 @@ class HierarchyModule extends Module {
 					break;
 
 				case "opensharedfolder":
-					$e->setDisplayMessage(_("Could not open the shared store."));
+					$e->setDisplayMessage(match ($e->getCode()) {
+						MAPI_E_NOT_FOUND => _("User could not be resolved."),
+						MAPI_E_NO_ACCESS => $this->getSharedFolderAccessMessage($action["folder_type"] ?? 'all'),
+						default => _("Could not open the shared store."),
+					});
 					break;
 
 				case "open":
@@ -522,24 +553,6 @@ class HierarchyModule extends Module {
 
 				case "closesharedfolder":
 					$e->setDisplayMessage(_("Could not close shared folder."));
-					break;
-
-				case "opensharedfolder":
-					if ($e->getCode() == MAPI_E_NOT_FOUND) {
-						$e->setDisplayMessage(_("User could not be resolved."));
-					}
-					else {
-						$folderType = match ($action["folder_type"]) {
-							'calendar' => _('Calendar'),
-							'contact' => _('Contacts'),
-							'inbox' => _('Inbox'),
-							'note' => _('Notes'),
-							'task' => _('Tasks'),
-							'all' => _('Entire Inbox'),
-							default => $action["folder_type"],
-						};
-						$e->setDisplayMessage(sprintf(_('You have insufficient privileges to open this %1$s folder. The folder owner can set these using the \'permissions\'-tab of the folder properties (right click the %1$s folder > properties > permissions).'), $folderType));
-					}
 					break;
 			}
 		}

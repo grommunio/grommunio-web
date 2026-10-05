@@ -116,15 +116,8 @@ class Pluginsmime extends Plugin {
 	 */
 	private function resolveCipher(): string {
 		if (defined('PLUGIN_SMIME_CIPHER_NAME')) {
-			$name = PLUGIN_SMIME_CIPHER_NAME;
-			// Validate GCM availability
-			if ($this->cms->isGcmCipher($name) && !$this->cms->supportsAesGcm()) {
-				error_log("[smime] AES-GCM cipher '{$name}' not available, falling back to aes-256-cbc");
-
-				return 'aes-256-cbc';
-			}
-
-			return $name;
+			// CmsOperations::encrypt() falls back from unsupported GCM when it is used
+			return PLUGIN_SMIME_CIPHER_NAME;
 		}
 
 		// Map legacy integer constant to string
@@ -715,6 +708,7 @@ class Pluginsmime extends Plugin {
 			PR_SENT_REPRESENTING_SEARCH_KEY,
 			PR_SENT_REPRESENTING_SMTP_ADDRESS,
 			PR_REPLY_RECIPIENT_ENTRIES,
+			PR_SUBJECT,
 		];
 	}
 
@@ -724,6 +718,7 @@ class Pluginsmime extends Plugin {
 		$prop[PR_TRANSPORT_MESSAGE_HEADERS] =
 			"# Outer headers:\n" . ($prop[PR_TRANSPORT_MESSAGE_HEADERS] ?? "") .
 			"# Inner headers:\n" . $innerHeaders;
+		parse_smime__keep_subject($prop, $msg);
 	}
 
 	/**
@@ -1363,19 +1358,12 @@ class Pluginsmime extends Plugin {
 
 		foreach ($certs as $cert) {
 			$pubkey = mapi_msgstore_openentry($this->getStore(), $cert[PR_ENTRYID]);
-			$certificate = "";
 			if ($pubkey === false) {
 				continue;
 			}
-			// Retrieve the PKCS#12 certificate from the message body.
-			$stream = mapi_openproperty($pubkey, PR_BODY, IID_IStream, 0, 0);
-			if (!$stream) {
+			$certificate = readCertificateMessageBody($pubkey);
+			if ($certificate === null) {
 				continue;
-			}
-			$stat = mapi_stream_stat($stream);
-			mapi_stream_seek($stream, 0, STREAM_SEEK_SET);
-			for ($i = 0; $i < $stat['cb']; $i += 1024) {
-				$certificate .= mapi_stream_read($stream, 1024);
 			}
 			array_push($certificates, $certificate);
 		}
@@ -1423,7 +1411,7 @@ class Pluginsmime extends Plugin {
 		mapi_table_restrict($table, $restrict, TBL_BATCH);
 		mapi_table_sort($table, [PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND], TBL_BATCH);
 
-		$rows = mapi_table_queryallrows($table, [PR_SUBJECT, PR_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME], $restrict);
+		$rows = mapi_table_queryallrows($table, [PR_SUBJECT, PR_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME]);
 
 		return !empty($rows);
 	}

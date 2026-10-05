@@ -7,6 +7,8 @@
 
 namespace WAYF;
 
+require_once __DIR__ . '/DecimalString.php';
+
 /**
  * ASN.1/DER encoder — complement to the existing Der.php decoder.
  *
@@ -182,7 +184,7 @@ class DerEncoder {
 		if ($first < 0 || $first > 2 || ($first < 2 && (strlen($second) > 2 || (int) $second > 39))) {
 			throw new \InvalidArgumentException("Invalid object identifier: {$oid}");
 		}
-		$firstSubidentifier = $first === 2 ? self::addToDecimalString($second, 80) : (string) (40 * $first + (int) $second);
+		$firstSubidentifier = $first === 2 ? DecimalString::addInt($second, 80) : (string) (40 * $first + (int) $second);
 		$der = self::encodeOidArc($firstSubidentifier);
 
 		foreach (array_slice($arcs, 2) as $arc) {
@@ -202,52 +204,12 @@ class DerEncoder {
 		$mask = 0;
 		$reversed = '';
 		while ($arc !== '0') {
-			[$arc, $remainder] = self::divideDecimalString($arc, 128);
+			[$arc, $remainder] = DecimalString::divideInt($arc, 128);
 			$reversed .= chr($remainder + $mask);
 			$mask = 128;
 		}
 
 		return $reversed === '' ? "\x00" : strrev($reversed);
-	}
-
-	/**
-	 * Add a small integer to an unsigned decimal string.
-	 */
-	private static function addToDecimalString(string $number, int $addend): string {
-		$result = '';
-		$carry = $addend;
-		for ($i = strlen($number) - 1; $i >= 0; --$i) {
-			$value = (ord($number[$i]) - 48) + ($carry % 10);
-			$carry = intdiv($carry, 10);
-			if ($value >= 10) {
-				$value -= 10;
-				++$carry;
-			}
-			$result = $value . $result;
-		}
-		while ($carry > 0) {
-			$result = ($carry % 10) . $result;
-			$carry = intdiv($carry, 10);
-		}
-
-		return ltrim($result, '0') ?: '0';
-	}
-
-	/**
-	 * Divide an unsigned decimal string by a small integer.
-	 *
-	 * @return array{0: string, 1: int} quotient and remainder
-	 */
-	private static function divideDecimalString(string $number, int $divisor): array {
-		$quotient = '';
-		$remainder = 0;
-		foreach (str_split($number) as $digit) {
-			$value = ($remainder * 10) + (ord($digit) - 48);
-			$quotient .= intdiv($value, $divisor);
-			$remainder = $value % $divisor;
-		}
-
-		return [ltrim($quotient, '0') ?: '0', $remainder];
 	}
 
 	/**

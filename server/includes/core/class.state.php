@@ -7,6 +7,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+require_once __DIR__ . '/class.statecleaner.php';
+
 /**
  * Secondary state handling.
  *
@@ -52,11 +54,6 @@ class State {
 	 * Name of the subsystem, used in log messages.
 	 */
 	private $subsystem;
-
-	/**
-	 * Files without content only carry a lock and expire earlier.
-	 */
-	private const LOCK_FILE_MAX_LIFETIME = 3600;
 
 	/**
 	 * The directory in which the session files are created.
@@ -116,19 +113,15 @@ class State {
 					return false;
 				}
 			}
-			$cleanupLock = @fopen($this->basedir . DIRECTORY_SEPARATOR . '.cleanup.lock', 'c');
-			if ($cleanupLock === false || !flock($cleanupLock, LOCK_SH)) {
-				if (is_resource($cleanupLock)) {
-					fclose($cleanupLock);
-				}
+			$cleanupLock = StateCleaner::lock($this->basedir, LOCK_SH);
+			if ($cleanupLock === false) {
 				error_log('[STATE ERROR] State cleanup lock could not be acquired.');
 
 				return false;
 			}
 			$this->fp = @fopen($this->filename, "a+");
 			if ($this->fp === false) {
-				flock($cleanupLock, LOCK_UN);
-				fclose($cleanupLock);
+				StateCleaner::unlock($cleanupLock);
 				error_log('[STATE ERROR] State file for "' . $this->subsystem . '" could not be opened.');
 
 				return false;
@@ -136,8 +129,7 @@ class State {
 			$this->sessioncache = [];
 			// Never wait for a busy state file while holding the cleanup lock
 			$locked = flock($this->fp, LOCK_EX | LOCK_NB);
-			flock($cleanupLock, LOCK_UN);
-			fclose($cleanupLock);
+			StateCleaner::unlock($cleanupLock);
 			if (!$locked && !flock($this->fp, LOCK_EX)) {
 				fclose($this->fp);
 				$this->fp = false;
@@ -188,9 +180,6 @@ class State {
 	public function read($name) {
 		if (!is_resource($this->fp)) {
 			dump('[STATE ERROR] State file "' . $this->filename . '" is not open. Open it before reading.');
-			if (empty($this->sessioncache)) {
-				$this->sessioncache = [];
-			}
 
 			return null;
 		}
@@ -210,9 +199,6 @@ class State {
 
 		if (isset($this->sessioncache[$name])) {
 			return $this->sessioncache[$name];
-		}
-		if (empty($this->sessioncache)) {
-			$this->sessioncache = [];
 		}
 
 		return null;
@@ -296,74 +282,6 @@ class State {
 	 * @param int $maxLifeTime the maximum allowed age of files in seconds
 	 */
 	public function clean($maxLifeTime = STATE_FILE_MAX_LIFETIME) {
-		if (!is_dir($this->basedir)) {
-			return;
-		}
-
-		$directory = @opendir($this->basedir);
-		if ($directory === false) {
-			return;
-		}
-		$stalePaths = [];
-		while (($file = readdir($directory)) !== false) {
-			if ($file === '.' || $file === '..' || $file === '.cleanup.lock') {
-				continue;
-			}
-			$path = $this->basedir . DIRECTORY_SEPARATOR . $file;
-			$fileInfo = @lstat($path);
-			if ($fileInfo === false || ($fileInfo['mode'] & 0170000) !== 0100000) {
-				continue;
-			}
-			if ($this->isStale($fileInfo, $maxLifeTime)) {
-				$stalePaths[] = $path;
-			}
-		}
-		closedir($directory);
-		if (empty($stalePaths)) {
-			return;
-		}
-
-		$cleanupLock = @fopen($this->basedir . DIRECTORY_SEPARATOR . '.cleanup.lock', 'c');
-		if ($cleanupLock === false || !flock($cleanupLock, LOCK_EX)) {
-			if (is_resource($cleanupLock)) {
-				fclose($cleanupLock);
-			}
-
-			return;
-		}
-		foreach ($stalePaths as $path) {
-			$fileInfo = @lstat($path);
-			if ($fileInfo === false || ($fileInfo['mode'] & 0170000) !== 0100000 || !$this->isStale($fileInfo, $maxLifeTime)) {
-				continue;
-			}
-
-			$handle = @fopen($path, 'r+');
-			if ($handle === false) {
-				continue;
-			}
-			if (flock($handle, LOCK_EX | LOCK_NB)) {
-				clearstatcache(true, $path);
-				$fileInfo = @stat($path);
-				if ($fileInfo !== false && $this->isStale($fileInfo, $maxLifeTime) && !@unlink($path) && file_exists($path)) {
-					error_log('[STATE ERROR] Stale state file "' . $path . '" could not be removed.');
-				}
-				flock($handle, LOCK_UN);
-			}
-			fclose($handle);
-		}
-		flock($cleanupLock, LOCK_UN);
-		fclose($cleanupLock);
-	}
-
-	/**
-	 * @param array $fileInfo    stat() result of a regular file
-	 * @param int   $maxLifeTime the maximum allowed age of state files in seconds
-	 *
-	 * @return bool
-	 */
-	private function isStale($fileInfo, $maxLifeTime) {
-		$lifeTime = $fileInfo['size'] === 0 ? min($maxLifeTime, self::LOCK_FILE_MAX_LIFETIME) : $maxLifeTime;
-
-		return $fileInfo['atime'] < time() - $lifeTime;
+		StateCleaner::clean($this->basedir, $maxLifeTime);
 	}
 }

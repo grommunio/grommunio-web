@@ -81,10 +81,7 @@ class Properties {
 
 		if ($this->storeMapping !== $storeMapping) {
 			$this->storeMapping = $storeMapping;
-			// Ensure the mapping exists
-			if (!isset($this->mapping[$this->storeMapping])) {
-				$this->mapping[$this->storeMapping] = [];
-			}
+			$this->mapping[$this->storeMapping] ??= [];
 		}
 
 		$this->init = true;
@@ -122,11 +119,7 @@ class Properties {
 			if (!is_array($mappings)) {
 				continue;
 			}
-			if (!isset($this->mapping[$storeMapping])) {
-				$this->mapping[$storeMapping] = $mappings;
-
-				continue;
-			}
+			$this->mapping[$storeMapping] ??= [];
 			if (!is_array($this->mapping[$storeMapping])) {
 				continue;
 			}
@@ -136,11 +129,8 @@ class Properties {
 					$this->mapping[$storeMapping][$name] = $mapping;
 				}
 				elseif (is_array($mapping) && is_array($this->mapping[$storeMapping][$name])) {
-					foreach ($mapping as $property => $tag) {
-						if (!isset($this->mapping[$storeMapping][$name][$property])) {
-							$this->mapping[$storeMapping][$name][$property] = $tag;
-						}
-					}
+					$existing = $this->mapping[$storeMapping][$name];
+					$this->mapping[$storeMapping][$name] = array_replace($existing, array_diff_key($mapping, array_filter($existing, fn ($tag) => $tag !== null)));
 				}
 			}
 		}
@@ -208,12 +198,12 @@ class Properties {
 			return '0';
 		}
 
-		$signature = isset($storeProps[PR_MAPPING_SIGNATURE]) ? bin2hex((string) $storeProps[PR_MAPPING_SIGNATURE]) : '';
+		$signature = bin2hex((string) ($storeProps[PR_MAPPING_SIGNATURE] ?? ''));
 
 		// gromox reports an all-zero PR_MAPPING_SIGNATURE for every store while
 		// allocating named property ids per store, which would make all stores
 		// share one cache entry. Fall back to the store entryid.
-		if ($signature === '' || strspn($signature, '0') === strlen($signature)) {
+		if (strspn($signature, '0') === strlen($signature)) {
 			$signature = isset($storeProps[PR_ENTRYID]) ? bin2hex((string) $storeProps[PR_ENTRYID]) : '0';
 		}
 
@@ -234,14 +224,32 @@ class Properties {
 	}
 
 	/**
+	 * Builds the mapping $key on first use for the current store and caches it.
+	 *
+	 * @param string   $key        mapping name
+	 * @param callable $definition returns the resolved mapping
+	 *
+	 * @return array
+	 */
+	private function resolve($key, $definition) {
+		$this->Init();
+
+		if (!isset($this->mapping[$this->storeMapping][$key])) {
+			// Hooks inside the definition may switch the active store.
+			$mapping = $definition();
+			$this->mapping[$this->storeMapping][$key] = $mapping;
+		}
+
+		return $this->mapping[$this->storeMapping][$key];
+	}
+
+	/**
 	 * Returns the properties for Recipients in a message.
 	 *
 	 * @return array properties for Recipient
 	 */
 	public function getRecipientProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['recipient'])) {
+		return $this->resolve('recipient', function () {
 			$properties = [];
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["search_key"] = PR_SEARCH_KEY;
@@ -263,10 +271,9 @@ class Properties {
 			$properties["proposednewtime_start"] = PR_RECIPIENT_PROPOSEDSTARTTIME;
 			$properties["proposednewtime_end"] = PR_RECIPIENT_PROPOSEDENDTIME;
 			$properties["creation_time"] = PR_CREATION_TIME;
-			$this->mapping[$this->storeMapping]['recipient'] = getPropIdsFromStrings($this->store, $properties);
-		}
 
-		return $this->mapping[$this->storeMapping]['recipient'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -275,9 +282,7 @@ class Properties {
 	 * @return array properties for Out of office settings
 	 */
 	public function getOutOfOfficeProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['oofsettings'])) {
+		return $this->resolve('oofsettings', function () {
 			$properties = [];
 			$properties["set"] = PR_EC_OUTOFOFFICE;
 			$properties["entryid"] = PR_MAILBOX_OWNER_ENTRYID;
@@ -290,19 +295,16 @@ class Properties {
 			$properties["external_audience"] = PR_EC_EXTERNAL_AUDIENCE;
 			$properties["external_reply"] = PR_EC_EXTERNAL_REPLY;
 			$properties["external_subject"] = PR_EC_EXTERNAL_SUBJECT;
-			$this->mapping[$this->storeMapping]['oofsettings'] = getPropIdsFromStrings($this->store, $properties);
-		}
 
-		return $this->mapping[$this->storeMapping]['oofsettings'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
 	 * Returns the properties for a meeting request.
 	 */
 	public function getMeetingrequestProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['meeting'])) {
+		return $this->resolve('meeting', function () {
 			$properties = [];
 			$properties["goid"] = "PT_BINARY:PSETID_Meeting:0x3";
 			$properties["goid2"] = "PT_BINARY:PSETID_Meeting:0x23";
@@ -353,10 +355,8 @@ class Properties {
 			$properties["tzdefend"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionEndDisplay;
 			$properties["tzdefrecur"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionRecur;
 
-			$this->mapping[$this->storeMapping]['meeting'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['meeting'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -365,9 +365,7 @@ class Properties {
 	 * @return array properties for an appointment
 	 */
 	public function getAppointmentProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['appointment'])) {
+		return $this->resolve('appointment', function () {
 			$properties = [];
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["parent_entryid"] = PR_PARENT_ENTRYID;
@@ -451,10 +449,8 @@ class Properties {
 
 			$properties["onlinemeetingurl"] = "PT_STRING8:PS_PUBLIC_STRINGS:OnlineMeetingExternalLink";
 
-			$this->mapping[$this->storeMapping]['appointment'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['appointment'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -489,9 +485,7 @@ class Properties {
 	 * @return array properties for a recurrence
 	 */
 	public function getRecurrenceProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['recurrence'])) {
+		return $this->resolve('recurrence', function () {
 			$properties = [];
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["parent_entryid"] = PR_PARENT_ENTRYID;
@@ -534,10 +528,8 @@ class Properties {
 			$properties["tzdefend"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionEndDisplay;
 			$properties["tzdefrecur"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentTimeZoneDefinitionRecur;
 
-			$this->mapping[$this->storeMapping]['recurrence'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['recurrence'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -546,9 +538,7 @@ class Properties {
 	 * @return array minimal properties for an appointment
 	 */
 	public function getBusyTimeProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['busytime'])) {
+		return $this->resolve('busytime', function () {
 			$properties = [];
 			$properties["startdate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole;
 			$properties["duedate"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole;
@@ -557,10 +547,8 @@ class Properties {
 			$properties["subject"] = PR_SUBJECT;
 			$properties["recurring_data"] = "PT_BINARY:PSETID_Appointment:" . PidLidAppointmentRecur;
 
-			$this->mapping[$this->storeMapping]['busytime'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['busytime'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -569,9 +557,7 @@ class Properties {
 	 * @return array properties for a contact
 	 */
 	public function getContactProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['contact'])) {
+		return $this->resolve('contact', function () {
 			$properties = [];
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["parent_entryid"] = PR_PARENT_ENTRYID;
@@ -705,10 +691,8 @@ class Properties {
 			$properties["birthday_eventid"] = "PT_BINARY:PSETID_Address:0x804D";
 			$properties["anniversary_eventid"] = "PT_BINARY:PSETID_Address:0x804E";
 
-			$this->mapping[$this->storeMapping]['contact'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['contact'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -730,9 +714,7 @@ class Properties {
 	 * @return array properties for a contact
 	 */
 	public function getContactABListProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['abcontact'])) {
+		return $this->resolve('abcontact', function () {
 			$properties = [];
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["parent_entryid"] = PR_PARENT_ENTRYID;
@@ -771,10 +753,8 @@ class Properties {
 			$properties["private"] = "PT_BOOLEAN:PSETID_Common:" . PidLidPrivate;
 			$properties["deleted_on"] = PR_DELETED_ON;
 
-			$this->mapping[$this->storeMapping]['abcontact'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['abcontact'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -783,9 +763,7 @@ class Properties {
 	 * @return array properties for a distribution list
 	 */
 	public function getDistListProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['distlist'])) {
+		return $this->resolve('distlist', function () {
 			$properties = [];
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["parent_entryid"] = PR_PARENT_ENTRYID;
@@ -809,10 +787,8 @@ class Properties {
 			$properties["creation_time"] = PR_CREATION_TIME;
 			$properties["deleted_on"] = PR_DELETED_ON;
 
-			$this->mapping[$this->storeMapping]['distlist'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['distlist'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -821,9 +797,7 @@ class Properties {
 	 * @return array properties for a contact
 	 */
 	public function getAddressBookListProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['addressbook'])) {
+		return $this->resolve('addressbook', function () {
 			$properties = [];
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["smtp_address"] = PR_SMTP_ADDRESS;
@@ -851,10 +825,8 @@ class Properties {
 			$properties["original_display_name"] = PR_ORIGINAL_DISPLAY_NAME;
 			$properties["private"] = "PT_BOOLEAN:PSETID_Common:" . PidLidPrivate;
 
-			$this->mapping[$this->storeMapping]['addressbook'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['addressbook'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -863,9 +835,7 @@ class Properties {
 	 * @return array properties for an AB entry
 	 */
 	public function getAddressBookItemMailuserProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['abmailuser'])) {
+		return $this->resolve('abmailuser', function () {
 			$properties = [];
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["object_type"] = PR_OBJECT_TYPE;
@@ -906,10 +876,8 @@ class Properties {
 				'properties' => &$properties,
 			]);
 
-			$this->mapping[$this->storeMapping]['abmailuser'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['abmailuser'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -918,9 +886,7 @@ class Properties {
 	 * @return array properties for an AB entry
 	 */
 	public function getAddressBookItemDistlistProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['abdistlist'])) {
+		return $this->resolve('abdistlist', function () {
 			$this->Init();
 
 			$properties = [];
@@ -938,10 +904,8 @@ class Properties {
 				'properties' => &$properties,
 			]);
 
-			$this->mapping[$this->storeMapping]['abdistlist'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['abdistlist'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -950,9 +914,7 @@ class Properties {
 	 * @return array properties for an AB entry
 	 */
 	public function getAddressBookItemABObjectProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['abobject'])) {
+		return $this->resolve('abobject', function () {
 			$properties = [];
 			$properties["display_name"] = PR_DISPLAY_NAME;
 			$properties["entryid"] = PR_ENTRYID;
@@ -970,10 +932,8 @@ class Properties {
 				'properties' => &$properties,
 			]);
 
-			$this->mapping[$this->storeMapping]['abobject'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['abobject'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -982,9 +942,7 @@ class Properties {
 	 * @return array properties for an email
 	 */
 	public function getMailProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['mail'])) {
+		return $this->resolve('mail', function () {
 			$properties = [];
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["store_entryid"] = PR_STORE_ENTRYID;
@@ -1097,10 +1055,8 @@ class Properties {
 				'properties' => &$properties,
 			]);
 
-			$this->mapping[$this->storeMapping]['mail'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['mail'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -1152,9 +1108,7 @@ class Properties {
 	 * @return array properties for a sticky note
 	 */
 	public function getStickyNoteProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['note'])) {
+		return $this->resolve('note', function () {
 			$properties = [];
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["object_type"] = PR_OBJECT_TYPE;
@@ -1181,10 +1135,8 @@ class Properties {
 			$properties["note_link_parent_entryid"] = "PT_BINARY:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkParentEntryId";
 			$properties["note_link_subject"] = "PT_STRING8:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkSubject";
 
-			$this->mapping[$this->storeMapping]['note'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['note'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -1208,9 +1160,7 @@ class Properties {
 	 * @return array properties for a task
 	 */
 	public function getTaskProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['task'])) {
+		return $this->resolve('task', function () {
 			$properties = [];
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["parent_entryid"] = PR_PARENT_ENTRYID;
@@ -1291,10 +1241,8 @@ class Properties {
 			$properties["display_cc"] = PR_DISPLAY_CC;
 			$properties["display_to"] = PR_DISPLAY_TO;
 
-			$this->mapping[$this->storeMapping]['task'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['task'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -1370,9 +1318,7 @@ class Properties {
 	 * @return array properties
 	 */
 	public function getFolderProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['folder'])) {
+		return $this->resolve('folder', function () {
 			$properties = [];
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["parent_entryid"] = PR_PARENT_ENTRYID;
@@ -1393,10 +1339,8 @@ class Properties {
 			$properties["rights"] = PR_RIGHTS;
 			$properties["store_support_mask"] = PR_STORE_SUPPORT_MASK;
 
-			$this->mapping[$this->storeMapping]['folder'] = $properties;
-		}
-
-		return $this->mapping[$this->storeMapping]['folder'];
+			return $properties;
+		});
 	}
 
 	/**
@@ -1441,9 +1385,7 @@ class Properties {
 	 * @return array properties
 	 */
 	public function getReminderProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['reminder'])) {
+		return $this->resolve('reminder', function () {
 			$properties = [];
 			$properties["entryid"] = PR_ENTRYID;
 			$properties["parent_entryid"] = PR_PARENT_ENTRYID;
@@ -1475,10 +1417,8 @@ class Properties {
 			$properties["appointment_enddate_recurring"] = "PT_SYSTIME:PSETID_Appointment:" . PidLidClipEnd;
 			$properties["location"] = "PT_STRING8:PSETID_Appointment:" . PidLidLocation;
 
-			$this->mapping[$this->storeMapping]['reminder'] = getPropIdsFromStrings($this->store, $properties);
-		}
-
-		return $this->mapping[$this->storeMapping]['reminder'];
+			return getPropIdsFromStrings($this->store, $properties);
+		});
 	}
 
 	/**
@@ -1487,9 +1427,7 @@ class Properties {
 	 * @return array properties
 	 */
 	public function getRulesProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['rules'])) {
+		return $this->resolve('rules', function () {
 			$properties = [];
 			$properties["rule_id"] = PR_RULE_ID;
 			$properties["rule_name"] = PR_RULE_NAME;
@@ -1505,10 +1443,9 @@ class Properties {
 			$properties["rule_msg_atmost_size_unit"] = PR_RULE_ATMOST_MESSAGE_SIZEUNIT;
 			$properties["rule_exception_atleast_size_unit"] = PR_RULE_EXCEPTION_ATLEAST_MESSAGE_SIZEUNIT;
 			$properties["rule_exception_atmost_size_unit"] = PR_RULE_EXCEPTION_ATMOST_MESSAGE_SIZEUNIT;
-			$this->mapping[$this->storeMapping]['rules'] = $properties;
-		}
 
-		return $this->mapping[$this->storeMapping]['rules'];
+			return $properties;
+		});
 	}
 
 	/**
@@ -1517,9 +1454,7 @@ class Properties {
 	 * @return array properties
 	 */
 	public function getRestoreItemListProperties() {
-		$this->Init();
-
-		if (!isset($this->mapping[$this->storeMapping]['restoreitemlist'])) {
+		return $this->resolve('restoreitemlist', function () {
 			$properties = [];
 			$properties["display_name"] = PR_DISPLAY_NAME;
 			$properties["deleted_on"] = PR_DELETED_ON;
@@ -1537,9 +1472,7 @@ class Properties {
 			$properties["message_flags"] = PR_MESSAGE_FLAGS;
 			$properties["hasattach"] = PR_HASATTACH;
 
-			$this->mapping[$this->storeMapping]['restoreitemlist'] = $properties;
-		}
-
-		return $this->mapping[$this->storeMapping]['restoreitemlist'];
+			return $properties;
+		});
 	}
 }

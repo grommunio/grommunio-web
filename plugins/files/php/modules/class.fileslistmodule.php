@@ -84,16 +84,7 @@ class FilesListModule extends ListModule {
 
 		$this->cache = CacheManager::getInstance('Redis', $config);
 
-		// For backward compatibility we will check if the Encryption store exists. If not,
-		// we will fall back to the old way of retrieving the password from the session.
-		if (class_exists('EncryptionStore')) {
-			// Get the username from the Encryption store
-			$encryptionStore = EncryptionStore::getInstance();
-			$this->uid = $encryptionStore->get('username');
-		}
-		else {
-			$this->uid = $_SESSION["username"];
-		}
+		$this->uid = EncryptionStore::getInstance()->get('username');
 		// As of the V6, the following characters can not longer being a part of the key identifier: {}()/\@:
 		// If you try to do so, an \phpFastCache\Exceptions\phpFastCacheInvalidArgumentException will be raised.
 		// You must replace them with a safe delimiter such as .|-_
@@ -101,6 +92,13 @@ class FilesListModule extends ListModule {
 		$this->uid = str_replace(['{', '}', '(', ')', '/', '\\', '@'], '_', $this->uid);
 
 		FilesLogger::debug(self::LOG_CONTEXT, "[constructor]: executing the module as uid: " . $this->uid);
+	}
+
+	#[Override]
+	public function sendFeedback($success = false, $data = [], $addResponseDataToBus = true) {
+		// earlier actions are already on the bus, adding them again throws
+		$this->responseData = [];
+		parent::sendFeedback($success, $data, $addResponseDataToBus);
 	}
 
 	#[Override]

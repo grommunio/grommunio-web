@@ -42,7 +42,7 @@ namespace Files\Backend\Webdav\sabredav {
 
 namespace OCSAPI {
 	function curl_init() {
-		return new \stdClass();
+		return empty($GLOBALS['ocsTestCurlInitFails']) ? new \stdClass() : false;
 	}
 
 	function curl_setopt($curl, $option, $value) {
@@ -84,6 +84,7 @@ namespace {
 
 	use Files\Backend\Webdav\Backend;
 	use Files\Backend\Webdav\sabredav\FilesWebDavClient;
+	use OCSAPI\Exception\ConnectionException;
 	use OCSAPI\Exception\InvalidResponseException;
 	use OCSAPI\ocsclient;
 	use Sabre\DAV\Exception as DavException;
@@ -137,6 +138,17 @@ namespace {
 	catch (InvalidResponseException $e) {
 		assertBackendResponse($e->getMessage() === 'Invalid response body', 'The recipient response error was not preserved.');
 	}
+
+	$GLOBALS['ocsTestCurlInitFails'] = true;
+
+	try {
+		$ocsClient->getRecipients('user');
+
+		throw new RuntimeException('A failed cURL initialisation was not reported.');
+	}
+	catch (ConnectionException) {
+	}
+	$GLOBALS['ocsTestCurlInitFails'] = false;
 
 	$destination = tempnam(sys_get_temp_dir(), 'webdav-response-test-');
 	if ($destination === false) {

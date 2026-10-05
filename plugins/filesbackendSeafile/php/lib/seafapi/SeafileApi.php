@@ -12,7 +12,6 @@ namespace Datamate\SeafileApi;
 use Datamate\SeafileApi\Exception\ConnectionException;
 use Datamate\SeafileApi\Exception\InvalidArgumentException;
 use Datamate\SeafileApi\Exception\InvalidResponseException;
-use Datamate\SeafileApi\Exception\UnexpectedJsonTextResponseException as JsonDecodeException;
 
 /**
  * Seafile API.
@@ -68,17 +67,16 @@ final class SeafileApi {
 	 *
 	 * @see jsonDecode
 	 */
-	private const JSON_DECODE_ACCEPT_MASK = 31;                         # 1 1111 accept bitmask (five bits with the msb flags)
-	private const JSON_DECODE_ACCEPT_JSON = 16;                         # 1 0000 JSON text
-	private const JSON_DECODE_ACCEPT_DEFAULT = 23;                      # 1 0111 default: string, array or object
-	private const JSON_DECODE_ACCEPT_OBJECT = 17;                       # 1 0001 object
-	private const JSON_DECODE_ACCEPT_ARRAY = 18;                        # 1 0010 array
-	private const JSON_DECODE_ACCEPT_STRING = 20;                       # 1 0100 string
-	private const JSON_DECODE_ACCEPT_ARRAY_OF_OBJECTS = 24;             # 1 1000 array with only objects (incl. none)
-	private const JSON_DECODE_ACCEPT_ARRAY_SINGLE_OBJECT = 25;          # 1 1001 array with one single object, return that item
-	private const JSON_DECODE_ACCEPT_ARRAY_SINGLE_OBJECT_NULLABLE = 26; # 1 1010 array with one single object, return that item, or empty array, return null
-	private const JSON_DECODE_ACCEPT_SUCCESS_STRING = 28;               # 1 1100 string "success"
-	private const JSON_DECODE_ACCEPT_SUCCESS_OBJECT = 29;               # 1 1101 object with single "success" property and value true
+	private const JSON_DECODE_ACCEPT_JSON = JsonResponseDecoder::ACCEPT_JSON;
+	private const JSON_DECODE_ACCEPT_DEFAULT = JsonResponseDecoder::ACCEPT_DEFAULT;
+	private const JSON_DECODE_ACCEPT_OBJECT = JsonResponseDecoder::ACCEPT_OBJECT;
+	private const JSON_DECODE_ACCEPT_ARRAY = JsonResponseDecoder::ACCEPT_ARRAY;
+	private const JSON_DECODE_ACCEPT_STRING = JsonResponseDecoder::ACCEPT_STRING;
+	private const JSON_DECODE_ACCEPT_ARRAY_OF_OBJECTS = JsonResponseDecoder::ACCEPT_ARRAY_OF_OBJECTS;
+	private const JSON_DECODE_ACCEPT_ARRAY_SINGLE_OBJECT = JsonResponseDecoder::ACCEPT_ARRAY_SINGLE_OBJECT;
+	private const JSON_DECODE_ACCEPT_ARRAY_SINGLE_OBJECT_NULLABLE = JsonResponseDecoder::ACCEPT_ARRAY_SINGLE_OBJECT_NULLABLE;
+	private const JSON_DECODE_ACCEPT_SUCCESS_STRING = JsonResponseDecoder::ACCEPT_SUCCESS_STRING;
+	private const JSON_DECODE_ACCEPT_SUCCESS_OBJECT = JsonResponseDecoder::ACCEPT_SUCCESS_OBJECT;
 
 	/**
 	 * @var string ASCII upper-case characters part of a hexit
@@ -1398,87 +1396,7 @@ final class SeafileApi {
 	 * @throws InvalidResponseException
 	 */
 	private function jsonDecode(bool|string $jsonText, int $flags = self::JSON_DECODE_ACCEPT_DEFAULT) {
-		if (!is_string($jsonText)) {
-			throw new InvalidResponseException('Expected an HTTP response body from Seafile.');
-		}
-
-		$accept = $flags & self::JSON_DECODE_ACCEPT_MASK;
-		if ($accept === 0) {
-			return $jsonText;
-		}
-
-		try {
-			$result = json_decode($jsonText, false, 512, JSON_THROW_ON_ERROR);
-		} /* @noinspection PhpMultipleClassDeclarationsInspection */ catch (\JsonException $e) {
-			throw JsonDecodeException::create(sprintf('json decode error of %s', JsonDecodeException::shorten($jsonText)), $jsonText, $e);
-		}
-
-		if ($accept === self::JSON_DECODE_ACCEPT_JSON) {
-			return $result;
-		}
-
-		if ($accept === self::JSON_DECODE_ACCEPT_ARRAY_OF_OBJECTS) {
-			if (is_array($result) && $result === array_filter($result, 'is_object')) {
-				return $result;
-			}
-
-			throw JsonDecodeException::create(sprintf('json decode accept %5d error [%s] of %s', decbin($accept), \gettype($result), JsonDecodeException::shorten($jsonText)), $jsonText);
-		}
-
-		if ($accept === self::JSON_DECODE_ACCEPT_ARRAY_SINGLE_OBJECT_NULLABLE) {
-			if (is_array($result) &&
-				(
-					(\count($result) === 1 && is_object($result[0] ?? null)) ||
-					(\count($result) === 0)
-				)
-			) {
-				return $result[0] ?? null;
-			}
-
-			throw JsonDecodeException::create(sprintf('json decode accept %5d error [%s] of %s', decbin($accept), \gettype($result), JsonDecodeException::shorten($jsonText)), $jsonText);
-		}
-
-		if ($accept === self::JSON_DECODE_ACCEPT_ARRAY_SINGLE_OBJECT) {
-			if (is_array($result) && is_object($result[0] ?? null) && \count($result) === 1) {
-				return $result[0];
-			}
-
-			throw JsonDecodeException::create(sprintf('json decode accept %5d error [%s] of %s', decbin($accept), \gettype($result), JsonDecodeException::shorten($jsonText)), $jsonText);
-		}
-
-		if ($accept === self::JSON_DECODE_ACCEPT_SUCCESS_OBJECT) {
-			if (is_object($result) && (array) $result === ['success' => true]) {
-				return $result;
-			}
-
-			throw JsonDecodeException::create(sprintf('json decode accept %5d error [%s] of %s', decbin($accept), \gettype($result), JsonDecodeException::shorten($jsonText)), $jsonText);
-		}
-
-		if ($accept === self::JSON_DECODE_ACCEPT_SUCCESS_STRING) {
-			if ($result === self::STRING_SUCCESS) {
-				return $result;
-			}
-
-			throw JsonDecodeException::create(sprintf('json decode accept %5d error [%s] of %s', decbin($accept), \gettype($result), JsonDecodeException::shorten($jsonText)), $jsonText);
-		}
-
-		if (!is_string($result) && !is_array($result) && !is_object($result)) {
-			throw JsonDecodeException::create(sprintf('json decode type %s not accepted; of %s', \gettype($result), JsonDecodeException::shorten($jsonText)), $jsonText);
-		}
-
-		if (is_string($result) && (self::JSON_DECODE_ACCEPT_STRING !== ($accept & self::JSON_DECODE_ACCEPT_STRING))) {
-			throw JsonDecodeException::create(sprintf('json decode type %s not accepted; of %s', \gettype($result), JsonDecodeException::shorten($jsonText)), $jsonText);
-		}
-
-		if (is_array($result) && (self::JSON_DECODE_ACCEPT_ARRAY !== ($accept & self::JSON_DECODE_ACCEPT_ARRAY))) {
-			throw JsonDecodeException::create(sprintf('json decode type %s not accepted; of %s', \gettype($result), JsonDecodeException::shorten($jsonText)), $jsonText);
-		}
-
-		if (is_object($result) && (self::JSON_DECODE_ACCEPT_OBJECT !== ($accept & self::JSON_DECODE_ACCEPT_OBJECT))) {
-			throw JsonDecodeException::create(sprintf('json decode type %s not accepted; of %s', \gettype($result), JsonDecodeException::shorten($jsonText)), $jsonText);
-		}
-
-		return $result;
+		return JsonResponseDecoder::decode($jsonText, $flags);
 	}
 
 	/**

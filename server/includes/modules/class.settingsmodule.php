@@ -178,24 +178,14 @@ class SettingsModule extends Module {
 	public function set($settings, $persistent = false, $save = true) {
 		if (isset($settings)) {
 			// we will set the settings but wait with saving until the entire batch has been applied.
-			if (is_array($settings)) {
-				foreach ($settings as $setting) {
-					if (isset($setting['path'], $setting['value'])) {
-						if ((bool) $persistent) {
-							$GLOBALS['settings']->setPersistent($setting['path'], $setting['value']);
-						}
-						else {
-							$GLOBALS['settings']->set($setting['path'], $setting['value']);
-						}
+			foreach (isset($settings['path']) ? [$settings] : (array) $settings as $setting) {
+				if (isset($setting['path'], $setting['value'])) {
+					if ((bool) $persistent) {
+						$GLOBALS['settings']->setPersistent($setting['path'], $setting['value']);
 					}
-				}
-			}
-			elseif (isset($settings['path'], $settings['value'])) {
-				if ((bool) $persistent) {
-					$GLOBALS['settings']->setPersistent($settings['path'], $settings['value']);
-				}
-				else {
-					$GLOBALS['settings']->set($settings['path'], $settings['value']);
+					else {
+						$GLOBALS['settings']->set($setting['path'], $setting['value']);
+					}
 				}
 			}
 

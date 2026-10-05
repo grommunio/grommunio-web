@@ -225,8 +225,7 @@ Grommunio.common.attachment.ui.AttachmentContextMenu = Ext.extend(Grommunio.core
 	 */
 	onDownloadBeforeShow: function(item, records)
 	{
-		// embedded messages can not be downloaded
-		item.setDisabled(this.getPrimaryRecord(records).isEmbeddedMessage());
+		item.setDisabled(this.getPrimaryRecord(records).isUnsavedEmbeddedMessage());
 	},
 
 	/**
@@ -249,9 +248,7 @@ Grommunio.common.attachment.ui.AttachmentContextMenu = Ext.extend(Grommunio.core
 			});
 		}
 
-		// embedded messages can not be downloaded as ZIP
-		// check if there is more than one attachments.
-		item.setDisabled(record.isEmbeddedMessage() || normalAttachmentCounter <= 1);
+		item.setDisabled(record.isUnsavedEmbeddedMessage() || normalAttachmentCounter <= 1);
 	},
 
 	/**

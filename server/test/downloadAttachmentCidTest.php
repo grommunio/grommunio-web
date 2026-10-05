@@ -27,6 +27,10 @@ if (!class_exists('BaseException')) {
 		public function getDisplayMessage() {
 			return $this->displayMessage ?? $this->getMessage();
 		}
+
+		public function setDisplayMessage($message) {
+			$this->displayMessage = $message;
+		}
 	}
 }
 
@@ -151,6 +155,21 @@ $GLOBALS['attachmentOpenResults'] = [];
 $GLOBALS['attachmentObjectResult'] = 'embedded-message';
 if ($download->getAttachmentByAttachNum() !== 'attachment-2') {
 	throw new RuntimeException('A successful nested attachment lookup did not return its final attachment.');
+}
+
+function notFoundDisplayMessage(DownloadBase $download) {
+	ob_start();
+	$download->handleSaveMessageException(new GrommunioException('not found', MAPI_E_NOT_FOUND));
+
+	return json_decode(ob_get_clean(), true)['grommunio']['error']['info']['display_message'] ?? null;
+}
+
+$messageDownload = new class extends DownloadBase {
+	protected function download() {}
+};
+if (notFoundDisplayMessage($messageDownload) !== _('Could not find message, either it has been moved or deleted.') ||
+	notFoundDisplayMessage($download) !== _('Could not find attachment.')) {
+	throw new RuntimeException('A missing item is not reported with the message of its download type.');
 }
 
 class MissingImportAttachmentDownload extends DownloadAttachment {

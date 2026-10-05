@@ -48,8 +48,7 @@ class RestoreItemsListModule extends ListModule {
 								throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
 							}
 							if (isset($action["message_action"])) {
-								if (!is_array($action["message_action"]) || !isset($action["message_action"]["action_type"]) ||
-									!is_string($action["message_action"]["action_type"])) {
+								if (!is_string($action["message_action"]["action_type"] ?? null)) {
 									throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
 								}
 								$subActionType = $action["message_action"]["action_type"];
@@ -70,8 +69,7 @@ class RestoreItemsListModule extends ListModule {
 							break;
 
 						case "delete":
-							if ($parententryid === false || !isset($action["message_action"]["action_type"]) ||
-								!is_string($action["message_action"]["action_type"])) {
+							if ($parententryid === false || !is_string($action["message_action"]["action_type"] ?? null)) {
 								throw new MAPIException(_("Could not process request data properly."), MAPI_E_INVALID_PARAMETER);
 							}
 							$itemType = $action["message_action"]["action_type"];
@@ -125,12 +123,7 @@ class RestoreItemsListModule extends ListModule {
 		// delete all folders.
 		if (isset($action["itemType"]) && $action["itemType"] == "folder") {
 			$table = mapi_folder_gethierarchytable($folder, MAPI_DEFERRED_ERRORS | SHOW_SOFT_DELETES);
-			$items = mapi_table_queryallrows($table, [PR_ENTRYID]);
-			$restoreItems = [];
-			foreach ($items as $item) {
-				array_push($restoreItems, $item[PR_ENTRYID]);
-			}
-
+			$restoreItems = array_column(mapi_table_queryallrows($table, [PR_ENTRYID]), PR_ENTRYID);
 			foreach ($restoreItems as $restoreItem) {
 				mapi_folder_deletefolder($folder, $restoreItem, DEL_FOLDERS | DEL_MESSAGES | DELETE_HARD_DELETE);
 			}
@@ -138,13 +131,7 @@ class RestoreItemsListModule extends ListModule {
 		else {
 			// delete all messages
 			$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS | SHOW_SOFT_DELETES);
-			$items = mapi_table_queryallrows($table, [PR_ENTRYID]);
-
-			$restoreItems = [];
-			foreach ($items as $item) {
-				array_push($restoreItems, $item[PR_ENTRYID]);
-			}
-
+			$restoreItems = array_column(mapi_table_queryallrows($table, [PR_ENTRYID]), PR_ENTRYID);
 			mapi_folder_deletemessages($folder, $restoreItems, DELETE_HARD_DELETE);
 		}
 
@@ -162,11 +149,7 @@ class RestoreItemsListModule extends ListModule {
 	 */
 	public function restoreAllFolders($store, $folder) {
 		$table = mapi_folder_gethierarchytable($folder, MAPI_DEFERRED_ERRORS | SHOW_SOFT_DELETES);
-		$items = mapi_table_queryallrows($table, [PR_ENTRYID]);
-		$restoreItems = [];
-		foreach ($items as $item) {
-			array_push($restoreItems, $item[PR_ENTRYID]);
-		}
+		$restoreItems = array_column(mapi_table_queryallrows($table, [PR_ENTRYID]), PR_ENTRYID);
 
 		foreach ($restoreItems as $restoreItem) {
 			try {
@@ -179,8 +162,8 @@ class RestoreItemsListModule extends ListModule {
 			}
 			catch (MAPIException $e) {
 				if ($e->getCode() == MAPI_E_COLLISION) {
-					$folder = mapi_msgstore_openentry($store, $restoreItem, SHOW_SOFT_DELETES);
-					$folderNameProps = mapi_getprops($folder, [PR_DISPLAY_NAME]);
+					$child = mapi_msgstore_openentry($store, $restoreItem, SHOW_SOFT_DELETES);
+					$folderNameProps = mapi_getprops($child, [PR_DISPLAY_NAME]);
 					$foldername = $GLOBALS["operations"]->checkFolderNameConflict($store, $folder, $folderNameProps[PR_DISPLAY_NAME]);
 					mapi_folder_copyfolder($folder, $restoreItem, $folder, $foldername, FOLDER_MOVE);
 				}
@@ -202,12 +185,7 @@ class RestoreItemsListModule extends ListModule {
 	 */
 	public function restoreAllItems($folder) {
 		$table = mapi_folder_getcontentstable($folder, MAPI_DEFERRED_ERRORS | SHOW_SOFT_DELETES);
-		$items = mapi_table_queryallrows($table, [PR_ENTRYID]);
-
-		$restoreItems = [];
-		foreach ($items as $item) {
-			array_push($restoreItems, $item[PR_ENTRYID]);
-		}
+		$restoreItems = array_column(mapi_table_queryallrows($table, [PR_ENTRYID]), PR_ENTRYID);
 
 		mapi_folder_copymessages($folder, $restoreItems, $folder, MESSAGE_MOVE);
 
@@ -239,12 +217,7 @@ class RestoreItemsListModule extends ListModule {
 		$folder = mapi_msgstore_openentry($store, $folderentryid);
 
 		if (isset($action["itemType"]) && $action["itemType"] == "folder") {
-			try {
-				$this->restoreAllFolders($store, $folder);
-			}
-			catch (MAPIException $e) {
-				throw $e;
-			}
+			$this->restoreAllFolders($store, $folder);
 		}
 		else {
 			$this->restoreAllItems($folder);
@@ -268,12 +241,7 @@ class RestoreItemsListModule extends ListModule {
 		// set the this->$sort variable.
 		$this->parseSortOrder($action);
 
-		if (isset($action['restriction']['limit'])) {
-			$limit = $action['restriction']['limit'];
-		}
-		else {
-			$limit = $GLOBALS['settings']->get('grommunio/v1/main/page_size', 50);
-		}
+		$limit = $action['restriction']['limit'] ?? $GLOBALS['settings']->get('grommunio/v1/main/page_size', 50);
 
 		$getHierarchy = isset($action["itemType"]) && $action["itemType"] == "folder";
 

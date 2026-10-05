@@ -7,6 +7,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
+require_once __DIR__ . '/class.ftsquerybuilder.php';
+
 define('PRIVATE_FID_ROOT', 0x1);
 
 define('PR_FOLDER_ID', 0x67480014);
@@ -365,63 +367,16 @@ class IndexSqlite extends SQLite3 {
 			'message_classes_count' => is_array($message_classes) ? count($message_classes) : null,
 		]);
 
-		$ftsQuery = $this->compileFtsExpression($ftsAst);
-		if ($ftsQuery === null || $ftsQuery === '') {
-			error_log(sprintf("FTS query compilation returned empty expression: ast => %s", $ftsAst));
+		$builder = new FtsQueryBuilder(fn ($message, $context = []) => $this->logDebug($message, $context));
+		$query = $builder->build($descriptor, $whereFolderids);
+		if ($query === null) {
+			error_log(sprintf("FTS query compilation returned empty expression: ast => %s", json_encode($ftsAst)));
 
 			return false;
 		}
-
-		$whereClauses = [];
-		$bindings = [];
-
-		if (!empty($whereFolderids)) {
-			$folderPlaceholders = [];
-			foreach (array_values(array_unique(array_map("intval", $whereFolderids))) as $index => $folderId) {
-				$placeholder = ":folder_id_" . $index;
-				$folderPlaceholders[] = $placeholder;
-				$bindings[] = [$placeholder, $folderId, SQLITE3_INTEGER];
-			}
-			$whereClauses[] = "c.folder_id in (" . implode(", ", $folderPlaceholders) . ")";
-		}
-
-		$whereClauses[] = "messages MATCH :fts_query";
-		$bindings[] = [":fts_query", $ftsQuery, SQLITE3_TEXT];
-
-		// Push filters into SQL so LIMIT applies to already-filtered rows.
-		// PHP-side filtering in filter_content() is kept as a safety net.
-		if ($date_start !== null) {
-			$whereClauses[] = "c.date >= :date_start";
-			$bindings[] = [":date_start", (int) $date_start, SQLITE3_INTEGER];
-		}
-		if ($date_end !== null) {
-			$whereClauses[] = "c.date <= :date_end";
-			$bindings[] = [":date_end", (int) $date_end, SQLITE3_INTEGER];
-		}
-		if ($unread) {
-			$whereClauses[] = "(c.readflag IS NULL OR c.readflag = 0)";
-		}
-		if ($has_attachments) {
-			$whereClauses[] = "c.attach_indexed = 1";
-		}
-		if (is_array($message_classes) && $message_classes !== []) {
-			$classConditions = [];
-			foreach (array_values($message_classes) as $index => $mc) {
-				$placeholder = ":message_class_" . $index;
-				$classConditions[] = "c.message_class LIKE " . $placeholder;
-				$bindings[] = [$placeholder, (string) $mc . "%", SQLITE3_TEXT];
-			}
-			$whereClauses[] = "(" . implode(" OR ", $classConditions) . ")";
-		}
+		[$sql, $bindings, $ftsQuery] = $query;
 
 		$this->count = 0;
-		$bindings[] = [":limit", (int) MAX_FTS_RESULT_ITEMS, SQLITE3_INTEGER];
-		$sql = "SELECT c.message_id, c.entryid, c.folder_id, " .
-			"c.message_class, c.date, c.readflag, c.attach_indexed " .
-			"FROM msg_content c " .
-			"JOIN messages m ON c.message_id = m.rowid " .
-			"WHERE " . implode(" AND ", $whereClauses) .
-			" ORDER BY c.date DESC LIMIT :limit";
 		$this->logDebug('Executing SQLite FTS query', [
 			'sql' => $sql,
 			'bindings' => array_map(static function ($binding) {
@@ -540,124 +495,6 @@ class IndexSqlite extends SQLite3 {
 		]);
 
 		return $entryids;
-	}
-
-	private function compileFtsExpression($ast) {
-		if ($ast === null) {
-			return null;
-		}
-
-		if (isset($ast['type']) && $ast['type'] === 'term') {
-			$fields = $ast['fields'] ?? [];
-			if (empty($fields)) {
-				return null;
-			}
-			$words = $this->quoteWordsArray($ast['value'] ?? '');
-			if (empty($words)) {
-				return null;
-			}
-			$segments = [];
-			foreach ($fields as $field) {
-				$fieldWords = [];
-				foreach ($words as $word) {
-					$fieldWords[] = $field . ':' . $word;
-				}
-				$segments[] = implode(' ', $fieldWords);
-			}
-			if (count($segments) === 1) {
-				return $segments[0];
-			}
-
-			return '(' . implode(' OR ', array_map(function ($s) {
-				return '(' . $s . ')';
-			}, $segments)) . ')';
-		}
-
-		$operator = $ast['op'] ?? null;
-		$children = $ast['children'] ?? [];
-		if ($operator === 'NOT') {
-			$child = $this->compileFtsExpression($children[0] ?? null);
-			if ($child === null) {
-				return null;
-			}
-
-			return 'NOT (' . $child . ')';
-		}
-		if ($operator === 'AND' || $operator === 'OR') {
-			// In FTS5, NOT is a binary infix operator (a NOT b), not a
-			// unary prefix.  When an AND node contains NOT children we
-			// must emit them with the FTS5 NOT operator instead of
-			// producing the invalid "a AND (NOT b)" form.
-			$positiveParts = [];
-			$negativeParts = [];
-			foreach ($children as $child) {
-				if ($operator === 'AND' && isset($child['op']) && $child['op'] === 'NOT') {
-					$compiled = $this->compileFtsExpression($child['children'][0] ?? null);
-					if ($compiled !== null) {
-						$negativeParts[] = $compiled;
-					}
-				}
-				else {
-					$compiled = $this->compileFtsExpression($child);
-					if ($compiled !== null) {
-						$positiveParts[] = $compiled;
-					}
-				}
-			}
-			if (empty($positiveParts) && empty($negativeParts)) {
-				return null;
-			}
-			if (empty($positiveParts)) {
-				// FTS5 NOT requires a left-hand operand
-				return null;
-			}
-			if (count($positiveParts) === 1) {
-				$result = $positiveParts[0];
-			}
-			else {
-				$wrapped = array_map(function ($segment) {
-					return '(' . $segment . ')';
-				}, $positiveParts);
-				$result = implode(' ' . $operator . ' ', $wrapped);
-			}
-			foreach ($negativeParts as $neg) {
-				$result = '(' . $result . ') NOT (' . $neg . ')';
-			}
-
-			return $result;
-		}
-
-		return null;
-	}
-
-	private function quoteWordsArray($search_string) {
-		$words = preg_split('/\s+/', trim($search_string), -1, PREG_SPLIT_NO_EMPTY);
-		// With the trigram tokenizer terms shorter than 3 characters cause a
-		// full table scan instead of an index lookup.  Skip them to avoid
-		// excessive CPU usage.
-		$minLength = (SQLITE_FTS_TOKENIZER === 'trigram') ? 3 : 1;
-		$quoted = [];
-		foreach ($words as $word) {
-			if (mb_strlen($word) < $minLength) {
-				$this->logDebug('Skipping short search term', [
-					'term' => $word,
-					'min_length' => $minLength,
-					'tokenizer' => SQLITE_FTS_TOKENIZER,
-				]);
-
-				continue;
-			}
-			$quoted[] = '"' . SQLite3::escapeString($word) . '"*';
-			if (MAX_FTS_QUERY_TERMS > 0 && count($quoted) >= MAX_FTS_QUERY_TERMS) {
-				$this->logDebug('Search term limit reached', [
-					'limit' => MAX_FTS_QUERY_TERMS,
-					'total_words' => count($words),
-				]);
-				break;
-			}
-		}
-
-		return $quoted;
 	}
 
 	/**

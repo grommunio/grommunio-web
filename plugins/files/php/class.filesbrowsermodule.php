@@ -15,6 +15,7 @@ require_once __DIR__ . "/Files/Backend/class.backendstore.php";
 
 require_once __DIR__ . "/Files/Core/Util/class.arrayutil.php";
 require_once __DIR__ . "/Files/Core/Util/class.logger.php";
+require_once __DIR__ . "/Files/Core/Util/class.mapiexport.php";
 require_once __DIR__ . "/Files/Core/Util/class.stringutil.php";
 require_once __DIR__ . "/Files/Core/Util/class.pathutil.php";
 
@@ -27,6 +28,7 @@ use Files\Core\Account;
 use Files\Core\Exception as AccountException;
 use Files\Core\Util\ArrayUtil;
 use Files\Core\Util\Logger as FilesLogger;
+use Files\Core\Util\MapiExport;
 use Files\Core\Util\PathUtil;
 use Files\Core\Util\StringUtil;
 
@@ -35,6 +37,19 @@ use Files\Core\Util\StringUtil;
  */
 class FilesBrowserModule extends FilesListModule {
 	public const LOG_CONTEXT = "FilesBrowserModule"; // Context for the Logger
+
+	private const ACTION_HANDLERS = [
+		"downloadtotmp" => "downloadSelectedFilesToTmp",
+		"rename" => "rename",
+		"uploadtobackend" => "uploadToBackend",
+		"delete" => "delete",
+		"list" => "loadFiles",
+		"loadsharingdetails" => "getSharingInformation",
+		"createnewshare" => "createNewShare",
+		"updateexistingshare" => "updateExistingShare",
+		"deleteexistingshare" => "deleteExistingShare",
+		"updatecache" => "updateCache",
+	];
 
 	/**
 	 * Creates the notifiers for this module,
@@ -55,161 +70,116 @@ class FilesBrowserModule extends FilesListModule {
 		$result = false;
 
 		foreach ($this->data as $actionType => $actionData) {
-			if (isset($actionType)) {
-				try {
-					switch ($actionType) {
-						case "checkifexists":
-							$records = $actionData["records"];
-							$destination = $actionData["destination"] ?? false;
-							$result = $this->checkIfExists($records, $destination);
-							$response = [];
-							$response['status'] = true;
-							$response['duplicate'] = $result;
-							$this->addActionData($actionType, $response);
-							$GLOBALS["bus"]->addData($this->getResponseData());
-							break;
+			try {
+				if (isset(self::ACTION_HANDLERS[$actionType])) {
+					$result = $this->{self::ACTION_HANDLERS[$actionType]}($actionType, $actionData);
 
-						case "downloadtotmp":
-							$result = $this->downloadSelectedFilesToTmp($actionType, $actionData);
-							break;
-
-						case "createdir":
-							$this->save($actionData);
-							$result = true;
-							break;
-
-						case "rename":
-							$result = $this->rename($actionType, $actionData);
-							break;
-
-						case "uploadtobackend":
-							$result = $this->uploadToBackend($actionType, $actionData);
-							break;
-
-						case "save":
-							if ((isset($actionData["props"]["sharedid"]) || isset($actionData["props"]["isshared"])) && (!isset($actionData["props"]["deleted"]) || !isset($actionData["props"]["message_size"]))) {
-								// JUST IGNORE THIS REQUEST - we don't need to interact with the backend if a share was changed
-								$response['status'] = true;
-								$folder = [];
-								$folder[$actionData['entryid']] = [
-									'props' => $actionData["props"],
-									'entryid' => $actionData['entryid'],
-									'store_entryid' => 'files',
-									'parent_entryid' => $actionData['parent_entryid'],
-								];
-
-								$response['item'] = array_values($folder);
-								$this->addActionData("update", $response);
-								$GLOBALS["bus"]->addData($this->getResponseData());
-
-								break;
-							}
-
-							/*
-							 * The "message_action" object has been set, check the action_type field for
-							 * the exact action which must be taken.
-							 * Supported actions:
-							 *   - move: move record to new folder
-							 */
-							if (isset($actionData["message_action"], $actionData["message_action"]["action_type"])) {
-								switch ($actionData["message_action"]["action_type"]) {
-									case "move" :
-										$result = $this->move($actionType, $actionData);
-										break;
-
-									default:
-										// check if we should create something new or edit an existing file/folder
-										if (isset($actionData["entryid"])) {
-											$result = $this->rename($actionType, $actionData);
-										}
-										else {
-											$result = $this->save($actionData);
-										}
-										break;
-								}
-							}
-							else {
-								// check if we should create something new or edit an existing file/folder
-								if (isset($actionData["entryid"])) {
-									$result = $this->rename($actionType, $actionData);
-								}
-								else {
-									$result = $this->save($actionData);
-								}
-							}
-							break;
-
-						case "delete":
-							$result = $this->delete($actionType, $actionData);
-							break;
-
-						case "list":
-							$result = $this->loadFiles($actionType, $actionData);
-							break;
-
-						case "loadsharingdetails":
-							$result = $this->getSharingInformation($actionType, $actionData);
-							break;
-
-						case "createnewshare":
-							$result = $this->createNewShare($actionType, $actionData);
-							break;
-
-						case "updateexistingshare":
-							$result = $this->updateExistingShare($actionType, $actionData);
-							break;
-
-						case "deleteexistingshare":
-							$result = $this->deleteExistingShare($actionType, $actionData);
-							break;
-
-						case "updatecache":
-							$result = $this->updateCache($actionType, $actionData);
-							break;
-
-						default:
-							$this->handleUnknownActionType($actionType);
-					}
+					continue;
 				}
-				catch (MAPIException $e) {
-					$this->sendFeedback(false, $this->errorDetailsFromException($e));
+
+				switch ($actionType) {
+					case "checkifexists":
+						$records = $actionData["records"];
+						$destination = $actionData["destination"] ?? false;
+						$result = $this->checkIfExists($records, $destination);
+						$response = [];
+						$response['status'] = true;
+						$response['duplicate'] = $result;
+						$this->addActionData($actionType, $response);
+						$GLOBALS["bus"]->addData($this->getResponseData());
+						break;
+
+					case "createdir":
+						$this->save($actionData);
+						$result = true;
+						break;
+
+					case "save":
+						$result = $this->saveRecord($actionType, $actionData) ?? $result;
+						break;
+
+					default:
+						$this->handleUnknownActionType($actionType);
 				}
-				catch (AccountException $e) {
-					$this->sendFeedback(false, [
-						'type' => ERROR_GENERAL,
-						'info' => [
-							'title' => $e->getTitle(),
-							'original_message' => $e->getMessage(),
-							'display_message' => $e->getMessage(),
-						],
-					]);
-				}
-				catch (BackendException $e) {
-					$this->sendFeedback(false, [
-						'type' => ERROR_GENERAL,
-						'info' => [
-							'title' => $e->getTitle(),
-							'original_message' => $e->getMessage(),
-							'display_message' => $e->getMessage(),
-							'code' => $e->getCode(),
-						],
-					]);
-				}
-				catch (Exception $e) {
-					$this->sendFeedback(false, [
-						'type' => ERROR_GENERAL,
-						'info' => [
-							'title' => _('Unknown error'),
-							'original_message' => $e->getMessage(),
-							'display_message' => $e->getMessage(),
-							'code' => $e->getCode(),
-						],
-					]);
-				}
+			}
+			catch (MAPIException $e) {
+				$this->sendFeedback(false, $this->errorDetailsFromException($e));
+			}
+			catch (AccountException $e) {
+				$this->sendFeedback(false, [
+					'type' => ERROR_GENERAL,
+					'info' => [
+						'title' => $e->getTitle(),
+						'original_message' => $e->getMessage(),
+						'display_message' => $e->getMessage(),
+					],
+				]);
+			}
+			catch (BackendException $e) {
+				$this->sendFeedback(false, [
+					'type' => ERROR_GENERAL,
+					'info' => [
+						'title' => $e->getTitle(),
+						'original_message' => $e->getMessage(),
+						'display_message' => $e->getMessage(),
+						'code' => $e->getCode(),
+					],
+				]);
+			}
+			catch (Exception $e) {
+				$this->sendFeedback(false, [
+					'type' => ERROR_GENERAL,
+					'info' => [
+						'title' => _('Unknown error'),
+						'original_message' => $e->getMessage(),
+						'display_message' => $e->getMessage(),
+						'code' => $e->getCode(),
+					],
+				]);
 			}
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Handles the "save" action: move, rename or create a file/folder.
+	 *
+	 * @param string $actionType name of the current action
+	 * @param array  $actionData all parameters contained in this request
+	 *
+	 * @return null|array|bool null when a share change was acknowledged without backend access
+	 *
+	 * @throws BackendException if the backend request fails
+	 */
+	private function saveRecord($actionType, $actionData) {
+		if ((isset($actionData["props"]["sharedid"]) || isset($actionData["props"]["isshared"])) && (!isset($actionData["props"]["deleted"]) || !isset($actionData["props"]["message_size"]))) {
+			// share changes need no backend interaction
+			$response = [];
+			$response['status'] = true;
+			$folder = [];
+			$folder[$actionData['entryid']] = [
+				'props' => $actionData["props"],
+				'entryid' => $actionData['entryid'],
+				'store_entryid' => 'files',
+				'parent_entryid' => $actionData['parent_entryid'],
+			];
+
+			$response['item'] = array_values($folder);
+			$this->addActionData("update", $response);
+			$GLOBALS["bus"]->addData($this->getResponseData());
+
+			return null;
+		}
+
+		if (($actionData["message_action"]["action_type"] ?? null) === "move") {
+			return $this->move($actionType, $actionData);
+		}
+		if (isset($actionData["entryid"])) {
+			return $this->rename($actionType, $actionData);
+		}
+
+		return $this->save($actionData);
 	}
 
 	/**
@@ -328,6 +298,11 @@ class FilesBrowserModule extends FilesListModule {
 			FilesLogger::debug(self::LOG_CONTEXT, "Checking for shared took {$time} s!");
 		}
 
+		$sharedIds = [];
+		foreach ($sharingInfo[$relNodeId] ?? [] as $sid => $sdetails) {
+			$sharedIds[$sdetails["path"]][] = $sid;
+		}
+
 		if ($dir !== []) {
 			$updateCache = false;
 			foreach ($dir as $id => $node) {
@@ -357,16 +332,8 @@ class FilesBrowserModule extends FilesListModule {
 
 				$fileid = $node['fileid'] === "-1" ? -1 : intval($node['fileid']);
 
-				$shared = false;
-				$sharedid = [];
-				if (isset($sharingInfo) && count($sharingInfo[$relNodeId]) > 0) {
-					foreach ($sharingInfo[$relNodeId] as $sid => $sdetails) {
-						if ($sdetails["path"] == rtrim((string) $id, "/")) {
-							$shared = true;
-							$sharedid[] = $sid;
-						}
-					}
-				}
+				$sharedid = $sharedIds[rtrim((string) $id, "/")] ?? [];
+				$shared = $sharedid !== [];
 
 				$nodeId = stringToUTF8Encode($id);
 				$dirName = dirname($nodeId, 1);
@@ -377,7 +344,7 @@ class FilesBrowserModule extends FilesListModule {
 					$path = stringToUTF8Encode($nodeIdPrefix . $dirName . '/');
 				}
 
-				if (!isset($node['entryid']) || !isset($node['parent_entryid']) || !isset($node['store_entryid'])) {
+				if (!isset($node['entryid'], $node['parent_entryid'], $node['store_entryid'])) {
 					$entryid = $this->createId($realID);
 					$parentEntryid = $this->createId($path);
 					$storeEntryid = $this->createId($nodeIdPrefix . '/');
@@ -510,6 +477,7 @@ class FilesBrowserModule extends FilesListModule {
 			// initialize the backend
 			$initializedBackend = $this->initializeBackend($account);
 
+			$result = false;
 			try {
 				$result = $initializedBackend->delete($relNodeId);
 			}
@@ -665,7 +633,7 @@ class FilesBrowserModule extends FilesListModule {
 	 */
 	public function rename($actionType, $actionData) {
 		$messageProps = $this->save($actionData);
-		$notifySubFolders = $actionData['message_action']['isFolder'] ?? true;
+		$notifySubFolders = $actionData['message_action']['isFolder'] ?? str_ends_with((string) ($actionData['message_action']['source_folder_id'] ?? ''), '/');
 		if (!empty($messageProps)) {
 			$GLOBALS["bus"]->notify(REQUEST_ENTRYID, OBJECT_SAVE, $messageProps);
 			if ($notifySubFolders) {
@@ -711,25 +679,18 @@ class FilesBrowserModule extends FilesListModule {
 				// ignore - if file not found -> does not exist :)
 			}
 			if (isset($lsdata) && is_array($lsdata)) {
+				$existing = [];
+				foreach ($lsdata as $argsid => $args) {
+					$existing[basename($argsid) . "\0" . (int) ((string) $args['resourcetype'] === "collection")] ??= $argsid;
+				}
 				foreach ($records as $record) {
 					$relRecId = substr((string) $record["id"], strpos((string) $record["id"], '/'));
 					FilesLogger::debug(self::LOG_CONTEXT, "Checking rec: " . $relRecId);
-					foreach ($lsdata as $argsid => $args) {
-						if (strcmp((string) $args['resourcetype'], "collection") == 0 && $record["isFolder"] && strcmp(basename($argsid), basename($relRecId)) == 0) { // we have a folder
-							FilesLogger::debug(self::LOG_CONTEXT, "Duplicate folder found: " . $argsid);
-							$duplicate = true;
-							break;
-						}
-						if (strcmp((string) $args['resourcetype'], "collection") != 0 && !$record["isFolder"] && strcmp(basename($argsid), basename($relRecId)) == 0) {
-							FilesLogger::debug(self::LOG_CONTEXT, "Duplicate file found: " . $argsid);
-							$duplicate = true;
-							break;
-						}
-						$duplicate = false;
-					}
-
-					if ($duplicate) {
+					$key = basename($relRecId) . "\0" . (int) (bool) $record["isFolder"];
+					if (isset($existing[$key])) {
+						FilesLogger::debug(self::LOG_CONTEXT, ($record["isFolder"] ? "Duplicate folder found: " : "Duplicate file found: ") . $existing[$key]);
 						FilesLogger::debug(self::LOG_CONTEXT, "Duplicate entry: " . $relRecId);
+						$duplicate = true;
 						break;
 					}
 				}
@@ -828,9 +789,15 @@ class FilesBrowserModule extends FilesListModule {
 
 		$result = true;
 
-		if ($actionData["type"] === "attachment") {
+		$export = match ($actionData["type"]) {
+			"attachment" => MapiExport::attachmentToTempFile(...),
+			"mail" => MapiExport::messageToTempFile(...),
+			default => null,
+		};
+
+		if ($export !== null) {
 			foreach ($actionData["items"] as $item) {
-				$prepared = $this->prepareAttachmentForUpload($item);
+				$prepared = $export($item);
 				if ($prepared === false) {
 					$result = false;
 
@@ -843,39 +810,24 @@ class FilesBrowserModule extends FilesListModule {
 
 				FilesLogger::debug(self::LOG_CONTEXT, "Uploading to: " . $filePath . " tmpfile: " . $tmpname);
 
-				$result = $result && $initializedBackend->put_file($filePath, $tmpname);
-				if (!@unlink($tmpname)) {
-					FilesLogger::error(self::LOG_CONTEXT, "Unable to remove temporary file: " . $tmpname);
+				try {
+					$uploaded = $initializedBackend->put_file($filePath, $tmpname);
 				}
-
-				$this->updateDirCache($initializedBackend, $dirName, $filePath, $actionData);
-			}
-		}
-		elseif ($actionData["type"] === "mail") {
-			foreach ($actionData["items"] as $item) {
-				$prepared = $this->prepareEmailForUpload($item);
-				if ($prepared === false) {
+				finally {
+					if (!@unlink($tmpname)) {
+						FilesLogger::error(self::LOG_CONTEXT, "Unable to remove temporary file: " . $tmpname);
+					}
+				}
+				if (!$uploaded) {
 					$result = false;
 
 					continue;
-				}
-				[$tmpname, $filename] = $prepared;
-
-				$dirName = substr((string) $actionData["destdir"], strpos((string) $actionData["destdir"], '/'));
-				$filePath = $dirName . $filename;
-
-				FilesLogger::debug(self::LOG_CONTEXT, "Uploading to: " . $filePath . " tmpfile: " . $tmpname);
-
-				$result = $result && $initializedBackend->put_file($filePath, $tmpname);
-				if (!@unlink($tmpname)) {
-					FilesLogger::error(self::LOG_CONTEXT, "Unable to remove temporary file: " . $tmpname);
 				}
 
 				$this->updateDirCache($initializedBackend, $dirName, $filePath, $actionData);
 			}
 		}
 		else {
-			$result = false;
 			$this->sendFeedback(false, [
 				'type' => ERROR_GENERAL,
 				'info' => [
@@ -884,6 +836,8 @@ class FilesBrowserModule extends FilesListModule {
 					'display_message' => _("Unknown type - cannot save this file to the Files backend!"),
 				],
 			]);
+
+			return false;
 		}
 
 		$response = [];
@@ -915,200 +869,6 @@ class FilesBrowserModule extends FilesListModule {
 		$cacheDir = $this->getCache($accountID, $cachePath);
 		$cacheDir[$filePath] = $dir[$filePath];
 		$this->setCache($accountID, $cachePath, $cacheDir);
-	}
-
-	/**
-	 * This function will prepare an attachment for the upload to the backend.
-	 * It will store the attachment to the TMP folder and return its temporary
-	 * path and filename as array.
-	 *
-	 * @param mixed $item
-	 *
-	 * @return array|false temporary path and filename, or false on error
-	 */
-	private function prepareAttachmentForUpload($item) {
-		// Get store id
-		$storeid = false;
-		if (isset($item["store"])) {
-			$storeid = $item["store"];
-		}
-
-		// Get message entryid
-		$entryid = false;
-		if (isset($item["entryid"])) {
-			$entryid = $item["entryid"];
-		}
-
-		// Get number of attachment which should be opened.
-		$attachNum = false;
-		if (isset($item["attachNum"])) {
-			$attachNum = $item["attachNum"];
-		}
-
-		// Check if storeid and entryid isset
-		if ($storeid && $entryid) {
-			// Open the store
-			$store = $GLOBALS["mapisession"]->openMessageStore(hex2bin((string) $storeid));
-
-			if ($store) {
-				// Open the message
-				$message = mapi_msgstore_openentry($store, hex2bin((string) $entryid));
-
-				if ($message) {
-					$attachment = false;
-
-					// Check if attachNum isset
-					if ($attachNum) {
-						// Loop through the attachNums, message in message in message ...
-						for ($i = 0; $i < (count($attachNum) - 1); ++$i) {
-							// Open the attachment
-							$tempattach = mapi_message_openattach($message, (int) $attachNum[$i]);
-							if ($tempattach) {
-								// Open the object in the attachment
-								$message = mapi_attach_openobj($tempattach);
-							}
-						}
-
-						// Open the attachment
-						$attachment = mapi_message_openattach($message, (int) $attachNum[count($attachNum) - 1]);
-					}
-
-					// Check if the attachment is opened
-					if ($attachment) {
-						// Get the props of the attachment
-						$props = mapi_attach_getprops($attachment, [PR_ATTACH_LONG_FILENAME, PR_ATTACH_FILENAME, PR_DISPLAY_NAME]);
-						// Filename
-						$filename = "ERROR";
-
-						// Set filename
-						if (isset($props[PR_ATTACH_LONG_FILENAME])) {
-							$filename = PathUtil::sanitizeFilename($props[PR_ATTACH_LONG_FILENAME]);
-						}
-						else {
-							if (isset($props[PR_ATTACH_FILENAME])) {
-								$filename = PathUtil::sanitizeFilename($props[PR_ATTACH_FILENAME]);
-							}
-							else {
-								if (isset($props[PR_DISPLAY_NAME])) {
-									$filename = PathUtil::sanitizeFilename($props[PR_DISPLAY_NAME]);
-								}
-							}
-						}
-
-						$tmpname = tempnam(TMP_PATH, stripslashes($filename));
-
-						// Open a stream to get the attachment data
-						$stream = mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0);
-						$stat = mapi_stream_stat($stream);
-						// File length =  $stat["cb"]
-
-						FilesLogger::debug(self::LOG_CONTEXT, "filesize: " . $stat["cb"]);
-
-						$fhandle = fopen($tmpname, 'w');
-						for ($i = 0; $i < $stat["cb"]; $i += BLOCK_SIZE) {
-							// Write stream
-							$buffer = mapi_stream_read($stream, BLOCK_SIZE);
-							if ($buffer === false) {
-								fclose($fhandle);
-								unlink($tmpname);
-								FilesLogger::error(self::LOG_CONTEXT, "attachment stream could not be read");
-
-								return false;
-							}
-							fwrite($fhandle, $buffer, strlen($buffer));
-						}
-						fclose($fhandle);
-
-						FilesLogger::debug(self::LOG_CONTEXT, "temp attachment written to " . $tmpname);
-
-						return [$tmpname, $filename];
-					}
-				}
-			}
-			else {
-				FilesLogger::error(self::LOG_CONTEXT, "store could not be opened");
-			}
-		}
-		else {
-			FilesLogger::error(self::LOG_CONTEXT, "wrong call, store and entryid have to be set");
-		}
-
-		return false;
-	}
-
-	/**
-	 * Store the email as eml to a temporary directory and return its temporary filename.
-	 *
-	 * @param mixed $item
-	 *
-	 * @return array|false temporary path and filename, or false on error
-	 */
-	private function prepareEmailForUpload($item) {
-		// Get store id
-		$storeid = false;
-		if (isset($item["store"])) {
-			$storeid = $item["store"];
-		}
-
-		// Get message entryid
-		$entryid = false;
-		if (isset($item["entryid"])) {
-			$entryid = $item["entryid"];
-		}
-
-		$store = $GLOBALS['mapisession']->openMessageStore(hex2bin($storeid));
-		$message = mapi_msgstore_openentry($store, hex2bin($entryid));
-
-		// Decode smime signed messages on this message
-		parse_smime($store, $message);
-
-		if ($message && $store) {
-			// get message properties.
-			$messageProps = mapi_getprops($message, [PR_SUBJECT, PR_MESSAGE_CLASS]);
-			$cls = $messageProps[PR_MESSAGE_CLASS];
-			$isSupportedMessage = class_match_prefix($cls, "IPM.Note") ||
-								  class_match_prefix($cls, "Report.IPM.Note") ||
-								  class_match_prefix($cls, "IPM.Schedule");
-
-			if ($isSupportedMessage) {
-				// Get addressbook for current session
-				$addrBook = $GLOBALS['mapisession']->getAddressbook();
-
-				// Read the message as RFC822-formatted e-mail stream.
-				$stream = mapi_inetmapi_imtoinet($GLOBALS['mapisession']->getSession(), $addrBook, $message, []);
-
-				if (!empty($messageProps[PR_SUBJECT])) {
-					$filename = PathUtil::sanitizeFilename($messageProps[PR_SUBJECT]) . '.eml';
-				}
-				else {
-					$filename = _('Untitled') . '.eml';
-				}
-
-				$tmpname = tempnam(TMP_PATH, "email2filez");
-
-				// Set the file length
-				$stat = mapi_stream_stat($stream);
-
-				$fhandle = fopen($tmpname, 'w');
-				for ($i = 0; $i < $stat["cb"]; $i += BLOCK_SIZE) {
-					// Write stream
-					$buffer = mapi_stream_read($stream, BLOCK_SIZE);
-					if ($buffer === false) {
-						fclose($fhandle);
-						unlink($tmpname);
-						FilesLogger::error(self::LOG_CONTEXT, "message stream could not be read");
-
-						return false;
-					}
-					fwrite($fhandle, $buffer, strlen($buffer));
-				}
-				fclose($fhandle);
-
-				return [$tmpname, $filename];
-			}
-		}
-
-		return false;
 	}
 
 	/**

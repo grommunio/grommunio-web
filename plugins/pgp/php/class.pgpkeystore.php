@@ -210,7 +210,8 @@ class PgpKeyStore {
 		$table = mapi_folder_getcontentstable($this->root, MAPI_ASSOCIATED);
 		if (!$table) { throw new RuntimeException('Your mailbox does not support associated OpenPGP key storage.'); }
 		$restriction = [RES_PROPERTY, [RELOP => RELOP_EQ, ULPROPTAG => PR_MESSAGE_CLASS, VALUE => [PR_MESSAGE_CLASS => $class]]];
-		$rows = mapi_table_queryallrows($table, [PR_ENTRYID, PR_MESSAGE_CLASS, $this->tags['fingerprint'], $this->tags['revision']], $restriction);
+		mapi_table_restrict($table, $restriction, TBL_BATCH);
+		$rows = mapi_table_queryallrows($table, [PR_ENTRYID, PR_MESSAGE_CLASS, $this->tags['fingerprint'], $this->tags['revision']]);
 		if (!is_array($rows) || count($rows) > self::MAX_KEYS) { throw new RuntimeException('Cannot safely enumerate mailbox OpenPGP records.'); }
 		foreach ($rows as $row) {
 			if (($row[PR_MESSAGE_CLASS] ?? null) !== $class || !is_string($row[PR_ENTRYID] ?? null) || $row[PR_ENTRYID] === '') {
