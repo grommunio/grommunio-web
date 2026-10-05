@@ -573,6 +573,12 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 			$this->log("[MOVE] done in {$time} seconds: " . $response['statusCode']);
+			if ($response['statusCode'] >= 400) {
+				$e = new BackendException($this->parseErrorCodeToMessage($response['statusCode']), $response['statusCode']);
+				$e->setTitle($this->backendTransName . _('Moving failed'));
+
+				throw $e;
+			}
 
 			return true;
 		}

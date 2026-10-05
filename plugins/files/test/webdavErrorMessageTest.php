@@ -49,4 +49,27 @@ foreach ($expected as $code => $message) {
 	}
 }
 
+// a rejected MOVE must not be reported as done
+$backend->sabre_client = new class {
+	public $status = 404;
+
+	public function request($method, $url, $body, $headers) {
+		return ['statusCode' => $this->status];
+	}
+};
+try {
+	$backend->move('/missing.txt', '/q.txt');
+
+	throw new RuntimeException('MOVE answered 404 but no exception was thrown.');
+}
+catch (Files\Backend\Exception $e) {
+	if ($e->getCode() !== 404) {
+		throw new RuntimeException('MOVE failure carries code ' . $e->getCode());
+	}
+}
+$backend->sabre_client->status = 201;
+if ($backend->move('/a.txt', '/b.txt') !== true) {
+	throw new RuntimeException('MOVE with 201 failed.');
+}
+
 echo "webdavErrorMessageTest: OK\n";
