@@ -30,7 +30,6 @@ use Files\Backend\Exception as BackendException;
 use Files\Backend\iFeatureRecipientSearch;
 use Files\Backend\iFeatureVersionInfo;
 use Files\Backend\Seafile\Model\Config;
-use Files\Backend\Seafile\Model\ConfigUtil;
 use Files\Backend\Seafile\Model\SsoBackend;
 use Files\Backend\Seafile\Model\Timer;
 use Files\Core\Util\Logger;
@@ -568,42 +567,9 @@ final class Backend extends AbstractBackend implements iFeatureVersionInfo, iFea
 		$config = $backend_config;
 
 		if (!empty($config["use_grommunio_credentials"])) {
-			// For backward compatibility we will check if the Encryption store exists. If not,
-			// we will fall back to the old way of retrieving the password from the session.
-			if (class_exists('EncryptionStore')) {
-				// Get the username and password from the Encryption store
-				$encryptionStore = \EncryptionStore::getInstance();
-				$config['user'] = $encryptionStore->get('username');
-				$config['password'] = $encryptionStore->get('password');
-			}
-			else {
-				$config['user'] = ConfigUtil::loadSmtpAddress();
-				$password = $_SESSION['password'];
-				// Prefer plugin-specific KEY/IV if defined, then legacy names; otherwise, fall back
-				$key = null;
-				$iv = null;
-				if (\defined('FILES_PASSWORD_KEY')) {
-					$key = \constant('FILES_PASSWORD_KEY');
-				}
-				elseif (\defined('PASSWORD_KEY')) {
-					$key = \constant('PASSWORD_KEY');
-				}
-				if (\defined('FILES_PASSWORD_IV')) {
-					$iv = \constant('FILES_PASSWORD_IV');
-				}
-				elseif (\defined('PASSWORD_IV')) {
-					$iv = \constant('PASSWORD_IV');
-				}
-
-				if (\function_exists('openssl_decrypt') && is_string($key) && is_string($iv) && $key !== '' && $iv !== '') {
-					$dec = \openssl_decrypt($password, 'des-ede3-cbc', $key, 0, $iv);
-					$config['password'] = ($dec !== false) ? $dec : $password;
-				}
-				else {
-					// If no KEY/IV configured, assume plaintext session password
-					$config['password'] = $password;
-				}
-			}
+			$encryptionStore = \EncryptionStore::getInstance();
+			$config['user'] = $encryptionStore->get('username');
+			$config['password'] = $encryptionStore->get('password');
 		}
 
 		$this->config->importConfigArray($config);
