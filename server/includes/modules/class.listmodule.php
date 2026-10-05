@@ -846,8 +846,11 @@ class ListModule extends Module {
 	 */
 	public function sendSearchErrorToClient($store, $entryid, $action, $errorInfo) {
 		if ($errorInfo !== []) {
-			$exception = new SearchException($errorInfo["original_error_message"] ?? $errorInfo['error_message'], mapi_last_hresult());
-			$exception->setDisplayMessage($errorInfo['error_message']);
+			$hresult = mapi_last_hresult();
+			$exception = new SearchException($errorInfo["original_error_message"] ?? $errorInfo['error_message'], $hresult, null, $errorInfo['error_message']);
+			if ($hresult != NOERROR) {
+				$exception->setDisplayMessage($errorInfo['error_message']);
+			}
 
 			throw $exception;
 		}
