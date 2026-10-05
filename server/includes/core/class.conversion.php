@@ -274,18 +274,20 @@ class Conversion {
 	 * @return string the symbolic name or original string value
 	 */
 	public static function property2json($property) {
-		if (is_integer($property)) {
+		static $names = [];
+		if (!is_integer($property)) {
+			return $property;
+		}
+		if (empty($names)) {
 			// Retrieve constants categories, zcore provides them in 'Core'
 			foreach (get_defined_constants(true)['Core'] as $key => $value) {
-				if ($property == $value && str_starts_with($key, 'PR_')) {
-					return $key;
+				if (is_int($value) && str_starts_with($key, 'PR_')) {
+					$names[$value] ??= $key;
 				}
 			}
-
-			return sprintf("0x%08X", $property);
 		}
 
-		return $property;
+		return $names[$property] ?? sprintf("0x%08X", $property);
 	}
 
 	/**
