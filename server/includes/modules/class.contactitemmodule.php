@@ -305,7 +305,7 @@ class ContactItemModule extends ItemModule {
 		 */
 		foreach (['business_address', 'home_address', 'other_address'] as $address) {
 			if (isset($action['props'][$address])) {
-				$action['props'][$address] = str_replace('\n', '\r\n', $action['props'][$address]);
+				$action['props'][$address] = preg_replace('/\r?\n/', "\r\n", (string) $action['props'][$address]);
 			}
 		}
 
