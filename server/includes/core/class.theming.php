@@ -21,6 +21,11 @@ define('THEME_PATH_' . LOAD_RELEASE, 'client/themes');
  */
 class Theming {
 	/**
+	 * Built-in color themes that live in grommunio.css and have no directory.
+	 */
+	private const UNIFIED_THEMES = ['purple', 'orange', 'lime', 'magenta', 'highcontrast', 'blue', 'teal', 'indigo', 'red', 'green', 'amber', 'brown', 'cyan'];
+
+	/**
 	 * A hash that is used to cache if a theme is a json theme.
 	 *
 	 * @var array<string, bool>
@@ -82,9 +87,6 @@ class Theming {
 		$theme = false;
 		$themePath = BASE_PATH . constant('THEME_PATH_' . DEBUG_LOADER);
 
-		// List of unified themes that don't require separate directories
-		$unifiedThemes = ['purple', 'orange', 'lime', 'magenta', 'highcontrast', 'blue', 'teal', 'indigo', 'red', 'green', 'amber', 'brown', 'cyan'];
-
 		// First check if a theme was set by this user in his settings
 		if (WebAppAuthentication::isAuthenticated()) {
 			if (ENABLE_THEMES === false) {
@@ -110,8 +112,8 @@ class Theming {
 			// Remember that 'basic' is not a real theme, but the name for the default look of grommunio Web
 			// Unified themes don't require directories, so we skip the directory check for them
 			if (
-				isset($theme) && !empty($theme) && $theme !== 'basic' &&
-				!in_array($theme, $unifiedThemes) &&
+				!empty($theme) && $theme !== 'basic' &&
+				!in_array($theme, self::UNIFIED_THEMES) &&
 				!is_dir($themePath . '/' . $theme) &&
 				!is_dir(BASE_PATH . PATH_PLUGIN_DIR . '/' . $theme)
 			) {
@@ -123,7 +125,7 @@ class Theming {
 		// was defined by the admin.
 		if (!$theme && defined('THEME') && THEME) {
 			// Check if it's a unified theme or if the directory exists
-			if (in_array(THEME, $unifiedThemes)) {
+			if (in_array(THEME, self::UNIFIED_THEMES)) {
 				$theme = THEME;
 			}
 			else {
@@ -249,10 +251,7 @@ class Theming {
 		$themePathCoreThemes = BASE_PATH . constant('THEME_PATH_' . DEBUG_LOADER);
 		$cssFiles = [];
 
-		// Unified themes (purple, orange, lime, magenta, highcontrast, blue, teal, indigo, red, green, amber, brown, cyan) are now in grommunio.css
-		// Only the dark theme still loads its own CSS file
-		$unifiedThemes = ['purple', 'orange', 'lime', 'magenta', 'highcontrast', 'blue', 'teal', 'indigo', 'red', 'green', 'amber', 'brown', 'cyan'];
-		if (in_array($theme, $unifiedThemes)) {
+		if (in_array($theme, self::UNIFIED_THEMES)) {
 			return [];
 		}
 
