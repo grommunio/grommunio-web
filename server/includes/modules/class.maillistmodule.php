@@ -26,6 +26,9 @@ class MailListModule extends ListModule {
 
 	private $currentActionData;
 
+	// The server drops a contents table together with its folder handle.
+	private $sentItemsFolder;
+
 	/**
 	 * Constructor.
 	 *
@@ -234,9 +237,9 @@ class MailListModule extends ListModule {
 		}
 
 		try {
-			$sentFolder = mapi_msgstore_openentry($store, $msgstoreProps[PR_IPM_SENTMAIL_ENTRYID]);
+			$this->sentItemsFolder = mapi_msgstore_openentry($store, $msgstoreProps[PR_IPM_SENTMAIL_ENTRYID]);
 
-			return mapi_folder_getcontentstable($sentFolder, MAPI_DEFERRED_ERRORS);
+			return mapi_folder_getcontentstable($this->sentItemsFolder, MAPI_DEFERRED_ERRORS);
 		}
 		catch (MAPIException $e) {
 			$e->setHandled();
