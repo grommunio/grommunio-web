@@ -140,6 +140,7 @@ Grommunio.plugins.ai.ui.AIAssistantWindow = Ext.extend(Ext.Window, {
 		if (!this.isVisible()) {
 			this.show();
 		}
+		this.fitButtons();
 		if (!this.positioned) {
 			this.center();
 			this.positioned = true;
@@ -148,6 +149,43 @@ Grommunio.plugins.ai.ui.AIAssistantWindow = Ext.extend(Ext.Window, {
 
 		if (Ext.isFunction(this.runner)) {
 			this.runner(this.aiPanel, this);
+		}
+	},
+
+	/**
+	 * Widen the window when the visible footer buttons need more room than
+	 * it has, as with the longer German labels, so that none is cut off.
+	 * The width needed also becomes the resize minimum. Capped to the
+	 * viewport.
+	 * @private
+	 */
+	fitButtons: function()
+	{
+		var footer = this.fbar && this.fbar.el;
+		var left = footer && footer.dom.querySelector('.x-toolbar-left-row');
+		var right = footer && footer.dom.querySelector('.x-toolbar-right-row');
+		if (!left || !right) {
+			return;
+		}
+
+		// The natural width of both button groups, some room between
+		// them, and what the window frame and toolbar padding take
+		var buttons = left.closest('table').offsetWidth + right.closest('table').offsetWidth + 16;
+		var needed = buttons + this.getWidth() - footer.dom.clientWidth;
+		var maxWidth = Ext.lib.Dom.getViewWidth() - 16;
+		needed = Math.min(Math.max(needed, this.initialConfig.minWidth || 0), maxWidth);
+
+		this.minWidth = needed;
+		if (this.resizer) {
+			this.resizer.minWidth = needed;
+		}
+		if (this.getWidth() < needed) {
+			this.setWidth(needed);
+			// Keep the grown window on screen
+			var x = this.getPosition()[0];
+			if (x + needed > maxWidth) {
+				this.setPosition(Math.max(8, maxWidth - needed), this.getPosition()[1]);
+			}
 		}
 	},
 

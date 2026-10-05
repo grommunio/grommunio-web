@@ -67,6 +67,13 @@ body.dark-mode .k-ai-window .x-btn button.x-btn-text {
 	color: #e6e6e6 !important;
 }
 
+/* The core dark mode pre-darkens the label of every text-icon button and
+   lights it with an invert, but only for the icons it lists. The pencil of
+   "Replace draft" is not among them, so invert it here like Copy. */
+body.dark-mode .k-ai-window .x-btn button.x-btn-text.icon_pencil {
+	filter: invert(0.88);
+}
+
 /* ----------------------------------------------------------------------- *
  * Body / streamed content
  * ----------------------------------------------------------------------- */
