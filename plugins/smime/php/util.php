@@ -76,7 +76,7 @@ function getMAPICert($store, $type = 'WebApp.Security.Private', $emailAddress = 
 	mapi_table_restrict($table, $restrict, TBL_BATCH);
 	mapi_table_sort($table, [PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND], TBL_BATCH);
 
-	return mapi_table_queryallrows($table, [PR_ENTRYID, PR_SUBJECT, PR_SUBJECT_PREFIX, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME], $restrict);
+	return mapi_table_queryallrows($table, [PR_ENTRYID, PR_SUBJECT, PR_SUBJECT_PREFIX, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME]);
 }
 
 /**

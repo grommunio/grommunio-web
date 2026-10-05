@@ -1416,7 +1416,7 @@ class Pluginsmime extends Plugin {
 		mapi_table_restrict($table, $restrict, TBL_BATCH);
 		mapi_table_sort($table, [PR_MESSAGE_DELIVERY_TIME => TABLE_SORT_DESCEND], TBL_BATCH);
 
-		$rows = mapi_table_queryallrows($table, [PR_SUBJECT, PR_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME], $restrict);
+		$rows = mapi_table_queryallrows($table, [PR_SUBJECT, PR_ENTRYID, PR_MESSAGE_DELIVERY_TIME, PR_CLIENT_SUBMIT_TIME]);
 
 		return !empty($rows);
 	}
