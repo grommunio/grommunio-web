@@ -48,6 +48,7 @@ Grommunio.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Grommunio.settings
 					{xtype: 'splitbutton', text: _('Export public key'), cls: 'pgp-settings-button', itemId: 'export', disabled: true, handler: this.exportPublic, scope: this,
 						menu: {items: [{text: _('Back up private key'), secretOnly: true, handler: this.exportPrivate, scope: this}],
 							listeners: {beforeshow: this.updateKeyMenu, scope: this}}},
+					{text: _('Refresh from keyserver'), cls: 'pgp-settings-button', itemId: 'refreshkey', disabled: true, handler: this.refreshKey, scope: this},
 					{text: _('Private key'), cls: 'pgp-settings-button', itemId: 'private', disabled: true, menu: {items: [
 						{text: _('Unlock in this browser'), handler: this.unlockKey, scope: this},
 						{text: _('Change passphrase'), handler: this.changePassphrase, scope: this}]}},
@@ -125,7 +126,7 @@ Grommunio.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Grommunio.settings
 	{
 		if (!this.keyGrid || !this.keyGrid.rendered) { return; }
 		var key = this.keyGrid.getSelectionModel().getSelected(), toolbar = this.keyGrid.getBottomToolbar();
-		Ext.each(['verify', 'export', 'delete'], function(id) { toolbar.getComponent(id).setDisabled(!key); });
+		Ext.each(['verify', 'export', 'refreshkey', 'delete'], function(id) { toolbar.getComponent(id).setDisabled(!key); });
 		toolbar.getComponent('private').setDisabled(!key || !key.get('secret'));
 	},
 	updateKeyMenu: function(menu)
@@ -329,6 +330,19 @@ Grommunio.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Grommunio.settings
 			widget.complete(Grommunio.plugins.pgp.PgpUtils.api('keyservers', {servers: servers}), done, _('Keyservers updated.'));
 		}, _('Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically.') +
 			(this.allowedKeyservers.length ? ' ' + String.format(_('Approved servers: {0}'), this.allowedKeyservers.join(', ')) : ''));
+	},
+	refreshKey: function()
+	{
+		var key = this.selectedKey(false), utils = Grommunio.plugins.pgp.PgpUtils;
+		if (!key) { return; }
+		if (!this.keyservers.length) {
+			this.manageKeyservers();
+			return;
+		}
+		this.feedback(_('Searching your keyservers…'));
+		this.complete(utils.findPublicKey([key.fingerprint]).then(function(found) {
+			return utils.importKey(found);
+		}), null, _('Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply.'));
 	},
 	lookupKey: function()
 	{

@@ -217,7 +217,7 @@ test('key settings use consistent button styling and a fit-width keyserver actio
 	const top = grid.tbar.filter(item => typeof item === 'object');
 	const bottom = grid.bbar.filter(item => typeof item === 'object');
 	assert.equal(top.length, 4);
-	assert.equal(bottom.length, 5);
+	assert.equal(bottom.length, 6);
 	for (const button of [...top, ...bottom]) {
 		assert.equal(button.cls, 'pgp-settings-button', button.text);
 	}
@@ -238,7 +238,7 @@ test('key actions stay disabled until a suitable key is selected', () => {
 	const actions = Object.fromEntries(grid.bbar.filter(item => item.itemId).map(item => [item.itemId, {
 		...item, setDisabled(value) { this.disabled = value; }
 	}]));
-	assert.deepEqual(Object.keys(actions), ['verify', 'export', 'private', 'delete']);
+	assert.deepEqual(Object.keys(actions), ['verify', 'export', 'refreshkey', 'private', 'delete']);
 	for (const action of Object.values(actions)) { assert.equal(action.disabled, true); }
 	let selected = null;
 	widget.keyGrid = {rendered: true, getSelectionModel: () => ({getSelected: () => selected}),
@@ -247,7 +247,7 @@ test('key actions stay disabled until a suitable key is selected', () => {
 	for (const action of Object.values(actions)) { assert.equal(action.disabled, true); }
 	selected = record({secret: false});
 	widget.onSelectionChange();
-	for (const id of ['verify', 'export', 'delete']) { assert.equal(actions[id].disabled, false); }
+	for (const id of ['verify', 'export', 'refreshkey', 'delete']) { assert.equal(actions[id].disabled, false); }
 	assert.equal(actions.private.disabled, true);
 	selected = record({secret: true});
 	widget.onSelectionChange();
