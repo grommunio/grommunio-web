@@ -231,72 +231,70 @@ class PluginMDMModule extends Module {
 	#[Override]
 	public function execute() {
 		foreach ($this->data as $actionType => $actionData) {
-			if (isset($actionType)) {
-				try {
-					switch ($actionType) {
-						case 'wipe':
-							$this->addActionData('wipe', [
-								'type' => 3,
-								'wipe' => $this->wipeDevice($actionData['deviceid'], $actionData['password'] ?? '', $actionData['wipetype']),
-							]);
-							$GLOBALS['bus']->addData($this->getResponseData());
-							break;
+			try {
+				switch ($actionType) {
+					case 'wipe':
+						$this->addActionData('wipe', [
+							'type' => 3,
+							'wipe' => $this->wipeDevice($actionData['deviceid'], $actionData['password'] ?? '', $actionData['wipetype']),
+						]);
+						$GLOBALS['bus']->addData($this->getResponseData());
+						break;
 
-						case 'resync':
-							$this->addActionData('resync', [
-								'type' => 3,
-								'resync' => $this->resyncDevice($actionData['deviceid']),
-							]);
-							$GLOBALS['bus']->addData($this->getResponseData());
-							break;
+					case 'resync':
+						$this->addActionData('resync', [
+							'type' => 3,
+							'resync' => $this->resyncDevice($actionData['deviceid']),
+						]);
+						$GLOBALS['bus']->addData($this->getResponseData());
+						break;
 
-						case 'remove':
-							$this->addActionData('remove', [
-								'type' => 3,
-								'remove' => $this->removeDevice($actionData['deviceid'], $actionData['password'] ?? ''),
-							]);
-							$GLOBALS['bus']->addData($this->getResponseData());
-							break;
+					case 'remove':
+						$this->addActionData('remove', [
+							'type' => 3,
+							'remove' => $this->removeDevice($actionData['deviceid'], $actionData['password'] ?? ''),
+						]);
+						$GLOBALS['bus']->addData($this->getResponseData());
+						break;
 
-						case 'list':
-							$items = [];
-							$data['page'] = [];
+					case 'list':
+						$items = [];
+						$data['page'] = [];
 
-							foreach ($this->devices as $device) {
-								array_push($items, ['props' => $this->getDeviceProps($device)]);
-							}
-							$data['page']['start'] = 0;
-							$data['page']['rowcount'] = count($this->devices);
-							$data['page']['totalrowcount'] = $data['page']['rowcount'];
-							$data = array_merge($data, ['item' => $items]);
-							$this->addActionData('list', $data);
-							$GLOBALS['bus']->addData($this->getResponseData());
-							break;
+						foreach ($this->devices as $device) {
+							array_push($items, ['props' => $this->getDeviceProps($device)]);
+						}
+						$data['page']['start'] = 0;
+						$data['page']['rowcount'] = count($this->devices);
+						$data['page']['totalrowcount'] = $data['page']['rowcount'];
+						$data = array_merge($data, ['item' => $items]);
+						$this->addActionData('list', $data);
+						$GLOBALS['bus']->addData($this->getResponseData());
+						break;
 
-						case 'open':
-							$device = $this->getDeviceDetails($actionData["entryid"]);
-							$item = ["item" => $device];
-							$this->addActionData('item', $item);
-							$GLOBALS['bus']->addData($this->getResponseData());
-							break;
+					case 'open':
+						$device = $this->getDeviceDetails($actionData["entryid"]);
+						$item = ["item" => $device];
+						$this->addActionData('item', $item);
+						$GLOBALS['bus']->addData($this->getResponseData());
+						break;
 
-						case 'save':
-							$this->saveDevice($actionData);
-							$device = $this->getDeviceDetails($actionData["entryid"]);
-							$item = ["item" => $device];
-							$this->addActionData('update', $item);
-							$GLOBALS['bus']->addData($this->getResponseData());
-							break;
+					case 'save':
+						$this->saveDevice($actionData);
+						$device = $this->getDeviceDetails($actionData["entryid"]);
+						$item = ["item" => $device];
+						$this->addActionData('update', $item);
+						$GLOBALS['bus']->addData($this->getResponseData());
+						break;
 
-						default:
-							$this->handleUnknownActionType($actionType);
-					}
+					default:
+						$this->handleUnknownActionType($actionType);
 				}
-				catch (Exception $e) {
-					$title = _('Mobile device management plugin');
-					$display_message = sprintf(_('Unexpected error occurred. Please contact your system administrator. Error code: %s'), $e->getMessage());
-					$this->sendFeedback(false, ["type" => ERROR_GENERAL, "info" => ['title' => $title, 'display_message' => $display_message]]);
-				}
+			}
+			catch (Exception $e) {
+				$title = _('Mobile device management plugin');
+				$display_message = sprintf(_('Unexpected error occurred. Please contact your system administrator. Error code: %s'), $e->getMessage());
+				$this->sendFeedback(false, ["type" => ERROR_GENERAL, "info" => ['title' => $title, 'display_message' => $display_message]]);
 			}
 		}
 	}
