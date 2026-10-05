@@ -258,12 +258,9 @@ class PluginMDMModule extends Module {
 						break;
 
 					case 'list':
-						$items = [];
+						$items = array_values(array_map(fn ($device) => ['props' => $this->getDeviceProps($device)], $this->devices));
 						$data['page'] = [];
 
-						foreach ($this->devices as $device) {
-							array_push($items, ['props' => $this->getDeviceProps($device)]);
-						}
 						$data['page']['start'] = 0;
 						$data['page']['rowcount'] = count($this->devices);
 						$data['page']['totalrowcount'] = $data['page']['rowcount'];
@@ -340,12 +337,7 @@ class PluginMDMModule extends Module {
 				$type = $folderdata->{self::FOLDERTYPE};
 
 				$folderType = $this->getSyncFolderType($type);
-				if (isset($synchedFolderTypes[$folderType])) {
-					++$synchedFolderTypes[$folderType];
-				}
-				else {
-					$synchedFolderTypes[$folderType] = 1;
-				}
+				$synchedFolderTypes[$folderType] = ($synchedFolderTypes[$folderType] ?? 0) + 1;
 			}
 		}
 		$syncFoldersProps = [];
