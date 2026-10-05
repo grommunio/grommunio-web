@@ -559,6 +559,19 @@ function parse_smime__join_xph(&$prop, $msg) {
 }
 
 /**
+ * Keep the outer PR_SUBJECT in $prop only when the unwrapped message has none.
+ *
+ * @param array    $prop properties about to be set on $msg
+ * @param resource $msg  unwrapped message
+ */
+function parse_smime__keep_subject(&$prop, $msg) {
+	$inner = mapi_getprops($msg, [PR_SUBJECT]);
+	if (isset($inner[PR_SUBJECT]) || !isset($prop[PR_SUBJECT])) {
+		unset($prop[PR_SUBJECT]);
+	}
+}
+
+/**
  * Function will be used to decode smime messages and convert it to normal messages.
  *
  * @param resource $store   user's store
@@ -581,7 +594,8 @@ function parse_smime($store, $message) {
 	$props = mapi_getprops($message, [PR_MESSAGE_CLASS, PR_MESSAGE_FLAGS,
 		PR_SENT_REPRESENTING_NAME, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY,
 		PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS,
-		PR_SENT_REPRESENTING_ADDRTYPE, PR_CLIENT_SUBMIT_TIME, PR_TRANSPORT_MESSAGE_HEADERS, PR_REPLY_RECIPIENT_ENTRIES]);
+		PR_SENT_REPRESENTING_ADDRTYPE, PR_CLIENT_SUBMIT_TIME, PR_TRANSPORT_MESSAGE_HEADERS, PR_REPLY_RECIPIENT_ENTRIES,
+		PR_SUBJECT]);
 	$read = $props[PR_MESSAGE_FLAGS] & MSGFLAG_READ;
 	$smimeMessage = false;
 
@@ -635,10 +649,12 @@ function parse_smime($store, $message) {
 				PR_SENT_REPRESENTING_ADDRTYPE => $props[PR_SENT_REPRESENTING_ADDRTYPE] ?? 'SMTP',
 				PR_CLIENT_SUBMIT_TIME => $props[PR_CLIENT_SUBMIT_TIME] ?? time(),
 				PR_TRANSPORT_MESSAGE_HEADERS => ($props[PR_TRANSPORT_MESSAGE_HEADERS] ?? ""),
+				PR_SUBJECT => $props[PR_SUBJECT] ?? null,
 			];
 			if (isset($props[PR_REPLY_RECIPIENT_ENTRIES])) {
 				$tmpprops[PR_REPLY_RECIPIENT_ENTRIES] = $props[PR_REPLY_RECIPIENT_ENTRIES];
 			}
+			parse_smime__keep_subject($tmpprops, $message);
 			mapi_setprops($message, $tmpprops);
 		}
 		$smimeMessage = true;

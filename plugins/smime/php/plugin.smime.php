@@ -708,6 +708,7 @@ class Pluginsmime extends Plugin {
 			PR_SENT_REPRESENTING_SEARCH_KEY,
 			PR_SENT_REPRESENTING_SMTP_ADDRESS,
 			PR_REPLY_RECIPIENT_ENTRIES,
+			PR_SUBJECT,
 		];
 	}
 
@@ -717,6 +718,7 @@ class Pluginsmime extends Plugin {
 		$prop[PR_TRANSPORT_MESSAGE_HEADERS] =
 			"# Outer headers:\n" . ($prop[PR_TRANSPORT_MESSAGE_HEADERS] ?? "") .
 			"# Inner headers:\n" . $innerHeaders;
+		parse_smime__keep_subject($prop, $msg);
 	}
 
 	/**
