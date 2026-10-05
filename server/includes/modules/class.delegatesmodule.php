@@ -255,10 +255,17 @@ class DelegatesModule extends Module {
 		$delegates = mapi_getdelegates($GLOBALS['mapisession']->getSession(), 0);
 		if (!empty($delegates)) {
 			$delegateMeetingRule = $this->getDelegateMeetingRule();
-			$ab = $GLOBALS['mapisession']->getAddressbook();
-			foreach ($delegates as $emailAddress) {
-				$user = mapi_ab_resolvename($ab, [[PR_DISPLAY_NAME => $emailAddress]], EMS_AB_ADDRESS_LOOKUP);
-				array_push($data, $this->getDelegatePermissions($user[0][PR_ENTRYID], $delegateMeetingRule));
+			foreach ($delegates as $username) {
+				// Exact lookup: resolvename substring-matches names, addresses and
+				// aliases, so one delegate could resolve ambiguously and fail the list.
+				try {
+					$userEntryId = nsp_getuserinfo($username)['userid'];
+				}
+				catch (MAPIException $e) {
+					// Stale entry, e.g. a deleted user
+					continue;
+				}
+				array_push($data, $this->getDelegatePermissions($userEntryId, $delegateMeetingRule));
 			}
 		}
 
