@@ -1135,6 +1135,13 @@ class Operations {
 			throw $e;
 		}
 
+		// a colliding name can be dropped without an error
+		$saved = mapi_getprops(mapi_msgstore_openentry($store, $entryid), [PR_DISPLAY_NAME]);
+		$savedName = $saved[PR_DISPLAY_NAME] ?? null;
+		if ($savedName !== $name && $savedName === ($folderProps[PR_DISPLAY_NAME] ?? null)) {
+			throw new MAPIException(_("A folder with this name already exists. Use another name."), MAPI_E_COLLISION);
+		}
+
 		return true;
 	}
 
