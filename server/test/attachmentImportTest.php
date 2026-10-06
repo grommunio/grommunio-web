@@ -93,6 +93,12 @@ if (!function_exists('mapi_folder_createmessage')) {
 		return true;
 	}
 
+	function mapi_vcftomapi2($folder, $vcf) {
+		$count = substr_count(strtoupper($vcf), 'BEGIN:VCARD');
+
+		return array_map(fn () => $GLOBALS['created'][] = new FakeMessage([PR_MESSAGE_CLASS => 'IPM.Contact']), $count ? range(1, $count) : []);
+	}
+
 	function mapi_icaltomapi2($ab, $folder, $ics) {
 		if (stripos($ics, 'VCALENDAR') === false) {
 			throw new Exception('The operation failed for an unspecified reason', MAPI_E_CALL_FAILED);
@@ -169,10 +175,24 @@ function importAttachment($filename, $data = 'data') {
 }
 
 foreach (['card.vcf' => 'IPM.Contact', 'mail.eml' => 'IPM.Note'] as $filename => $class) {
-	$response = importAttachment($filename);
+	$response = importAttachment($filename, "BEGIN:VCARD\r\nEND:VCARD\r\n");
 	if (empty($response['success']) || $GLOBALS['accepted'] !== [] || !$GLOBALS['created'][0]->saved) {
 		throw new RuntimeException("Importing {$filename} did not save a plain {$class}: " . json_encode($GLOBALS['accepted']));
 	}
+}
+
+$response = importAttachment('multi.vcf', str_repeat("BEGIN:VCARD\r\nEND:VCARD\r\n", 2));
+$saved = array_map(fn ($message) => $message->saved, $GLOBALS['created']);
+if (empty($response['success']) || $saved !== [true, true]) {
+	throw new RuntimeException('A vCard file with two contacts was not imported as two contacts: ' . json_encode($saved));
+}
+
+try {
+	importAttachment('none.vcf', 'garbage');
+
+	throw new LogicException('A vCard file without contacts was reported as imported.');
+}
+catch (GrommunioException $e) {
 }
 
 $GLOBALS['icsClasses'] = ['IPM.Schedule.Meeting.Request'];

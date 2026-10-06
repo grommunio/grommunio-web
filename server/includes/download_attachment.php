@@ -795,11 +795,19 @@ class DownloadAttachment extends DownloadBase {
 				break;
 
 			case 'vcf':
-				$newMessage = mapi_folder_createmessage($this->destinationFolder);
-
 				try {
-					// Convert an RFC6350-formatted vCard to a MAPI Contact
-					$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $this->store, $newMessage, $attachmentStream);
+					if (function_exists('mapi_vcftomapi2')) {
+						// a file may hold several vCards
+						$contacts = mapi_vcftomapi2($this->destinationFolder, $attachmentStream) ?: [];
+						foreach ($contacts as $contact) {
+							mapi_savechanges($contact);
+						}
+						$ok = !empty($contacts);
+					}
+					else {
+						$newMessage = mapi_folder_createmessage($this->destinationFolder);
+						$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $this->store, $newMessage, $attachmentStream);
+					}
 				}
 				catch (Exception) {
 					throw new GrommunioException(_("The vcf attachment is not imported successfully"));
