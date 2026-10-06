@@ -300,6 +300,10 @@ Grommunio.advancesearch.KQLParser = Ext.extend(Object, {
 						var op = match[1].toUpperCase();
 					if ( boolOps.indexOf(op) > -1 ) {
 						ctx.accept('operator', {op: op});
+					} else if ( rule.name === 'word' && /^-[^-]/.test(match[1]) ) {
+						// -foo excludes foo
+						ctx.accept('operator', {op: '-'});
+						ctx.accept(rule.name, match[1].substring(1));
 					} else {
 						ctx.accept(rule.name, match[1]);
 					}
