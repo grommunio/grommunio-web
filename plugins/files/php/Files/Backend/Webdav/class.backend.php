@@ -489,7 +489,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 			$this->log("[MKCOL] done in {$time} seconds: " . $response['statusCode']);
-			$this->failOnErrorStatus($response, _('Directory creation failed'));
+			$this->failOnErrorStatus($response, _('Directory creation failed'), [self::WD_ERR_NOTALLOWED => _('Folder already exists')]);
 
 			return true;
 		}
@@ -899,13 +899,14 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	/**
 	 * @param array  $response Sabre request() result
 	 * @param string $title    exception title
+	 * @param array  $messages per-status messages replacing the generic ones
 	 *
 	 * @throws BackendException if the server answered with an error status
 	 */
-	private function failOnErrorStatus($response, $title) {
+	private function failOnErrorStatus($response, $title, $messages = []) {
 		$code = $response['statusCode'];
 		if ($code >= 400) {
-			$e = new BackendException($this->parseErrorCodeToMessage($code), $code);
+			$e = new BackendException($messages[$code] ?? $this->parseErrorCodeToMessage($code), $code);
 			$e->setTitle($this->backendTransName . $title);
 
 			throw $e;

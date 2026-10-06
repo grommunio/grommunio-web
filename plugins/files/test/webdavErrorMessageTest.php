@@ -86,6 +86,17 @@ foreach (['mkcol' => ['/d'], 'delete' => ['/a.txt'], 'put' => ['/a.txt', 'x'], '
 		}
 	}
 }
+$backend->sabre_client->status = 405;
+try {
+	$backend->mkcol('/d');
+
+	throw new RuntimeException('MKCOL answered 405 but no exception was thrown.');
+}
+catch (Files\Backend\Exception $e) {
+	if ($e->getMessage() !== 'Folder already exists') {
+		throw new RuntimeException('MKCOL 405 reports: ' . $e->getMessage());
+	}
+}
 $backend->sabre_client->status = 201;
 if ($backend->mkcol('/d') !== true || $backend->put('/a.txt', 'x') !== true) {
 	throw new RuntimeException('Write with 201 failed.');
