@@ -485,6 +485,9 @@ class DownloadAttachment extends DownloadBase {
 					$content_length = 0;
 					foreach ($ranges as $range) {
 						$this->downloadSetRange($range, $bodysize, $first, $last);
+						if ($first > $last) {
+							return;
+						}
 						$content_length += strlen("\r\n--{$boundary}\r\n");
 						$content_length += strlen("Content-Type: {$contentType}\r\n");
 						$content_length += strlen("Content-Range: bytes {$first}-{$last}/{$bodysize}\r\n\r\n");
@@ -511,6 +514,9 @@ class DownloadAttachment extends DownloadBase {
 					// Single range specified
 					$range = $ranges[0];
 					$this->downloadSetRange($range, $bodysize, $first, $last);
+					if ($first > $last) {
+						return;
+					}
 					header("Content-Length: " . ($last - $first + 1));
 					header("Content-Range: bytes {$first}-{$last}/{$bodysize}");
 					header("Content-Type: {$contentType}");
@@ -594,10 +600,15 @@ class DownloadAttachment extends DownloadBase {
 	public function addAttachmentsToZipArchive($attachment_state, $zip) {
 		// Get all the attachments from message
 		$attachmentTable = mapi_message_getattachmenttable($this->message);
-		$attachments = mapi_table_queryallrows($attachmentTable, [PR_ATTACH_NUM, PR_ATTACH_METHOD]);
+		$attachments = mapi_table_queryallrows($attachmentTable, [PR_ATTACH_NUM, PR_ATTACH_METHOD, PR_ATTACHMENT_HIDDEN]);
 		$isSelection = !empty($this->selectedAttachNum);
 
 		foreach ($attachments as $attachmentRow) {
+			$embedded = ($attachmentRow[PR_ATTACH_METHOD] ?? null) == ATTACH_EMBEDDED_MSG;
+			// a hidden embedded message is a recurrence exception, not a file
+			if ($embedded && !empty($attachmentRow[PR_ATTACHMENT_HIDDEN])) {
+				continue;
+			}
 			// A selection narrows the archive to the attachments it names; without one
 			// every attachment of the message goes in, as it always has.
 			if ($isSelection &&
@@ -614,7 +625,7 @@ class DownloadAttachment extends DownloadBase {
 				$name = $props[PR_ATTACH_LONG_FILENAME] ?? $props[PR_DISPLAY_NAME] ?? _('Untitled');
 
 				// Open a stream to get the attachment data
-				if ($attachmentRow[PR_ATTACH_METHOD] == ATTACH_EMBEDDED_MSG) {
+				if ($embedded) {
 					$stream = $this->openEmbeddedAsEml($attachment);
 					$name = self::emlFileName($name);
 				}
@@ -784,11 +795,19 @@ class DownloadAttachment extends DownloadBase {
 				break;
 
 			case 'vcf':
-				$newMessage = mapi_folder_createmessage($this->destinationFolder);
-
 				try {
-					// Convert an RFC6350-formatted vCard to a MAPI Contact
-					$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $this->store, $newMessage, $attachmentStream);
+					if (function_exists('mapi_vcftomapi2')) {
+						// a file may hold several vCards
+						$contacts = mapi_vcftomapi2($this->destinationFolder, $attachmentStream) ?: [];
+						foreach ($contacts as $contact) {
+							mapi_savechanges($contact);
+						}
+						$ok = !empty($contacts);
+					}
+					else {
+						$newMessage = mapi_folder_createmessage($this->destinationFolder);
+						$ok = mapi_vcftomapi($GLOBALS['mapisession']->getSession(), $this->store, $newMessage, $attachmentStream);
+					}
 				}
 				catch (Exception) {
 					throw new GrommunioException(_("The vcf attachment is not imported successfully"));

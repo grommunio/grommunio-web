@@ -25,7 +25,7 @@ if (!class_exists('BaseException')) {
 }
 
 foreach (['STRING_REGEX', 'PR_ATTACH_FILENAME', 'PR_ATTACH_LONG_FILENAME', 'PR_ATTACH_MIME_TAG', 'PR_DISPLAY_NAME',
-	'PR_ATTACH_METHOD', 'PR_ATTACH_CONTENT_ID', 'PR_ATTACH_DATA_BIN', 'PR_ATTACH_NUM', 'IID_IStream',
+	'PR_ATTACH_METHOD', 'PR_ATTACH_CONTENT_ID', 'PR_ATTACH_DATA_BIN', 'PR_ATTACH_NUM', 'PR_ATTACHMENT_HIDDEN', 'IID_IStream',
 	'ERROR_MAPI', 'ERROR_GROMMUNIO', 'ERROR_GENERAL'] as $value => $name) {
 	defined($name) || define($name, $value + 100);
 }
@@ -64,12 +64,17 @@ if (!function_exists('mapi_attach_openobj')) {
 		return $chunk;
 	}
 
+	function mapi_stream_seek($stream, $offset) {
+		$stream->pos = $offset;
+		++$GLOBALS['seeks'];
+	}
+
 	function mapi_message_getattachmenttable($message) {
 		return 'table';
 	}
 
 	function mapi_table_queryallrows($table, $props) {
-		return array_map(fn ($num) => [PR_ATTACH_NUM => $num, PR_ATTACH_METHOD => $GLOBALS['attachments'][$num][PR_ATTACH_METHOD]], array_keys($GLOBALS['attachments']));
+		return array_map(fn ($num) => [PR_ATTACH_NUM => $num] + array_intersect_key($GLOBALS['attachments'][$num], [PR_ATTACH_METHOD => 1, PR_ATTACHMENT_HIDDEN => 1]), array_keys($GLOBALS['attachments']));
 	}
 
 	function mapi_message_openattach($message, $num) {
@@ -107,6 +112,8 @@ $GLOBALS['mapisession'] = new class {
 $GLOBALS['attachments'] = [
 	0 => [PR_ATTACH_METHOD => ATTACH_EMBEDDED_MSG, PR_ATTACH_MIME_TAG => 'message/rfc822', PR_DISPLAY_NAME => '../Inner/forwarded message'],
 	1 => [PR_ATTACH_METHOD => ATTACH_BY_VALUE, PR_ATTACH_LONG_FILENAME => 'notes.txt', 'data' => 'plain text'],
+	// a recurrence exception
+	2 => [PR_ATTACH_METHOD => ATTACH_EMBEDDED_MSG, PR_ATTACHMENT_HIDDEN => true, PR_DISPLAY_NAME => 'Exception'],
 ];
 $_SERVER['REQUEST_METHOD'] = 'GET';
 
@@ -123,6 +130,25 @@ $body = ob_get_clean();
 if ($body !== EML) {
 	throw new RuntimeException('An embedded message was not downloaded as a mail: ' . json_encode($body));
 }
+
+$GLOBALS['seeks'] = 0;
+foreach (['bytes=50-60', 'bytes=0-1,50-60'] as $range) {
+	$_SERVER['HTTP_RANGE'] = $range;
+	ob_start();
+	$download->downloadSavedAttachment(1);
+	$body = ob_get_clean();
+	if ($body !== '' || $GLOBALS['seeks'] !== 0 || http_response_code() !== 416) {
+		throw new RuntimeException("An unsatisfiable range {$range} was still streamed: " . json_encode($body));
+	}
+}
+$_SERVER['HTTP_RANGE'] = 'bytes=6-';
+ob_start();
+$download->downloadSavedAttachment(1);
+$body = ob_get_clean();
+if ($body !== 'text' || http_response_code() !== 206) {
+	throw new RuntimeException('A satisfiable range was not served: ' . json_encode($body));
+}
+unset($_SERVER['HTTP_RANGE']);
 
 $zip = new class {
 	public $files = [];

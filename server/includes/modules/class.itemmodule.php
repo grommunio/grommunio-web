@@ -732,7 +732,8 @@ class ItemModule extends Module {
 				}
 				catch (MAPIException $e) {
 					// If the quota is exceeded or we cannot write to the calendar folder, ignore the exception.
-					if ($e->getCode() !== MAPI_E_STORE_FULL && $e->getCode() !== MAPI_E_NO_ACCESS) {
+					// gromox reports a calendar without read rights (e.g. a former delegator's) as not found.
+					if ($e->getCode() !== MAPI_E_STORE_FULL && $e->getCode() !== MAPI_E_NO_ACCESS && $e->getCode() !== MAPI_E_NOT_FOUND) {
 						// re-throw the exception if it is not one of quota/calendar permission.
 						throw $e;
 					}

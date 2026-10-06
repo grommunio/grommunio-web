@@ -1135,6 +1135,13 @@ class Operations {
 			throw $e;
 		}
 
+		// a colliding name can be dropped without an error
+		$saved = mapi_getprops(mapi_msgstore_openentry($store, $entryid), [PR_DISPLAY_NAME]);
+		$savedName = $saved[PR_DISPLAY_NAME] ?? null;
+		if ($savedName !== $name && $savedName === ($folderProps[PR_DISPLAY_NAME] ?? null)) {
+			throw new MAPIException(_("A folder with this name already exists. Use another name."), MAPI_E_COLLISION);
+		}
+
 		return true;
 	}
 
@@ -1253,7 +1260,7 @@ class Operations {
 					// TODO: check if not only $parententryid=wastebasket, but also the parents of that parent...
 					// if folder is already in wastebasket or softDelete is requested then delete the message
 					if ($msgprops[PR_IPM_WASTEBASKET_ENTRYID] == $parententryid || $softDelete === true) {
-						if (mapi_folder_deletefolder($folder, $entryid, DEL_MESSAGES | DEL_FOLDERS)) {
+						if ($this->softDeleteFolder($folder, $entryid)) {
 							$result = true;
 
 							// if exists, also delete settings made for this folder (client don't need an update for this)
@@ -1294,7 +1301,7 @@ class Operations {
 					}
 				}
 				else {
-					if (mapi_folder_deletefolder($folder, $entryid, DEL_MESSAGES | DEL_FOLDERS)) {
+					if ($this->softDeleteFolder($folder, $entryid)) {
 						$result = true;
 
 						// if exists, also delete settings made for this folder (client don't need an update for this)
@@ -1305,6 +1312,30 @@ class Operations {
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Soft-delete a folder and make sure it left the parent's hierarchy.
+	 *
+	 * @param resource $parent  parent folder
+	 * @param string   $entryid entryid of the folder to delete
+	 *
+	 * @return bool
+	 *
+	 * @throws MAPIException when the store reported success but kept the folder
+	 */
+	private function softDeleteFolder($parent, $entryid) {
+		if (!mapi_folder_deletefolder($parent, $entryid, DEL_MESSAGES | DEL_FOLDERS)) {
+			return false;
+		}
+		// a folder with subfolders can stay in place without an error
+		$table = mapi_folder_gethierarchytable($parent, MAPI_DEFERRED_ERRORS);
+		mapi_table_restrict($table, [RES_PROPERTY, [RELOP => RELOP_EQ, ULPROPTAG => PR_ENTRYID, VALUE => [PR_ENTRYID => $entryid]]]);
+		if (mapi_table_getrowcount($table) > 0) {
+			throw new MAPIException(_("Could not delete folder."), MAPI_E_CALL_FAILED);
+		}
+
+		return true;
 	}
 
 	/**

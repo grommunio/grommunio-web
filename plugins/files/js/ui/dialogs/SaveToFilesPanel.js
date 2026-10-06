@@ -243,7 +243,8 @@ Grommunio.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 						destdir: folder.get('folder_id')
 					},
 					new Grommunio.core.data.AbstractResponseHandler({
-						doUploadtobackend: this.uploadDone.createDelegate(this)
+						doUploadtobackend: this.uploadDone.createDelegate(this),
+						doError: this.uploadFailed.createDelegate(this)
 					})
 				);
 			} catch (e) {
@@ -265,6 +266,21 @@ Grommunio.plugins.files.ui.dialogs.SaveToFilesPanel = Ext.extend(Ext.Panel, {
 		} else {
 			container.getNotifier().notify('error', _('Upload Failed'), _('Attachment could not be stored in Files!'));
 		}
+
+		this.dialog.close();
+	},
+
+	/**
+	 * Called when the server rejected the upload, e.g. a file the
+	 * Files backend refused. Files before and after it may be stored.
+	 *
+	 * @param response
+	 */
+	uploadFailed: function (response)
+	{
+		var info = response && response.info ? response.info : {};
+		var message = info.display_message || _('Attachment could not be stored in Files!');
+		container.getNotifier().notify('error', _('Upload Failed'), Ext.util.Format.htmlEncode(message));
 
 		this.dialog.close();
 	}

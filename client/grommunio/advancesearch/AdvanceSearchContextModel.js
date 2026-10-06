@@ -178,7 +178,8 @@ Grommunio.advancesearch.AdvanceSearchContextModel = Ext.extend(Grommunio.core.Co
 
 		if(Ext.isDefined(folder) && !folder.isIPMSubTree()) {
 			var defaultFolder = this.getDefaultFolder();
-			var isSameFolder = folder.equals(defaultFolder);
+			// No default folder until the first search or folder selection
+			var isSameFolder = !!defaultFolder && folder.equals(defaultFolder);
 			if(!isSameFolder) {
 				this.setFolders(folders);
 			}

@@ -149,29 +149,24 @@ class RestoreItemsListModule extends ListModule {
 	 */
 	public function restoreAllFolders($store, $folder) {
 		$table = mapi_folder_gethierarchytable($folder, MAPI_DEFERRED_ERRORS | SHOW_SOFT_DELETES);
-		$restoreItems = array_column(mapi_table_queryallrows($table, [PR_ENTRYID]), PR_ENTRYID);
+		$rows = mapi_table_queryallrows($table, [PR_ENTRYID, PR_DISPLAY_NAME]);
 
-		foreach ($restoreItems as $restoreItem) {
+		foreach ($rows as $row) {
+			$restoreItem = $row[PR_ENTRYID];
+			$name = $row[PR_DISPLAY_NAME] ?? '';
+
+			// a move within the parent only renames, so copy and hard-delete the source
 			try {
-				/*
-				 * we should first try to copy folder and if it returns MAPI_E_COLLISION then
-				 * only we should check for the conflicting folder names and generate a new name
-				 * and restore folder with the generated name.
-				 */
-				mapi_folder_copyfolder($folder, $restoreItem, $folder, '', FOLDER_MOVE);
+				mapi_folder_copyfolder($folder, $restoreItem, $folder, $name);
 			}
 			catch (MAPIException $e) {
-				if ($e->getCode() == MAPI_E_COLLISION) {
-					$child = mapi_msgstore_openentry($store, $restoreItem, SHOW_SOFT_DELETES);
-					$folderNameProps = mapi_getprops($child, [PR_DISPLAY_NAME]);
-					$foldername = $GLOBALS["operations"]->checkFolderNameConflict($store, $folder, $folderNameProps[PR_DISPLAY_NAME]);
-					mapi_folder_copyfolder($folder, $restoreItem, $folder, $foldername, FOLDER_MOVE);
-				}
-				else {
-					// all other errors should be propagated to higher level exception handlers
+				if ($e->getCode() != MAPI_E_COLLISION) {
 					throw $e;
 				}
+				$name = $GLOBALS["operations"]->checkFolderNameConflict($store, $folder, $name);
+				mapi_folder_copyfolder($folder, $restoreItem, $folder, $name);
 			}
+			mapi_folder_deletefolder($folder, $restoreItem, DEL_MESSAGES | DEL_FOLDERS | DELETE_HARD_DELETE);
 		}
 
 		// Notify the parent folder.

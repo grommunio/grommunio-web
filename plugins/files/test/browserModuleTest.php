@@ -198,14 +198,17 @@ namespace {
 	check($GLOBALS['bus']->getData()[$module->getModuleName()]['browser']['uploadtobackend']['status'] === false, 'failure status');
 	check(glob($temporaryDirectory . '/*') === [], 'temporary files removed');
 
-	// a throwing upload still removes its temporary file
+	// a rejected upload still uploads the rest, then reports the rejection
+	$module = new TestBrowser();
 	$module->backend = new FakeBackend();
-	$module->backend->throwing = ['/dir/a.txt'];
+	$module->backend->throwing = ['/dir/b.txt'];
 	try {
-		$upload->invoke($module, 'uploadtobackend', ['destdir' => '#R#acc/dir/', 'type' => 'attachment', 'items' => [attachment('a')]]);
+		$upload->invoke($module, 'uploadtobackend', ['destdir' => '#R#acc/dir/', 'type' => 'attachment', 'items' => [attachment('a'), attachment('b'), attachment('c')]]);
 		check(false, 'upload exception swallowed');
 	}
 	catch (BackendException $e) {
+		check($module->backend->uploaded === ['/dir/a.txt', '/dir/c.txt'], 'files after a rejected one are uploaded');
+		check(array_keys($module->cached['/dir']) === ['/dir/a.txt', '/dir/c.txt'], 'the rejected file is not cached');
 		check(glob($temporaryDirectory . '/*') === [], 'temporary file removed after an exception');
 	}
 

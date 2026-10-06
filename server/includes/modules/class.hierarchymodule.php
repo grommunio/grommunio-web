@@ -383,7 +383,8 @@ class HierarchyModule extends Module {
 			throw new MAPIException($e->getMessage(), MAPI_E_NOT_FOUND);
 		}
 		if (!$store) {
-			throw new MAPIException(_("Could not open the store."), MAPI_E_NO_ACCESS);
+			// an unopenable store is no permission problem
+			throw new MAPIException(_("Could not open the store."), MAPI_E_CALL_FAILED);
 		}
 
 		$options = [$username => [$action["folder_type"] => $action]];

@@ -788,6 +788,7 @@ class FilesBrowserModule extends FilesListModule {
 		$initializedBackend = $this->initializeBackend($account);
 
 		$result = true;
+		$failure = null;
 
 		$export = match ($actionData["type"]) {
 			"attachment" => MapiExport::attachmentToTempFile(...),
@@ -813,6 +814,11 @@ class FilesBrowserModule extends FilesListModule {
 				try {
 					$uploaded = $initializedBackend->put_file($filePath, $tmpname);
 				}
+				catch (BackendException $e) {
+					// reported after the remaining files
+					$failure ??= $e;
+					$uploaded = false;
+				}
 				finally {
 					if (!@unlink($tmpname)) {
 						FilesLogger::error(self::LOG_CONTEXT, "Unable to remove temporary file: " . $tmpname);
@@ -825,6 +831,9 @@ class FilesBrowserModule extends FilesListModule {
 				}
 
 				$this->updateDirCache($initializedBackend, $dirName, $filePath, $actionData);
+			}
+			if ($failure !== null) {
+				throw $failure;
 			}
 		}
 		else {
