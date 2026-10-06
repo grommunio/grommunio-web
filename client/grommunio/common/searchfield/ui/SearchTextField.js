@@ -418,7 +418,8 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 				for (var n = j + 1; n < this.tokens.length; n++) {
 					if (this.tokens[n].type !== 'operator') { nextReal = !isVirtual[n]; break; }
 				}
-				if (!prevReal || !nextReal) {
+				// NOT is unary, so a leading NOT still negates the term after it
+				if (!nextReal || (!prevReal && this.tokens[j].key !== 'NOT')) {
 					isVirtual[j] = true;
 				}
 			}
