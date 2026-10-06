@@ -340,6 +340,8 @@ Grommunio.core.ui.PreviewPanel = Ext.extend(Ext.Panel, {
 
 		if (errorMask) {
 			this.loadMask.showError();
+			// so the next record's load clears it
+			this.isLoadMaskShown = true;
 		} else {
 			if (this.loadMaskDelay > 0) {
 				this.loadMaskTask = this.loadMaskTask || new Ext.util.DelayedTask(function() {
