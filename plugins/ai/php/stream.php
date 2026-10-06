@@ -148,7 +148,7 @@ try {
 		}
 	);
 
-	$emit('done', ['text' => $full['text'], 'truncated' => $full['truncated'], 'model' => $config->model]);
+	$emit('done', ['text' => $full['text'], 'truncated' => $full['truncated'], 'model' => $built['model']]);
 }
 catch (AIException $e) {
 	$emit('error', ['message' => $e->getMessage()]);

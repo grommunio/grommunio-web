@@ -265,6 +265,7 @@ class AIConfig {
 			'reason' => $this->missingReason(),
 			'provider' => $this->provider,
 			'model' => $this->model,
+			'fast_model' => $this->modelFor('translate'),
 			'streaming' => $this->streaming,
 			'features' => [
 				'summarize' => $this->featureEnabled('summarize'),

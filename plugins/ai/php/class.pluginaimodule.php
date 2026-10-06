@@ -108,15 +108,19 @@ class PluginAIModule extends Module {
 		$start = microtime(true);
 		// Not 16: a reasoning model spends its first tokens on thinking and would
 		// answer with an empty string, making a working provider look broken.
-		$reply = $provider->chat(
-			[['role' => 'user', 'content' => 'Reply with the single word: OK']],
-			['max_tokens' => 256, 'temperature' => 0.0]
-		);
+		$probe = [['role' => 'user', 'content' => 'Reply with the single word: OK']];
+		$reply = $provider->chat($probe, ['max_tokens' => 256, 'temperature' => 0.0]);
 		$latencyMs = (int) round((microtime(true) - $start) * 1000);
+		$models = $config->model;
+		$fast = $config->modelFor('translate');
+		if ($fast !== $config->model) {
+			$provider->chat($probe, ['max_tokens' => 256, 'temperature' => 0.0, 'model' => $fast]);
+			$models .= ', ' . $fast;
+		}
 
 		$this->sendFeedback(true, [
 			'provider' => $config->provider,
-			'model' => $config->model,
+			'model' => $models,
 			'latency_ms' => $latencyMs,
 			'reply' => mb_substr(trim($reply), 0, 80),
 		]);
@@ -160,7 +164,7 @@ class PluginAIModule extends Module {
 		$this->sendFeedback(true, [
 			'text' => $result['text'],
 			'truncated' => $result['truncated'],
-			'model' => $config->model,
+			'model' => $built['model'],
 		]);
 	}
 
@@ -195,7 +199,7 @@ class PluginAIModule extends Module {
 
 		$this->sendFeedback(true, [
 			'actions' => AIActionParser::parse($raw, $built['allowed']),
-			'model' => $config->model,
+			'model' => $built['model'],
 		]);
 	}
 
@@ -223,7 +227,7 @@ class PluginAIModule extends Module {
 		$this->sendFeedback(true, [
 			'text' => $result['text'],
 			'truncated' => $result['truncated'],
-			'model' => $config->model,
+			'model' => $built['model'],
 		]);
 	}
 
