@@ -722,7 +722,7 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 
 		var label = document.createElement('span');
 		label.className = 'k-search-chip-label';
-		label.textContent = this.scopeKeyword + ': ' + name;
+		label.textContent = this.getScopeLabel() + ': ' + name;
 		chip.appendChild(label);
 
 		var remove = document.createElement('span');
@@ -1683,11 +1683,21 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 	},
 
 	/**
-	 * The keyword that scopes a search to a folder, as in "in:Inbox".
-	 * @property
-	 * @type String
+	 * @return {String} The keyword that scopes a search to a folder, as in
+	 * "in:Inbox", in the user's language when the translation can be typed
+	 * as a prefix
 	 */
-	scopeKeyword: 'in',
+	getScopeLabel: function()
+	{
+		if (!this.scopeLabel) {
+			/* # TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too. */
+			var label = pgettext('search keyword', 'in');
+			var KQL = Grommunio.advancesearch.KQLParser;
+			// A translation that is also a field prefix (from:, to: …) would be ambiguous
+			this.scopeLabel = KQL.isUsableAlias(label) && !KQL.resolveKeyword(label) ? label : 'in';
+		}
+		return this.scopeLabel;
+	},
 
 	/**
 	 * @param {String} text A search term
@@ -1697,7 +1707,14 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 	 */
 	getScopeQuery: function(text)
 	{
-		var match = /^\s*in:(.*)$/i.exec(text || '');
+		if (!this.scopeQueryRe) {
+			var keywords = ['in'];
+			if (this.getScopeLabel().toLowerCase() !== 'in') {
+				keywords.push(Grommunio.advancesearch.KQLParser.regExpEscape(this.getScopeLabel()));
+			}
+			this.scopeQueryRe = new RegExp('^\\s*(?:' + keywords.join('|') + '):(.*)$', 'i');
+		}
+		var match = this.scopeQueryRe.exec(text || '');
 		if (!match) {
 			return null;
 		}
