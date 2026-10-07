@@ -210,6 +210,7 @@ Grommunio.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 				obj["search_folder_combo"]["folder_type"] = folder.get('flag');
 				obj["search_folder_combo"]["include_subfolder"] = folder.get('include_subfolder');
 			}
+			obj["search_folder_combo"]["pinned"] = searchFolderCombo.isScopePinned();
 			container.getSettingsModel().set('grommunio/v1/contexts/search/search_criteria/'+record.get('entryid'), obj);
 			this.resumeEvents();
 		}
@@ -549,6 +550,9 @@ Grommunio.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 				});
 				store.insert(index, folder);
 				value = searchComboSettingObj['folder_entryid'];
+			}
+			if (searchComboSettingObj['pinned']) {
+				searchFolderCombo.pinnedValue = value;
 			}
 			searchFolderCombo.setValue(value);
 		} else {

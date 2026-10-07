@@ -188,8 +188,10 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 	 * @param {String} query The KQL query string
 	 * @param {Array} tokens All token objects
 	 * @param {Array} virtualTokens Virtual-only tokens
+	 * @param {Object} scope The folder chosen for the search, from
+	 * {@link Grommunio.common.searchfield.ui.SearchFolderCombo#getPinnedScope}
 	 */
-	addToHistory: function(query, tokens, virtualTokens)
+	addToHistory: function(query, tokens, virtualTokens, scope)
 	{
 		if (!query && (!tokens || !tokens.length)) {
 			return;
@@ -200,13 +202,19 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 		if (!display) {
 			return;
 		}
+		if (scope) {
+			display = this.searchTextField.getScopeLabel() + ': ' + scope.name + ' ' + display;
+		}
 
 		var entries = this.getHistory();
 
-		// Remove existing entry with same display string (case-insensitive)
+		// Remove existing entry with same display string (case-insensitive);
+		// the same search in two folders of the same name stays twice
 		var lowerDisplay = display.toLowerCase();
+		var scopeId = scope ? scope.entryid : undefined;
 		entries = entries.filter(function(e) {
-			return (e.display || e.query || '').toLowerCase() !== lowerDisplay;
+			return (e.display || e.query || '').toLowerCase() !== lowerDisplay ||
+				(e.scope ? e.scope.entryid : undefined) !== scopeId;
 		});
 
 		// Add to front
@@ -215,6 +223,7 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 			display: display,
 			tokens: tokens || [],
 			virtualTokens: virtualTokens || [],
+			scope: scope,
 			time: Date.now()
 		});
 
@@ -387,7 +396,9 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 		for (var i = 0; i < entries.length; i++) {
 			var entry = entries[i];
 			var display = entry.display || entry.query || '';
-			html += '<div class="k-search-history-row" role="option" tabindex="-1" data-history-index="' + i + '">';
+			var scopeFolder = entry.scope && container.getHierarchyStore().getFolder(entry.scope.entryid);
+			var title = scopeFolder ? ' title="' + enc(this.searchTextField.getFolderPath(scopeFolder).concat(scopeFolder.getDisplayName()).join(' \u203a ')) + '"' : '';
+			html += '<div class="k-search-history-row" role="option" tabindex="-1" data-history-index="' + i + '"' + title + '>';
 			html += '<span class="k-search-history-icon" aria-hidden="true"></span>';
 			html += '<span class="k-search-history-text">' + enc(display) + '</span>';
 			html += '<span class="k-search-history-remove" role="button" tabindex="-1" aria-label="' + enc(_('Remove')) + '" data-history-index="' + i + '">&times;</span>';
@@ -610,8 +621,16 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 
 		var tf = this.searchTextField;
 
-		// Restore tokens directly
+		// Restore the folder while the field is empty, so that choosing it
+		// does not already start a search with the old terms
 		tf.tokens = [];
+		if (tf.tailInputEl) {
+			tf.tailInputEl.dom.value = '';
+		}
+		tf.syncHiddenInput();
+		tf.searchContainer.searchFolderCombo.applyPinnedScope(entry.scope);
+
+		// Restore tokens directly
 		if (entry.tokens && entry.tokens.length) {
 			for (var i = 0; i < entry.tokens.length; i++) {
 				tf.tokens.push({

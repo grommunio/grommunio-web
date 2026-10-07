@@ -1983,7 +1983,8 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 				this.dropdownPanel.addToHistory(
 					this.getValue(),
 					this.tokens.slice(0),
-					this.getVirtualTokens()
+					this.getVirtualTokens(),
+					this.searchContainer.searchFolderCombo.getPinnedScope()
 				);
 			}
 

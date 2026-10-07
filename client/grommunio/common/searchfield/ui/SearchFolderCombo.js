@@ -427,6 +427,45 @@ Grommunio.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox
 	},
 
 	/**
+	 * @return {Object} The chosen scope as stored in the search history
+	 * (entryid, name, include_subfolder), or undefined when the scope just
+	 * follows the selected folder
+	 */
+	getPinnedScope: function()
+	{
+		if (!this.isScopePinned()) {
+			return undefined;
+		}
+		var record = this.getScopeRecord();
+		return {
+			entryid: record.get('value'),
+			name: record.get('name'),
+			include_subfolder: !!record.get('include_subfolder')
+		};
+	},
+
+	/**
+	 * Restores a scope from {@link #getPinnedScope}, or the default scope
+	 * when there is none or its folder is gone.
+	 * @param {Object} scope The stored scope, may be undefined
+	 */
+	applyPinnedScope: function(scope)
+	{
+		var folder = scope && container.getHierarchyStore().getFolder(scope.entryid);
+		if (!folder) {
+			if (this.isScopePinned()) {
+				this.resetScope();
+			}
+			return;
+		}
+		this.setScopeFolder(folder);
+		var record = this.getScopeRecord();
+		if (record && record.get('flag') !== Grommunio.advancesearch.data.SearchComboBoxFieldsFlags.ALL_FOLDERS) {
+			record.set('include_subfolder', scope.include_subfolder);
+		}
+	},
+
+	/**
 	 * Drops a folder chosen with "in:" or "Other…" and goes back to the
 	 * scope a fresh search starts with.
 	 */
