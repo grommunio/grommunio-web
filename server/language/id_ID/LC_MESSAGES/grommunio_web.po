@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2026-09-16 22:52+0000\n"
 "Last-Translator: Arif Budiman <arifpedia@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/grommunio/grommunio-web/id/>\n"
@@ -3035,6 +3035,9 @@ msgstr "Terapkan perubahan"
 msgid "Do you wish to apply the changes?"
 msgstr "Apakah Anda ingin menerapkan perubahan?"
 
+msgid "Search in folder"
+msgstr "Cari di folder"
+
 msgid "Recent searches"
 msgstr "Pencarian terbaru"
 
@@ -3059,6 +3062,15 @@ msgstr "BUKAN"
 msgid "Search in"
 msgstr "Cari di"
 
+msgid "Whole mailbox"
+msgstr "Seluruh kotak surat"
+
+msgid "No folder matches"
+msgstr "Tidak ada folder yang cocok"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "{0} lagi, terus mengetik untuk mempersempit"
+
 msgid "All folders"
 msgstr "Semua folder"
 
@@ -3068,8 +3080,16 @@ msgstr "Lainnya…"
 msgid "Search"
 msgstr "Cari"
 
+msgid "Clear search"
+msgstr "Hapus pencarian"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "Klik untuk beralih: DAN → ATAU → BUKAN"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "di"
 
 msgid "Folder does not exist"
 msgstr "Folder tidak ada"
@@ -4581,8 +4601,17 @@ msgstr "Deskripsi"
 msgid "Folder size"
 msgstr "Ukuran folder"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "Folder berisi {0} Item"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "Izin"
@@ -5651,9 +5680,6 @@ msgstr "Memuat ulang, harap tunggu."
 msgid "Search settings"
 msgstr "Cari pengaturan"
 
-msgid "Clear search"
-msgstr "Hapus pencarian"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "{0} pengaturan cocok"
@@ -6708,29 +6734,23 @@ msgstr "Edit berbagi"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "Belum ada akun yang ditambahkan. Buka Pengaturan, tab File, lalu tambahkan akun"
 
-msgid "Filesize"
-msgstr "Ukuran file"
-
-msgid "Last modified"
-msgstr "Terakhir diubah"
-
-msgid "Is shared"
-msgstr "Dibagikan"
-
-msgid "File preview"
-msgstr "Pratinjau file"
+msgid "File ({0})"
+msgstr "File ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "File ({0})"
-msgstr "File ({0})"
+msgid "Is shared"
+msgstr "Dibagikan"
 
 msgid "Path"
 msgstr "Jalur"
 
 msgid "Sort by: Path"
 msgstr "Urutkan berdasarkan: Jalur"
+
+msgid "Last modified"
+msgstr "Terakhir diubah"
 
 msgid "Sort by: Last modified"
 msgstr "Urutkan berdasarkan: Terakhir diubah"
@@ -8587,6 +8607,21 @@ msgstr "Notifier '%s' tidak dikenal"
 msgid "An unexpected error has occurred"
 msgstr "Terjadi kesalahan tak terduga"
 
+msgid "Could not forward meeting request."
+msgstr "Tidak dapat meneruskan permintaan rapat."
+
+msgid "Your meeting has been forwarded"
+msgstr "Rapat Anda telah diteruskan"
+
+msgid "has forwarded your meeting request to others."
+msgstr "telah meneruskan permintaan rapat Anda kepada pihak lain."
+
+msgid "l, F j, Y g:i A"
+msgstr "l, F j, Y g:i A"
+
+msgid "Meeting Time"
+msgstr "Waktu Rapat"
+
 msgid "To-Do List"
 msgstr "Daftar Tugas"
 
@@ -8597,6 +8632,12 @@ msgstr "Daftar Tugas"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s dari %2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Folder dengan nama ini sudah ada. Gunakan nama lain."
+
+msgid "Could not delete folder."
+msgstr "Tidak dapat menghapus folder."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "OpenPGP saat ini dinonaktifkan atau tidak tersedia. Pesan Anda tidak terkirim. Aktifkan OpenPGP sebelum mencoba lagi, atau nonaktifkan penandatanganan dan enkripsi secara eksplisit."
@@ -8643,25 +8684,11 @@ msgstr "Lampiran EML tidak berhasil diimpor"
 msgid "The vcf attachment is not imported successfully"
 msgstr "Lampiran VCF tidak berhasil diimpor"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Tidak dapat mengimpor '%s' ke '%s'. "
+msgid "Attachment is not imported successfully"
+msgstr "Lampiran tidak berhasil diimpor"
 
 msgid "There is no appointment found in this file."
 msgstr "Tidak ada janji temu yang ditemukan dalam file ini."
-
-msgid "The file is corrupt."
-msgstr "File rusak."
-
-msgid "The file is invalid."
-msgstr "File tidak valid."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "Tidak dapat mengimpor '%s'. "
-
-msgid "Attachment is not imported successfully"
-msgstr "Lampiran tidak berhasil diimpor"
 
 msgid "Embedded attachment not found."
 msgstr "Lampiran tersemat tidak ditemukan."
@@ -8672,20 +8699,34 @@ msgstr "File ZIP tidak berhasil dibuat"
 msgid "Attachments can not be downloaded"
 msgstr "Lampiran tidak dapat diunduh"
 
-msgid "Operation failed"
-msgstr "Operasi gagal"
-
 msgid "Sticky Note"
 msgstr "Catatan Tempel"
 
 msgid "Task Request"
 msgstr "Permintaan Tugas"
 
+msgid "Operation failed"
+msgstr "Operasi gagal"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Pesan tidak ditemukan; mungkin telah dipindahkan atau dihapus."
 
 msgid "Action is not performed correctly."
 msgstr "Tindakan tidak dilakukan dengan benar."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Tidak dapat mengimpor '%s' ke '%s'. "
+
+msgid "The file is corrupt."
+msgstr "File rusak."
+
+msgid "The file is invalid."
+msgstr "File tidak valid."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Tidak dapat mengimpor '%s'. "
 
 msgid "Tentatively accepted"
 msgstr "Diterima sementara"
@@ -8869,6 +8910,13 @@ msgstr "Tidak dapat membuka penyimpanan."
 msgid "Could not load the hierarchy."
 msgstr "Tidak dapat memuat hierarki."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "Anda tidak memiliki hak akses yang memadai untuk membuka folder %1$s ini. Pemilik folder dapat mengatur izin tersebut melalui tab 'permissions' pada properti folder (klik kanan folder %1$s > properti > permissions)."
+
+msgid "User could not be resolved."
+msgstr "Pengguna tidak dapat ditemukan."
+
 msgid "Could not open the shared store."
 msgstr "Tidak dapat membuka penyimpanan bersama."
 
@@ -8880,9 +8928,6 @@ msgstr "Tidak dapat menghapus folder dari favorit."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "Anda tidak memiliki hak akses yang memadai untuk menghapus folder."
-
-msgid "Could not delete folder."
-msgstr "Tidak dapat menghapus folder."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "Anda tidak memiliki hak akses yang memadai untuk menyalin folder."
@@ -8920,9 +8965,6 @@ msgstr "Tidak dapat mengatur izin folder."
 msgid "You have insufficient privileges to rename this folder."
 msgstr "Anda tidak memiliki hak akses yang memadai untuk mengganti nama folder ini."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "Folder dengan nama ini sudah ada. Gunakan nama lain."
-
 msgid "Could not rename folder."
 msgstr "Tidak dapat mengganti nama folder."
 
@@ -8934,13 +8976,6 @@ msgstr "Tidak dapat membuat folder."
 
 msgid "Could not close shared folder."
 msgstr "Tidak dapat menutup folder bersama."
-
-msgid "User could not be resolved."
-msgstr "Pengguna tidak dapat ditemukan."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "Anda tidak memiliki hak akses yang memadai untuk membuka folder %1$s ini. Pemilik folder dapat mengatur izin tersebut melalui tab 'permissions' pada properti folder (klik kanan folder %1$s > properti > permissions)."
 
 msgid "default"
 msgstr "default"
@@ -8977,9 +9012,6 @@ msgstr "Tidak dapat menyalin pesan."
 
 msgid "Could not move message."
 msgstr "Tidak dapat memindahkan pesan."
-
-msgid "Could not forward meeting request."
-msgstr "Tidak dapat meneruskan permintaan rapat."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "Anda tidak memiliki hak akses yang memadai untuk menyimpan item di folder ini."
@@ -9037,18 +9069,6 @@ msgstr "Penerima berikut tidak dapat dijangkau"
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "Penghapusan lampiran telah dinonaktifkan oleh administrator."
-
-msgid "l, F j, Y g:i A"
-msgstr "l, F j, Y g:i A"
-
-msgid "Your meeting has been forwarded"
-msgstr "Rapat Anda telah diteruskan"
-
-msgid "has forwarded your meeting request to others."
-msgstr "telah meneruskan permintaan rapat Anda kepada pihak lain."
-
-msgid "Meeting Time"
-msgstr "Waktu Rapat"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Anda tidak memiliki hak akses yang memadai untuk melihat isi folder ini."

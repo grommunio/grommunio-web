@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2025-02-25 15:04+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hr/>\n"
@@ -3058,6 +3058,9 @@ msgstr "Primijeni promjene"
 msgid "Do you wish to apply the changes?"
 msgstr "Želite li primijeniti promjene?"
 
+msgid "Search in folder"
+msgstr "Traži u mapi"
+
 msgid "Recent searches"
 msgstr "Nedavne pretrage"
 
@@ -3082,6 +3085,15 @@ msgstr "NE"
 msgid "Search in"
 msgstr "Traži u"
 
+msgid "Whole mailbox"
+msgstr "Cijeli poštanski sandučić"
+
+msgid "No folder matches"
+msgstr "Nijedna mapa ne odgovara"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "Još {0}, nastavite tipkati za sužavanje"
+
 msgid "All folders"
 msgstr "Sve mape"
 
@@ -3091,8 +3103,16 @@ msgstr "Ostalo…"
 msgid "Search"
 msgstr "Pretraživanje"
 
+msgid "Clear search"
+msgstr "Očisti pretraživanje"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "Kliknite za ciklus: I → ILI → NE"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "mapa"
 
 msgid "Folder does not exist"
 msgstr "Mapa ne postoji"
@@ -4611,8 +4631,17 @@ msgstr "Opis"
 msgid "Folder size"
 msgstr "Veličina mape"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "Mapa koja sadrži stavke{0}"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "Dozvole"
@@ -5681,9 +5710,6 @@ msgstr "Ponovno učitavanje, pričekajte."
 msgid "Search settings"
 msgstr "Traži postavke"
 
-msgid "Clear search"
-msgstr "Očisti pretraživanje"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "Pronađena je {0} odgovarajuća postavka"
@@ -6742,29 +6768,23 @@ msgstr "Uredi dijeljenje"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "Nema dodanih računa. Idite na Postavke, karticu Datoteke i dodajte račun."
 
-msgid "Filesize"
-msgstr "Veličina datoteke"
-
-msgid "Last modified"
-msgstr "Zadnja promjena"
-
-msgid "Is shared"
-msgstr "Dijeli se"
-
-msgid "File preview"
-msgstr "Pregled datoteke"
+msgid "File ({0})"
+msgstr "Datoteka ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y. G:i"
 
-msgid "File ({0})"
-msgstr "Datoteka ({0})"
+msgid "Is shared"
+msgstr "Dijeli se"
 
 msgid "Path"
 msgstr "Putanja"
 
 msgid "Sort by: Path"
 msgstr "Razvrstaj po: Putanja"
+
+msgid "Last modified"
+msgstr "Zadnja promjena"
 
 msgid "Sort by: Last modified"
 msgstr "Razvrstaj po: Zadnja promjena"
@@ -8621,6 +8641,21 @@ msgstr "Nepoznati nositelj obavijesti '%s'"
 msgid "An unexpected error has occurred"
 msgstr "Došlo je do neočekivane pogreške"
 
+msgid "Could not forward meeting request."
+msgstr "Nije moguće proslijediti zahtjev za sastanak."
+
+msgid "Your meeting has been forwarded"
+msgstr "Vaš je sastanak proslijeđen."
+
+msgid "has forwarded your meeting request to others."
+msgstr "Proslijedio je vaš zahtjev za sastanak drugima."
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j. F Y G:i"
+
+msgid "Meeting Time"
+msgstr "Vrijeme sastanka"
+
 msgid "To-Do List"
 msgstr "Popis zadataka"
 
@@ -8631,6 +8666,12 @@ msgstr "Popis zadataka"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$sod%2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Mapa s ovim imenom već postoji. Koristite drugo ime."
+
+msgid "Could not delete folder."
+msgstr "Nije moguće izbrisati mapu."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "OpenPGP je trenutačno onemogućen ili nedostupan. Vaša poruka nije poslana. Omogućite OpenPGP prije ponovnog pokušaja ili izričito isključite potpisivanje i šifriranje."
@@ -8677,25 +8718,11 @@ msgstr "eml-privitak nije uspješno uvezen"
 msgid "The vcf attachment is not imported successfully"
 msgstr "VCF-privitak nije uspješno uvezen"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Nije moguće uvesti '%s' u '%s'. "
+msgid "Attachment is not imported successfully"
+msgstr "Privitak nije uspješno uvezen"
 
 msgid "There is no appointment found in this file."
 msgstr "U ovoj datoteci nema termina."
-
-msgid "The file is corrupt."
-msgstr "Datoteka je oštećena."
-
-msgid "The file is invalid."
-msgstr "Datoteka je nevažeća."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "Nije moguće uvesti '%s'. "
-
-msgid "Attachment is not imported successfully"
-msgstr "Privitak nije uspješno uvezen"
 
 msgid "Embedded attachment not found."
 msgstr "Ugrađeni privitak nije pronađen."
@@ -8706,20 +8733,34 @@ msgstr "ZIP nije uspješno kreiran"
 msgid "Attachments can not be downloaded"
 msgstr "Privici se ne mogu preuzeti"
 
-msgid "Operation failed"
-msgstr "Operacija nije uspjela"
-
 msgid "Sticky Note"
 msgstr "Ljepljiva bilješka"
 
 msgid "Task Request"
 msgstr "Zahtjev za zadatak"
 
+msgid "Operation failed"
+msgstr "Operacija nije uspjela"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Nije moguće pronaći poruku, ili je premještena ili izbrisana."
 
 msgid "Action is not performed correctly."
 msgstr "Radnja nije ispravno izvedena."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Nije moguće uvesti '%s' u '%s'. "
+
+msgid "The file is corrupt."
+msgstr "Datoteka je oštećena."
+
+msgid "The file is invalid."
+msgstr "Datoteka je nevažeća."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Nije moguće uvesti '%s'. "
 
 msgid "Tentatively accepted"
 msgstr "Uvjetno prihvaćeno"
@@ -8904,6 +8945,13 @@ msgstr "Nije moguće otvoriti spremište."
 msgid "Could not load the hierarchy."
 msgstr "Nije moguće učitati hijerarhiju."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "Nemate dovoljno ovlasti za otvaranje ovog %1$s mape. Vlasnik mape može ih postaviti na kartici 'Ovlasti' u svojstvima mape (desni klik na %1$s mapu > Svojstva > Ovlasti)."
+
+msgid "User could not be resolved."
+msgstr "Korisnik nije mogao biti riješen."
+
 msgid "Could not open the shared store."
 msgstr "Nije moguće otvoriti dijeljenu trgovinu."
 
@@ -8915,9 +8963,6 @@ msgstr "Nije moguće ukloniti mapu iz favorita."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "Nemate dovoljno ovlasti za brisanje mape."
-
-msgid "Could not delete folder."
-msgstr "Nije moguće izbrisati mapu."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "Nemate dovoljno ovlasti za kopiranje mape."
@@ -8955,9 +9000,6 @@ msgstr "Nije moguće postaviti dopuštenja mape."
 msgid "You have insufficient privileges to rename this folder."
 msgstr "Nemate dovoljno ovlasti za preimenovanje ove mape."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "Mapa s ovim imenom već postoji. Koristite drugo ime."
-
 msgid "Could not rename folder."
 msgstr "Nije moguće preimenovati mapu."
 
@@ -8969,13 +9011,6 @@ msgstr "Nije moguće stvoriti mapu."
 
 msgid "Could not close shared folder."
 msgstr "Nije moguće zatvoriti dijeljenu mapu."
-
-msgid "User could not be resolved."
-msgstr "Korisnik nije mogao biti riješen."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "Nemate dovoljno ovlasti za otvaranje ovog %1$s mape. Vlasnik mape može ih postaviti na kartici 'Ovlasti' u svojstvima mape (desni klik na %1$s mapu > Svojstva > Ovlasti)."
 
 msgid "default"
 msgstr "zadana vrijednost"
@@ -9012,9 +9047,6 @@ msgstr "Nije moguće kopirati poruku."
 
 msgid "Could not move message."
 msgstr "Nije moguće premjestiti poruku."
-
-msgid "Could not forward meeting request."
-msgstr "Nije moguće proslijediti zahtjev za sastanak."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "Nemate dovoljno ovlasti za spremanje stavki u ovoj mapi."
@@ -9073,18 +9105,6 @@ msgstr "Sljedeći primatelji nisu bili dostupni"
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "Administrator je onemogućio uklanjanje privitaka."
-
-msgid "l, F j, Y g:i A"
-msgstr "l, j. F Y G:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "Vaš je sastanak proslijeđen."
-
-msgid "has forwarded your meeting request to others."
-msgstr "Proslijedio je vaš zahtjev za sastanak drugima."
-
-msgid "Meeting Time"
-msgstr "Vrijeme sastanka"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Nemate dovoljno privilegija da vidite sadržaj ove mape."

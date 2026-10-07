@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hu/>\n"
@@ -3049,6 +3049,9 @@ msgstr "A változtatások elfogadása"
 msgid "Do you wish to apply the changes?"
 msgstr "Kívánja alkalmazni a változásokat?"
 
+msgid "Search in folder"
+msgstr "Keresés mappában"
+
 msgid "Recent searches"
 msgstr "Legutóbbi keresések"
 
@@ -3073,6 +3076,15 @@ msgstr "NEM"
 msgid "Search in"
 msgstr "Keresés a"
 
+msgid "Whole mailbox"
+msgstr "Teljes postafiók"
+
+msgid "No folder matches"
+msgstr "Nincs egyező mappa"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "Még {0}, gépeljen tovább a szűkítéshez"
+
 msgid "All folders"
 msgstr "Összes mappa"
 
@@ -3082,8 +3094,16 @@ msgstr "Egyéb…"
 msgid "Search"
 msgstr "Keresés"
 
+msgid "Clear search"
+msgstr "Keresés törlése"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "Kattintson a váltáshoz: ÉS → VAGY → NEM"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "mappa"
 
 msgid "Folder does not exist"
 msgstr "A mappa nem létezik"
@@ -4602,8 +4622,17 @@ msgstr "Leírás"
 msgid "Folder size"
 msgstr "Mappa méret"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "A mappa tartalmaz {0} elemet"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "Jogok"
@@ -5672,9 +5701,6 @@ msgstr "Újratöltés, kérem várjon."
 msgid "Search settings"
 msgstr "Keresés a beállítások között"
 
-msgid "Clear search"
-msgstr "Keresés törlése"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "{0} egyező beállítás"
@@ -6729,29 +6755,23 @@ msgstr "Megosztás szerkesztése"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "Nincsenek hozzáadott fiókok. Nyissa meg a beállításokat, a Fájlok lapot, és adjon hozzá egy fiókot"
 
-msgid "Filesize"
-msgstr "Fájl méret"
-
-msgid "Last modified"
-msgstr "Utolsó módosítás"
-
-msgid "Is shared"
-msgstr "Megosztva"
-
-msgid "File preview"
-msgstr "Előnézet"
+msgid "File ({0})"
+msgstr "Fájl ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "Y.m.d. G:i"
 
-msgid "File ({0})"
-msgstr "Fájl ({0})"
+msgid "Is shared"
+msgstr "Megosztva"
 
 msgid "Path"
 msgstr "Útvonal"
 
 msgid "Sort by: Path"
 msgstr "Rendezés: Útvonal"
+
+msgid "Last modified"
+msgstr "Utolsó módosítás"
 
 msgid "Sort by: Last modified"
 msgstr "Rendezés: Utolsó módosítás"
@@ -8608,6 +8628,21 @@ msgstr "Ismeretlen bejelentő '%s'"
 msgid "An unexpected error has occurred"
 msgstr "Váratlan hiba történt"
 
+msgid "Could not forward meeting request."
+msgstr "Nem sikerült továbbítani az értekezlet-meghívót."
+
+msgid "Your meeting has been forwarded"
+msgstr "Az Ön értekezletét továbbítottuk"
+
+msgid "has forwarded your meeting request to others."
+msgstr "továbbította az értekezlet-meghívódat másoknak."
+
+msgid "l, F j, Y g:i A"
+msgstr "l, Y. F j. G:i"
+
+msgid "Meeting Time"
+msgstr "A találkozó időpontja"
+
 msgid "To-Do List"
 msgstr "Teendőlista"
 
@@ -8618,6 +8653,12 @@ msgstr "Teendőlista"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s / %2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Egy ilyen nevű mappa már létezik. Használjon másik nevet."
+
+msgid "Could not delete folder."
+msgstr "Nem sikerült törölni a mappát."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "Az OpenPGP jelenleg le van tiltva vagy nem érhető el. Az üzenet nem lett elküldve. Az újrapróbálkozás előtt engedélyezze az OpenPGP-t, vagy kifejezetten kapcsolja ki az aláírást és a titkosítást."
@@ -8664,25 +8705,11 @@ msgstr "Az eml csatolmányt nem sikerül importálni"
 msgid "The vcf attachment is not imported successfully"
 msgstr "A vcf csatolmányt nem sikerül importálni"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Nem sikerült a '%s' importálása a '%s'-be. "
+msgid "Attachment is not imported successfully"
+msgstr "A csatolmány importálása nem sikeres"
 
 msgid "There is no appointment found in this file."
 msgstr "Ebben a fájlban nem található kinevezés."
-
-msgid "The file is corrupt."
-msgstr "A fájl sérült."
-
-msgid "The file is invalid."
-msgstr "A fájl érvénytelen."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "'%s' nem importálható. "
-
-msgid "Attachment is not imported successfully"
-msgstr "A csatolmány importálása nem sikeres"
 
 msgid "Embedded attachment not found."
 msgstr "Beágyazott melléklet nem található."
@@ -8693,20 +8720,34 @@ msgstr "A ZIP nem jött létre sikeresen"
 msgid "Attachments can not be downloaded"
 msgstr "A mellékletek nem tölthetők le"
 
-msgid "Operation failed"
-msgstr "A művelet sikertelen"
-
 msgid "Sticky Note"
 msgstr "Ragadós jegyzet"
 
 msgid "Task Request"
 msgstr "Feladat kérés"
 
+msgid "Operation failed"
+msgstr "A művelet sikertelen"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Nem találta az üzenetet, vagy áthelyezték, vagy törölték."
 
 msgid "Action is not performed correctly."
 msgstr "A művelet nem megfelelően történik."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Nem sikerült a '%s' importálása a '%s'-be. "
+
+msgid "The file is corrupt."
+msgstr "A fájl sérült."
+
+msgid "The file is invalid."
+msgstr "A fájl érvénytelen."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "'%s' nem importálható. "
 
 msgid "Tentatively accepted"
 msgstr "Feltételesen elfogadva"
@@ -8890,6 +8931,13 @@ msgstr "Nem sikerült megnyitni a tárolót."
 msgid "Could not load the hierarchy."
 msgstr "Nem sikerült betölteni a hierarchiát."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "Nincs elegendő jogosultsága a %1$s mappa megnyitásához. A mappa tulajdonosa ezeket a mappa tulajdonságainak \"Jogok\" lapján állíthatja be (kattintson a jobb gombbal a %1$s mappára > Tulajdonságok > Jogok)."
+
+msgid "User could not be resolved."
+msgstr "A felhasználó nem volt megoldható."
+
 msgid "Could not open the shared store."
 msgstr "Nem sikerült megnyitni a megosztott áruházat."
 
@@ -8901,9 +8949,6 @@ msgstr "Nem sikerült eltávolítani a mappát a kedvencek közül."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "Nincs elegendő jogosultsága a mappa törléséhez."
-
-msgid "Could not delete folder."
-msgstr "Nem sikerült törölni a mappát."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "Nincs elegendő jogosultsága a mappa másolásához."
@@ -8941,9 +8986,6 @@ msgstr "Nem sikerült beállítani a mappaengedélyeket."
 msgid "You have insufficient privileges to rename this folder."
 msgstr "Nincs elegendő jogosultsága a mappa átnevezéséhez."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "Egy ilyen nevű mappa már létezik. Használjon másik nevet."
-
 msgid "Could not rename folder."
 msgstr "Nem sikerült átnevezni a mappát."
 
@@ -8955,13 +8997,6 @@ msgstr "Nem sikerült mappát létrehozni."
 
 msgid "Could not close shared folder."
 msgstr "Nem sikerült bezárni a megosztott mappát."
-
-msgid "User could not be resolved."
-msgstr "A felhasználó nem volt megoldható."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "Nincs elegendő jogosultsága a %1$s mappa megnyitásához. A mappa tulajdonosa ezeket a mappa tulajdonságainak \"Jogok\" lapján állíthatja be (kattintson a jobb gombbal a %1$s mappára > Tulajdonságok > Jogok)."
 
 msgid "default"
 msgstr "alapértelmezett"
@@ -8998,9 +9033,6 @@ msgstr "Nem másolható üzenet."
 
 msgid "Could not move message."
 msgstr "Nem mozgatható üzenet."
-
-msgid "Could not forward meeting request."
-msgstr "Nem sikerült továbbítani az értekezlet-meghívót."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "Nincs elégséges a jogosultsága elemek mentéséhez ebbe a mappába."
@@ -9058,18 +9090,6 @@ msgstr "Az alábbi címzet(tek) nem érhető(ek) el"
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "A mellékletek eltávolítását a rendszergazda letiltotta."
-
-msgid "l, F j, Y g:i A"
-msgstr "l, Y. F j. G:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "Az Ön értekezletét továbbítottuk"
-
-msgid "has forwarded your meeting request to others."
-msgstr "továbbította az értekezlet-meghívódat másoknak."
-
-msgid "Meeting Time"
-msgstr "A találkozó időpontja"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Nem rendelkezik elegendő jogosultsággal ahhoz, hogy megnézze a mappa tartalmát."

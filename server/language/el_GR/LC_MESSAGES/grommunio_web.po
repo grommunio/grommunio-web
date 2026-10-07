@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -3035,6 +3035,9 @@ msgstr "Εφαρμογή των αλλαγών"
 msgid "Do you wish to apply the changes?"
 msgstr "Θέλετε να εφαρμόσετε τις αλλαγές"
 
+msgid "Search in folder"
+msgstr "Αναζήτηση σε φάκελο"
+
 msgid "Recent searches"
 msgstr "Πρόσφατες αναζητήσεις"
 
@@ -3059,6 +3062,15 @@ msgstr "ΔΕΝ"
 msgid "Search in"
 msgstr "Αναζήτηση σε"
 
+msgid "Whole mailbox"
+msgstr "Ολόκληρο το γραμματοκιβώτιο"
+
+msgid "No folder matches"
+msgstr "Κανένας φάκελος δεν ταιριάζει"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "{0} ακόμη, συνεχίστε να πληκτρολογείτε για περιορισμό"
+
 msgid "All folders"
 msgstr "Όλοι οι φάκελοι"
 
@@ -3068,8 +3080,16 @@ msgstr "Άλλα…"
 msgid "Search"
 msgstr "Αναζήτηση"
 
+msgid "Clear search"
+msgstr "Εκκαθάριση αναζήτησης"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "Κάντε κλικ για εναλλαγή: ΚΑΙ → Ή → ΟΧΙ"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "σε"
 
 msgid "Folder does not exist"
 msgstr "Ο φάκελος δεν υπάρχει"
@@ -4581,8 +4601,17 @@ msgstr "Περιγραφή"
 msgid "Folder size"
 msgstr "Μέγεθος φακέλου"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "Φάκελος που περιέχει στοιχεία τύπου {0}"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "Εξουσιοδοτήσεις"
@@ -5651,9 +5680,6 @@ msgstr "Επαναγέμισμα, Παρακαλώ περιμένετε."
 msgid "Search settings"
 msgstr "Αναζήτηση ρυθμίσεων"
 
-msgid "Clear search"
-msgstr "Εκκαθάριση αναζήτησης"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "Βρέθηκε {0} ρύθμιση"
@@ -6708,29 +6734,23 @@ msgstr "Επεξεργασία μεριδίου"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "Δεν έχουν προστεθεί λογαριασμοί. Μεταβείτε στις ρυθμίσεις, στην καρτέλα Αρχεία και προσθέστε έναν λογαριασμό"
 
-msgid "Filesize"
-msgstr "Μέγεθος αρχείου"
-
-msgid "Last modified"
-msgstr "Τελευταία ενημέρωση"
-
-msgid "Is shared"
-msgstr "Μοιράζεται"
-
-msgid "File preview"
-msgstr "Προεπισκόπηση αρχείου"
+msgid "File ({0})"
+msgstr "Αρχείο ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "File ({0})"
-msgstr "Αρχείο ({0})"
+msgid "Is shared"
+msgstr "Μοιράζεται"
 
 msgid "Path"
 msgstr "Διαδρομή"
 
 msgid "Sort by: Path"
 msgstr "Ταξινόμηση κατά: Διαδρομή"
+
+msgid "Last modified"
+msgstr "Τελευταία ενημέρωση"
 
 msgid "Sort by: Last modified"
 msgstr "Ταξινόμηση κατά: Τελευταία τροποποίηση"
@@ -8587,6 +8607,21 @@ msgstr "Άγνωστος ειδοποιητής '%s'"
 msgid "An unexpected error has occurred"
 msgstr "Εμφανίστηκε ένα απροσδόκητο σφάλμα"
 
+msgid "Could not forward meeting request."
+msgstr "Δεν ήταν δυνατή η προώθηση της πρόσκλησης σε σύσκεψη."
+
+msgid "Your meeting has been forwarded"
+msgstr "Η συνάντησή σας έχει προωθηθεί"
+
+msgid "has forwarded your meeting request to others."
+msgstr "έχει προωθήσει το αίτημα συνάντησής σας σε άλλους."
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j F Y G:i"
+
+msgid "Meeting Time"
+msgstr "Ώρα συνάντησης"
+
 msgid "To-Do List"
 msgstr "Λίστα εργασιών"
 
@@ -8597,6 +8632,12 @@ msgstr "Λίστα εργασιών"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s από %2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Ένας φάκελος με αυτό το όνομα υπάρχει ήδη. Χρησιμοποιήστε άλλο όνομα."
+
+msgid "Could not delete folder."
+msgstr "Δεν ήταν δυνατή η διαγραφή του φακέλου."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "Το OpenPGP είναι προς το παρόν απενεργοποιημένο ή μη διαθέσιμο. Το μήνυμά σας δεν στάλθηκε. Ενεργοποιήστε το OpenPGP πριν δοκιμάσετε ξανά ή απενεργοποιήστε ρητά την υπογραφή και την κρυπτογράφηση."
@@ -8643,25 +8684,11 @@ msgstr "Το συνημμένο eml δεν εισάγεται με επιτυχ�
 msgid "The vcf attachment is not imported successfully"
 msgstr "Το συνημμένο αρχείο vcf δεν εισάγεται με επιτυχία"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Αδυναμία εισαγωγής του '%s' στο '%s'. "
+msgid "Attachment is not imported successfully"
+msgstr "Το συνημμένο δεν εισάγεται με επιτυχία"
 
 msgid "There is no appointment found in this file."
 msgstr "Δεν υπάρχει κανένα ραντεβού σε αυτό το αρχείο."
-
-msgid "The file is corrupt."
-msgstr "Το αρχείο είναι κατεστραμμένο."
-
-msgid "The file is invalid."
-msgstr "Το αρχείο είναι άκυρο."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "Αδυναμία εισαγωγής του '%s'. "
-
-msgid "Attachment is not imported successfully"
-msgstr "Το συνημμένο δεν εισάγεται με επιτυχία"
 
 msgid "Embedded attachment not found."
 msgstr "Το ενσωματωμένο συνημμένο δεν βρέθηκε."
@@ -8672,20 +8699,34 @@ msgstr "Το ZIP δεν δημιουργείται με επιτυχία"
 msgid "Attachments can not be downloaded"
 msgstr "Δεν είναι δυνατή η λήψη συνημμένων"
 
-msgid "Operation failed"
-msgstr "Η λειτουργία απέτυχε"
-
 msgid "Sticky Note"
 msgstr "Αυτοκόλλητο σημείωμα"
 
 msgid "Task Request"
 msgstr "Αίτημα εργασίας"
 
+msgid "Operation failed"
+msgstr "Η λειτουργία απέτυχε"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Δεν μπόρεσα να βρω το μήνυμα, είτε έχει μετακινηθεί είτε έχει διαγραφεί."
 
 msgid "Action is not performed correctly."
 msgstr "Η ενέργεια δεν εκτελείται σωστά."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Αδυναμία εισαγωγής του '%s' στο '%s'. "
+
+msgid "The file is corrupt."
+msgstr "Το αρχείο είναι κατεστραμμένο."
+
+msgid "The file is invalid."
+msgstr "Το αρχείο είναι άκυρο."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Αδυναμία εισαγωγής του '%s'. "
 
 msgid "Tentatively accepted"
 msgstr "Προσωρινή αποδοχή"
@@ -8869,6 +8910,13 @@ msgstr "Δεν ήταν δυνατό να ανοίξει το κατάστημα
 msgid "Could not load the hierarchy."
 msgstr "Δεν μπόρεσε να φορτώσει την ιεραρχία."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "Δεν έχετε επαρκή δικαιώματα για να ανοίξετε αυτόν τον φάκελο %1$s. Ο ιδιοκτήτης του φακέλου μπορεί να τα ορίσει χρησιμοποιώντας την καρτέλα \"δικαιώματα\" των ιδιοτήτων του φακέλου (δεξί κλικ στο φάκελο %1$s > ιδιότητες > δικαιώματα)."
+
+msgid "User could not be resolved."
+msgstr "Ο χρήστης δεν μπόρεσε να επιλυθεί."
+
 msgid "Could not open the shared store."
 msgstr "Δεν ήταν δυνατό το άνοιγμα του κοινόχρηστου καταστήματος."
 
@@ -8880,9 +8928,6 @@ msgstr "Δεν ήταν δυνατή η αφαίρεση φακέλου από �
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "Δεν έχετε επαρκή δικαιώματα για τη διαγραφή φακέλου."
-
-msgid "Could not delete folder."
-msgstr "Δεν ήταν δυνατή η διαγραφή του φακέλου."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "Δεν έχετε επαρκή δικαιώματα για την αντιγραφή φακέλου."
@@ -8920,9 +8965,6 @@ msgstr "Δεν μπόρεσε να ορίσει δικαιώματα φακέλ�
 msgid "You have insufficient privileges to rename this folder."
 msgstr "Δεν έχετε επαρκή δικαιώματα για να μετονομάσετε αυτόν τον φάκελο."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "Ένας φάκελος με αυτό το όνομα υπάρχει ήδη. Χρησιμοποιήστε άλλο όνομα."
-
 msgid "Could not rename folder."
 msgstr "Δεν ήταν δυνατή η μετονομασία φακέλου."
 
@@ -8934,13 +8976,6 @@ msgstr "Δεν μπόρεσε να δημιουργήσει φάκελο."
 
 msgid "Could not close shared folder."
 msgstr "Δεν μπόρεσε να κλείσει τον κοινόχρηστο φάκελο."
-
-msgid "User could not be resolved."
-msgstr "Ο χρήστης δεν μπόρεσε να επιλυθεί."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "Δεν έχετε επαρκή δικαιώματα για να ανοίξετε αυτόν τον φάκελο %1$s. Ο ιδιοκτήτης του φακέλου μπορεί να τα ορίσει χρησιμοποιώντας την καρτέλα \"δικαιώματα\" των ιδιοτήτων του φακέλου (δεξί κλικ στο φάκελο %1$s > ιδιότητες > δικαιώματα)."
 
 msgid "default"
 msgstr "προεπιλογή"
@@ -8977,9 +9012,6 @@ msgstr "Δεν ήταν δυνατή η αντιγραφή μηνύματος."
 
 msgid "Could not move message."
 msgstr "Δεν ήταν δυνατή η μετακίνηση μηνύματος."
-
-msgid "Could not forward meeting request."
-msgstr "Δεν ήταν δυνατή η προώθηση της πρόσκλησης σε σύσκεψη."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "Δεν έχετε επαρκή δικαιώματα για να αποθηκεύσετε στοιχεία σε αυτόν τον φάκελο."
@@ -9037,18 +9069,6 @@ msgstr "Δεν ήταν δυνατή η επικοινωνία με τον/το�
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "Η αφαίρεση συνημμένων έχει απενεργοποιηθεί από τον διαχειριστή."
-
-msgid "l, F j, Y g:i A"
-msgstr "l, j F Y G:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "Η συνάντησή σας έχει προωθηθεί"
-
-msgid "has forwarded your meeting request to others."
-msgstr "έχει προωθήσει το αίτημα συνάντησής σας σε άλλους."
-
-msgid "Meeting Time"
-msgstr "Ώρα συνάντησης"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Δεν έχετε επαρκή δικαιώματα για να δείτε τα περιεχόμενα αυτού του φακέλου."

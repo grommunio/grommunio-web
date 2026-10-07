@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Arabic\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Arabic (Saudi Arabia) <https://hosted.weblate.org/projects/grommunio/grommunio-web/ar_SA/>\n"
@@ -3130,6 +3130,9 @@ msgstr "تطبيق التغييرات"
 msgid "Do you wish to apply the changes?"
 msgstr "هل ترغب في تطبيق التغييرات؟"
 
+msgid "Search in folder"
+msgstr "بحث في مجلد"
+
 msgid "Recent searches"
 msgstr "عمليات البحث الأخيرة"
 
@@ -3154,6 +3157,15 @@ msgstr "لا"
 msgid "Search in"
 msgstr "بحث في"
 
+msgid "Whole mailbox"
+msgstr "صندوق البريد بالكامل"
+
+msgid "No folder matches"
+msgstr "لا توجد مجلدات مطابقة"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "{0} أخرى، تابع الكتابة لتضييق النتائج"
+
 msgid "All folders"
 msgstr "كافة المجلدات"
 
@@ -3163,8 +3175,16 @@ msgstr "آخر…"
 msgid "Search"
 msgstr "يبحث"
 
+msgid "Clear search"
+msgstr "مسح البحث"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "انقر للتنقل: AND → OR → NOT"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "في"
 
 msgid "Folder does not exist"
 msgstr "المجلد غير موجود"
@@ -4704,8 +4724,17 @@ msgstr "وصف"
 msgid "Folder size"
 msgstr "حجم المجلد"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "مجلد يحتوي على عناصر{0}"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "الأذونات"
@@ -5773,9 +5802,6 @@ msgstr "جارٍ إعادة التحميل، يرجى الانتظار."
 
 msgid "Search settings"
 msgstr "البحث في الإعدادات"
-
-msgid "Clear search"
-msgstr "مسح البحث"
 
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
@@ -6847,29 +6873,23 @@ msgstr "تحرير المشاركة"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "لا توجد حسابات مضافة. انتقل إلى الإعدادات، علامة التبويب \"الملفات\" وأضف حسابًا"
 
-msgid "Filesize"
-msgstr "حجم الملف"
-
-msgid "Last modified"
-msgstr "آخر تعديل"
-
-msgid "Is shared"
-msgstr "تمت مشاركته"
-
-msgid "File preview"
-msgstr "معاينة الملف"
+msgid "File ({0})"
+msgstr "ملف ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "دي إم واي جي: أنا"
 
-msgid "File ({0})"
-msgstr "ملف ({0})"
+msgid "Is shared"
+msgstr "تمت مشاركته"
 
 msgid "Path"
 msgstr "المسار"
 
 msgid "Sort by: Path"
 msgstr "الترتيب حسب: المسار"
+
+msgid "Last modified"
+msgstr "آخر تعديل"
 
 msgid "Sort by: Last modified"
 msgstr "الترتيب حسب: آخر تعديل"
@@ -8726,6 +8746,21 @@ msgstr "مُخطر غير معروف '%s'"
 msgid "An unexpected error has occurred"
 msgstr "لقد حدث خطأ غير متوقع"
 
+msgid "Could not forward meeting request."
+msgstr "تعذر إعادة توجيه طلب الاجتماع."
+
+msgid "Your meeting has been forwarded"
+msgstr "تم إعادة توجيه اجتماعك"
+
+msgid "has forwarded your meeting request to others."
+msgstr "قام بإعادة توجيه طلب الاجتماع الخاص بك إلى الآخرين."
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j F, Y g:i A"
+
+msgid "Meeting Time"
+msgstr "موعد الاجتماع"
+
 msgid "To-Do List"
 msgstr "قائمة المهام"
 
@@ -8736,6 +8771,12 @@ msgstr "قائمة المهام"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$sمن%2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "يوجد مجلد بهذا الاسم بالفعل. استخدم اسمًا آخر."
+
+msgid "Could not delete folder."
+msgstr "لا يمكن حذف المجلد."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "OpenPGP معطَّل حاليًا أو غير متاح. لم يتم إرسال رسالتك. قم بتمكين OpenPGP قبل إعادة المحاولة، أو أوقف التوقيع والتشفير صراحةً."
@@ -8782,25 +8823,11 @@ msgstr "لم يتم استيراد مرفق eml بنجاح"
 msgid "The vcf attachment is not imported successfully"
 msgstr "لم يتم استيراد مرفق vcf بنجاح"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "غير قادر على استيراد \"%s\" إلى \"%s\". "
+msgid "Attachment is not imported successfully"
+msgstr "لم يتم استيراد المرفق بنجاح"
 
 msgid "There is no appointment found in this file."
 msgstr "لا يوجد موعد موجود في هذا الملف."
-
-msgid "The file is corrupt."
-msgstr "الملف تالف."
-
-msgid "The file is invalid."
-msgstr "الملف غير صالح."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "غير قادر على استيراد \"%s\". "
-
-msgid "Attachment is not imported successfully"
-msgstr "لم يتم استيراد المرفق بنجاح"
 
 msgid "Embedded attachment not found."
 msgstr "لم يتم العثور على المرفق المضمن."
@@ -8811,20 +8838,34 @@ msgstr "لم يتم إنشاء ملف ZIP بنجاح"
 msgid "Attachments can not be downloaded"
 msgstr "لا يمكن تحميل المرفقات"
 
-msgid "Operation failed"
-msgstr "فشلت العملية"
-
 msgid "Sticky Note"
 msgstr "ملاحظة لاصقة"
 
 msgid "Task Request"
 msgstr "طلب المهمة"
 
+msgid "Operation failed"
+msgstr "فشلت العملية"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "لم يتم العثور على الرسالة، إما أنه تم نقلها أو حذفها."
 
 msgid "Action is not performed correctly."
 msgstr "لم يتم تنفيذ الإجراء بشكل صحيح."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "غير قادر على استيراد \"%s\" إلى \"%s\". "
+
+msgid "The file is corrupt."
+msgstr "الملف تالف."
+
+msgid "The file is invalid."
+msgstr "الملف غير صالح."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "غير قادر على استيراد \"%s\". "
 
 msgid "Tentatively accepted"
 msgstr "قبول مبدئي"
@@ -9012,6 +9053,13 @@ msgstr "تعذر فتح المخزن."
 msgid "Could not load the hierarchy."
 msgstr "تعذر تحميل التسلسل الهرمي."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "لا تملك الصلاحيات الكافية لفتح مجلد %1$s هذا. يمكن لمالك المجلد تعيين هذه الصلاحيات باستخدام علامة التبويب \"أذونات\" في خصائص المجلد (انقر بزر الماوس الأيمن على مجلد %1$s > خصائص > أذونات)."
+
+msgid "User could not be resolved."
+msgstr "لا يمكن حل المستخدم."
+
 msgid "Could not open the shared store."
 msgstr "لا يمكن فتح المتجر المشترك."
 
@@ -9023,9 +9071,6 @@ msgstr "لا يمكن إزالة المجلد من المفضلة."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "ليس لديك امتيازات كافية لحذف المجلد."
-
-msgid "Could not delete folder."
-msgstr "لا يمكن حذف المجلد."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "ليس لديك امتيازات كافية لنسخ المجلد."
@@ -9063,9 +9108,6 @@ msgstr "لا يمكن تعيين أذونات المجلد."
 msgid "You have insufficient privileges to rename this folder."
 msgstr "ليس لديك امتيازات كافية لإعادة تسمية هذا المجلد."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "يوجد مجلد بهذا الاسم بالفعل. استخدم اسمًا آخر."
-
 msgid "Could not rename folder."
 msgstr "لا يمكن إعادة تسمية المجلد."
 
@@ -9077,13 +9119,6 @@ msgstr "لا يمكن إنشاء المجلد."
 
 msgid "Could not close shared folder."
 msgstr "لا يمكن إغلاق المجلد المشترك."
-
-msgid "User could not be resolved."
-msgstr "لا يمكن حل المستخدم."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "لا تملك الصلاحيات الكافية لفتح مجلد %1$s هذا. يمكن لمالك المجلد تعيين هذه الصلاحيات باستخدام علامة التبويب \"أذونات\" في خصائص المجلد (انقر بزر الماوس الأيمن على مجلد %1$s > خصائص > أذونات)."
 
 msgid "default"
 msgstr "تقصير"
@@ -9120,9 +9155,6 @@ msgstr "لا يمكن نسخ الرسالة."
 
 msgid "Could not move message."
 msgstr "لا يمكن نقل الرسالة."
-
-msgid "Could not forward meeting request."
-msgstr "تعذر إعادة توجيه طلب الاجتماع."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "ليس لديك امتيازات كافية لحفظ العناصر في هذا المجلد."
@@ -9184,18 +9216,6 @@ msgstr "تعذر الوصول إلى المستلم (المستلمين) الت�
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "تم تعطيل إزالة المرفقات من قبل المسؤول."
-
-msgid "l, F j, Y g:i A"
-msgstr "l, j F, Y g:i A"
-
-msgid "Your meeting has been forwarded"
-msgstr "تم إعادة توجيه اجتماعك"
-
-msgid "has forwarded your meeting request to others."
-msgstr "قام بإعادة توجيه طلب الاجتماع الخاص بك إلى الآخرين."
-
-msgid "Meeting Time"
-msgstr "موعد الاجتماع"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "ليس لديك الامتيازات الكافية لرؤية محتويات هذا المجلد."

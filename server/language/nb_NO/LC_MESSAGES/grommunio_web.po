@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/grommunio/grommunio-web/nb_NO/>\n"
@@ -3035,6 +3035,9 @@ msgstr "Ta i bruk endringen"
 msgid "Do you wish to apply the changes?"
 msgstr "Ønsker du å bruke disse endringene?"
 
+msgid "Search in folder"
+msgstr "Søk i mappe"
+
 msgid "Recent searches"
 msgstr "Nylige søk"
 
@@ -3059,6 +3062,15 @@ msgstr "IKKE"
 msgid "Search in"
 msgstr "Søk i"
 
+msgid "Whole mailbox"
+msgstr "Hele postkassen"
+
+msgid "No folder matches"
+msgstr "Ingen mapper samsvarer"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "{0} til, skriv videre for å avgrense"
+
 msgid "All folders"
 msgstr "Alle mapper"
 
@@ -3068,8 +3080,16 @@ msgstr "Andre…"
 msgid "Search"
 msgstr "Søk"
 
+msgid "Clear search"
+msgstr "Tøm søket"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "Klikk for å bla gjennom: AND → OR → NOT"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "mappe"
 
 msgid "Folder does not exist"
 msgstr "Mappen finnes ikke"
@@ -4581,8 +4601,17 @@ msgstr "beskrivning"
 msgid "Folder size"
 msgstr "Mappestørrelse"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "Mappen inneholder {0} elementer"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "Rettigheter"
@@ -5651,9 +5680,6 @@ msgstr "Laster inn pånytt, vennligst vent."
 msgid "Search settings"
 msgstr "Søk i innstillinger"
 
-msgid "Clear search"
-msgstr "Tøm søket"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "{0} innstilling samsvarer"
@@ -6708,29 +6734,23 @@ msgstr "Rediger andel"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "Det er ikke lagt til noen kontoer. Gå til innstillinger, fanen Filer og legg til en konto"
 
-msgid "Filesize"
-msgstr "Filstørrelse"
-
-msgid "Last modified"
-msgstr "Sist endret"
-
-msgid "Is shared"
-msgstr "Er delt"
-
-msgid "File preview"
-msgstr "Forhåndsvisning av fil"
+msgid "File ({0})"
+msgstr "Fil ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "File ({0})"
-msgstr "Fil ({0})"
+msgid "Is shared"
+msgstr "Er delt"
 
 msgid "Path"
 msgstr "Sti"
 
 msgid "Sort by: Path"
 msgstr "Sorter etter: Sti"
+
+msgid "Last modified"
+msgstr "Sist endret"
 
 msgid "Sort by: Last modified"
 msgstr "Sorter etter Sist endret"
@@ -8587,6 +8607,21 @@ msgstr "Ukjent varsler '%s'"
 msgid "An unexpected error has occurred"
 msgstr "En uventet feil har oppstått"
 
+msgid "Could not forward meeting request."
+msgstr "Kunne ikke videresende møteforespørsel."
+
+msgid "Your meeting has been forwarded"
+msgstr "Møtet ditt er blitt videresendt"
+
+msgid "has forwarded your meeting request to others."
+msgstr "har videresendt møteforespørselen din til andre."
+
+msgid "l, F j, Y g:i A"
+msgstr "l j. F Y G:i"
+
+msgid "Meeting Time"
+msgstr "Møtetid"
+
 msgid "To-Do List"
 msgstr "Oppgaveliste"
 
@@ -8597,6 +8632,12 @@ msgstr "Oppgaveliste"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s av %2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Det finnes allerede en mappe med dette navnet. Bruk et annet navn."
+
+msgid "Could not delete folder."
+msgstr "Kunne ikke slette mappen."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "OpenPGP er for øyeblikket deaktivert eller utilgjengelig. Meldingen din ble ikke sendt. Slå på OpenPGP før du prøver på nytt, eller slå uttrykkelig av signering og kryptering."
@@ -8643,25 +8684,11 @@ msgstr "Importen av eml-vedlegget er ikke vellykket"
 msgid "The vcf attachment is not imported successfully"
 msgstr "Importen av vcf-vedlegget er ikke vellykket"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Kunne ikke importere '%s' til '%s'. "
+msgid "Attachment is not imported successfully"
+msgstr "Vedlegget ble ikke importert"
 
 msgid "There is no appointment found in this file."
 msgstr "Fant ingen avtaler i denne filen."
-
-msgid "The file is corrupt."
-msgstr "Filen er skadet."
-
-msgid "The file is invalid."
-msgstr "Filen er ikke gyldig."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "Kunne ikke importere  '%s'. "
-
-msgid "Attachment is not imported successfully"
-msgstr "Vedlegget ble ikke importert"
 
 msgid "Embedded attachment not found."
 msgstr "Det innebygde vedlegget ble ikke funnet."
@@ -8672,20 +8699,34 @@ msgstr "ZIP-filen er ikke opprettet"
 msgid "Attachments can not be downloaded"
 msgstr "Vedlegg kan ikke lastes ned"
 
-msgid "Operation failed"
-msgstr "Operasjonen mislyktes"
-
 msgid "Sticky Note"
 msgstr "Klistrelapp"
 
 msgid "Task Request"
 msgstr "Forespørsel om oppgave"
 
+msgid "Operation failed"
+msgstr "Operasjonen mislyktes"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Fant ikke meldingen, enten er den flyttet eller slettet."
 
 msgid "Action is not performed correctly."
 msgstr "Handlingen er ikke utført korrekt."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Kunne ikke importere '%s' til '%s'. "
+
+msgid "The file is corrupt."
+msgstr "Filen er skadet."
+
+msgid "The file is invalid."
+msgstr "Filen er ikke gyldig."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Kunne ikke importere  '%s'. "
 
 msgid "Tentatively accepted"
 msgstr "Foreløpig godtatt"
@@ -8869,6 +8910,13 @@ msgstr "Kunne ikke åpne lageret."
 msgid "Could not load the hierarchy."
 msgstr "Kunne ikke laste inn hierarkiet."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "Du har ikke tilstrekkelige rettigheter til å åpne mappen %1$s. Mappens eier kan angi disse ved å bruke \"tillatelser\"-fanen i mappeegenskapene (høyreklikk på mappen %1$s > egenskaper > tillatelser)."
+
+msgid "User could not be resolved."
+msgstr "Bruker kunne ikke løses."
+
 msgid "Could not open the shared store."
 msgstr "Kunne ikke åpne den delte butikken."
 
@@ -8880,9 +8928,6 @@ msgstr "Kunne ikke fjerne mappen fra favoritter."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "Du har ikke tilstrekkelige rettigheter til å slette mappen."
-
-msgid "Could not delete folder."
-msgstr "Kunne ikke slette mappen."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "Du har ikke tilstrekkelige rettigheter til å kopiere mappen."
@@ -8920,9 +8965,6 @@ msgstr "Kunne ikke angi mappetillatelser."
 msgid "You have insufficient privileges to rename this folder."
 msgstr "Du har ikke tilstrekkelige rettigheter til å endre navn på denne mappen."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "Det finnes allerede en mappe med dette navnet. Bruk et annet navn."
-
 msgid "Could not rename folder."
 msgstr "Kunne ikke gi nytt navn til mappen."
 
@@ -8934,13 +8976,6 @@ msgstr "Kunne ikke opprette mappe."
 
 msgid "Could not close shared folder."
 msgstr "Kunne ikke lukke delt mappe."
-
-msgid "User could not be resolved."
-msgstr "Bruker kunne ikke løses."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "Du har ikke tilstrekkelige rettigheter til å åpne mappen %1$s. Mappens eier kan angi disse ved å bruke \"tillatelser\"-fanen i mappeegenskapene (høyreklikk på mappen %1$s > egenskaper > tillatelser)."
 
 msgid "default"
 msgstr "standard"
@@ -8977,9 +9012,6 @@ msgstr "Kunne ikke kopiere meldingen."
 
 msgid "Could not move message."
 msgstr "Kunne ikke flytte meldingen."
-
-msgid "Could not forward meeting request."
-msgstr "Kunne ikke videresende møteforespørsel."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "Du har ikke tilstrekkelige rettigheter til å lagre elementer i denne mappen."
@@ -9037,18 +9069,6 @@ msgstr "De følgende mottakere kunne ikke nåes"
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "Fjerning av vedlegg er deaktivert av administratoren."
-
-msgid "l, F j, Y g:i A"
-msgstr "l j. F Y G:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "Møtet ditt er blitt videresendt"
-
-msgid "has forwarded your meeting request to others."
-msgstr "har videresendt møteforespørselen din til andre."
-
-msgid "Meeting Time"
-msgstr "Møtetid"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Du har ikke tilstrekkelige rettigheter til å se innholdet i denne mappen."

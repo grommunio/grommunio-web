@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2025-03-30 04:00+0000\n"
 "Language: te_IN\n"
 "MIME-Version: 1.0\n"
@@ -3032,6 +3032,9 @@ msgstr ""
 msgid "Do you wish to apply the changes?"
 msgstr ""
 
+msgid "Search in folder"
+msgstr "ఫోల్డర్‌లో శోధించు"
+
 msgid "Recent searches"
 msgstr ""
 
@@ -3056,6 +3059,15 @@ msgstr ""
 msgid "Search in"
 msgstr ""
 
+msgid "Whole mailbox"
+msgstr "మొత్తం మెయిల్‌బాక్స్"
+
+msgid "No folder matches"
+msgstr "సరిపోలే ఫోల్డర్ ఏదీ లేదు"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "మరో {0}, తగ్గించడానికి టైప్ చేస్తూ ఉండండి"
+
 msgid "All folders"
 msgstr ""
 
@@ -3065,8 +3077,16 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+msgid "Clear search"
+msgstr ""
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr ""
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "ఫోల్డర్"
 
 msgid "Folder does not exist"
 msgstr ""
@@ -4578,7 +4598,16 @@ msgstr ""
 msgid "Folder size"
 msgstr ""
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
+msgstr ""
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
 msgstr ""
 
 msgid "Permissions"
@@ -5648,9 +5677,6 @@ msgstr ""
 msgid "Search settings"
 msgstr ""
 
-msgid "Clear search"
-msgstr ""
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] ""
@@ -6705,28 +6731,22 @@ msgstr ""
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr ""
 
-msgid "Filesize"
-msgstr ""
-
-msgid "Last modified"
-msgstr ""
-
-msgid "Is shared"
-msgstr ""
-
-msgid "File preview"
+msgid "File ({0})"
 msgstr ""
 
 msgid "d.m.Y G:i"
 msgstr ""
 
-msgid "File ({0})"
+msgid "Is shared"
 msgstr ""
 
 msgid "Path"
 msgstr ""
 
 msgid "Sort by: Path"
+msgstr ""
+
+msgid "Last modified"
 msgstr ""
 
 msgid "Sort by: Last modified"
@@ -8573,6 +8593,21 @@ msgstr ""
 msgid "An unexpected error has occurred"
 msgstr ""
 
+msgid "Could not forward meeting request."
+msgstr ""
+
+msgid "Your meeting has been forwarded"
+msgstr ""
+
+msgid "has forwarded your meeting request to others."
+msgstr ""
+
+msgid "l, F j, Y g:i A"
+msgstr ""
+
+msgid "Meeting Time"
+msgstr ""
+
 msgid "To-Do List"
 msgstr ""
 
@@ -8582,6 +8617,12 @@ msgstr ""
 #.
 #, php-format
 msgid "%1$s of %2$s"
+msgstr ""
+
+msgid "A folder with this name already exists. Use another name."
+msgstr ""
+
+msgid "Could not delete folder."
 msgstr ""
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
@@ -8629,24 +8670,10 @@ msgstr ""
 msgid "The vcf attachment is not imported successfully"
 msgstr ""
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
+msgid "Attachment is not imported successfully"
 msgstr ""
 
 msgid "There is no appointment found in this file."
-msgstr ""
-
-msgid "The file is corrupt."
-msgstr ""
-
-msgid "The file is invalid."
-msgstr ""
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr ""
-
-msgid "Attachment is not imported successfully"
 msgstr ""
 
 msgid "Embedded attachment not found."
@@ -8658,19 +8685,33 @@ msgstr ""
 msgid "Attachments can not be downloaded"
 msgstr ""
 
-msgid "Operation failed"
-msgstr ""
-
 msgid "Sticky Note"
 msgstr ""
 
 msgid "Task Request"
 msgstr ""
 
+msgid "Operation failed"
+msgstr ""
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr ""
 
 msgid "Action is not performed correctly."
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr ""
+
+msgid "The file is corrupt."
+msgstr ""
+
+msgid "The file is invalid."
+msgstr ""
+
+#, php-format
+msgid "Unable to import '%s'. "
 msgstr ""
 
 msgid "Tentatively accepted"
@@ -8855,6 +8896,13 @@ msgstr ""
 msgid "Could not load the hierarchy."
 msgstr ""
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr ""
+
+msgid "User could not be resolved."
+msgstr ""
+
 msgid "Could not open the shared store."
 msgstr ""
 
@@ -8865,9 +8913,6 @@ msgid "Could not remove folder from favorites."
 msgstr ""
 
 msgid "You have insufficient privileges to delete folder."
-msgstr ""
-
-msgid "Could not delete folder."
 msgstr ""
 
 msgid "You have insufficient privileges to copy folder."
@@ -8906,9 +8951,6 @@ msgstr ""
 msgid "You have insufficient privileges to rename this folder."
 msgstr ""
 
-msgid "A folder with this name already exists. Use another name."
-msgstr ""
-
 msgid "Could not rename folder."
 msgstr ""
 
@@ -8919,13 +8961,6 @@ msgid "Could not create folder."
 msgstr ""
 
 msgid "Could not close shared folder."
-msgstr ""
-
-msgid "User could not be resolved."
-msgstr ""
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
 msgstr ""
 
 msgid "default"
@@ -8962,9 +8997,6 @@ msgid "Could not copy message."
 msgstr ""
 
 msgid "Could not move message."
-msgstr ""
-
-msgid "Could not forward meeting request."
 msgstr ""
 
 msgid "You have insufficient privileges to save items in this folder."
@@ -9022,18 +9054,6 @@ msgid "The following recipient(s) could not be reached"
 msgstr ""
 
 msgid "Removing attachments has been disabled by the administrator."
-msgstr ""
-
-msgid "l, F j, Y g:i A"
-msgstr ""
-
-msgid "Your meeting has been forwarded"
-msgstr ""
-
-msgid "has forwarded your meeting request to others."
-msgstr ""
-
-msgid "Meeting Time"
 msgstr ""
 
 msgid "You have insufficient privileges to see the contents of this folder."

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Farsi (Iran)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2017-10-05 19:48+0200\n"
 "Last-Translator: import\n"
 "Language: fa_IR\n"
@@ -3033,6 +3033,9 @@ msgstr "اعمال تغییرات"
 msgid "Do you wish to apply the changes?"
 msgstr "آیا می خواهید تغییرات را اعمال کنید؟"
 
+msgid "Search in folder"
+msgstr "جستجو در پوشه"
+
 msgid "Recent searches"
 msgstr "جستجوهای اخیر"
 
@@ -3057,6 +3060,15 @@ msgstr "نه"
 msgid "Search in"
 msgstr "جستجو در"
 
+msgid "Whole mailbox"
+msgstr "کل صندوق پستی"
+
+msgid "No folder matches"
+msgstr "هیچ پوشه‌ای مطابقت ندارد"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "{0} مورد دیگر، برای محدود کردن به تایپ ادامه دهید"
+
 msgid "All folders"
 msgstr "همه پوشه ها"
 
@@ -3066,8 +3078,16 @@ msgstr "دیگر…"
 msgid "Search"
 msgstr "جستجو کنید"
 
+msgid "Clear search"
+msgstr "پاک کردن جستجو"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "برای چرخه کلیک کنید: AND → OR → NOT"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "در"
 
 msgid "Folder does not exist"
 msgstr "پوشه وجود ندارد"
@@ -4579,8 +4599,17 @@ msgstr "توضیحات"
 msgid "Folder size"
 msgstr "اندازه پوشه"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "پوشه حاوی موارد{0}"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "مجوزها"
@@ -5649,9 +5678,6 @@ msgstr "در حال بارگیری مجدد، لطفا صبر کنید."
 msgid "Search settings"
 msgstr "جستجو در تنظیمات"
 
-msgid "Clear search"
-msgstr "پاک کردن جستجو"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "⁦{0}⁩ تنظیم منطبق یافت شد"
@@ -6706,29 +6732,23 @@ msgstr "ویرایش اشتراک"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "هیچ حسابی اضافه نشده است. به تنظیمات، برگهٔ فایل‌ها بروید و یک حساب اضافه کنید."
 
-msgid "Filesize"
-msgstr "اندازه فایل"
-
-msgid "Last modified"
-msgstr "آخرین تغییر"
-
-msgid "Is shared"
-msgstr "به اشتراک گذاشته شده است"
-
-msgid "File preview"
-msgstr "پیش نمایش فایل"
+msgid "File ({0})"
+msgstr "فایل ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "File ({0})"
-msgstr "فایل ({0})"
+msgid "Is shared"
+msgstr "به اشتراک گذاشته شده است"
 
 msgid "Path"
 msgstr "مسیر"
 
 msgid "Sort by: Path"
 msgstr "مرتب سازی بر اساس: مسیر"
+
+msgid "Last modified"
+msgstr "آخرین تغییر"
 
 msgid "Sort by: Last modified"
 msgstr "مرتب سازی بر اساس: آخرین تغییر"
@@ -8585,6 +8605,21 @@ msgstr "اعلان کننده ناشناس \"%s\""
 msgid "An unexpected error has occurred"
 msgstr "یک خطای غیرمنتظره رخ داده است"
 
+msgid "Could not forward meeting request."
+msgstr "ارسال درخواست جلسه امکان‌پذیر نبود."
+
+msgid "Your meeting has been forwarded"
+msgstr "جلسه شما ارسال شد."
+
+msgid "has forwarded your meeting request to others."
+msgstr "درخواست جلسه شما را برای دیگران ارسال کرده است."
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j F, Y g:i A"
+
+msgid "Meeting Time"
+msgstr "زمان جلسه"
+
 msgid "To-Do List"
 msgstr "فهرست کارها"
 
@@ -8595,6 +8630,12 @@ msgstr "فهرست کارها"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$sاز%2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "پوشه ای با این نام از قبل وجود دارد. از نام دیگری استفاده کنید."
+
+msgid "Could not delete folder."
+msgstr "پوشه حذف نشد"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "OpenPGP در حال حاضر غیرفعال است یا در دسترس نیست. پیام شما ارسال نشد. پیش از تلاش دوباره OpenPGP را فعال کنید، یا امضا و رمزگذاری را صراحتاً خاموش کنید."
@@ -8641,25 +8682,11 @@ msgstr "پیوست eml با موفقیت وارد نشد"
 msgid "The vcf attachment is not imported successfully"
 msgstr "پیوست vcf با موفقیت وارد نشد"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "وارد کردن \"%s\" به \"%s\" ممکن نیست. "
+msgid "Attachment is not imported successfully"
+msgstr "پیوست با موفقیت وارد نشد"
 
 msgid "There is no appointment found in this file."
 msgstr "هیچ قرار ملاقاتی در این فایل یافت نشد."
-
-msgid "The file is corrupt."
-msgstr "فایل خراب است"
-
-msgid "The file is invalid."
-msgstr "فایل نامعتبر است"
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "وارد کردن \"%s\" ممکن نیست. "
-
-msgid "Attachment is not imported successfully"
-msgstr "پیوست با موفقیت وارد نشد"
 
 msgid "Embedded attachment not found."
 msgstr "پیوست تعبیه شده یافت نشد."
@@ -8670,20 +8697,34 @@ msgstr "ZIP با موفقیت ایجاد نشد"
 msgid "Attachments can not be downloaded"
 msgstr "پیوست ها را نمی توان دانلود کرد"
 
-msgid "Operation failed"
-msgstr "عملیات شکست خورد"
-
 msgid "Sticky Note"
 msgstr "یادداشت چسبنده"
 
 msgid "Task Request"
 msgstr "درخواست وظیفه"
 
+msgid "Operation failed"
+msgstr "عملیات شکست خورد"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "پیام پیدا نشد، یا منتقل شده یا حذف شده است."
 
 msgid "Action is not performed correctly."
 msgstr "اقدام به درستی انجام نمی شود."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "وارد کردن \"%s\" به \"%s\" ممکن نیست. "
+
+msgid "The file is corrupt."
+msgstr "فایل خراب است"
+
+msgid "The file is invalid."
+msgstr "فایل نامعتبر است"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "وارد کردن \"%s\" ممکن نیست. "
 
 msgid "Tentatively accepted"
 msgstr "به‌طور موقت پذیرفته شد"
@@ -8867,6 +8908,13 @@ msgstr "نمی‌توان ذخیره‌گاه را باز کرد."
 msgid "Could not load the hierarchy."
 msgstr "سلسله مراتب بارگیری نشد."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "شما دسترسی کافی برای باز کردن این پوشه %1$s را ندارید. مالک پوشه می‌تواند این دسترسی‌ها را از طریق زبانه «اجازه‌ها» در ویژگی‌های پوشه تنظیم کند (روی پوشه %1$s کلیک راست کنید > ویژگی‌ها > اجازه‌ها)."
+
+msgid "User could not be resolved."
+msgstr "کاربر قابل حل نیست."
+
 msgid "Could not open the shared store."
 msgstr "فروشگاه مشترک باز نشد."
 
@@ -8878,9 +8926,6 @@ msgstr "پوشه از موارد دلخواه حذف نشد."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "شما برای حذف پوشه امتیاز کافی ندارید."
-
-msgid "Could not delete folder."
-msgstr "پوشه حذف نشد"
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "برای کپی کردن پوشه، امتیاز کافی ندارید."
@@ -8918,9 +8963,6 @@ msgstr "مجوزهای پوشه تنظیم نشد."
 msgid "You have insufficient privileges to rename this folder."
 msgstr "شما امتیاز کافی برای تغییر نام این پوشه را ندارید."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "پوشه ای با این نام از قبل وجود دارد. از نام دیگری استفاده کنید."
-
 msgid "Could not rename folder."
 msgstr "تغییر نام پوشه ممکن نیست."
 
@@ -8932,13 +8974,6 @@ msgstr "پوشه ایجاد نشد."
 
 msgid "Could not close shared folder."
 msgstr "پوشه مشترک بسته نشد."
-
-msgid "User could not be resolved."
-msgstr "کاربر قابل حل نیست."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "شما دسترسی کافی برای باز کردن این پوشه %1$s را ندارید. مالک پوشه می‌تواند این دسترسی‌ها را از طریق زبانه «اجازه‌ها» در ویژگی‌های پوشه تنظیم کند (روی پوشه %1$s کلیک راست کنید > ویژگی‌ها > اجازه‌ها)."
 
 msgid "default"
 msgstr "پیش فرض"
@@ -8975,9 +9010,6 @@ msgstr "پیام کپی نشد."
 
 msgid "Could not move message."
 msgstr "پیام منتقل نشد."
-
-msgid "Could not forward meeting request."
-msgstr "ارسال درخواست جلسه امکان‌پذیر نبود."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "شما امتیاز کافی برای ذخیره موارد در این پوشه ندارید."
@@ -9035,18 +9067,6 @@ msgstr "گیرنده(های) زیر قابل دسترسی نیست"
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "حذف پیوست‌ها توسط مدیر غیرفعال شده است."
-
-msgid "l, F j, Y g:i A"
-msgstr "l, j F, Y g:i A"
-
-msgid "Your meeting has been forwarded"
-msgstr "جلسه شما ارسال شد."
-
-msgid "has forwarded your meeting request to others."
-msgstr "درخواست جلسه شما را برای دیگران ارسال کرده است."
-
-msgid "Meeting Time"
-msgstr "زمان جلسه"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "شما برای دیدن محتویات این پوشه امتیاز کافی ندارید."

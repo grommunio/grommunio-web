@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Catalan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2025-05-01 05:29+0000\n"
 "Last-Translator: Roger VC <rogervilarasau@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/grommunio/grommunio-web/ca/>\n"
@@ -3035,6 +3035,9 @@ msgstr "Aplicar canvis"
 msgid "Do you wish to apply the changes?"
 msgstr "¿ Desea aplicar los cambios ?"
 
+msgid "Search in folder"
+msgstr "Cerca dins d'una carpeta"
+
 msgid "Recent searches"
 msgstr "Recerques recents"
 
@@ -3059,6 +3062,15 @@ msgstr "NO"
 msgid "Search in"
 msgstr "Cerca dins"
 
+msgid "Whole mailbox"
+msgstr "Tota la bústia"
+
+msgid "No folder matches"
+msgstr "Cap carpeta coincideix"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "{0} més, continueu escrivint per acotar"
+
 msgid "All folders"
 msgstr "Totes les carpetes"
 
@@ -3068,8 +3080,16 @@ msgstr "Altres…"
 msgid "Search"
 msgstr "Cerca"
 
+msgid "Clear search"
+msgstr "Esborra la cerca"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "Feu clic per alternar: AND → OR → NOT"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "dins"
 
 msgid "Folder does not exist"
 msgstr "La carpeta no existeix"
@@ -4581,8 +4601,17 @@ msgstr "Descripción"
 msgid "Folder size"
 msgstr "Tamaño carpeta"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "Carpeta contiene {0} elementos"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "Permisos"
@@ -5651,9 +5680,6 @@ msgstr "S'està tornant a carregar, espereu."
 msgid "Search settings"
 msgstr "Cerca a la configuració"
 
-msgid "Clear search"
-msgstr "Esborra la cerca"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "S'ha trobat {0} paràmetre"
@@ -6708,29 +6734,23 @@ msgstr "Edita la compartició"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "No s'ha afegit cap compte. Ves a Configuració, pestanya Fitxers i afegeix un compte"
 
-msgid "Filesize"
-msgstr "Mida del fitxer"
-
-msgid "Last modified"
-msgstr "Última modificació"
-
-msgid "Is shared"
-msgstr "Es comparteix"
-
-msgid "File preview"
-msgstr "Vista prèvia del fitxer"
+msgid "File ({0})"
+msgstr "Fitxer ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "File ({0})"
-msgstr "Fitxer ({0})"
+msgid "Is shared"
+msgstr "Es comparteix"
 
 msgid "Path"
 msgstr "Camí"
 
 msgid "Sort by: Path"
 msgstr "Ordena per: Camí"
+
+msgid "Last modified"
+msgstr "Última modificació"
 
 msgid "Sort by: Last modified"
 msgstr "Ordena per: Darrera modificació"
@@ -8587,6 +8607,21 @@ msgstr "Notificador desconegut \"%s\""
 msgid "An unexpected error has occurred"
 msgstr "S'ha produït un error inesperat"
 
+msgid "Could not forward meeting request."
+msgstr "No s'ha pogut reenviar la sol·licitud de reunió."
+
+msgid "Your meeting has been forwarded"
+msgstr "La vostra reunió s'ha reenviat"
+
+msgid "has forwarded your meeting request to others."
+msgstr "Ha reenviat la vostra sol·licitud de reunió a altres persones."
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j F, Y G:i"
+
+msgid "Meeting Time"
+msgstr "Hora de la reunió"
+
 msgid "To-Do List"
 msgstr "Llista de tasques pendents"
 
@@ -8597,6 +8632,12 @@ msgstr "Llista de tasques pendents"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$sde%2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Ja existeix una carpeta amb aquest nom. Utilitzeu un altre nom."
+
+msgid "Could not delete folder."
+msgstr "No s'ha pogut suprimir la carpeta."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "Actualment OpenPGP està desactivat o no està disponible. El vostre missatge no s'ha enviat. Activeu OpenPGP abans de tornar-ho a provar, o bé desactiveu explícitament la signatura i el xifratge."
@@ -8643,25 +8684,11 @@ msgstr "El fitxer adjunt eml no s'ha importat correctament"
 msgid "The vcf attachment is not imported successfully"
 msgstr "El fitxer adjunt vcf no s'ha importat correctament"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "No es pot importar \"%s\" a \"%s\". "
+msgid "Attachment is not imported successfully"
+msgstr "El fitxer adjunt no s'ha importat correctament"
 
 msgid "There is no appointment found in this file."
 msgstr "No s'ha trobat cap cita en aquest fitxer."
-
-msgid "The file is corrupt."
-msgstr "El fitxer està corrupte."
-
-msgid "The file is invalid."
-msgstr "El fitxer no és vàlid."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "No es pot importar \"%s\". "
-
-msgid "Attachment is not imported successfully"
-msgstr "El fitxer adjunt no s'ha importat correctament"
 
 msgid "Embedded attachment not found."
 msgstr "No s'ha trobat el fitxer adjunt incrustat."
@@ -8672,20 +8699,34 @@ msgstr "El ZIP no s'ha creat correctament"
 msgid "Attachments can not be downloaded"
 msgstr "Els fitxers adjunts no es poden descarregar"
 
-msgid "Operation failed"
-msgstr "L'operació ha fallat"
-
 msgid "Sticky Note"
 msgstr "Nota adhesiva"
 
 msgid "Task Request"
 msgstr "Sol·licitud de tasca"
 
+msgid "Operation failed"
+msgstr "L'operació ha fallat"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "No s'ha pogut trobar el missatge, ja s'ha mogut o s'ha suprimit."
 
 msgid "Action is not performed correctly."
 msgstr "L'acció no es realitza correctament."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "No es pot importar \"%s\" a \"%s\". "
+
+msgid "The file is corrupt."
+msgstr "El fitxer està corrupte."
+
+msgid "The file is invalid."
+msgstr "El fitxer no és vàlid."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "No es pot importar \"%s\". "
 
 msgid "Tentatively accepted"
 msgstr "Acceptat provisionalment"
@@ -8869,6 +8910,13 @@ msgstr "No s'ha pogut obrir la botiga."
 msgid "Could not load the hierarchy."
 msgstr "No s'ha pogut carregar la jerarquia."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "No teniu privilegis suficients per obrir aquesta carpeta %1$s. El propietari de la carpeta pot establir-los a la pestanya 'Permisos' de les propietats de la carpeta (fer clic amb el botó dret a la carpeta %1$s > Propietats > Permisos)."
+
+msgid "User could not be resolved."
+msgstr "No s'ha pogut resoldre l'usuari."
+
 msgid "Could not open the shared store."
 msgstr "No s'ha pogut obrir la botiga compartida."
 
@@ -8880,9 +8928,6 @@ msgstr "No s'ha pogut eliminar la carpeta dels preferits."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "No tens privilegis suficients per suprimir la carpeta."
-
-msgid "Could not delete folder."
-msgstr "No s'ha pogut suprimir la carpeta."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "No tens privilegis suficients per copiar la carpeta."
@@ -8920,9 +8965,6 @@ msgstr "No s'han pogut establir els permisos de la carpeta."
 msgid "You have insufficient privileges to rename this folder."
 msgstr "No tens privilegis suficients per canviar el nom d'aquesta carpeta."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "Ja existeix una carpeta amb aquest nom. Utilitzeu un altre nom."
-
 msgid "Could not rename folder."
 msgstr "No s'ha pogut canviar el nom de la carpeta."
 
@@ -8934,13 +8976,6 @@ msgstr "No s'ha pogut crear la carpeta."
 
 msgid "Could not close shared folder."
 msgstr "No s'ha pogut tancar la carpeta compartida."
-
-msgid "User could not be resolved."
-msgstr "No s'ha pogut resoldre l'usuari."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "No teniu privilegis suficients per obrir aquesta carpeta %1$s. El propietari de la carpeta pot establir-los a la pestanya 'Permisos' de les propietats de la carpeta (fer clic amb el botó dret a la carpeta %1$s > Propietats > Permisos)."
 
 msgid "default"
 msgstr "per defecte"
@@ -8977,9 +9012,6 @@ msgstr "No se puede copiar el mensaje."
 
 msgid "Could not move message."
 msgstr "No se puede mover el mensaje."
-
-msgid "Could not forward meeting request."
-msgstr "No s'ha pogut reenviar la sol·licitud de reunió."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta."
@@ -9037,18 +9069,6 @@ msgstr "No s'ha pogut contactar amb els destinataris següents"
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "L'administrador ha desactivat l'eliminació de fitxers adjunts."
-
-msgid "l, F j, Y g:i A"
-msgstr "l, j F, Y G:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "La vostra reunió s'ha reenviat"
-
-msgid "has forwarded your meeting request to others."
-msgstr "Ha reenviat la vostra sol·licitud de reunió a altres persones."
-
-msgid "Meeting Time"
-msgstr "Hora de la reunió"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "No tens privilegis suficients per veure el contingut d'aquesta carpeta."

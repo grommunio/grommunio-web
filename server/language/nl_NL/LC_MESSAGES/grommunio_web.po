@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/grommunio-web/nl/>\n"
@@ -3040,6 +3040,9 @@ msgstr "Pas veranderingen toe"
 msgid "Do you wish to apply the changes?"
 msgstr "Wilt u de wijzigingen opslaan?"
 
+msgid "Search in folder"
+msgstr "Zoeken in map"
+
 msgid "Recent searches"
 msgstr "Recente zoekopdrachten"
 
@@ -3064,6 +3067,15 @@ msgstr "NIET"
 msgid "Search in"
 msgstr "Zoeken in"
 
+msgid "Whole mailbox"
+msgstr "Hele postvak"
+
+msgid "No folder matches"
+msgstr "Geen overeenkomende map"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "Nog {0}, typ verder om te verfijnen"
+
 msgid "All folders"
 msgstr "Alle mappen"
 
@@ -3073,8 +3085,16 @@ msgstr "Andere…"
 msgid "Search"
 msgstr "Zoek op"
 
+msgid "Clear search"
+msgstr "Zoekopdracht wissen"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "Klik om te wisselen: AND → OR → NOT"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "in"
 
 msgid "Folder does not exist"
 msgstr "Map bestaat niet"
@@ -4586,8 +4606,17 @@ msgstr "Omschrijving"
 msgid "Folder size"
 msgstr "Mapgrootte"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "Map met {0} Items"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "Machtigingen"
@@ -5656,9 +5685,6 @@ msgstr "Herladen, moment geduld."
 msgid "Search settings"
 msgstr "Instellingen doorzoeken"
 
-msgid "Clear search"
-msgstr "Zoekopdracht wissen"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "{0} instelling gevonden"
@@ -6713,29 +6739,23 @@ msgstr "Delen aanpassen"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "Er zijn geen accounts toegevoegd. Ga naar het tabblad Files in settings en voeg een account toe"
 
-msgid "Filesize"
-msgstr "Bestandsgrootte"
-
-msgid "Last modified"
-msgstr "Laatste wijziging"
-
-msgid "Is shared"
-msgstr "Is gedeeld"
-
-msgid "File preview"
-msgstr "Bestandsvoorbeeld"
+msgid "File ({0})"
+msgstr "Bestand ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "l d/m/Y G:i"
 
-msgid "File ({0})"
-msgstr "Bestand ({0})"
+msgid "Is shared"
+msgstr "Is gedeeld"
 
 msgid "Path"
 msgstr "Pad"
 
 msgid "Sort by: Path"
 msgstr "Sorteer op: Pad"
+
+msgid "Last modified"
+msgstr "Laatste wijziging"
 
 msgid "Sort by: Last modified"
 msgstr "Sorteer op: Laatste wijziging"
@@ -8592,6 +8612,21 @@ msgstr "Onbekende melder '%s'"
 msgid "An unexpected error has occurred"
 msgstr "Er is een onverwachte fout opgetreden"
 
+msgid "Could not forward meeting request."
+msgstr "Het vergaderverzoek kon niet worden doorgestuurd."
+
+msgid "Your meeting has been forwarded"
+msgstr "Uw vergadering is doorgestuurd"
+
+msgid "has forwarded your meeting request to others."
+msgstr "heeft uw vergaderverzoek doorgestuurd naar anderen."
+
+msgid "l, F j, Y g:i A"
+msgstr "l j F Y G:i"
+
+msgid "Meeting Time"
+msgstr "Tijdstip van de vergadering"
+
 msgid "To-Do List"
 msgstr "Takenlijst"
 
@@ -8602,6 +8637,12 @@ msgstr "Takenlijst"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s van %2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Er bestaat al een map met deze naam. Gebruik een andere naam."
+
+msgid "Could not delete folder."
+msgstr "Kon de map niet verwijderen."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "OpenPGP is momenteel uitgeschakeld of niet beschikbaar. Uw bericht is niet verzonden. Schakel OpenPGP in voordat u het opnieuw probeert, of schakel ondertekening en versleuteling uitdrukkelijk uit."
@@ -8648,25 +8689,11 @@ msgstr "De eml Bijlage is niet succesvol geïmporteerd"
 msgid "The vcf attachment is not imported successfully"
 msgstr "De vcf bijlage is niet succesvol geïmporteerd"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Kan '%s' naar '%s' niet importeren. "
+msgid "Attachment is not imported successfully"
+msgstr "Bijlage is niet succesvol geïmporteerd"
 
 msgid "There is no appointment found in this file."
 msgstr "Er is geen afspraak gevonden in dit bestand."
-
-msgid "The file is corrupt."
-msgstr "Dit bestand is corrupt."
-
-msgid "The file is invalid."
-msgstr "De bestanden zijn niet geldig."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "'%s' kan niet worden geïmporteerd. "
-
-msgid "Attachment is not imported successfully"
-msgstr "Bijlage is niet succesvol geïmporteerd"
 
 msgid "Embedded attachment not found."
 msgstr "Ingesloten bijlage niet gevonden."
@@ -8677,20 +8704,34 @@ msgstr "ZIP is niet succesvol aangemaakt"
 msgid "Attachments can not be downloaded"
 msgstr "Bijlagen kunnen niet worden gedownload"
 
-msgid "Operation failed"
-msgstr "Operatie mislukt"
-
 msgid "Sticky Note"
 msgstr "Post-It"
 
 msgid "Task Request"
 msgstr "Toegewezen taak"
 
+msgid "Operation failed"
+msgstr "Operatie mislukt"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Bericht niet kunnen vinden, ofwel is het verplaatst of verwijderd."
 
 msgid "Action is not performed correctly."
 msgstr "Actie is niet correct uitgevoerd."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Kan '%s' naar '%s' niet importeren. "
+
+msgid "The file is corrupt."
+msgstr "Dit bestand is corrupt."
+
+msgid "The file is invalid."
+msgstr "De bestanden zijn niet geldig."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "'%s' kan niet worden geïmporteerd. "
 
 msgid "Tentatively accepted"
 msgstr "Voorlopig geaccepteerd"
@@ -8874,6 +8915,13 @@ msgstr "Kon de store niet openen."
 msgid "Could not load the hierarchy."
 msgstr "Kon de hiërarchie niet laden."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "U hebt onvoldoende rechten om deze %1$s map te openen. De eigenaar van de map kan dit instellen via het tabblad 'machtigingen' van de eigenschappen van de map (klik met de rechtermuisknop op de map %1$s > eigenschappen > machtigingen)."
+
+msgid "User could not be resolved."
+msgstr "Gebruiker kon niet worden gevonden."
+
 msgid "Could not open the shared store."
 msgstr "Kan de gedeelde store niet openen."
 
@@ -8885,9 +8933,6 @@ msgstr "Kon map niet verwijderen uit favorieten."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "U hebt onvoldoende rechten om de map te verwijderen."
-
-msgid "Could not delete folder."
-msgstr "Kon de map niet verwijderen."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "U hebt onvoldoende rechten om de map te kopiëren."
@@ -8925,9 +8970,6 @@ msgstr "Kon de mapmachtigingen niet instellen."
 msgid "You have insufficient privileges to rename this folder."
 msgstr "U hebt onvoldoende rechten om deze map te hernoemen."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "Er bestaat al een map met deze naam. Gebruik een andere naam."
-
 msgid "Could not rename folder."
 msgstr "Kon map niet hernoemen."
 
@@ -8939,13 +8981,6 @@ msgstr "Kan geen map aanmaken."
 
 msgid "Could not close shared folder."
 msgstr "Kon gedeelde map niet sluiten."
-
-msgid "User could not be resolved."
-msgstr "Gebruiker kon niet worden gevonden."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "U hebt onvoldoende rechten om deze %1$s map te openen. De eigenaar van de map kan dit instellen via het tabblad 'machtigingen' van de eigenschappen van de map (klik met de rechtermuisknop op de map %1$s > eigenschappen > machtigingen)."
 
 msgid "default"
 msgstr "standaard"
@@ -8982,9 +9017,6 @@ msgstr "Kon bericht niet kopiëren."
 
 msgid "Could not move message."
 msgstr "Kon bericht niet verplaatsen."
-
-msgid "Could not forward meeting request."
-msgstr "Het vergaderverzoek kon niet worden doorgestuurd."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "U heeft niet voldoende permissies om items in deze map op te slaan."
@@ -9042,18 +9074,6 @@ msgstr "De volgende geadresseerde(n) kon(den) niet worden bereikt"
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "Het verwijderen van bijlagen is uitgeschakeld door de beheerder."
-
-msgid "l, F j, Y g:i A"
-msgstr "l j F Y G:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "Uw vergadering is doorgestuurd"
-
-msgid "has forwarded your meeting request to others."
-msgstr "heeft uw vergaderverzoek doorgestuurd naar anderen."
-
-msgid "Meeting Time"
-msgstr "Tijdstip van de vergadering"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "U hebt onvoldoende rechten om de inhoud van deze map te zien."
