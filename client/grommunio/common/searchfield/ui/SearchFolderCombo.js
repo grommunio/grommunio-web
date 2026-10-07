@@ -356,6 +356,100 @@ Grommunio.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox
 		}
 	},
 
+	/**
+	 * Sets the value and fires 'scopechange', so the scope chip of the search
+	 * field follows every change, including context switches.
+	 * @override
+	 */
+	setValue: function(v)
+	{
+		if (v !== this.pinnedValue) {
+			this.pinnedValue = undefined;
+		}
+		Grommunio.common.searchfield.ui.SearchFolderCombo.superclass.setValue.call(this, v);
+		this.fireEvent('scopechange', this, v);
+		return this;
+	},
+
+	/**
+	 * @property {String} pinnedValue The scope the user picked by hand with "in:",
+	 * shown as a chip even when it is one of the default scopes. Any other
+	 * value set afterwards unpins it.
+	 */
+	pinnedValue: undefined,
+
+	/**
+	 * @return {Boolean} True when the scope was chosen by the user rather than
+	 * following the selected folder
+	 */
+	isScopePinned: function()
+	{
+		var record = this.getScopeRecord();
+		return !!record && (record.get('flag') === Grommunio.advancesearch.data.SearchComboBoxFieldsFlags.IMPORTED_FOLDER ||
+			this.pinnedValue === this.getValue());
+	},
+
+	/**
+	 * @return {Ext.data.Record} The record of the selected scope, or undefined
+	 */
+	getScopeRecord: function()
+	{
+		var index = this.store.findExact('value', this.getValue());
+		return index === -1 ? undefined : this.store.getAt(index);
+	},
+
+	/**
+	 * Makes the given folder the search scope, the same way the
+	 * "Other…" dialog does. A mailbox root searches the whole mailbox.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder to search in
+	 */
+	setScopeFolder: function(folder)
+	{
+		var flags = Grommunio.advancesearch.data.SearchComboBoxFieldsFlags;
+		var entryid = folder.get('entryid');
+		var store = this.getStore();
+		var record = store.getAt(store.findExact('value', entryid));
+		if (!record) {
+			if (store.getAt(0).get('flag') === flags.IMPORTED_FOLDER) {
+				store.removeAt(0);
+			}
+			record = new Ext.data.Record({
+				'name': folder.getDisplayName(),
+				'value': entryid,
+				'flag': flags.IMPORTED_FOLDER,
+				'include_subfolder': folder.isIPMSubTree()
+			});
+			store.insert(0, record);
+		}
+		this.pinnedValue = entryid;
+		this.setValue(entryid);
+		this.fireEvent('select', this, record, store.indexOf(record));
+	},
+
+	/**
+	 * Drops a folder chosen with "in:" or "Other…" and goes back to the
+	 * scope a fresh search starts with.
+	 */
+	resetScope: function()
+	{
+		var flags = Grommunio.advancesearch.data.SearchComboBoxFieldsFlags;
+		var store = this.getStore();
+		this.pinnedValue = undefined;
+		if (store.getCount() && store.getAt(0).get('flag') === flags.IMPORTED_FOLDER) {
+			store.removeAt(0);
+		}
+		var flag = flags.CURRENT_SELECTED_FOLDER;
+		var key = this.model.getDefaultFolder().getDefaultFolderKey();
+		if (key === 'inbox' || key === 'publicfolders') {
+			flag = flags.ALL_FOLDERS;
+		}
+		var record = store.getAt(store.find('flag', flag));
+		if (record) {
+			this.setValue(record.get('value'));
+			this.fireEvent('select', this, record, store.indexOf(record));
+		}
+	},
+
   /**
 	 * Event handler triggered when a search combo list item is selected.
 	 * It will fire click event of search button to automatically triggers a search

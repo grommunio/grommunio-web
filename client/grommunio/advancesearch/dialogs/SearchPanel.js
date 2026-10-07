@@ -558,6 +558,7 @@ Grommunio.advancesearch.dialogs.SearchPanel = Ext.extend(Ext.Panel, {
 				searchFolderCombo.store.add(record.copy());
 			});
 			var value = parentSearchFolderCombo.getValue();
+			searchFolderCombo.pinnedValue = parentSearchFolderCombo.pinnedValue;
 			searchFolderCombo.setValue(value);
 		}
 

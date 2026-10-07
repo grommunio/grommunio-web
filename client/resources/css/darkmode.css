@@ -1225,6 +1225,13 @@ body.dark-mode .k-search-chip.k-search-chip-text {
 body.dark-mode .k-search-chip.k-search-chip-text .k-search-chip-remove {
 	color: #ce93d8; }
 
+body.dark-mode .k-search-chip.k-search-chip-scope {
+	background-color: var(--ui-surface-3);
+	border-color: var(--ui-border-strong);
+	color: var(--ui-text); }
+body.dark-mode .k-search-chip.k-search-chip-scope .k-search-chip-remove {
+	color: var(--ui-text); }
+
 body.dark-mode .k-search-chip-edit {
 	background: rgba(66, 165, 245, 0.1);
 	border-color: rgba(66, 165, 245, 0.3);

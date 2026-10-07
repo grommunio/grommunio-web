@@ -5556,6 +5556,78 @@ body.grommunio-webclient > .ext-el-mask {
   color: #1565c0;
   font-size: 14px; }
 
+/* Folder suggestions for "in:" — replace the other sections while shown */
+.k-search-scope-section {
+  display: none; }
+
+.k-search-dropdown-scoping .k-search-dropdown-section {
+  display: none; }
+
+.k-search-dropdown-scoping .k-search-dropdown-section.k-search-scope-section {
+  display: block;
+  border-top: none;
+  margin-top: 0; }
+
+.k-search-scope-list {
+  max-height: 320px;
+  overflow-y: auto; }
+
+.k-search-scope-option {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 3px;
+  color: var(--ui-text); }
+  .k-search-scope-option:hover {
+    background-color: var(--ui-surface-3); }
+  .k-search-scope-option.k-search-option-active {
+    outline: 2px solid var(--theme-primary-color);
+    outline-offset: -2px; }
+
+.k-search-scope-icon {
+  margin-right: 8px;
+  flex-shrink: 0; }
+
+.k-search-scope-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; }
+
+.k-search-scope-name,
+.k-search-scope-path {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.k-search-scope-name {
+  font-size: 13px; }
+  .k-search-scope-name mark {
+    background: none;
+    color: inherit;
+    font-weight: 700; }
+
+.k-search-scope-path {
+  font-size: 11px;
+  color: var(--ui-text-3); }
+
+.k-search-scope-empty {
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--ui-text-3); }
+
+/* Scope chip ("in: Inbox") — neutral grey, sits before the terms */
+.k-search-chip.k-search-chip-scope {
+  background-color: var(--ui-surface-3);
+  border-color: var(--ui-border-strong);
+  color: var(--ui-text);
+  max-width: 180px; }
+  .k-search-chip.k-search-chip-scope .k-search-chip-label {
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .k-search-chip.k-search-chip-scope .k-search-chip-remove {
+    color: var(--ui-text); }
+
 /* Inline separator between type options and operators */
 .k-search-dropdown-sep {
   width: 1px;
