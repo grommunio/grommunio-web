@@ -15,6 +15,7 @@ Grommunio.plugins.pgp.PgpPlugin = Ext.extend(Grommunio.core.Plugin, {
 		this.registerInsertionPoint('previewpanel.toolbar.detaillinks', this.previewInfo, this);
 		this.registerInsertionPoint('context.mail.griddefaultcolumn', this.defaultColumn, this);
 		this.registerInsertionPoint('context.mail.gridrow', this.compactColumn, this);
+		this.registerInsertionPoint('common.contextmenu.attachment.actions', this.attachmentImportItem, this);
 	},
 	settingsCategory: function(insertionName, panel, settingsContext)
 	{
@@ -148,6 +149,54 @@ Grommunio.plugins.pgp.PgpPlugin = Ext.extend(Grommunio.core.Plugin, {
 				return utils.formatFingerprint(key.fingerprint);
 			}).join(', ')));
 		}).catch(function(error) { utils.notify(error.message, true); });
+	},
+	/** Attachments which may hold OpenPGP keys, by name or declared type. */
+	isKeyAttachment: function(attachment)
+	{
+		return /\.(?:asc|key|pub|gpg|pgp)$/i.test(attachment.get('name') || '') || /^application\/pgp-keys$/i.test(attachment.get('filetype') || '');
+	},
+	attachmentImportItem: function(insertionName, menu)
+	{
+		var plugin = this;
+		return {xtype: 'grommunio.conditionalitem', text: _('Import OpenPGP key'), iconCls: 'icon_pgp_key',
+			beforeShow: function(item, records) {
+				var attachment = menu.getPrimaryRecord(records);
+				item.setVisible(!!attachment && plugin.isKeyAttachment(attachment));
+			},
+			handler: function() { plugin.importAttachmentKeys(menu.getPrimaryRecord()); }};
+	},
+	/**
+	 * Import the public keys an attachment carries. Private keys are refused here,
+	 * they need the passphrase handling of the import dialog in the settings.
+	 * @param {Grommunio.core.data.IPMAttachmentRecord} attachment The attachment
+	 */
+	importAttachmentKeys: function(attachment)
+	{
+		var utils = Grommunio.plugins.pgp.PgpUtils, limit = 1024 * 1024;
+		var local = attachment.localContent;
+		var content = local && local.bytes ? Promise.resolve(local.bytes) : fetch(attachment.getAttachmentUrl(), {credentials: 'same-origin'}).then(function(response) {
+			if (!response.ok) { throw new Error(_('The attachment could not be loaded.')); }
+			return response.arrayBuffer();
+		}).then(function(buffer) { return new Uint8Array(buffer); });
+		content.then(function(data) {
+			if (data.length > limit) { throw new Error(_('The key file is too large. Maximum size: 1 MiB.')); }
+			var text = new TextDecoder('utf-8').decode(data);
+			if (/-----BEGIN PGP PRIVATE KEY BLOCK-----/.test(text)) {
+				throw new Error(_('This attachment holds a private key. Import it under Settings → OpenPGP → Import key.'));
+			}
+			// Armored keys are text, cut from any surrounding mail text; anything else is tried as a binary key file.
+			var begin = text.indexOf('-----BEGIN PGP PUBLIC KEY BLOCK-----'), end = '-----END PGP PUBLIC KEY BLOCK-----';
+			var input = begin === -1 ? data : text.slice(begin, text.lastIndexOf(end) + end.length);
+			return utils.crypto().importable(input);
+		}).then(function(keys) {
+			if (keys.some(function(key) { return key.encrypted_private_key; })) {
+				throw new Error(_('This attachment holds a private key. Import it under Settings → OpenPGP → Import key.'));
+			}
+			return utils.importKeys(keys);
+		}).then(function(keys) {
+			utils.notify(keys.length === 1 ? _('Public key imported. Verify its fingerprint before encrypting to its owner.')
+				: String.format(_('{0} public keys imported. Verify their fingerprints before encrypting to their owners.'), keys.length));
+		}).catch(function(error) { utils.notify(error.message || _('This attachment does not hold an OpenPGP public key.'), true); });
 	},
 	defaultColumn: function()
 	{
