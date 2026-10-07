@@ -410,7 +410,7 @@ Grommunio.common.searchfield.ui.SearchFolderCombo = Ext.extend(Ext.form.ComboBox
 		var store = this.getStore();
 		var record = store.getAt(store.findExact('value', entryid));
 		if (!record) {
-			if (store.getAt(0).get('flag') === flags.IMPORTED_FOLDER) {
+			if (store.getCount() && store.getAt(0).get('flag') === flags.IMPORTED_FOLDER) {
 				store.removeAt(0);
 			}
 			record = new Ext.data.Record({

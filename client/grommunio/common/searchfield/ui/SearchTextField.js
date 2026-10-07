@@ -170,6 +170,28 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 		}, true);
 
 		this.tailInputEl = this.tokenWrapEl.child('.k-search-tail-input');
+
+		// Takes the place of the magnifier while the field has content
+		this.clearBtnEl = Ext.DomHelper.insertFirst(this.tokenWrapEl, {
+			tag: 'span',
+			cls: 'k-search-clear-btn',
+			role: 'button',
+			tabindex: '0',
+			title: _('Clear search'),
+			'aria-label': _('Clear search'),
+			html: '&times;'
+		}, true);
+		this.clearBtnEl.on('mousedown', function(e) { e.preventDefault(); });
+		this.clearBtnEl.on('click', function(e) {
+			e.stopEvent();
+			this.clearSearch();
+		}, this);
+		this.clearBtnEl.on('keydown', function(e) {
+			if (e.getKey() === e.ENTER || e.getKey() === e.SPACE) {
+				e.stopEvent();
+				this.clearSearch();
+			}
+		}, this);
 		this.tailInputEl.set({ placeholder: _('Search\u2026') });
 
 		// Search submit button
@@ -563,10 +585,11 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 		// Remove everything except the tail input and submit button
 		var dom = this.tokenWrapEl.dom;
 		var submitDom = this.submitBtnEl ? this.submitBtnEl.dom : null;
+		var clearDom = this.clearBtnEl ? this.clearBtnEl.dom : null;
 		var children = dom.childNodes;
 		var toRemove = [];
 		for (var i = 0; i < children.length; i++) {
-			if (children[i] !== this.tailInputEl.dom && children[i] !== submitDom) {
+			if (children[i] !== this.tailInputEl.dom && children[i] !== submitDom && children[i] !== clearDom) {
 				toRemove.push(children[i]);
 			}
 		}
@@ -605,6 +628,70 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 		this.tailInputEl.set({
 			placeholder: this.tokens.length > 0 || scopeChip ? '' : _('Search\u2026')
 		});
+		this.updateClearButton();
+	},
+
+	/**
+	 * Shows the clear button instead of the magnifier while there is
+	 * anything to clear.
+	 * @private
+	 */
+	updateClearButton: function()
+	{
+		if (!this.tokenWrapEl) {
+			return;
+		}
+		var hasContent = this.tokens.length > 0 || !!this.tailInputEl.dom.value.trim() ||
+			this.searchContainer.searchFolderCombo.isScopePinned();
+		this.tokenWrapEl[hasContent ? 'addClass' : 'removeClass']('k-search-has-content');
+	},
+
+	/**
+	 * Empties the field and drops a chosen folder, ready for a new search.
+	 * A search that is open in its tab stays as it is.
+	 */
+	clearSearch: function(keepFocus)
+	{
+		this.tokens = [];
+		this.editingTokenIndex = -1;
+		this.tailInputEl.dom.value = '';
+		var combo = this.searchContainer.searchFolderCombo;
+		if (combo.isScopePinned()) {
+			combo.resetScope();
+		}
+		this.searchedValue = undefined;
+		this.renderTokens();
+		this.syncHiddenInput();
+		this.fireEvent('chipchange', this, this.getFilterChips());
+		if (!keepFocus) {
+			this.tailInputEl.focus();
+		}
+	},
+
+	/**
+	 * @property {String} searchedValue The query of the search last started
+	 * from this field, while the field still shows it.
+	 */
+	searchedValue: undefined,
+
+	/**
+	 * Empties the field when a tab without a search comes to the front and the
+	 * field still shows the search that runs (or ran) in its own tab. Text
+	 * typed but never searched stays.
+	 * @param {Ext.TabPanel} tabPanel The content tab panel
+	 * @param {Ext.Panel} tab The tab now in front
+	 * @private
+	 */
+	onContentTabChange: function(tabPanel, tab)
+	{
+		if (!tab || tab.isXType('grommunio.searchcontentpanel') || this.searchedValue === undefined) {
+			return;
+		}
+		if (this.getValue() === this.searchedValue) {
+			this.clearSearch(true);
+		} else {
+			this.searchedValue = undefined;
+		}
 	},
 
 	/**
@@ -1437,6 +1524,7 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 			this.dropdownPanel.resetHistoryHighlight();
 		}
 		var text = this.tailInputEl.dom.value;
+		this.updateClearButton();
 
 		var scopeQuery = this.getScopeQuery(text);
 		if (scopeQuery !== null) {
@@ -1894,6 +1982,13 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 
 			if (this.tokenWrapEl) {
 				this.tokenWrapEl.addClass(this.searchIndicatorClass);
+			}
+			this.searchedValue = this.getValue();
+			// Bound this late: the tab panel does not exist yet while the
+			// context toolbars render. The search tab's own field keeps its search.
+			if (!this.tabChangeBound && !this.findParentByType('grommunio.searchtoolbarpanel')) {
+				this.tabChangeBound = true;
+				this.mon(container.getTabPanel(), 'tabchange', this.onContentTabChange, this);
 			}
 			this.fireEvent('start', this);
 		}

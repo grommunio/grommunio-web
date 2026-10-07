@@ -5306,9 +5306,34 @@ body.grommunio-webclient > .ext-el-mask {
   border-right: 1px solid var(--ui-border);
   border-radius: 0;
   overflow: hidden;
+  position: relative;
   transition: background-color 0.15s ease; }
   .k-search-token-input.k-search-focused {
     background-color: var(--ui-surface); }
+  .k-search-token-input.k-search-has-content {
+    background-image: none; }
+
+/* Clear button, in place of the magnifier while the field has content */
+.k-search-clear-btn {
+  display: none;
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--ui-text-3);
+  cursor: pointer; }
+  .k-search-clear-btn:hover,
+  .k-search-clear-btn:focus-visible {
+    color: var(--ui-text);
+    background-color: var(--ui-surface-3); }
+  .k-search-has-content .k-search-clear-btn {
+    display: flex; }
 
 /* Shared base for value inputs and tail input */
 .k-search-token-value,
