@@ -27,6 +27,7 @@ class MeetingRequestForwarder {
 	/**
 	 * Creates a new IPM.Schedule.Meeting.Request message addressed to the
 	 * requested recipients and sends a forward notification to the organizer.
+	 * A mapi-header-php that forwards meetings itself does both.
 	 *
 	 * @param resource $store   MAPI store of the appointment
 	 * @param string   $entryid entryid of the appointment to forward
@@ -47,6 +48,13 @@ class MeetingRequestForwarder {
 
 		if (empty($recipientRows)) {
 			return false;
+		}
+
+		if (method_exists('Meetingrequest', 'forwardMeetingRequest')) {
+			$req = new Meetingrequest($store, $message, $GLOBALS['mapisession']->getSession());
+			$req->forwardMeetingRequest($recipientRows, $action['message_action']['forwardSubjectPrefix'] ?? 'FW: ', empty($action['basedate']) ? false : (int) $action['basedate']);
+
+			return true;
 		}
 
 		$sourceMessage = $this->openSourceMessage($store, $message, $action);
