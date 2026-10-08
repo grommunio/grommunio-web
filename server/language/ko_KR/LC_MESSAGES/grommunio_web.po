@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Korean (Korea)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2017-10-05 20:07+0200\n"
 "Last-Translator: import\n"
 "Language: ko_KR\n"
@@ -2212,6 +2212,9 @@ msgstr "메시지 복사/이동"
 
 msgid "Destination folder"
 msgstr "대상 폴더"
+
+msgid "Filter folders"
+msgstr "폴더 필터"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4591,16 +4594,16 @@ msgid "Folder size"
 msgstr "폴더 크기"
 
 msgid "Send rights"
-msgstr ""
+msgstr "보내기 권한"
 
 msgid "Folder containing {0} Items"
 msgstr "{0} 항목이 들어 있는 폴더"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "대신 보내기"
 
 msgid "Send as"
-msgstr ""
+msgstr "다른 이름으로 보내기"
 
 msgid "Permissions"
 msgstr "권한"
@@ -4808,9 +4811,6 @@ msgstr "{0}을(를) 비우시겠습니까?"
 
 msgid "Show All"
 msgstr "모두 보기"
-
-msgid "Filter folders"
-msgstr "폴더 필터"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "이 폴더를 이동할 수 있는 권한이 부족합니다. 대신 복사하시겠습니까?"
@@ -7204,11 +7204,14 @@ msgstr "OpenPGP 아머 블록이 정확히 하나만 있어야 합니다."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "OpenPGP 아머 밖의 추가 데이터는 허용되지 않습니다."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "한 번에 완전한 OpenPGP 키 하나씩만 가져오세요."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "한 번에 1개에서 {0}개 사이의 OpenPGP 키를 가져오세요."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "이 키는 지원되는 하위 키 또는 사용자 ID 수 제한을 초과합니다."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "한 번에 완전한 OpenPGP 키 하나씩만 가져오세요."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "개인 키는 업로드하기 전에 암호 문구로 보호해야 합니다. 이 키를 먼저 로컬에서 보호하세요."
@@ -7224,6 +7227,24 @@ msgstr "작업이 실행되는 중에 OpenPGP 키가 잠겼습니다."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP를 사용하려면 최신 브라우저와 안전한 HTTPS 연결이 필요합니다."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "개인 키는 다른 키와 함께 가져오지 말고 단독으로 가져오세요."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "이 개인 키는 일부만 보호되어 있습니다. 가져오기 전에 완전히 보호하세요."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "이 개인 키는 암호 문구로 보호되어 있지 않습니다. 보호하려면 새 암호 문구를 입력하세요."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "현재 암호 문구로 이 개인 키의 잠금을 해제할 수 없습니다."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "새 암호 문구를 지정하려면 이 키의 현재 암호 문구를 입력하세요."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "이 개인 키는 오래된 보호 방식을 사용합니다. 다시 보호하려면 현재 암호 문구를 입력하세요."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "'보호'에는 보호되지 않은 개인 키가 필요합니다. 이미 보호된 키에는 '암호 문구 변경'을 사용하세요."
@@ -7306,6 +7327,36 @@ msgstr "암호 해독만으로는 발신자의 신원이 인증되지 않습니�
 msgid "OpenPGP security information"
 msgstr "OpenPGP 보안 정보"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "키 서버에서 누락된 키를 검색할 수 있습니다. 이때 키 서버는 어떤 키를 찾는지 알게 됩니다. 이렇게 찾은 키도 발신자를 신뢰하기 전에 지문을 확인해야 합니다."
+
+msgid "Find key on keyserver"
+msgstr "키 서버에서 키 찾기"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "서명 키 {0}을(를) 가져왔습니다. 발신자를 신뢰하기 전에 지문을 확인하세요."
+
+msgid "Import OpenPGP key"
+msgstr "OpenPGP 키 가져오기"
+
+msgid "The attachment could not be loaded."
+msgstr "첨부 파일을 불러올 수 없습니다."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "키 파일이 너무 큽니다. 최대 크기: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "이 첨부 파일에는 개인 키가 들어 있습니다. 설정 → OpenPGP → 키 가져오기에서 가져오세요."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "공개 키를 가져왔습니다. 키 소유자에게 암호화하여 보내기 전에 지문을 확인하세요."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "공개 키 {0}개를 가져왔습니다. 소유자에게 보낼 메시지를 암호화하기 전에 지문을 확인하세요."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "이 첨부 파일에는 OpenPGP 공개 키가 없습니다."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7378,6 +7429,15 @@ msgstr "디코딩된 첨부 파일이 너무 큽니다."
 msgid "The OpenPGP operation failed."
 msgstr "OpenPGP 작업에 실패했습니다."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "요청한 공개 키를 키 서버가 반환하지 않았습니다."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "구성된 키 서버가 없습니다. 설정 → OpenPGP → 키 서버 관리에서 추가하세요."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "이 키를 가진 키 서버가 없습니다. 발신자에게 공개 키를 요청하세요."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: 메시지 보안 확인 중…"
 
@@ -7395,6 +7455,9 @@ msgstr "메시지를 해독할 수 없음 — 자세한 내용을 보거나 다�
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "암호화된 메시지 — 읽으려면 개인 키를 잠금 해제하세요"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "서명 확인 안 됨 — 서명 키 {0}이(가) 키링에 없습니다"
 
 msgid "Signature could not be verified"
 msgstr "서명을 확인할 수 없습니다."
@@ -7489,6 +7552,9 @@ msgstr "공개 키 내보내기"
 msgid "Back up private key"
 msgstr "개인 키 백업"
 
+msgid "Refresh from keyserver"
+msgstr "키 서버에서 새로 고침"
+
 msgid "Unlock in this browser"
 msgstr "이 브라우저에서 잠금 해제"
 
@@ -7549,14 +7615,8 @@ msgstr "해지 인증서 — 안전하게 보관하세요"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "12자 이상의 강력한 암호 문구를 선택하세요. 키 생성은 이 브라우저에서 로컬로 실행되며 시간이 다소 걸릴 수 있습니다. 해지 인증서와 개인 키 백업은 안전한 곳에 보관하세요."
 
-msgid "Import OpenPGP key"
-msgstr "OpenPGP 키 가져오기"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "ASCII 아머 OpenPGP 키 파일 선택"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "키 파일이 너무 큽니다. 최대 크기: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "키 파일을 읽을 수 없습니다."
@@ -7564,17 +7624,20 @@ msgstr "키 파일을 읽을 수 없습니다."
 msgid "Armored key"
 msgstr "ASCII 아머 키"
 
-msgid "Protect unencrypted key"
-msgstr "암호화되지 않은 키 보호"
+msgid "Current passphrase"
+msgstr "현재 암호 문구"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "선택 사항: 보호되지 않은 개인 키의 새 암호 문구"
+msgid "New passphrase"
+msgstr "새 암호 문구"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "키를 가져왔습니다. 수신자에게 암호화하여 보내기 전에 수신자의 지문을 확인하세요."
+msgid "Repeat new passphrase"
+msgstr "새 암호 문구 확인"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "파일을 선택하거나 BEGIN 및 END 줄을 포함한 ASCII 아머 키 하나를 붙여 넣으세요. 보호되지 않은 개인 키라면 저장하기 전에 새 암호 문구를 입력하여 로컬에서 보호하세요. 가져온 수신자 키는 자동으로 신뢰되지 않습니다."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "개인 키를 가져왔습니다. 암호 문구를 변경했다면 개인 키를 백업하세요."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "파일을 선택하거나 BEGIN 및 END 줄을 포함한 ASCII 아머 형식의 키를 붙여 넣으세요. 파일 하나에 여러 공개 키가 들어 있을 수 있습니다. 개인 키의 경우, 보호되어 있으면 새 암호 문구를 지정할 때만 현재 암호 문구를 입력하고, 보호되어 있지 않으면 저장하기 전에 보호할 새 암호 문구를 입력하세요. 가져온 키는 자동으로 신뢰되지 않습니다."
 
 msgid "Public OpenPGP key"
 msgstr "OpenPGP 공개 키"
@@ -7591,17 +7654,8 @@ msgstr "개인 키 백업 — 안전하게 보관하세요"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "이 암호화된 개인 키 백업을 다운로드하기 전에 로컬에서 암호 문구를 확인하세요. 백업은 안전하게 보관하고 수신자나 키 서버에 절대 보내지 마세요."
 
-msgid "Current passphrase"
-msgstr "현재 암호 문구"
-
-msgid "New passphrase"
-msgstr "새 암호 문구"
-
 msgid "Change OpenPGP passphrase"
 msgstr "OpenPGP 암호 문구 변경"
-
-msgid "Repeat new passphrase"
-msgstr "새 암호 문구 확인"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "암호 문구가 변경되었습니다. 개인 키 백업을 새로 만드세요."
@@ -7678,6 +7732,12 @@ msgstr "관리자가 승인한 HTTPS 키 서버만 사용할 수 있습니다. �
 msgid "Approved servers: {0}"
 msgstr "승인된 서버: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "키 서버 검색 중…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "키 서버에서 키를 새로 고쳤습니다. 새 만료일, 하위 키 및 해지 정보가 이제 적용됩니다."
+
 msgid "Find OpenPGP public key"
 msgstr "OpenPGP 공개 키 찾기"
 
@@ -7692,12 +7752,6 @@ msgstr "40자리 또는 64자리 16진수 지문 전체를 입력하세요."
 
 msgid "Find and import"
 msgstr "찾아서 가져오기"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "요청한 공개 키를 키 서버가 반환하지 않았습니다."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "공개 키를 가져왔습니다. 키 소유자에게 암호화하여 보내기 전에 지문을 확인하세요."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "검색하는 지문은 해당 키 서버로 전송됩니다. 다운로드한 키도 소유자에게 암호화하여 보내기 전에 지문 확인이 필요합니다."

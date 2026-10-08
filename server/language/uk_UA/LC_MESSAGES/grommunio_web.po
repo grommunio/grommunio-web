@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/grommunio-web/uk/>\n"
@@ -2253,6 +2253,9 @@ msgstr "Копіювання/переміщення повідомлень"
 
 msgid "Destination folder"
 msgstr "Тека призначення"
+
+msgid "Filter folders"
+msgstr "Фільтрувати папки"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4658,16 +4661,16 @@ msgid "Folder size"
 msgstr "Розмір папки"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Права надсилання"
 
 msgid "Folder containing {0} Items"
 msgstr "Тека, що містить {0} елементів"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Надсилати від імені"
 
 msgid "Send as"
-msgstr ""
+msgstr "Надсилати як"
 
 msgid "Permissions"
 msgstr "Права доступу"
@@ -4875,9 +4878,6 @@ msgstr "Ви впевнені, що хочете очистити {0}?"
 
 msgid "Show All"
 msgstr "Показати всі"
-
-msgid "Filter folders"
-msgstr "Фільтрувати папки"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "У вас недостатньо привілеїв для переміщення цієї теки. Бажаєте скопіювати?"
@@ -7279,11 +7279,14 @@ msgstr "Очікувався лише один блок OpenPGP у формат�
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "Додаткові дані поза блоком OpenPGP у форматі ASCII заборонені."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Імпортуйте лише один повний ключ OpenPGP за раз."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Імпортуйте від 1 до {0} ключів OpenPGP за раз."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Цей ключ перевищує підтримувану кількість підключів або ідентифікаторів."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Імпортуйте лише один повний ключ OpenPGP за раз."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Приватні ключі перед вивантаженням мають бути захищені парольною фразою. Спершу захистіть цей ключ локально."
@@ -7299,6 +7302,24 @@ msgstr "Ключ OpenPGP було заблоковано під час вико�
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP потребує сучасного браузера та захищеного з'єднання HTTPS."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Імпортуйте приватний ключ окремо, а не разом з іншими ключами."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Цей приватний ключ захищено лише частково. Захистіть його повністю перед імпортом."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Цей приватний ключ не захищено парольною фразою. Введіть нову парольну фразу, щоб захистити його."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "Поточна парольна фраза не розблокувала цей приватний ключ."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Введіть поточну парольну фразу цього ключа, щоб задати нову."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Цей приватний ключ використовує застарілий захист. Введіть його поточну парольну фразу, щоб захистити його знову."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "Дія «Захист» потребує незахищеного приватного ключа. Для захищених ключів скористайтеся дією «Змінити парольну фразу»."
@@ -7381,6 +7402,36 @@ msgstr "Саме по собі розшифрування не підтверд�
 msgid "OpenPGP security information"
 msgstr "Інформація про захист OpenPGP"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Відсутній ключ можна пошукати на ваших серверах ключів. Вони дізнаються, який ключ ви шукаєте. Відбиток знайденого так ключа все одно потрібно перевірити, перш ніж довіряти відправнику."
+
+msgid "Find key on keyserver"
+msgstr "Знайти ключ на сервері ключів"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "Ключ підпису {0} імпортовано. Перевірте його відбиток, перш ніж довіряти відправнику."
+
+msgid "Import OpenPGP key"
+msgstr "Імпорт ключа OpenPGP"
+
+msgid "The attachment could not be loaded."
+msgstr "Не вдалося завантажити вкладення."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Файл ключа завеликий. Максимальний розмір: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Це вкладення містить приватний ключ. Імпортуйте його в Налаштування → OpenPGP → Імпортувати ключ."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Публічний ключ імпортовано. Підтвердьте його відбиток, перш ніж шифрувати повідомлення для його власника."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "Імпортовано публічних ключів: {0}. Перевірте їхні відбитки, перш ніж шифрувати для їхніх власників."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Це вкладення не містить публічного ключа OpenPGP."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7453,6 +7504,15 @@ msgstr "Декодовані вкладення завеликі."
 msgid "The OpenPGP operation failed."
 msgstr "Не вдалося виконати операцію OpenPGP."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "Сервер ключів не повернув запитаного публічного ключа."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Сервер ключів не налаштовано. Додайте його в Налаштування → OpenPGP → Керування серверами ключів."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Жоден із ваших серверів ключів не має цього ключа. Попросіть відправника надіслати свій публічний ключ."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: перевірка захисту повідомлення…"
 
@@ -7470,6 +7530,9 @@ msgstr "Не вдалося розшифрувати повідомлення �
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Зашифроване повідомлення — розблокуйте свій приватний ключ, щоб його прочитати"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Підпис не перевірено — ключа підпису {0} немає у вашому сховищі ключів"
 
 msgid "Signature could not be verified"
 msgstr "Підпис не вдалося перевірити"
@@ -7564,6 +7627,9 @@ msgstr "Експортувати публічний ключ"
 msgid "Back up private key"
 msgstr "Створити резервну копію приватного ключа"
 
+msgid "Refresh from keyserver"
+msgstr "Оновити із сервера ключів"
+
 msgid "Unlock in this browser"
 msgstr "Розблокувати в цьому браузері"
 
@@ -7624,14 +7690,8 @@ msgstr "Сертифікат відкликання — зберігайте н�
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Виберіть надійну парольну фразу щонайменше з 12 символів. Створення ключа відбувається локально в цьому браузері й може тривати деякий час. Зберігайте сертифікат відкликання та резервну копію приватного ключа в безпечному місці."
 
-msgid "Import OpenPGP key"
-msgstr "Імпорт ключа OpenPGP"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "Виберіть файл ключа OpenPGP у форматі ASCII"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "Файл ключа завеликий. Максимальний розмір: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "Не вдалося прочитати файл ключа."
@@ -7639,17 +7699,20 @@ msgstr "Не вдалося прочитати файл ключа."
 msgid "Armored key"
 msgstr "Ключ у форматі ASCII"
 
-msgid "Protect unencrypted key"
-msgstr "Захист незашифрованого ключа"
+msgid "Current passphrase"
+msgstr "Поточна парольна фраза"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Необов'язково: нова парольна фраза для незахищеного приватного ключа"
+msgid "New passphrase"
+msgstr "Нова парольна фраза"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "Ключ імпортовано. Підтверджуйте відбитки одержувачів, перш ніж шифрувати повідомлення для них."
+msgid "Repeat new passphrase"
+msgstr "Повторіть нову парольну фразу"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Виберіть файл або вставте один ключ у форматі ASCII разом із рядками BEGIN і END. Для незахищеного приватного ключа введіть нову парольну фразу, щоб захистити його локально перед збереженням. Імпортовані ключі одержувачів не стають довіреними автоматично."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Приватний ключ імпортовано. Створіть резервну копію приватного ключа, якщо ви змінили його парольну фразу."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Виберіть файл або вставте ключі у форматі ASCII armor разом із рядками BEGIN і END. Файл може містити кілька публічних ключів. Для приватного ключа: якщо він захищений, вводьте його поточну парольну фразу лише для того, щоб задати нову; якщо ні, введіть нову парольну фразу, щоб захистити його перед збереженням. Імпортовані ключі не стають довіреними автоматично."
 
 msgid "Public OpenPGP key"
 msgstr "Публічний ключ OpenPGP"
@@ -7666,17 +7729,8 @@ msgstr "Резервна копія приватного ключа — збер
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Підтвердьте свою парольну фразу локально, перш ніж завантажувати цю зашифровану резервну копію приватного ключа. Зберігайте її надійно й ніколи не надсилайте одержувачам або на сервер ключів."
 
-msgid "Current passphrase"
-msgstr "Поточна парольна фраза"
-
-msgid "New passphrase"
-msgstr "Нова парольна фраза"
-
 msgid "Change OpenPGP passphrase"
 msgstr "Зміна парольної фрази OpenPGP"
-
-msgid "Repeat new passphrase"
-msgstr "Повторіть нову парольну фразу"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "Парольну фразу змінено. Створіть нову резервну копію приватного ключа."
@@ -7753,6 +7807,12 @@ msgstr "Дозволено використовувати лише схвале�
 msgid "Approved servers: {0}"
 msgstr "Схвалені сервери: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Пошук на ваших серверах ключів…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "Ключ оновлено із сервера ключів. Нові дати закінчення терміну дії, підключі та відкликання тепер діють."
+
 msgid "Find OpenPGP public key"
 msgstr "Пошук публічного ключа OpenPGP"
 
@@ -7767,12 +7827,6 @@ msgstr "Введіть повний шістнадцятковий відбит�
 
 msgid "Find and import"
 msgstr "Знайти й імпортувати"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "Сервер ключів не повернув запитаного публічного ключа."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "Публічний ключ імпортовано. Підтвердьте його відбиток, перш ніж шифрувати повідомлення для його власника."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "Сервер отримає відбиток, який ви шукаєте. Завантажений ключ усе одно потребує підтвердження відбитка, перш ніж шифрувати повідомлення для його власника."

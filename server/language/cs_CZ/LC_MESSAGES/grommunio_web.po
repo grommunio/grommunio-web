@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2253,6 +2253,9 @@ msgstr "Kopírovat/Přesunout zprávu"
 
 msgid "Destination folder"
 msgstr "Cílová složka"
+
+msgid "Filter folders"
+msgstr "Filtrovat složky"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4665,16 +4668,16 @@ msgid "Folder size"
 msgstr "Velikost složky"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Oprávnění k odesílání"
 
 msgid "Folder containing {0} Items"
 msgstr "Složka obsahuje {0} položek"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Odesílat v zastoupení"
 
 msgid "Send as"
-msgstr ""
+msgstr "Odesílat jako"
 
 msgid "Permissions"
 msgstr "Oprávnění"
@@ -4882,9 +4885,6 @@ msgstr "Opravdu chcete vyprázdnit {0}?"
 
 msgid "Show All"
 msgstr "Zobrazit vše"
-
-msgid "Filter folders"
-msgstr "Filtrovat složky"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "K přesunu této složky nemáte dostatečná oprávnění. Chcete místo toho kopírovat?"
@@ -7286,11 +7286,14 @@ msgstr "Očekáván právě jeden blok OpenPGP ve formátu ASCII."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "Další data mimo blok OpenPGP ve formátu ASCII nejsou povolena."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Importujte vždy jen jeden úplný klíč OpenPGP."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Importujte najednou 1 až {0} klíčů OpenPGP."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Tento klíč překračuje podporovaný limit podklíčů nebo identit."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Importujte vždy jen jeden úplný klíč OpenPGP."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Soukromé klíče musí být před nahráním chráněny přístupovou frází. Nejprve tento klíč ochraňte přímo v prohlížeči."
@@ -7306,6 +7309,24 @@ msgstr "Klíč OpenPGP byl během probíhající operace zamčen."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP vyžaduje moderní prohlížeč a zabezpečené připojení HTTPS."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Soukromý klíč importujte samostatně, ne společně s jinými klíči."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Tento soukromý klíč je chráněn jen částečně. Před importem ho plně zabezpečte."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Tento soukromý klíč není chráněn přístupovou frází. Zadejte novou přístupovou frázi, která ho ochrání."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "Aktuální přístupovou frází se tento soukromý klíč nepodařilo odemknout."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Chcete-li tomuto klíči nastavit novou přístupovou frázi, zadejte jeho aktuální přístupovou frázi."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Tento soukromý klíč používá zastaralou ochranu. Zadejte jeho aktuální přístupovou frázi, aby mohl být znovu chráněn."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "Funkce \"Ochrana nezašifrovaného klíče\" očekává nechráněný soukromý klíč. U chráněných klíčů použijte funkci \"Změna přístupové fráze\"."
@@ -7388,6 +7409,36 @@ msgstr "Samotné dešifrování neprokazuje totožnost odesílatele."
 msgid "OpenPGP security information"
 msgstr "Informace o zabezpečení OpenPGP"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Chybějící klíč lze vyhledat na vašich serverech klíčů. Ty se tím dozví, jaký klíč hledáte. U takto nalezeného klíče je stále nutné ověřit otisk dříve, než budete odesílateli důvěřovat."
+
+msgid "Find key on keyserver"
+msgstr "Najít klíč na serveru klíčů"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "Podpisový klíč {0} byl importován. Než budete odesílateli důvěřovat, ověřte jeho otisk."
+
+msgid "Import OpenPGP key"
+msgstr "Import klíče OpenPGP"
+
+msgid "The attachment could not be loaded."
+msgstr "Přílohu se nepodařilo načíst."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Soubor s klíčem je příliš velký. Maximální velikost: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Tato příloha obsahuje soukromý klíč. Importujte ho v Nastavení → OpenPGP → Importovat klíč."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Veřejný klíč byl importován. Ověřte jeho otisk dříve, než jeho vlastníkovi budete šifrovat zprávy."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "Importované veřejné klíče: {0}. Před šifrováním pro jejich vlastníky ověřte jejich otisky."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Tato příloha neobsahuje veřejný klíč OpenPGP."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7460,6 +7511,15 @@ msgstr "Dekódované přílohy jsou příliš velké."
 msgid "The OpenPGP operation failed."
 msgstr "Operace OpenPGP se nezdařila."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "Server klíčů nevrátil požadovaný veřejný klíč."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Není nastaven žádný server klíčů. Přidejte ho v Nastavení → OpenPGP → Spravovat servery klíčů."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Žádný z vašich serverů klíčů tento klíč nemá. Požádejte odesílatele o jeho veřejný klíč."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: kontrola zabezpečení zprávy…"
 
@@ -7477,6 +7537,9 @@ msgstr "Zprávu se nepodařilo dešifrovat — klikněte pro podrobnosti nebo no
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Zašifrovaná zpráva — pro přečtení odemkněte svůj soukromý klíč"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Podpis nebyl ověřen — podpisový klíč {0} není ve vaší klíčence"
 
 msgid "Signature could not be verified"
 msgstr "Podpis se nepodařilo ověřit"
@@ -7571,6 +7634,9 @@ msgstr "Exportovat veřejný klíč"
 msgid "Back up private key"
 msgstr "Zálohovat soukromý klíč"
 
+msgid "Refresh from keyserver"
+msgstr "Obnovit ze serveru klíčů"
+
 msgid "Unlock in this browser"
 msgstr "Odemknout v tomto prohlížeči"
 
@@ -7631,14 +7697,8 @@ msgstr "Revokační certifikát — uchovejte v bezpečí"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Zvolte silnou přístupovou frázi o délce alespoň 12 znaků. Generování probíhá lokálně v tomto prohlížeči a může chvíli trvat. Revokační certifikát i zálohu soukromého klíče uchovávejte na bezpečném místě."
 
-msgid "Import OpenPGP key"
-msgstr "Import klíče OpenPGP"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "Vyberte soubor s klíčem OpenPGP ve formátu ASCII"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "Soubor s klíčem je příliš velký. Maximální velikost: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "Soubor s klíčem se nepodařilo načíst."
@@ -7646,17 +7706,20 @@ msgstr "Soubor s klíčem se nepodařilo načíst."
 msgid "Armored key"
 msgstr "Klíč ve formátu ASCII"
 
-msgid "Protect unencrypted key"
-msgstr "Ochrana nezašifrovaného klíče"
+msgid "Current passphrase"
+msgstr "Současná přístupová fráze"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Volitelné: nová přístupová fráze pro nechráněný soukromý klíč"
+msgid "New passphrase"
+msgstr "Nová přístupová fráze"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "Klíč byl importován. Ověřte otisky příjemců dříve, než jim budete šifrovat zprávy."
+msgid "Repeat new passphrase"
+msgstr "Potvrzení nové přístupové fráze"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Vyberte soubor nebo vložte jeden klíč ve formátu ASCII (ASCII armor) včetně řádků BEGIN a END. U nechráněného soukromého klíče zadejte novou přístupovou frázi, která jej před uložením ochrání přímo v prohlížeči. Importované klíče příjemců se automaticky nepovažují za důvěryhodné."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Soukromý klíč byl importován. Pokud jste změnili jeho přístupovou frázi, zálohujte soukromý klíč."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Vyberte soubor nebo vložte klíče v textovém formátu ASCII armor včetně řádků BEGIN a END. Soubor může obsahovat více veřejných klíčů. U soukromého klíče: je-li chráněn, zadejte jeho aktuální přístupovou frázi jen tehdy, chcete-li mu nastavit novou; není-li chráněn, zadejte novou přístupovou frázi, která ho před uložením ochrání. Importované klíče nejsou automaticky považovány za důvěryhodné."
 
 msgid "Public OpenPGP key"
 msgstr "Veřejný klíč OpenPGP"
@@ -7673,17 +7736,8 @@ msgstr "Záloha soukromého klíče — uchovejte v bezpečí"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Před stažením této zašifrované zálohy soukromého klíče potvrďte svou přístupovou frázi přímo v prohlížeči. Zálohu uchovávejte v bezpečí a nikdy ji neposílejte žádnému příjemci ani na server klíčů."
 
-msgid "Current passphrase"
-msgstr "Současná přístupová fráze"
-
-msgid "New passphrase"
-msgstr "Nová přístupová fráze"
-
 msgid "Change OpenPGP passphrase"
 msgstr "Změna přístupové fráze OpenPGP"
-
-msgid "Repeat new passphrase"
-msgstr "Potvrzení nové přístupové fráze"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "Přístupová fráze byla změněna. Vytvořte novou zálohu soukromého klíče."
@@ -7760,6 +7814,12 @@ msgstr "Použít lze pouze servery klíčů HTTPS schválené správcem. Vyhled�
 msgid "Approved servers: {0}"
 msgstr "Schválené servery: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Prohledávání vašich serverů klíčů…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "Klíč byl obnoven ze serveru klíčů. Nová data vypršení platnosti, podklíče a odvolání nyní platí."
+
 msgid "Find OpenPGP public key"
 msgstr "Vyhledání veřejného klíče OpenPGP"
 
@@ -7774,12 +7834,6 @@ msgstr "Zadejte úplný šestnáctkový otisk o 40 nebo 64 znacích."
 
 msgid "Find and import"
 msgstr "Vyhledat a importovat"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "Server klíčů nevrátil požadovaný veřejný klíč."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "Veřejný klíč byl importován. Ověřte jeho otisk dříve, než jeho vlastníkovi budete šifrovat zprávy."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "Server se dozví otisk, který hledáte. Stažený klíč je stále potřeba ověřit podle otisku, než jeho vlastníkovi budete šifrovat zprávy."

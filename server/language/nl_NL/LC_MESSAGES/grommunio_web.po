@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/grommunio-web/nl/>\n"
@@ -2238,6 +2238,9 @@ msgstr "Berichten Kopiëren/Verplaatsen"
 
 msgid "Destination folder"
 msgstr "Bestemmingsmap"
+
+msgid "Filter folders"
+msgstr "Mappen filteren"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4630,16 +4633,16 @@ msgid "Folder size"
 msgstr "Mapgrootte"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Verzendrechten"
 
 msgid "Folder containing {0} Items"
 msgstr "Map met {0} Items"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Verzenden namens"
 
 msgid "Send as"
-msgstr ""
+msgstr "Verzenden als"
 
 msgid "Permissions"
 msgstr "Machtigingen"
@@ -4847,9 +4850,6 @@ msgstr "Weet u zeker dat u {0} wilt leegmaken?"
 
 msgid "Show All"
 msgstr "Toon alle"
-
-msgid "Filter folders"
-msgstr "Mappen filteren"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "U heeft onvoldoende toegangsrechten om deze map te verplaatsen. Wilt u in plaats daarvan kopiëren?"
@@ -7247,11 +7247,14 @@ msgstr "Er werd precies één OpenPGP-ASCII-blok verwacht."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "Aanvullende gegevens buiten het OpenPGP-ASCII-blok zijn niet toegestaan."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Importeer één volledige OpenPGP-sleutel tegelijk."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Importeer tussen 1 en {0} OpenPGP-sleutels tegelijk."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Deze sleutel overschrijdt de ondersteunde limiet voor subsleutels of identiteiten."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Importeer één volledige OpenPGP-sleutel tegelijk."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Privésleutels moeten met een wachtwoordzin zijn beveiligd voordat ze worden geüpload. Bescherm deze sleutel eerst lokaal."
@@ -7267,6 +7270,24 @@ msgstr "De OpenPGP-sleutel is vergrendeld terwijl de bewerking bezig was."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP vereist een moderne browser en een beveiligde HTTPS-verbinding."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Importeer een privésleutel afzonderlijk, niet samen met andere sleutels."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Deze privésleutel is slechts gedeeltelijk beveiligd. Beveilig hem volledig voordat u hem importeert."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Deze privésleutel is niet beveiligd met een wachtwoordzin. Voer een nieuwe wachtwoordzin in om hem te beveiligen."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "Met de huidige wachtwoordzin kon deze privésleutel niet worden ontgrendeld."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Voer de huidige wachtwoordzin van deze sleutel in om een nieuwe in te stellen."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Deze privésleutel gebruikt een verouderde beveiliging. Voer de huidige wachtwoordzin in om hem opnieuw te beveiligen."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "'Beschermen' verwacht een onbeveiligde privésleutel. Gebruik 'Wachtwoordzin wijzigen' voor beveiligde sleutels."
@@ -7349,6 +7370,36 @@ msgstr "Ontsleuteling op zich bewijst de identiteit van de afzender niet."
 msgid "OpenPGP security information"
 msgstr "OpenPGP-beveiligingsinformatie"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Uw sleutelservers kunnen worden doorzocht op de ontbrekende sleutel. Zij zien dan welke sleutel u zoekt. Verifieer ook bij een zo gevonden sleutel eerst de vingerafdruk voordat u de afzender vertrouwt."
+
+msgid "Find key on keyserver"
+msgstr "Sleutel zoeken op sleutelserver"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "Ondertekeningssleutel {0} geïmporteerd. Verifieer de vingerafdruk voordat u de afzender vertrouwt."
+
+msgid "Import OpenPGP key"
+msgstr "OpenPGP-sleutel importeren"
+
+msgid "The attachment could not be loaded."
+msgstr "De bijlage kon niet worden geladen."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Het sleutelbestand is te groot. Maximale grootte: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Deze bijlage bevat een privésleutel. Importeer deze via Opties → OpenPGP → Sleutel importeren."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Publieke sleutel geïmporteerd. Verifieer de vingerafdruk voordat u berichten voor de eigenaar versleutelt."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "{0} publieke sleutels geïmporteerd. Verifieer de vingerafdrukken voordat u berichten voor de eigenaars versleutelt."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Deze bijlage bevat geen publieke OpenPGP-sleutel."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7421,6 +7472,15 @@ msgstr "De gedecodeerde bijlagen zijn te groot."
 msgid "The OpenPGP operation failed."
 msgstr "De OpenPGP-bewerking is mislukt."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "De sleutelserver heeft de gevraagde publieke sleutel niet teruggestuurd."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Er is geen sleutelserver geconfigureerd. Voeg er een toe via Opties → OpenPGP → Sleutelservers beheren."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Geen van uw sleutelservers heeft deze sleutel. Vraag de afzender om diens publieke sleutel."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: berichtbeveiliging wordt gecontroleerd…"
 
@@ -7438,6 +7498,9 @@ msgstr "Bericht kon niet worden ontsleuteld — klik voor details of opnieuw pro
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Versleuteld bericht — ontgrendel uw privésleutel om het te lezen"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Handtekening niet gecontroleerd — ondertekeningssleutel {0} staat niet in uw sleutelbos"
 
 msgid "Signature could not be verified"
 msgstr "Handtekening kon niet worden gevalideerd"
@@ -7532,6 +7595,9 @@ msgstr "Publieke sleutel exporteren"
 msgid "Back up private key"
 msgstr "Back-up van privésleutel maken"
 
+msgid "Refresh from keyserver"
+msgstr "Bijwerken vanaf sleutelserver"
+
 msgid "Unlock in this browser"
 msgstr "Ontgrendelen in deze browser"
 
@@ -7592,14 +7658,8 @@ msgstr "Intrekkingscertificaat — veilig bewaren"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Kies een sterke wachtwoordzin van minimaal 12 tekens. Het genereren gebeurt lokaal in deze browser en kan even duren. Bewaar het intrekkingscertificaat en een back-up van de privésleutel op een veilige plaats."
 
-msgid "Import OpenPGP key"
-msgstr "OpenPGP-sleutel importeren"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "OpenPGP-sleutelbestand in ASCII-formaat kiezen"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "Het sleutelbestand is te groot. Maximale grootte: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "Het sleutelbestand kon niet worden gelezen."
@@ -7607,17 +7667,20 @@ msgstr "Het sleutelbestand kon niet worden gelezen."
 msgid "Armored key"
 msgstr "ASCII-sleutel"
 
-msgid "Protect unencrypted key"
-msgstr "Onbeveiligde sleutel beschermen"
+msgid "Current passphrase"
+msgstr "Huidige wachtwoordzin"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Optioneel: nieuwe wachtwoordzin voor onbeveiligde privésleutel"
+msgid "New passphrase"
+msgstr "Nieuwe wachtwoordzin"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "Sleutel geïmporteerd. Verifieer de vingerafdrukken van ontvangers voordat u berichten voor hen versleutelt."
+msgid "Repeat new passphrase"
+msgstr "Nieuwe wachtwoordzin herhalen"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Kies een bestand of plak één sleutel in ASCII-formaat, inclusief de BEGIN- en END-regels. Voer voor een onbeveiligde privésleutel een nieuwe wachtwoordzin in om de sleutel lokaal te beschermen voordat deze wordt opgeslagen. Geïmporteerde sleutels van ontvangers worden niet automatisch vertrouwd."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Privésleutel geïmporteerd. Maak een back-up van de privésleutel als u de wachtwoordzin hebt gewijzigd."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Kies een bestand of plak sleutels in ASCII-formaat, inclusief de BEGIN- en END-regels. Een bestand kan meerdere publieke sleutels bevatten. Voor een privésleutel: is deze beveiligd, voer dan de huidige wachtwoordzin alleen in om een nieuwe in te stellen; is deze niet beveiligd, voer dan een nieuwe wachtwoordzin in om hem vóór het opslaan te beveiligen. Geïmporteerde sleutels worden niet automatisch vertrouwd."
 
 msgid "Public OpenPGP key"
 msgstr "Publieke OpenPGP-sleutel"
@@ -7634,17 +7697,8 @@ msgstr "Back-up van privésleutel — veilig bewaren"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Bevestig uw wachtwoordzin lokaal voordat u deze versleutelde back-up van de privésleutel downloadt. Bewaar de back-up veilig en stuur deze nooit naar een ontvanger of een sleutelserver."
 
-msgid "Current passphrase"
-msgstr "Huidige wachtwoordzin"
-
-msgid "New passphrase"
-msgstr "Nieuwe wachtwoordzin"
-
 msgid "Change OpenPGP passphrase"
 msgstr "OpenPGP-wachtwoordzin wijzigen"
-
-msgid "Repeat new passphrase"
-msgstr "Nieuwe wachtwoordzin herhalen"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "Wachtwoordzin gewijzigd. Maak een nieuwe back-up van de privésleutel."
@@ -7721,6 +7775,12 @@ msgstr "Alleen door de beheerder goedgekeurde HTTPS-sleutelservers kunnen worden
 msgid "Approved servers: {0}"
 msgstr "Goedgekeurde servers: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Uw sleutelservers doorzoeken…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "Sleutel bijgewerkt vanaf de sleutelserver. Nieuwe vervaldatums, subsleutels en intrekkingen zijn nu van kracht."
+
 msgid "Find OpenPGP public key"
 msgstr "Publieke OpenPGP-sleutel zoeken"
 
@@ -7735,12 +7795,6 @@ msgstr "Voer een volledige hexadecimale vingerafdruk van 40 of 64 tekens in."
 
 msgid "Find and import"
 msgstr "Zoeken en importeren"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "De sleutelserver heeft de gevraagde publieke sleutel niet teruggestuurd."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "Publieke sleutel geïmporteerd. Verifieer de vingerafdruk voordat u berichten voor de eigenaar versleutelt."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "De server ontvangt de vingerafdruk waarnaar u zoekt. Een gedownloade sleutel moet nog op vingerafdruk worden geverifieerd voordat u berichten voor de eigenaar versleutelt."

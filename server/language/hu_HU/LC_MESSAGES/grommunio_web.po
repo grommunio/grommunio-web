@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hu/>\n"
@@ -2245,6 +2245,9 @@ msgstr "Üzenetek másolása/áthelyezése"
 
 msgid "Destination folder"
 msgstr "Célmappa"
+
+msgid "Filter folders"
+msgstr "Mappák szűrése"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4646,16 +4649,16 @@ msgid "Folder size"
 msgstr "Mappa méret"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Küldési jogok"
 
 msgid "Folder containing {0} Items"
 msgstr "A mappa tartalmaz {0} elemet"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Küldés más nevében"
 
 msgid "Send as"
-msgstr ""
+msgstr "Küldés másként"
 
 msgid "Permissions"
 msgstr "Jogok"
@@ -4863,9 +4866,6 @@ msgstr "Biztosan ki szeretné üríteni {0}?"
 
 msgid "Show All"
 msgstr "Összes mutatása"
-
-msgid "Filter folders"
-msgstr "Mappák szűrése"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Nincs elegendő jogosultsága a mappa áthelyezéséhez. Szeretne inkább másolni?"
@@ -7263,11 +7263,14 @@ msgstr "Pontosan egy OpenPGP-páncélblokk szükséges."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "Az OpenPGP-páncélon kívüli további adat nem megengedett."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Egyszerre egy teljes OpenPGP-kulcsot importáljon."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Egyszerre 1 és {0} közötti számú OpenPGP-kulcsot importáljon."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Ez a kulcs túllépi a támogatott alkulcs- vagy identitáskorlátot."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Egyszerre egy teljes OpenPGP-kulcsot importáljon."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "A privát kulcsokat feltöltés előtt jelszóval kell védeni. Előbb tegye helyben védetté ezt a kulcsot."
@@ -7283,6 +7286,24 @@ msgstr "Az OpenPGP-kulcs zárolódott a művelet futása közben."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "Az OpenPGP korszerű böngészőt és biztonságos HTTPS-kapcsolatot igényel."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "A privát kulcsot önmagában importálja, ne más kulcsokkal együtt."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Ez a privát kulcs csak részben védett. Importálás előtt lássa el teljes védelemmel."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Ezt a privát kulcsot nem védi jelszó. Adjon meg egy új jelszót a védelméhez."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "A jelenlegi jelszóval nem sikerült feloldani ezt a privát kulcsot."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Adja meg a kulcs jelenlegi jelszavát, hogy újat adhasson neki."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Ez a privát kulcs elavult védelmet használ. Adja meg a jelenlegi jelszavát az újbóli védelemhez."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "A \"Titkosítatlan kulcs védelme\" védelem nélküli privát kulcsot vár. Védett kulcsokhoz használja a \"Jelszó módosítása\" lehetőséget."
@@ -7365,6 +7386,36 @@ msgstr "A visszafejtés önmagában nem igazolja a feladó személyazonosságát
 msgid "OpenPGP security information"
 msgstr "OpenPGP biztonsági információk"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "A hiányzó kulcs a kulcsszervereiben kereshető. Ezek megtudják, melyik kulcsot keresi. Az így talált kulcs ujjlenyomatát is ellenőrizni kell, mielőtt megbízna a feladóban."
+
+msgid "Find key on keyserver"
+msgstr "Kulcs keresése kulcsszerveren"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "A(z) {0} aláírókulcs importálva. Ellenőrizze az ujjlenyomatát, mielőtt megbízna a feladóban."
+
+msgid "Import OpenPGP key"
+msgstr "OpenPGP-kulcs importálása"
+
+msgid "The attachment could not be loaded."
+msgstr "A mellékletet nem sikerült betölteni."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "A kulcsfájl túl nagy. Maximális méret: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Ez a melléklet privát kulcsot tartalmaz. Importálja a Beállítások → OpenPGP → Kulcs importálása menüpontban."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "A nyilvános kulcs importálása megtörtént. Mielőtt titkosított üzenetet küldene a tulajdonosának, ellenőrizze az ujjlenyomatát."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "{0} nyilvános kulcs importálva. Ellenőrizze az ujjlenyomatukat, mielőtt titkosítana a tulajdonosaiknak."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Ez a melléklet nem tartalmaz OpenPGP nyilvános kulcsot."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7437,6 +7488,15 @@ msgstr "A visszafejtett mellékletek túl nagyok."
 msgid "The OpenPGP operation failed."
 msgstr "Az OpenPGP-művelet sikertelen."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "A kulcsszerver nem adta vissza a kért nyilvános kulcsot."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Nincs beállítva kulcsszerver. Adjon hozzá egyet a Beállítások → OpenPGP → Kulcsszerverek kezelése menüpontban."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Egyik kulcsszervere sem ismeri ezt a kulcsot. Kérje el a feladótól a nyilvános kulcsát."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: üzenetbiztonság ellenőrzése…"
 
@@ -7454,6 +7514,9 @@ msgstr "Az üzenetet nem sikerült visszafejteni — kattintson a részletekért
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Titkosított üzenet — az olvasáshoz oldja fel a privát kulcsát"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Az aláírás nincs ellenőrizve — a(z) {0} aláírókulcs nincs a kulcstartójában"
 
 msgid "Signature could not be verified"
 msgstr "Aláírás érvényessége nem ellenőrizhető"
@@ -7548,6 +7611,9 @@ msgstr "Nyilvános kulcs exportálása"
 msgid "Back up private key"
 msgstr "Privát kulcs biztonsági mentése"
 
+msgid "Refresh from keyserver"
+msgstr "Frissítés kulcsszerverről"
+
 msgid "Unlock in this browser"
 msgstr "Feloldás ebben a böngészőben"
 
@@ -7608,14 +7674,8 @@ msgstr "Visszavonási tanúsítvány — tartsa biztonságban"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Válasszon legalább 12 karakterből álló, erős jelszót. A létrehozás helyben, ebben a böngészőben fut, és eltarthat egy ideig. A visszavonási tanúsítványt és a privát kulcs biztonsági mentését tartsa biztonságos helyen."
 
-msgid "Import OpenPGP key"
-msgstr "OpenPGP-kulcs importálása"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "ASCII-páncélozott OpenPGP-kulcsfájl kiválasztása"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "A kulcsfájl túl nagy. Maximális méret: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "A kulcsfájlt nem sikerült beolvasni."
@@ -7623,17 +7683,20 @@ msgstr "A kulcsfájlt nem sikerült beolvasni."
 msgid "Armored key"
 msgstr "Páncélozott kulcs"
 
-msgid "Protect unencrypted key"
-msgstr "Titkosítatlan kulcs védelme"
+msgid "Current passphrase"
+msgstr "Jelenlegi jelszó"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Opcionális: új jelszó a védelem nélküli privát kulcshoz"
+msgid "New passphrase"
+msgstr "Új jelszó"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "A kulcs importálása megtörtént. Mielőtt titkosított üzenetet küldene a címzetteknek, ellenőrizze az ujjlenyomatukat."
+msgid "Repeat new passphrase"
+msgstr "Új jelszó megismétlése"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Válasszon fájlt, vagy illesszen be egyetlen ASCII-páncélozott kulcsot a BEGIN és END sorokkal együtt. Védelem nélküli privát kulcs esetén adjon meg egy új jelszót, amellyel a tárolás előtt helyben védetté teheti. Az importált címzetti kulcsok nem válnak automatikusan megbízhatóvá."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Privát kulcs importálva. Ha módosította a jelszavát, készítsen biztonsági mentést a privát kulcsról."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Válasszon fájlt, vagy illessze be az ASCII-páncélozott kulcsokat a BEGIN és END sorokkal együtt. Egy fájl több nyilvános kulcsot is tartalmazhat. Privát kulcs esetén: ha védett, a jelenlegi jelszavát csak akkor adja meg, ha újat szeretne adni neki; ha nem védett, adjon meg új jelszót, amely tárolás előtt védi. Az importált kulcsok nem válnak automatikusan megbízhatóvá."
 
 msgid "Public OpenPGP key"
 msgstr "Nyilvános OpenPGP-kulcs"
@@ -7650,17 +7713,8 @@ msgstr "Privát kulcs biztonsági mentése — tartsa biztonságban"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "A titkosított privát kulcs biztonsági mentésének letöltése előtt erősítse meg helyben a jelszavát. A mentést őrizze biztonságban, és soha ne küldje el címzettnek vagy kulcsszervernek."
 
-msgid "Current passphrase"
-msgstr "Jelenlegi jelszó"
-
-msgid "New passphrase"
-msgstr "Új jelszó"
-
 msgid "Change OpenPGP passphrase"
 msgstr "OpenPGP-jelszó módosítása"
-
-msgid "Repeat new passphrase"
-msgstr "Új jelszó megismétlése"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "A jelszó megváltozott. Készítsen új biztonsági mentést a privát kulcsról."
@@ -7737,6 +7791,12 @@ msgstr "Csak a rendszergazda által jóváhagyott HTTPS-kulcsszerverek használh
 msgid "Approved servers: {0}"
 msgstr "Jóváhagyott szerverek: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Keresés a kulcsszerverekben…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "A kulcs frissítve a kulcsszerverről. Az új lejárati dátumok, alkulcsok és visszavonások mostantól érvényesek."
+
 msgid "Find OpenPGP public key"
 msgstr "Nyilvános OpenPGP-kulcs keresése"
 
@@ -7751,12 +7811,6 @@ msgstr "Adjon meg egy teljes, 40 vagy 64 jegyű hexadecimális ujjlenyomatot."
 
 msgid "Find and import"
 msgstr "Keresés és importálás"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "A kulcsszerver nem adta vissza a kért nyilvános kulcsot."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "A nyilvános kulcs importálása megtörtént. Mielőtt titkosított üzenetet küldene a tulajdonosának, ellenőrizze az ujjlenyomatát."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "A kulcsszerver megkapja a keresett ujjlenyomatot. A letöltött kulcs ujjlenyomatát még ellenőriznie kell, mielőtt titkosított üzenetet küld a tulajdonosának."

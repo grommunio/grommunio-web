@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -2231,6 +2231,9 @@ msgstr "Afrita/færa skilaboð"
 
 msgid "Destination folder"
 msgstr "Móttökumappa"
+
+msgid "Filter folders"
+msgstr "Sía möppur"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4623,16 +4626,16 @@ msgid "Folder size"
 msgstr "Möppustærð"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Sendingarréttindi"
 
 msgid "Folder containing {0} Items"
 msgstr "Mappa inniheldur {0} atriði"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Senda fyrir hönd"
 
 msgid "Send as"
-msgstr ""
+msgstr "Senda sem"
 
 msgid "Permissions"
 msgstr "Réttindi"
@@ -4840,9 +4843,6 @@ msgstr "Ertu viss um að þú viljir tæma {0}?"
 
 msgid "Show All"
 msgstr "Sýna allt"
-
-msgid "Filter folders"
-msgstr "Sía möppur"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Þú hefur ekki nægar heimildir til að færa þessa möppu. Viltu í staðinn afrita hana?"
@@ -7240,11 +7240,14 @@ msgstr "Búist var við nákvæmlega einni OpenPGP-blokk á ASCII-sniði."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "Viðbótargögn utan OpenPGP-blokkarinnar eru óheimil."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Flyttu inn einn heilan OpenPGP-lykil í einu."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Flyttu inn á milli 1 og {0} OpenPGP-lykla í einu."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Þessi lykill fer yfir studd mörk fyrir fjölda undirlykla eða auðkenna."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Flyttu inn einn heilan OpenPGP-lykil í einu."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Einkalyklar verða að vera varðir með aðgangsorði áður en þeim er hlaðið upp. Verndaðu þennan lykil fyrst í vafranum."
@@ -7260,6 +7263,24 @@ msgstr "OpenPGP-lyklinum var læst á meðan aðgerðin var í gangi."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP krefst nýlegs vafra og öruggrar HTTPS-tengingar."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Flyttu einkalykil inn einan og sér, ekki með öðrum lyklum."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Þessi einkalykill er aðeins varinn að hluta. Verðu hann að fullu áður en þú flytur hann inn."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Þessi einkalykill er ekki varinn með aðgangsorði. Sláðu inn nýtt aðgangsorð til að verja hann."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "Núverandi aðgangsorð gat ekki aflæst þessum einkalykli."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Sláðu inn núverandi aðgangsorð þessa lykils til að gefa honum nýtt."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Þessi einkalykill notar úrelta vörn. Sláðu inn núverandi aðgangsorð hans til að verja hann aftur."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "Aðgerðin „Vernda“ gerir ráð fyrir óvörðum einkalykli. Notaðu „Breyta aðgangsorði“ fyrir varða lykla."
@@ -7342,6 +7363,36 @@ msgstr "Afkóðun ein og sér sannreynir ekki auðkenni sendandans."
 msgid "OpenPGP security information"
 msgstr "OpenPGP-öryggisupplýsingar"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Hægt er að leita að lyklinum sem vantar á lyklaþjónunum þínum. Þeir fá að vita hvaða lykils þú leitar. Lykill sem finnst á þennan hátt þarf samt að fá fingrafar sitt staðfest áður en þú treystir sendandanum."
+
+msgid "Find key on keyserver"
+msgstr "Finna lykil á lyklaþjóni"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "Undirritunarlykillinn {0} var fluttur inn. Staðfestu fingrafar hans áður en þú treystir sendandanum."
+
+msgid "Import OpenPGP key"
+msgstr "Flytja inn OpenPGP-lykil"
+
+msgid "The attachment could not be loaded."
+msgstr "Ekki tókst að hlaða viðhenginu."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Lykilskráin er of stór. Hámarksstærð: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Þetta viðhengi inniheldur einkalykil. Flyttu hann inn undir Stillingar → OpenPGP → Flytja inn lykil."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Opinber lykill fluttur inn. Staðfestu fingrafar hans áður en þú sendir eiganda hans dulkóðuð skilaboð."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "{0} opinberir lyklar voru fluttir inn. Staðfestu fingraför þeirra áður en þú dulritar til eigenda þeirra."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Þetta viðhengi inniheldur ekki opinberan OpenPGP-lykil."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7414,6 +7465,15 @@ msgstr "Afkóðuðu viðhengin eru of stór."
 msgid "The OpenPGP operation failed."
 msgstr "OpenPGP-aðgerðin mistókst."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "Lyklaþjónninn skilaði ekki umbeðnum opinberum lykli."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Enginn lyklaþjónn er stilltur. Bættu einum við undir Stillingar → OpenPGP → Umsjón lyklaþjóna."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Enginn lyklaþjóna þinna er með þennan lykil. Biddu sendandann um opinberan lykil hans."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: athuga öryggi skilaboðanna…"
 
@@ -7431,6 +7491,9 @@ msgstr "Ekki tókst að afkóða skilaboðin — smelltu fyrir nánari upplýsin
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Dulkóðuð skilaboð — aflæstu einkalyklinum þínum til að lesa þau"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Undirskrift ekki athuguð — undirritunarlykillinn {0} er ekki í lyklakippunni þinni"
 
 msgid "Signature could not be verified"
 msgstr "Ekki tókst að staðfesta undirskrift"
@@ -7525,6 +7588,9 @@ msgstr "Flytja út opinberan lykil"
 msgid "Back up private key"
 msgstr "Taka öryggisafrit af einkalykli"
 
+msgid "Refresh from keyserver"
+msgstr "Uppfæra af lyklaþjóni"
+
 msgid "Unlock in this browser"
 msgstr "Aflæsa í þessum vafra"
 
@@ -7585,14 +7651,8 @@ msgstr "Afturköllunarvottorð — geymdu á öruggum stað"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Veldu sterkt aðgangsorð með að minnsta kosti 12 stöfum. Lyklagerðin fer fram í þessum vafra og getur tekið stutta stund. Geymdu afturköllunarvottorðið og öryggisafrit af einkalyklinum á öruggum stað."
 
-msgid "Import OpenPGP key"
-msgstr "Flytja inn OpenPGP-lykil"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "Veldu OpenPGP-lykilskrá á ASCII-sniði"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "Lykilskráin er of stór. Hámarksstærð: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "Ekki tókst að lesa lykilskrána."
@@ -7600,17 +7660,20 @@ msgstr "Ekki tókst að lesa lykilskrána."
 msgid "Armored key"
 msgstr "Lykill á ASCII-sniði"
 
-msgid "Protect unencrypted key"
-msgstr "Vernda ódulkóðaðan lykil"
+msgid "Current passphrase"
+msgstr "Núverandi aðgangsorð"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Valfrjálst: nýtt aðgangsorð fyrir óvarinn einkalykil"
+msgid "New passphrase"
+msgstr "Nýtt lykilorð"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "Lykill fluttur inn. Staðfestu fingraför viðtakenda áður en þú sendir þeim dulkóðuð skilaboð."
+msgid "Repeat new passphrase"
+msgstr "Endurtaktu nýja aðgangsorðið"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Veldu skrá eða límdu inn einn lykil á ASCII-sniði, ásamt BEGIN- og END-línunum. Ef einkalykillinn er óvarinn skaltu slá inn nýtt aðgangsorð til að verja hann í vafranum áður en hann er geymdur. Innfluttum lyklum viðtakenda er ekki sjálfkrafa treyst."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Einkalykill fluttur inn. Taktu öryggisafrit af einkalyklinum ef þú breyttir aðgangsorði hans."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Veldu skrá eða límdu inn ASCII-brynjaða lykla, ásamt BEGIN- og END-línum þeirra. Skrá getur innihaldið marga opinbera lykla. Fyrir einkalykil: ef hann er varinn skaltu aðeins slá inn núverandi aðgangsorð hans til að gefa honum nýtt; ef ekki, sláðu inn nýtt aðgangsorð til að verja hann áður en hann er geymdur. Innfluttir lyklar eru ekki sjálfkrafa traustir."
 
 msgid "Public OpenPGP key"
 msgstr "Opinber OpenPGP-lykill"
@@ -7627,17 +7690,8 @@ msgstr "Öryggisafrit einkalykils — geymdu á öruggum stað"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Staðfestu aðgangsorðið þitt í vafranum áður en þú sækir þetta dulkóðaða öryggisafrit einkalykilsins. Geymdu það á öruggum stað og sendu það aldrei til viðtakanda eða á lyklaþjón."
 
-msgid "Current passphrase"
-msgstr "Núverandi aðgangsorð"
-
-msgid "New passphrase"
-msgstr "Nýtt lykilorð"
-
 msgid "Change OpenPGP passphrase"
 msgstr "Breyta OpenPGP-aðgangsorði"
-
-msgid "Repeat new passphrase"
-msgstr "Endurtaktu nýja aðgangsorðið"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "Aðgangsorðinu var breytt. Taktu nýtt öryggisafrit af einkalyklinum."
@@ -7714,6 +7768,12 @@ msgstr "Aðeins má nota HTTPS-lyklaþjóna sem kerfisstjóri hefur samþykkt. L
 msgid "Approved servers: {0}"
 msgstr "Samþykktir þjónar: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Leita á lyklaþjónunum þínum…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "Lykill uppfærður af lyklaþjóninum. Nýjar gildislokadagsetningar, undirlyklar og afturkallanir gilda nú."
+
 msgid "Find OpenPGP public key"
 msgstr "Finna opinberan OpenPGP-lykil"
 
@@ -7728,12 +7788,6 @@ msgstr "Sláðu inn fullt fingrafar, 40 eða 64 stafi í sextándakerfi."
 
 msgid "Find and import"
 msgstr "Finna og flytja inn"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "Lyklaþjónninn skilaði ekki umbeðnum opinberum lykli."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "Opinber lykill fluttur inn. Staðfestu fingrafar hans áður en þú sendir eiganda hans dulkóðuð skilaboð."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "Þjónninn fær að vita hvaða fingrafar þú leitar að. Þó að lykill sé sóttur þarf enn að staðfesta fingrafar hans áður en þú sendir eiganda hans dulkóðuð skilaboð."

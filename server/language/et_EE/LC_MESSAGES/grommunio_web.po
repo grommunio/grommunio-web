@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/grommunio-web/et/>\n"
@@ -2233,6 +2233,9 @@ msgstr "Sõnumite kopeerimine/liigutamine"
 
 msgid "Destination folder"
 msgstr "Sihtkoha kaust"
+
+msgid "Filter folders"
+msgstr "Kausta filtreerimine"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4625,16 +4628,16 @@ msgid "Folder size"
 msgstr "Kausta suurus"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Saatmisõigused"
 
 msgid "Folder containing {0} Items"
 msgstr "Kaust, mis sisaldab {0} objekte"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Saada nimel"
 
 msgid "Send as"
-msgstr ""
+msgstr "Saada kui"
 
 msgid "Permissions"
 msgstr "Õigused"
@@ -4842,9 +4845,6 @@ msgstr "Kas olete kindel, et soovite tühjendada {0}?"
 
 msgid "Show All"
 msgstr "Näita kõiki"
-
-msgid "Filter folders"
-msgstr "Kausta filtreerimine"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Sul ei ole selle kausta teisaldamiseks piisavalt õigusi. Kas soovid hoopis kopeerida?"
@@ -7242,11 +7242,14 @@ msgstr "Oodati täpselt ühte OpenPGP ASCII-vormingus plokki."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "Täiendavad andmed väljaspool OpenPGP ASCII-vormingus plokki ei ole lubatud."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Importige korraga üks terviklik OpenPGP võti."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Importige korraga 1 kuni {0} OpenPGP võtit."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "See võti ületab toetatud alamvõtmete või identiteetide piirmäära."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Importige korraga üks terviklik OpenPGP võti."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Privaatvõtmed peavad enne üleslaadimist olema salasõnaga kaitstud. Kaitske see võti esmalt selles brauseris."
@@ -7262,6 +7265,24 @@ msgstr "OpenPGP võti lukustati pooleli oleva toimingu ajal."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP vajab kaasaegset brauserit ja turvalist HTTPS-ühendust."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Importige privaatvõti eraldi, mitte koos teiste võtmetega."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "See privaatvõti on ainult osaliselt kaitstud. Kaitske see enne importimist täielikult."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "See privaatvõti pole salasõnaga kaitstud. Sisestage selle kaitsmiseks uus salasõna."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "Praeguse salasõnaga ei õnnestunud seda privaatvõtit avada."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Sisestage selle võtme praegune salasõna, et määrata sellele uus."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "See privaatvõti kasutab aegunud kaitset. Sisestage selle praegune salasõna, et see uuesti kaitsta."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "Võtme kaitsmine eeldab kaitsmata privaatvõtit. Kaitstud võtmete puhul kasutage salasõna muutmist."
@@ -7344,6 +7365,36 @@ msgstr "Dekrüpteerimine üksi ei autendi saatjat."
 msgid "OpenPGP security information"
 msgstr "OpenPGP turbeteave"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Puuduvat võtit saab otsida teie võtmeserveritest. Need saavad teada, millist võtit te otsite. Ka sel viisil leitud võtme sõrmejälge tuleb enne saatja usaldamist kontrollida."
+
+msgid "Find key on keyserver"
+msgstr "Otsi võtit võtmeserverist"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "Allkirjastamisvõti {0} imporditi. Kontrollige selle sõrmejälge enne saatja usaldamist."
+
+msgid "Import OpenPGP key"
+msgstr "Impordi OpenPGP võti"
+
+msgid "The attachment could not be loaded."
+msgstr "Manust ei õnnestunud laadida."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Võtmefail on liiga suur. Maksimaalne suurus: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "See manus sisaldab privaatvõtit. Importige see menüüs Seaded → OpenPGP → Impordi võti."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Avalik võti on imporditud. Enne võtme omanikule krüpteerimist kontrollige selle sõrmejälge."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "Imporditi {0} avalikku võtit. Kontrollige nende sõrmejälgi, enne kui krüpteerite nende omanikele."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "See manus ei sisalda OpenPGP avalikku võtit."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7416,6 +7467,15 @@ msgstr "Dekodeeritud manused on liiga suured."
 msgid "The OpenPGP operation failed."
 msgstr "OpenPGP toiming ebaõnnestus."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "Võtmeserver ei tagastanud soovitud avalikku võtit."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Ühtegi võtmeserverit pole seadistatud. Lisage see menüüs Seaded → OpenPGP → Halda võtmeservereid."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Ühelgi teie võtmeserveril pole seda võtit. Paluge saatjalt tema avalikku võtit."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: kontrollime sõnumi turvalisust…"
 
@@ -7433,6 +7493,9 @@ msgstr "Sõnumit ei õnnestunud dekrüpteerida — klõpsake, et näha üksikasj
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Krüpteeritud sõnum — lugemiseks avage privaatvõti lukust"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Allkirja ei kontrollitud — allkirjastamisvõtit {0} pole teie võtmehoidlas"
 
 msgid "Signature could not be verified"
 msgstr "Allkirja ei olnud võimalik kontrollida"
@@ -7527,6 +7590,9 @@ msgstr "Ekspordi avalik võti"
 msgid "Back up private key"
 msgstr "Varunda privaatvõti"
 
+msgid "Refresh from keyserver"
+msgstr "Uuenda võtmeserverist"
+
 msgid "Unlock in this browser"
 msgstr "Ava lukust selles brauseris"
 
@@ -7587,14 +7653,8 @@ msgstr "Tühistamissertifikaat — hoidke turvaliselt"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Valige tugev, vähemalt 12 tähemärgi pikkune salasõna. Genereerimine toimub selles brauseris ja võib veidi aega võtta. Hoidke tühistamissertifikaati ja privaatvõtme varukoopiat turvalises kohas."
 
-msgid "Import OpenPGP key"
-msgstr "Impordi OpenPGP võti"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "Valige ASCII-vormingus OpenPGP võtmefail"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "Võtmefail on liiga suur. Maksimaalne suurus: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "Võtmefaili ei õnnestunud lugeda."
@@ -7602,17 +7662,20 @@ msgstr "Võtmefaili ei õnnestunud lugeda."
 msgid "Armored key"
 msgstr "ASCII-vormingus võti"
 
-msgid "Protect unencrypted key"
-msgstr "Kaitsmata võtme salasõna"
+msgid "Current passphrase"
+msgstr "Praegune salasõna"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Valikuline: uus salasõna kaitsmata privaatvõtmele"
+msgid "New passphrase"
+msgstr "Uus salasõna"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "Võti on imporditud. Enne saajatele krüpteerimist kontrollige nende sõrmejälgi."
+msgid "Repeat new passphrase"
+msgstr "Korrake uut salasõna"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Valige fail või kleepige üks ASCII-vormingus võti koos selle BEGIN- ja END-ridadega. Kaitsmata privaatvõtme puhul sisestage uus salasõna, et võti enne salvestamist selles brauseris kaitsta. Imporditud saajate võtmed ei muutu automaatselt usaldusväärseks."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Privaatvõti imporditi. Kui muutsite selle salasõna, varundage privaatvõti."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Valige fail või kleepige ASCII-armor-vormingus võtmed koos nende BEGIN- ja END-ridadega. Fail võib sisaldada mitut avalikku võtit. Privaatvõtme puhul: kui see on kaitstud, sisestage selle praegune salasõna ainult siis, kui soovite määrata uue; kui ei ole, sisestage uus salasõna, et see enne salvestamist kaitsta. Imporditud võtmeid ei usaldata automaatselt."
 
 msgid "Public OpenPGP key"
 msgstr "Avalik OpenPGP võti"
@@ -7629,17 +7692,8 @@ msgstr "Privaatvõtme varukoopia — hoidke turvaliselt"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Enne selle krüpteeritud privaatvõtme varukoopia allalaadimist kinnitage oma salasõna selles brauseris. Hoidke varukoopiat turvaliselt ja ärge saatke seda kunagi saajale ega võtmeserverisse."
 
-msgid "Current passphrase"
-msgstr "Praegune salasõna"
-
-msgid "New passphrase"
-msgstr "Uus salasõna"
-
 msgid "Change OpenPGP passphrase"
 msgstr "Muuda OpenPGP salasõna"
-
-msgid "Repeat new passphrase"
-msgstr "Korrake uut salasõna"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "Salasõna on muudetud. Tehke privaatvõtmest uus varukoopia."
@@ -7716,6 +7770,12 @@ msgstr "Kasutada saab ainult administraatori lubatud HTTPS-võtmeservereid. Otsi
 msgid "Approved servers: {0}"
 msgstr "Lubatud serverid: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Otsitakse teie võtmeserveritest…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "Võti uuendati võtmeserverist. Uued aegumiskuupäevad, alamvõtmed ja tühistamised kehtivad nüüd."
+
 msgid "Find OpenPGP public key"
 msgstr "Otsi OpenPGP avalikku võtit"
 
@@ -7730,12 +7790,6 @@ msgstr "Sisestage täielik sõrmejälg, mis koosneb 40 või 64 kuueteistkümnend
 
 msgid "Find and import"
 msgstr "Otsi ja impordi"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "Võtmeserver ei tagastanud soovitud avalikku võtit."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "Avalik võti on imporditud. Enne võtme omanikule krüpteerimist kontrollige selle sõrmejälge."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "Server saab teada, millist sõrmejälge te otsite. Allalaaditud võtme sõrmejälg tuleb enne selle omanikule krüpteerimist siiski üle kontrollida."

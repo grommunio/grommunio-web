@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Arabic (Algeria)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2018-08-24 20:58+0200\n"
 "Last-Translator: import\n"
 "Language: ar_DZ\n"
@@ -2311,6 +2311,9 @@ msgstr "نسخ/نقل الرسائل"
 
 msgid "Destination folder"
 msgstr "المجلد الوجهة"
+
+msgid "Filter folders"
+msgstr "تصفية المجلدات"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4755,16 +4758,16 @@ msgid "Folder size"
 msgstr "حجم المجلد"
 
 msgid "Send rights"
-msgstr ""
+msgstr "صلاحيات الإرسال"
 
 msgid "Folder containing {0} Items"
 msgstr "مجلد يحتوي على عناصر{0}"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "الإرسال نيابةً عن"
 
 msgid "Send as"
-msgstr ""
+msgstr "الإرسال باسم"
 
 msgid "Permissions"
 msgstr "الأذونات"
@@ -4972,9 +4975,6 @@ msgstr "هل أنت متأكد أنك تريد إفراغ{0}؟"
 
 msgid "Show All"
 msgstr "إظهار الكل"
-
-msgid "Filter folders"
-msgstr "تصفية المجلدات"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "لا تملك الصلاحيات الكافية لنقل هذا المجلد. هل تريد نسخه بدلاً من ذلك؟"
@@ -7388,11 +7388,14 @@ msgstr "يلزم وجود كتلة واحدة فقط من ترميز ASCII ال�
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "لا يُسمح بوجود بيانات إضافية خارج ترميز ASCII الخاص بـ OpenPGP."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "استورد مفتاح OpenPGP واحدًا كاملًا في كل مرة."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "استورد ما بين 1 و{0} من مفاتيح OpenPGP في كل مرة."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "يتجاوز هذا المفتاح الحد المدعوم للمفاتيح الفرعية أو الهويات."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "استورد مفتاح OpenPGP واحدًا كاملًا في كل مرة."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "يجب أن تكون المفاتيح الخاصة محمية بعبارة مرور قبل رفعها. احمِ هذا المفتاح محليًا أولًا."
@@ -7408,6 +7411,24 @@ msgstr "تم قفل مفتاح OpenPGP أثناء تنفيذ العملية."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "يتطلب OpenPGP متصفحًا حديثًا واتصال HTTPS آمنًا."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "استورد المفتاح الخاص وحده، لا مع مفاتيح أخرى."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "هذا المفتاح الخاص محمي جزئيًا فقط. احمه بالكامل قبل استيراده."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "هذا المفتاح الخاص غير محمي بعبارة مرور. أدخل عبارة مرور جديدة لحمايته."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "تعذّر فتح هذا المفتاح الخاص بعبارة المرور الحالية."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "أدخل عبارة المرور الحالية لهذا المفتاح لتعيين عبارة جديدة له."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "يستخدم هذا المفتاح الخاص حماية قديمة. أدخل عبارة مروره الحالية لإعادة حمايته."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "تتطلب \"حماية المفتاح غير المشفَّر\" مفتاحًا خاصًا غير محمي. استخدم \"تغيير عبارة المرور\" للمفاتيح المحمية."
@@ -7490,6 +7511,36 @@ msgstr "فك التشفير وحده لا يُثبت هوية المرسل."
 msgid "OpenPGP security information"
 msgstr "معلومات أمان OpenPGP"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "يمكن البحث عن المفتاح المفقود في خوادم المفاتيح لديك. وستعرف هذه الخوادم المفتاح الذي تبحث عنه. ولا يزال يتعين التحقق من بصمة المفتاح الذي يُعثر عليه بهذه الطريقة قبل الوثوق بالمرسل."
+
+msgid "Find key on keyserver"
+msgstr "البحث عن المفتاح في خادم المفاتيح"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "تم استيراد مفتاح التوقيع {0}. تحقق من بصمته قبل الوثوق بالمرسل."
+
+msgid "Import OpenPGP key"
+msgstr "استيراد مفتاح OpenPGP"
+
+msgid "The attachment could not be loaded."
+msgstr "تعذّر تحميل المرفق."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "ملف المفتاح كبير جدًا. الحد الأقصى للحجم: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "يحتوي هذا المرفق على مفتاح خاص. استورده من إعدادات → OpenPGP → استيراد مفتاح."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "تم استيراد المفتاح العام. تحقق من بصمته قبل تشفير الرسائل لمالكه."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "تم استيراد {0} من المفاتيح العامة. تحقق من بصماتها قبل تشفير الرسائل لمالكيها."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "لا يحتوي هذا المرفق على مفتاح OpenPGP عام."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7562,6 +7613,15 @@ msgstr "المرفقات التي تم فك ترميزها كبيرة جدًا."
 msgid "The OpenPGP operation failed."
 msgstr "فشلت عملية OpenPGP."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "لم يُرجع خادم المفاتيح المفتاح العام المطلوب."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "لم يتم تكوين أي خادم مفاتيح. أضف خادمًا من إعدادات → OpenPGP → إدارة خوادم المفاتيح."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "لا يحتوي أي من خوادم المفاتيح لديك على هذا المفتاح. اطلب من المرسل مفتاحه العام."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: جارٍ فحص أمان الرسالة…"
 
@@ -7579,6 +7639,9 @@ msgstr "تعذّر فك تشفير الرسالة — انقر للتفاصيل 
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "رسالة مشفَّرة — افتح قفل مفتاحك الخاص لقراءتها"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "لم يتم التحقق من التوقيع — مفتاح التوقيع {0} غير موجود في حلقة مفاتيحك"
 
 msgid "Signature could not be verified"
 msgstr "لا يمكن التحقق من التوقيع"
@@ -7673,6 +7736,9 @@ msgstr "تصدير المفتاح العام"
 msgid "Back up private key"
 msgstr "نسخ المفتاح الخاص احتياطيًا"
 
+msgid "Refresh from keyserver"
+msgstr "تحديث من خادم المفاتيح"
+
 msgid "Unlock in this browser"
 msgstr "فتح القفل في هذا المتصفح"
 
@@ -7733,14 +7799,8 @@ msgstr "شهادة الإبطال — احفظها في مكان آمن"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "اختر عبارة مرور قوية لا تقل عن 12 حرفًا. يجري التوليد محليًا في هذا المتصفح وقد يستغرق لحظة. احتفظ بشهادة الإبطال وبنسخة احتياطية من المفتاح الخاص في مكان آمن."
 
-msgid "Import OpenPGP key"
-msgstr "استيراد مفتاح OpenPGP"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "اختر ملف مفتاح OpenPGP بترميز ASCII"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "ملف المفتاح كبير جدًا. الحد الأقصى للحجم: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "تعذّرت قراءة ملف المفتاح."
@@ -7748,17 +7808,20 @@ msgstr "تعذّرت قراءة ملف المفتاح."
 msgid "Armored key"
 msgstr "المفتاح بترميز ASCII"
 
-msgid "Protect unencrypted key"
-msgstr "حماية المفتاح غير المشفَّر"
+msgid "Current passphrase"
+msgstr "عبارة المرور الحالية"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "اختياري: عبارة مرور جديدة لمفتاح خاص غير محمي"
+msgid "New passphrase"
+msgstr "عبارة مرور جديدة"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "تم استيراد المفتاح. تحقق من بصمات المستلمين قبل تشفير الرسائل لهم."
+msgid "Repeat new passphrase"
+msgstr "تكرار عبارة المرور الجديدة"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "اختر ملفًا أو الصق مفتاحًا واحدًا بترميز ASCII، بما في ذلك سطرَي BEGIN وEND. إذا كان المفتاح الخاص غير محمي، فأدخل عبارة مرور جديدة لحمايته محليًا قبل تخزينه. لا تُعدّ مفاتيح المستلمين المستوردة موثوقة تلقائيًا."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "تم استيراد المفتاح الخاص. انسخ المفتاح الخاص احتياطيًا إذا غيّرت عبارة مروره."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "اختر ملفًا أو الصق مفاتيح بترميز ASCII، بما في ذلك سطرا BEGIN وEND. قد يحتوي الملف على عدة مفاتيح عامة. بالنسبة إلى المفتاح الخاص: إذا كان محميًا، فأدخل عبارة مروره الحالية فقط لتعيين عبارة جديدة له؛ وإذا لم يكن محميًا، فأدخل عبارة مرور جديدة لحمايته قبل تخزينه. لا يتم الوثوق بالمفاتيح المستوردة تلقائيًا."
 
 msgid "Public OpenPGP key"
 msgstr "مفتاح OpenPGP العام"
@@ -7775,17 +7838,8 @@ msgstr "نسخة احتياطية من المفتاح الخاص — احفظه�
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "أكّد عبارة مرورك محليًا قبل تنزيل هذه النسخة الاحتياطية المشفَّرة من المفتاح الخاص. احفظها في مكان آمن ولا ترسلها أبدًا إلى مستلم أو إلى خادم مفاتيح."
 
-msgid "Current passphrase"
-msgstr "عبارة المرور الحالية"
-
-msgid "New passphrase"
-msgstr "عبارة مرور جديدة"
-
 msgid "Change OpenPGP passphrase"
 msgstr "تغيير عبارة مرور OpenPGP"
-
-msgid "Repeat new passphrase"
-msgstr "تكرار عبارة المرور الجديدة"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "تم تغيير عبارة المرور. أنشئ نسخة احتياطية جديدة من المفتاح الخاص."
@@ -7862,6 +7916,12 @@ msgstr "لا يمكن استخدام سوى خوادم مفاتيح HTTPS الم
 msgid "Approved servers: {0}"
 msgstr "الخوادم المعتمدة: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "جارٍ البحث في خوادم المفاتيح لديك…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "تم تحديث المفتاح من خادم المفاتيح. تسري الآن تواريخ انتهاء الصلاحية والمفاتيح الفرعية والإبطالات الجديدة."
+
 msgid "Find OpenPGP public key"
 msgstr "البحث عن مفتاح OpenPGP العام"
 
@@ -7876,12 +7936,6 @@ msgstr "أدخل بصمة سداسية عشرية كاملة من 40 أو 64 خ�
 
 msgid "Find and import"
 msgstr "بحث واستيراد"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "لم يُرجع خادم المفاتيح المفتاح العام المطلوب."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "تم استيراد المفتاح العام. تحقق من بصمته قبل تشفير الرسائل لمالكه."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "سيتلقى خادم المفاتيح البصمة التي تبحث عنها. ويظل المفتاح الذي يتم تنزيله بحاجة إلى التحقق من بصمته قبل تشفير الرسائل لمالكه."

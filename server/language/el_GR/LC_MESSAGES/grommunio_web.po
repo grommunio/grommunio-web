@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2233,6 +2233,9 @@ msgstr "Αντιγραφή/Μετακίνηση μηνυμάτων"
 
 msgid "Destination folder"
 msgstr "Φάκελος προορισμού"
+
+msgid "Filter folders"
+msgstr "Φάκελοι φίλτρων"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4625,16 +4628,16 @@ msgid "Folder size"
 msgstr "Μέγεθος φακέλου"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Δικαιώματα αποστολής"
 
 msgid "Folder containing {0} Items"
 msgstr "Φάκελος που περιέχει στοιχεία τύπου {0}"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Αποστολή εκ μέρους"
 
 msgid "Send as"
-msgstr ""
+msgstr "Αποστολή ως"
 
 msgid "Permissions"
 msgstr "Εξουσιοδοτήσεις"
@@ -4842,9 +4845,6 @@ msgstr "Είστε σίγουρος ότι θέλετε να αδειάσετε 
 
 msgid "Show All"
 msgstr "Προβολή Όλων"
-
-msgid "Filter folders"
-msgstr "Φάκελοι φίλτρων"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Δεν έχετε επαρκή δικαιώματα για να μετακινήσετε αυτόν τον φάκελο. Θα θέλατε να τον αντιγράψετε αντ' αυτού;"
@@ -7242,11 +7242,14 @@ msgstr "Αναμενόταν ένα μόνο μπλοκ OpenPGP σε μορφή 
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "Δεν επιτρέπονται πρόσθετα δεδομένα εκτός του μπλοκ OpenPGP σε μορφή ASCII."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Εισαγάγετε ένα πλήρες κλειδί OpenPGP κάθε φορά."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Εισαγάγετε από 1 έως {0} κλειδιά OpenPGP κάθε φορά."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Αυτό το κλειδί υπερβαίνει το υποστηριζόμενο όριο υποκλειδιών ή ταυτοτήτων."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Εισαγάγετε ένα πλήρες κλειδί OpenPGP κάθε φορά."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Τα ιδιωτικά κλειδιά πρέπει να προστατεύονται με συνθηματική φράση πριν από τη μεταφόρτωση. Προστατεύστε πρώτα αυτό το κλειδί τοπικά."
@@ -7262,6 +7265,24 @@ msgstr "Το κλειδί OpenPGP κλειδώθηκε ενώ εκτελούντ
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "Το OpenPGP απαιτεί σύγχρονο πρόγραμμα περιήγησης και ασφαλή σύνδεση HTTPS."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Εισαγάγετε ένα ιδιωτικό κλειδί μόνο του, όχι μαζί με άλλα κλειδιά."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Αυτό το ιδιωτικό κλειδί προστατεύεται μόνο εν μέρει. Προστατέψτε το πλήρως πριν το εισαγάγετε."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Αυτό το ιδιωτικό κλειδί δεν προστατεύεται με συνθηματική φράση. Πληκτρολογήστε μια νέα συνθηματική φράση για να το προστατέψετε."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "Η τρέχουσα συνθηματική φράση δεν μπόρεσε να ξεκλειδώσει αυτό το ιδιωτικό κλειδί."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Πληκτρολογήστε την τρέχουσα συνθηματική φράση αυτού του κλειδιού για να του ορίσετε νέα."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Αυτό το ιδιωτικό κλειδί χρησιμοποιεί παρωχημένη προστασία. Πληκτρολογήστε την τρέχουσα συνθηματική του φράση για να το προστατέψετε ξανά."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "Η «Προστασία μη κρυπτογραφημένου κλειδιού» απαιτεί μη προστατευμένο ιδιωτικό κλειδί. Για προστατευμένα κλειδιά χρησιμοποιήστε την «Αλλαγή συνθηματικής φράσης»."
@@ -7344,6 +7365,36 @@ msgstr "Η αποκρυπτογράφηση από μόνη της δεν πισ
 msgid "OpenPGP security information"
 msgstr "Πληροφορίες ασφάλειας OpenPGP"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Μπορείτε να αναζητήσετε το κλειδί που λείπει στους διακομιστές κλειδιών σας. Αυτοί μαθαίνουν ποιο κλειδί αναζητάτε. Και για ένα κλειδί που βρέθηκε με αυτόν τον τρόπο πρέπει να επαληθεύσετε το δακτυλικό αποτύπωμα πριν εμπιστευτείτε τον αποστολέα."
+
+msgid "Find key on keyserver"
+msgstr "Αναζήτηση κλειδιού σε διακομιστή κλειδιών"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "Το κλειδί υπογραφής {0} εισήχθη. Επαληθεύστε το δακτυλικό αποτύπωμά του πριν εμπιστευτείτε τον αποστολέα."
+
+msgid "Import OpenPGP key"
+msgstr "Εισαγωγή κλειδιού OpenPGP"
+
+msgid "The attachment could not be loaded."
+msgstr "Δεν ήταν δυνατή η φόρτωση του συνημμένου."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Το αρχείο κλειδιού είναι πολύ μεγάλο. Μέγιστο μέγεθος: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Αυτό το συνημμένο περιέχει ιδιωτικό κλειδί. Εισαγάγετέ το από Ρυθμίσεις → OpenPGP → Εισαγωγή κλειδιού."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Το δημόσιο κλειδί εισήχθη. Επαληθεύστε το δακτυλικό του αποτύπωμα πριν κρυπτογραφήσετε μηνύματα για τον κάτοχό του."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "Εισήχθησαν {0} δημόσια κλειδιά. Επαληθεύστε τα δακτυλικά αποτυπώματά τους πριν κρυπτογραφήσετε μηνύματα προς τους κατόχους τους."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Αυτό το συνημμένο δεν περιέχει δημόσιο κλειδί OpenPGP."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7416,6 +7467,15 @@ msgstr "Τα αποκωδικοποιημένα συνημμένα είναι υ
 msgid "The OpenPGP operation failed."
 msgstr "Η λειτουργία OpenPGP απέτυχε."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "Ο διακομιστής κλειδιών δεν επέστρεψε το ζητούμενο δημόσιο κλειδί."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Δεν έχει ρυθμιστεί διακομιστής κλειδιών. Προσθέστε έναν από Ρυθμίσεις → OpenPGP → Διαχείριση διακομιστών κλειδιών."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Κανένας από τους διακομιστές κλειδιών σας δεν έχει αυτό το κλειδί. Ζητήστε από τον αποστολέα το δημόσιο κλειδί του."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: έλεγχος ασφάλειας μηνύματος…"
 
@@ -7433,6 +7493,9 @@ msgstr "Δεν ήταν δυνατή η αποκρυπτογράφηση του 
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Κρυπτογραφημένο μήνυμα — ξεκλειδώστε το ιδιωτικό σας κλειδί για να το διαβάσετε"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Η υπογραφή δεν ελέγχθηκε — το κλειδί υπογραφής {0} δεν βρίσκεται στην κλειδοθήκη σας"
 
 msgid "Signature could not be verified"
 msgstr "Η υπογραφή δεν μπόρεσε να επαληθευτεί"
@@ -7527,6 +7590,9 @@ msgstr "Εξαγωγή δημόσιου κλειδιού"
 msgid "Back up private key"
 msgstr "Αντίγραφο ασφαλείας ιδιωτικού κλειδιού"
 
+msgid "Refresh from keyserver"
+msgstr "Ανανέωση από διακομιστή κλειδιών"
+
 msgid "Unlock in this browser"
 msgstr "Ξεκλείδωμα σε αυτό το πρόγραμμα περιήγησης"
 
@@ -7587,14 +7653,8 @@ msgstr "Πιστοποιητικό ανάκλησης — φυλάξτε το μ
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Επιλέξτε μια ισχυρή συνθηματική φράση τουλάχιστον 12 χαρακτήρων. Η δημιουργία γίνεται τοπικά σε αυτό το πρόγραμμα περιήγησης και μπορεί να διαρκέσει λίγο. Φυλάξτε το πιστοποιητικό ανάκλησης και ένα αντίγραφο ασφαλείας του ιδιωτικού κλειδιού σε ασφαλές μέρος."
 
-msgid "Import OpenPGP key"
-msgstr "Εισαγωγή κλειδιού OpenPGP"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "Επιλέξτε αρχείο κλειδιού OpenPGP σε μορφή ASCII"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "Το αρχείο κλειδιού είναι πολύ μεγάλο. Μέγιστο μέγεθος: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου κλειδιού."
@@ -7602,17 +7662,20 @@ msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου �
 msgid "Armored key"
 msgstr "Κλειδί σε μορφή ASCII"
 
-msgid "Protect unencrypted key"
-msgstr "Προστασία μη κρυπτογραφημένου κλειδιού"
+msgid "Current passphrase"
+msgstr "Τρέχουσα συνθηματική φράση"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Προαιρετικό: νέα συνθηματική φράση για μη προστατευμένο ιδιωτικό κλειδί"
+msgid "New passphrase"
+msgstr "Νέα συνθηματική φράση"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "Το κλειδί εισήχθη. Επαληθεύστε τα δακτυλικά αποτυπώματα των παραληπτών πριν κρυπτογραφήσετε μηνύματα για αυτούς."
+msgid "Repeat new passphrase"
+msgstr "Επανάληψη νέας συνθηματικής φράσης"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Επιλέξτε ένα αρχείο ή επικολλήστε ένα μόνο κλειδί σε μορφή ASCII, μαζί με τις γραμμές BEGIN και END. Για μη προστατευμένο ιδιωτικό κλειδί, εισαγάγετε μια νέα συνθηματική φράση ώστε να προστατευτεί τοπικά πριν από την αποθήκευση. Τα κλειδιά παραληπτών που εισάγονται δεν θεωρούνται αυτόματα αξιόπιστα."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Το ιδιωτικό κλειδί εισήχθη. Αν αλλάξατε τη συνθηματική του φράση, δημιουργήστε αντίγραφο ασφαλείας του ιδιωτικού κλειδιού."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Επιλέξτε ένα αρχείο ή επικολλήστε κλειδιά σε μορφή ASCII armor, μαζί με τις γραμμές BEGIN και END. Ένα αρχείο μπορεί να περιέχει πολλά δημόσια κλειδιά. Για ιδιωτικό κλειδί: αν προστατεύεται, πληκτρολογήστε την τρέχουσα συνθηματική του φράση μόνο για να του ορίσετε νέα· αν όχι, πληκτρολογήστε μια νέα συνθηματική φράση για να το προστατέψετε πριν από την αποθήκευση. Τα εισαγόμενα κλειδιά δεν θεωρούνται αυτόματα αξιόπιστα."
 
 msgid "Public OpenPGP key"
 msgstr "Δημόσιο κλειδί OpenPGP"
@@ -7629,17 +7692,8 @@ msgstr "Αντίγραφο ασφαλείας ιδιωτικού κλειδιο�
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Επιβεβαιώστε τοπικά τη συνθηματική σας φράση πριν από τη λήψη αυτού του κρυπτογραφημένου αντιγράφου ασφαλείας του ιδιωτικού κλειδιού. Φυλάξτε το με ασφάλεια και μην το στείλετε ποτέ σε παραλήπτη ή σε διακομιστή κλειδιών."
 
-msgid "Current passphrase"
-msgstr "Τρέχουσα συνθηματική φράση"
-
-msgid "New passphrase"
-msgstr "Νέα συνθηματική φράση"
-
 msgid "Change OpenPGP passphrase"
 msgstr "Αλλαγή συνθηματικής φράσης OpenPGP"
-
-msgid "Repeat new passphrase"
-msgstr "Επανάληψη νέας συνθηματικής φράσης"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "Η συνθηματική φράση άλλαξε. Δημιουργήστε νέο αντίγραφο ασφαλείας του ιδιωτικού κλειδιού."
@@ -7716,6 +7770,12 @@ msgstr "Μπορούν να χρησιμοποιηθούν μόνο διακομ
 msgid "Approved servers: {0}"
 msgstr "Εγκεκριμένοι διακομιστές: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Αναζήτηση στους διακομιστές κλειδιών σας…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "Το κλειδί ανανεώθηκε από τον διακομιστή κλειδιών. Οι νέες ημερομηνίες λήξης, τα υποκλειδιά και οι ανακλήσεις ισχύουν πλέον."
+
 msgid "Find OpenPGP public key"
 msgstr "Αναζήτηση δημόσιου κλειδιού OpenPGP"
 
@@ -7730,12 +7790,6 @@ msgstr "Εισαγάγετε ένα πλήρες δεκαεξαδικό δακτ
 
 msgid "Find and import"
 msgstr "Αναζήτηση και εισαγωγή"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "Ο διακομιστής κλειδιών δεν επέστρεψε το ζητούμενο δημόσιο κλειδί."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "Το δημόσιο κλειδί εισήχθη. Επαληθεύστε το δακτυλικό του αποτύπωμα πριν κρυπτογραφήσετε μηνύματα για τον κάτοχό του."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "Ο διακομιστής κλειδιών θα λάβει το δακτυλικό αποτύπωμα που αναζητάτε. Ένα κλειδί που λαμβάνετε εξακολουθεί να χρειάζεται επαλήθευση του δακτυλικού αποτυπώματος πριν κρυπτογραφήσετε μηνύματα για τον κάτοχό του."

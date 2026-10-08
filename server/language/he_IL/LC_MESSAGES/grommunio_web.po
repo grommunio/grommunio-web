@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: import\n"
 "Language: he_IL\n"
@@ -2231,6 +2231,9 @@ msgstr "העתק/העבר הודעות"
 
 msgid "Destination folder"
 msgstr "תיקיית יעד"
+
+msgid "Filter folders"
+msgstr "סינון תיקיות"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4623,16 +4626,16 @@ msgid "Folder size"
 msgstr "גודל התיקיה"
 
 msgid "Send rights"
-msgstr ""
+msgstr "הרשאות שליחה"
 
 msgid "Folder containing {0} Items"
 msgstr "התיקיה מכילה {0} פריטים"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "שליחה בשם"
 
 msgid "Send as"
-msgstr ""
+msgstr "שליחה בתור"
 
 msgid "Permissions"
 msgstr "הרשאות"
@@ -4840,9 +4843,6 @@ msgstr "האם אתה בטוח כי ברצונך לרוקן את {0}?"
 
 msgid "Show All"
 msgstr "הצג הכל"
-
-msgid "Filter folders"
-msgstr "סינון תיקיות"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "אין לך הרשאות מספיקות כדי להעביר תיקייה זו. האם ברצונך להעתיק אותה במקום זאת?"
@@ -7240,11 +7240,14 @@ msgstr "נדרש בלוק OpenPGP יחיד בקידוד ASCII."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "נתונים נוספים מחוץ לבלוק ה-OpenPGP בקידוד ASCII אינם מותרים."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "ייבא מפתח OpenPGP אחד ושלם בכל פעם."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "ייבא בין 1 ל-{0} מפתחות OpenPGP בכל פעם."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "המפתח הזה חורג ממגבלת תתי-המפתחות או הזהויות הנתמכת."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "ייבא מפתח OpenPGP אחד ושלם בכל פעם."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "מפתחות פרטיים חייבים להיות מוגנים בביטוי סיסמה לפני ההעלאה. הגן על המפתח הזה באופן מקומי תחילה."
@@ -7260,6 +7263,24 @@ msgstr "מפתח ה-OpenPGP ננעל במהלך ביצוע הפעולה."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP דורש דפדפן מודרני וחיבור HTTPS מאובטח."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "ייבא מפתח פרטי בנפרד, לא יחד עם מפתחות אחרים."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "מפתח פרטי זה מוגן באופן חלקי בלבד. הגן עליו במלואו לפני הייבוא."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "מפתח פרטי זה אינו מוגן בביטוי סיסמה. הזן ביטוי סיסמה חדש כדי להגן עליו."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "ביטוי הסיסמה הנוכחי לא הצליח לשחרר את נעילת המפתח הפרטי הזה."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "הזן את ביטוי הסיסמה הנוכחי של מפתח זה כדי לקבוע לו ביטוי סיסמה חדש."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "מפתח פרטי זה משתמש בהגנה מיושנת. הזן את ביטוי הסיסמה הנוכחי שלו כדי להגן עליו מחדש."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "פעולת ההגנה מצפה למפתח פרטי לא מוגן. עבור מפתחות מוגנים השתמש באפשרות 'שנה ביטוי סיסמה'."
@@ -7342,6 +7363,36 @@ msgstr "פענוח ההודעה כשלעצמו אינו מאמת את זהות �
 msgid "OpenPGP security information"
 msgstr "פרטי אבטחה של OpenPGP"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "ניתן לחפש את המפתח החסר בשרתי המפתחות שלך. השרתים יודעים איזה מפתח אתה מחפש. גם מפתח שנמצא כך מחייב אימות של טביעת האצבע שלו לפני שתסמוך על השולח."
+
+msgid "Find key on keyserver"
+msgstr "חפש מפתח בשרת מפתחות"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "מפתח החתימה {0} יובא. אמת את טביעת האצבע שלו לפני שתסמוך על השולח."
+
+msgid "Import OpenPGP key"
+msgstr "ייבא מפתח OpenPGP"
+
+msgid "The attachment could not be loaded."
+msgstr "לא ניתן לטעון את הקובץ המצורף."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "קובץ המפתח גדול מדי. גודל מקסימלי: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "קובץ מצורף זה מכיל מפתח פרטי. ייבא אותו דרך הגדרות → OpenPGP → ייבא מפתח."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "המפתח הציבורי יובא. אמת את טביעת האצבע שלו לפני הצפנת הודעות עבור בעליו."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "יובאו {0} מפתחות ציבוריים. אמת את טביעות האצבע שלהם לפני הצפנה עבור בעליהם."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "קובץ מצורף זה אינו מכיל מפתח ציבורי של OpenPGP."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7414,6 +7465,15 @@ msgstr "הקבצים המצורפים שפוענחו גדולים מדי."
 msgid "The OpenPGP operation failed."
 msgstr "פעולת OpenPGP נכשלה."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "שרת המפתחות לא החזיר את המפתח הציבורי המבוקש."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "לא הוגדר שרת מפתחות. הוסף אחד דרך הגדרות → OpenPGP → נהל שרתי מפתחות."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "אף אחד משרתי המפתחות שלך אינו מחזיק במפתח זה. בקש מהשולח את המפתח הציבורי שלו."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: בודק את אבטחת ההודעה…"
 
@@ -7431,6 +7491,9 @@ msgstr "לא ניתן היה לפענח את ההודעה — לחץ לפרטי�
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "הודעה מוצפנת — שחרר את נעילת המפתח הפרטי שלך כדי לקרוא אותה"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "החתימה לא נבדקה — מפתח החתימה {0} אינו בצרור המפתחות שלך"
 
 msgid "Signature could not be verified"
 msgstr "לא ניתן לאמת את החתימה"
@@ -7525,6 +7588,9 @@ msgstr "ייצא מפתח ציבורי"
 msgid "Back up private key"
 msgstr "גבה מפתח פרטי"
 
+msgid "Refresh from keyserver"
+msgstr "רענן משרת המפתחות"
+
 msgid "Unlock in this browser"
 msgstr "שחרר נעילה בדפדפן זה"
 
@@ -7585,14 +7651,8 @@ msgstr "תעודת ביטול — שמור במקום מאובטח"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "בחר ביטוי סיסמה חזק באורך 12 תווים לפחות. יצירת המפתח מתבצעת באופן מקומי בדפדפן זה ועשויה להימשך זמן מה. שמור את תעודת הביטול ואת גיבוי המפתח הפרטי במקום בטוח."
 
-msgid "Import OpenPGP key"
-msgstr "ייבא מפתח OpenPGP"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "בחר קובץ מפתח OpenPGP בקידוד ASCII"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "קובץ המפתח גדול מדי. גודל מקסימלי: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "לא ניתן היה לקרוא את קובץ המפתח."
@@ -7600,17 +7660,20 @@ msgstr "לא ניתן היה לקרוא את קובץ המפתח."
 msgid "Armored key"
 msgstr "מפתח בקידוד ASCII"
 
-msgid "Protect unencrypted key"
-msgstr "הגנה על מפתח לא מוצפן"
+msgid "Current passphrase"
+msgstr "ביטוי הסיסמה הנוכחי"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "אופציונלי: ביטוי סיסמה חדש למפתח פרטי לא מוגן"
+msgid "New passphrase"
+msgstr "ביטוי סיסמה חדש"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "המפתח יובא. אמת את טביעות האצבע של הנמענים לפני הצפנת הודעות עבורם."
+msgid "Repeat new passphrase"
+msgstr "חזור על ביטוי הסיסמה החדש"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "בחר קובץ או הדבק מפתח אחד בקידוד ASCII, כולל שורות ה-BEGIN וה-END שלו. עבור מפתח פרטי לא מוגן, הזן ביטוי סיסמה חדש כדי להגן עליו באופן מקומי לפני האחסון. מפתחות של נמענים שיובאו אינם נחשבים מהימנים באופן אוטומטי."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "המפתח הפרטי יובא. גבה את המפתח הפרטי אם שינית את ביטוי הסיסמה שלו."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "בחר קובץ או הדבק מפתחות בפורמט ASCII armor, כולל שורות ה-BEGIN וה-END שלהם. קובץ יכול להכיל כמה מפתחות ציבוריים. עבור מפתח פרטי: אם הוא מוגן, הזן את ביטוי הסיסמה הנוכחי שלו רק כדי לקבוע לו ביטוי סיסמה חדש; אם לא, הזן ביטוי סיסמה חדש כדי להגן עליו לפני האחסון. מפתחות מיובאים אינם נחשבים מהימנים באופן אוטומטי."
 
 msgid "Public OpenPGP key"
 msgstr "מפתח ציבורי של OpenPGP"
@@ -7627,17 +7690,8 @@ msgstr "גיבוי מפתח פרטי — שמור במקום מאובטח"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "אשר את ביטוי הסיסמה שלך באופן מקומי לפני הורדת גיבוי המפתח הפרטי המוצפן הזה. שמור אותו במקום מאובטח ולעולם אל תשלח אותו לנמען כלשהו או לשרת מפתחות."
 
-msgid "Current passphrase"
-msgstr "ביטוי הסיסמה הנוכחי"
-
-msgid "New passphrase"
-msgstr "ביטוי סיסמה חדש"
-
 msgid "Change OpenPGP passphrase"
 msgstr "שנה ביטוי סיסמה של OpenPGP"
-
-msgid "Repeat new passphrase"
-msgstr "חזור על ביטוי הסיסמה החדש"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "ביטוי הסיסמה השתנה. צור גיבוי חדש של המפתח הפרטי."
@@ -7714,6 +7768,12 @@ msgstr "ניתן להשתמש רק בשרתי מפתחות HTTPS שאושרו ע
 msgid "Approved servers: {0}"
 msgstr "שרתים מאושרים: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "מחפש בשרתי המפתחות שלך…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "המפתח רוענן משרת המפתחות. תאריכי תפוגה, מפתחות משנה וביטולים חדשים חלים כעת."
+
 msgid "Find OpenPGP public key"
 msgstr "חפש מפתח ציבורי של OpenPGP"
 
@@ -7728,12 +7788,6 @@ msgstr "הזן טביעת אצבע הקסדצימלית מלאה בת 40 או 64
 
 msgid "Find and import"
 msgstr "חפש וייבא"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "שרת המפתחות לא החזיר את המפתח הציבורי המבוקש."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "המפתח הציבורי יובא. אמת את טביעת האצבע שלו לפני הצפנת הודעות עבור בעליו."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "השרת יקבל את טביעת האצבע שאתה מחפש. מפתח שהורדת עדיין מחייב אימות טביעת אצבע לפני הצפנת הודעות עבור בעליו."

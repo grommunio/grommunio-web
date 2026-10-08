@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2022-07-26 17:59+0200\n"
 "Last-Translator: Artem <Localizer_in_Russian@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/grommunio/grommunio-web/ru/>\n"
@@ -2253,6 +2253,9 @@ msgstr "Копировать/переместить сообщения"
 
 msgid "Destination folder"
 msgstr "Каталог назначения"
+
+msgid "Filter folders"
+msgstr "Фильтр папок"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4658,16 +4661,16 @@ msgid "Folder size"
 msgstr "Размер каталога"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Права на отправку"
 
 msgid "Folder containing {0} Items"
 msgstr "Каталог содержит {0} элементов"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Отправка от имени"
 
 msgid "Send as"
-msgstr ""
+msgstr "Отправка как"
 
 msgid "Permissions"
 msgstr "Права доступа"
@@ -4875,9 +4878,6 @@ msgstr "Вы действительно хотите очистить «{0}»?"
 
 msgid "Show All"
 msgstr "Показать все"
-
-msgid "Filter folders"
-msgstr "Фильтр папок"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "У вас недостаточно прав для перемещения этой папки. Не хотите ли вы вместо этого скопировать?"
@@ -7279,11 +7279,14 @@ msgstr "Ожидается ровно один блок OpenPGP в ASCII-фор�
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "Дополнительные данные за пределами блока OpenPGP в ASCII-формате не допускаются."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Импортируйте по одному полному ключу OpenPGP за раз."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Импортируйте за один раз от 1 до {0} ключей OpenPGP."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Этот ключ превышает поддерживаемое число подключей или идентификаторов."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Импортируйте по одному полному ключу OpenPGP за раз."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Закрытые ключи должны быть защищены парольной фразой перед выгрузкой. Сначала защитите этот ключ локально."
@@ -7299,6 +7302,24 @@ msgstr "Ключ OpenPGP был заблокирован во время вып�
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP требует современного браузера и защищённого соединения HTTPS."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Импортируйте закрытый ключ отдельно, а не вместе с другими ключами."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Этот закрытый ключ защищён лишь частично. Защитите его полностью перед импортом."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Этот закрытый ключ не защищён парольной фразой. Введите новую парольную фразу, чтобы защитить его."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "Не удалось разблокировать этот закрытый ключ текущей парольной фразой."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Введите текущую парольную фразу этого ключа, чтобы задать новую."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Этот закрытый ключ использует устаревшую защиту. Введите его текущую парольную фразу, чтобы защитить его заново."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "Действие «Защита незашифрованного ключа» рассчитано на незащищённый закрытый ключ. Для защищённых ключей используйте «Изменить парольную фразу»."
@@ -7381,6 +7402,36 @@ msgstr "Сама по себе расшифровка не подтвержда�
 msgid "OpenPGP security information"
 msgstr "Сведения о безопасности OpenPGP"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Отсутствующий ключ можно поискать на ваших серверах ключей. Они узнают, какой ключ вы ищете. Отпечаток найденного так ключа всё равно нужно проверить, прежде чем доверять отправителю."
+
+msgid "Find key on keyserver"
+msgstr "Найти ключ на сервере ключей"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "Ключ подписи {0} импортирован. Подтвердите его отпечаток, прежде чем доверять отправителю."
+
+msgid "Import OpenPGP key"
+msgstr "Импортировать ключ OpenPGP"
+
+msgid "The attachment could not be loaded."
+msgstr "Не удалось загрузить вложение."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Файл ключа слишком велик. Максимальный размер: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Это вложение содержит закрытый ключ. Импортируйте его в разделе Настройки → OpenPGP → Импортировать ключ."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Открытый ключ импортирован. Подтвердите его отпечаток, прежде чем шифровать сообщения для его владельца."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "Импортировано открытых ключей: {0}. Подтвердите их отпечатки, прежде чем шифровать сообщения для их владельцев."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Это вложение не содержит открытого ключа OpenPGP."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7453,6 +7504,15 @@ msgstr "Декодированные вложения слишком велик�
 msgid "The OpenPGP operation failed."
 msgstr "Сбой операции OpenPGP."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "Сервер ключей не вернул запрошенный открытый ключ."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Сервер ключей не настроен. Добавьте его в разделе Настройки → OpenPGP → Управление серверами ключей."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Ни на одном из ваших серверов ключей нет этого ключа. Попросите у отправителя его открытый ключ."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: проверка защиты сообщения…"
 
@@ -7470,6 +7530,9 @@ msgstr "Не удалось расшифровать сообщение — на
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Зашифрованное сообщение — разблокируйте закрытый ключ для чтения"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Подпись не проверена — ключа подписи {0} нет в вашей связке ключей"
 
 msgid "Signature could not be verified"
 msgstr "Подпись не может быть проверена"
@@ -7564,6 +7627,9 @@ msgstr "Экспортировать открытый ключ"
 msgid "Back up private key"
 msgstr "Создать резервную копию закрытого ключа"
 
+msgid "Refresh from keyserver"
+msgstr "Обновить с сервера ключей"
+
 msgid "Unlock in this browser"
 msgstr "Разблокировать в этом браузере"
 
@@ -7624,14 +7690,8 @@ msgstr "Сертификат отзыва — храните надёжно"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Выберите надёжную парольную фразу длиной не менее 12 символов. Создание ключа выполняется локально в этом браузере и может занять некоторое время. Храните сертификат отзыва и резервную копию закрытого ключа в надёжном месте."
 
-msgid "Import OpenPGP key"
-msgstr "Импортировать ключ OpenPGP"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "Выберите файл ключа OpenPGP в ASCII-формате"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "Файл ключа слишком велик. Максимальный размер: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "Не удалось прочитать файл ключа."
@@ -7639,17 +7699,20 @@ msgstr "Не удалось прочитать файл ключа."
 msgid "Armored key"
 msgstr "Ключ в ASCII-формате"
 
-msgid "Protect unencrypted key"
-msgstr "Защита незашифрованного ключа"
+msgid "Current passphrase"
+msgstr "Текущая парольная фраза"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Необязательно: новая парольная фраза для незащищённого ключа"
+msgid "New passphrase"
+msgstr "Новая парольная фраза"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "Ключ импортирован. Подтвердите отпечатки получателей, прежде чем шифровать сообщения для них."
+msgid "Repeat new passphrase"
+msgstr "Повторите новую парольную фразу"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Выберите файл или вставьте один ключ в ASCII-формате вместе со строками BEGIN и END. Для незащищённого закрытого ключа введите новую парольную фразу, чтобы защитить его локально перед сохранением. Импортированные ключи получателей не становятся доверенными автоматически."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Закрытый ключ импортирован. Если вы изменили его парольную фразу, создайте резервную копию закрытого ключа."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Выберите файл или вставьте ключи в ASCII-формате вместе со строками BEGIN и END. Файл может содержать несколько открытых ключей. Для закрытого ключа: если он защищён, вводите его текущую парольную фразу, только чтобы задать новую; если не защищён, введите новую парольную фразу, чтобы защитить его перед сохранением. Импортированные ключи не становятся доверенными автоматически."
 
 msgid "Public OpenPGP key"
 msgstr "Открытый ключ OpenPGP"
@@ -7666,17 +7729,8 @@ msgstr "Резервная копия закрытого ключа — хран
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Подтвердите парольную фразу локально, прежде чем загружать эту зашифрованную резервную копию закрытого ключа. Храните её надёжно и никогда не отправляйте её получателям или на сервер ключей."
 
-msgid "Current passphrase"
-msgstr "Текущая парольная фраза"
-
-msgid "New passphrase"
-msgstr "Новая парольная фраза"
-
 msgid "Change OpenPGP passphrase"
 msgstr "Изменить парольную фразу OpenPGP"
-
-msgid "Repeat new passphrase"
-msgstr "Повторите новую парольную фразу"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "Парольная фраза изменена. Создайте новую резервную копию закрытого ключа."
@@ -7753,6 +7807,12 @@ msgstr "Можно использовать только серверы ключ
 msgid "Approved servers: {0}"
 msgstr "Одобренные серверы: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Поиск на ваших серверах ключей…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "Ключ обновлён с сервера ключей. Новые сроки действия, подключи и отзывы теперь действуют."
+
 msgid "Find OpenPGP public key"
 msgstr "Найти открытый ключ OpenPGP"
 
@@ -7767,12 +7827,6 @@ msgstr "Введите полный отпечаток из 40 или 64 шес�
 
 msgid "Find and import"
 msgstr "Найти и импортировать"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "Сервер ключей не вернул запрошенный открытый ключ."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "Открытый ключ импортирован. Подтвердите его отпечаток, прежде чем шифровать сообщения для его владельца."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "Сервер получит отпечаток, который вы ищете. Отпечаток загруженного ключа всё равно необходимо подтвердить, прежде чем шифровать сообщения для его владельца."
