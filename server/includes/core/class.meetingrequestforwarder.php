@@ -114,7 +114,7 @@ class MeetingRequestForwarder {
 		mapi_savechanges($fwdMsg);
 		mapi_message_submitmessage($fwdMsg);
 
-		$this->sendForwardNotification($store, $message, $sourceProps, $recipientRows, $props, $userStore);
+		$this->sendForwardNotification($store, $message, $sourceProps, $recipientRows, $props, $userStore, $action);
 
 		return true;
 	}
@@ -236,8 +236,9 @@ class MeetingRequestForwarder {
 	 * @param array    $recipientRows MAPI recipient rows of forward targets
 	 * @param array    $props         property tag mapping
 	 * @param resource $userStore     current user's default store
+	 * @param array    $action        action data from the client
 	 */
-	private function sendForwardNotification($store, $message, $messageProps, $recipientRows, $props, $userStore) {
+	private function sendForwardNotification($store, $message, $messageProps, $recipientRows, $props, $userStore, $action) {
 		$req = new Meetingrequest($store, $message, $GLOBALS['mapisession']->getSession());
 		if ($req->isLocalOrganiser()) {
 			return;
@@ -255,7 +256,7 @@ class MeetingRequestForwarder {
 		$notifProps = [
 			PR_MESSAGE_CLASS => 'IPM.Schedule.Meeting.Notification.Forward',
 			PR_SUBJECT => _('Your meeting has been forwarded') . ': ' . $subject,
-			PR_BODY => $this->buildNotificationBody($subject, $meeting, $recipientRows),
+			PR_BODY => $this->buildNotificationBody($subject, $meeting, $recipientRows, $this->getTimezone($action)),
 			PR_SENTMAIL_ENTRYID => $sentmailEntryid,
 		];
 		$notifProps += $this->getNotificationAppointmentProps($messageProps, $props, $meeting, $userStore);
@@ -324,13 +325,28 @@ class MeetingRequestForwarder {
 	}
 
 	/**
-	 * @param string $subject       meeting subject
-	 * @param array  $meeting       result of getMeetingDetails()
-	 * @param array  $recipientRows MAPI recipient rows of forward targets
+	 * @param array $action action data from the client
+	 *
+	 * @return DateTimeZone the user's time zone, else the server's
+	 */
+	private function getTimezone($action) {
+		try {
+			return new DateTimeZone($action['timezone_iana'] ?? date_default_timezone_get());
+		}
+		catch (Exception) {
+			return new DateTimeZone(date_default_timezone_get());
+		}
+	}
+
+	/**
+	 * @param string       $subject       meeting subject
+	 * @param array        $meeting       result of getMeetingDetails()
+	 * @param array        $recipientRows MAPI recipient rows of forward targets
+	 * @param DateTimeZone $timezone      zone the meeting time is shown in
 	 *
 	 * @return string notification body
 	 */
-	private function buildNotificationBody($subject, $meeting, $recipientRows) {
+	private function buildNotificationBody($subject, $meeting, $recipientRows, $timezone) {
 		$recipients = $this->formatForwardedTo($recipientRows);
 		$currentUser = $GLOBALS['mapisession']->getFullName() ?: $GLOBALS['mapisession']->getUserName();
 
@@ -338,10 +354,12 @@ class MeetingRequestForwarder {
 		$body .= $currentUser . ' ' . _('has forwarded your meeting request to others.') . "\n\n";
 		$body .= '     ' . _('Meeting') . ': ' . $subject . "\n";
 		if ($meeting['start']) {
-			$meetingTime = date(_('l, F j, Y g:i A'), $meeting['start']);
+			$format = _('l, F j, Y g:i A');
+			$meetingTime = (new DateTime('@' . $meeting['start']))->setTimezone($timezone)->format($format);
 			if ($meeting['end']) {
-				$meetingTime .= ' - ' . date(_('l, F j, Y g:i A'), $meeting['end']);
+				$meetingTime .= ' - ' . (new DateTime('@' . $meeting['end']))->setTimezone($timezone)->format($format);
 			}
+			$meetingTime .= ' (' . $timezone->getName() . ')';
 			$body .= '     ' . _('Meeting Time') . ': ' . $meetingTime . "\n";
 		}
 		if (!empty($meeting['location'])) {
