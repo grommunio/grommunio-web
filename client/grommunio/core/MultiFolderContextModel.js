@@ -453,12 +453,21 @@ Grommunio.core.MultiFolderContextModel = Ext.extend(Grommunio.core.ContextModel,
 	 */
 	assignColors: function()
 	{
+		var changed = false;
 		this.assigningColors = true;
 		for (var i = 0, len = this.folders.length; i < len; i++) {
-			// check if folder is already in mapping and add it if it isn't
-			this.getColorScheme(this.folders[i].get('entryid'));
+			var folderId = this.folders[i].get('entryid').replace('favorites-', '');
+			var previous = this.colorMap && this.colorMap[folderId];
+			var scheme = this.getColorScheme(folderId);
+			if (scheme && scheme.name !== previous) {
+				changed = true;
+			}
 		}
 		this.assigningColors = false;
+		// Persist new assignments once, after the complete color map is available.
+		if (changed) {
+			this.fireEvent('colormapchanged', this, this.colorMap);
+		}
 	},
 
 	/**
