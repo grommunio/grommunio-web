@@ -164,6 +164,13 @@ under ``plugins/*/test/``:
 
 	for t in server/test/*Test.php; do php "$t" || echo "FAILED $t"; done
 
+The client tests under ``client/test/`` use Node.js's built-in test runner
+and require no installed npm dependencies. Run them from the repository root:
+
+.. code-block:: sh
+
+	npm run test:client
+
 Plugins
 -------
 

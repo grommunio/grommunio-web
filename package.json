@@ -9,6 +9,7 @@
 		"lint": "eslint client/grommunio",
 		"phplintci": "phpmd server xml .phpmd.xml --ignore-violations-on-exit | python tools/violations_to_junit.py > phpmd.xml",
 		"build:pgp-vendor": "node tools/build-pgp-vendor.mjs",
+		"test:client": "node --test client/test/*.test.cjs",
 		"test:pgp-browser": "node plugins/pgp/test/testBrowserCrypto.cjs && node plugins/pgp/test/testBrowserTransport.cjs",
 		"sync:images": "node tools/sync-images.js --extract",
 		"sync:images:report": "node tools/sync-images.js --report",
