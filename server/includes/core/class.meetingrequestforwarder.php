@@ -27,6 +27,7 @@ class MeetingRequestForwarder {
 	/**
 	 * Creates a new IPM.Schedule.Meeting.Request message addressed to the
 	 * requested recipients and sends a forward notification to the organizer.
+	 * A mapi-header-php that forwards meetings itself does both.
 	 *
 	 * @param resource $store   MAPI store of the appointment
 	 * @param string   $entryid entryid of the appointment to forward
@@ -39,6 +40,21 @@ class MeetingRequestForwarder {
 
 		if (empty($message)) {
 			return false;
+		}
+
+		// Build recipient list using the standard Operations helper which
+		// handles address resolution and one-off entryid creation.
+		$recipientRows = $GLOBALS['operations']->createRecipientList($this->getForwardRecipients($action), 'add', false, true);
+
+		if (empty($recipientRows)) {
+			return false;
+		}
+
+		if (method_exists('Meetingrequest', 'forwardMeetingRequest')) {
+			$req = new Meetingrequest($store, $message, $GLOBALS['mapisession']->getSession());
+			$req->forwardMeetingRequest($recipientRows, $action['message_action']['forwardSubjectPrefix'] ?? 'FW: ', empty($action['basedate']) ? false : (int) $action['basedate']);
+
+			return true;
 		}
 
 		$sourceMessage = $this->openSourceMessage($store, $message, $action);
@@ -62,12 +78,8 @@ class MeetingRequestForwarder {
 		$userStore = $GLOBALS['mapisession']->getDefaultMessageStore();
 		[$fwdMsg, $sentmailEntryid] = $this->createOutboxMessage($userStore);
 
-		// Copy properties and attachments from the source, excluding
-		// envelope/identity properties. PR_SENDER_* will be set to
-		// the current user. All PR_SENT_REPRESENTING_* variants
-		// (including SMTP_ADDRESS) must be absent so gromox treats
-		// this as the user's own message and skips delegation checks.
-		// The organizer is still informed via the MFN.
+		// PR_SENT_REPRESENTING_* stays the organizer (MS-OXOCAL v22.1 §3.1.4.7.5),
+		// PR_SENDER_* becomes the current user.
 		mapi_copyto($sourceMessage, [], [
 			PR_ENTRYID,
 			PR_PARENT_ENTRYID,
@@ -81,15 +93,11 @@ class MeetingRequestForwarder {
 			PR_SENDER_EMAIL_ADDRESS,
 			PR_SENDER_ADDRTYPE,
 			PR_SENDER_SEARCH_KEY,
-			PR_SENT_REPRESENTING_ENTRYID,
-			PR_SENT_REPRESENTING_NAME,
-			PR_SENT_REPRESENTING_EMAIL_ADDRESS,
-			PR_SENT_REPRESENTING_ADDRTYPE,
-			PR_SENT_REPRESENTING_SEARCH_KEY,
-			PR_SENT_REPRESENTING_SMTP_ADDRESS,
 		], $fwdMsg, 0);
 
-		mapi_setprops($fwdMsg, $this->buildForwardProps($sourceProps, $props, $action, $sentmailEntryid));
+		$fwdProps = $this->buildForwardProps($sourceProps, $props, $action, $sentmailEntryid);
+		$fwdProps += $this->getForwardMarkerProps($fwdMsg, $userStore, $action);
+		mapi_setprops($fwdMsg, $fwdProps);
 
 		// The icon index is cleared so the mail list derives it from the message class.
 		$deleteProps = [PR_ICON_INDEX, PR_MESSAGE_DELIVERY_TIME];
@@ -101,22 +109,89 @@ class MeetingRequestForwarder {
 		}
 		mapi_deleteprops($fwdMsg, $deleteProps);
 
-		// Build recipient list using the standard Operations helper which
-		// handles address resolution and one-off entryid creation.
-		$recipientRows = $GLOBALS['operations']->createRecipientList($this->getForwardRecipients($action), 'add', false, true);
-
-		if (empty($recipientRows)) {
-			return false;
-		}
-
 		mapi_message_modifyrecipients($fwdMsg, MODRECIP_ADD, $recipientRows);
 
 		mapi_savechanges($fwdMsg);
-		mapi_message_submitmessage($fwdMsg);
+		$this->submitForward($fwdMsg);
 
 		$this->sendForwardNotification($store, $message, $sourceProps, $recipientRows, $props, $userStore, $action);
 
 		return true;
+	}
+
+	/**
+	 * Submits the forwarded request. A zcore that refuses a foreign
+	 * PR_SENT_REPRESENTING gets it sent as the current user's own message.
+	 *
+	 * @param resource $fwdMsg forwarded meeting request
+	 */
+	private function submitForward($fwdMsg) {
+		try {
+			mapi_message_submitmessage($fwdMsg);
+		}
+		catch (MAPIException $e) {
+			if ($e->getCode() !== MAPI_E_NO_ACCESS) {
+				throw $e;
+			}
+			mapi_deleteprops($fwdMsg, [
+				PR_SENT_REPRESENTING_ENTRYID,
+				PR_SENT_REPRESENTING_NAME,
+				PR_SENT_REPRESENTING_EMAIL_ADDRESS,
+				PR_SENT_REPRESENTING_ADDRTYPE,
+				PR_SENT_REPRESENTING_SEARCH_KEY,
+				PR_SENT_REPRESENTING_SMTP_ADDRESS,
+			]);
+			mapi_savechanges($fwdMsg);
+			mapi_message_submitmessage($fwdMsg);
+		}
+	}
+
+	/**
+	 * Named properties written to messages in the current user's store.
+	 *
+	 * @param resource $userStore current user's default store
+	 *
+	 * @return array property tags by name
+	 */
+	private function getUserStoreProps($userStore) {
+		return getPropIdsFromStrings($userStore, [
+			'startdate' => "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole,
+			'duedate' => "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole,
+			'location' => "PT_STRING8:PSETID_Appointment:" . PidLidLocation,
+			'goid' => "PT_BINARY:PSETID_Meeting:" . PidLidGlobalObjectId,
+			'goid2' => "PT_BINARY:PSETID_Meeting:" . PidLidCleanGlobalObjectId,
+			'auxiliary_flags' => "PT_LONG:PSETID_Appointment:0x8207",
+			'forward_instance' => "PT_BOOLEAN:PSETID_Appointment:0x820A",
+			'attendee_critical_change' => "PT_SYSTIME:PSETID_Meeting:" . PidLidAttendeeCriticalChange,
+			'allattendees' => "PT_UNICODE:PSETID_Appointment:" . PidLidAllAttendeesString,
+			'toattendees' => "PT_UNICODE:PSETID_Appointment:" . PidLidToAttendeesString,
+			'ccattendees' => "PT_UNICODE:PSETID_Appointment:" . PidLidCcAttendeesString,
+			'forward_recipients' => "PT_MV_STRING8:PS_PUBLIC_STRINGS:GrommunioForwardRecipients",
+			'forward_recipient_names' => "PT_MV_STRING8:PS_PUBLIC_STRINGS:GrommunioForwardRecipientNames",
+		]);
+	}
+
+	/**
+	 * Properties that mark a meeting request as forwarded (MS-OXOCAL v22.1 §3.1.4.7.5).
+	 *
+	 * @param resource $fwdMsg    forwarded meeting request, already holding the copied properties
+	 * @param resource $userStore current user's default store
+	 * @param array    $action    action data from the client
+	 *
+	 * @return array
+	 */
+	private function getForwardMarkerProps($fwdMsg, $userStore, $action) {
+		$named = $this->getUserStoreProps($userStore);
+		$auxProps = mapi_getprops($fwdMsg, [$named['auxiliary_flags']]);
+
+		return [
+			$named['auxiliary_flags'] => ($auxProps[$named['auxiliary_flags']] ?? 0) | 0x4, // auxApptFlagForwarded
+			$named['attendee_critical_change'] => time(),
+			$named['forward_instance'] => !empty($action['basedate']),
+			$named['allattendees'] => '',
+			$named['toattendees'] => '',
+			$named['ccattendees'] => '',
+		];
 	}
 
 	/**
@@ -193,7 +268,12 @@ class MeetingRequestForwarder {
 			}
 		}
 		if (isset($props['intendedbusystatus'], $sourceProps[$props['busystatus']])) {
-			$fwdProps[$props['intendedbusystatus']] = $sourceProps[$props['busystatus']];
+			$intendedBusyStatus = $sourceProps[$props['intendedbusystatus']] ?? $sourceProps[$props['busystatus']];
+			$fwdProps[$props['intendedbusystatus']] = $intendedBusyStatus;
+			// A meeting intended as free stays free for the recipient.
+			if ($intendedBusyStatus === fbFree) {
+				$fwdProps[$props['busystatus']] = fbFree;
+			}
 		}
 
 		// Mail list views and previews rely on PR_START_DATE / PR_END_DATE.
@@ -259,7 +339,7 @@ class MeetingRequestForwarder {
 			PR_BODY => $this->buildNotificationBody($subject, $meeting, $recipientRows, $this->getTimezone($action)),
 			PR_SENTMAIL_ENTRYID => $sentmailEntryid,
 		];
-		$notifProps += $this->getNotificationAppointmentProps($messageProps, $props, $meeting, $userStore);
+		$notifProps += $this->getNotificationAppointmentProps($messageProps, $props, $meeting, $userStore, $recipientRows);
 
 		mapi_setprops($notifMsg, $notifProps);
 		mapi_message_modifyrecipients($notifMsg, MODRECIP_ADD, [$this->buildOrganizerRecipient($messageProps)]);
@@ -376,23 +456,23 @@ class MeetingRequestForwarder {
 	 * resolved against the user's store so they match when the
 	 * notification is later read back.
 	 *
-	 * @param array    $messageProps properties of the source message
-	 * @param array    $props        property tag mapping
-	 * @param array    $meeting      result of getMeetingDetails()
-	 * @param resource $userStore    current user's default store
+	 * @param array    $messageProps  properties of the source message
+	 * @param array    $props         property tag mapping
+	 * @param array    $meeting       result of getMeetingDetails()
+	 * @param resource $userStore     current user's default store
+	 * @param array    $recipientRows MAPI recipient rows of forward targets
 	 *
 	 * @return array
 	 */
-	private function getNotificationAppointmentProps($messageProps, $props, $meeting, $userStore) {
-		$namedProps = getPropIdsFromStrings($userStore, [
-			'startdate' => "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentStartWhole,
-			'duedate' => "PT_SYSTIME:PSETID_Appointment:" . PidLidAppointmentEndWhole,
-			'location' => "PT_STRING8:PSETID_Appointment:" . PidLidLocation,
-			'goid' => "PT_BINARY:PSETID_Meeting:" . PidLidGlobalObjectId,
-			'goid2' => "PT_BINARY:PSETID_Meeting:" . PidLidCleanGlobalObjectId,
-		]);
+	private function getNotificationAppointmentProps($messageProps, $props, $meeting, $userStore, $recipientRows) {
+		$namedProps = $this->getUserStoreProps($userStore);
 
-		$notifProps = [];
+		// The organizer's side adds these recipients as attendees.
+		$notifProps = [
+			$namedProps['attendee_critical_change'] => time(),
+			$namedProps['forward_recipients'] => array_map(fn ($recip) => ($recip[PR_SMTP_ADDRESS] ?? '') ?: ($recip[PR_EMAIL_ADDRESS] ?? ''), $recipientRows),
+			$namedProps['forward_recipient_names'] => array_map(fn ($recip) => $recip[PR_DISPLAY_NAME] ?? '', $recipientRows),
+		];
 		if (isset($props['goid'], $messageProps[$props['goid']])) {
 			$notifProps[$namedProps['goid']] = $messageProps[$props['goid']];
 		}

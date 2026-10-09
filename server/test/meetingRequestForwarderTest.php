@@ -22,7 +22,8 @@ $constants = [
 	'PR_ADDRTYPE', 'PR_RECIPIENT_TYPE', 'PR_SEARCH_KEY', 'MAPI_TO', 'DT_MAILUSER', 'MAPI_MAILUSER',
 	'MODRECIP_ADD', 'olMeetingReceived', 'olResponseNotResponded', 'fbTentative',
 	'PidLidAppointmentStartWhole', 'PidLidAppointmentEndWhole', 'PidLidLocation', 'PidLidGlobalObjectId',
-	'PidLidCleanGlobalObjectId', 'MAPI_E_NOT_FOUND',
+	'PidLidCleanGlobalObjectId', 'MAPI_E_NOT_FOUND', 'MAPI_E_NO_ACCESS', 'fbFree', 'PidLidAttendeeCriticalChange',
+	'PidLidAllAttendeesString', 'PidLidToAttendeesString', 'PidLidCcAttendeesString',
 ];
 foreach ($constants as $index => $constant) {
 	defined($constant) || define($constant, 1000 + $index);
@@ -31,6 +32,9 @@ foreach ($constants as $index => $constant) {
 $GLOBALS['fwdCalls'] = [];
 $GLOBALS['fwdLocalOrganiser'] = false;
 $GLOBALS['fwdOutboxFails'] = false;
+$GLOBALS['fwdBusy'] = 2;
+$GLOBALS['fwdIntendedBusy'] = null;
+$GLOBALS['fwdSubmitDenied'] = false;
 
 function fwdLog($call, ...$args) {
 	$GLOBALS['fwdCalls'][] = array_merge([$call], $args);
@@ -44,6 +48,9 @@ if (!function_exists('mapi_getprops')) {
 		if ($properties === [PR_SUBJECT]) {
 			return [PR_SUBJECT => 'Planning'];
 		}
+		if ($properties === ['named-auxiliary_flags']) {
+			return ['named-auxiliary_flags' => 1];
+		}
 
 		return [
 			PR_SENT_REPRESENTING_EMAIL_ADDRESS => 'org@example.test',
@@ -52,8 +59,8 @@ if (!function_exists('mapi_getprops')) {
 			2 => 1700003600,
 			3 => 'Room 1',
 			4 => 'goid-value',
-			5 => 2,
-		];
+			5 => $GLOBALS['fwdBusy'],
+		] + ($GLOBALS['fwdIntendedBusy'] === null ? [] : [11 => $GLOBALS['fwdIntendedBusy']]);
 	}
 
 	function mapi_msgstore_openentry($store, $entryid) {
@@ -73,7 +80,7 @@ if (!function_exists('mapi_getprops')) {
 	}
 
 	function mapi_copyto($src, $excludeIids, $excludeProps, $dst, $flags) {
-		fwdLog('copyto', $src, $dst);
+		fwdLog('copyto', $src, $dst, $excludeProps);
 	}
 
 	function mapi_setprops($message, $props) {
@@ -94,6 +101,11 @@ if (!function_exists('mapi_getprops')) {
 
 	function mapi_message_submitmessage($message) {
 		fwdLog('submit', $message);
+		if ($GLOBALS['fwdSubmitDenied']) {
+			$GLOBALS['fwdSubmitDenied'] = false;
+
+			throw new MAPIException('denied', MAPI_E_NO_ACCESS);
+		}
 	}
 
 	function mapi_createoneoff($name, $type, $address) {
@@ -108,6 +120,14 @@ if (!function_exists('mapi_getprops')) {
 
 	function getPropIdsFromStrings($store, $names) {
 		return array_combine(array_keys($names), array_map(fn ($k) => 'named-' . $k, array_keys($names)));
+	}
+
+	class Recurrence {
+		public function __construct($store, $message) {}
+
+		public function getExceptionAttachment($basedate) {
+			return false;
+		}
 	}
 
 	class Meetingrequest {
@@ -198,12 +218,16 @@ assertForwarder($forwarder->forward('store', 'appt', $action) === true, 'A valid
 
 $setprops = callsOf('setprops');
 $fwdProps = $setprops[0][2];
-assertForwarder($setprops[0][1] === 'msg2', 'Forward properties went to the wrong message');
+assertForwarder($setprops[0][1] === 'msg1', 'Forward properties went to the wrong message');
 assertForwarder($fwdProps[PR_SUBJECT] === 'FW: Planning', 'Forward subject is wrong');
 assertForwarder($fwdProps[PR_MESSAGE_CLASS] === 'IPM.Schedule.Meeting.Request', 'Forward class is wrong');
 assertForwarder($fwdProps[10] === olMeetingReceived && $fwdProps[5] === fbTentative && $fwdProps[11] === 2, 'Meeting state properties are wrong');
 assertForwarder($fwdProps[PR_START_DATE] === 1700000000 && $fwdProps[PR_END_DATE] === 1700003600, 'Forward dates are wrong');
 assertForwarder($fwdProps[PR_SENDER_EMAIL_ADDRESS] === 'delegate@example.test', 'Forward sender is wrong');
+assertForwarder(!in_array(PR_SENT_REPRESENTING_EMAIL_ADDRESS, callsOf('copyto')[0][3], true), 'The organizer was not kept on the forward');
+assertForwarder($fwdProps['named-auxiliary_flags'] === 5 && $fwdProps['named-forward_instance'] === false, 'Forward marker properties are wrong');
+assertForwarder($fwdProps['named-allattendees'] === '' && $fwdProps['named-toattendees'] === '' && $fwdProps['named-ccattendees'] === '', 'Attendee strings were not blanked');
+assertForwarder(is_int($fwdProps['named-attendee_critical_change']), 'Attendee critical change is missing');
 assertForwarder(callsOf('deleteprops')[0][2] === [PR_ICON_INDEX, PR_MESSAGE_DELIVERY_TIME, 12], 'Forward delete list is wrong');
 
 $recipients = callsOf('modifyrecipients');
@@ -216,12 +240,30 @@ $expectedBody = "Your meeting has been forwarded\n\n" .
 	"     Meeting Time: Tuesday, November 14, 2023 11:13 PM - Wednesday, November 15, 2023 12:13 AM (Europe/Vienna)\n" .
 	"     Location: Room 1\n" .
 	"     Recipients: Ann (ann@example.test), bob@example.test\n";
-assertForwarder($setprops[1][1] === 'msg3', 'Notification went to the wrong message');
+assertForwarder($setprops[1][1] === 'msg2', 'Notification went to the wrong message');
 assertForwarder($notif[PR_BODY] === $expectedBody, 'Notification body is wrong');
 assertForwarder($notif[PR_SUBJECT] === 'Your meeting has been forwarded: Planning', 'Notification subject is wrong');
 assertForwarder($notif['named-goid'] === 'goid-value' && $notif['named-location'] === 'Room 1' && $notif[PR_START_DATE] === 1700000000, 'Notification appointment properties are wrong');
+assertForwarder($notif['named-forward_recipients'] === ['ann@example.test', 'bob@example.test'] && $notif['named-forward_recipient_names'] === ['Ann', ''], 'Notification forward recipients are wrong');
 assertForwarder($recipients[1][2][0][PR_ENTRYID] === 'oneoff:Org:SMTP:org@example.test', 'Organizer recipient is wrong');
-assertForwarder(array_column(callsOf('submit'), 1) === ['msg2', 'msg3'], 'Submit order is wrong');
+assertForwarder(array_column(callsOf('submit'), 1) === ['msg1', 'msg2'], 'Submit order is wrong');
+
+$GLOBALS['fwdCalls'] = [];
+$GLOBALS['fwdBusy'] = fbFree;
+$GLOBALS['fwdSubmitDenied'] = true;
+assertForwarder($forwarder->forward('store', 'appt', ['basedate' => 1700000000] + $action) === true, 'A denied forward was not resent');
+$fwdProps = callsOf('setprops')[0][2];
+assertForwarder($fwdProps[5] === fbFree && $fwdProps['named-forward_instance'] === true, 'Free or occurrence forward properties are wrong');
+assertForwarder(in_array(PR_SENT_REPRESENTING_EMAIL_ADDRESS, callsOf('deleteprops')[1][2], true), 'The organizer was not dropped after a denied submit');
+assertForwarder(array_column(callsOf('submit'), 1) === ['msg3', 'msg3', 'msg4'], 'A denied forward was not submitted again');
+
+$GLOBALS['fwdCalls'] = [];
+$GLOBALS['fwdIntendedBusy'] = 2;
+assertForwarder($forwarder->forward('store', 'appt', $action) === true, 'A forward of a meeting shown as free failed');
+$fwdProps = callsOf('setprops')[0][2];
+assertForwarder($fwdProps[5] === fbTentative && $fwdProps[11] === 2, 'The intended busy status of the organizer was not used');
+$GLOBALS['fwdBusy'] = 2;
+$GLOBALS['fwdIntendedBusy'] = null;
 
 $GLOBALS['fwdCalls'] = [];
 $GLOBALS['fwdLocalOrganiser'] = true;
