@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:00+0200\n"
+"POT-Creation-Date: 2026-10-09 21:51+0200\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/grommunio-web/nl/>\n"
@@ -3294,8 +3294,16 @@ msgid "Please treat this as {0}."
 msgstr "Behandel deze tekst als {0}."
 
 msgctxt "mail.previewpanel"
-msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "Klik hier om foto's te downloaden. Om uw privacy te beschermen, heeft grommunio Web het automatisch downloaden van sommige foto's in dit bericht verhinderd."
+msgid "External content blocked. Loading it can tell the sender or a third party that you opened this message, and from which IP address. Click here to download pictures."
+msgstr "Externe inhoud geblokkeerd. Het laden ervan kan de afzender of een derde laten weten dat u dit bericht hebt geopend, en vanaf welk IP-adres. Klik hier om afbeeldingen te downloaden."
+
+msgctxt "mail.previewpanel"
+msgid "Such elements tell the sender or a third party when you open a message."
+msgstr "Zulke elementen laten de afzender of een derde weten wanneer u een bericht opent."
+
+msgctxt "mail.previewpanel"
+msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
+msgstr "Afbeeldingen worden weergegeven, alleen elementen die de afzender of een derde zouden laten weten wanneer u dit bericht opent, blijven geblokkeerd."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3412,6 +3420,18 @@ msgstr "Laatste update verstuurd op {0}."
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} heeft namens {1} bijgewerkt op {2}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element blocked."
+msgid_plural "{0} potential tracking elements blocked."
+msgstr[0] "{0} mogelijk trackingelement geblokkeerd."
+msgstr[1] "{0} mogelijke trackingelementen geblokkeerd."
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element still blocked."
+msgid_plural "{0} potential tracking elements still blocked."
+msgstr[0] "{0} mogelijk trackingelement nog steeds geblokkeerd."
+msgstr[1] "{0} mogelijke trackingelementen nog steeds geblokkeerd."
 
 msgid "Fix message"
 msgstr "Corrigeer bericht"
@@ -5131,6 +5151,18 @@ msgstr "{A}E-mail automatisch als gelezen markeren na {B} seconde(n)"
 msgid "View mail in this format"
 msgstr "Bekijk mail in dit formaat"
 
+msgid "Block potential tracking elements"
+msgstr "Mogelijke trackingelementen blokkeren"
+
+msgid "Always"
+msgstr "Altijd"
+
+msgid "Except from safe senders"
+msgstr "Behalve van veilige afzenders"
+
+msgid "Never"
+msgstr "Nooit"
+
 msgid "Cc recipients"
 msgstr "Cc ontvangers"
 
@@ -6479,9 +6511,6 @@ msgstr "Overschrijven"
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
-
-msgid "Never"
-msgstr "Nooit"
 
 msgid "Add from Files"
 msgstr "Toevoegen uit Files"

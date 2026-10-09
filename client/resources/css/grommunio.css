@@ -3670,6 +3670,9 @@ span.x-tree-node-icon {
 .preview-header-extrainfobox-item-over {
   cursor: pointer; }
 
+.k-extrainfo-tracking {
+  font-weight: 600; }
+
 /* Preview header email address */
 span.grommunio-emailaddress-link {
   cursor: pointer;

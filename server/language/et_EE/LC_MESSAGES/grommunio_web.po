@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:00+0200\n"
+"POT-Creation-Date: 2026-10-09 21:51+0200\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/grommunio-web/et/>\n"
@@ -3289,8 +3289,16 @@ msgid "Please treat this as {0}."
 msgstr "Palun käsitage seda kui {0}."
 
 msgctxt "mail.previewpanel"
-msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "Piltide allalaadimiseks klõpsake siin. Et aidata kaitsta teie privaatsust, grommunio Web takistas automaatne allalaadimine mõned pildid selles sõnumis."
+msgid "External content blocked. Loading it can tell the sender or a third party that you opened this message, and from which IP address. Click here to download pictures."
+msgstr "Väline sisu blokeeritud. Selle laadimine võib saatjale või kolmandale osapoolele näidata, et avasite selle sõnumi, ja milliselt IP-aadressilt. Piltide allalaadimiseks klõpsake siin."
+
+msgctxt "mail.previewpanel"
+msgid "Such elements tell the sender or a third party when you open a message."
+msgstr "Sellised elemendid annavad saatjale või kolmandale osapoolele teada, millal te sõnumi avate."
+
+msgctxt "mail.previewpanel"
+msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
+msgstr "Pildid on kuvatud, blokeerituks jäävad ainult elemendid, mis annaksid saatjale või kolmandale osapoolele teada, millal te selle sõnumi avate."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3407,6 +3415,18 @@ msgstr "Viimane uuendus saadeti {0}."
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} on ajakohastanud {1} nimel. {2}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element blocked."
+msgid_plural "{0} potential tracking elements blocked."
+msgstr[0] "{0} võimalik jälgimiselement blokeeritud."
+msgstr[1] "{0} võimalikku jälgimiselementi blokeeritud."
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element still blocked."
+msgid_plural "{0} potential tracking elements still blocked."
+msgstr[0] "{0} võimalik jälgimiselement on endiselt blokeeritud."
+msgstr[1] "{0} võimalikku jälgimiselementi on endiselt blokeeritud."
 
 msgid "Fix message"
 msgstr "Parandada sõnum"
@@ -5126,6 +5146,18 @@ msgstr "{A}Märgi e-kiri automaatselt loetuks pärast {B} sekundit"
 msgid "View mail in this format"
 msgstr "Vaata posti selles formaadis"
 
+msgid "Block potential tracking elements"
+msgstr "Blokeeri võimalikud jälgimiselemendid"
+
+msgid "Always"
+msgstr "Alati"
+
+msgid "Except from safe senders"
+msgstr "Välja arvatud turvalistelt saatjatelt"
+
+msgid "Never"
+msgstr "Mitte kunagi"
+
 msgid "Cc recipients"
 msgstr "Cc saajad"
 
@@ -6474,9 +6506,6 @@ msgstr "Kirjuta üle"
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
-
-msgid "Never"
-msgstr "Mitte kunagi"
 
 msgid "Add from Files"
 msgstr "Lisa failidest"

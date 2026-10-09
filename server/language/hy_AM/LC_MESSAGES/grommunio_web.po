@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:00+0200\n"
+"POT-Creation-Date: 2026-10-09 21:51+0200\n"
 "PO-Revision-Date: 2025-03-30 04:00+0000\n"
 "Language: hy_AM\n"
 "MIME-Version: 1.0\n"
@@ -3286,7 +3286,15 @@ msgid "Please treat this as {0}."
 msgstr ""
 
 msgctxt "mail.previewpanel"
-msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
+msgid "External content blocked. Loading it can tell the sender or a third party that you opened this message, and from which IP address. Click here to download pictures."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "Such elements tell the sender or a third party when you open a message."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr ""
 
 msgctxt "mail.previewpanel"
@@ -3404,6 +3412,18 @@ msgstr ""
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element blocked."
+msgid_plural "{0} potential tracking elements blocked."
+msgstr[0] ""
+msgstr[1] ""
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element still blocked."
+msgid_plural "{0} potential tracking elements still blocked."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Fix message"
 msgstr ""
@@ -5123,6 +5143,18 @@ msgstr ""
 msgid "View mail in this format"
 msgstr ""
 
+msgid "Block potential tracking elements"
+msgstr ""
+
+msgid "Always"
+msgstr ""
+
+msgid "Except from safe senders"
+msgstr ""
+
+msgid "Never"
+msgstr ""
+
 msgid "Cc recipients"
 msgstr ""
 
@@ -6470,9 +6502,6 @@ msgid "Overwrite"
 msgstr ""
 
 msgid "l d/m/Y G:i"
-msgstr ""
-
-msgid "Never"
 msgstr ""
 
 msgid "Add from Files"

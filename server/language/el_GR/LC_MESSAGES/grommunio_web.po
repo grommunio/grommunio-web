@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:00+0200\n"
+"POT-Creation-Date: 2026-10-09 21:51+0200\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -3289,8 +3289,16 @@ msgid "Please treat this as {0}."
 msgstr "Παρακαλούμε να το αντιμετωπίσετε ως {0}."
 
 msgctxt "mail.previewpanel"
-msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "Κάντε κλικ εδώ για λήψη εικόνων. Για την προστασία της ιδιωτικής σας ζωής, το grommunio Web απέτρεψε την αυτόματη λήψη ορισμένων εικόνων σε αυτό το μήνυμα."
+msgid "External content blocked. Loading it can tell the sender or a third party that you opened this message, and from which IP address. Click here to download pictures."
+msgstr "Το εξωτερικό περιεχόμενο αποκλείστηκε. Η φόρτωσή του μπορεί να αποκαλύψει στον αποστολέα ή σε τρίτους ότι ανοίξατε αυτό το μήνυμα και από ποια διεύθυνση IP. Κάντε κλικ εδώ για λήψη εικόνων."
+
+msgctxt "mail.previewpanel"
+msgid "Such elements tell the sender or a third party when you open a message."
+msgstr "Τέτοια στοιχεία ενημερώνουν τον αποστολέα ή τρίτους πότε ανοίγετε ένα μήνυμα."
+
+msgctxt "mail.previewpanel"
+msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
+msgstr "Οι εικόνες εμφανίζονται, αποκλεισμένα παραμένουν μόνο τα στοιχεία που θα ενημέρωναν τον αποστολέα ή τρίτους πότε ανοίγετε αυτό το μήνυμα."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3407,6 +3415,18 @@ msgstr "Τελευταία ενημέρωση που στάλθηκε στις {
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} ενημέρωσε για λογαριασμό του {1} {2} ."
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element blocked."
+msgid_plural "{0} potential tracking elements blocked."
+msgstr[0] "Αποκλείστηκε {0} πιθανό στοιχείο παρακολούθησης."
+msgstr[1] "Αποκλείστηκαν {0} πιθανά στοιχεία παρακολούθησης."
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element still blocked."
+msgid_plural "{0} potential tracking elements still blocked."
+msgstr[0] "{0} πιθανό στοιχείο παρακολούθησης παραμένει αποκλεισμένο."
+msgstr[1] "{0} πιθανά στοιχεία παρακολούθησης παραμένουν αποκλεισμένα."
 
 msgid "Fix message"
 msgstr "Μήνυμα διόρθωσης"
@@ -5126,6 +5146,18 @@ msgstr "{A}Αυτόματη σήμανση αλληλογραφίας ως αν�
 msgid "View mail in this format"
 msgstr "Προβολή αλληλογραφίας σε αυτή τη μορφή"
 
+msgid "Block potential tracking elements"
+msgstr "Αποκλεισμός πιθανών στοιχείων παρακολούθησης"
+
+msgid "Always"
+msgstr "Πάντα"
+
+msgid "Except from safe senders"
+msgstr "Εκτός από ασφαλείς αποστολείς"
+
+msgid "Never"
+msgstr "Ποτέ"
+
 msgid "Cc recipients"
 msgstr "Cc παραλήπτες"
 
@@ -6474,9 +6506,6 @@ msgstr "Αντικατάσταση"
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
-
-msgid "Never"
-msgstr "Ποτέ"
 
 msgid "Add from Files"
 msgstr "Προσθήκη από αρχεία"

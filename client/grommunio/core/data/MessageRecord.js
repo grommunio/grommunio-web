@@ -53,6 +53,13 @@ Grommunio.core.data.MessageRecord = Ext.extend(Grommunio.core.data.IPMRecord, {
 	externalContent: null,
 
 	/**
+	 * Cached result of {@link #getTrackingElementCount} and the body it was counted in.
+	 * @property
+	 * @type Object
+	 */
+	trackingElements: null,
+
+	/**
 	 * Cached sanitized HTML body. This avoids running DOMPurify on the
 	 * same message body multiple times when a record is viewed repeatedly.
 	 * @property
@@ -79,10 +86,66 @@ Grommunio.core.data.MessageRecord = Ext.extend(Grommunio.core.data.IPMRecord, {
 		// Re-evaluate whenever a specific body was provided or message body fields changed.
 		// This avoids races where isHTML is temporarily stale while html_body is already available.
 		if(hasBodyArgument || !Ext.isBoolean(this.externalContent) || this.isModifiedSinceLastUpdate('html_body') || this.isModifiedSinceLastUpdate('body')) {
-			this.externalContent = Grommunio.core.HTMLParser.hasExternalContent(body);
+			this.externalContent = Grommunio.core.HTMLParser.hasExternalContent(body, this.shouldBlockTrackingElements());
 		}
 
 		return this.externalContent;
+	},
+
+	/**
+	 * True when likely tracking pixels are removed from this message, even after the
+	 * user chose to download its pictures. Depends on the block_tracking_elements
+	 * setting: 'always', 'except_safe_senders' or 'never'.
+	 * @return {Boolean}
+	 */
+	shouldBlockTrackingElements: function()
+	{
+		if (this.isUnsent()) {
+			return false;
+		}
+
+		var mode = container.getSettingsModel().get('grommunio/v1/contexts/mail/block_tracking_elements');
+		if (mode === 'never') {
+			return false;
+		}
+
+		return mode === 'always' || !this.isFromSafeSender();
+	},
+
+	/**
+	 * @return {Boolean} true when the sender or its domain is on the safe senders list.
+	 */
+	isFromSafeSender: function()
+	{
+		var senderSMTPAddress = (this.get('sent_representing_email_address') || this.get('sender_email_address') || '').toLowerCase();
+		if (Grommunio.mail.data.JunkMailStore.isSafeSender(senderSMTPAddress)) {
+			return true;
+		}
+
+		// Fallback: check old webapp safe senders setting during migration window
+		var oldSafeSenders = container.getSettingsModel().get('grommunio/v1/contexts/mail/safe_senders_list', true);
+		if (Ext.isArray(oldSafeSenders) && oldSafeSenders.length > 0) {
+			oldSafeSenders = oldSafeSenders.map(function(s) { return String(s).toLowerCase(); });
+			return oldSafeSenders.indexOf(senderSMTPAddress) !== -1 ||
+				Grommunio.core.Util.inArray(oldSafeSenders, senderSMTPAddress, true, true);
+		}
+
+		return false;
+	},
+
+	/**
+	 * Number of likely tracking pixels in the HTML body, see
+	 * {@link Grommunio.core.HTMLParser#countTrackingElements}.
+	 * @return {Number}
+	 */
+	getTrackingElementCount: function()
+	{
+		var body = this.get('isHTML') === true ? this.get('html_body') || '' : '';
+		if (!this.trackingElements || this.trackingElements.body !== body) {
+			this.trackingElements = { body: body, count: Grommunio.core.HTMLParser.countTrackingElements(body) };
+		}
+
+		return this.trackingElements.count;
 	},
 
 	/**
@@ -103,7 +166,13 @@ Grommunio.core.data.MessageRecord = Ext.extend(Grommunio.core.data.IPMRecord, {
 		if (isHTML === true && preferHTML === true && !Ext.isEmpty(actualBody)) {
 			// if record is not sent yet then it is a new mail or a draft,
 			// so we don't need to block the external content while composing mail.
-			if(this.isUnsent() || !this.isExternalContentBlocked(actualBody)) {
+			if(this.isUnsent()) {
+				return actualBody;
+			}
+			if (this.shouldBlockTrackingElements() && this.getTrackingElementCount() > 0) {
+				actualBody = Grommunio.core.HTMLParser.removeTrackingElements(actualBody);
+			}
+			if(!this.isExternalContentBlocked(actualBody)) {
 				return actualBody;
 			}
 			return Grommunio.core.HTMLParser.blockExternalContent(actualBody);
@@ -345,18 +414,8 @@ Grommunio.core.data.MessageRecord = Ext.extend(Grommunio.core.data.IPMRecord, {
 		var junkStore = Grommunio.mail.data.JunkMailStore;
 
 		// Never block external content when originating from safe senders.
-		if (junkStore.isSafeSender(senderSMTPAddress)) {
+		if (this.isFromSafeSender()) {
 			return false;
-		}
-
-		// Fallback: check old webapp safe senders setting during migration window
-		var oldSafeSenders = container.getSettingsModel().get('grommunio/v1/contexts/mail/safe_senders_list', true);
-		if (Ext.isArray(oldSafeSenders) && oldSafeSenders.length > 0) {
-			oldSafeSenders = oldSafeSenders.map(function(s) { return String(s).toLowerCase(); });
-			if (oldSafeSenders.indexOf(senderSMTPAddress) !== -1 ||
-				Grommunio.core.Util.inArray(oldSafeSenders, senderSMTPAddress, true, true)) {
-				return false;
-			}
 		}
 
 		// The user explicitly chose to show this message's pictures.

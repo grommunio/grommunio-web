@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Farsi (Iran)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:00+0200\n"
+"POT-Creation-Date: 2026-10-09 21:51+0200\n"
 "PO-Revision-Date: 2017-10-05 19:48+0200\n"
 "Last-Translator: import\n"
 "Language: fa_IR\n"
@@ -3287,8 +3287,16 @@ msgid "Please treat this as {0}."
 msgstr "لطفاً این را به عنوان{0}در نظر بگیرید."
 
 msgctxt "mail.previewpanel"
-msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "برای دانلود تصاویر اینجا کلیک کنید. برای کمک به حفظ حریم خصوصی شما، grommunio Web از دانلود خودکار برخی تصاویر در این پیام جلوگیری کرده است."
+msgid "External content blocked. Loading it can tell the sender or a third party that you opened this message, and from which IP address. Click here to download pictures."
+msgstr "محتوای خارجی مسدود شد. بارگذاری آن می‌تواند به فرستنده یا شخص ثالث نشان دهد که این پیام را باز کرده‌اید و از کدام نشانی IP. برای دانلود تصاویر اینجا کلیک کنید."
+
+msgctxt "mail.previewpanel"
+msgid "Such elements tell the sender or a third party when you open a message."
+msgstr "چنین عناصری به فرستنده یا شخص ثالث اطلاع می‌دهند که چه زمانی پیامی را باز می‌کنید."
+
+msgctxt "mail.previewpanel"
+msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
+msgstr "تصاویر نمایش داده می‌شوند، فقط عناصری که به فرستنده یا شخص ثالث اطلاع می‌دادند چه زمانی این پیام را باز می‌کنید مسدود می‌مانند."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3405,6 +3413,18 @@ msgstr "آخرین به روز رسانی ارسال شده در{0}."
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0}از طرف{1}{2}به روز شده است."
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element blocked."
+msgid_plural "{0} potential tracking elements blocked."
+msgstr[0] "{0} عنصر ردیابی احتمالی مسدود شد."
+msgstr[1] "{0} عنصر ردیابی احتمالی مسدود شد."
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element still blocked."
+msgid_plural "{0} potential tracking elements still blocked."
+msgstr[0] "{0} عنصر ردیابی احتمالی همچنان مسدود است."
+msgstr[1] "{0} عنصر ردیابی احتمالی همچنان مسدود است."
 
 msgid "Fix message"
 msgstr "رفع پیام"
@@ -5124,6 +5144,18 @@ msgstr "{A} علامت گذاری خودکار نامه به عنوان خوان
 msgid "View mail in this format"
 msgstr "ایمیل را در این قالب مشاهده کنید"
 
+msgid "Block potential tracking elements"
+msgstr "مسدود کردن عناصر ردیابی احتمالی"
+
+msgid "Always"
+msgstr "همیشه"
+
+msgid "Except from safe senders"
+msgstr "به‌جز از فرستنده‌های ایمن"
+
+msgid "Never"
+msgstr "هرگز"
+
 msgid "Cc recipients"
 msgstr "گیرندگان رونوشت"
 
@@ -6472,9 +6504,6 @@ msgstr "رونویسی کنید"
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
-
-msgid "Never"
-msgstr "هرگز"
 
 msgid "Add from Files"
 msgstr "از Files اضافه کنید"

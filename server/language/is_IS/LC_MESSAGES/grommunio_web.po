@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:00+0200\n"
+"POT-Creation-Date: 2026-10-09 21:51+0200\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -3287,8 +3287,16 @@ msgid "Please treat this as {0}."
 msgstr "Vinsamlegast meðhöndlaðu þetta sem {0}."
 
 msgctxt "mail.previewpanel"
-msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "Smelltu hér til að hlaða niður myndum. Til að vernda friðhelgi þína hindraði grommunio Web sjálfvirka niðurhalsaðgerð á sumum myndum í þessari tilkynningu."
+msgid "External content blocked. Loading it can tell the sender or a third party that you opened this message, and from which IP address. Click here to download pictures."
+msgstr "Ytra efni lokað. Ef það er sótt getur sendandinn eða þriðji aðili séð að þú opnaðir þessi skilaboð, og frá hvaða IP-tölu. Smelltu hér til að hlaða niður myndum."
+
+msgctxt "mail.previewpanel"
+msgid "Such elements tell the sender or a third party when you open a message."
+msgstr "Slík atriði láta sendandann eða þriðja aðila vita hvenær þú opnar skilaboð."
+
+msgctxt "mail.previewpanel"
+msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
+msgstr "Myndir eru birtar, aðeins atriði sem myndu láta sendandann eða þriðja aðila vita hvenær þú opnar þessi skilaboð eru enn lokuð."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3405,6 +3413,18 @@ msgstr "Síðasta uppfærsla send {0}."
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} hefur uppfært fyrir hönd {1} {2}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element blocked."
+msgid_plural "{0} potential tracking elements blocked."
+msgstr[0] "{0} mögulegu rakningaratriði lokað."
+msgstr[1] "{0} mögulegum rakningaratriðum lokað."
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element still blocked."
+msgid_plural "{0} potential tracking elements still blocked."
+msgstr[0] "{0} mögulegu rakningaratriði er enn lokað."
+msgstr[1] "{0} mögulegum rakningaratriðum er enn lokað."
 
 msgid "Fix message"
 msgstr "Laga skilaboð"
@@ -5124,6 +5144,18 @@ msgstr "{A}Sjálfkrafa merkja póst sem lesinn eftir {B} sekúndu(r)"
 msgid "View mail in this format"
 msgstr "Skoðaðu póst á þessu formi"
 
+msgid "Block potential tracking elements"
+msgstr "Loka á möguleg rakningaratriði"
+
+msgid "Always"
+msgstr "Alltaf"
+
+msgid "Except from safe senders"
+msgstr "Nema frá öruggum sendendum"
+
+msgid "Never"
+msgstr "Aldrei"
+
 msgid "Cc recipients"
 msgstr "Cc viðtakendur"
 
@@ -6472,9 +6504,6 @@ msgstr "Skrifa yfir"
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
-
-msgid "Never"
-msgstr "Aldrei"
 
 msgid "Add from Files"
 msgstr "Bæta við úr skrám"

@@ -520,6 +520,9 @@ Grommunio.common.ui.messagepanel.MessageBody = Ext.extend(Ext.Container, {
 					rawHtmlBody = record.inlineImgOutlookToGrommunio(rawHtmlBody);
 				}
 				rawHtmlBody = this.sanitizePreviewMarkup(rawHtmlBody);
+				if (hasHtmlBody && Ext.isFunction(record.shouldBlockTrackingElements) && record.shouldBlockTrackingElements()) {
+					rawHtmlBody = Grommunio.core.HTMLParser.removeTrackingElements(rawHtmlBody);
+				}
 				if (hasHtmlBody &&
 					Ext.isFunction(record.shouldBlockExternalContent) &&
 					record.shouldBlockExternalContent() &&

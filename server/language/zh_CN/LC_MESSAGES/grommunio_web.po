@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:00+0200\n"
+"POT-Creation-Date: 2026-10-09 21:51+0200\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -3266,8 +3266,16 @@ msgid "Please treat this as {0}."
 msgstr "请将此视为{0}。"
 
 msgctxt "mail.previewpanel"
-msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "点击这里下载图片。为了帮助保护您的隐私，grommunio Web已阻止自动下载本消息中的一些图片。"
+msgid "External content blocked. Loading it can tell the sender or a third party that you opened this message, and from which IP address. Click here to download pictures."
+msgstr "已阻止外部内容。加载这些内容可能会让发件人或第三方得知您打开了此邮件以及您的 IP 地址。点击这里下载图片。"
+
+msgctxt "mail.previewpanel"
+msgid "Such elements tell the sender or a third party when you open a message."
+msgstr "此类元素会告知发件人或第三方您何时打开邮件。"
+
+msgctxt "mail.previewpanel"
+msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
+msgstr "图片已显示，只有会告知发件人或第三方您何时打开此邮件的元素仍被阻止。"
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3384,6 +3392,16 @@ msgstr "上次更新发送日期{0}。"
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0}已代表{1}{2}更新。"
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element blocked."
+msgid_plural "{0} potential tracking elements blocked."
+msgstr[0] "已阻止 {0} 个潜在的跟踪元素。"
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element still blocked."
+msgid_plural "{0} potential tracking elements still blocked."
+msgstr[0] "{0} 个潜在的跟踪元素仍被阻止。"
 
 msgid "Fix message"
 msgstr "修复消息"
@@ -5097,6 +5115,18 @@ msgstr "在{B}秒后{A}自动将邮件标记为已读"
 msgid "View mail in this format"
 msgstr "查看此格式的邮件"
 
+msgid "Block potential tracking elements"
+msgstr "阻止潜在的跟踪元素"
+
+msgid "Always"
+msgstr "始终"
+
+msgid "Except from safe senders"
+msgstr "安全发件人除外"
+
+msgid "Never"
+msgstr "从不"
+
 msgid "Cc recipients"
 msgstr "抄送：收件人"
 
@@ -6441,9 +6471,6 @@ msgstr "覆盖"
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
-
-msgid "Never"
-msgstr "从不"
 
 msgid "Add from Files"
 msgstr "从文件添加"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Swedish (Sweden)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:00+0200\n"
+"POT-Creation-Date: 2026-10-09 21:51+0200\n"
 "PO-Revision-Date: 2026-02-17 22:26+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/grommunio/grommunio-web/se/>\n"
@@ -3289,8 +3289,16 @@ msgid "Please treat this as {0}."
 msgstr "Behandla detta som {0}."
 
 msgctxt "mail.previewpanel"
-msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "Klicka här för att ladda ner bilder. För att skydda din integritet förhindrade grommunio Web automatisk nedladdning av vissa bilder i det här meddelandet."
+msgid "External content blocked. Loading it can tell the sender or a third party that you opened this message, and from which IP address. Click here to download pictures."
+msgstr "Externt innehåll blockerat. Att läsa in det kan avslöja för avsändaren eller en tredje part att du har öppnat meddelandet, och från vilken IP-adress. Klicka här för att ladda ner bilder."
+
+msgctxt "mail.previewpanel"
+msgid "Such elements tell the sender or a third party when you open a message."
+msgstr "Sådana element talar om för avsändaren eller en tredje part när du öppnar ett meddelande."
+
+msgctxt "mail.previewpanel"
+msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
+msgstr "Bilderna visas, endast element som skulle tala om för avsändaren eller en tredje part när du öppnar meddelandet förblir blockerade."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3407,6 +3415,18 @@ msgstr "Senaste uppdateringen skickades den {0}."
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} har uppdaterat på uppdrag av {1} {2}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element blocked."
+msgid_plural "{0} potential tracking elements blocked."
+msgstr[0] "{0} möjligt spårningselement blockerat."
+msgstr[1] "{0} möjliga spårningselement blockerade."
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element still blocked."
+msgid_plural "{0} potential tracking elements still blocked."
+msgstr[0] "{0} möjligt spårningselement är fortfarande blockerat."
+msgstr[1] "{0} möjliga spårningselement är fortfarande blockerade."
 
 msgid "Fix message"
 msgstr "Fixa meddelande"
@@ -5126,6 +5146,18 @@ msgstr "{A} Markera automatiskt e-post som läst efter {B} sekund(er)"
 msgid "View mail in this format"
 msgstr "Visa mail i detta format"
 
+msgid "Block potential tracking elements"
+msgstr "Blockera möjliga spårningselement"
+
+msgid "Always"
+msgstr "Alltid"
+
+msgid "Except from safe senders"
+msgstr "Utom från säkra avsändare"
+
+msgid "Never"
+msgstr "Aldrig"
+
 msgid "Cc recipients"
 msgstr "Cc mottagare"
 
@@ -6474,9 +6506,6 @@ msgstr "Skriva över"
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
-
-msgid "Never"
-msgstr "Aldrig"
 
 msgid "Add from Files"
 msgstr "Lägg till från filer"
