@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:00+0200\n"
+"POT-Creation-Date: 2026-10-09 21:51+0200\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/grommunio-web/ja/>\n"
@@ -3273,8 +3273,16 @@ msgid "Please treat this as {0}."
 msgstr "{0}として扱う。"
 
 msgctxt "mail.previewpanel"
-msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "画像をダウンロードするにはここをクリックしてください。プライバシー保護のため、grommunio Webはこのメッセージ内の一部の画像の自動ダウンロードをブロックしました。"
+msgid "External content blocked. Loading it can tell the sender or a third party that you opened this message, and from which IP address. Click here to download pictures."
+msgstr "外部コンテンツをブロックしました。読み込むと、このメッセージを開いたことと IP アドレスが送信者や第三者に伝わる可能性があります。画像をダウンロードするにはここをクリックしてください。"
+
+msgctxt "mail.previewpanel"
+msgid "Such elements tell the sender or a third party when you open a message."
+msgstr "このような要素は、メッセージを開いたタイミングを送信者や第三者に知らせます。"
+
+msgctxt "mail.previewpanel"
+msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
+msgstr "画像は表示されています。このメッセージを開いたタイミングを送信者や第三者に知らせる要素だけがブロックされたままです。"
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3391,6 +3399,16 @@ msgstr "最終更新は{0} 。"
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} が{1} {2} に代わって更新した。"
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element blocked."
+msgid_plural "{0} potential tracking elements blocked."
+msgstr[0] "追跡の可能性がある要素を {0} 件ブロックしました。"
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element still blocked."
+msgid_plural "{0} potential tracking elements still blocked."
+msgstr[0] "追跡の可能性がある要素 {0} 件は引き続きブロックされています。"
 
 msgid "Fix message"
 msgstr "メッセージの修正"
@@ -5104,6 +5122,18 @@ msgstr "{A}{B}秒後に自動的にメールを既読にする"
 msgid "View mail in this format"
 msgstr "このフォーマットでメールを見る"
 
+msgid "Block potential tracking elements"
+msgstr "追跡の可能性がある要素をブロック"
+
+msgid "Always"
+msgstr "常に"
+
+msgid "Except from safe senders"
+msgstr "安全な送信者を除く"
+
+msgid "Never"
+msgstr "記録なし"
+
 msgid "Cc recipients"
 msgstr "Ccの受信者"
 
@@ -6448,9 +6478,6 @@ msgstr "上書き"
 
 msgid "l d/m/Y G:i"
 msgstr "Y/m/l d G:i"
-
-msgid "Never"
-msgstr "記録なし"
 
 msgid "Add from Files"
 msgstr "ファイル共有から追加"

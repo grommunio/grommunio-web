@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:00+0200\n"
+"POT-Creation-Date: 2026-10-09 21:51+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/grommunio/grommunio-web/zh_Hant/>\n"
@@ -3263,8 +3263,16 @@ msgid "Please treat this as {0}."
 msgstr "Please treat this as {0}"
 
 msgctxt "mail.previewpanel"
-msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "點擊此處下載圖片。為保護您的隱私，grommunio Web 已阻止本訊息中部分圖片的自動下載。"
+msgid "External content blocked. Loading it can tell the sender or a third party that you opened this message, and from which IP address. Click here to download pictures."
+msgstr "已封鎖外部內容。載入這些內容可能會讓寄件者或第三方得知您開啟了此訊息以及您的 IP 位址。點擊此處下載圖片。"
+
+msgctxt "mail.previewpanel"
+msgid "Such elements tell the sender or a third party when you open a message."
+msgstr "此類元素會告知寄件者或第三方您何時開啟訊息。"
+
+msgctxt "mail.previewpanel"
+msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
+msgstr "圖片已顯示，只有會告知寄件者或第三方您何時開啟此訊息的元素仍被封鎖。"
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3381,6 +3389,16 @@ msgstr "最近一次更新發送於{0} 。"
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} 已代表{1} {2} 更新。"
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element blocked."
+msgid_plural "{0} potential tracking elements blocked."
+msgstr[0] "已封鎖 {0} 個潛在的追蹤元素。"
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element still blocked."
+msgid_plural "{0} potential tracking elements still blocked."
+msgstr[0] "{0} 個潛在的追蹤元素仍被封鎖。"
 
 msgid "Fix message"
 msgstr "修復訊息"
@@ -5094,6 +5112,18 @@ msgstr "{A}在{B}秒後自動標示已讀取"
 msgid "View mail in this format"
 msgstr "檢視此格式的郵件"
 
+msgid "Block potential tracking elements"
+msgstr "封鎖潛在的追蹤元素"
+
+msgid "Always"
+msgstr "一律"
+
+msgid "Except from safe senders"
+msgstr "安全寄件者除外"
+
+msgid "Never"
+msgstr "從不"
+
 msgid "Cc recipients"
 msgstr "抄送收件人"
 
@@ -6438,9 +6468,6 @@ msgstr "覆寫"
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
-
-msgid "Never"
-msgstr "從不"
 
 msgid "Add from Files"
 msgstr "從檔案新增"

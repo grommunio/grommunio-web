@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:00+0200\n"
+"POT-Creation-Date: 2026-10-09 21:51+0200\n"
 "PO-Revision-Date: 2022-07-26 17:59+0200\n"
 "Last-Translator: Artem <Localizer_in_Russian@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/grommunio/grommunio-web/ru/>\n"
@@ -3314,8 +3314,16 @@ msgid "Please treat this as {0}."
 msgstr "Рассматривайте это как {0}."
 
 msgctxt "mail.previewpanel"
-msgid "Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message."
-msgstr "Нажмите здесь, чтобы загрузить изображения. Чтобы защитить вашу конфиденциальность, grommunio Web предотвратил автоматическую загрузку некоторых изображений в этом сообщении."
+msgid "External content blocked. Loading it can tell the sender or a third party that you opened this message, and from which IP address. Click here to download pictures."
+msgstr "Внешнее содержимое заблокировано. Его загрузка может сообщить отправителю или третьей стороне, что вы открыли это сообщение, и с какого IP-адреса. Нажмите здесь, чтобы загрузить изображения."
+
+msgctxt "mail.previewpanel"
+msgid "Such elements tell the sender or a third party when you open a message."
+msgstr "Такие элементы сообщают отправителю или третьей стороне, когда вы открываете сообщение."
+
+msgctxt "mail.previewpanel"
+msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
+msgstr "Изображения показаны, заблокированными остаются только элементы, которые сообщили бы отправителю или третьей стороне, когда вы открываете это сообщение."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
@@ -3432,6 +3440,20 @@ msgstr "Последнее обновление отправлено {0}."
 
 msgid "{0} has updated on behalf of {1} {2}."
 msgstr "{0} обновлено от имени {1} {2}."
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element blocked."
+msgid_plural "{0} potential tracking elements blocked."
+msgstr[0] "Заблокирован {0} возможный элемент отслеживания."
+msgstr[1] "Заблокировано {0} возможных элемента отслеживания."
+msgstr[2] "Заблокировано {0} возможных элементов отслеживания."
+
+msgctxt "mail.previewpanel"
+msgid "{0} potential tracking element still blocked."
+msgid_plural "{0} potential tracking elements still blocked."
+msgstr[0] "По-прежнему заблокирован {0} возможный элемент отслеживания."
+msgstr[1] "По-прежнему заблокировано {0} возможных элемента отслеживания."
+msgstr[2] "По-прежнему заблокировано {0} возможных элементов отслеживания."
 
 msgid "Fix message"
 msgstr "Исправить сообщение"
@@ -5157,6 +5179,18 @@ msgstr "{A}Автоматически отмечаит письмо прочит
 msgid "View mail in this format"
 msgstr "Просмотр почты в этом формате"
 
+msgid "Block potential tracking elements"
+msgstr "Блокировать возможные элементы отслеживания"
+
+msgid "Always"
+msgstr "Всегда"
+
+msgid "Except from safe senders"
+msgstr "Кроме безопасных отправителей"
+
+msgid "Never"
+msgstr "Никогда"
+
 msgid "Cc recipients"
 msgstr "Получатели Cc"
 
@@ -6509,9 +6543,6 @@ msgstr "Перезаписать"
 
 msgid "l d/m/Y G:i"
 msgstr "l d/m/Y G:i"
-
-msgid "Never"
-msgstr "Никогда"
 
 msgid "Add from Files"
 msgstr "Добавить из Файлов"
