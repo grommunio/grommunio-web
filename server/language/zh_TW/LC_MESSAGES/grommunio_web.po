@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/grommunio/grommunio-web/zh_Hant/>\n"
@@ -7915,6 +7915,9 @@ msgstr "加密訊息"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "透過加密訊息內容來確保其隱私。只有訊息的收件者才能開啟它。"
 
+msgid "Certificate issued to"
+msgstr "憑證簽發對象"
+
 msgid "Algorithms used"
 msgstr "使用的演算法"
 
@@ -7997,6 +8000,9 @@ msgstr "數位簽章中的簽署時間與預期時間存在顯著差異。這可
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "無法驗證寄件者憑證的憑證鏈：簽發該憑證的憑證授權機構不在伺服器的 S/MIME 受信任 CA 存放區中，或缺少中繼憑證。請聯絡您的系統管理員，以安裝缺少的憑證授權機構憑證。"
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "此電子郵件的數位簽章有效，但用於簽署的憑證不屬於寄件者地址。此郵件可能經由郵寄清單或轉寄服務轉送，也可能有人冒充寄件者。"
+
 msgid "Signature verified successfully"
 msgstr "簽名驗證成功"
 
@@ -8059,6 +8065,9 @@ msgstr "簽署時間與預期時間不同"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "無法驗證簽章，憑證授權機構不受信任"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "簽章已驗證，但憑證不屬於寄件者"
 
 msgid "Digest"
 msgstr "摘要"

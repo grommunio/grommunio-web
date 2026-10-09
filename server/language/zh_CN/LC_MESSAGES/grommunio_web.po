@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -7918,6 +7918,9 @@ msgstr "加密信息"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "通过对信息内容进行加密，确保信息的私密性。只有该信息的收件人才能打开它。"
 
+msgid "Certificate issued to"
+msgstr "证书颁发对象"
+
 msgid "Algorithms used"
 msgstr "使用的算法"
 
@@ -8000,6 +8003,9 @@ msgstr "数字签名中的签名时间与预期时间存在显著差异。这可
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "无法验证发件人证书的证书链：签发该证书的证书颁发机构不在服务器的 S/MIME 受信任 CA 存储区中，或缺少中间证书。请联系您的系统管理员，以安装缺失的证书颁发机构证书。"
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "此电子邮件的数字签名有效，但用于签名的证书不属于发件人地址。该邮件可能经由邮件列表或转发服务转发，也可能有人冒充发件人。"
+
 msgid "Signature verified successfully"
 msgstr "签名验证成功"
 
@@ -8062,6 +8068,9 @@ msgstr "签署时间与预期时间不同"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "无法验证签名，证书颁发机构不受信任"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "签名已验证，但证书不属于发件人"
 
 msgid "Digest"
 msgstr "摘要"

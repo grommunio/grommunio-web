@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web German (Swiss)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2021-03-02 15:12+0000\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -7956,6 +7956,9 @@ msgstr "Nachricht verschlüsseln"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Transportiert die Nachricht vertraulich, indem sie verschlüsselt wird. Nur der Empfänger kann die Nachricht öffnen."
 
+msgid "Certificate issued to"
+msgstr "Zertifikat ausgestellt für"
+
 msgid "Algorithms used"
 msgstr "Verwendete Algorithmen"
 
@@ -8038,6 +8041,9 @@ msgstr "Die Signaturzeit in der digitalen Signatur weicht erheblich von der erwa
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "Die Zertifikatskette des Absenderzertifikats konnte nicht überprüft werden: Die ausstellende Zertifizierungsstelle ist nicht im S/MIME-Vertrauensspeicher des Servers enthalten oder ein Zwischenzertifikat fehlt. Bitten Sie Ihren Systemadministrator, das fehlende Zertifikat der Zertifizierungsstelle zu installieren."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "Die digitale Signatur dieser E-Mail ist gültig, aber das zum Signieren verwendete Zertifikat gehört nicht zur Absenderadresse. Die E-Mail wurde möglicherweise über eine Mailingliste oder einen Weiterleitungsdienst weitergegeben, oder jemand gibt sich als der Absender aus."
+
 msgid "Signature verified successfully"
 msgstr "Die Signatur hat die Prüfung bestanden"
 
@@ -8100,6 +8106,9 @@ msgstr "Signaturzeit weicht von der erwarteten Zeit ab"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Die Signatur konnte nicht überprüft werden, da die Zertifizierungsstelle nicht vertrauenswürdig ist"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Die Signatur hat die Prüfung bestanden, aber das Zertifikat gehört nicht zum Absender"
 
 msgid "Digest"
 msgstr "Auszug"

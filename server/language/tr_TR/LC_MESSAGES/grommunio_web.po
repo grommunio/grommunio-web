@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/grommunio-web/tr/>\n"
@@ -7953,6 +7953,9 @@ msgstr "Mesajı şifrele"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "İçeriğini şifreleyerek mesajın gizliliğini sağlayın. Yalnızca mesajın alıcısı mesajı açabilecektir."
 
+msgid "Certificate issued to"
+msgstr "Sertifikanın verildiği kişi"
+
 msgid "Algorithms used"
 msgstr "Kullanılan Algoritmalar"
 
@@ -8035,6 +8038,9 @@ msgstr "Dijital imzadaki imza zamanı, beklenen zamandan önemli ölçüde farkl
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "Gönderenin sertifika zinciri doğrulanamadı: sertifikayı veren sertifika yetkilisi sunucunun S/MIME için güvenilen CA deposunda bulunmuyor veya bir ara sertifika eksik. Eksik sertifika yetkilisini yüklemesi için sistem yöneticinizle iletişime geçin."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "Bu e-postanın dijital imzası geçerli, ancak imzalamak için kullanılan sertifika gönderen adresine ait değil. E-posta bir posta listesi veya yönlendirme hizmeti aracılığıyla iletilmiş olabilir ya da birisi gönderenin kimliğine bürünüyor olabilir."
+
 msgid "Signature verified successfully"
 msgstr "İmza başarıyla doğrulandı"
 
@@ -8097,6 +8103,9 @@ msgstr "İmzalama süresi beklenen süreden farklı"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "İmza doğrulanamadı; sertifika yetkilisine güvenilmiyor"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "İmza doğrulandı, ancak sertifika gönderene ait değil"
 
 msgid "Digest"
 msgstr "Digest"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Greek\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2022-07-26 14:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -7953,6 +7953,9 @@ msgstr "Κρυπτογράφηση μηνύματος"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Διασφαλίστε το απόρρητο του μηνύματος με κρυπτογράφηση του περιεχομένου του. Μόνο ο παραλήπτης του μηνύματος θα μπορεί να το ανοίξει."
 
+msgid "Certificate issued to"
+msgstr "Το πιστοποιητικό εκδόθηκε για"
+
 msgid "Algorithms used"
 msgstr "Χρησιμοποιούμενοι αλγόριθμοι"
 
@@ -8035,6 +8038,9 @@ msgstr "Η ώρα υπογραφής στην ψηφιακή υπογραφή δ
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "Δεν ήταν δυνατή η επαλήθευση της αλυσίδας του πιστοποιητικού του αποστολέα: η αρχή έκδοσης πιστοποιητικών που το εξέδωσε δεν βρίσκεται στον χώρο αποθήκευσης αξιόπιστων αρχών έκδοσης πιστοποιητικών (CA) του διακομιστή για το S/MIME ή λείπει ένα ενδιάμεσο πιστοποιητικό. Επικοινωνήστε με τον διαχειριστή του συστήματός σας για την εγκατάσταση της αρχής έκδοσης πιστοποιητικών που λείπει."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "Η ψηφιακή υπογραφή αυτού του μηνύματος ηλεκτρονικού ταχυδρομείου είναι έγκυρη, αλλά το πιστοποιητικό με το οποίο υπογράφηκε δεν ανήκει στη διεύθυνση του αποστολέα. Το μήνυμα ενδέχεται να έχει διαβιβαστεί μέσω λίστας αλληλογραφίας ή υπηρεσίας προώθησης, ή κάποιος ενδέχεται να υποδύεται τον αποστολέα."
+
 msgid "Signature verified successfully"
 msgstr "Η υπογραφή επαληθεύτηκε επιτυχώς"
 
@@ -8097,6 +8103,9 @@ msgstr "Ο χρόνος υπογραφής διαφέρει από τον ανα
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Δεν ήταν δυνατή η επαλήθευση της υπογραφής: η αρχή έκδοσης πιστοποιητικών δεν είναι αξιόπιστη"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Επιτυχής επαλήθευση υπογραφής, αλλά το πιστοποιητικό δεν ανήκει στον αποστολέα"
 
 msgid "Digest"
 msgstr "Digest"

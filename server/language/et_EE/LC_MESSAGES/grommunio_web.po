@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/grommunio-web/et/>\n"
@@ -7953,6 +7953,9 @@ msgstr "Sõnumi krüpteerimine"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Tagage sõnumi privaatsus, krüpteerides selle sisu. Ainult sõnumi saaja saab seda avada."
 
+msgid "Certificate issued to"
+msgstr "Sertifikaadi saaja"
+
 msgid "Algorithms used"
 msgstr "Kasutatud algoritmid"
 
@@ -8035,6 +8038,9 @@ msgstr "Digitaalallkirja allkirjastamise aeg erineb oluliselt eeldatavast ajast.
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "Saatja sertifikaadi sertifikaadiahelat ei õnnestunud kontrollida: selle väljastanud sertifitseerimisasutus ei asu serveri S/MIME-i usaldusväärsete CA-de hoidlas või puudub vahesertifikaat. Puuduva sertifitseerimisasutuse paigaldamiseks võta ühendust süsteemiadministraatoriga."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "Selle e-kirja digitaalallkiri on kehtiv, kuid allkirjastamiseks kasutatud sertifikaat ei kuulu saatja aadressile. E-kiri võib olla edastatud meililisti või edastusteenuse kaudu või keegi võib end saatjana välja anda."
+
 msgid "Signature verified successfully"
 msgstr "Allkiri edukalt kontrollitud"
 
@@ -8097,6 +8103,9 @@ msgstr "Allkirjastamise aeg erineb eeldatavast ajast"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Allkirja ei õnnestunud kontrollida, sest sertifitseerimisasutust ei usaldata"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Allkirja kontrollimine õnnestus, kuid sertifikaat ei kuulu saatjale"
 
 msgid "Digest"
 msgstr "Digest"

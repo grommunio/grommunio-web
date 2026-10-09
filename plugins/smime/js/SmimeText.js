@@ -91,6 +91,9 @@ Grommunio.plugins.smime.SmimeText = function () {
 			// Certificate chain could not be verified against the CA store
 			case 20:
 				return Grommunio.plugins.smime.SmimeText.createMessage(_('The certificate chain of the sender\'s certificate could not be verified: the certificate authority that issued it is not in the server\'s trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority.'));
+			// Signer certificate does not belong to the sender address
+			case 21:
+				return _('The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender.');
 			default:
 				return '';
 			}
@@ -147,6 +150,8 @@ Grommunio.plugins.smime.SmimeText = function () {
 				return _('Signing time differs from expected time');
 			case 20:
 				return _('Could not verify signature, certificate authority is not trusted');
+			case 21:
+				return _('Signature verified, but the certificate does not belong to the sender');
 			default:
 				return '';
 			}

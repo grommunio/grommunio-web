@@ -42,6 +42,26 @@ function getCertEmail($certificate) {
 }
 
 /**
+ * All email addresses of a certificate: subject emailAddress and every
+ * subjectAltName email entry.
+ *
+ * @param array $certificate parsed certificate data
+ *
+ * @return string[] lower-case addresses
+ */
+function getCertEmails($certificate) {
+	$emails = (array) ($certificate['subject']['emailAddress'] ?? []);
+	foreach (explode(',', (string) ($certificate['extensions']['subjectAltName'] ?? '')) as $altName) {
+		$altName = trim($altName);
+		if (str_starts_with($altName, 'email:')) {
+			$emails[] = substr($altName, 6);
+		}
+	}
+
+	return array_values(array_unique(array_map(static fn ($email) => strtolower(trim((string) $email)), $emails)));
+}
+
+/**
  * Function that will return the private certificate of the user from the user store where it is stored in pkcs#12 format.
  *
  * @param resource $store        user's store
@@ -108,6 +128,169 @@ function readCertificateMessageBody($message) {
 	}
 
 	return $body;
+}
+
+/**
+ * Issuer of a certificate in the form stored in PR_SENDER_EMAIL_ADDRESS
+ * of its certificate message.
+ *
+ * @param array $certData parsed certificate data
+ *
+ * @return string one key=value line per issuer component
+ */
+function certIssuerString($certData) {
+	$issuedBy = '';
+	foreach (array_keys($certData['issuer']) as $key) {
+		$issuedBy .= $key . '=' . $certData['issuer'][$key] . "\n";
+	}
+
+	return $issuedBy;
+}
+
+/**
+ * Read the public certificate messages of a store.
+ *
+ * @param resource $store  user's store
+ * @param string   $serial restrict to this serial number (PR_SENDER_NAME) when not empty
+ *
+ * @return array<int, array<int, mixed>> certificate message rows
+ */
+function getPublicCertRows($store, $serial = '') {
+	$restrict = [RES_PROPERTY,
+		[
+			RELOP => RELOP_EQ,
+			ULPROPTAG => PR_MESSAGE_CLASS,
+			VALUE => [PR_MESSAGE_CLASS => 'WebApp.Security.Public'],
+		],
+	];
+	if ($serial !== '') {
+		$restrict = [RES_AND, [
+			$restrict,
+			[RES_PROPERTY,
+				[
+					RELOP => RELOP_EQ,
+					ULPROPTAG => PR_SENDER_NAME,
+					VALUE => [PR_SENDER_NAME => $serial],
+				],
+			],
+		]];
+	}
+	$root = mapi_msgstore_openentry($store);
+	$table = mapi_folder_getcontentstable($root, MAPI_ASSOCIATED);
+	mapi_table_restrict($table, $restrict, TBL_BATCH);
+	$rows = mapi_table_queryallrows($table, [PR_ENTRYID, PR_SENDER_NAME, PR_SENDER_EMAIL_ADDRESS, PR_SUBJECT, PR_SUBJECT_PREFIX]);
+
+	return is_array($rows) ? $rows : [];
+}
+
+/**
+ * SHA-256 fingerprint of the certificate held by a public certificate message.
+ *
+ * @param resource $store   user's store
+ * @param string   $entryid certificate message entryid
+ *
+ * @return null|string fingerprint, or null when the body cannot be read
+ */
+function storedCertFingerprint($store, $entryid) {
+	$body = readCertificateMessageBody(mapi_msgstore_openentry($store, $entryid));
+	$fingerprint = $body === null ? false : @openssl_x509_fingerprint(base64_decode($body), 'sha256');
+
+	return $fingerprint === false ? null : $fingerprint;
+}
+
+/**
+ * Find a stored public certificate. Issuer and serial number select the
+ * candidates, the certificate body confirms them.
+ *
+ * @param resource $store    user's store
+ * @param string   $serial   serial number
+ * @param string   $issuedBy issuer as built by certIssuerString()
+ * @param string   $cert     certificate (PEM)
+ *
+ * @return null|array the certificate message row, or null when not stored
+ */
+function findPublicCert($store, $serial, $issuedBy, $cert) {
+	$fingerprint = @openssl_x509_fingerprint($cert, 'sha256');
+	if ($serial === null || $serial === '' || $fingerprint === false) {
+		return null;
+	}
+
+	try {
+		foreach (getPublicCertRows($store, (string) $serial) as $row) {
+			if (($row[PR_SENDER_EMAIL_ADDRESS] ?? null) === $issuedBy &&
+				storedCertFingerprint($store, $row[PR_ENTRYID]) === $fingerprint) {
+				return $row;
+			}
+		}
+	}
+	catch (MAPIException $e) {
+		error_log(sprintf("[smime] Unable to check stored public certificates: %s", $e->getMessage()));
+	}
+
+	return null;
+}
+
+/**
+ * Collapse public certificate messages holding the same certificate into
+ * one and give the kept message the subject the email lookup expects.
+ *
+ * @param resource $store user's store
+ */
+function dedupePublicCerts($store) {
+	try {
+		$groups = [];
+		foreach (getPublicCertRows($store) as $row) {
+			$serial = (string) ($row[PR_SENDER_NAME] ?? '');
+			if ($serial !== '') {
+				$groups[$serial . "\0" . ($row[PR_SENDER_EMAIL_ADDRESS] ?? '')][] = $row;
+			}
+		}
+
+		$duplicates = [];
+		foreach ($groups as $rows) {
+			$subject = (string) ($rows[0][PR_SUBJECT] ?? '');
+			if (count($rows) === 1 && empty($rows[0][PR_SUBJECT_PREFIX]) && preg_match('/^[^\s,]+@[^\s,]+$/', $subject)) {
+				continue;
+			}
+			$certs = [];
+			foreach ($rows as $row) {
+				$body = readCertificateMessageBody(mapi_msgstore_openentry($store, $row[PR_ENTRYID]));
+				$pem = $body === null ? '' : base64_decode($body);
+				$fingerprint = @openssl_x509_fingerprint($pem, 'sha256');
+				if ($fingerprint !== false) {
+					$certs[$fingerprint]['pem'] = $pem;
+					$certs[$fingerprint]['rows'][] = $row;
+				}
+			}
+			foreach ($certs as $cert) {
+				$parsed = openssl_x509_parse($cert['pem']);
+				$certEmail = $parsed === false ? '' : getCertEmail($parsed);
+				$keep = $cert['rows'][0];
+				foreach ($cert['rows'] as $row) {
+					if (empty($row[PR_SUBJECT_PREFIX]) && strcasecmp((string) ($row[PR_SUBJECT] ?? ''), $certEmail) === 0) {
+						$keep = $row;
+						break;
+					}
+				}
+				foreach ($cert['rows'] as $row) {
+					if ($row !== $keep) {
+						$duplicates[] = $row[PR_ENTRYID];
+					}
+				}
+				if ($certEmail !== '' && (!empty($keep[PR_SUBJECT_PREFIX]) || strcasecmp((string) ($keep[PR_SUBJECT] ?? ''), $certEmail) !== 0)) {
+					$message = mapi_msgstore_openentry($store, $keep[PR_ENTRYID]);
+					mapi_setprops($message, [PR_SUBJECT => $certEmail, PR_SUBJECT_PREFIX => '']);
+					mapi_message_savechanges($message);
+				}
+			}
+		}
+		if (!empty($duplicates)) {
+			mapi_folder_deletemessages(mapi_msgstore_openentry($store), $duplicates);
+		}
+	}
+	catch (MAPIException $e) {
+		error_log(sprintf("[smime] Unable to remove duplicate public certificates: %s", $e->getMessage()));
+	}
 }
 
 /**

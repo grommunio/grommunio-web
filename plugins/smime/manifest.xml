@@ -6,7 +6,7 @@
 <!DOCTYPE plugin SYSTEM "manifest.dtd">
 <plugin version="2">
 	<info>
-		<version>2.1</version>
+		<version>2.2</version>
 		<name>S/MIME Plugin</name>
 		<title>S/MIME Plugin</title>
 		<author>grommunio</author>

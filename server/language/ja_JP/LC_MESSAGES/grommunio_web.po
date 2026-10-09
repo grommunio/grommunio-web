@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/grommunio-web/ja/>\n"
@@ -7925,6 +7925,9 @@ msgstr "暗号化メッセージ"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "その内容を暗号化することでプライバシーを確保します。そのメッセージは受信者に限り閲覧することができます。"
 
+msgid "Certificate issued to"
+msgstr "証明書の発行先"
+
 msgid "Algorithms used"
 msgstr "使用アルゴリズム"
 
@@ -8007,6 +8010,9 @@ msgstr "デジタル署名の署名時刻が、予想される時刻と大きく
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "送信者の証明書チェーンを検証できませんでした。証明書を発行した認証局がサーバーの S/MIME 用信頼済み CA ストアに登録されていないか、中間証明書が不足しています。不足している認証局証明書をインストールするよう、システム管理者に依頼してください。"
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "このメールのデジタル署名は有効ですが、署名に使用された証明書は送信者のアドレスのものではありません。メーリングリストや転送サービスを経由して届いた可能性があるほか、何者かが送信者になりすましている可能性もあります。"
+
 msgid "Signature verified successfully"
 msgstr "署名を正しく確認されました"
 
@@ -8069,6 +8075,9 @@ msgstr "サイン時間が予定時間と異なる"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "認証局が信頼されていないため、署名を検証できませんでした"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "署名は確認されましたが、証明書は送信者のものではありません"
 
 msgid "Digest"
 msgstr "ダイジェスト"

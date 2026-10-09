@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Farsi (Iran)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2017-10-05 19:48+0200\n"
 "Last-Translator: import\n"
 "Language: fa_IR\n"
@@ -7951,6 +7951,9 @@ msgstr "رمزگذاری پیام"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "با رمزگذاری محتوای پیام، حریم خصوصی آن را تضمین کنید. تنها گیرندهٔ پیام قادر به باز کردن آن خواهد بود."
 
+msgid "Certificate issued to"
+msgstr "گواهی صادرشده برای"
+
 msgid "Algorithms used"
 msgstr "الگوریتم های مورد استفاده"
 
@@ -8033,6 +8036,9 @@ msgstr "زمان امضا در امضای دیجیتال به‌طور قابل�
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "تأیید زنجیرهٔ گواهی فرستنده امکان‌پذیر نبود: مرجع صدور گواهی آن در مخزن مراجع صدور گواهی مورد اعتماد (⁦CA⁩) سرور برای ⁦S/MIME⁩ وجود ندارد، یا یک گواهی میانی مفقود است. برای نصب مرجع صدور گواهی مفقود با مدیر سیستم تماس بگیرید."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "امضای دیجیتال این ایمیل معتبر است، اما گواهی‌ای که برای امضای آن استفاده شده متعلق به آدرس فرستنده نیست. ممکن است این ایمیل از طریق یک فهرست پستی یا سرویس بازارسال منتقل شده باشد، یا ممکن است کسی خود را به جای فرستنده جا زده باشد."
+
 msgid "Signature verified successfully"
 msgstr "امضا با موفقیت تأیید شد"
 
@@ -8095,6 +8101,9 @@ msgstr "زمان امضا با زمان مورد انتظار متفاوت اس�
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "امکان تأیید امضا وجود نداشت؛ مرجع صدور گواهی مورد اعتماد نیست"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "تأیید امضا با موفقیت انجام شد، اما گواهی متعلق به فرستنده نیست"
 
 msgid "Digest"
 msgstr "خلاصه (Digest)"

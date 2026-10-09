@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web French (Canada)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: French (Canada) <https://hosted.weblate.org/projects/grommunio/grommunio-web/fr_CA/>\n"
@@ -7953,6 +7953,9 @@ msgstr "Chiffrer le message"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Assurer la confidentialité du message en chiffrant son contenu. Seul le destinataire du message sera en mesure de l'ouvrir."
 
+msgid "Certificate issued to"
+msgstr "Certificat délivré à"
+
 msgid "Algorithms used"
 msgstr "Algorithmes utilisés"
 
@@ -8035,6 +8038,9 @@ msgstr "L'heure de signature indiquée dans la signature numérique diffère con
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "La chaîne de certification du certificat de l'expéditeur n'a pas pu être vérifiée : l'autorité de certification qui l'a émis ne figure pas dans le magasin d'autorités de certification de confiance du serveur pour S/MIME, ou un certificat intermédiaire est manquant. Communiquez avec votre administrateur système afin qu'il installe l'autorité de certification manquante."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "La signature numérique de ce courriel est valide, mais le certificat utilisé pour la signer n'appartient pas à l'adresse de l'expéditeur. Le courriel a peut-être été relayé par une liste de diffusion ou un service de transfert, ou quelqu'un se fait peut-être passer pour l'expéditeur."
+
 msgid "Signature verified successfully"
 msgstr "Signature vérifiée avec succès"
 
@@ -8097,6 +8103,9 @@ msgstr "L'heure de signature diffère de l'heure prévue"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Impossible de vérifier la signature : l'autorité de certification n'est pas approuvée"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Signature vérifiée, mais le certificat n'appartient pas à l'expéditeur"
 
 msgid "Digest"
 msgstr "Digeste"

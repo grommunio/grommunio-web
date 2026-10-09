@@ -312,6 +312,9 @@ Grommunio.plugins.smime.SmimePlugin = Ext.extend(Grommunio.core.Plugin, {
 		case 'signed':
 		case 'encryptsigned':
 			var popupText = Grommunio.plugins.smime.SmimeText.getPopupText(smimeInfo.info);
+			if (smimeInfo.signer) {
+				popupText += '<br><br><b>' + _('Certificate issued to') + '</b><br>' + Ext.util.Format.htmlEncode(smimeInfo.signer);
+			}
 			var algoText = Grommunio.plugins.smime.SmimeText.formatAlgorithms(smimeInfo.algorithms);
 			if (algoText) {
 				popupText += '<br><br><b>' + _('Algorithms used') + '</b><br>' + algoText;
@@ -384,7 +387,8 @@ Grommunio.plugins.smime.SmimePlugin = Ext.extend(Grommunio.core.Plugin, {
 		case 'encryptsigned':
 			smimeInfoBox.update(String.format('{0} &lt{1}&gt <div class="icon_smime_sign_content"></div> <div class="icon_smime_decr_content"></div> {2}{3}', sender.get('display_name'), sender.get('smtp_address'), message, algoTag));
 			if (smimeInfo.success !== Grommunio.plugins.smime.SMIME_STATUS_BAD &&
-			smimeInfo.success !== Grommunio.plugins.smime.SMIME_STATUS_PARTIAL) {
+			(smimeInfo.success !== Grommunio.plugins.smime.SMIME_STATUS_PARTIAL ||
+			smimeInfo.info === Grommunio.plugins.smime.SMIME_SENDER_MISMATCH)) {
 				// Force the Attachmentlinks component to update, to view the attachments
 				this.ownerCt.findByType('grommunio.attachmentlinks')[0].update(record, true);
 			}
@@ -785,6 +789,7 @@ Grommunio.onReady(function() {
 	Grommunio.plugins.smime.SMIME_STATUS_PARTIAL = 1;
 	Grommunio.plugins.smime.SMIME_STATUS_BAD = 2;
 	Grommunio.plugins.smime.SMIME_DECRYPT_SUCCESS = 6;
+	Grommunio.plugins.smime.SMIME_SENDER_MISMATCH = 21;
 	Grommunio.plugins.smime.SMIME_STATUS_INFO = 3;
 	Grommunio.plugins.smime.CHANGE_CERTIFICATE_SUCCESS = 1;
 	Grommunio.plugins.smime.CHANGE_CERTIFICATE_ERROR = 2;

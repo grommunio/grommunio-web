@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:19+0200\n"
+"POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -7953,6 +7953,9 @@ msgstr "Salaa viesti"
 msgid "Ensure the privacy of the message by encrypting its contents. Only the recipient of the message will be able to open it."
 msgstr "Varmista viestin yksityisyys salaamalla sen sisältö. Vain viestin vastaanottaja voi avata sen."
 
+msgid "Certificate issued to"
+msgstr "Varmenteen haltija"
+
 msgid "Algorithms used"
 msgstr "Käytetyt algoritmit"
 
@@ -8035,6 +8038,9 @@ msgstr "Digitaalisen allekirjoituksen allekirjoitusajankohta poikkeaa merkittäv
 msgid "The certificate chain of the sender's certificate could not be verified: the certificate authority that issued it is not in the server's trusted CA store for S/MIME, or an intermediate certificate is missing. Please contact your system administrator to install the missing certificate authority."
 msgstr "Lähettäjän varmenteen varmenneketjua ei voitu tarkistaa: varmenteen myöntänyttä varmentajaa ei ole palvelimen S/MIME-käyttöön luotettujen varmentajien CA-säilössä tai välivarmenne puuttuu. Pyydä järjestelmänvalvojaa asentamaan puuttuvan varmentajan varmenne."
 
+msgid "The digital signature of this email is valid, but the certificate used to sign it does not belong to the sender address. The email may have been passed on by a mailing list or forwarding service, or someone may be impersonating the sender."
+msgstr "Tämän sähköpostiviestin digitaalinen allekirjoitus on kelvollinen, mutta sen allekirjoittamiseen käytetty varmenne ei kuulu lähettäjän osoitteelle. Viesti on voitu välittää postituslistan tai edelleenlähetyspalvelun kautta, tai joku voi esiintyä lähettäjänä."
+
 msgid "Signature verified successfully"
 msgstr "Allekirjoitus vahvistettu onnistuneesti"
 
@@ -8097,6 +8103,9 @@ msgstr "Allekirjoitusaika poikkeaa odotetusta ajasta"
 
 msgid "Could not verify signature, certificate authority is not trusted"
 msgstr "Allekirjoitusta ei voitu tarkistaa, koska varmentajaan ei luoteta"
+
+msgid "Signature verified, but the certificate does not belong to the sender"
+msgstr "Allekirjoituksen tarkistus onnistui, mutta varmenne ei kuulu lähettäjälle"
 
 msgid "Digest"
 msgstr "Digest"
