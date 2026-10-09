@@ -642,16 +642,23 @@ class ItemModule extends Module {
 				}
 			}
 
-			// Forward notifications are informational only (no calendar
-			// lookup / accept / decline processing needed).
-			$isMeetingNotification = class_match_prefix($messageClass, "IPM.Schedule.Meeting.Notification");
+			// A forward notification adds the forwarded attendees to the
+			// organizer's meeting, other notifications are informational only.
+			$isForwardNotification = class_match_prefix($messageClass, "IPM.Schedule.Meeting.Notification.Forward") &&
+				method_exists('Meetingrequest', 'processMeetingForwardNotification');
+			$isMeetingNotification = !$isForwardNotification && class_match_prefix($messageClass, "IPM.Schedule.Meeting.Notification");
 
 			// Check for meeting request, do processing if necessary
 			if ($requiresMeeting && !$isSentItem && !$isMeetingNotification) {
 				$req = new Meetingrequest($store, $message, $GLOBALS['mapisession']->getSession(), $this->directBookingMeetingRequest);
 
 				try {
-					if ($req->isMeetingRequestResponse($messageClass)) {
+					if ($isForwardNotification) {
+						if ($req->processMeetingForwardNotification()) {
+							$this->notifyForwardedMeeting($store, $req);
+						}
+					}
+					elseif ($req->isMeetingRequestResponse($messageClass)) {
 						if ($req->isLocalOrganiser()) {
 							// We received a meeting request response, and we're the delegate/organiser
 							$req->processMeetingRequestResponse();
@@ -726,7 +733,7 @@ class ItemModule extends Module {
 							$data['item']['props'] = array_merge($data['item']['props'], $calendarItemProps);
 						}
 					}
-					else {
+					elseif (!$isForwardNotification) {
 						$data['item']['props']['appointment_not_found'] = true;
 					}
 				}
@@ -1212,6 +1219,25 @@ class ItemModule extends Module {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Tells the calendar that a forward notification added attendees
+	 * to the organizer's meeting.
+	 *
+	 * @param resource       $store MAPI store of the forward notification
+	 * @param Meetingrequest $req   the forward notification
+	 */
+	private function notifyForwardedMeeting($store, $req) {
+		$goidProps = mapi_getprops($req->message, [$req->proptags['goid2']]);
+		if (empty($goidProps[$req->proptags['goid2']])) {
+			return;
+		}
+		foreach ($req->findCalendarItems($goidProps[$req->proptags['goid2']], false, true) ?? [] as $calItemEntryid) {
+			$calItem = mapi_msgstore_openentry($store, $calItemEntryid);
+			$calItemProps = mapi_getprops($calItem, [PR_ENTRYID, PR_PARENT_ENTRYID, PR_STORE_ENTRYID]);
+			$GLOBALS['bus']->notify(bin2hex((string) $calItemProps[PR_PARENT_ENTRYID]), TABLE_SAVE, $calItemProps);
+		}
 	}
 
 	/**
