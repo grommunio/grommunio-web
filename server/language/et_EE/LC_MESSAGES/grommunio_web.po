@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2025-05-21 10:01+0000\n"
 "Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/grommunio-web/et/>\n"
@@ -2593,6 +2593,9 @@ msgstr "Saada e-kiri"
 msgid "Delete recipient from suggestion list"
 msgstr "Kustuta saaja soovituste nimekirjast"
 
+msgid "From the address book or contacts"
+msgstr "Aadressiraamatust või kontaktidest"
+
 msgid "Copy all email addresses"
 msgstr "Kopeeri kõik e-posti aadressid"
 
@@ -5099,6 +5102,9 @@ msgstr "Salvesta delegaadi saadetud e-kirjad"
 
 msgid "Always request a read receipt"
 msgstr "Alati nõuda lugemiskviitungi"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Paku adressaate ka aadressiraamatust ja kontaktidest"
 
 msgid "Activate attachment reminder"
 msgstr "Aktiveerige manuse meeldetuletus"

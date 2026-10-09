@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -2591,6 +2591,9 @@ msgstr "Senda tölvupóst"
 msgid "Delete recipient from suggestion list"
 msgstr "Eyða viðtakanda úr tillögulista"
 
+msgid "From the address book or contacts"
+msgstr "Úr nafnaskránni eða tengiliðum"
+
 msgid "Copy all email addresses"
 msgstr "Afritaðu öll netföng"
 
@@ -5097,6 +5100,9 @@ msgstr "Vistaðu tölvupósta sem sendir eru af fulltrúa"
 
 msgid "Always request a read receipt"
 msgstr "Alltaf biðja um lestrarkvittun"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Stinga einnig upp á viðtakendum úr nafnaskránni og tengiliðum"
 
 msgid "Activate attachment reminder"
 msgstr "Virkjaðu áminningu um viðhengi"

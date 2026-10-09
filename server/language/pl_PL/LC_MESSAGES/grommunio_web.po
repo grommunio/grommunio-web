@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-07-26 17:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2615,6 +2615,9 @@ msgstr "Wyślij e-mail"
 msgid "Delete recipient from suggestion list"
 msgstr "Usuń odbiorcę z listy zaleceń"
 
+msgid "From the address book or contacts"
+msgstr "Z książki adresowej lub kontaktów"
+
 msgid "Copy all email addresses"
 msgstr "Skopiuj wszystkie adresy e-mail"
 
@@ -5135,6 +5138,9 @@ msgstr "Zapisywanie wiadomości e-mail wysłanych przez delegata"
 
 msgid "Always request a read receipt"
 msgstr "Zawsze żądaj potwierdzenia odczytu przez odbiorcę"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Podpowiadaj odbiorców również z książki adresowej i kontaktów"
 
 msgid "Activate attachment reminder"
 msgstr "Aktywuj przypomnienie o załącznikach"

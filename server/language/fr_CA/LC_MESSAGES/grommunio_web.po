@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web French (Canada)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: French (Canada) <https://hosted.weblate.org/projects/grommunio/grommunio-web/fr_CA/>\n"
@@ -2593,6 +2593,9 @@ msgstr "Envoyer le courriel"
 msgid "Delete recipient from suggestion list"
 msgstr "Supprimer un destinataire de la liste de suggestions"
 
+msgid "From the address book or contacts"
+msgstr "Depuis le carnet d'adresses ou les contacts"
+
 msgid "Copy all email addresses"
 msgstr "Copier toutes les adresses électroniques"
 
@@ -5099,6 +5102,9 @@ msgstr "Sauvegarder les courriels envoyés par le délégué"
 
 msgid "Always request a read receipt"
 msgstr "Toujours demander un accusé de réception"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Suggérer aussi des destinataires depuis le carnet d'adresses et les contacts"
 
 msgid "Activate attachment reminder"
 msgstr "Activer le rappel des pièces jointes"

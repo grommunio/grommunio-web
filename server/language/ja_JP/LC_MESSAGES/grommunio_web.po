@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/grommunio-web/ja/>\n"
@@ -2580,6 +2580,9 @@ msgstr "送信メール"
 msgid "Delete recipient from suggestion list"
 msgstr "提案リストから受信者を削除する"
 
+msgid "From the address book or contacts"
+msgstr "アドレス帳または連絡先から"
+
 msgid "Copy all email addresses"
 msgstr "すべてのメールアドレスをコピーする"
 
@@ -5075,6 +5078,9 @@ msgstr "代理人が送信したメールを保存する"
 
 msgid "Always request a read receipt"
 msgstr "常に開封確認の通知を要求をします"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "アドレス帳と連絡先からも宛先を候補表示する"
 
 msgid "Activate attachment reminder"
 msgstr "添付ファイルのリマインダーを有効にする"

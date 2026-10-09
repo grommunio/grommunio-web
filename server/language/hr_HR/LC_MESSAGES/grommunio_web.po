@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Croatian (Croatia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2025-02-25 15:04+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hr/>\n"
@@ -2613,6 +2613,9 @@ msgstr "Pošalji email"
 msgid "Delete recipient from suggestion list"
 msgstr "Izbrišite primatelja s popisa prijedloga"
 
+msgid "From the address book or contacts"
+msgstr "Iz adresara ili kontakata"
+
 msgid "Copy all email addresses"
 msgstr "Kopirajte sve adrese e-pošte"
 
@@ -5131,6 +5134,9 @@ msgstr "Spremi e-poštu koju je poslao delegat"
 
 msgid "Always request a read receipt"
 msgstr "Uvijek zahtijevajte potvrdu o čitanju"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Predlaži primatelje i iz adresara i kontakata"
 
 msgid "Activate attachment reminder"
 msgstr "Aktiviraj podsjetnik za privitak"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Catalan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2025-05-01 05:29+0000\n"
 "Last-Translator: Roger VC <rogervilarasau@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/grommunio/grommunio-web/ca/>\n"
@@ -2593,6 +2593,9 @@ msgstr "Enviar Correo Electrónico"
 msgid "Delete recipient from suggestion list"
 msgstr "Suprimeix el destinatari de la llista de suggeriments"
 
+msgid "From the address book or contacts"
+msgstr "De la llibreta d'adreces o els contactes"
+
 msgid "Copy all email addresses"
 msgstr "Copieu totes les adreces de correu electrònic"
 
@@ -5099,6 +5102,9 @@ msgstr "Guarda els correus electrònics enviats pel delegat"
 
 msgid "Always request a read receipt"
 msgstr "Solicitar siempre confirmación de lectura"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Suggereix també destinataris de la llibreta d'adreces i els contactes"
 
 msgid "Activate attachment reminder"
 msgstr "Activa el recordatori de fitxers adjunts"

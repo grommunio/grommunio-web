@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2025-03-30 04:00+0000\n"
 "Language: uz_UZ\n"
 "MIME-Version: 1.0\n"
@@ -2590,6 +2590,9 @@ msgstr ""
 msgid "Delete recipient from suggestion list"
 msgstr ""
 
+msgid "From the address book or contacts"
+msgstr ""
+
 msgid "Copy all email addresses"
 msgstr ""
 
@@ -5095,6 +5098,9 @@ msgid "Save emails sent by delegate"
 msgstr ""
 
 msgid "Always request a read receipt"
+msgstr ""
+
+msgid "Also suggest recipients from the address book and contacts"
 msgstr ""
 
 msgid "Activate attachment reminder"

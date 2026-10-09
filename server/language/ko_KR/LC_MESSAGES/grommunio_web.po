@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Korean (Korea)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2017-10-05 20:07+0200\n"
 "Last-Translator: import\n"
 "Language: ko_KR\n"
@@ -2571,6 +2571,9 @@ msgstr "이메일 보내기"
 msgid "Delete recipient from suggestion list"
 msgstr "추천 목록에서 수신자 삭제"
 
+msgid "From the address book or contacts"
+msgstr "주소록 또는 연락처에서"
+
 msgid "Copy all email addresses"
 msgstr "모든 이메일 주소 복사"
 
@@ -5065,6 +5068,9 @@ msgstr "대리인이 보낸 이메일 저장"
 
 msgid "Always request a read receipt"
 msgstr "항상 읽기 영수증 요청하기"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "주소록과 연락처에서도 받는 사람 추천"
 
 msgid "Activate attachment reminder"
 msgstr "첨부파일 알림 활성화"

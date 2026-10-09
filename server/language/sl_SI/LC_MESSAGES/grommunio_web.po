@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2635,6 +2635,9 @@ msgstr "Pošlji sporočilo"
 msgid "Delete recipient from suggestion list"
 msgstr "Brisanje prejemnika s seznama predlogov"
 
+msgid "From the address book or contacts"
+msgstr "Iz imenika ali stikov"
+
 msgid "Copy all email addresses"
 msgstr "Kopirajte vse e-poštne naslove"
 
@@ -5165,6 +5168,9 @@ msgstr "Shranjevanje e-poštnih sporočil, ki jih je poslal delegat"
 
 msgid "Always request a read receipt"
 msgstr "Vedno zahtevaj potrdilo o branju"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Predlagaj prejemnike tudi iz imenika in stikov"
 
 msgid "Activate attachment reminder"
 msgstr "Aktiviraj opomnik za prilogo"

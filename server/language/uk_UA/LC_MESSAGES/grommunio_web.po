@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/grommunio-web/uk/>\n"
@@ -2614,6 +2614,9 @@ msgstr "Надіслати повідомлення"
 msgid "Delete recipient from suggestion list"
 msgstr "Видалити отримувача зі списку пропозицій"
 
+msgid "From the address book or contacts"
+msgstr "З адресної книги або контактів"
+
 msgid "Copy all email addresses"
 msgstr "Скопіюйте всі адреси електронної пошти"
 
@@ -5132,6 +5135,9 @@ msgstr "Зберегти електронні листи, надіслані д�
 
 msgid "Always request a read receipt"
 msgstr "Завжди вимагайте прочитання квитанції"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Також пропонувати одержувачів з адресної книги та контактів"
 
 msgid "Activate attachment reminder"
 msgstr "Активувати нагадування про вкладення"

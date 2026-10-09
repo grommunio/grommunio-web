@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Farsi (Iran)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2017-10-05 19:48+0200\n"
 "Last-Translator: import\n"
 "Language: fa_IR\n"
@@ -2591,6 +2591,9 @@ msgstr "ارسال ایمیل"
 msgid "Delete recipient from suggestion list"
 msgstr "حذف گیرنده از لیست پیشنهاد"
 
+msgid "From the address book or contacts"
+msgstr "از دفترچه نشانی یا مخاطبان"
+
 msgid "Copy all email addresses"
 msgstr "تمام آدرس های ایمیل را کپی کنید"
 
@@ -5097,6 +5100,9 @@ msgstr "ایمیل های ارسال شده توسط نماینده را ذخی�
 
 msgid "Always request a read receipt"
 msgstr "همیشه درخواست رسید خواندن کنید"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "پیشنهاد گیرندگان از دفترچه نشانی و مخاطبان نیز"
 
 msgid "Activate attachment reminder"
 msgstr "فعال کردن یادآور پیوست"

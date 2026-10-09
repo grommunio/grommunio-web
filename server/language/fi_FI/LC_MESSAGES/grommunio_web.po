@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2593,6 +2593,9 @@ msgstr "Lähetä sähköposti"
 msgid "Delete recipient from suggestion list"
 msgstr "Poista jakelulista"
 
+msgid "From the address book or contacts"
+msgstr "Osoitekirjasta tai yhteystiedoista"
+
 msgid "Copy all email addresses"
 msgstr "Kopioi kaikki sähköpostiosoitteet"
 
@@ -5099,6 +5102,9 @@ msgstr "Tallenna valtuutetun lähettämät sähköpostit"
 
 msgid "Always request a read receipt"
 msgstr "Pyydä aina lukukuittaus"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Ehdota vastaanottajia myös osoitekirjasta ja yhteystiedoista"
 
 msgid "Activate attachment reminder"
 msgstr "Ota liitemuistutus käyttöön"
