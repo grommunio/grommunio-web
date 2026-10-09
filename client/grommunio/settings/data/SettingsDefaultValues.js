@@ -798,6 +798,14 @@ Grommunio.settings.data.SettingsDefaultValue = function(){
 								'block_external_content': true,
 
 								/**
+								 * grommunio/v1/contexts/mail/block_tracking_elements
+								 * 'always', 'except_safe_senders' or 'never'
+								 * @property
+								 * @type String
+								 */
+								'block_tracking_elements': 'except_safe_senders',
+
+								/**
 								 * grommunio/v1/context/mail/use_english_abbreviations
 								 * @property
 								 * @type Boolean

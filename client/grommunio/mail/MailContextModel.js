@@ -285,6 +285,9 @@ Grommunio.mail.MailContextModel = Ext.extend(Grommunio.core.ContextModel, {
 			}
 			// quote what the reading pane shows: no external content the user has not downloaded
 			var unsent = Ext.isFunction(record.isUnsent) && record.isUnsent();
+			if (Ext.isFunction(record.shouldBlockTrackingElements) && record.shouldBlockTrackingElements()) {
+				rawHtmlBody = Grommunio.core.HTMLParser.removeTrackingElements(rawHtmlBody);
+			}
 			if (!unsent && Ext.isFunction(record.shouldBlockExternalContent) && record.shouldBlockExternalContent()) {
 				rawHtmlBody = Grommunio.core.HTMLParser.blockExternalContent(rawHtmlBody);
 			}

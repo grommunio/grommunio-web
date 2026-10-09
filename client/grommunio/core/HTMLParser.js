@@ -234,6 +234,47 @@ Grommunio.core.HTMLParser = (function() {
 		}
 	}
 
+	// Open-tracking endpoints of common mailing and sales-tracking services.
+	var trackerUrlRe = new RegExp([
+		'\\.list-manage\\.com/track/open', '/wf/open\\?', 'mandrillapp\\.com/track/open',
+		'\\.hubspotemail\\.net/e[12]t/o/', 'track\\.hubspot\\.com/', 'mailtrack\\.io/', 'mailstat\\.us/',
+		't\\.yesware\\.com/', 'sidekickopen\\d*\\.com/', 'track\\.customer\\.io/e/o/',
+		'\\.mailjet\\.com/oo/', '\\.sendibt\\d*\\.com/', '\\.mixmax\\.com/api/track',
+		'r\\.superhuman\\.com/', 'returnpath\\.net/pixel', 'emltrk\\.com/',
+		'\\.rs6\\.net/on\\.jsp', '/open\\.(?:aspx|php|gif)\\b', '/(?:tracking|track)/open\\b'
+	].join('|'), 'i');
+
+	function cssPixels(value)
+	{
+		var match = /^\s*(\d+(?:\.\d+)?)\s*(px)?\s*$/i.exec(value || '');
+		return match ? parseFloat(match[1]) : NaN;
+	}
+
+	function isTrackingElement(node)
+	{
+		if ((node.tagName || '').toLowerCase() !== 'img') {
+			return false;
+		}
+
+		var src = node.getAttribute('src');
+		if (!isExternalResourceUrl(src)) {
+			return false;
+		}
+
+		if (trackerUrlRe.test(src)) {
+			return true;
+		}
+
+		var style = node.style;
+		if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') {
+			return true;
+		}
+
+		var width = cssPixels(style.width || node.getAttribute('width'));
+		var height = cssPixels(style.height || node.getAttribute('height'));
+		return (width <= 2 && height <= 2) || width === 0 || height === 0;
+	}
+
 	return {
 		/**
 		 * Strips all style tags, and also remove its contents
@@ -452,9 +493,10 @@ Grommunio.core.HTMLParser = (function() {
 		 * Function will check if data contains external contents in any html tag (img, audio, video),
 		 * and will also check for external stylesheets.
 		 * @param {String} data data that should be checked for external content.
+		 * @param {Boolean} ignoreTracking (optional) true to disregard {@link #countTrackingElements tracking elements}.
 		 * @return {Boolean} true if data contains external content else false.
 		 */
-		hasExternalContent: function(data)
+		hasExternalContent: function(data, ignoreTracking)
 		{
 			if(Ext.isEmpty(data)) {
 				return false;
@@ -465,6 +507,10 @@ Grommunio.core.HTMLParser = (function() {
 			for (var i = 0; i < nodes.length; i++) {
 				var node = nodes[i];
 				var tagName = (node.tagName || '').toLowerCase();
+
+				if (ignoreTracking === true && isTrackingElement(node)) {
+					continue;
+				}
 
 				var src = node.getAttribute('src');
 				if (isExternalResourceUrl(src)) {
@@ -523,6 +569,53 @@ Grommunio.core.HTMLParser = (function() {
 			}
 
 			return false;
+		},
+
+		/**
+		 * Count the remote images which are likely open-tracking pixels: tiny or invisible
+		 * images, and images served by known tracking endpoints.
+		 * @param {String} data HTML body.
+		 * @return {Number} number of tracking elements.
+		 */
+		countTrackingElements: function(data)
+		{
+			if (Ext.isEmpty(data)) {
+				return 0;
+			}
+
+			var images = parseInertHtml(data).root.querySelectorAll('img');
+			var count = 0;
+			for (var i = 0; i < images.length; i++) {
+				if (isTrackingElement(images[i])) {
+					count++;
+				}
+			}
+
+			return count;
+		},
+
+		/**
+		 * Remove the elements found by {@link #countTrackingElements}.
+		 * @param {String} data HTML body.
+		 * @return {String} filtered data, or data itself when nothing was removed.
+		 */
+		removeTrackingElements: function(data)
+		{
+			if (Ext.isEmpty(data)) {
+				return data;
+			}
+
+			var parsed = parseInertHtml(data);
+			var images = parsed.root.querySelectorAll('img');
+			var removed = false;
+			for (var i = 0; i < images.length; i++) {
+				if (isTrackingElement(images[i])) {
+					images[i].parentNode.removeChild(images[i]);
+					removed = true;
+				}
+			}
+
+			return removed ? parsed.toHtml() : data;
 		},
 
 		/**

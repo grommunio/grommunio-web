@@ -47,7 +47,19 @@ Grommunio.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	 * @cfg {String} blockStatusInfoString string which must be displayed in the {@link #header}
 	 * if there is any external content blocked in the {@link Grommunio.core.data.IPMRecord record} body.
 	 */
-	blockStatusInfoString: pgettext('mail.previewpanel', 'Click here to download pictures. To help protect your privacy, grommunio Web prevented automatic download of some pictures in this message.'),
+	blockStatusInfoString: pgettext('mail.previewpanel', 'External content blocked. Loading it can tell the sender or a third party that you opened this message, and from which IP address. Click here to download pictures.'),
+
+	/**
+	 * @cfg {String} trackingInfoString string which is displayed in the {@link #header} after
+	 * the count of blocked tracking elements when no other external content is blocked.
+	 */
+	trackingInfoString: pgettext('mail.previewpanel', 'Such elements tell the sender or a third party when you open a message.'),
+
+	/**
+	 * @cfg {String} trackingAfterDownloadInfoString string which is displayed in the {@link #header} after
+	 * the count of blocked tracking elements when the other external content is shown.
+	 */
+	trackingAfterDownloadInfoString: pgettext('mail.previewpanel', 'Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked.'),
 
 	/**
 	 * @cfg {String} faultyMessageInfoString string which will be displayed in the {@link #header}
@@ -359,8 +371,12 @@ Grommunio.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 		}
 
 		if(this.record instanceof Grommunio.core.data.MessageRecord) {
+			var trackers = record.shouldBlockTrackingElements() ? record.getTrackingElementCount() : 0;
+			var trackingHtml = trackers > 0 ? '<span class="k-extrainfo-tracking">' + String.format(npgettext('mail.previewpanel',
+				'{0} potential tracking element blocked.', '{0} potential tracking elements blocked.', trackers), trackers) + '</span> ' : '';
+
 			if(record.isExternalContentBlocked()) {
-				var blockElement = el.createChild({tag: 'div', html: this.blockStatusInfoString, cls: this.itemCls});
+				var blockElement = el.createChild({tag: 'div', html: trackingHtml + this.blockStatusInfoString, cls: this.itemCls});
 				blockElement.set({ 'role': 'button', 'tabindex': '0' });
 
 				// add click event
@@ -375,6 +391,15 @@ Grommunio.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 				// add class to show that this element is clickable
 				blockElement.addClassOnOver('preview-header-extrainfobox-item-over');
 
+				isVisible = true;
+			} else if (trackers > 0) {
+				if (record.hasExternalContent()) {
+					trackingHtml = '<span class="k-extrainfo-tracking">' + String.format(npgettext('mail.previewpanel',
+						'{0} potential tracking element still blocked.', '{0} potential tracking elements still blocked.', trackers), trackers) + '</span> ';
+					el.createChild({tag: 'div', html: trackingHtml + this.trackingAfterDownloadInfoString, cls: this.itemCls});
+				} else {
+					el.createChild({tag: 'div', html: trackingHtml + this.trackingInfoString, cls: this.itemCls});
+				}
 				isVisible = true;
 			}
 

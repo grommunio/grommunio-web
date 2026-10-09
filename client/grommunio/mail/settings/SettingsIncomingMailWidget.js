@@ -120,6 +120,29 @@ Grommunio.mail.settings.SettingsIncomingMailWidget = Ext.extend(Grommunio.settin
 				forceSelection: true,
 				editable: false,
 				autoSelect: true
+			}, {
+				xtype: 'combo',
+				name: 'grommunio/v1/contexts/mail/block_tracking_elements',
+				ref: 'trackingCombo',
+				fieldLabel: _('Block potential tracking elements'),
+				labelWidth: 400,
+				store: {
+					xtype: 'jsonstore',
+					autoDestroy: true,
+					fields: ['name', 'value'],
+					data: [
+						{ name: _('Always'), value: 'always' },
+						{ name: _('Except from safe senders'), value: 'except_safe_senders' },
+						{ name: _('Never'), value: 'never' }
+					]
+				},
+				mode: 'local',
+				triggerAction: 'all',
+				displayField: 'name',
+				valueField: 'value',
+				lazyInit: false,
+				forceSelection: true,
+				editable: false
 			}
 		]
 		});
@@ -148,6 +171,7 @@ Grommunio.mail.settings.SettingsIncomingMailWidget = Ext.extend(Grommunio.settin
 
 		var useHtml = settingsModel.get(this.incomingCombo.name);
 		this.incomingCombo.setValue(useHtml ? 'html' : 'plain');
+		this.trackingCombo.setValue(settingsModel.get(this.trackingCombo.name));
 	},
 
 	/**
@@ -163,6 +187,7 @@ Grommunio.mail.settings.SettingsIncomingMailWidget = Ext.extend(Grommunio.settin
 		settingsModel.set(this.readFlagTimeCheckbox.name, this.readFlagTimeCheckbox.getValue());
 		settingsModel.set(this.readFlagTimeSpinner.name, this.readFlagTimeSpinner.getValue());
 		settingsModel.set(this.incomingCombo.name, this.incomingCombo.getValue() === 'html');
+		settingsModel.set(this.trackingCombo.name, this.trackingCombo.getValue());
 		settingsModel.endEdit();
 	},
 
