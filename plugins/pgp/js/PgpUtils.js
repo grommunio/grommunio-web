@@ -79,6 +79,66 @@ Grommunio.plugins.pgp.PgpUtils = {
 			});
 		});
 	},
+	/** Import keys one after another, so that each merge sees the previous one. */
+	importKeys: function(keys)
+	{
+		var utils = this;
+		return keys.reduce(function(previous, key) {
+			return previous.then(function() { return utils.importKey(key); });
+		}, Promise.resolve()).then(function() { return keys; });
+	},
+	/**
+	 * Fetch a public key from one of the user's keyservers.
+	 * @param {String} server The keyserver origin
+	 * @param {String} query A full fingerprint or a 16-digit key ID of the key or one of its subkeys
+	 * @return {Promise} The inspected key; rejected unless the keyserver returned that very key
+	 */
+	fetchPublicKey: function(server, query)
+	{
+		var utils = this, wanted = String(query).toUpperCase();
+		return this.api('lookup', {server: server, fingerprint: wanted}).then(function(response) {
+			return utils.crypto().inspect(response.armored);
+		}).then(function(key) {
+			var meta = key.metadata || {}, ids = [key.fingerprint, meta.keyid];
+			Ext.each(meta.subkeys || [], function(subkey) { ids.push(subkey.fingerprint, subkey.keyid); });
+			if (key.encrypted_private_key || ids.indexOf(wanted) === -1) {
+				throw new Error(_('The keyserver did not return the requested public key.'));
+			}
+			return key;
+		});
+	},
+	/**
+	 * Try the user's keyservers in order until one returns the key.
+	 * @param {String[]} queries Fingerprints or key IDs naming the same key, tried in order on each keyserver
+	 * @return {Promise} The key; rejected when no keyserver is configured or none has it
+	 */
+	findPublicKey: function(queries)
+	{
+		var utils = this;
+		return this.api('list', {}).then(function(response) {
+			var servers = response.keyservers || [];
+			if (!servers.length) { throw new Error(_('No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers.')); }
+			var attempts = [];
+			servers.forEach(function(server) { queries.forEach(function(query) { attempts.push([server, query]); }); });
+			return attempts.reduce(function(previous, attempt) {
+				return previous.catch(function() { return utils.fetchPublicKey(attempt[0], attempt[1]); });
+			}, Promise.reject(new Error(''))).catch(function() {
+				throw new Error(_('None of your keyservers has this key. Ask the sender for their public key.'));
+			});
+		});
+	},
+	/**
+	 * Signatures whose key is not in the keyring. A keyserver may not index the
+	 * fingerprint of a signing subkey, so its key ID is searched as well.
+	 */
+	missingSigners: function(info)
+	{
+		return (info && info.signatures || []).filter(function(signature) {
+			return signature.status === 'missing-key';
+		}).map(function(signature) {
+			return {keyid: signature.keyid, queries: [signature.issuer_fingerprint, signature.keyid].filter(Boolean)};
+		});
+	},
 	notify: function(message, error)
 	{
 		container.getNotifier().notify('info.saved', _('OpenPGP'), this.encode(message));
@@ -136,7 +196,11 @@ Grommunio.plugins.pgp.PgpUtils = {
 				_('Message could not be decrypted — click for details or retry') : _('Encrypted message — unlock your private key to read'));
 		}
 		if (info.signed) {
-			if (info.signature_valid !== true) {
+			var missing = this.missingSigners(info);
+			if (info.signature_valid !== true && missing.length && missing.length === (info.signatures || []).filter(function(signature) { return signature.valid !== true; }).length) {
+				parts.push(String.format(_('Signature not checked — signing key {0} is not in your keyring'), missing.map(function(signer) { return signer.keyid; }).join(', ')));
+				severity = 'warning';
+			} else if (info.signature_valid !== true) {
 				parts.push(_('Signature could not be verified'));
 				severity = 'bad';
 			} else if (info.sender_match !== true) {

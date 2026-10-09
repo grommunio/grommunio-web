@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Catalan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2025-05-01 05:29+0000\n"
 "Last-Translator: Roger VC <rogervilarasau@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/grommunio/grommunio-web/ca/>\n"
@@ -2233,6 +2233,9 @@ msgstr "Copiar/Mover Mensajes"
 
 msgid "Destination folder"
 msgstr "Carpeta de Destino"
+
+msgid "Filter folders"
+msgstr "Filtre de carpetes"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4625,16 +4628,16 @@ msgid "Folder size"
 msgstr "Tamaño carpeta"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Permisos d'enviament"
 
 msgid "Folder containing {0} Items"
 msgstr "Carpeta contiene {0} elementos"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Envia en nom de"
 
 msgid "Send as"
-msgstr ""
+msgstr "Envia com a"
 
 msgid "Permissions"
 msgstr "Permisos"
@@ -4842,9 +4845,6 @@ msgstr "¿Esta seguro de que desea vaciar {0}?"
 
 msgid "Show All"
 msgstr "Mostra-ho tot"
-
-msgid "Filter folders"
-msgstr "Filtre de carpetes"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "No tens privilegis suficients per moure aquesta carpeta. Vols copiar-la en lloc de moure-la?"
@@ -7242,11 +7242,14 @@ msgstr "S'esperava un únic bloc d'armadura OpenPGP."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "No es permeten dades addicionals fora de l'armadura OpenPGP."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Importeu una sola clau OpenPGP completa cada vegada."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Importeu entre 1 i {0} claus OpenPGP alhora."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Aquesta clau supera el límit admès de subclaus o d'identitats."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Importeu una sola clau OpenPGP completa cada vegada."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Les claus privades han d'estar protegides amb una frase de contrasenya abans de pujar-les. Protegiu primer aquesta clau localment."
@@ -7262,6 +7265,24 @@ msgstr "La clau OpenPGP s'ha bloquejat mentre s'executava l'operació."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP requereix un navegador modern i una connexió HTTPS segura."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Importeu una clau privada sola, no juntament amb altres claus."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Aquesta clau privada només està protegida parcialment. Protegiu-la del tot abans d'importar-la."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Aquesta clau privada no està protegida amb cap frase de contrasenya. Introduïu una frase de contrasenya nova per protegir-la."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "La frase de contrasenya actual no ha pogut desbloquejar aquesta clau privada."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Introduïu la frase de contrasenya actual d'aquesta clau per assignar-n'hi una de nova."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Aquesta clau privada fa servir una protecció obsoleta. Introduïu-ne la frase de contrasenya actual per tornar-la a protegir."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "L'acció Protegeix requereix una clau privada sense protegir. Per a les claus protegides, utilitzeu Canvia la frase de contrasenya."
@@ -7344,6 +7365,36 @@ msgstr "El desxifratge per si sol no autentica el remitent."
 msgid "OpenPGP security information"
 msgstr "Informació de seguretat OpenPGP"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Es pot cercar la clau que falta als vostres servidors de claus. Aquests sabran quina clau cerqueu. Abans de confiar en el remitent, cal verificar l'empremta digital d'una clau trobada d'aquesta manera."
+
+msgid "Find key on keyserver"
+msgstr "Cerca la clau al servidor de claus"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "S'ha importat la clau de signatura {0}. Verifiqueu-ne l'empremta digital abans de confiar en el remitent."
+
+msgid "Import OpenPGP key"
+msgstr "Importa una clau OpenPGP"
+
+msgid "The attachment could not be loaded."
+msgstr "No s'ha pogut carregar el fitxer adjunt."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "El fitxer de clau és massa gran. Mida màxima: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Aquest fitxer adjunt conté una clau privada. Importeu-la a Configuración → OpenPGP → Importa una clau."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "S'ha importat la clau pública. Verifiqueu-ne l'empremta digital abans d'enviar missatges xifrats al seu propietari."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "S'han importat {0} claus públiques. Verifiqueu-ne les empremtes digitals abans d'enviar missatges xifrats als seus propietaris."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Aquest fitxer adjunt no conté cap clau pública OpenPGP."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7416,6 +7467,15 @@ msgstr "Els fitxers adjunts descodificats són massa grans."
 msgid "The OpenPGP operation failed."
 msgstr "L'operació d'OpenPGP ha fallat."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "El servidor de claus no ha retornat la clau pública sol·licitada."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "No hi ha cap servidor de claus configurat. Afegiu-ne un a Configuración → OpenPGP → Gestiona els servidors de claus."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Cap dels vostres servidors de claus té aquesta clau. Demaneu al remitent la seva clau pública."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: s'està comprovant la seguretat del missatge…"
 
@@ -7433,6 +7493,9 @@ msgstr "No s'ha pogut desxifrar el missatge — feu clic per veure'n els detalls
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Missatge xifrat — desbloqueu la vostra clau privada per llegir-lo"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Signatura no comprovada — la clau de signatura {0} no és al vostre clauer"
 
 msgid "Signature could not be verified"
 msgstr "No s'ha pogut verificar la signatura"
@@ -7527,6 +7590,9 @@ msgstr "Exporta la clau pública"
 msgid "Back up private key"
 msgstr "Fes una còpia de seguretat de la clau privada"
 
+msgid "Refresh from keyserver"
+msgstr "Actualitza des del servidor de claus"
+
 msgid "Unlock in this browser"
 msgstr "Desbloqueja-la en aquest navegador"
 
@@ -7587,14 +7653,8 @@ msgstr "Certificat de revocació — guardeu-ho en un lloc segur"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Trieu una frase de contrasenya robusta de 12 caràcters com a mínim. La generació es fa localment en aquest navegador i pot trigar una estona. Guardeu el certificat de revocació i una còpia de seguretat de la clau privada en un lloc segur."
 
-msgid "Import OpenPGP key"
-msgstr "Importa una clau OpenPGP"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "Trieu el fitxer de clau OpenPGP amb armadura ASCII"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "El fitxer de clau és massa gran. Mida màxima: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "No s'ha pogut llegir el fitxer de clau."
@@ -7602,17 +7662,20 @@ msgstr "No s'ha pogut llegir el fitxer de clau."
 msgid "Armored key"
 msgstr "Clau amb armadura ASCII"
 
-msgid "Protect unencrypted key"
-msgstr "Protegiu la clau no xifrada"
+msgid "Current passphrase"
+msgstr "Frase de contrasenya actual"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Opcional: frase de contrasenya nova per a una clau privada sense protegir"
+msgid "New passphrase"
+msgstr "Nova contrasenya"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "S'ha importat la clau. Verifiqueu les empremtes digitals dels destinataris abans d'enviar-los missatges xifrats."
+msgid "Repeat new passphrase"
+msgstr "Repetiu la frase de contrasenya nova"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Trieu un fitxer o enganxeu una única clau amb armadura ASCII, incloses les línies BEGIN i END. Si la clau privada no està protegida, introduïu una frase de contrasenya nova per protegir-la localment abans de desar-la. Les claus de destinataris importades no passen a ser de confiança automàticament."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "S'ha importat la clau privada. Feu una còpia de seguretat de la clau privada si n'heu canviat la frase de contrasenya."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Trieu un fitxer o enganxeu claus amb armadura ASCII, incloses les línies BEGIN i END. Un fitxer pot contenir diverses claus públiques. Per a una clau privada: si està protegida, introduïu-ne la frase de contrasenya actual només si voleu assignar-n'hi una de nova; si no ho està, introduïu una frase de contrasenya nova per protegir-la abans de desar-la. Les claus importades no es consideren de confiança automàticament."
 
 msgid "Public OpenPGP key"
 msgstr "Clau pública OpenPGP"
@@ -7629,17 +7692,8 @@ msgstr "Còpia de seguretat de la clau privada — guardeu-ho en un lloc segur"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Confirmeu la vostra frase de contrasenya localment abans de descarregar aquesta còpia de seguretat xifrada de la clau privada. Guardeu-la en un lloc segur i no l'envieu mai a cap destinatari ni a cap servidor de claus."
 
-msgid "Current passphrase"
-msgstr "Frase de contrasenya actual"
-
-msgid "New passphrase"
-msgstr "Nova contrasenya"
-
 msgid "Change OpenPGP passphrase"
 msgstr "Canvia la frase de contrasenya OpenPGP"
-
-msgid "Repeat new passphrase"
-msgstr "Repetiu la frase de contrasenya nova"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "S'ha canviat la frase de contrasenya. Feu una còpia de seguretat nova de la clau privada."
@@ -7716,6 +7770,12 @@ msgstr "Només es poden utilitzar els servidors de claus HTTPS aprovats per l'ad
 msgid "Approved servers: {0}"
 msgstr "Servidors aprovats: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "S'estan cercant els vostres servidors de claus…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "S'ha actualitzat la clau des del servidor de claus. Ara s'apliquen les noves dates de caducitat, subclaus i revocacions."
+
 msgid "Find OpenPGP public key"
 msgstr "Cerca una clau pública OpenPGP"
 
@@ -7730,12 +7790,6 @@ msgstr "Introduïu una empremta digital hexadecimal completa de 40 o 64 caràcte
 
 msgid "Find and import"
 msgstr "Cerca i importa"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "El servidor de claus no ha retornat la clau pública sol·licitada."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "S'ha importat la clau pública. Verifiqueu-ne l'empremta digital abans d'enviar missatges xifrats al seu propietari."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "El servidor rebrà l'empremta digital que cerqueu. Una clau descarregada encara necessita la verificació de l'empremta digital abans d'enviar missatges xifrats al seu propietari."

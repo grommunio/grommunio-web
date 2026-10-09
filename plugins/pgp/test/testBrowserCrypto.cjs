@@ -191,6 +191,18 @@ async function main() {
 	check(clear.valid && BrowserCrypto.decodeUtf8(clear.data).includes('Clear-signed text'), 'GnuPG cleartext signature verified in browser');
 	await rejects(() => service.verifyCleartext(cleartext + '\nunsigned attacker text', [gpgPublic]), 'Clear-signed appended attacker text rejected');
 	check(!(await service.verifyCleartext(cleartext.replace('Second line.', 'Modified line.'), [gpgPublic])).valid, 'Clear-signed content tampering rejected');
+	const unknown = (await service.verifyCleartext(cleartext, [rsa.public_key])).signatures[0];
+	check(unknown.status === 'missing-key' && unknown.issuer_fingerprint === gpgFp, 'Missing signer reported with its issuer fingerprint');
+	const kept = (await service.importable(gpgPrivate))[0];
+	await service.unlock(kept.encrypted_private_key, password);
+	check(kept.metadata.protected, 'Protected private key imported as is keeps its passphrase');
+	const renewed = (await service.importable(gpgPrivate, password, password2))[0];
+	await service.unlock(renewed.encrypted_private_key, password2);
+	await rejects(() => service.unlock(renewed.encrypted_private_key, password), 'Import with a new passphrase replaces the old one');
+	await rejects(() => service.importable(gpgPrivate, password2, password), 'Wrong current passphrase on import rejected');
+	await rejects(() => service.importable(gpgPrivate, '', password2), 'New passphrase without the current one rejected');
+	equal((await service.importable(gpgPublic + '\n' + rsa.public_key)).length, 2, 'Several public key blocks imported together');
+	await rejects(() => service.importable(gpgPrivate + '\n' + rsa.public_key), 'Private key together with other keys rejected');
 	const tiny = new BrowserCrypto({maxMessageBytes: 1024});
 	await tiny.unlock(rsa.private_key, password);
 	await rejects(() => tiny.sign(new Uint8Array(1025), rsa.fingerprint), 'Plaintext input bound enforced');

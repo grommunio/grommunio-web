@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/grommunio/grommunio-web/nb_NO/>\n"
@@ -2233,6 +2233,9 @@ msgstr "Kopier/flytt meldinger"
 
 msgid "Destination folder"
 msgstr "Målmappe"
+
+msgid "Filter folders"
+msgstr "Filtermapper"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4625,16 +4628,16 @@ msgid "Folder size"
 msgstr "Mappestørrelse"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Senderettigheter"
 
 msgid "Folder containing {0} Items"
 msgstr "Mappen inneholder {0} elementer"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Send på vegne av"
 
 msgid "Send as"
-msgstr ""
+msgstr "Send som"
 
 msgid "Permissions"
 msgstr "Rettigheter"
@@ -4842,9 +4845,6 @@ msgstr "Er du sikker på at du vil tømme {0}?"
 
 msgid "Show All"
 msgstr "Vis alt"
-
-msgid "Filter folders"
-msgstr "Filtermapper"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Du har ikke tilstrekkelige rettigheter til å flytte denne mappen. Vil du kopiere i stedet?"
@@ -7242,11 +7242,14 @@ msgstr "Forventet nøyaktig én OpenPGP-armeringsblokk."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "Ytterligere data utenfor OpenPGP-armeringen er ikke tillatt."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Importer én fullstendig OpenPGP-nøkkel om gangen."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Importer mellom 1 og {0} OpenPGP-nøkler om gangen."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Denne nøkkelen overskrider grensen for antall undernøkler eller identiteter som støttes."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Importer én fullstendig OpenPGP-nøkkel om gangen."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Private nøkler må være beskyttet med en passordfrase før opplasting. Beskytt denne nøkkelen lokalt først."
@@ -7262,6 +7265,24 @@ msgstr "OpenPGP-nøkkelen ble låst mens operasjonen pågikk."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP krever en moderne nettleser og en sikker HTTPS-tilkobling."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Importer en privat nøkkel alene, ikke sammen med andre nøkler."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Denne private nøkkelen er bare delvis beskyttet. Beskytt den fullstendig før du importerer den."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Denne private nøkkelen er ikke beskyttet med en passordfrase. Skriv inn en ny passordfrase for å beskytte den."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "Den gjeldende passordfrasen kunne ikke låse opp denne private nøkkelen."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Skriv inn den gjeldende passordfrasen for denne nøkkelen for å gi den en ny."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Denne private nøkkelen bruker en utdatert beskyttelse. Skriv inn den gjeldende passordfrasen for å beskytte den på nytt."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "Beskytt-handlingen forventer en ubeskyttet privat nøkkel. Bruk Endre passordfrase for beskyttede nøkler."
@@ -7344,6 +7365,36 @@ msgstr "Dekryptering alene autentiserer ikke avsenderen."
 msgid "OpenPGP security information"
 msgstr "OpenPGP-sikkerhetsinformasjon"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Nøkkelserverne dine kan søkes gjennom etter den manglende nøkkelen. De får vite hvilken nøkkel du ser etter. Også for en nøkkel som er funnet på denne måten, må fingeravtrykket verifiseres før du stoler på avsenderen."
+
+msgid "Find key on keyserver"
+msgstr "Finn nøkkel på nøkkelserver"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "Signeringsnøkkelen {0} er importert. Verifiser fingeravtrykket før du stoler på avsenderen."
+
+msgid "Import OpenPGP key"
+msgstr "Importer OpenPGP-nøkkel"
+
+msgid "The attachment could not be loaded."
+msgstr "Vedlegget kunne ikke lastes inn."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Nøkkelfilen er for stor. Maksimal størrelse: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Dette vedlegget inneholder en privat nøkkel. Importer den under Innstillinger → OpenPGP → Importer nøkkel."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Den offentlige nøkkelen er importert. Verifiser fingeravtrykket før du krypterer meldinger til eieren av nøkkelen."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "{0} offentlige nøkler er importert. Verifiser fingeravtrykkene før du krypterer til eierne."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Dette vedlegget inneholder ingen offentlig OpenPGP-nøkkel."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7416,6 +7467,15 @@ msgstr "De dekodede vedleggene er for store."
 msgid "The OpenPGP operation failed."
 msgstr "OpenPGP-operasjonen mislyktes."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "Nøkkelserveren returnerte ikke den forespurte offentlige nøkkelen."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Ingen nøkkelserver er konfigurert. Legg til en under Innstillinger → OpenPGP → Behandle nøkkelservere."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Ingen av nøkkelserverne dine har denne nøkkelen. Be avsenderen om den offentlige nøkkelen."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: kontrollerer meldingssikkerheten…"
 
@@ -7433,6 +7493,9 @@ msgstr "Meldingen kunne ikke dekrypteres — klikk for detaljer eller nytt fors�
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Kryptert melding — lås opp den private nøkkelen din for å lese den"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Signaturen er ikke kontrollert — signeringsnøkkelen {0} er ikke i nøkkelknippet ditt"
 
 msgid "Signature could not be verified"
 msgstr "Signaturen kunne ikke verifiseres"
@@ -7527,6 +7590,9 @@ msgstr "Eksporter offentlig nøkkel"
 msgid "Back up private key"
 msgstr "Sikkerhetskopier privat nøkkel"
 
+msgid "Refresh from keyserver"
+msgstr "Oppdater fra nøkkelserver"
+
 msgid "Unlock in this browser"
 msgstr "Lås opp i denne nettleseren"
 
@@ -7587,14 +7653,8 @@ msgstr "Tilbakekallingssertifikat — oppbevar sikkert"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Velg en sterk passordfrase på minst 12 tegn. Genereringen skjer lokalt i denne nettleseren og kan ta litt tid. Oppbevar tilbakekallingssertifikatet og en sikkerhetskopi av den private nøkkelen på et trygt sted."
 
-msgid "Import OpenPGP key"
-msgstr "Importer OpenPGP-nøkkel"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "Velg fil med ASCII-armert OpenPGP-nøkkel"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "Nøkkelfilen er for stor. Maksimal størrelse: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "Nøkkelfilen kunne ikke leses."
@@ -7602,17 +7662,20 @@ msgstr "Nøkkelfilen kunne ikke leses."
 msgid "Armored key"
 msgstr "ASCII-armert nøkkel"
 
-msgid "Protect unencrypted key"
-msgstr "Beskytt ukryptert nøkkel"
+msgid "Current passphrase"
+msgstr "Nåværende passordfrase"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Valgfritt: ny passordfrase for en ubeskyttet privat nøkkel"
+msgid "New passphrase"
+msgstr "Ny passordfrase"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "Nøkkelen er importert. Verifiser fingeravtrykkene til mottakerne før du krypterer meldinger til dem."
+msgid "Repeat new passphrase"
+msgstr "Gjenta ny passordfrase"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Velg en fil eller lim inn én ASCII-armert nøkkel, inkludert BEGIN- og END-linjene. For en ubeskyttet privat nøkkel må du oppgi en ny passordfrase for å beskytte den lokalt før lagring. Importerte mottakernøkler blir ikke automatisk klarert."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Den private nøkkelen er importert. Ta en sikkerhetskopi av den private nøkkelen hvis du endret passordfrasen."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Velg en fil eller lim inn ASCII-armerte nøkler, inkludert BEGIN- og END-linjene. En fil kan inneholde flere offentlige nøkler. For en privat nøkkel gjelder: Hvis den er beskyttet, skriver du bare inn den gjeldende passordfrasen for å gi den en ny; hvis ikke, skriver du inn en ny passordfrase for å beskytte den før lagring. Importerte nøkler blir ikke automatisk klarert."
 
 msgid "Public OpenPGP key"
 msgstr "Offentlig OpenPGP-nøkkel"
@@ -7629,17 +7692,8 @@ msgstr "Sikkerhetskopi av privat nøkkel — oppbevar sikkert"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Bekreft passordfrasen din lokalt før du laster ned denne krypterte sikkerhetskopien av den private nøkkelen. Oppbevar den sikkert, og send den aldri til en mottaker eller en nøkkelserver."
 
-msgid "Current passphrase"
-msgstr "Nåværende passordfrase"
-
-msgid "New passphrase"
-msgstr "Ny passordfrase"
-
 msgid "Change OpenPGP passphrase"
 msgstr "Endre OpenPGP-passordfrase"
-
-msgid "Repeat new passphrase"
-msgstr "Gjenta ny passordfrase"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "Passordfrasen er endret. Lag en ny sikkerhetskopi av den private nøkkelen."
@@ -7716,6 +7770,12 @@ msgstr "Bare HTTPS-nøkkelservere som administratoren har godkjent, kan brukes. 
 msgid "Approved servers: {0}"
 msgstr "Godkjente servere: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Søker i nøkkelserverne dine…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "Nøkkelen er oppdatert fra nøkkelserveren. Nye utløpsdatoer, undernøkler og tilbakekallinger gjelder nå."
+
 msgid "Find OpenPGP public key"
 msgstr "Finn offentlig OpenPGP-nøkkel"
 
@@ -7730,12 +7790,6 @@ msgstr "Skriv inn et fullstendig heksadesimalt fingeravtrykk på 40 eller 64 teg
 
 msgid "Find and import"
 msgstr "Finn og importer"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "Nøkkelserveren returnerte ikke den forespurte offentlige nøkkelen."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "Den offentlige nøkkelen er importert. Verifiser fingeravtrykket før du krypterer meldinger til eieren av nøkkelen."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "Serveren mottar fingeravtrykket du søker etter. En nedlastet nøkkel krever fortsatt verifisering av fingeravtrykket før du krypterer meldinger til eieren av nøkkelen."

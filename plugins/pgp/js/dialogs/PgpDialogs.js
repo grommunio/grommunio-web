@@ -25,7 +25,8 @@ Grommunio.plugins.pgp.dialogs.PgpDialogs = {
 				button.disable();
 				form.operationStatus.show();
 				form.operationStatus.getEl().update(Grommunio.plugins.pgp.PgpUtils.encode(_('Working…')));
-				var values = form.getForm().getValues();
+				// getValues() would serialize the DOM, which returns an untouched field's emptyText as its value.
+				var values = form.getForm().getFieldValues();
 				var done = function(success, message) {
 					if (win.isDestroyed) { return; }
 					win.pgpWorking = false;

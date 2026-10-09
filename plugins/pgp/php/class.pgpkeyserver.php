@@ -7,10 +7,14 @@
 
 require_once __DIR__ . '/class.pgpkeystore.php';
 
-/** Explicit fingerprint-only HTTPS lookup, with address pinning against SSRF. */
+/**
+ * Explicit HTTPS lookup by fingerprint or 16-digit key ID, with address pinning
+ * against SSRF. A key ID only comes from a signature; the browser checks that the
+ * returned key carries it before anything is imported.
+ */
 class PgpKeyserver {
 	public static function lookup(PgpKeyStore $store, string $server, string $fingerprint): array {
-		$fingerprint = PgpKeyStore::fingerprint($fingerprint);
+		$fingerprint = preg_match('/^[A-Fa-f0-9]{16}$/D', $fingerprint) ? strtoupper($fingerprint) : PgpKeyStore::fingerprint($fingerprint);
 		if (!in_array($server, $store->servers(), true)) {
 			throw new RuntimeException('Select one of your configured HTTPS keyservers.');
 		}

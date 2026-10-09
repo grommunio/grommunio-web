@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2233,6 +2233,9 @@ msgstr "Kopioi/Siirrä viestejä"
 
 msgid "Destination folder"
 msgstr "Kohdekansio"
+
+msgid "Filter folders"
+msgstr "Suodata kansiot"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4625,16 +4628,16 @@ msgid "Folder size"
 msgstr "Kansion koko"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Lähetysoikeudet"
 
 msgid "Folder containing {0} Items"
 msgstr "Kansio sisältää {0} kohdetta"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Lähetä puolesta"
 
 msgid "Send as"
-msgstr ""
+msgstr "Lähetä nimellä"
 
 msgid "Permissions"
 msgstr "Oikeudet"
@@ -4842,9 +4845,6 @@ msgstr "Haluatko varmasti tyhjentää kohteen {0}?"
 
 msgid "Show All"
 msgstr "Näytä kaikki"
-
-msgid "Filter folders"
-msgstr "Suodata kansiot"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Sinulla ei ole riittäviä oikeuksia tämän kansion siirtämiseen. Haluaisitko kopioida sen sijaan?"
@@ -7242,11 +7242,14 @@ msgstr "Odotettiin täsmälleen yhtä ASCII-koodattua OpenPGP-lohkoa."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "Ylimääräinen tieto ASCII-koodatun OpenPGP-lohkon ulkopuolella ei ole sallittua."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Tuo yksi täydellinen OpenPGP-avain kerrallaan."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Tuo kerralla 1–{0} OpenPGP-avainta."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Tämä avain ylittää tuetun aliavainten tai identiteettien enimmäismäärän."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Tuo yksi täydellinen OpenPGP-avain kerrallaan."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Yksityiset avaimet on suojattava tunnuslauseella ennen palvelimelle lähettämistä. Suojaa tämä avain ensin paikallisesti."
@@ -7262,6 +7265,24 @@ msgstr "OpenPGP-avain lukittui toiminnon ollessa käynnissä."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP edellyttää nykyaikaista selainta ja suojattua HTTPS-yhteyttä."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Tuo yksityinen avain yksinään, ei yhdessä muiden avainten kanssa."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Tämä yksityinen avain on suojattu vain osittain. Suojaa se kokonaan ennen tuontia."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Tätä yksityistä avainta ei ole suojattu tunnuslauseella. Suojaa se antamalla uusi tunnuslause."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "Nykyinen tunnuslause ei avannut tätä yksityistä avainta."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Anna tämän avaimen nykyinen tunnuslause, jotta voit vaihtaa sen uuteen."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Tämä yksityinen avain käyttää vanhentunutta suojausta. Anna sen nykyinen tunnuslause, niin avain suojataan uudelleen."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "Suojaustoiminto edellyttää suojaamatonta yksityistä avainta. Käytä suojatuille avaimille Vaihda tunnuslause -toimintoa."
@@ -7344,6 +7365,36 @@ msgstr "Salauksen purkaminen ei yksin todenna lähettäjää."
 msgid "OpenPGP security information"
 msgstr "OpenPGP-suojaustiedot"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Puuttuvaa avainta voidaan hakea avainpalvelimiltasi. Ne saavat tietää, mitä avainta haet. Näin löydetyn avaimen sormenjälki on silti vahvistettava, ennen kuin luotat lähettäjään."
+
+msgid "Find key on keyserver"
+msgstr "Hae avain avainpalvelimelta"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "Allekirjoitusavain {0} tuotu. Vahvista sen sormenjälki, ennen kuin luotat lähettäjään."
+
+msgid "Import OpenPGP key"
+msgstr "Tuo OpenPGP-avain"
+
+msgid "The attachment could not be loaded."
+msgstr "Liitettä ei voitu ladata."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Avaintiedosto on liian suuri. Enimmäiskoko: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Tämä liite sisältää yksityisen avaimen. Tuo se kohdassa Asetukset → OpenPGP → Tuo avain."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Julkinen avain tuotu. Vahvista sen sormenjälki, ennen kuin salaat viestejä sen omistajalle."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "{0} julkista avainta tuotu. Vahvista niiden sormenjäljet, ennen kuin salaat viestejä niiden omistajille."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Tämä liite ei sisällä julkista OpenPGP-avainta."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7416,6 +7467,15 @@ msgstr "Puretut liitetiedostot ovat liian suuria."
 msgid "The OpenPGP operation failed."
 msgstr "OpenPGP-toiminto epäonnistui."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "Avainpalvelin ei palauttanut pyydettyä julkista avainta."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Avainpalvelinta ei ole määritetty. Lisää palvelin kohdassa Asetukset → OpenPGP → Hallitse avainpalvelimia."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Tätä avainta ei löydy miltään avainpalvelimeltasi. Pyydä lähettäjältä hänen julkinen avaimensa."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: tarkistetaan viestin suojausta…"
 
@@ -7433,6 +7493,9 @@ msgstr "Viestin salausta ei voitu purkaa — klikkaa nähdäksesi tiedot tai yri
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Salattu viesti — avaa yksityisen avaimesi lukitus lukeaksesi sen"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Allekirjoitusta ei tarkistettu — allekirjoitusavain {0} ei ole avainnipussasi"
 
 msgid "Signature could not be verified"
 msgstr "Allekirjoitusta ei voitu todentaa"
@@ -7527,6 +7590,9 @@ msgstr "Vie julkinen avain"
 msgid "Back up private key"
 msgstr "Varmuuskopioi yksityinen avain"
 
+msgid "Refresh from keyserver"
+msgstr "Päivitä avainpalvelimelta"
+
 msgid "Unlock in this browser"
 msgstr "Avaa lukitus tässä selaimessa"
 
@@ -7587,14 +7653,8 @@ msgstr "Peruutusvarmenne — säilytä turvassa"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Valitse vahva, vähintään 12 merkin pituinen tunnuslause. Avain luodaan paikallisesti tässä selaimessa, mikä voi kestää hetken. Säilytä peruutusvarmenne ja yksityisen avaimen varmuuskopio turvallisessa paikassa."
 
-msgid "Import OpenPGP key"
-msgstr "Tuo OpenPGP-avain"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "Valitse ASCII-koodattu OpenPGP-avaintiedosto"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "Avaintiedosto on liian suuri. Enimmäiskoko: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "Avaintiedostoa ei voitu lukea."
@@ -7602,17 +7662,20 @@ msgstr "Avaintiedostoa ei voitu lukea."
 msgid "Armored key"
 msgstr "ASCII-koodattu avain"
 
-msgid "Protect unencrypted key"
-msgstr "Suojaa salaamaton avain"
+msgid "Current passphrase"
+msgstr "Nykyinen tunnuslause"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Valinnainen: uusi tunnuslause suojaamattomalle avaimelle"
+msgid "New passphrase"
+msgstr "Uusi salasana"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "Avain tuotu. Vahvista vastaanottajien sormenjäljet, ennen kuin salaat viestejä heille."
+msgid "Repeat new passphrase"
+msgstr "Toista uusi tunnuslause"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Valitse tiedosto tai liitä yksi ASCII-koodattu avain BEGIN- ja END-riveineen. Jos yksityinen avain on suojaamaton, anna uusi tunnuslause, jolla se suojataan paikallisesti ennen tallennusta. Tuotuihin vastaanottajien avaimiin ei luoteta automaattisesti."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Yksityinen avain tuotu. Tee yksityisestä avaimesta varmuuskopio, jos vaihdoit sen tunnuslauseen."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Valitse tiedosto tai liitä ASCII-koodatut avaimet BEGIN- ja END-rivit mukaan lukien. Tiedosto voi sisältää useita julkisia avaimia. Yksityinen avain: jos se on suojattu, anna sen nykyinen tunnuslause vain, jos haluat vaihtaa sen uuteen; jos se ei ole suojattu, anna uusi tunnuslause, jolla se suojataan ennen tallennusta. Tuotuihin avaimiin ei luoteta automaattisesti."
 
 msgid "Public OpenPGP key"
 msgstr "Julkinen OpenPGP-avain"
@@ -7629,17 +7692,8 @@ msgstr "Yksityisen avaimen varmuuskopio — säilytä turvassa"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Vahvista tunnuslauseesi paikallisesti, ennen kuin lataat tämän salatun yksityisen avaimen varmuuskopion. Säilytä varmuuskopio turvassa äläkä koskaan lähetä sitä vastaanottajalle tai avainpalvelimelle."
 
-msgid "Current passphrase"
-msgstr "Nykyinen tunnuslause"
-
-msgid "New passphrase"
-msgstr "Uusi salasana"
-
 msgid "Change OpenPGP passphrase"
 msgstr "Vaihda OpenPGP-tunnuslause"
-
-msgid "Repeat new passphrase"
-msgstr "Toista uusi tunnuslause"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "Tunnuslause vaihdettu. Tee yksityisestä avaimesta uusi varmuuskopio."
@@ -7716,6 +7770,12 @@ msgstr "Käytettävissä ovat vain järjestelmänvalvojan hyväksymät HTTPS-ava
 msgid "Approved servers: {0}"
 msgstr "Hyväksytyt palvelimet: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Haetaan avainpalvelimiltasi…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "Avain päivitetty avainpalvelimelta. Uudet vanhenemispäivät, aliavaimet ja peruutukset ovat nyt voimassa."
+
 msgid "Find OpenPGP public key"
 msgstr "Hae julkinen OpenPGP-avain"
 
@@ -7730,12 +7790,6 @@ msgstr "Anna täydellinen 40 tai 64 heksamerkin pituinen sormenjälki."
 
 msgid "Find and import"
 msgstr "Hae ja tuo"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "Avainpalvelin ei palauttanut pyydettyä julkista avainta."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "Julkinen avain tuotu. Vahvista sen sormenjälki, ennen kuin salaat viestejä sen omistajalle."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "Palvelin saa tietoonsa hakemasi sormenjäljen. Ladattu avain vaatii silti sormenjäljen vahvistuksen, ennen kuin salaat viestejä sen omistajalle."

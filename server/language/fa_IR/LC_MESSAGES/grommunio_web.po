@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Farsi (Iran)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2017-10-05 19:48+0200\n"
 "Last-Translator: import\n"
 "Language: fa_IR\n"
@@ -2231,6 +2231,9 @@ msgstr "کپی/انتقال پیام ها"
 
 msgid "Destination folder"
 msgstr "پوشه مقصد"
+
+msgid "Filter folders"
+msgstr "پرونده‌های فیلترشده"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4623,16 +4626,16 @@ msgid "Folder size"
 msgstr "اندازه پوشه"
 
 msgid "Send rights"
-msgstr ""
+msgstr "مجوز ارسال"
 
 msgid "Folder containing {0} Items"
 msgstr "پوشه حاوی موارد{0}"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "ارسال از طرف"
 
 msgid "Send as"
-msgstr ""
+msgstr "ارسال به‌عنوان"
 
 msgid "Permissions"
 msgstr "مجوزها"
@@ -4840,9 +4843,6 @@ msgstr "آیا مطمئن هستید که می خواهید{0}را خالی کن
 
 msgid "Show All"
 msgstr "نمایش همه"
-
-msgid "Filter folders"
-msgstr "پرونده‌های فیلترشده"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "شما دسترسی کافی برای جابه‌جایی این پوشه را ندارید. آیا می‌خواهید به جای آن آن را کپی کنید؟"
@@ -7240,11 +7240,14 @@ msgstr "دقیقاً یک بلوک armor OpenPGP لازم است."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "وجود داده‌های اضافی خارج از armor OpenPGP مجاز نیست."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "هر بار فقط یک کلید کامل OpenPGP را وارد کنید."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "هر بار بین 1 تا {0} کلید OpenPGP وارد کنید."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "این کلید از حد پشتیبانی‌شدهٔ زیرکلیدها یا هویت‌ها فراتر می‌رود."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "هر بار فقط یک کلید کامل OpenPGP را وارد کنید."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "کلیدهای خصوصی باید پیش از بارگذاری با عبارت عبور محافظت شوند. ابتدا به‌صورت محلی از این کلید محافظت کنید."
@@ -7260,6 +7263,24 @@ msgstr "کلید OpenPGP در حین اجرای عملیات قفل شد."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP به یک مرورگر امروزی و یک اتصال امن HTTPS نیاز دارد."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "کلید خصوصی را به‌تنهایی وارد کنید، نه همراه با کلیدهای دیگر."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "این کلید خصوصی فقط تا حدی محافظت شده است. پیش از وارد کردن، آن را به‌طور کامل محافظت کنید."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "این کلید خصوصی با عبارت عبور محافظت نشده است. برای محافظت از آن، یک عبارت عبور جدید وارد کنید."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "عبارت عبور فعلی نتوانست قفل این کلید خصوصی را باز کند."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "برای تعیین عبارت عبور جدید، عبارت عبور فعلی این کلید را وارد کنید."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "این کلید خصوصی از روش محافظت منسوخی استفاده می‌کند. برای محافظت دوباره، عبارت عبور فعلی آن را وارد کنید."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "«محافظت» به یک کلید خصوصی محافظت‌نشده نیاز دارد. برای کلیدهای محافظت‌شده از «تغییر عبارت عبور» استفاده کنید."
@@ -7342,6 +7363,36 @@ msgstr "رمزگشایی به‌تنهایی هویت فرستنده را احر
 msgid "OpenPGP security information"
 msgstr "اطلاعات امنیتی OpenPGP"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "می‌توان سرورهای کلید شما را برای یافتن کلید گم‌شده جست‌وجو کرد. این سرورها متوجه می‌شوند به دنبال کدام کلید هستید. پیش از اعتماد به فرستنده، اثر انگشت کلیدی را که به این روش پیدا شده است نیز باید تأیید کنید."
+
+msgid "Find key on keyserver"
+msgstr "یافتن کلید در سرور کلید"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "کلید امضای {0} وارد شد. پیش از اعتماد به فرستنده، اثر انگشت آن را تأیید کنید."
+
+msgid "Import OpenPGP key"
+msgstr "وارد کردن کلید OpenPGP"
+
+msgid "The attachment could not be loaded."
+msgstr "پیوست بارگیری نشد."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "فایل کلید بسیار بزرگ است. حداکثر اندازه: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "این پیوست حاوی یک کلید خصوصی است. آن را از تنظیمات → OpenPGP → وارد کردن کلید وارد کنید."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "کلید عمومی وارد شد. پیش از رمزگذاری برای مالک آن، اثر انگشتش را تأیید کنید."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "{0} کلید عمومی وارد شد. پیش از رمزگذاری برای صاحبان آن‌ها، اثر انگشت‌هایشان را تأیید کنید."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "این پیوست حاوی کلید عمومی OpenPGP نیست."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7414,6 +7465,15 @@ msgstr "پیوست‌های کدگشایی‌شده بسیار بزرگ هستن
 msgid "The OpenPGP operation failed."
 msgstr "عملیات OpenPGP ناموفق بود."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "سرور کلید، کلید عمومی درخواست‌شده را برنگرداند."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "هیچ سرور کلیدی پیکربندی نشده است. از تنظیمات → OpenPGP → مدیریت سرورهای کلید یکی اضافه کنید."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "هیچ‌یک از سرورهای کلید شما این کلید را ندارد. کلید عمومی فرستنده را از خود او بخواهید."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: در حال بررسی امنیت پیام…"
 
@@ -7431,6 +7491,9 @@ msgstr "پیام رمزگشایی نشد — برای جزئیات یا تلاش
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "پیام رمزگذاری‌شده — برای خواندن، قفل کلید خصوصی خود را باز کنید"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "امضا بررسی نشد — کلید امضای {0} در مجموعه کلیدهای شما نیست"
 
 msgid "Signature could not be verified"
 msgstr "امضا تأیید نشد"
@@ -7525,6 +7588,9 @@ msgstr "صادر کردن کلید عمومی"
 msgid "Back up private key"
 msgstr "پشتیبان‌گیری از کلید خصوصی"
 
+msgid "Refresh from keyserver"
+msgstr "نوسازی از سرور کلید"
+
 msgid "Unlock in this browser"
 msgstr "باز کردن قفل در این مرورگر"
 
@@ -7585,14 +7651,8 @@ msgstr "گواهی ابطال — آن را ایمن نگه دارید"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "عبارت عبوری قوی با حداقل 12 کاراکتر انتخاب کنید. تولید کلید به‌صورت محلی در همین مرورگر انجام می‌شود و ممکن است کمی طول بکشد. گواهی ابطال و یک پشتیبان از کلید خصوصی را در جای امنی نگه دارید."
 
-msgid "Import OpenPGP key"
-msgstr "وارد کردن کلید OpenPGP"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "انتخاب فایل کلید OpenPGP با قالب ASCII-armored"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "فایل کلید بسیار بزرگ است. حداکثر اندازه: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "فایل کلید خوانده نشد."
@@ -7600,17 +7660,20 @@ msgstr "فایل کلید خوانده نشد."
 msgid "Armored key"
 msgstr "کلید ASCII-armored"
 
-msgid "Protect unencrypted key"
-msgstr "محافظت از کلید رمزگذاری‌نشده"
+msgid "Current passphrase"
+msgstr "عبارت عبور فعلی"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "اختیاری: عبارت عبور جدید برای کلید خصوصی محافظت‌نشده"
+msgid "New passphrase"
+msgstr "عبارت عبور جدید"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "کلید وارد شد. پیش از رمزگذاری برای گیرندگان، اثر انگشت آن‌ها را تأیید کنید."
+msgid "Repeat new passphrase"
+msgstr "تکرار عبارت عبور جدید"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "یک فایل انتخاب کنید یا فقط یک کلید ASCII-armored را همراه با خطوط BEGIN و END آن جای‌گذاری کنید. برای کلید خصوصی محافظت‌نشده، عبارت عبور جدیدی وارد کنید تا پیش از ذخیره‌سازی، به‌صورت محلی محافظت شود. کلیدهای واردشدهٔ گیرندگان به‌طور خودکار مورد اعتماد قرار نمی‌گیرند."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "کلید خصوصی وارد شد. اگر عبارت عبور آن را تغییر داده‌اید، از کلید خصوصی پشتیبان بگیرید."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "یک فایل انتخاب کنید یا کلیدهای ASCII-armored را همراه با خطوط BEGIN و END آن‌ها جای‌گذاری کنید. یک فایل می‌تواند چند کلید عمومی داشته باشد. برای کلید خصوصی: اگر محافظت‌شده است، عبارت عبور فعلی آن را فقط برای تعیین عبارت عبور جدید وارد کنید؛ اگر محافظت‌نشده است، پیش از ذخیره، یک عبارت عبور جدید برای محافظت از آن وارد کنید. کلیدهای واردشده به‌طور خودکار مورد اعتماد نیستند."
 
 msgid "Public OpenPGP key"
 msgstr "کلید عمومی OpenPGP"
@@ -7627,17 +7690,8 @@ msgstr "پشتیبان کلید خصوصی — آن را ایمن نگه دار�
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "پیش از دانلود این پشتیبان رمزگذاری‌شدهٔ کلید خصوصی، عبارت عبور خود را به‌صورت محلی تأیید کنید. آن را ایمن نگه دارید و هرگز آن را برای گیرندگان یا سرورهای کلید ارسال نکنید."
 
-msgid "Current passphrase"
-msgstr "عبارت عبور فعلی"
-
-msgid "New passphrase"
-msgstr "عبارت عبور جدید"
-
 msgid "Change OpenPGP passphrase"
 msgstr "تغییر عبارت عبور OpenPGP"
-
-msgid "Repeat new passphrase"
-msgstr "تکرار عبارت عبور جدید"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "عبارت عبور تغییر کرد. یک پشتیبان جدید از کلید خصوصی بگیرید."
@@ -7714,6 +7768,12 @@ msgstr "فقط سرورهای کلید HTTPS مورد تأیید مدیر قاب
 msgid "Approved servers: {0}"
 msgstr "سرورهای مورد تأیید: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "در حال جست‌وجوی سرورهای کلید شما…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "کلید از سرور کلید نوسازی شد. تاریخ‌های انقضا، زیرکلیدها و ابطال‌های جدید اکنون اعمال می‌شوند."
+
 msgid "Find OpenPGP public key"
 msgstr "یافتن کلید عمومی OpenPGP"
 
@@ -7728,12 +7788,6 @@ msgstr "یک اثر انگشت هگزادسیمال کامل با 40 یا 64 ک�
 
 msgid "Find and import"
 msgstr "یافتن و وارد کردن"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "سرور کلید، کلید عمومی درخواست‌شده را برنگرداند."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "کلید عمومی وارد شد. پیش از رمزگذاری برای مالک آن، اثر انگشتش را تأیید کنید."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "سرور، اثر انگشتی را که جستجو می‌کنید دریافت خواهد کرد. کلید دانلودشده همچنان پیش از رمزگذاری برای مالکش به تأیید اثر انگشت نیاز دارد."

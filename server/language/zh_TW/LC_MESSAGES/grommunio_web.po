@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/grommunio/grommunio-web/zh_Hant/>\n"
@@ -2212,6 +2212,9 @@ msgstr "複製/移動 郵件"
 
 msgid "Destination folder"
 msgstr "目前資料夾"
+
+msgid "Filter folders"
+msgstr "篩選資料夾"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4591,16 +4594,16 @@ msgid "Folder size"
 msgstr "資料夾大小"
 
 msgid "Send rights"
-msgstr ""
+msgstr "傳送權限"
 
 msgid "Folder containing {0} Items"
 msgstr "資料夾內含{0}項目"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "代表傳送"
 
 msgid "Send as"
-msgstr ""
+msgstr "以他人身分傳送"
 
 msgid "Permissions"
 msgstr "權限"
@@ -4808,9 +4811,6 @@ msgstr "您確定要清空{0}?"
 
 msgid "Show All"
 msgstr "顯示全部"
-
-msgid "Filter folders"
-msgstr "篩選資料夾"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "您的權限不足以移動此資料夾。您要改為複製嗎？"
@@ -7204,11 +7204,14 @@ msgstr "應為單一 OpenPGP ASCII 封裝區塊。"
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "OpenPGP ASCII 封裝以外不得有其他資料。"
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "請一次匯入一份完整的 OpenPGP 金鑰。"
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "每次請匯入 1 到 {0} 個 OpenPGP 金鑰。"
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "此金鑰超過支援的子金鑰或身分數量上限。"
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "請一次匯入一份完整的 OpenPGP 金鑰。"
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "私密金鑰必須先以密碼保護才能上傳。請先在此瀏覽器中為此金鑰加上保護。"
@@ -7224,6 +7227,24 @@ msgstr "操作進行時，OpenPGP 金鑰已被鎖定。"
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP 需要新版瀏覽器與安全的 HTTPS 連線。"
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "請單獨匯入私密金鑰，不要與其他金鑰一起匯入。"
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "此私密金鑰僅部分受到保護。請先完整保護後再匯入。"
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "此私密金鑰未受密碼保護。請輸入新密碼以保護它。"
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "目前的密碼無法解鎖此私密金鑰。"
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "請輸入此金鑰目前的密碼，才能為其設定新密碼。"
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "此私密金鑰使用過時的保護方式。請輸入其目前的密碼以重新保護。"
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "「保護」功能需要未受保護的私密金鑰。若金鑰已受保護，請使用「變更密碼」。"
@@ -7306,6 +7327,36 @@ msgstr "能夠解密並不足以驗證寄件者的身分。"
 msgid "OpenPGP security information"
 msgstr "OpenPGP 安全性資訊"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "可以在您的金鑰伺服器上搜尋缺少的金鑰。金鑰伺服器會得知您要找的是哪個金鑰。以此方式找到的金鑰，仍須先驗證其指紋，才能信任寄件者。"
+
+msgid "Find key on keyserver"
+msgstr "在金鑰伺服器上尋找金鑰"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "已匯入簽署金鑰 {0}。請先驗證其指紋，再信任寄件者。"
+
+msgid "Import OpenPGP key"
+msgstr "匯入 OpenPGP 金鑰"
+
+msgid "The attachment could not be loaded."
+msgstr "無法載入附件。"
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "金鑰檔案太大。大小上限：1 MiB。"
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "此附件包含私密金鑰。請在 設定 → OpenPGP → 匯入金鑰 中匯入。"
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "公開金鑰已匯入。請先驗證其指紋，再加密郵件寄給金鑰擁有者。"
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "已匯入 {0} 個公開金鑰。請先驗證其指紋，再加密郵件寄給金鑰擁有者。"
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "此附件不包含 OpenPGP 公開金鑰。"
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7378,6 +7429,15 @@ msgstr "解碼後的附件太大。"
 msgid "The OpenPGP operation failed."
 msgstr "OpenPGP 操作失敗。"
 
+msgid "The keyserver did not return the requested public key."
+msgstr "金鑰伺服器未傳回所要求的公開金鑰。"
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "尚未設定金鑰伺服器。請在 設定 → OpenPGP → 管理金鑰伺服器 中新增。"
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "您的金鑰伺服器上都沒有此金鑰。請向寄件者索取其公開金鑰。"
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: 正在檢查郵件安全性…"
 
@@ -7395,6 +7455,9 @@ msgstr "郵件無法解密 — 請點選以查看詳細資料或重試"
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "加密的郵件 — 請解鎖您的私密金鑰以閱讀內容"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "未檢查簽署 — 簽署金鑰 {0} 不在您的金鑰圈中"
 
 msgid "Signature could not be verified"
 msgstr "簽署無法驗證"
@@ -7489,6 +7552,9 @@ msgstr "匯出公開金鑰"
 msgid "Back up private key"
 msgstr "備份私密金鑰"
 
+msgid "Refresh from keyserver"
+msgstr "從金鑰伺服器重新整理"
+
 msgid "Unlock in this browser"
 msgstr "在此瀏覽器中解鎖"
 
@@ -7549,14 +7615,8 @@ msgstr "撤銷憑證 — 請妥善保管"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "請選擇至少 12 個字元的強式密碼。金鑰會在此瀏覽器中產生，可能需要一點時間。請將撤銷憑證與私密金鑰備份妥善保存。"
 
-msgid "Import OpenPGP key"
-msgstr "匯入 OpenPGP 金鑰"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "選擇 ASCII 封裝的 OpenPGP 金鑰檔案"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "金鑰檔案太大。大小上限：1 MiB。"
 
 msgid "The key file could not be read."
 msgstr "無法讀取金鑰檔案。"
@@ -7564,17 +7624,20 @@ msgstr "無法讀取金鑰檔案。"
 msgid "Armored key"
 msgstr "ASCII 封裝金鑰"
 
-msgid "Protect unencrypted key"
-msgstr "保護未加密的金鑰"
+msgid "Current passphrase"
+msgstr "目前的密碼"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "選填：未受保護私密金鑰的新密碼"
+msgid "New passphrase"
+msgstr "新密碼"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "金鑰已匯入。請先驗證收件者的金鑰指紋，再加密郵件寄給他們。"
+msgid "Repeat new passphrase"
+msgstr "再次輸入新密碼"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "請選擇檔案，或貼上一份 ASCII 封裝金鑰，包含其 BEGIN 與 END 行。若匯入的是未受保護的私密金鑰，請輸入新密碼，在儲存前於此瀏覽器中為其加上保護。匯入的收件者金鑰不會自動被信任。"
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "私密金鑰已匯入。如果您變更了其密碼，請備份私密金鑰。"
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "請選擇檔案或貼上 ASCII 封裝的金鑰，包含其 BEGIN 與 END 行。一個檔案可包含多個公開金鑰。私密金鑰：若已受保護，僅在要設定新密碼時才輸入其目前的密碼；若未受保護，請輸入新密碼，以便在儲存前加以保護。匯入的金鑰不會自動受到信任。"
 
 msgid "Public OpenPGP key"
 msgstr "OpenPGP 公開金鑰"
@@ -7591,17 +7654,8 @@ msgstr "私密金鑰備份 — 請妥善保管"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "下載此加密的私密金鑰備份前，請先在此瀏覽器中確認您的密碼。請妥善保管此備份，切勿將其傳送給收件者或金鑰伺服器。"
 
-msgid "Current passphrase"
-msgstr "目前的密碼"
-
-msgid "New passphrase"
-msgstr "新密碼"
-
 msgid "Change OpenPGP passphrase"
 msgstr "變更 OpenPGP 密碼"
-
-msgid "Repeat new passphrase"
-msgstr "再次輸入新密碼"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "密碼已變更。請重新建立私密金鑰備份。"
@@ -7678,6 +7732,12 @@ msgstr "僅能使用管理員核准的 HTTPS 金鑰伺服器。搜尋時必須�
 msgid "Approved servers: {0}"
 msgstr "已核准的伺服器： {0}"
 
+msgid "Searching your keyservers…"
+msgstr "正在搜尋您的金鑰伺服器…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "已從金鑰伺服器重新整理金鑰。新的到期日、子金鑰與撤銷現已生效。"
+
 msgid "Find OpenPGP public key"
 msgstr "尋找 OpenPGP 公開金鑰"
 
@@ -7692,12 +7752,6 @@ msgstr "請輸入完整的 40 或 64 位十六進位指紋。"
 
 msgid "Find and import"
 msgstr "尋找並匯入"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "金鑰伺服器未傳回所要求的公開金鑰。"
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "公開金鑰已匯入。請先驗證其指紋，再加密郵件寄給金鑰擁有者。"
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "金鑰伺服器會得知您所搜尋的指紋。下載的金鑰仍需先完成指紋驗證，才能加密郵件寄給其擁有者。"

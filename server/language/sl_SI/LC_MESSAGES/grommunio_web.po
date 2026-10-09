@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Slovenian (Slovenia)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2022-07-26 19:05+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2273,6 +2273,9 @@ msgstr "Kopiraj/Premakni sporočila"
 
 msgid "Destination folder"
 msgstr "Ciljna mapa"
+
+msgid "Filter folders"
+msgstr "Filtriranje map"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4691,16 +4694,16 @@ msgid "Folder size"
 msgstr "Velikost mape"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Pravice pošiljanja"
 
 msgid "Folder containing {0} Items"
 msgstr "Mapa vsebuje {0} predmetov"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Pošlji v imenu"
 
 msgid "Send as"
-msgstr ""
+msgstr "Pošlji kot"
 
 msgid "Permissions"
 msgstr "Dovoljenja"
@@ -4908,9 +4911,6 @@ msgstr "Ali ste prepričani, da želite izprazniti {0}\"?"
 
 msgid "Show All"
 msgstr "Prikaži vse"
-
-msgid "Filter folders"
-msgstr "Filtriranje map"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Za premikanje te mape nimate dovolj pravic. Želite namesto tega kopirati?"
@@ -7316,11 +7316,14 @@ msgstr "Pričakovan je en sam blok OpenPGP v zapisu ASCII."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "Dodatni podatki zunaj zapisa ASCII OpenPGP niso dovoljeni."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Naenkrat uvozite en celoten ključ OpenPGP."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Hkrati uvozite od 1 do {0} ključev OpenPGP."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Ta ključ presega podprto omejitev podključev ali identitet."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Naenkrat uvozite en celoten ključ OpenPGP."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Zasebni ključi morajo biti pred nalaganjem zaščiteni z geslom. Ta ključ najprej zaščitite lokalno."
@@ -7336,6 +7339,24 @@ msgstr "Ključ OpenPGP se je zaklenil med izvajanjem operacije."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP zahteva sodoben brskalnik in varno povezavo HTTPS."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Zasebni ključ uvozite samostojno, ne skupaj z drugimi ključi."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Ta zasebni ključ je zaščiten le delno. Pred uvozom ga v celoti zaščitite."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Ta zasebni ključ ni zaščiten z geslom. Vnesite novo geslo, da ga zaščitite."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "S trenutnim geslom tega zasebnega ključa ni bilo mogoče odkleniti."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Vnesite trenutno geslo tega ključa, da mu nastavite novo."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Ta zasebni ključ uporablja zastarelo zaščito. Vnesite njegovo trenutno geslo, da ga znova zaščitite."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "Zaščita pričakuje nezaščiten zasebni ključ. Za zaščitene ključe uporabite \"Sprememba gesla\"."
@@ -7418,6 +7439,36 @@ msgstr "Samo dešifriranje še ne dokazuje istovetnosti pošiljatelja."
 msgid "OpenPGP security information"
 msgstr "Varnostni podatki OpenPGP"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Manjkajoči ključ lahko poiščete na svojih strežnikih ključev. Ti izvedo, kateri ključ iščete. Tudi pri tako najdenem ključu morate preveriti prstni odtis, preden zaupate pošiljatelju."
+
+msgid "Find key on keyserver"
+msgstr "Poišči ključ na strežniku ključev"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "Podpisni ključ {0} je uvožen. Preden zaupate pošiljatelju, preverite njegov prstni odtis."
+
+msgid "Import OpenPGP key"
+msgstr "Uvoz ključa OpenPGP"
+
+msgid "The attachment could not be loaded."
+msgstr "Priloge ni bilo mogoče naložiti."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Datoteka s ključem je prevelika. Največja velikost: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Ta priloga vsebuje zasebni ključ. Uvozite ga v Nastavitve → OpenPGP → Uvozi ključ."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Javni ključ je uvožen. Preden lastniku šifrirate sporočila, potrdite njegov prstni odtis."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "Uvoženih javnih ključev: {0}. Preden šifrirate za njihove lastnike, preverite njihove prstne odtise."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Ta priloga ne vsebuje javnega ključa OpenPGP."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7490,6 +7541,15 @@ msgstr "Dekodirane priloge so prevelike."
 msgid "The OpenPGP operation failed."
 msgstr "Operacija OpenPGP ni uspela."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "Strežnik ključev ni vrnil zahtevanega javnega ključa."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Noben strežnik ključev ni nastavljen. Dodajte ga v Nastavitve → OpenPGP → Upravljaj strežnike ključev."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Noben od vaših strežnikov ključev nima tega ključa. Prosite pošiljatelja za njegov javni ključ."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: preverjanje varnosti sporočila…"
 
@@ -7507,6 +7567,9 @@ msgstr "Sporočila ni bilo mogoče dešifrirati — kliknite za podrobnosti ali 
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Šifrirano sporočilo — za branje odklenite svoj zasebni ključ"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Podpis ni preverjen — podpisnega ključa {0} ni v vaši zbirki ključev"
 
 msgid "Signature could not be verified"
 msgstr "Podpisa ni bilo mogoče preveriti"
@@ -7601,6 +7664,9 @@ msgstr "Izvozi javni ključ"
 msgid "Back up private key"
 msgstr "Varnostno kopiraj zasebni ključ"
 
+msgid "Refresh from keyserver"
+msgstr "Osveži s strežnika ključev"
+
 msgid "Unlock in this browser"
 msgstr "Odkleni v tem brskalniku"
 
@@ -7661,14 +7727,8 @@ msgstr "Potrdilo o preklicu — hranite na varnem"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Izberite močno geslo z vsaj 12 znaki. Ustvarjanje poteka lokalno v tem brskalniku in lahko traja nekaj trenutkov. Potrdilo o preklicu in varnostno kopijo zasebnega ključa hranite na varnem mestu."
 
-msgid "Import OpenPGP key"
-msgstr "Uvoz ključa OpenPGP"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "Izberite datoteko s ključem OpenPGP v zapisu ASCII"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "Datoteka s ključem je prevelika. Največja velikost: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "Datoteke s ključem ni bilo mogoče prebrati."
@@ -7676,17 +7736,20 @@ msgstr "Datoteke s ključem ni bilo mogoče prebrati."
 msgid "Armored key"
 msgstr "Ključ v zapisu ASCII"
 
-msgid "Protect unencrypted key"
-msgstr "Zaščita nešifriranega ključa"
+msgid "Current passphrase"
+msgstr "Trenutno geslo"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Neobvezno: novo geslo za nezaščiten zasebni ključ"
+msgid "New passphrase"
+msgstr "Nova geslo"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "Ključ je uvožen. Preden prejemnikom šifrirate sporočila, potrdite njihove prstne odtise."
+msgid "Repeat new passphrase"
+msgstr "Ponovite novo geslo"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Izberite datoteko ali prilepite en sam ključ v zapisu ASCII, skupaj z vrsticama BEGIN in END. Za nezaščiten zasebni ključ vnesite novo geslo, da ga pred shranjevanjem zaščitite lokalno. Uvoženi ključi prejemnikov niso samodejno zaupanja vredni."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Zasebni ključ je uvožen. Če ste mu spremenili geslo, naredite varnostno kopijo zasebnega ključa."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Izberite datoteko ali prilepite ključe v zapisu ASCII armor, vključno z vrsticama BEGIN in END. Datoteka lahko vsebuje več javnih ključev. Za zasebni ključ velja: če je zaščiten, vnesite njegovo trenutno geslo le, če mu želite nastaviti novo; če ni, vnesite novo geslo, da ga pred shranjevanjem zaščitite. Uvoženi ključi niso samodejno vredni zaupanja."
 
 msgid "Public OpenPGP key"
 msgstr "Javni ključ OpenPGP"
@@ -7703,17 +7766,8 @@ msgstr "Varnostna kopija zasebnega ključa — hranite na varnem"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Preden prenesete to šifrirano varnostno kopijo zasebnega ključa, lokalno potrdite svoje geslo. Hranite jo na varnem in je nikoli ne pošljite prejemniku ali strežniku ključev."
 
-msgid "Current passphrase"
-msgstr "Trenutno geslo"
-
-msgid "New passphrase"
-msgstr "Nova geslo"
-
 msgid "Change OpenPGP passphrase"
 msgstr "Sprememba gesla OpenPGP"
-
-msgid "Repeat new passphrase"
-msgstr "Ponovite novo geslo"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "Geslo je spremenjeno. Ustvarite novo varnostno kopijo zasebnega ključa."
@@ -7790,6 +7844,12 @@ msgstr "Uporabiti je mogoče samo strežnike ključev HTTPS, ki jih je odobril s
 msgid "Approved servers: {0}"
 msgstr "Odobreni strežniki: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Iskanje po vaših strežnikih ključev…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "Ključ je osvežen s strežnika ključev. Novi datumi poteka, podključi in preklici zdaj veljajo."
+
 msgid "Find OpenPGP public key"
 msgstr "Iskanje javnega ključa OpenPGP"
 
@@ -7804,12 +7864,6 @@ msgstr "Vnesite celoten šestnajstiški prstni odtis s 40 ali 64 znaki."
 
 msgid "Find and import"
 msgstr "Poišči in uvozi"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "Strežnik ključev ni vrnil zahtevanega javnega ključa."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "Javni ključ je uvožen. Preden lastniku šifrirate sporočila, potrdite njegov prstni odtis."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "Strežnik bo prejel prstni odtis, ki ga iščete. Tudi pri prenesenem ključu je treba pred šifriranjem sporočil za njegovega lastnika potrditi prstni odtis."

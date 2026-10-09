@@ -48,6 +48,7 @@ Grommunio.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Grommunio.settings
 					{xtype: 'splitbutton', text: _('Export public key'), cls: 'pgp-settings-button', itemId: 'export', disabled: true, handler: this.exportPublic, scope: this,
 						menu: {items: [{text: _('Back up private key'), secretOnly: true, handler: this.exportPrivate, scope: this}],
 							listeners: {beforeshow: this.updateKeyMenu, scope: this}}},
+					{text: _('Refresh from keyserver'), cls: 'pgp-settings-button', itemId: 'refreshkey', disabled: true, handler: this.refreshKey, scope: this},
 					{text: _('Private key'), cls: 'pgp-settings-button', itemId: 'private', disabled: true, menu: {items: [
 						{text: _('Unlock in this browser'), handler: this.unlockKey, scope: this},
 						{text: _('Change passphrase'), handler: this.changePassphrase, scope: this}]}},
@@ -125,7 +126,7 @@ Grommunio.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Grommunio.settings
 	{
 		if (!this.keyGrid || !this.keyGrid.rendered) { return; }
 		var key = this.keyGrid.getSelectionModel().getSelected(), toolbar = this.keyGrid.getBottomToolbar();
-		Ext.each(['verify', 'export', 'delete'], function(id) { toolbar.getComponent(id).setDisabled(!key); });
+		Ext.each(['verify', 'export', 'refreshkey', 'delete'], function(id) { toolbar.getComponent(id).setDisabled(!key); });
 		toolbar.getComponent('private').setDisabled(!key || !key.get('secret'));
 	},
 	updateKeyMenu: function(menu)
@@ -193,13 +194,28 @@ Grommunio.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Grommunio.settings
 						reader.readAsText(file);
 					});
 				}}},
-			{xtype: 'textarea', name: 'armored', fieldLabel: _('Armored key'), height: 240, allowBlank: false, cls: 'pgp-armored'},
-			{xtype: 'textfield', name: 'passphrase', inputType: 'password', fieldLabel: _('Protect unencrypted key'), minLength: 12,
-				emptyText: _('Optional: new passphrase for an unprotected private key'), autoCreate: {tag: 'input', type: 'password', autocomplete: 'new-password'}}
+			{xtype: 'textarea', name: 'armored', fieldLabel: _('Armored key'), height: 200, allowBlank: false, cls: 'pgp-armored'},
+			{xtype: 'textfield', name: 'currentPassphrase', inputType: 'password', fieldLabel: _('Current passphrase'),
+				autoCreate: {tag: 'input', type: 'password', autocomplete: 'new-password'}},
+			{xtype: 'textfield', name: 'passphrase', inputType: 'password', fieldLabel: _('New passphrase'), minLength: 12,
+				autoCreate: {tag: 'input', type: 'password', autocomplete: 'new-password'}},
+			{xtype: 'textfield', name: 'confirmPassphrase', inputType: 'password', fieldLabel: _('Repeat new passphrase'),
+				autoCreate: {tag: 'input', type: 'password', autocomplete: 'new-password'},
+				validator: function(value) { return value === this.ownerCt.getForm().findField('passphrase').getValue() || _('Passphrases do not match.'); }}
 		], _('Import'), function(values, done) {
-			var operation = values.passphrase ? utils.crypto().protect(values.armored, values.passphrase) : utils.crypto().inspect(values.armored);
-			widget.complete(operation.then(function(key) { return utils.importKey(key); }), done, _('Key imported. Verify recipient fingerprints before encrypting to them.'));
-		}, _('Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted.'));
+			var current = values.currentPassphrase, next = values.passphrase;
+			var operation = utils.crypto().importable(values.armored, current, next).then(function(keys) { return utils.importKeys(keys); });
+			widget.complete(operation, done).then(function(keys) {
+				current = ''; next = '';
+				if (!keys) { return; }
+				var message = String.format(_('{0} public keys imported. Verify their fingerprints before encrypting to their owners.'), keys.length);
+				if (keys.length === 1) {
+					message = keys[0].encrypted_private_key ? _('Private key imported. Make a private-key backup if you changed its passphrase.')
+						: _('Public key imported. Verify its fingerprint before encrypting to its owner.');
+				}
+				widget.feedback(message);
+			});
+		}, _('Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted.'));
 	},
 	exportPublic: function()
 	{
@@ -314,6 +330,19 @@ Grommunio.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Grommunio.settings
 			widget.complete(Grommunio.plugins.pgp.PgpUtils.api('keyservers', {servers: servers}), done, _('Keyservers updated.'));
 		}, _('Only administrator-approved HTTPS keyservers can be used. Searches require a complete fingerprint. Keys are never uploaded automatically.') +
 			(this.allowedKeyservers.length ? ' ' + String.format(_('Approved servers: {0}'), this.allowedKeyservers.join(', ')) : ''));
+	},
+	refreshKey: function()
+	{
+		var key = this.selectedKey(false), utils = Grommunio.plugins.pgp.PgpUtils;
+		if (!key) { return; }
+		if (!this.keyservers.length) {
+			this.manageKeyservers();
+			return;
+		}
+		this.feedback(_('Searching your keyservers…'));
+		this.complete(utils.findPublicKey([key.fingerprint]).then(function(found) {
+			return utils.importKey(found);
+		}), null, _('Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply.'));
 	},
 	lookupKey: function()
 	{

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Polish (Poland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2022-07-26 17:49+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2254,6 +2254,9 @@ msgstr "Kopiuj/Przenieś Wiadomości"
 
 msgid "Destination folder"
 msgstr "Folder docelowy"
+
+msgid "Filter folders"
+msgstr "Filtruj foldery"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4661,16 +4664,16 @@ msgid "Folder size"
 msgstr "Wielkość folderu"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Uprawnienia wysyłania"
 
 msgid "Folder containing {0} Items"
 msgstr "Folder zawiera {0} elementów"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Wysyłaj w imieniu"
 
 msgid "Send as"
-msgstr ""
+msgstr "Wysyłaj jako"
 
 msgid "Permissions"
 msgstr "Uprawnienia"
@@ -4878,9 +4881,6 @@ msgstr "Czy chcesz opróżnić {0} ?"
 
 msgid "Show All"
 msgstr "Pokaż wszystko"
-
-msgid "Filter folders"
-msgstr "Filtruj foldery"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Nie masz wystarczających uprawnień, aby przenieść ten folder. Czy chcesz go zamiast tego skopiować?"
@@ -7282,11 +7282,14 @@ msgstr "Oczekiwano dokładnie jednego bloku ASCII OpenPGP."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "Dodatkowe dane poza blokiem ASCII OpenPGP są niedozwolone."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Importuj jeden kompletny klucz OpenPGP naraz."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Importuj od 1 do {0} kluczy OpenPGP naraz."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Ten klucz przekracza obsługiwany limit podkluczy lub tożsamości."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Importuj jeden kompletny klucz OpenPGP naraz."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Klucze prywatne muszą być chronione hasłem przed przesłaniem. Najpierw zabezpiecz ten klucz lokalnie."
@@ -7302,6 +7305,24 @@ msgstr "Klucz OpenPGP został zablokowany w trakcie wykonywania operacji."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP wymaga nowoczesnej przeglądarki i bezpiecznego połączenia HTTPS."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Importuj klucz prywatny osobno, a nie razem z innymi kluczami."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Ten klucz prywatny jest chroniony tylko częściowo. Zabezpiecz go w całości przed zaimportowaniem."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Ten klucz prywatny nie jest chroniony hasłem. Wprowadź nowe hasło, aby go zabezpieczyć."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "Bieżące hasło nie odblokowało tego klucza prywatnego."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Wprowadź bieżące hasło tego klucza, aby nadać mu nowe."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Ten klucz prywatny używa przestarzałego zabezpieczenia. Wprowadź jego bieżące hasło, aby zabezpieczyć go ponownie."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "Ochrona wymaga niezaszyfrowanego klucza prywatnego. W przypadku kluczy chronionych hasłem użyj zmiany hasła."
@@ -7384,6 +7405,36 @@ msgstr "Samo odszyfrowanie nie uwierzytelnia nadawcy."
 msgid "OpenPGP security information"
 msgstr "Informacje o zabezpieczeniach OpenPGP"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Brakującego klucza można poszukać na Twoich serwerach kluczy. Dowiedzą się one, jakiego klucza szukasz. Odcisk palca klucza znalezionego w ten sposób nadal trzeba zweryfikować, zanim zaufasz nadawcy."
+
+msgid "Find key on keyserver"
+msgstr "Znajdź klucz na serwerze kluczy"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "Zaimportowano klucz podpisu {0}. Zweryfikuj jego odcisk palca, zanim zaufasz nadawcy."
+
+msgid "Import OpenPGP key"
+msgstr "Import klucza OpenPGP"
+
+msgid "The attachment could not be loaded."
+msgstr "Nie można załadować załącznika."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Plik klucza jest zbyt duży. Maksymalny rozmiar: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Ten załącznik zawiera klucz prywatny. Zaimportuj go w Ustawienia → OpenPGP → Importuj klucz."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Klucz publiczny został zaimportowany. Zweryfikuj jego odcisk palca, zanim zaszyfrujesz wiadomość dla jego właściciela."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "Zaimportowano klucze publiczne: {0}. Zweryfikuj ich odciski palców, zanim zaszyfrujesz wiadomości dla ich właścicieli."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Ten załącznik nie zawiera klucza publicznego OpenPGP."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7456,6 +7507,15 @@ msgstr "Zdekodowane załączniki są zbyt duże."
 msgid "The OpenPGP operation failed."
 msgstr "Operacja OpenPGP nie powiodła się."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "Serwer kluczy nie zwrócił żądanego klucza publicznego."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Nie skonfigurowano serwera kluczy. Dodaj go w Ustawienia → OpenPGP → Zarządzaj serwerami kluczy."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Żaden z Twoich serwerów kluczy nie ma tego klucza. Poproś nadawcę o jego klucz publiczny."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: sprawdzanie zabezpieczeń wiadomości…"
 
@@ -7473,6 +7533,9 @@ msgstr "Nie można odszyfrować wiadomości — kliknij, aby zobaczyć szczegó�
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Zaszyfrowana wiadomość — odblokuj swój klucz prywatny, aby ją przeczytać"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Podpis niesprawdzony — klucza podpisu {0} nie ma w Twoim zbiorze kluczy"
 
 msgid "Signature could not be verified"
 msgstr "Nie można zweryfikować podpisu"
@@ -7567,6 +7630,9 @@ msgstr "Eksportuj klucz publiczny"
 msgid "Back up private key"
 msgstr "Utwórz kopię zapasową klucza prywatnego"
 
+msgid "Refresh from keyserver"
+msgstr "Odśwież z serwera kluczy"
+
 msgid "Unlock in this browser"
 msgstr "Odblokuj w tej przeglądarce"
 
@@ -7627,14 +7693,8 @@ msgstr "Certyfikat unieważnienia — przechowuj bezpiecznie"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Wybierz silne hasło o długości co najmniej 12 znaków. Generowanie odbywa się lokalnie w tej przeglądarce i może chwilę potrwać. Przechowuj certyfikat unieważnienia i kopię zapasową klucza prywatnego w bezpiecznym miejscu."
 
-msgid "Import OpenPGP key"
-msgstr "Import klucza OpenPGP"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "Wybierz plik klucza OpenPGP w formacie ASCII"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "Plik klucza jest zbyt duży. Maksymalny rozmiar: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "Nie można odczytać pliku klucza."
@@ -7642,17 +7702,20 @@ msgstr "Nie można odczytać pliku klucza."
 msgid "Armored key"
 msgstr "Klucz ASCII"
 
-msgid "Protect unencrypted key"
-msgstr "Ochrona niezaszyfrowanego klucza"
+msgid "Current passphrase"
+msgstr "Obecne hasło"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Opcjonalnie: nowe hasło dla niezaszyfrowanego klucza prywatnego"
+msgid "New passphrase"
+msgstr "Nowe hasło"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "Klucz został zaimportowany. Zweryfikuj odciski palców odbiorców, zanim zaszyfrujesz dla nich wiadomości."
+msgid "Repeat new passphrase"
+msgstr "Powtórz nowe hasło"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Wybierz plik albo wklej jeden klucz w formacie ASCII wraz z wierszami BEGIN i END. W przypadku niezaszyfrowanego klucza prywatnego podaj nowe hasło, aby zabezpieczyć go lokalnie, zanim zostanie zapisany. Zaimportowane klucze odbiorców nie są automatycznie uznawane za zaufane."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Klucz prywatny został zaimportowany. Jeśli zmieniono jego hasło, utwórz kopię zapasową klucza prywatnego."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Wybierz plik lub wklej klucze w formacie ASCII razem z wierszami BEGIN i END. Plik może zawierać kilka kluczy publicznych. Klucz prywatny: jeśli jest chroniony, wprowadź jego bieżące hasło tylko wtedy, gdy chcesz nadać mu nowe; jeśli nie jest, wprowadź nowe hasło, aby zabezpieczyć go przed zapisaniem. Zaimportowane klucze nie są automatycznie zaufane."
 
 msgid "Public OpenPGP key"
 msgstr "Klucz publiczny OpenPGP"
@@ -7669,17 +7732,8 @@ msgstr "Kopia zapasowa klucza prywatnego — przechowuj bezpiecznie"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Potwierdź hasło lokalnie, zanim pobierzesz tę zaszyfrowaną kopię zapasową klucza prywatnego. Przechowuj ją bezpiecznie i nigdy nie wysyłaj jej do odbiorcy ani na serwer kluczy."
 
-msgid "Current passphrase"
-msgstr "Obecne hasło"
-
-msgid "New passphrase"
-msgstr "Nowe hasło"
-
 msgid "Change OpenPGP passphrase"
 msgstr "Zmiana hasła OpenPGP"
-
-msgid "Repeat new passphrase"
-msgstr "Powtórz nowe hasło"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "Hasło zostało zmienione. Utwórz nową kopię zapasową klucza prywatnego."
@@ -7756,6 +7810,12 @@ msgstr "Można korzystać tylko z serwerów kluczy HTTPS zatwierdzonych przez ad
 msgid "Approved servers: {0}"
 msgstr "Zatwierdzone serwery: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Przeszukiwanie Twoich serwerów kluczy…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "Klucz odświeżono z serwera kluczy. Obowiązują teraz nowe daty wygaśnięcia, podklucze i unieważnienia."
+
 msgid "Find OpenPGP public key"
 msgstr "Wyszukiwanie klucza publicznego OpenPGP"
 
@@ -7770,12 +7830,6 @@ msgstr "Wprowadź pełny odcisk palca składający się z 40 lub 64 znaków szes
 
 msgid "Find and import"
 msgstr "Znajdź i zaimportuj"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "Serwer kluczy nie zwrócił żądanego klucza publicznego."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "Klucz publiczny został zaimportowany. Zweryfikuj jego odcisk palca, zanim zaszyfrujesz wiadomość dla jego właściciela."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "Serwer otrzyma odcisk palca, którego szukasz. Pobrany klucz nadal wymaga weryfikacji odcisku palca, zanim zaszyfrujesz wiadomość dla jego właściciela."

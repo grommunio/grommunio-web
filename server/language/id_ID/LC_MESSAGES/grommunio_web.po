@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2026-09-16 22:52+0000\n"
 "Last-Translator: Arif Budiman <arifpedia@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/grommunio/grommunio-web/id/>\n"
@@ -2233,6 +2233,9 @@ msgstr "Salin/Pindahkan Pesan"
 
 msgid "Destination folder"
 msgstr "Folder tujuan"
+
+msgid "Filter folders"
+msgstr "Filter folder"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4625,16 +4628,16 @@ msgid "Folder size"
 msgstr "Ukuran folder"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Hak kirim"
 
 msgid "Folder containing {0} Items"
 msgstr "Folder berisi {0} Item"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Kirim atas nama"
 
 msgid "Send as"
-msgstr ""
+msgstr "Kirim sebagai"
 
 msgid "Permissions"
 msgstr "Izin"
@@ -4842,9 +4845,6 @@ msgstr "Apakah Anda yakin ingin mengosongkan {0}?"
 
 msgid "Show All"
 msgstr "Tampilkan Semua"
-
-msgid "Filter folders"
-msgstr "Filter folder"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Anda tidak memiliki izin yang cukup untuk memindahkan folder ini. Apakah Anda ingin menyalinnya sebagai gantinya?"
@@ -7242,11 +7242,14 @@ msgstr "Diharapkan satu blok armor OpenPGP."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "Data tambahan di luar armor OpenPGP tidak diizinkan."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Impor satu kunci OpenPGP lengkap setiap kali."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Impor antara 1 hingga {0} kunci OpenPGP sekaligus."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Kunci ini melebihi batas subkunci atau identitas yang didukung."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Impor satu kunci OpenPGP lengkap setiap kali."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Kunci privat harus dilindungi dengan frasa sandi sebelum diunggah. Lindungi kunci ini secara lokal terlebih dahulu."
@@ -7262,6 +7265,24 @@ msgstr "Kunci OpenPGP terkunci saat operasi sedang berlangsung."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP memerlukan browser modern dan koneksi HTTPS yang aman."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Impor kunci privat secara terpisah, jangan bersama kunci lain."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Kunci privat ini hanya terlindungi sebagian. Lindungi sepenuhnya sebelum mengimpornya."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Kunci privat ini tidak dilindungi frasa sandi. Masukkan frasa sandi baru untuk melindunginya."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "Frasa sandi saat ini tidak dapat membuka kunci privat ini."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Masukkan frasa sandi kunci ini saat ini untuk memberinya frasa sandi baru."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Kunci privat ini menggunakan perlindungan yang usang. Masukkan frasa sandinya saat ini untuk melindunginya kembali."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "Protect memerlukan kunci privat yang belum dilindungi. Gunakan ubah frasa sandi untuk kunci yang telah dilindungi."
@@ -7344,6 +7365,36 @@ msgstr "Dekripsi saja tidak mengautentikasi pengirim."
 msgid "OpenPGP security information"
 msgstr "Informasi keamanan OpenPGP"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Keyserver Anda dapat dicari untuk menemukan kunci yang hilang. Keyserver akan mengetahui kunci mana yang Anda cari. Fingerprint kunci yang ditemukan dengan cara ini tetap harus diverifikasi sebelum Anda memercayai pengirimnya."
+
+msgid "Find key on keyserver"
+msgstr "Cari kunci di keyserver"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "Kunci tanda tangan {0} diimpor. Verifikasi fingerprint-nya sebelum Anda memercayai pengirimnya."
+
+msgid "Import OpenPGP key"
+msgstr "Impor kunci OpenPGP"
+
+msgid "The attachment could not be loaded."
+msgstr "Lampiran tidak dapat dimuat."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "File kunci terlalu besar. Ukuran maksimum: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Lampiran ini berisi kunci privat. Impor melalui Pengaturan → OpenPGP → Impor kunci."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Kunci publik diimpor. Verifikasi fingerprint-nya sebelum mengenkripsi pesan kepada pemiliknya."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "{0} kunci publik diimpor. Verifikasi fingerprint-nya sebelum mengenkripsi pesan kepada pemiliknya."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Lampiran ini tidak berisi kunci publik OpenPGP."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7416,6 +7467,15 @@ msgstr "Lampiran yang didekodekan terlalu besar."
 msgid "The OpenPGP operation failed."
 msgstr "Operasi OpenPGP gagal."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "Keyserver tidak mengembalikan kunci publik yang diminta."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Belum ada keyserver yang dikonfigurasi. Tambahkan melalui Pengaturan → OpenPGP → Kelola keyserver."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Tidak ada keyserver Anda yang memiliki kunci ini. Mintalah kunci publik kepada pengirim."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: memeriksa keamanan pesan…"
 
@@ -7433,6 +7493,9 @@ msgstr "Pesan tidak dapat didekripsi — klik untuk detail atau coba lagi"
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Pesan terenkripsi — buka kunci privat Anda untuk membacanya"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Tanda tangan tidak diperiksa — kunci tanda tangan {0} tidak ada di keyring Anda"
 
 msgid "Signature could not be verified"
 msgstr "Tanda tangan tidak dapat diverifikasi"
@@ -7527,6 +7590,9 @@ msgstr "Ekspor kunci publik"
 msgid "Back up private key"
 msgstr "Cadangkan kunci privat"
 
+msgid "Refresh from keyserver"
+msgstr "Perbarui dari keyserver"
+
 msgid "Unlock in this browser"
 msgstr "Buka kunci di browser ini"
 
@@ -7587,14 +7653,8 @@ msgstr "Sertifikat pencabutan — simpan dengan aman"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Pilih frasa sandi yang kuat, minimal 12 karakter. Pembuatan dilakukan secara lokal di browser ini dan mungkin memerlukan beberapa saat. Simpan sertifikat pencabutan dan cadangan kunci privat di tempat yang aman."
 
-msgid "Import OpenPGP key"
-msgstr "Impor kunci OpenPGP"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "Pilih file kunci OpenPGP berformat armored"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "File kunci terlalu besar. Ukuran maksimum: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "File kunci tidak dapat dibaca."
@@ -7602,17 +7662,20 @@ msgstr "File kunci tidak dapat dibaca."
 msgid "Armored key"
 msgstr "Kunci berformat armored"
 
-msgid "Protect unencrypted key"
-msgstr "Lindungi kunci yang tidak terenkripsi"
+msgid "Current passphrase"
+msgstr "Frasa sandi saat ini"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Opsional: frasa sandi baru untuk kunci privat yang belum dilindungi"
+msgid "New passphrase"
+msgstr "Frasa sandi baru"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "Kunci diimpor. Verifikasi fingerprint penerima sebelum mengenkripsi pesan kepada mereka."
+msgid "Repeat new passphrase"
+msgstr "Ulangi frasa sandi baru"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Pilih file atau tempelkan satu kunci berformat ASCII-armored, termasuk baris BEGIN dan END-nya. Untuk kunci privat yang belum dilindungi, masukkan frasa sandi baru untuk melindunginya secara lokal sebelum disimpan. Kunci penerima yang diimpor tidak otomatis tepercaya."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Kunci privat diimpor. Buat cadangan kunci privat jika Anda mengubah frasa sandinya."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Pilih file atau tempel kunci berformat armored ASCII, termasuk baris BEGIN dan END-nya. Satu file dapat berisi beberapa kunci publik. Untuk kunci privat: jika terlindungi, masukkan frasa sandinya saat ini hanya untuk memberinya frasa sandi baru; jika tidak, masukkan frasa sandi baru untuk melindunginya sebelum disimpan. Kunci yang diimpor tidak otomatis dipercaya."
 
 msgid "Public OpenPGP key"
 msgstr "Kunci publik OpenPGP"
@@ -7629,17 +7692,8 @@ msgstr "Cadangan kunci privat — simpan dengan aman"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Konfirmasikan frasa sandi Anda secara lokal sebelum mengunduh cadangan kunci privat terenkripsi ini. Simpan dengan aman dan jangan pernah mengirimkannya kepada penerima atau keyserver."
 
-msgid "Current passphrase"
-msgstr "Frasa sandi saat ini"
-
-msgid "New passphrase"
-msgstr "Frasa sandi baru"
-
 msgid "Change OpenPGP passphrase"
 msgstr "Ubah frasa sandi OpenPGP"
-
-msgid "Repeat new passphrase"
-msgstr "Ulangi frasa sandi baru"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "Frasa sandi diubah. Buat cadangan kunci privat baru."
@@ -7716,6 +7770,12 @@ msgstr "Hanya keyserver HTTPS yang disetujui administrator yang dapat digunakan.
 msgid "Approved servers: {0}"
 msgstr "Server yang disetujui: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Mencari di keyserver Anda…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "Kunci diperbarui dari keyserver. Tanggal kedaluwarsa, subkunci, dan pencabutan baru kini berlaku."
+
 msgid "Find OpenPGP public key"
 msgstr "Cari kunci publik OpenPGP"
 
@@ -7730,12 +7790,6 @@ msgstr "Masukkan fingerprint heksadesimal lengkap yang terdiri atas 40 atau 64 d
 
 msgid "Find and import"
 msgstr "Cari dan impor"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "Keyserver tidak mengembalikan kunci publik yang diminta."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "Kunci publik diimpor. Verifikasi fingerprint-nya sebelum mengenkripsi pesan kepada pemiliknya."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "Server akan menerima fingerprint yang Anda cari. Kunci yang diunduh tetap harus diverifikasi fingerprint-nya sebelum digunakan untuk mengenkripsi pesan kepada pemiliknya."

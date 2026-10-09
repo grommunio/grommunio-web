@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/grommunio-web/ja/>\n"
@@ -2221,6 +2221,9 @@ msgstr "メッセージのコピー/移動"
 
 msgid "Destination folder"
 msgstr "移動先フォルダ"
+
+msgid "Filter folders"
+msgstr "フォルダをフィルタリング"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4601,16 +4604,16 @@ msgid "Folder size"
 msgstr "フォルダサイズ"
 
 msgid "Send rights"
-msgstr ""
+msgstr "送信権限"
 
 msgid "Folder containing {0} Items"
 msgstr "フォルダフォルダ{0}項目がフォルダ内にあります"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "代理送信"
 
 msgid "Send as"
-msgstr ""
+msgstr "送信者として送信"
 
 msgid "Permissions"
 msgstr "許可"
@@ -4818,9 +4821,6 @@ msgstr "{0}を空にしますがよろしいですか？"
 
 msgid "Show All"
 msgstr "すべて表示"
-
-msgid "Filter folders"
-msgstr "フォルダをフィルタリング"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "このフォルダを移動する権限がありません。代わりにコピーしますか?"
@@ -7214,11 +7214,14 @@ msgstr "OpenPGP アーマーブロックが1つだけ必要です。"
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "OpenPGP アーマーの外側にあるデータは許可されていません。"
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "完全な OpenPGP 鍵を1つずつインポートしてください。"
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "一度にインポートできる OpenPGP 鍵は 1～{0} 個です。"
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "この鍵は、サポートされているサブ鍵またはユーザー ID の上限を超えています。"
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "完全な OpenPGP 鍵を1つずつインポートしてください。"
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "秘密鍵は、アップロードする前にパスフレーズで保護されている必要があります。先にこのブラウザ内で鍵を保護してください。"
@@ -7234,6 +7237,24 @@ msgstr "操作の実行中に OpenPGP 鍵がロックされました。"
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP には、最新のブラウザと安全な HTTPS 接続が必要です。"
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "秘密鍵は他の鍵と一緒にせず、単独でインポートしてください。"
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "この秘密鍵は一部しか保護されていません。インポートする前に完全に保護してください。"
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "この秘密鍵はパスフレーズで保護されていません。保護するための新しいパスフレーズを入力してください。"
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "現在のパスフレーズではこの秘密鍵のロックを解除できませんでした。"
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "新しいパスフレーズを設定するには、この鍵の現在のパスフレーズを入力してください。"
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "この秘密鍵は古い保護方式を使用しています。保護し直すには現在のパスフレーズを入力してください。"
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "「未暗号化の鍵の保護」には、保護されていない秘密鍵が必要です。保護済みの鍵には「パスフレーズの変更」を使用してください。"
@@ -7316,6 +7337,36 @@ msgstr "復号化できたというだけでは、送信者を認証したこと
 msgid "OpenPGP security information"
 msgstr "OpenPGP セキュリティ情報"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "不足している鍵を鍵サーバーで検索できます。検索する鍵は鍵サーバーに知られます。この方法で見つかった鍵も、送信者を信頼する前にフィンガープリントを確認する必要があります。"
+
+msgid "Find key on keyserver"
+msgstr "鍵サーバーで鍵を検索"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "署名鍵 {0} をインポートしました。送信者を信頼する前にフィンガープリントを確認してください。"
+
+msgid "Import OpenPGP key"
+msgstr "OpenPGP 鍵のインポート"
+
+msgid "The attachment could not be loaded."
+msgstr "添付ファイルを読み込めませんでした。"
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "鍵ファイルが大きすぎます。最大サイズ: 1 MiB。"
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "この添付ファイルには秘密鍵が含まれています。設定 → OpenPGP → 鍵をインポート からインポートしてください。"
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "公開鍵をインポートしました。所有者宛てに暗号化する前に、そのフィンガープリントを確認してください。"
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "{0} 個の公開鍵をインポートしました。所有者宛てに暗号化する前に、各フィンガープリントを確認してください。"
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "この添付ファイルには OpenPGP 公開鍵が含まれていません。"
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7388,6 +7439,15 @@ msgstr "デコードした添付ファイルが大きすぎます。"
 msgid "The OpenPGP operation failed."
 msgstr "OpenPGP の操作に失敗しました。"
 
+msgid "The keyserver did not return the requested public key."
+msgstr "鍵サーバーから、要求した公開鍵が返されませんでした。"
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "鍵サーバーが設定されていません。設定 → OpenPGP → 鍵サーバーを管理 から追加してください。"
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "どの鍵サーバーにもこの鍵はありません。送信者に公開鍵を依頼してください。"
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: メッセージのセキュリティを確認しています…"
 
@@ -7405,6 +7465,9 @@ msgstr "メッセージを復号化できませんでした — クリックで�
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "暗号化されたメッセージ — 読むには秘密鍵のロックを解除してください"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "署名は未確認 — 署名鍵 {0} がキーリングにありません"
 
 msgid "Signature could not be verified"
 msgstr "署名を確認することができませんでした"
@@ -7499,6 +7562,9 @@ msgstr "公開鍵をエクスポート"
 msgid "Back up private key"
 msgstr "秘密鍵をバックアップ"
 
+msgid "Refresh from keyserver"
+msgstr "鍵サーバーから更新"
+
 msgid "Unlock in this browser"
 msgstr "このブラウザでロック解除"
 
@@ -7559,14 +7625,8 @@ msgstr "失効証明書 — 厳重に保管してください"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "12文字以上の強力なパスフレーズを選んでください。鍵の生成はこのブラウザ内で実行され、少し時間がかかることがあります。失効証明書と秘密鍵のバックアップは安全な場所に保管してください。"
 
-msgid "Import OpenPGP key"
-msgstr "OpenPGP 鍵のインポート"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "アーマー形式の OpenPGP 鍵ファイルを選択"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "鍵ファイルが大きすぎます。最大サイズ: 1 MiB。"
 
 msgid "The key file could not be read."
 msgstr "鍵ファイルを読み込めませんでした。"
@@ -7574,17 +7634,20 @@ msgstr "鍵ファイルを読み込めませんでした。"
 msgid "Armored key"
 msgstr "アーマー形式の鍵"
 
-msgid "Protect unencrypted key"
-msgstr "未暗号化の鍵の保護"
+msgid "Current passphrase"
+msgstr "現在のパスフレーズ"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "任意: 保護されていない秘密鍵の新しいパスフレーズ"
+msgid "New passphrase"
+msgstr "新しいパスフレーズ"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "鍵をインポートしました。受信者宛てに暗号化する前に、受信者のフィンガープリントを確認してください。"
+msgid "Repeat new passphrase"
+msgstr "新しいパスフレーズの再入力"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "ファイルを選択するか、BEGIN 行と END 行を含む ASCII アーマー形式の鍵を1つだけ貼り付けてください。保護されていない秘密鍵の場合は、保存前にこのブラウザ内で保護するための新しいパスフレーズを入力してください。インポートした受信者の鍵が自動的に信頼されることはありません。"
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "秘密鍵をインポートしました。パスフレーズを変更した場合は秘密鍵をバックアップしてください。"
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "ファイルを選択するか、ASCII 形式 (ASCII armor) の鍵を BEGIN 行と END 行を含めて貼り付けてください。1 つのファイルに複数の公開鍵を含めることができます。秘密鍵の場合: 保護されている鍵では、新しいパスフレーズを設定するときだけ現在のパスフレーズを入力します。保護されていない鍵では、保存前に保護するための新しいパスフレーズを入力します。インポートした鍵は自動的には信頼されません。"
 
 msgid "Public OpenPGP key"
 msgstr "OpenPGP 公開鍵"
@@ -7601,17 +7664,8 @@ msgstr "秘密鍵のバックアップ — 厳重に保管してください"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "この暗号化された秘密鍵のバックアップをダウンロードする前に、このブラウザ内でパスフレーズを確認してください。バックアップは厳重に保管し、受信者や鍵サーバーに決して送信しないでください。"
 
-msgid "Current passphrase"
-msgstr "現在のパスフレーズ"
-
-msgid "New passphrase"
-msgstr "新しいパスフレーズ"
-
 msgid "Change OpenPGP passphrase"
 msgstr "OpenPGP パスフレーズの変更"
-
-msgid "Repeat new passphrase"
-msgstr "新しいパスフレーズの再入力"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "パスフレーズを変更しました。秘密鍵のバックアップを新たに作成してください。"
@@ -7688,6 +7742,12 @@ msgstr "管理者が承認した HTTPS 鍵サーバーのみ使用できます�
 msgid "Approved servers: {0}"
 msgstr "承認済みサーバー: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "鍵サーバーを検索しています…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "鍵サーバーから鍵を更新しました。新しい有効期限、サブキー、失効が適用されます。"
+
 msgid "Find OpenPGP public key"
 msgstr "OpenPGP 公開鍵の検索"
 
@@ -7702,12 +7762,6 @@ msgstr "40文字または64文字の16進数からなる完全なフィンガー
 
 msgid "Find and import"
 msgstr "検索してインポート"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "鍵サーバーから、要求した公開鍵が返されませんでした。"
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "公開鍵をインポートしました。所有者宛てに暗号化する前に、そのフィンガープリントを確認してください。"
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "検索したフィンガープリントは鍵サーバーに送信されます。ダウンロードした鍵も、所有者宛てに暗号化する前にフィンガープリントの確認が必要です。"

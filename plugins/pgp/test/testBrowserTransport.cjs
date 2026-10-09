@@ -377,15 +377,15 @@ function testProtectedMessageRendering(context) {
 	context.Grommunio.common = {ui: {messagepanel: {}}};
 	context.Grommunio.core.KeyMapMgr = {deactivate() {}, activate() {}};
 	Object.assign(context.Ext, {reg() {}, isFunction: value => typeof value === 'function',
-		Element: class {constructor(document) { this.dom = document; }}, defer: callback => callback(), EventManager: {on() {}}});
+		Element: class {constructor(document) { this.dom = document; }}, defer: (callback, delay, scope, args) => callback.apply(scope, args || []), EventManager: {on() {}}});
 	context.container.getServerConfig = () => ({getDOMPurifyEnabled: () => true});
 	vm.runInContext(fs.readFileSync(path.resolve(__dirname, '../../../client/grommunio/common/ui/messagepanel/MessageBody.js'), 'utf8'), context, {filename: 'MessageBody.js'});
 	const renderedBody = {innerHTML: '', querySelectorAll: () => []};
-	const iframeDocument = {body: renderedBody, getElementsByTagName: tag => tag === 'body' ? [renderedBody] : []};
+	const iframeDocument = {body: renderedBody, getElementsByTagName: tag => tag === 'body' ? [renderedBody] : [], querySelectorAll: () => [], addEventListener() {}, removeEventListener() {}};
 	const component = Object.assign({}, context.Grommunio.common.ui.messagepanel.MessageBody, {
 		getEl: () => ({dom: {contentWindow: {document: iframeDocument}}}),
 		plaintextTemplate: {applyTemplate: data => '<pre>' + data.body + '</pre>'},
-		addCSSText() {}, setImageClickHandler() {}, deferLinkification() {}, recordComponentUpdaterPlugin: {}});
+		addCSSText() {}, setImageClickHandler() {}, deferLinkification() {}, rememberScrollPosition() {}, restoreScrollPosition() {}, recordComponentUpdaterPlugin: {}});
 	const record = new Record({entryid: 'protected-render-record', pgp: {encrypted: true}, isHTML: true,
 		html_body: '<p>Previously decrypted secret</p>', body: 'Previously decrypted secret'});
 	record.isOpened = () => true;

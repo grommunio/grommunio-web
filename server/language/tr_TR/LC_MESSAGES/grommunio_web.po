@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/grommunio-web/tr/>\n"
@@ -2233,6 +2233,9 @@ msgstr "Kopyala / Taşı Mesajlar"
 
 msgid "Destination folder"
 msgstr "Hedef klasör"
+
+msgid "Filter folders"
+msgstr "Klasörleri filtrele"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4625,16 +4628,16 @@ msgid "Folder size"
 msgstr "Klasör boyutu"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Gönderme hakları"
 
 msgid "Folder containing {0} Items"
 msgstr "{0} öğeler içeren klasör"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Adına gönder"
 
 msgid "Send as"
-msgstr ""
+msgstr "Farklı gönder"
 
 msgid "Permissions"
 msgstr "Izinler"
@@ -4842,9 +4845,6 @@ msgstr "{0} Boşaltmak istediğinizden emin misiniz?"
 
 msgid "Show All"
 msgstr "Tümünü Göster"
-
-msgid "Filter folders"
-msgstr "Klasörleri filtrele"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Bu klasörü taşımak için yeterli ayrıcalığa sahip değilsiniz. Bunun yerine kopyalamak ister misiniz?"
@@ -7242,11 +7242,14 @@ msgstr "Tek bir OpenPGP zırh bloğu bekleniyordu."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "OpenPGP zırhının dışında ek veri bulunmasına izin verilmez."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Her seferinde tek ve eksiksiz bir OpenPGP anahtarı içe aktarın."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Tek seferde 1 ile {0} arasında OpenPGP anahtarı içe aktarın."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Bu anahtar, desteklenen alt anahtar veya kimlik sınırını aşıyor."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Her seferinde tek ve eksiksiz bir OpenPGP anahtarı içe aktarın."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Özel anahtarlar, yüklenmeden önce parolayla korunmalıdır. Önce bu anahtarı yerel olarak koruyun."
@@ -7262,6 +7265,24 @@ msgstr "İşlem sürerken OpenPGP anahtarı kilitlendi."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP için güncel bir tarayıcı ve güvenli bir HTTPS bağlantısı gerekir."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Özel anahtarı diğer anahtarlarla birlikte değil, tek başına içe aktarın."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Bu özel anahtar yalnızca kısmen korunuyor. İçe aktarmadan önce tamamen koruma altına alın."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Bu özel anahtar bir parola ile korunmuyor. Korumak için yeni bir parola girin."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "Geçerli parola bu özel anahtarın kilidini açamadı."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Bu anahtara yeni bir parola vermek için geçerli parolasını girin."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Bu özel anahtar eski bir koruma yöntemi kullanıyor. Yeniden korumak için geçerli parolasını girin."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "Koruma işlemi korumasız bir özel anahtar bekler. Korumalı anahtarlar için Parolayı değiştir işlevini kullanın."
@@ -7344,6 +7365,36 @@ msgstr "Şifrenin çözülmüş olması tek başına gönderenin kimliğini doğ
 msgid "OpenPGP security information"
 msgstr "OpenPGP güvenlik bilgileri"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Eksik anahtar, anahtar sunucularınızda aranabilir. Sunucular hangi anahtarı aradığınızı öğrenir. Bu şekilde bulunan bir anahtarın parmak izi, gönderene güvenmeden önce yine de doğrulanmalıdır."
+
+msgid "Find key on keyserver"
+msgstr "Anahtarı anahtar sunucusunda bul"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "İmzalama anahtarı {0} içe aktarıldı. Gönderene güvenmeden önce parmak izini doğrulayın."
+
+msgid "Import OpenPGP key"
+msgstr "OpenPGP anahtarı içe aktar"
+
+msgid "The attachment could not be loaded."
+msgstr "Ek yüklenemedi."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Anahtar dosyası çok büyük. Maksimum boyut: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Bu ek bir özel anahtar içeriyor. Bunu Ayarlar → OpenPGP → Anahtar içe aktar bölümünden içe aktarın."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Genel anahtar içe aktarıldı. Sahibine şifreli mesaj göndermeden önce parmak izini doğrulayın."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "{0} genel anahtar içe aktarıldı. Sahiplerine şifreleme yapmadan önce parmak izlerini doğrulayın."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Bu ek bir OpenPGP genel anahtarı içermiyor."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7416,6 +7467,15 @@ msgstr "Çözümlenen ekler çok büyük."
 msgid "The OpenPGP operation failed."
 msgstr "OpenPGP işlemi başarısız oldu."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "Anahtar sunucusu istenen genel anahtarı döndürmedi."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Yapılandırılmış anahtar sunucusu yok. Ayarlar → OpenPGP → Anahtar sunucularını yönet bölümünden bir tane ekleyin."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Anahtar sunucularınızın hiçbirinde bu anahtar yok. Gönderenden genel anahtarını isteyin."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: mesaj güvenliği denetleniyor…"
 
@@ -7433,6 +7493,9 @@ msgstr "Mesajın şifresi çözülemedi — ayrıntılar veya yeniden deneme iç
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Şifreli mesaj — okumak için özel anahtarınızın kilidini açın"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "İmza denetlenmedi — {0} imzalama anahtarı anahtarlığınızda değil"
 
 msgid "Signature could not be verified"
 msgstr "İmza doğrulanamadı"
@@ -7527,6 +7590,9 @@ msgstr "Genel anahtarı dışa aktar"
 msgid "Back up private key"
 msgstr "Özel anahtarı yedekle"
 
+msgid "Refresh from keyserver"
+msgstr "Anahtar sunucusundan yenile"
+
 msgid "Unlock in this browser"
 msgstr "Bu tarayıcıda kilidi aç"
 
@@ -7587,14 +7653,8 @@ msgstr "İptal sertifikası — güvenli saklayın"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "En az 12 karakterden oluşan güçlü bir parola seçin. Anahtar oluşturma bu tarayıcıda yerel olarak çalışır ve biraz zaman alabilir. İptal sertifikasını ve özel anahtar yedeğini güvenli bir yerde saklayın."
 
-msgid "Import OpenPGP key"
-msgstr "OpenPGP anahtarı içe aktar"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "ASCII zırhlı OpenPGP anahtar dosyasını seçin"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "Anahtar dosyası çok büyük. Maksimum boyut: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "Anahtar dosyası okunamadı."
@@ -7602,17 +7662,20 @@ msgstr "Anahtar dosyası okunamadı."
 msgid "Armored key"
 msgstr "Zırhlı anahtar"
 
-msgid "Protect unencrypted key"
-msgstr "Korumasız anahtar parolası"
+msgid "Current passphrase"
+msgstr "Mevcut parola"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "İsteğe bağlı: korumasız özel anahtar için yeni parola"
+msgid "New passphrase"
+msgstr "Yeni parola"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "Anahtar içe aktarıldı. Alıcılara şifreli mesaj göndermeden önce parmak izlerini doğrulayın."
+msgid "Repeat new passphrase"
+msgstr "Yeni parola tekrarı"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Bir dosya seçin veya BEGIN ve END satırları dahil olmak üzere tek bir ASCII zırhlı anahtar yapıştırın. Korumasız bir özel anahtar için, saklanmadan önce anahtarı yerel olarak korumak üzere yeni bir parola girin. İçe aktarılan alıcı anahtarları otomatik olarak güvenilir sayılmaz."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Özel anahtar içe aktarıldı. Parolasını değiştirdiyseniz özel anahtarı yedekleyin."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Bir dosya seçin veya BEGIN ve END satırları dahil ASCII zırhlı anahtarları yapıştırın. Bir dosya birden çok genel anahtar içerebilir. Özel anahtar için: korunuyorsa, geçerli parolasını yalnızca yeni bir parola vermek için girin; korunmuyorsa, saklanmadan önce korumak için yeni bir parola girin. İçe aktarılan anahtarlara otomatik olarak güvenilmez."
 
 msgid "Public OpenPGP key"
 msgstr "Genel OpenPGP anahtarı"
@@ -7629,17 +7692,8 @@ msgstr "Özel anahtar yedeği — güvenli saklayın"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Bu şifreli özel anahtar yedeğini indirmeden önce parolanızı yerel olarak onaylayın. Yedeği güvenli bir yerde saklayın ve hiçbir alıcıya veya anahtar sunucusuna göndermeyin."
 
-msgid "Current passphrase"
-msgstr "Mevcut parola"
-
-msgid "New passphrase"
-msgstr "Yeni parola"
-
 msgid "Change OpenPGP passphrase"
 msgstr "OpenPGP parolasını değiştir"
-
-msgid "Repeat new passphrase"
-msgstr "Yeni parola tekrarı"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "Parola değiştirildi. Yeni bir özel anahtar yedeği oluşturun."
@@ -7716,6 +7770,12 @@ msgstr "Yalnızca yönetici tarafından onaylanan HTTPS anahtar sunucuları kull
 msgid "Approved servers: {0}"
 msgstr "Onaylanan sunucular: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Anahtar sunucularınızda aranıyor…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "Anahtar, anahtar sunucusundan yenilendi. Yeni son kullanma tarihleri, alt anahtarlar ve iptaller artık geçerli."
+
 msgid "Find OpenPGP public key"
 msgstr "OpenPGP genel anahtarı bul"
 
@@ -7730,12 +7790,6 @@ msgstr "40 veya 64 karakterden oluşan eksiksiz bir onaltılık parmak izi girin
 
 msgid "Find and import"
 msgstr "Bul ve içe aktar"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "Anahtar sunucusu istenen genel anahtarı döndürmedi."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "Genel anahtar içe aktarıldı. Sahibine şifreli mesaj göndermeden önce parmak izini doğrulayın."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "Sunucu, aradığınız parmak izini alacaktır. İndirilen bir anahtarın, sahibine şifreli mesaj göndermeden önce yine de parmak izi doğrulamasından geçmesi gerekir."

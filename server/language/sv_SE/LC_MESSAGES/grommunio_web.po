@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Swedish (Sweden)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2026-02-17 22:26+0000\n"
 "Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/grommunio/grommunio-web/se/>\n"
@@ -2233,6 +2233,9 @@ msgstr "Kopiera/flytta meddelanden"
 
 msgid "Destination folder"
 msgstr "Destinationsmapp"
+
+msgid "Filter folders"
+msgstr "Filtrera mappar"
 
 msgid "There is {0} message selected."
 msgid_plural "There are {0} messages selected."
@@ -4625,16 +4628,16 @@ msgid "Folder size"
 msgstr "Mappstorlek"
 
 msgid "Send rights"
-msgstr ""
+msgstr "Sändningsbehörighet"
 
 msgid "Folder containing {0} Items"
 msgstr "Mapp som innehåller {0} objekt"
 
 msgid "Send on behalf"
-msgstr ""
+msgstr "Skicka på uppdrag av"
 
 msgid "Send as"
-msgstr ""
+msgstr "Skicka som"
 
 msgid "Permissions"
 msgstr "Behörigheter"
@@ -4842,9 +4845,6 @@ msgstr "Är du säker på att du vill tömma {0}?"
 
 msgid "Show All"
 msgstr "Visa alla"
-
-msgid "Filter folders"
-msgstr "Filtrera mappar"
 
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr "Du har inte tillräckliga rättigheter för att flytta den här mappen. Vill du kopiera istället?"
@@ -7242,11 +7242,14 @@ msgstr "Exakt ett OpenPGP-armeringsblock förväntades."
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr "Ytterligare data utanför OpenPGP-armeringen tillåts inte."
 
-msgid "Import one complete OpenPGP key at a time."
-msgstr "Importera en fullständig OpenPGP-nyckel i taget."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
+msgstr "Importera mellan 1 och {0} OpenPGP-nycklar åt gången."
 
 msgid "This key exceeds the supported subkey or identity limit."
 msgstr "Den här nyckeln överskrider gränsen för antalet undernycklar eller identiteter som stöds."
+
+msgid "Import one complete OpenPGP key at a time."
+msgstr "Importera en fullständig OpenPGP-nyckel i taget."
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
 msgstr "Privata nycklar måste vara lösenfrasskyddade före uppladdning. Skydda först den här nyckeln lokalt."
@@ -7262,6 +7265,24 @@ msgstr "OpenPGP-nyckeln låstes medan åtgärden pågick."
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
 msgstr "OpenPGP kräver en modern webbläsare och en säker HTTPS-anslutning."
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr "Importera en privat nyckel för sig, inte tillsammans med andra nycklar."
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr "Den här privata nyckeln är bara delvis skyddad. Skydda den helt innan du importerar den."
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr "Den här privata nyckeln skyddas inte av en lösenfras. Ange en ny lösenfras för att skydda den."
+
+msgid "The current passphrase could not unlock this private key."
+msgstr "Den aktuella lösenfrasen kunde inte låsa upp den här privata nyckeln."
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr "Ange nyckelns aktuella lösenfras för att ge den en ny."
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
+msgstr "Den här privata nyckeln använder ett föråldrat skydd. Ange dess aktuella lösenfras för att skydda den på nytt."
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
 msgstr "Åtgärden Skydda kräver en oskyddad privat nyckel. Använd Ändra lösenfras för skyddade nycklar."
@@ -7344,6 +7365,36 @@ msgstr "Enbart dekryptering autentiserar inte avsändaren."
 msgid "OpenPGP security information"
 msgstr "OpenPGP-säkerhetsinformation"
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr "Dina nyckelservrar kan sökas efter den saknade nyckeln. De får då veta vilken nyckel du letar efter. En nyckel som hittas på det här sättet måste ändå få sitt fingeravtryck verifierat innan du litar på avsändaren."
+
+msgid "Find key on keyserver"
+msgstr "Sök nyckel på nyckelserver"
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr "Signeringsnyckeln {0} har importerats. Verifiera dess fingeravtryck innan du litar på avsändaren."
+
+msgid "Import OpenPGP key"
+msgstr "Importera OpenPGP-nyckel"
+
+msgid "The attachment could not be loaded."
+msgstr "Bilagan kunde inte läsas in."
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr "Nyckelfilen är för stor. Maximal storlek: 1 MiB."
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr "Den här bilagan innehåller en privat nyckel. Importera den under Inställningar → OpenPGP → Importera nyckel."
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr "Den offentliga nyckeln har importerats. Verifiera dess fingeravtryck innan du krypterar meddelanden till dess ägare."
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr "{0} offentliga nycklar har importerats. Verifiera deras fingeravtryck innan du krypterar till ägarna."
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr "Den här bilagan innehåller ingen offentlig OpenPGP-nyckel."
+
 msgid "OpenPGP"
 msgstr "OpenPGP"
 
@@ -7416,6 +7467,15 @@ msgstr "De avkodade bilagorna är för stora."
 msgid "The OpenPGP operation failed."
 msgstr "OpenPGP-åtgärden misslyckades."
 
+msgid "The keyserver did not return the requested public key."
+msgstr "Nyckelservern returnerade inte den begärda offentliga nyckeln."
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr "Ingen nyckelserver är konfigurerad. Lägg till en under Inställningar → OpenPGP → Hantera nyckelservrar."
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr "Ingen av dina nyckelservrar har den här nyckeln. Be avsändaren om den offentliga nyckeln."
+
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: kontrollerar meddelandets säkerhet…"
 
@@ -7433,6 +7493,9 @@ msgstr "Meddelandet kunde inte dekrypteras — klicka för detaljer eller förs�
 
 msgid "Encrypted message — unlock your private key to read"
 msgstr "Krypterat meddelande — lås upp din privata nyckel för att läsa det"
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
+msgstr "Signaturen har inte kontrollerats — signeringsnyckeln {0} finns inte i din nyckelring"
 
 msgid "Signature could not be verified"
 msgstr "Signaturen kunde inte verifieras"
@@ -7527,6 +7590,9 @@ msgstr "Exportera offentlig nyckel"
 msgid "Back up private key"
 msgstr "Säkerhetskopiera privat nyckel"
 
+msgid "Refresh from keyserver"
+msgstr "Uppdatera från nyckelserver"
+
 msgid "Unlock in this browser"
 msgstr "Lås upp i den här webbläsaren"
 
@@ -7587,14 +7653,8 @@ msgstr "Återkallningscertifikat — förvara säkert"
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr "Välj en stark lösenfras på minst 12 tecken. Genereringen sker lokalt i den här webbläsaren och kan ta en stund. Förvara återkallningscertifikatet och en säkerhetskopia av den privata nyckeln på en säker plats."
 
-msgid "Import OpenPGP key"
-msgstr "Importera OpenPGP-nyckel"
-
 msgid "Choose armored OpenPGP key file"
 msgstr "Välj armerad OpenPGP-nyckelfil"
-
-msgid "The key file is too large. Maximum size: 1 MiB."
-msgstr "Nyckelfilen är för stor. Maximal storlek: 1 MiB."
 
 msgid "The key file could not be read."
 msgstr "Det gick inte att läsa nyckelfilen."
@@ -7602,17 +7662,20 @@ msgstr "Det gick inte att läsa nyckelfilen."
 msgid "Armored key"
 msgstr "Armerad nyckel"
 
-msgid "Protect unencrypted key"
-msgstr "Skydda okrypterad nyckel"
+msgid "Current passphrase"
+msgstr "Nuvarande lösenfras"
 
-msgid "Optional: new passphrase for an unprotected private key"
-msgstr "Valfritt: ny lösenfras för en oskyddad privat nyckel"
+msgid "New passphrase"
+msgstr "Ny lösenfras"
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
-msgstr "Nyckeln har importerats. Verifiera mottagarnas fingeravtryck innan du krypterar meddelanden till dem."
+msgid "Repeat new passphrase"
+msgstr "Upprepa ny lösenfras"
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
-msgstr "Välj en fil eller klistra in exakt en ASCII-armerad nyckel, inklusive raderna BEGIN och END. Om den privata nyckeln saknar lösenfras anger du en ny lösenfras, så att nyckeln skyddas lokalt innan den lagras. Importerade mottagarnycklar blir inte automatiskt betrodda."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr "Den privata nyckeln har importerats. Säkerhetskopiera den privata nyckeln om du har ändrat dess lösenfras."
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
+msgstr "Välj en fil eller klistra in ASCII-skyddade (armored) nycklar, inklusive raderna BEGIN och END. En fil kan innehålla flera offentliga nycklar. För en privat nyckel: om den är skyddad anger du dess aktuella lösenfras bara för att ge den en ny; om den inte är skyddad anger du en ny lösenfras som skyddar den innan den lagras. Importerade nycklar betros inte automatiskt."
 
 msgid "Public OpenPGP key"
 msgstr "Offentlig OpenPGP-nyckel"
@@ -7629,17 +7692,8 @@ msgstr "Säkerhetskopia av privat nyckel — förvara säkert"
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr "Bekräfta din lösenfras lokalt innan du laddar ner den här krypterade säkerhetskopian av den privata nyckeln. Förvara den säkert och skicka den aldrig till en mottagare eller en nyckelserver."
 
-msgid "Current passphrase"
-msgstr "Nuvarande lösenfras"
-
-msgid "New passphrase"
-msgstr "Ny lösenfras"
-
 msgid "Change OpenPGP passphrase"
 msgstr "Ändra OpenPGP-lösenfras"
-
-msgid "Repeat new passphrase"
-msgstr "Upprepa ny lösenfras"
 
 msgid "Passphrase changed. Make a new private-key backup."
 msgstr "Lösenfrasen har ändrats. Skapa en ny säkerhetskopia av den privata nyckeln."
@@ -7716,6 +7770,12 @@ msgstr "Endast HTTPS-nyckelservrar som godkänts av administratören kan använd
 msgid "Approved servers: {0}"
 msgstr "Godkända servrar: {0}"
 
+msgid "Searching your keyservers…"
+msgstr "Söker i dina nyckelservrar…"
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr "Nyckeln har uppdaterats från nyckelservern. Nya utgångsdatum, undernycklar och återkallelser gäller nu."
+
 msgid "Find OpenPGP public key"
 msgstr "Sök offentlig OpenPGP-nyckel"
 
@@ -7730,12 +7790,6 @@ msgstr "Ange ett fullständigt hexadecimalt fingeravtryck med 40 eller 64 tecken
 
 msgid "Find and import"
 msgstr "Sök och importera"
-
-msgid "The keyserver did not return the requested public key."
-msgstr "Nyckelservern returnerade inte den begärda offentliga nyckeln."
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
-msgstr "Den offentliga nyckeln har importerats. Verifiera dess fingeravtryck innan du krypterar meddelanden till dess ägare."
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
 msgstr "Servern får det fingeravtryck som du söker efter. En nedladdad nyckel kräver fortfarande att fingeravtrycket verifieras innan du krypterar meddelanden till dess ägare."

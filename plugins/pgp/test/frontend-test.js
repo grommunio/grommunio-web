@@ -105,6 +105,13 @@ test('decryption and valid cryptography do not falsely authenticate the sender',
 	assert.equal(utils.status({signed: true, signature_valid: true, sender_match: true, signer_trusted: true, signer_expired: true}).severity, 'warning');
 	assert.match(utils.status({signed: true, signature_valid: true, trailer: true}).text, /not shown/);
 	assert.match(utils.status({encrypted: true, decrypted: true, bundle_error: true}).text, /could not be loaded/);
+	const missing = {signed: true, signature_valid: false, signatures: [{status: 'missing-key', valid: false, keyid: 'B87667E1BE80E6B1', issuer_fingerprint: 'F18B64D6E239B7777CD5CDD2B87667E1BE80E6B1'}]};
+	assert.equal(utils.status(missing).severity, 'warning', 'a missing signing key is not a bad signature');
+	assert.match(utils.status(missing).text, /B87667E1BE80E6B1 is not in your keyring/);
+	assert.equal(JSON.stringify(utils.missingSigners(missing)), JSON.stringify([{keyid: 'B87667E1BE80E6B1', queries: ['F18B64D6E239B7777CD5CDD2B87667E1BE80E6B1', 'B87667E1BE80E6B1']}]));
+	assert.equal(JSON.stringify(utils.missingSigners({signatures: [{status: 'missing-key', keyid: 'B87667E1BE80E6B1', issuer_fingerprint: ''}]})[0].queries), JSON.stringify(['B87667E1BE80E6B1']));
+	missing.signatures.push({status: 'invalid', valid: false, keyid: '0123456789ABCDEF'});
+	assert.equal(utils.status(missing).severity, 'bad', 'an invalid signature next to a missing key stays bad');
 	assert.match(utils.status({unverifiable: true, encrypted: true}).text, /decrypt it with an OpenPGP tool/);
 });
 
@@ -190,7 +197,7 @@ test('both shared security menus and every provider submenu use the scoped menu 
 test('key settings retain native section spacing and direct form references', () => {
 	const {context} = runtime();
 	const widget = new context.Grommunio.plugins.pgp.settings.SettingsPgpWidget();
-	assert.deepEqual(widget.cls.split(/\s+/).sort(), ['pgp-settings', 'grommunio-settings-widget']);
+	assert.deepEqual(widget.cls.split(/\s+/).sort(), ['grommunio-settings-widget', 'pgp-settings']);
 	assert.equal(widget.layout, 'form');
 	assert.equal(widget.labelWidth, 200);
 	assert.deepEqual(Array.from(widget.items.filter(item => item.ref), item => [item.ref, item.xtype]), [
@@ -210,7 +217,7 @@ test('key settings use consistent button styling and a fit-width keyserver actio
 	const top = grid.tbar.filter(item => typeof item === 'object');
 	const bottom = grid.bbar.filter(item => typeof item === 'object');
 	assert.equal(top.length, 4);
-	assert.equal(bottom.length, 5);
+	assert.equal(bottom.length, 6);
 	for (const button of [...top, ...bottom]) {
 		assert.equal(button.cls, 'pgp-settings-button', button.text);
 	}
@@ -231,7 +238,7 @@ test('key actions stay disabled until a suitable key is selected', () => {
 	const actions = Object.fromEntries(grid.bbar.filter(item => item.itemId).map(item => [item.itemId, {
 		...item, setDisabled(value) { this.disabled = value; }
 	}]));
-	assert.deepEqual(Object.keys(actions), ['verify', 'export', 'private', 'delete']);
+	assert.deepEqual(Object.keys(actions), ['verify', 'export', 'refreshkey', 'private', 'delete']);
 	for (const action of Object.values(actions)) { assert.equal(action.disabled, true); }
 	let selected = null;
 	widget.keyGrid = {rendered: true, getSelectionModel: () => ({getSelected: () => selected}),
@@ -240,7 +247,7 @@ test('key actions stay disabled until a suitable key is selected', () => {
 	for (const action of Object.values(actions)) { assert.equal(action.disabled, true); }
 	selected = record({secret: false});
 	widget.onSelectionChange();
-	for (const id of ['verify', 'export', 'delete']) { assert.equal(actions[id].disabled, false); }
+	for (const id of ['verify', 'export', 'refreshkey', 'delete']) { assert.equal(actions[id].disabled, false); }
 	assert.equal(actions.private.disabled, true);
 	selected = record({secret: true});
 	widget.onSelectionChange();

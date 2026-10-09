@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 22:41+0200\n"
+"POT-Creation-Date: 2026-10-09 23:19+0200\n"
 "PO-Revision-Date: 2025-03-30 04:00+0000\n"
 "Language: my_MY\n"
 "MIME-Version: 1.0\n"
@@ -2229,6 +2229,9 @@ msgid "Copy/Move Messages"
 msgstr ""
 
 msgid "Destination folder"
+msgstr ""
+
+msgid "Filter folders"
 msgstr ""
 
 msgid "There is {0} message selected."
@@ -4840,9 +4843,6 @@ msgstr ""
 msgid "Show All"
 msgstr ""
 
-msgid "Filter folders"
-msgstr ""
-
 msgid "You have insufficient privileges to move this folder. Would you like to copy instead?"
 msgstr ""
 
@@ -7228,10 +7228,13 @@ msgstr ""
 msgid "Additional data outside the OpenPGP armor is not allowed."
 msgstr ""
 
-msgid "Import one complete OpenPGP key at a time."
+msgid "Import between 1 and {0} OpenPGP keys at a time."
 msgstr ""
 
 msgid "This key exceeds the supported subkey or identity limit."
+msgstr ""
+
+msgid "Import one complete OpenPGP key at a time."
 msgstr ""
 
 msgid "Private keys must be passphrase protected before upload. Protect this key locally first."
@@ -7247,6 +7250,24 @@ msgid "The OpenPGP key was locked while the operation was running."
 msgstr ""
 
 msgid "OpenPGP requires a modern browser and a secure HTTPS connection."
+msgstr ""
+
+msgid "Import a private key on its own, not together with other keys."
+msgstr ""
+
+msgid "This private key is only partly protected. Protect it completely before importing it."
+msgstr ""
+
+msgid "This private key is not protected by a passphrase. Enter a new passphrase to protect it."
+msgstr ""
+
+msgid "The current passphrase could not unlock this private key."
+msgstr ""
+
+msgid "Enter the current passphrase of this key to give it a new one."
+msgstr ""
+
+msgid "This private key uses an outdated protection. Enter its current passphrase to protect it again."
 msgstr ""
 
 msgid "Protect expects an unprotected private key. Use change passphrase for protected keys."
@@ -7330,6 +7351,36 @@ msgstr ""
 msgid "OpenPGP security information"
 msgstr ""
 
+msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
+msgstr ""
+
+msgid "Find key on keyserver"
+msgstr ""
+
+msgid "Imported the signing key {0}. Verify its fingerprint before you trust the sender."
+msgstr ""
+
+msgid "Import OpenPGP key"
+msgstr ""
+
+msgid "The attachment could not be loaded."
+msgstr ""
+
+msgid "The key file is too large. Maximum size: 1 MiB."
+msgstr ""
+
+msgid "This attachment holds a private key. Import it under Settings → OpenPGP → Import key."
+msgstr ""
+
+msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
+msgstr ""
+
+msgid "{0} public keys imported. Verify their fingerprints before encrypting to their owners."
+msgstr ""
+
+msgid "This attachment does not hold an OpenPGP public key."
+msgstr ""
+
 msgid "OpenPGP"
 msgstr ""
 
@@ -7402,6 +7453,15 @@ msgstr ""
 msgid "The OpenPGP operation failed."
 msgstr ""
 
+msgid "The keyserver did not return the requested public key."
+msgstr ""
+
+msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage keyservers."
+msgstr ""
+
+msgid "None of your keyservers has this key. Ask the sender for their public key."
+msgstr ""
+
 msgid "OpenPGP: checking message security…"
 msgstr ""
 
@@ -7418,6 +7478,9 @@ msgid "Message could not be decrypted — click for details or retry"
 msgstr ""
 
 msgid "Encrypted message — unlock your private key to read"
+msgstr ""
+
+msgid "Signature not checked — signing key {0} is not in your keyring"
 msgstr ""
 
 msgid "Signature could not be verified"
@@ -7513,6 +7576,9 @@ msgstr ""
 msgid "Back up private key"
 msgstr ""
 
+msgid "Refresh from keyserver"
+msgstr ""
+
 msgid "Unlock in this browser"
 msgstr ""
 
@@ -7573,13 +7639,7 @@ msgstr ""
 msgid "Choose a strong passphrase of at least 12 characters. Generation runs locally in this browser and may take a moment. Keep the revocation certificate and a private-key backup in a safe place."
 msgstr ""
 
-msgid "Import OpenPGP key"
-msgstr ""
-
 msgid "Choose armored OpenPGP key file"
-msgstr ""
-
-msgid "The key file is too large. Maximum size: 1 MiB."
 msgstr ""
 
 msgid "The key file could not be read."
@@ -7588,16 +7648,19 @@ msgstr ""
 msgid "Armored key"
 msgstr ""
 
-msgid "Protect unencrypted key"
+msgid "Current passphrase"
 msgstr ""
 
-msgid "Optional: new passphrase for an unprotected private key"
+msgid "New passphrase"
 msgstr ""
 
-msgid "Key imported. Verify recipient fingerprints before encrypting to them."
+msgid "Repeat new passphrase"
 msgstr ""
 
-msgid "Choose a file or paste one ASCII-armored key, including its BEGIN and END lines. For an unprotected private key, enter a new passphrase to protect it locally before storage. Imported recipient keys are not automatically trusted."
+msgid "Private key imported. Make a private-key backup if you changed its passphrase."
+msgstr ""
+
+msgid "Choose a file or paste ASCII-armored keys, including their BEGIN and END lines. A file may hold several public keys. For a private key: if it is protected, enter its current passphrase only to give it a new one; if it is not, enter a new passphrase to protect it before storage. Imported keys are not automatically trusted."
 msgstr ""
 
 msgid "Public OpenPGP key"
@@ -7615,16 +7678,7 @@ msgstr ""
 msgid "Confirm your passphrase locally before downloading this encrypted private-key backup. Keep it secure and never send it to a recipient or a keyserver."
 msgstr ""
 
-msgid "Current passphrase"
-msgstr ""
-
-msgid "New passphrase"
-msgstr ""
-
 msgid "Change OpenPGP passphrase"
-msgstr ""
-
-msgid "Repeat new passphrase"
 msgstr ""
 
 msgid "Passphrase changed. Make a new private-key backup."
@@ -7702,6 +7756,12 @@ msgstr ""
 msgid "Approved servers: {0}"
 msgstr ""
 
+msgid "Searching your keyservers…"
+msgstr ""
+
+msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
+msgstr ""
+
 msgid "Find OpenPGP public key"
 msgstr ""
 
@@ -7715,12 +7775,6 @@ msgid "Enter a complete 40- or 64-digit hexadecimal fingerprint."
 msgstr ""
 
 msgid "Find and import"
-msgstr ""
-
-msgid "The keyserver did not return the requested public key."
-msgstr ""
-
-msgid "Public key imported. Verify its fingerprint before encrypting to its owner."
 msgstr ""
 
 msgid "The server will receive the fingerprint you search for. A downloaded key still needs fingerprint verification before encrypting to its owner."
