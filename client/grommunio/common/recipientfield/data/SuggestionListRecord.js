@@ -24,7 +24,14 @@ Grommunio.common.recipientfield.data.SuggestionListRecord = Ext.data.Record.crea
 	{ name: 'address_type' },
 	{ name: 'count', type: 'int' },
 	{ name: 'last_used', type: 'date', dateFormat:'timestamp' },
-	{ name: 'object_type', type: 'int', defaultValue: Grommunio.core.mapi.ObjectType.MAPI_MAILUSER }
+	{ name: 'object_type', type: 'int', defaultValue: Grommunio.core.mapi.ObjectType.MAPI_MAILUSER },
+	// address book entries only
+	{ name: 'entryid' },
+	{ name: 'search_key' },
+	{ name: 'display_type', type: 'int' },
+	{ name: 'display_type_ex', type: 'int' },
+	// 'directory' for entries from the address book or contacts instead of the recipient history
+	{ name: 'source' }
 ]);
 
 Grommunio.common.recipientfield.data.SuggestionListRecord = Ext.extend(Grommunio.common.recipientfield.data.SuggestionListRecord, {
@@ -38,15 +45,24 @@ Grommunio.common.recipientfield.data.SuggestionListRecord = Ext.extend(Grommunio
 	 */
 	convertToRecipient: function(recipientType)
 	{
-		var recipientRecord = Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_RECIPIENT, {
+		var data = {
 			object_type: this.get('object_type'),
 			display_name: this.get('display_name'),
 			email_address: this.get('email_address'),
 			smtp_address: this.get('smtp_address'),
 			address_type: this.get('address_type'),
 			recipient_type: recipientType || Grommunio.core.mapi.RecipientType.MAPI_TO
-		});
+		};
 
-		return recipientRecord;
+		if (!Ext.isEmpty(this.get('entryid'))) {
+			Ext.apply(data, {
+				entryid: this.get('entryid'),
+				search_key: this.get('search_key'),
+				display_type: this.get('display_type'),
+				display_type_ex: this.get('display_type_ex')
+			});
+		}
+
+		return Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_RECIPIENT, data);
 	}
 });

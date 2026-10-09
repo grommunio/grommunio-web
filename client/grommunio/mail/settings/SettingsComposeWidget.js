@@ -212,6 +212,17 @@ Grommunio.mail.settings.SettingsComposeWidget = Ext.extend(Grommunio.settings.ui
 				}
 			},{
 				xtype: 'checkbox',
+				name: 'grommunio/v1/contexts/mail/suggest_from_directory',
+				ref: 'directorySuggestBox',
+				boxLabel: _('Also suggest recipients from the address book and contacts'),
+				hideLabel: true,
+				hidden: !container.getServerConfig().isDirectorySuggestionsEnabled(),
+				listeners: {
+					check: this.onFieldChange,
+					scope: this
+				}
+			},{
+				xtype: 'checkbox',
 				name: 'grommunio/v1/contexts/mail/attachment_reminder_enable',
 				ref: 'attachmentReminderBox',
 				boxLabel: _('Activate attachment reminder'),
@@ -349,6 +360,7 @@ Grommunio.mail.settings.SettingsComposeWidget = Ext.extend(Grommunio.settings.ui
 
 		this.readBox.setValue(settingsModel.get(this.readBox.name));
 		this.attachmentReminderBox.setValue(settingsModel.get(this.attachmentReminderBox.name));
+		this.directorySuggestBox.setValue(settingsModel.get(this.directorySuggestBox.name));
 
 		// Set values in autoSave checkbox and textfield.
 		var enabled = settingsModel.get(this.autoSaveBox.name);
@@ -380,6 +392,7 @@ Grommunio.mail.settings.SettingsComposeWidget = Ext.extend(Grommunio.settings.ui
 		settingsModel.set(this.composerCombo.name, this.composerCombo.getValue() === 'html');
 		settingsModel.set(this.editorCombo.name, this.editorCombo.getValue());
 		settingsModel.set(this.readBox.name, this.readBox.getValue());
+		settingsModel.set(this.directorySuggestBox.name, this.directorySuggestBox.getValue());
 		settingsModel.set(this.autoSaveTimeSpinner.name, spinnerValue);
 		settingsModel.set(this.autoSaveEncryptedBox.name, this.autoSaveEncryptedBox.getValue());
 		settingsModel.endEdit();

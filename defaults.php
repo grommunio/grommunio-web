@@ -238,6 +238,14 @@ if (!defined("ENABLE_RESOLVE_HIDDEN_USERS")) {
 }
 
 /*
+ * When enabled, recipient suggestions that the recipient history cannot fill are
+ * completed from the global address book and the user's contacts folder.
+ */
+if (!defined("ENABLE_DIRECTORY_SUGGESTIONS")) {
+	define("ENABLE_DIRECTORY_SUGGESTIONS", true);
+}
+
+/*
  * When disabled, the domains without users/contacts in their global address list
  * will not appear in the GAB selection. Enabled by default to avoid additional load.
  */

@@ -67,6 +67,15 @@ Grommunio.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {Boolean} True if recipient suggestions may be completed from the
+	 * address book and contacts.
+	 */
+	isDirectorySuggestionsEnabled: function()
+	{
+		return this.meta.enable_directory_suggestions === true;
+	},
+
+	/**
 	 * @return {Boolean} True if the conversation view may be used
 	 * (administrative kill-switch, see ENABLE_CONVERSATION_VIEW in config.php)
 	 */

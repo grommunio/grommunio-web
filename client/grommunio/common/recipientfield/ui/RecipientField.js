@@ -107,7 +107,12 @@ Grommunio.common.recipientfield.ui.RecipientField = Ext.extend(Grommunio.common.
 			tpl: new Ext.XTemplate(
 				'<tpl for=".">',
 					'<div class="x-grommunio-boxfield-suggestion-item x-combo-list-item">',
-						'<a class="x-grommunio-boxfield-suggestion-cross" ext:qtip="'+ _('Delete recipient from suggestion list') +'" ext:qwidth="100%"></a>',
+						'<tpl if="values.source !== \'directory\'">',
+							'<a class="x-grommunio-boxfield-suggestion-cross" ext:qtip="'+ _('Delete recipient from suggestion list') +'" ext:qwidth="100%"></a>',
+						'</tpl>',
+						'<tpl if="values.source === \'directory\'">',
+							'<span class="k-suggestion-directory icon_contact" ext:qtip="'+ _('From the address book or contacts') +'"></span>',
+						'</tpl>',
 						'{values.display_name:htmlEncode} &lt;',
 							'<tpl if="!Ext.isEmpty(values.smtp_address)">{values.smtp_address:htmlEncode}</tpl>',
 							'<tpl if="Ext.isEmpty(values.smtp_address)">{values.email_address:htmlEncode}</tpl>',
