@@ -210,10 +210,27 @@ Grommunio.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 				}],
 				autoheight: true
 			},{
+				xtype: 'textfield',
+				ref: '../filterField',
+				cls: 'copymove-filter',
+				height: 28,
+				margins: '0 0 6 0',
+				emptyText: _('Filter folders'),
+				enableKeyEvents: true,
+				listeners: {
+					keyup: {
+						fn: this.onFilterKeyUp,
+						buffer: 250
+					},
+					specialkey: this.onFilterSpecialKey,
+					scope: this
+				}
+			},{
 				xtype: 'grommunio.hierarchytree',
 				flex: 1,
 				border: true,
 				treeSorter: true,
+				treeFilter: true,
 				plugins: ['grommunio.treetypeahead'],
 				hideTodoList: true,
 				hideSearchFolders: true,
@@ -231,6 +248,62 @@ Grommunio.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 				}
 			}
 		};
+	},
+
+	/**
+	 * Filter the tree on what was typed, including folders in collapsed branches,
+	 * and select the first match.
+	 * @param {Ext.form.TextField} field The filter field
+	 * @private
+	 */
+	onFilterKeyUp: function(field)
+	{
+		var value = field.getRawValue().trim();
+		if (value === this.filterValue) {
+			return;
+		}
+		this.filterValue = value;
+
+		var tree = this.hierarchyTree;
+		if (Ext.isEmpty(value)) {
+			tree.treeFilter.reset();
+			return;
+		}
+
+		var regex = new RegExp(Ext.escapeRe(value), 'i');
+		tree.treeFilter.filter(regex, undefined, undefined, value);
+
+		var match;
+		tree.getRootNode().cascade(function(node) {
+			if (match) {
+				return false;
+			}
+			if (!node.isRoot && !node.hidden && node.getFolder && regex.test(node.getFolder().get('display_name'))) {
+				match = node;
+				return false;
+			}
+		});
+		if (match) {
+			tree.getSelectionModel().select(match);
+			match.ensureVisible();
+		}
+	},
+
+	/**
+	 * Arrow down or Enter in the filter field moves the focus to the tree.
+	 * @param {Ext.form.TextField} field The filter field
+	 * @param {Ext.EventObject} event The key event
+	 * @private
+	 */
+	onFilterSpecialKey: function(field, event)
+	{
+		if (event.getKey() === event.DOWN || event.getKey() === event.ENTER) {
+			event.stopEvent();
+			var node = this.hierarchyTree.getSelectionModel().getSelectedNode();
+			if (node && node.ui) {
+				node.ui.focus();
+			}
+		}
 	},
 
 	/**
