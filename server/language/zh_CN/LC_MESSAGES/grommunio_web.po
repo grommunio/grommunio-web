@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Simplified)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2022-07-26 18:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -3013,6 +3013,9 @@ msgstr "应用更改"
 msgid "Do you wish to apply the changes?"
 msgstr "您是否应用更改？"
 
+msgid "Search in folder"
+msgstr "在文件夹中搜索"
+
 msgid "Recent searches"
 msgstr "最近的搜索"
 
@@ -3037,6 +3040,15 @@ msgstr "不是"
 msgid "Search in"
 msgstr "搜索"
 
+msgid "Whole mailbox"
+msgstr "整个邮箱"
+
+msgid "No folder matches"
+msgstr "没有匹配的文件夹"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "还有 {0} 个，继续输入以缩小范围"
+
 msgid "All folders"
 msgstr "所有文件夹"
 
@@ -3046,8 +3058,16 @@ msgstr "其它…"
 msgid "Search"
 msgstr "搜索"
 
+msgid "Clear search"
+msgstr "清除搜索"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "点击循环：AND → OR → NOT"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "文件夹"
 
 msgid "Folder does not exist"
 msgstr "文件夹不存在"
@@ -4552,8 +4572,17 @@ msgstr "说明"
 msgid "Folder size"
 msgstr "文件夹大小"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "文件夹包含{0}个项目"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "权限"
@@ -5622,9 +5651,6 @@ msgstr "正在重新加载，请耐心等待。"
 msgid "Search settings"
 msgstr "搜索设置"
 
-msgid "Clear search"
-msgstr "清除搜索"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "找到 {0} 项匹配的设置"
@@ -6675,29 +6701,23 @@ msgstr "编辑共享"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "尚未添加任何账户。请前往“设置”的“文件”选项卡添加账户"
 
-msgid "Filesize"
-msgstr "文件大小"
-
-msgid "Last modified"
-msgstr "最后修改"
-
-msgid "Is shared"
-msgstr "是否共享"
-
-msgid "File preview"
-msgstr "文件预览"
+msgid "File ({0})"
+msgstr "文件 ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "File ({0})"
-msgstr "文件 ({0})"
+msgid "Is shared"
+msgstr "是否共享"
 
 msgid "Path"
 msgstr "路径"
 
 msgid "Sort by: Path"
 msgstr "排序方式路径"
+
+msgid "Last modified"
+msgstr "最后修改"
 
 msgid "Sort by: Last modified"
 msgstr "排序方式最后修改"
@@ -8554,6 +8574,21 @@ msgstr "未知通知程序 '%s'"
 msgid "An unexpected error has occurred"
 msgstr "发生意外错误"
 
+msgid "Could not forward meeting request."
+msgstr "无法转发会议请求。"
+
+msgid "Your meeting has been forwarded"
+msgstr "您的会议已转发"
+
+msgid "has forwarded your meeting request to others."
+msgstr "已将您的会议请求转发给其他人。"
+
+msgid "l, F j, Y g:i A"
+msgstr "Y年n月j日 l G:i"
+
+msgid "Meeting Time"
+msgstr "会议时间"
+
 msgid "To-Do List"
 msgstr "待办事项列表"
 
@@ -8564,6 +8599,12 @@ msgstr "待办事项列表"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s of %2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "已存在使用此名称的文件夹。请使用其他名称。"
+
+msgid "Could not delete folder."
+msgstr "不能删除文件夹。"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "OpenPGP 当前已禁用或不可用。您的邮件未发送。请先启用 OpenPGP 再重试，或明确关闭签名和加密。"
@@ -8610,25 +8651,11 @@ msgstr "eml附件没有被成功导入"
 msgid "The vcf attachment is not imported successfully"
 msgstr "vcf附件没有被成功导入"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "无法将‘%s’导入至‘%s’。 "
+msgid "Attachment is not imported successfully"
+msgstr "未成功导入附件"
 
 msgid "There is no appointment found in this file."
 msgstr "未能在此文件中找到任何预约。"
-
-msgid "The file is corrupt."
-msgstr "该文件已损坏。"
-
-msgid "The file is invalid."
-msgstr "该文件无效。"
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "无法导入‘%s’。 "
-
-msgid "Attachment is not imported successfully"
-msgstr "未成功导入附件"
 
 msgid "Embedded attachment not found."
 msgstr "未找到嵌入的附件。"
@@ -8639,20 +8666,34 @@ msgstr "未成功创建 ZIP"
 msgid "Attachments can not be downloaded"
 msgstr "无法下载附件"
 
-msgid "Operation failed"
-msgstr "操作失败"
-
 msgid "Sticky Note"
 msgstr "粘滞便笺"
 
 msgid "Task Request"
 msgstr "任务要求"
 
+msgid "Operation failed"
+msgstr "操作失败"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "找不到信息，要么已被移动，要么已被删除。"
 
 msgid "Action is not performed correctly."
 msgstr "操作未正确执行。"
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "无法将‘%s’导入至‘%s’。 "
+
+msgid "The file is corrupt."
+msgstr "该文件已损坏。"
+
+msgid "The file is invalid."
+msgstr "该文件无效。"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "无法导入‘%s’。 "
 
 msgid "Tentatively accepted"
 msgstr "暂定接受"
@@ -8835,6 +8876,13 @@ msgstr "无法打开存储。"
 msgid "Could not load the hierarchy."
 msgstr "无法加载层次结构。"
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "您没有足够的权限打开此%1$s文件夹。文件夹所有者可以通过文件夹属性中的“权限”选项卡设置这些权限（右击%1$s文件夹 > 属性 > 权限）。"
+
+msgid "User could not be resolved."
+msgstr "无法解决用户问题。"
+
 msgid "Could not open the shared store."
 msgstr "无法打开共享商店。"
 
@@ -8846,9 +8894,6 @@ msgstr "无法从收藏夹中删除文件夹。"
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "您没有足够的权限删除文件夹。"
-
-msgid "Could not delete folder."
-msgstr "不能删除文件夹。"
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "您没有足够的权限复制文件夹。"
@@ -8886,9 +8931,6 @@ msgstr "无法设置文件夹权限。"
 msgid "You have insufficient privileges to rename this folder."
 msgstr "您没有足够的权限重命名此文件夹。"
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "已存在使用此名称的文件夹。请使用其他名称。"
-
 msgid "Could not rename folder."
 msgstr "无法重命名文件夹。"
 
@@ -8900,13 +8942,6 @@ msgstr "无法创建文件夹。"
 
 msgid "Could not close shared folder."
 msgstr "无法关闭共享文件夹。"
-
-msgid "User could not be resolved."
-msgstr "无法解决用户问题。"
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "您没有足够的权限打开此%1$s文件夹。文件夹所有者可以通过文件夹属性中的“权限”选项卡设置这些权限（右击%1$s文件夹 > 属性 > 权限）。"
 
 msgid "default"
 msgstr "默认"
@@ -8943,9 +8978,6 @@ msgstr "无法复制消息。"
 
 msgid "Could not move message."
 msgstr "无法移动消息。"
-
-msgid "Could not forward meeting request."
-msgstr "无法转发会议请求。"
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "您无足够的权限将项目保存到此文件夹中。"
@@ -9002,18 +9034,6 @@ msgstr "无法联系以下收件人"
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "管理员已禁用删除附件功能。"
-
-msgid "l, F j, Y g:i A"
-msgstr "Y年n月j日 l G:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "您的会议已转发"
-
-msgid "has forwarded your meeting request to others."
-msgstr "已将您的会议请求转发给其他人。"
-
-msgid "Meeting Time"
-msgstr "会议时间"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "您没有足够的权限查看该文件夹的内容。"

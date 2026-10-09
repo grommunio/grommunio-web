@@ -1141,6 +1141,8 @@ body.dark-mode .k-search-token-input {
 	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI2FhYSIgZD0iTTYuNjcuODNhNS44MyA1LjgzIDAgMCAxIDQuNjQgOS4zN2wzLjY5IDMuN2EuNzguNzggMCAwIDEtMS4wMyAxLjE2bC0uMDctLjA2LTMuNjktMy42OUE1LjgzIDUuODMgMCAxIDEgNi42Ny44M20wIDEuNTZhNC4yOCA0LjI4IDAgMSAwIDAgOC41NiA0LjI4IDQuMjggMCAwIDAgMC04LjU2Ii8+PC9zdmc+); }
 	body.dark-mode .k-search-token-input.k-search-focused {
 		background-color: var(--dm-bg-base); }
+	body.dark-mode .k-search-token-input.k-search-has-content {
+		background-image: none; }
 
 body.dark-mode .k-search-token-value,
 body.dark-mode .k-search-tail-input {
@@ -1224,6 +1226,13 @@ body.dark-mode .k-search-chip.k-search-chip-text {
 	color: #ce93d8; }
 body.dark-mode .k-search-chip.k-search-chip-text .k-search-chip-remove {
 	color: #ce93d8; }
+
+body.dark-mode .k-search-chip.k-search-chip-scope {
+	background-color: var(--ui-surface-3);
+	border-color: var(--ui-border-strong);
+	color: var(--ui-text); }
+body.dark-mode .k-search-chip.k-search-chip-scope .k-search-chip-remove {
+	color: var(--ui-text); }
 
 body.dark-mode .k-search-chip-edit {
 	background: rgba(66, 165, 245, 0.1);

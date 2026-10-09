@@ -170,6 +170,28 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 		}, true);
 
 		this.tailInputEl = this.tokenWrapEl.child('.k-search-tail-input');
+
+		// Takes the place of the magnifier while the field has content
+		this.clearBtnEl = Ext.DomHelper.insertFirst(this.tokenWrapEl, {
+			tag: 'span',
+			cls: 'k-search-clear-btn',
+			role: 'button',
+			tabindex: '0',
+			title: _('Clear search'),
+			'aria-label': _('Clear search'),
+			html: '&times;'
+		}, true);
+		this.clearBtnEl.on('mousedown', function(e) { e.preventDefault(); });
+		this.clearBtnEl.on('click', function(e) {
+			e.stopEvent();
+			this.clearSearch();
+		}, this);
+		this.clearBtnEl.on('keydown', function(e) {
+			if (e.getKey() === e.ENTER || e.getKey() === e.SPACE) {
+				e.stopEvent();
+				this.clearSearch();
+			}
+		}, this);
 		this.tailInputEl.set({ placeholder: _('Search\u2026') });
 
 		// Search submit button
@@ -228,6 +250,8 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 		// token wrapper.
 		// The panel is already rendered (renderTo: Ext.getBody()),
 		// so bind directly on its element.
+		this.mon(this.searchContainer.searchFolderCombo, 'scopechange', this.renderTokens, this);
+
 		this.dropdownPanel.el.on('mousedown', function(e) {
 			e.preventDefault();
 			this.dropdownInteracting = true;
@@ -449,7 +473,7 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 			}
 		}
 		var tail = this.tailInputEl ? this.tailInputEl.dom.value.trim() : '';
-		if (tail) {
+		if (tail && this.getScopeQuery(tail) === null) {
 			parts.push(tail);
 		}
 		return parts.join(' ');
@@ -561,10 +585,11 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 		// Remove everything except the tail input and submit button
 		var dom = this.tokenWrapEl.dom;
 		var submitDom = this.submitBtnEl ? this.submitBtnEl.dom : null;
+		var clearDom = this.clearBtnEl ? this.clearBtnEl.dom : null;
 		var children = dom.childNodes;
 		var toRemove = [];
 		for (var i = 0; i < children.length; i++) {
-			if (children[i] !== this.tailInputEl.dom && children[i] !== submitDom) {
+			if (children[i] !== this.tailInputEl.dom && children[i] !== submitDom && children[i] !== clearDom) {
 				toRemove.push(children[i]);
 			}
 		}
@@ -573,6 +598,11 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 		}
 
 		var insertBefore = this.tailInputEl.dom;
+
+		var scopeChip = this.createScopeChipEl();
+		if (scopeChip) {
+			dom.insertBefore(scopeChip, insertBefore);
+		}
 
 		for (var k = 0; k < this.tokens.length; k++) {
 			var token = this.tokens[k];
@@ -596,8 +626,117 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 
 		// Placeholder: only show when no tokens exist
 		this.tailInputEl.set({
-			placeholder: this.tokens.length > 0 ? '' : _('Search\u2026')
+			placeholder: this.tokens.length > 0 || scopeChip ? '' : _('Search\u2026')
 		});
+		this.updateClearButton();
+	},
+
+	/**
+	 * Shows the clear button instead of the magnifier while there is
+	 * anything to clear.
+	 * @private
+	 */
+	updateClearButton: function()
+	{
+		if (!this.tokenWrapEl) {
+			return;
+		}
+		var hasContent = this.tokens.length > 0 || !!this.tailInputEl.dom.value.trim() ||
+			this.searchContainer.searchFolderCombo.isScopePinned();
+		this.tokenWrapEl[hasContent ? 'addClass' : 'removeClass']('k-search-has-content');
+	},
+
+	/**
+	 * Empties the field and drops a chosen folder, ready for a new search.
+	 * A search that is open in its tab stays as it is.
+	 */
+	clearSearch: function(keepFocus)
+	{
+		this.tokens = [];
+		this.editingTokenIndex = -1;
+		this.tailInputEl.dom.value = '';
+		var combo = this.searchContainer.searchFolderCombo;
+		if (combo.isScopePinned()) {
+			combo.resetScope();
+		}
+		this.searchedValue = undefined;
+		this.renderTokens();
+		this.syncHiddenInput();
+		this.fireEvent('chipchange', this, this.getFilterChips());
+		if (!keepFocus) {
+			this.tailInputEl.focus();
+		}
+	},
+
+	/**
+	 * @property {String} searchedValue The query of the search last started
+	 * from this field, while the field still shows it.
+	 */
+	searchedValue: undefined,
+
+	/**
+	 * Empties the field when a tab without a search comes to the front and the
+	 * field still shows the search that runs (or ran) in its own tab. Text
+	 * typed but never searched stays.
+	 * @param {Ext.TabPanel} tabPanel The content tab panel
+	 * @param {Ext.Panel} tab The tab now in front
+	 * @private
+	 */
+	onContentTabChange: function(tabPanel, tab)
+	{
+		if (!tab || tab.isXType('grommunio.searchcontentpanel') || this.searchedValue === undefined) {
+			return;
+		}
+		if (this.getValue() === this.searchedValue) {
+			this.clearSearch(true);
+		} else {
+			this.searchedValue = undefined;
+		}
+	},
+
+	/**
+	 * Creates the chip that shows a folder picked with "in:", from the
+	 * dropdown or with "Other…".
+	 * A scope that just follows the selected folder gets no chip.
+	 * @return {HTMLElement} The chip, or undefined
+	 * @private
+	 */
+	createScopeChipEl: function()
+	{
+		var combo = this.searchContainer.searchFolderCombo;
+		if (!combo.isScopePinned()) {
+			return undefined;
+		}
+		var folder = container.getHierarchyStore().getFolder(combo.getValue());
+		if (!folder) {
+			return undefined;
+		}
+		var name = folder.getDisplayName();
+		if (combo.getScopeRecord().get('flag') === Grommunio.advancesearch.data.SearchComboBoxFieldsFlags.ALL_FOLDERS) {
+			name = combo.getScopeRecord().get('name');
+		}
+
+		var chip = document.createElement('span');
+		chip.className = 'k-search-chip k-search-chip-scope';
+		chip.title = this.getFolderPath(folder).concat(folder.getDisplayName()).join(' \u203a ');
+
+		var label = document.createElement('span');
+		label.className = 'k-search-chip-label';
+		label.textContent = this.getScopeLabel() + ': ' + name;
+		chip.appendChild(label);
+
+		var remove = document.createElement('span');
+		remove.className = 'k-search-chip-remove';
+		remove.textContent = '\u00d7';
+		chip.appendChild(remove);
+
+		chip.addEventListener('mousedown', function(e) { e.preventDefault(); });
+		remove.addEventListener('click', function(e) {
+			e.stopPropagation();
+			combo.resetScope();
+		});
+
+		return chip;
 	},
 
 	/**
@@ -1077,6 +1216,15 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 			return;
 		}
 
+		var scopeQuery = this.getScopeQuery(text);
+		if (scopeQuery !== null) {
+			var folder = this.resolveScopeFolder(scopeQuery);
+			if (folder) {
+				this.applyScopeFolder(folder);
+			}
+			return;
+		}
+
 		this.tailInputEl.dom.value = '';
 
 		var parsed = this.parseInputText(text);
@@ -1376,6 +1524,17 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 			this.dropdownPanel.resetHistoryHighlight();
 		}
 		var text = this.tailInputEl.dom.value;
+		this.updateClearButton();
+
+		var scopeQuery = this.getScopeQuery(text);
+		if (scopeQuery !== null) {
+			this.showDropdown();
+			this.syncHiddenInput();
+			return;
+		}
+		if (this.dropdownPanel) {
+			this.dropdownPanel.hideFolderSuggestions();
+		}
 
 		// Auto-convert a paste of several terms. Gated on a term-separating space
 		// (outside quotes), and checked before the single-term commit below, so a
@@ -1385,8 +1544,15 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 			if (parsed.length > 1) {
 				this.tailInputEl.dom.value = '';
 				for (var i = 0; i < parsed.length; i++) {
+					var pastedScope = parsed[i].type === 'text' ? this.getScopeQuery(parsed[i].value) : null;
+					var pastedFolder = pastedScope !== null && this.resolveScopeFolder(pastedScope);
+					if (pastedFolder) {
+						this.searchContainer.searchFolderCombo.setScopeFolder(pastedFolder);
+						continue;
+					}
 					this.tokens.push(parsed[i]);
 				}
+				this.cleanupOperators();
 				this.renderTokens();
 				this.syncHiddenInput();
 				this.fireEvent('chipchange', this, this.getFilterChips());
@@ -1410,6 +1576,9 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 	 */
 	onTailKeyDown: function(e)
 	{
+		if (this.getScopeQuery(this.tailInputEl.dom.value) !== null && this.onScopeKeyDown(e)) {
+			return;
+		}
 		if (e.getKey() === Ext.EventObject.ENTER) {
 			// A highlighted option wins over running the search
 			if (this.dropdownPanel && this.dropdownPanel.isVisible() && this.dropdownPanel.getHighlightedOption()) {
@@ -1463,6 +1632,9 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 			if (!this.tailInputEl.dom.value && this.tokens.length > 0) {
 				e.preventDefault();
 				this.removeTokenAt(this.tokens.length - 1);
+			} else if (!this.tailInputEl.dom.value && this.createScopeChipEl()) {
+				e.preventDefault();
+				this.searchContainer.searchFolderCombo.resetScope();
 			}
 		} else if (e.getKey() === Ext.EventObject.LEFT) {
 			if (this.tailInputEl.dom.selectionStart === 0 && this.tokens.length > 0) {
@@ -1470,6 +1642,234 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 				this.editLastToken();
 			}
 		}
+	},
+
+	/**
+	 * Keys while an "in:" term is typed. Space and Enter pick the folder when
+	 * the term names exactly one, otherwise the space stays part of the name
+	 * and Enter takes the highlighted suggestion; the term never reaches the
+	 * search itself.
+	 * @param {Ext.EventObject} e The key event
+	 * @return {Boolean} True when the key was handled
+	 * @private
+	 */
+	onScopeKeyDown: function(e)
+	{
+		var key = e.getKey();
+		var dropdown = this.dropdownPanel;
+		if (key === Ext.EventObject.ENTER) {
+			e.preventDefault();
+			if (dropdown.isVisible() && dropdown.getHighlightedOption()) {
+				dropdown.activateHighlightedOption();
+			} else {
+				this.commitTailInput();
+			}
+			return true;
+		} else if (key === 32) {
+			var folder = this.resolveScopeFolder(this.getScopeQuery(this.tailInputEl.dom.value));
+			if (folder) {
+				e.preventDefault();
+				this.applyScopeFolder(folder);
+			}
+			return true;
+		} else if (key === Ext.EventObject.TAB) {
+			if (dropdown.isVisible()) {
+				e.preventDefault();
+				dropdown.moveOptionHighlight(e.shiftKey ? -1 : 1);
+			}
+			return true;
+		}
+		return false;
+	},
+
+	/**
+	 * @return {String} The keyword that scopes a search to a folder, as in
+	 * "in:Inbox", in the user's language when the translation can be typed
+	 * as a prefix
+	 */
+	getScopeLabel: function()
+	{
+		if (!this.scopeLabel) {
+			/* # TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too. */
+			var label = pgettext('search keyword', 'in');
+			var KQL = Grommunio.advancesearch.KQLParser;
+			// A translation that is also a field prefix (from:, to: …) would be ambiguous
+			this.scopeLabel = KQL.isUsableAlias(label) && !KQL.resolveKeyword(label) ? label : 'in';
+		}
+		return this.scopeLabel;
+	},
+
+	/**
+	 * @param {String} text A search term
+	 * @return {String} The folder name after "in:" without quotes, or null
+	 * when the term is no scope term
+	 * @private
+	 */
+	getScopeQuery: function(text)
+	{
+		if (!this.scopeQueryRe) {
+			var keywords = ['in'];
+			if (this.getScopeLabel().toLowerCase() !== 'in') {
+				keywords.push(Grommunio.advancesearch.KQLParser.regExpEscape(this.getScopeLabel()));
+			}
+			this.scopeQueryRe = new RegExp('^\\s*(?:' + keywords.join('|') + '):(.*)$', 'i');
+		}
+		var match = this.scopeQueryRe.exec(text || '');
+		if (!match) {
+			return null;
+		}
+		return match[1].replace(/^["']/, '').replace(/["']$/, '');
+	},
+
+	/**
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder
+	 * @return {String[]} Display names from the mailbox down to the parent
+	 * @private
+	 */
+	getFolderPath: function(folder)
+	{
+		var path = [];
+		var parent = folder.getParentFolder();
+		while (parent) {
+			path.unshift(parent.getDisplayName());
+			parent = parent.getParentFolder();
+		}
+		return path;
+	},
+
+	/**
+	 * English names of the default folders, accepted next to the localized
+	 * ones so that "in:inbox" works whatever the mailbox language.
+	 * @property
+	 * @type Object
+	 */
+	defaultFolderAliases: {
+		inbox: 'Inbox',
+		drafts: 'Drafts',
+		sent: 'Sent Items',
+		outbox: 'Outbox',
+		wastebasket: 'Deleted Items',
+		junk: 'Junk E-mail',
+		calendar: 'Calendar',
+		contact: 'Contacts',
+		task: 'Tasks',
+		note: 'Notes',
+		journal: 'Journal'
+	},
+
+	/**
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder
+	 * @return {String[]} The names the folder can be typed as, lower case
+	 * @private
+	 */
+	getFolderNames: function(folder)
+	{
+		var names = [folder.getDisplayName().toLowerCase()];
+		var alias = this.defaultFolderAliases[folder.getDefaultFolderKey()];
+		if (alias && names[0] !== alias.toLowerCase()) {
+			names.push(alias.toLowerCase());
+		}
+		return names;
+	},
+
+	/**
+	 * Lists the folders a search can be scoped to, best match first. Mailboxes
+	 * can be named too, and "Inbox/Projects" narrows by path, which tells
+	 * folders of the same name apart.
+	 * @param {String} query What follows "in:"
+	 * @return {Object[]} Objects with folder, path and the match position
+	 * @private
+	 */
+	getScopeFolders: function(query)
+	{
+		var q = query.trim().toLowerCase().replace(/\\/g, '/');
+		var segments = q.split('/').filter(function(seg) { return seg; });
+		var results = [];
+
+		var rankName = function(names, needle) {
+			var best = -1;
+			names.forEach(function(name) {
+				var rank = -1;
+				if (name === needle) {
+					rank = 0;
+				} else if (name.indexOf(needle) === 0) {
+					rank = 1;
+				} else if (name.indexOf(' ' + needle) !== -1) {
+					rank = 2;
+				} else if (name.indexOf(needle) !== -1) {
+					rank = 3;
+				}
+				if (rank !== -1 && (best === -1 || rank < best)) {
+					best = rank;
+				}
+			});
+			return best;
+		};
+
+		container.getHierarchyStore().getSortedFolders(function(folder) {
+			return !folder.isSearchFolder() && !folder.isTodoListFolder() &&
+				!folder.isFavoritesRootFolder() && !folder.isFavoriteFolder() &&
+				!folder.get('is_unavailable');
+		}).forEach(function(folder, order) {
+			var rank = segments.length ? rankName(this.getFolderNames(folder), segments[segments.length - 1]) : 1;
+			// Earlier segments must name ancestors, top down
+			var parent = folder.getParentFolder();
+			for (var i = segments.length - 2; rank !== -1 && i >= 0; i--) {
+				while (parent && rankName(this.getFolderNames(parent), segments[i]) === -1) {
+					parent = parent.getParentFolder();
+				}
+				if (!parent) {
+					rank = -1;
+				} else {
+					parent = parent.getParentFolder();
+				}
+			}
+			if (rank !== -1) {
+				results.push({ folder: folder, name: folder.getDisplayName(), path: this.getFolderPath(folder), rank: rank, order: order });
+			}
+		}, this);
+
+		results.sort(function(a, b) {
+			return a.rank - b.rank || a.order - b.order;
+		});
+		return results;
+	},
+
+	/**
+	 * @param {String} query What follows "in:"
+	 * @return {Grommunio.hierarchy.data.MAPIFolderRecord} The folder the query
+	 * names unambiguously, or undefined
+	 * @private
+	 */
+	resolveScopeFolder: function(query)
+	{
+		if (!query || !query.trim()) {
+			return undefined;
+		}
+		var matches = this.getScopeFolders(query);
+		var exact = matches.filter(function(m) { return m.rank === 0; });
+		if (exact.length > 1) {
+			// "Inbox" means the own one while shared mailboxes are open too
+			exact = exact.filter(function(m) { return m.folder.getMAPIStore().isDefaultStore(); });
+		}
+		if (exact.length === 1) {
+			return exact[0].folder;
+		}
+		return matches.length === 1 ? matches[0].folder : undefined;
+	},
+
+	/**
+	 * Scopes the search to the folder and drops the typed "in:" term.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder
+	 */
+	applyScopeFolder: function(folder)
+	{
+		this.tailInputEl.dom.value = '';
+		this.dropdownPanel.hideFolderSuggestions();
+		this.searchContainer.searchFolderCombo.setScopeFolder(folder);
+		this.syncHiddenInput();
+		this.dropdownPanel.updateFolders();
+		this.focusTailSilent();
 	},
 
 	// ===================================================================
@@ -1519,6 +1919,10 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 	{
 		if (this.dropdownPanel && this.tokenWrapEl) {
 			this.dropdownPanel.showBelow(this.tokenWrapEl);
+			var scopeQuery = this.getScopeQuery(this.tailInputEl.dom.value);
+			if (scopeQuery !== null) {
+				this.dropdownPanel.showFolderSuggestions(scopeQuery, this.getScopeFolders(scopeQuery));
+			}
 		}
 	},
 
@@ -1579,7 +1983,8 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 				this.dropdownPanel.addToHistory(
 					this.getValue(),
 					this.tokens.slice(0),
-					this.getVirtualTokens()
+					this.getVirtualTokens(),
+					this.searchContainer.searchFolderCombo.getPinnedScope()
 				);
 			}
 
@@ -1595,6 +2000,13 @@ Grommunio.common.searchfield.ui.SearchTextField = Ext.extend(Ext.form.TextField,
 
 			if (this.tokenWrapEl) {
 				this.tokenWrapEl.addClass(this.searchIndicatorClass);
+			}
+			this.searchedValue = this.getValue();
+			// Bound this late: the tab panel does not exist yet while the
+			// context toolbars render. The search tab's own field keeps its search.
+			if (!this.tabChangeBound && !this.findParentByType('grommunio.searchtoolbarpanel')) {
+				this.tabChangeBound = true;
+				this.mon(container.getTabPanel(), 'tabchange', this.onContentTabChange, this);
 			}
 			this.fireEvent('start', this);
 		}

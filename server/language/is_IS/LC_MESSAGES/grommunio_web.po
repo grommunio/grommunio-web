@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Icelandic (Iceland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2019-12-01 02:07+0000\n"
 "Last-Translator: import\n"
 "Language: is_IS\n"
@@ -3033,6 +3033,9 @@ msgstr "Framkvæma breytingar"
 msgid "Do you wish to apply the changes?"
 msgstr "Viltu framkvæma breytingarnar?"
 
+msgid "Search in folder"
+msgstr "Leita í möppu"
+
 msgid "Recent searches"
 msgstr "Nýlegar leitir"
 
@@ -3057,6 +3060,15 @@ msgstr "EKKI"
 msgid "Search in"
 msgstr "Leitaðu inn"
 
+msgid "Whole mailbox"
+msgstr "Allt pósthólfið"
+
+msgid "No folder matches"
+msgstr "Engin mappa passar"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "{0} í viðbót, haltu áfram að skrifa til að þrengja"
+
 msgid "All folders"
 msgstr "Allar möppur"
 
@@ -3066,8 +3078,16 @@ msgstr "Annað…"
 msgid "Search"
 msgstr "Leita"
 
+msgid "Clear search"
+msgstr "Hreinsa leit"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "Smelltu til að skipta: OG → EÐA → EKKI"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "mappa"
 
 msgid "Folder does not exist"
 msgstr "Mappan er ekki til"
@@ -4579,8 +4599,17 @@ msgstr "Lýsing"
 msgid "Folder size"
 msgstr "Möppustærð"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "Mappa inniheldur {0} atriði"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "Réttindi"
@@ -5649,9 +5678,6 @@ msgstr "Endurhleð. Vinsamlegast bíðið."
 msgid "Search settings"
 msgstr "Leita í stillingum"
 
-msgid "Clear search"
-msgstr "Hreinsa leit"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "{0} stilling samsvarar"
@@ -6706,29 +6732,23 @@ msgstr "Breyta hlutdeild"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "Engar reikningar hafa verið bættir við. Farðu í stillingar, á flipann Skrár og bættu við reikningi."
 
-msgid "Filesize"
-msgstr "Skráarstærð"
-
-msgid "Last modified"
-msgstr "Síðast breytt"
-
-msgid "Is shared"
-msgstr "Er deilt"
-
-msgid "File preview"
-msgstr "Forskoðun skráa"
+msgid "File ({0})"
+msgstr "Skrá ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "File ({0})"
-msgstr "Skrá ({0})"
+msgid "Is shared"
+msgstr "Er deilt"
 
 msgid "Path"
 msgstr "Slóð"
 
 msgid "Sort by: Path"
 msgstr "Raða eftir: Slóð"
+
+msgid "Last modified"
+msgstr "Síðast breytt"
 
 msgid "Sort by: Last modified"
 msgstr "Raða eftir: Síðast breytt"
@@ -8585,6 +8605,21 @@ msgstr "Óþekktur tilkynnandi '%s'"
 msgid "An unexpected error has occurred"
 msgstr "Óvænt villa hefur komið upp"
 
+msgid "Could not forward meeting request."
+msgstr "Ekki var hægt að senda áfram fundarbeiðni."
+
+msgid "Your meeting has been forwarded"
+msgstr "Fundurinn þinn hefur verið sendur áfram"
+
+msgid "has forwarded your meeting request to others."
+msgstr "Hefur sent fundarbeiðni þína áfram til annarra."
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j. F Y G:i"
+
+msgid "Meeting Time"
+msgstr "Fundartími"
+
 msgid "To-Do List"
 msgstr "Verkefnalisti"
 
@@ -8595,6 +8630,12 @@ msgstr "Verkefnalisti"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$saf%2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Mappa með þessu nafni er þegar til. Notaðu annað nafn."
+
+msgid "Could not delete folder."
+msgstr "Gat ekki eytt möppu."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "OpenPGP er sem stendur óvirkt eða ekki tiltækt. Skilaboðin þín voru ekki send. Virkjaðu OpenPGP áður en þú reynir aftur, eða slökktu sérstaklega á undirritun og dulkóðun."
@@ -8641,25 +8682,11 @@ msgstr "Eml viðhengið er ekki flutt inn"
 msgid "The vcf attachment is not imported successfully"
 msgstr "Ekki tókst að flytja inn vcf viðhengið"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Gat ekki flutt inn '%s' í '%s'. "
+msgid "Attachment is not imported successfully"
+msgstr "Viðhengi var ekki flutt inn"
 
 msgid "There is no appointment found in this file."
 msgstr "Það fannst engin tímabókun í þessari skrá."
-
-msgid "The file is corrupt."
-msgstr "Skráin er gölluð."
-
-msgid "The file is invalid."
-msgstr "Skráin er ógild."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "Gat ekki flutt inn '%s'. "
-
-msgid "Attachment is not imported successfully"
-msgstr "Viðhengi var ekki flutt inn"
 
 msgid "Embedded attachment not found."
 msgstr "Innfellt viðhengi fannst ekki."
@@ -8670,20 +8697,34 @@ msgstr "ZIP er ekki búið til"
 msgid "Attachments can not be downloaded"
 msgstr "Ekki er hægt að hlaða niður viðhengjum"
 
-msgid "Operation failed"
-msgstr "Aðgerð mistókst"
-
 msgid "Sticky Note"
 msgstr "Límmiði"
 
 msgid "Task Request"
 msgstr "Verkefnabeiðni"
 
+msgid "Operation failed"
+msgstr "Aðgerð mistókst"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Gat ekki fundið skilaboð, annað hvort hefur það verið flutt eða eytt."
 
 msgid "Action is not performed correctly."
 msgstr "Aðgerð er ekki framkvæmd á réttan hátt."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Gat ekki flutt inn '%s' í '%s'. "
+
+msgid "The file is corrupt."
+msgstr "Skráin er gölluð."
+
+msgid "The file is invalid."
+msgstr "Skráin er ógild."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Gat ekki flutt inn '%s'. "
 
 msgid "Tentatively accepted"
 msgstr "Samþykkt með fyrirvara"
@@ -8867,6 +8908,13 @@ msgstr "Ekki tókst að opna gagnageymsluna."
 msgid "Could not load the hierarchy."
 msgstr "Ekki tókst að hlaða stigveldinu."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "Þú hefur ekki nægar heimildir til að opna þennan %1$s möppu. Eigandi möppunnar getur stillt þessar heimildir á flipanum \"Heimildir\" í eiginleikum möppunnar (hægri-smelltu á %1$s möppuna > eiginleikar > heimildir)."
+
+msgid "User could not be resolved."
+msgstr "Ekki tókst að leysa notanda."
+
 msgid "Could not open the shared store."
 msgstr "Gat ekki opnað sameiginlegu verslunina."
 
@@ -8878,9 +8926,6 @@ msgstr "Gat ekki fjarlægt möppuna úr eftirlæti."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "Þú hefur ófullnægjandi réttindi til að eyða möppu."
-
-msgid "Could not delete folder."
-msgstr "Gat ekki eytt möppu."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "Þú hefur ófullnægjandi réttindi til að afrita möppu."
@@ -8918,9 +8963,6 @@ msgstr "Gat ekki stillt möppuheimildir."
 msgid "You have insufficient privileges to rename this folder."
 msgstr "Þú hefur ófullnægjandi réttindi til að endurnefna þessa möppu."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "Mappa með þessu nafni er þegar til. Notaðu annað nafn."
-
 msgid "Could not rename folder."
 msgstr "Gat ekki endurnefna möppu."
 
@@ -8932,13 +8974,6 @@ msgstr "Gat ekki búið til möppu."
 
 msgid "Could not close shared folder."
 msgstr "Gat ekki lokað sameiginlegri möppu."
-
-msgid "User could not be resolved."
-msgstr "Ekki tókst að leysa notanda."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "Þú hefur ekki nægar heimildir til að opna þennan %1$s möppu. Eigandi möppunnar getur stillt þessar heimildir á flipanum \"Heimildir\" í eiginleikum möppunnar (hægri-smelltu á %1$s möppuna > eiginleikar > heimildir)."
 
 msgid "default"
 msgstr "sjálfgefið"
@@ -8975,9 +9010,6 @@ msgstr "Gat ekki afritað skilaboð."
 
 msgid "Could not move message."
 msgstr "Gat ekki fært skilaboð."
-
-msgid "Could not forward meeting request."
-msgstr "Ekki var hægt að senda áfram fundarbeiðni."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "Þú ert ekki með réttindi til að vista í þessa möppu."
@@ -9035,18 +9067,6 @@ msgstr "Ekki náðist í eftirfarandi viðtakanda/viðtakendur"
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "Fjarlæging viðhengja hefur verið gerð óvirk af kerfisstjóra."
-
-msgid "l, F j, Y g:i A"
-msgstr "l, j. F Y G:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "Fundurinn þinn hefur verið sendur áfram"
-
-msgid "has forwarded your meeting request to others."
-msgstr "Hefur sent fundarbeiðni þína áfram til annarra."
-
-msgid "Meeting Time"
-msgstr "Fundartími"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Þú hefur ófullnægjandi réttindi til að sjá innihald þessarar möppu."

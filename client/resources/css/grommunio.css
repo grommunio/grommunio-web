@@ -5306,9 +5306,34 @@ body.grommunio-webclient > .ext-el-mask {
   border-right: 1px solid var(--ui-border);
   border-radius: 0;
   overflow: hidden;
+  position: relative;
   transition: background-color 0.15s ease; }
   .k-search-token-input.k-search-focused {
     background-color: var(--ui-surface); }
+  .k-search-token-input.k-search-has-content {
+    background-image: none; }
+
+/* Clear button, in place of the magnifier while the field has content */
+.k-search-clear-btn {
+  display: none;
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--ui-text-3);
+  cursor: pointer; }
+  .k-search-clear-btn:hover,
+  .k-search-clear-btn:focus-visible {
+    color: var(--ui-text);
+    background-color: var(--ui-surface-3); }
+  .k-search-has-content .k-search-clear-btn {
+    display: flex; }
 
 /* Shared base for value inputs and tail input */
 .k-search-token-value,
@@ -5555,6 +5580,78 @@ body.grommunio-webclient > .ext-el-mask {
   margin-left: auto;
   color: #1565c0;
   font-size: 14px; }
+
+/* Folder suggestions for "in:" — replace the other sections while shown */
+.k-search-scope-section {
+  display: none; }
+
+.k-search-dropdown-scoping .k-search-dropdown-section {
+  display: none; }
+
+.k-search-dropdown-scoping .k-search-dropdown-section.k-search-scope-section {
+  display: block;
+  border-top: none;
+  margin-top: 0; }
+
+.k-search-scope-list {
+  max-height: 320px;
+  overflow-y: auto; }
+
+.k-search-scope-option {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 3px;
+  color: var(--ui-text); }
+  .k-search-scope-option:hover {
+    background-color: var(--ui-surface-3); }
+  .k-search-scope-option.k-search-option-active {
+    outline: 2px solid var(--theme-primary-color);
+    outline-offset: -2px; }
+
+.k-search-scope-icon {
+  margin-right: 8px;
+  flex-shrink: 0; }
+
+.k-search-scope-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; }
+
+.k-search-scope-name,
+.k-search-scope-path {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.k-search-scope-name {
+  font-size: 13px; }
+  .k-search-scope-name mark {
+    background: none;
+    color: inherit;
+    font-weight: 700; }
+
+.k-search-scope-path {
+  font-size: 11px;
+  color: var(--ui-text-3); }
+
+.k-search-scope-empty {
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--ui-text-3); }
+
+/* Scope chip ("in: Inbox") — neutral grey, sits before the terms */
+.k-search-chip.k-search-chip-scope {
+  background-color: var(--ui-surface-3);
+  border-color: var(--ui-border-strong);
+  color: var(--ui-text);
+  max-width: 180px; }
+  .k-search-chip.k-search-chip-scope .k-search-chip-label {
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .k-search-chip.k-search-chip-scope .k-search-chip-remove {
+    color: var(--ui-text); }
 
 /* Inline separator between type options and operators */
 .k-search-dropdown-sep {

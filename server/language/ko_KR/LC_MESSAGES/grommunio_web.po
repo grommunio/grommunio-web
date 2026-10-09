@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Korean (Korea)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2017-10-05 20:07+0200\n"
 "Last-Translator: import\n"
 "Language: ko_KR\n"
@@ -3010,6 +3010,9 @@ msgstr "변경 사항 적용"
 msgid "Do you wish to apply the changes?"
 msgstr "변경 사항을 적용하시겠습니까?"
 
+msgid "Search in folder"
+msgstr "폴더에서 검색"
+
 msgid "Recent searches"
 msgstr "최근 검색"
 
@@ -3034,6 +3037,15 @@ msgstr "NOT"
 msgid "Search in"
 msgstr "검색"
 
+msgid "Whole mailbox"
+msgstr "전체 사서함"
+
+msgid "No folder matches"
+msgstr "일치하는 폴더 없음"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "{0}개 더 있음, 계속 입력하여 범위를 좁히세요"
+
 msgid "All folders"
 msgstr "모든 폴더"
 
@@ -3043,8 +3055,16 @@ msgstr "기타…"
 msgid "Search"
 msgstr "검색"
 
+msgid "Clear search"
+msgstr "검색 지우기"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "클릭하여 순환합니다: AND → OR → NOT"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "폴더"
 
 msgid "Folder does not exist"
 msgstr "폴더가 존재하지 않습니다."
@@ -4549,8 +4569,17 @@ msgstr "설명"
 msgid "Folder size"
 msgstr "폴더 크기"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "{0} 항목이 들어 있는 폴더"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "권한"
@@ -5619,9 +5648,6 @@ msgstr "로딩 중, 잠시만 기다려주세요."
 msgid "Search settings"
 msgstr "설정 검색"
 
-msgid "Clear search"
-msgstr "검색 지우기"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "일치하는 설정 {0}개"
@@ -6672,29 +6698,23 @@ msgstr "공유 편집"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "추가된 계정이 없습니다. 설정, 파일 탭으로 이동하여 계정을 추가합니다."
 
-msgid "Filesize"
-msgstr "파일 크기"
-
-msgid "Last modified"
-msgstr "마지막 수정"
-
-msgid "Is shared"
-msgstr "공유됨"
-
-msgid "File preview"
-msgstr "파일 미리 보기"
+msgid "File ({0})"
+msgstr "파일 ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "File ({0})"
-msgstr "파일 ({0})"
+msgid "Is shared"
+msgstr "공유됨"
 
 msgid "Path"
 msgstr "경로"
 
 msgid "Sort by: Path"
 msgstr "정렬 기준: 경로"
+
+msgid "Last modified"
+msgstr "마지막 수정"
 
 msgid "Sort by: Last modified"
 msgstr "정렬 기준: 마지막 수정"
@@ -8551,6 +8571,21 @@ msgstr "알 수 없는 알림 '%s'"
 msgid "An unexpected error has occurred"
 msgstr "예기치 않은 오류가 발생했습니다."
 
+msgid "Could not forward meeting request."
+msgstr "회의 요청을 전달할 수 없습니다."
+
+msgid "Your meeting has been forwarded"
+msgstr "회의 일정이 전달되었습니다"
+
+msgid "has forwarded your meeting request to others."
+msgstr "다른 사람들에게 귀하의 회의 요청을 전달했습니다."
+
+msgid "l, F j, Y g:i A"
+msgstr "Y년 n월 j일 (l) A g:i"
+
+msgid "Meeting Time"
+msgstr "회의 시간"
+
 msgid "To-Do List"
 msgstr "할 일 목록"
 
@@ -8561,6 +8596,12 @@ msgstr "할 일 목록"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%2$s의 %1$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "이 이름의 폴더가 이미 존재합니다. 다른 이름을 사용하세요."
+
+msgid "Could not delete folder."
+msgstr "폴더를 삭제할 수 없습니다."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "OpenPGP가 현재 비활성화되어 있거나 사용할 수 없습니다. 메시지가 전송되지 않았습니다. 다시 시도하기 전에 OpenPGP를 사용 설정하거나, 서명과 암호화를 명시적으로 해제하세요."
@@ -8607,25 +8648,11 @@ msgstr "eml 첨부 파일을 성공적으로 가져오지 못했습니다."
 msgid "The vcf attachment is not imported successfully"
 msgstr "VCF 첨부 파일을 성공적으로 가져오지 못했습니다."
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "'%s'를 '%s'로 가져올 수 없습니다. "
+msgid "Attachment is not imported successfully"
+msgstr "첨부 파일을 성공적으로 가져오지 못했습니다."
 
 msgid "There is no appointment found in this file."
 msgstr "이 파일에 약속이 없습니다."
-
-msgid "The file is corrupt."
-msgstr "파일이 손상되었습니다."
-
-msgid "The file is invalid."
-msgstr "파일이 유효하지 않습니다."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "'%s'를 가져올 수 없습니다. "
-
-msgid "Attachment is not imported successfully"
-msgstr "첨부 파일을 성공적으로 가져오지 못했습니다."
 
 msgid "Embedded attachment not found."
 msgstr "임베디드 첨부 파일을 찾을 수 없습니다."
@@ -8636,20 +8663,34 @@ msgstr "ZIP이 성공적으로 생성되지 않았습니다."
 msgid "Attachments can not be downloaded"
 msgstr "첨부 파일을 다운로드할 수 없습니다."
 
-msgid "Operation failed"
-msgstr "작업 실패"
-
 msgid "Sticky Note"
 msgstr "스티커 메모"
 
 msgid "Task Request"
 msgstr "작업 요청"
 
+msgid "Operation failed"
+msgstr "작업 실패"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "메시지가 이동되었거나 삭제되어 찾을 수 없습니다."
 
 msgid "Action is not performed correctly."
 msgstr "작업이 올바르게 수행되지 않습니다."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "'%s'를 '%s'로 가져올 수 없습니다. "
+
+msgid "The file is corrupt."
+msgstr "파일이 손상되었습니다."
+
+msgid "The file is invalid."
+msgstr "파일이 유효하지 않습니다."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "'%s'를 가져올 수 없습니다. "
 
 msgid "Tentatively accepted"
 msgstr "임시 수락됨"
@@ -8832,6 +8873,13 @@ msgstr "저장소를 열 수 없습니다."
 msgid "Could not load the hierarchy."
 msgstr "계층 구조를 로드할 수 없습니다."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "이 %1$s 폴더를 열 수 있는 권한이 부족합니다. 폴더 소유자는 폴더 속성의 '권한' 탭(%1$s 폴더 > 속성 > 권한 마우스 오른쪽 클릭)을 사용하여 이 권한을 설정할 수 있습니다."
+
+msgid "User could not be resolved."
+msgstr "사용자를 확인할 수 없습니다."
+
 msgid "Could not open the shared store."
 msgstr "공유 스토어를 열 수 없습니다."
 
@@ -8843,9 +8891,6 @@ msgstr "즐겨찾기에서 폴더를 제거할 수 없습니다."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "폴더를 삭제할 수 있는 권한이 부족합니다."
-
-msgid "Could not delete folder."
-msgstr "폴더를 삭제할 수 없습니다."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "폴더를 복사할 수 있는 권한이 부족합니다."
@@ -8883,9 +8928,6 @@ msgstr "폴더 권한을 설정할 수 없습니다."
 msgid "You have insufficient privileges to rename this folder."
 msgstr "이 폴더의 이름을 바꿀 수 있는 권한이 부족합니다."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "이 이름의 폴더가 이미 존재합니다. 다른 이름을 사용하세요."
-
 msgid "Could not rename folder."
 msgstr "폴더 이름을 변경할 수 없습니다."
 
@@ -8897,13 +8939,6 @@ msgstr "폴더를 만들 수 없습니다."
 
 msgid "Could not close shared folder."
 msgstr "공유 폴더를 닫을 수 없습니다."
-
-msgid "User could not be resolved."
-msgstr "사용자를 확인할 수 없습니다."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "이 %1$s 폴더를 열 수 있는 권한이 부족합니다. 폴더 소유자는 폴더 속성의 '권한' 탭(%1$s 폴더 > 속성 > 권한 마우스 오른쪽 클릭)을 사용하여 이 권한을 설정할 수 있습니다."
 
 msgid "default"
 msgstr "기본값"
@@ -8940,9 +8975,6 @@ msgstr "메시지를 복사할 수 없습니다."
 
 msgid "Could not move message."
 msgstr "메시지를 이동할 수 없습니다."
-
-msgid "Could not forward meeting request."
-msgstr "회의 요청을 전달할 수 없습니다."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "이 폴더에 항목을 저장할 수 있는 권한이 부족합니다."
@@ -8999,18 +9031,6 @@ msgstr "다음 수신자에게 연결할 수 없습니다."
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "첨부 파일 제거 기능이 관리자에 의해 비활성화되었습니다."
-
-msgid "l, F j, Y g:i A"
-msgstr "Y년 n월 j일 (l) A g:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "회의 일정이 전달되었습니다"
-
-msgid "has forwarded your meeting request to others."
-msgstr "다른 사람들에게 귀하의 회의 요청을 전달했습니다."
-
-msgid "Meeting Time"
-msgstr "회의 시간"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "이 폴더의 콘텐츠를 볼 수 있는 권한이 부족합니다."

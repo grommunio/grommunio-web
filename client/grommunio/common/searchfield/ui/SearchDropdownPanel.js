@@ -188,8 +188,10 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 	 * @param {String} query The KQL query string
 	 * @param {Array} tokens All token objects
 	 * @param {Array} virtualTokens Virtual-only tokens
+	 * @param {Object} scope The folder chosen for the search, from
+	 * {@link Grommunio.common.searchfield.ui.SearchFolderCombo#getPinnedScope}
 	 */
-	addToHistory: function(query, tokens, virtualTokens)
+	addToHistory: function(query, tokens, virtualTokens, scope)
 	{
 		if (!query && (!tokens || !tokens.length)) {
 			return;
@@ -200,13 +202,19 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 		if (!display) {
 			return;
 		}
+		if (scope) {
+			display = this.searchTextField.getScopeLabel() + ': ' + scope.name + ' ' + display;
+		}
 
 		var entries = this.getHistory();
 
-		// Remove existing entry with same display string (case-insensitive)
+		// Remove existing entry with same display string (case-insensitive);
+		// the same search in two folders of the same name stays twice
 		var lowerDisplay = display.toLowerCase();
+		var scopeId = scope ? scope.entryid : undefined;
 		entries = entries.filter(function(e) {
-			return (e.display || e.query || '').toLowerCase() !== lowerDisplay;
+			return (e.display || e.query || '').toLowerCase() !== lowerDisplay ||
+				(e.scope ? e.scope.entryid : undefined) !== scopeId;
 		});
 
 		// Add to front
@@ -215,6 +223,7 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 			display: display,
 			tokens: tokens || [],
 			virtualTokens: virtualTokens || [],
+			scope: scope,
 			time: Date.now()
 		});
 
@@ -282,6 +291,12 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 		var html = '<div class="k-search-dropdown-inner">';
 		var enc = Ext.util.Format.htmlEncode;
 		var i;
+
+		// Folder suggestions for "in:", shown instead of everything else
+		html += '<div class="k-search-dropdown-section k-search-scope-section">';
+		html += '<div class="k-search-dropdown-header">' + enc(_('Search in folder')) + '</div>';
+		html += '<div class="k-search-scope-list" role="listbox" aria-label="' + enc(_('Search in folder')) + '" id="' + this.getId() + '-scope-list"></div>';
+		html += '</div>';
 
 		// Recent searches section (populated dynamically)
 		html += '<div class="k-search-dropdown-section k-search-history-section" id="' + this.getId() + '-history" style="display:none">';
@@ -352,6 +367,7 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 		this.body.on('click', this.onOperatorClick, this, { delegate: '.k-search-operator-option' });
 		this.body.on('click', this.onFolderClick, this, { delegate: '.k-search-folder-option' });
 		this.body.on('click', this.onHistoryClick, this, { delegate: '.k-search-history-row' });
+		this.body.on('click', this.onScopeClick, this, { delegate: '.k-search-scope-option' });
 		this.body.on('click', this.onHistoryRemoveClick, this, { delegate: '.k-search-history-remove' });
 	},
 
@@ -380,7 +396,9 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 		for (var i = 0; i < entries.length; i++) {
 			var entry = entries[i];
 			var display = entry.display || entry.query || '';
-			html += '<div class="k-search-history-row" role="option" tabindex="-1" data-history-index="' + i + '">';
+			var scopeFolder = entry.scope && container.getHierarchyStore().getFolder(entry.scope.entryid);
+			var title = scopeFolder ? ' title="' + enc(this.searchTextField.getFolderPath(scopeFolder).concat(scopeFolder.getDisplayName()).join(' \u203a ')) + '"' : '';
+			html += '<div class="k-search-history-row" role="option" tabindex="-1" data-history-index="' + i + '"' + title + '>';
 			html += '<span class="k-search-history-icon" aria-hidden="true"></span>';
 			html += '<span class="k-search-history-text">' + enc(display) + '</span>';
 			html += '<span class="k-search-history-remove" role="button" tabindex="-1" aria-label="' + enc(_('Remove')) + '" data-history-index="' + i + '">&times;</span>';
@@ -603,8 +621,16 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 
 		var tf = this.searchTextField;
 
-		// Restore tokens directly
+		// Restore the folder while the field is empty, so that choosing it
+		// does not already start a search with the old terms
 		tf.tokens = [];
+		if (tf.tailInputEl) {
+			tf.tailInputEl.dom.value = '';
+		}
+		tf.syncHiddenInput();
+		tf.searchContainer.searchFolderCombo.applyPinnedScope(entry.scope);
+
+		// Restore tokens directly
 		if (entry.tokens && entry.tokens.length) {
 			for (var i = 0; i < entry.tokens.length; i++) {
 				tf.tokens.push({
@@ -667,6 +693,88 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 		}, this);
 
 		foldersEl.update(html);
+	},
+
+	/**
+	 * @property {Number} scopeMax The number of folder suggestions listed at most.
+	 */
+	scopeMax: 50,
+
+	/**
+	 * Lists the folders an "in:" term matches and highlights the best one.
+	 * @param {String} query What follows "in:"
+	 * @param {Object[]} matches The matches from
+	 * {@link Grommunio.common.searchfield.ui.SearchTextField#getScopeFolders}
+	 */
+	showFolderSuggestions: function(query, matches)
+	{
+		var listEl = Ext.get(this.getId() + '-scope-list');
+		if (!listEl) {
+			return;
+		}
+		var enc = Ext.util.Format.htmlEncode;
+		var needle = query.trim().replace(/\\/g, '/');
+		needle = needle.substring(needle.lastIndexOf('/') + 1).toLowerCase();
+		var html = '';
+
+		matches.slice(0, this.scopeMax).forEach(function(match) {
+			var name = match.name;
+			var at = needle ? name.toLowerCase().indexOf(needle) : -1;
+			var nameHtml = at === -1 ? enc(name)
+				: enc(name.substring(0, at)) + '<mark>' + enc(name.substr(at, needle.length)) + '</mark>' + enc(name.substring(at + needle.length));
+			var path = match.path;
+			// The own mailbox goes without saying, which keeps the part that
+			// tells same-named folders apart visible
+			if (path.length > 1 && match.folder.getMAPIStore().isDefaultStore()) {
+				path = path.slice(1);
+			}
+			path = path.length ? path.join(' \u203a ') : _('Whole mailbox');
+			html += '<div class="k-search-scope-option" role="option" tabindex="-1" data-entryid="' + enc(match.folder.get('entryid')) + '"' +
+				' title="' + enc(match.path.concat(name).join(' \u203a ')) + '">';
+			// The rail's icon classes bring the two-tone masks and the dark mode treatment
+			html += '<span class="k-search-scope-icon k-nav-rail-icon ' + Grommunio.common.ui.IconClass.getIconClass(match.folder) + '" aria-hidden="true"></span>';
+			html += '<span class="k-search-scope-text">';
+			html += '<span class="k-search-scope-name">' + nameHtml + '</span>';
+			html += '<span class="k-search-scope-path">' + enc(path) + '</span>';
+			html += '</span></div>';
+		});
+		if (!matches.length) {
+			html = '<div class="k-search-scope-empty">' + enc(_('No folder matches')) + '</div>';
+		} else if (matches.length > this.scopeMax) {
+			html += '<div class="k-search-scope-empty">' + enc(String.format(_('{0} more, keep typing to narrow down'), matches.length - this.scopeMax)) + '</div>';
+		}
+
+		listEl.update(html);
+		this.body.addClass('k-search-dropdown-scoping');
+		this.resetOptionHighlight();
+		this.moveOptionHighlight(1);
+		listEl.dom.scrollTop = 0;
+	},
+
+	/**
+	 * Returns the dropdown to its normal content.
+	 */
+	hideFolderSuggestions: function()
+	{
+		if (this.body && this.body.hasClass('k-search-dropdown-scoping')) {
+			this.body.removeClass('k-search-dropdown-scoping');
+			this.resetOptionHighlight();
+		}
+	},
+
+	/**
+	 * Handler for clicking a folder suggestion.
+	 * @param {Ext.EventObject} e The event
+	 * @param {HTMLElement} target The target element
+	 * @private
+	 */
+	onScopeClick: function(e, target)
+	{
+		var el = Ext.fly(target).hasClass('k-search-scope-option') ? Ext.fly(target) : Ext.fly(target).findParent('.k-search-scope-option', 4, true);
+		var folder = el && container.getHierarchyStore().getFolder(el.getAttribute('data-entryid'));
+		if (folder) {
+			this.searchTextField.applyScopeFolder(folder);
+		}
 	},
 
 	/**
@@ -742,6 +850,7 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 			var recordIndex = store.find('value', folderValue);
 			if (recordIndex !== -1) {
 				var record = store.getAt(recordIndex);
+				this.searchFolderCombo.pinnedValue = folderValue;
 				this.searchFolderCombo.setValue(folderValue);
 				this.searchFolderCombo.fireEvent('select', this.searchFolderCombo, record, recordIndex);
 			}
@@ -762,6 +871,7 @@ Grommunio.common.searchfield.ui.SearchDropdownPanel = Ext.extend(Ext.Panel, {
 		}
 
 		this.alignEl = alignEl;
+		this.hideFolderSuggestions();
 		this.updateHistory();
 		this.updateFolders();
 		this.syncSize();

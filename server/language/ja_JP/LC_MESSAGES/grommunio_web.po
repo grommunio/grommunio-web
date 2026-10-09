@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Japanese\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2022-12-12 13:00+0200\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/grommunio/grommunio-web/ja/>\n"
@@ -3020,6 +3020,9 @@ msgstr "変更を適用する"
 msgid "Do you wish to apply the changes?"
 msgstr "変更を適用してもよろしいですか？"
 
+msgid "Search in folder"
+msgstr "フォルダ内を検索"
+
 msgid "Recent searches"
 msgstr "最近の検索"
 
@@ -3044,6 +3047,15 @@ msgstr "違う"
 msgid "Search in"
 msgstr "で検索"
 
+msgid "Whole mailbox"
+msgstr "メールボックス全体"
+
+msgid "No folder matches"
+msgstr "一致するフォルダはありません"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "ほか {0} 件、入力を続けて絞り込んでください"
+
 msgid "All folders"
 msgstr "すべてのフォルダ"
 
@@ -3053,8 +3065,16 @@ msgstr "その他…"
 msgid "Search"
 msgstr "検索"
 
+msgid "Clear search"
+msgstr "検索をクリア"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "クリックして循環させる：AND → OR → NOT"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "フォルダ"
 
 msgid "Folder does not exist"
 msgstr "フォルダが存在しない"
@@ -4559,8 +4579,17 @@ msgstr "説明"
 msgid "Folder size"
 msgstr "フォルダサイズ"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "フォルダフォルダ{0}項目がフォルダ内にあります"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "許可"
@@ -5629,9 +5658,6 @@ msgstr "リロード中です。"
 msgid "Search settings"
 msgstr "設定を検索"
 
-msgid "Clear search"
-msgstr "検索をクリア"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "一致する設定が {0} 件あります"
@@ -6682,29 +6708,23 @@ msgstr "共有を編集"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "アカウントが追加されていません。設定」→「ファイル」タブで、アカウントを追加してください。"
 
-msgid "Filesize"
-msgstr "ファイルサイズ"
-
-msgid "Last modified"
-msgstr "最終更新日"
-
-msgid "Is shared"
-msgstr "共有されています"
-
-msgid "File preview"
-msgstr "ファイル・レビュー"
+msgid "File ({0})"
+msgstr "ファイル ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "Y.m.d G:i"
 
-msgid "File ({0})"
-msgstr "ファイル ({0})"
+msgid "Is shared"
+msgstr "共有されています"
 
 msgid "Path"
 msgstr "パス"
 
 msgid "Sort by: Path"
 msgstr "並べ替え順 : パス"
+
+msgid "Last modified"
+msgstr "最終更新日"
 
 msgid "Sort by: Last modified"
 msgstr "並べ替え順 : 最終更新日"
@@ -8561,6 +8581,21 @@ msgstr "不明な通知者 '%s'"
 msgid "An unexpected error has occurred"
 msgstr "予期せぬエラーが発生しました"
 
+msgid "Could not forward meeting request."
+msgstr "会議の招待を転送できませんでした。"
+
+msgid "Your meeting has been forwarded"
+msgstr "会議の案内が転送されました"
+
+msgid "has forwarded your meeting request to others."
+msgstr "あなたの会議の招待を他のメンバーに転送しました。"
+
+msgid "l, F j, Y g:i A"
+msgstr "Y年n月j日 (l) G:i"
+
+msgid "Meeting Time"
+msgstr "会議の時間"
+
 msgid "To-Do List"
 msgstr "ToDo リスト"
 
@@ -8571,6 +8606,12 @@ msgstr "ToDo リスト"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s of %2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "この名前のフォルダはすでに存在します。別の名前を使用してください。"
+
+msgid "Could not delete folder."
+msgstr "フォルダーを削除できません。"
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "OpenPGP は現在無効か利用できません。メッセージは送信されませんでした。再試行する前に OpenPGP を有効にするか、署名と暗号化を明示的にオフにしてください。"
@@ -8617,25 +8658,11 @@ msgstr "eml添付ファイルが正常にインポートされません。"
 msgid "The vcf attachment is not imported successfully"
 msgstr "vcfの添付ファイルが正常にインポートされない"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "'%s'を '%s'にインポートできません。 "
+msgid "Attachment is not imported successfully"
+msgstr "添付ファイルが正常にインポートされない"
 
 msgid "There is no appointment found in this file."
 msgstr "このファイルには予定が見当たらない。"
-
-msgid "The file is corrupt."
-msgstr "ファイルが壊れています。"
-
-msgid "The file is invalid."
-msgstr "ファイルが無効です。"
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "'%s' をインポートできません。 "
-
-msgid "Attachment is not imported successfully"
-msgstr "添付ファイルが正常にインポートされない"
 
 msgid "Embedded attachment not found."
 msgstr "埋め込まれた添付ファイルが見つかりません。"
@@ -8646,20 +8673,34 @@ msgstr "ZIPが正常に作成されない"
 msgid "Attachments can not be downloaded"
 msgstr "添付ファイルがダウンロードできない"
 
-msgid "Operation failed"
-msgstr "操作失敗"
-
 msgid "Sticky Note"
 msgstr "付箋"
 
 msgid "Task Request"
 msgstr "タスクリクエスト"
 
+msgid "Operation failed"
+msgstr "操作失敗"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "メッセージが見つかりません。移動されたか削除されたかのどちらかです。"
 
 msgid "Action is not performed correctly."
 msgstr "アクションが正しく実行されない。"
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "'%s'を '%s'にインポートできません。 "
+
+msgid "The file is corrupt."
+msgstr "ファイルが壊れています。"
+
+msgid "The file is invalid."
+msgstr "ファイルが無効です。"
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "'%s' をインポートできません。 "
 
 msgid "Tentatively accepted"
 msgstr "仮承諾"
@@ -8842,6 +8883,13 @@ msgstr "ストアを開けませんでした。"
 msgid "Could not load the hierarchy."
 msgstr "階層をロードできませんでした。"
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "この %1$s フォルダを開くための十分な権限がありません。フォルダの所有者は、フォルダのプロパティの「許可」タブでこれらを設定できます（%1$s フォルダを右クリック > プロパティ > 許可）。"
+
+msgid "User could not be resolved."
+msgstr "ユーザーが解決できなかった。"
+
 msgid "Could not open the shared store."
 msgstr "共有ストアを開けませんでした。"
 
@@ -8853,9 +8901,6 @@ msgstr "お気に入りからフォルダを削除できませんでした。"
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "フォルダを削除する権限が不足しています。"
-
-msgid "Could not delete folder."
-msgstr "フォルダーを削除できません。"
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "フォルダをコピーする権限が不足しています。"
@@ -8893,9 +8938,6 @@ msgstr "フォルダパーミッションを設定できませんでした。"
 msgid "You have insufficient privileges to rename this folder."
 msgstr "このフォルダの名前を変更するには、十分な権限がありません。"
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "この名前のフォルダはすでに存在します。別の名前を使用してください。"
-
 msgid "Could not rename folder."
 msgstr "フォルダの名前を変更できませんでした。"
 
@@ -8907,13 +8949,6 @@ msgstr "フォルダを作成できませんでした。"
 
 msgid "Could not close shared folder."
 msgstr "共有フォルダを閉じることができませんでした。"
-
-msgid "User could not be resolved."
-msgstr "ユーザーが解決できなかった。"
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "この %1$s フォルダを開くための十分な権限がありません。フォルダの所有者は、フォルダのプロパティの「許可」タブでこれらを設定できます（%1$s フォルダを右クリック > プロパティ > 許可）。"
 
 msgid "default"
 msgstr "デフォルト"
@@ -8950,9 +8985,6 @@ msgstr "メッセージをコピーできません。"
 
 msgid "Could not move message."
 msgstr "メッセージを移動することができません。"
-
-msgid "Could not forward meeting request."
-msgstr "会議の招待を転送できませんでした。"
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "フォルダのアイテムを保存するための十分な権限がありません。"
@@ -9009,18 +9041,6 @@ msgstr "次の受信者に送信することができませんでした"
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "添付ファイルの削除は管理者によって無効にされています。"
-
-msgid "l, F j, Y g:i A"
-msgstr "Y年n月j日 (l) G:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "会議の案内が転送されました"
-
-msgid "has forwarded your meeting request to others."
-msgstr "あなたの会議の招待を他のメンバーに転送しました。"
-
-msgid "Meeting Time"
-msgstr "会議の時間"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "このフォルダの内容を見るには十分な権限がありません。"

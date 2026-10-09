@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Spanish (Spain)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2024-01-03 16:10+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/grommunio/grommunio-web/es/>\n"
@@ -3038,6 +3038,9 @@ msgstr "Aplicar cambios"
 msgid "Do you wish to apply the changes?"
 msgstr "¿Desea aplicar los cambios?"
 
+msgid "Search in folder"
+msgstr "Buscar en carpeta"
+
 msgid "Recent searches"
 msgstr "Búsquedas recientes"
 
@@ -3062,6 +3065,15 @@ msgstr "NO"
 msgid "Search in"
 msgstr "Buscar en"
 
+msgid "Whole mailbox"
+msgstr "Todo el buzón"
+
+msgid "No folder matches"
+msgstr "Ninguna carpeta coincide"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "{0} más, siga escribiendo para acotar"
+
 msgid "All folders"
 msgstr "Todas las carpetas"
 
@@ -3071,8 +3083,16 @@ msgstr "Otro…"
 msgid "Search"
 msgstr "Buscar en"
 
+msgid "Clear search"
+msgstr "Borrar búsqueda"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "Haz clic para recorrer el ciclo: Y → O → NO"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "en"
 
 msgid "Folder does not exist"
 msgstr "La carpeta no existe"
@@ -4588,8 +4608,17 @@ msgstr "Descripción"
 msgid "Folder size"
 msgstr "Tamaño carpeta"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "Carpeta contiene {0} elementos"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "Permisos"
@@ -5658,9 +5687,6 @@ msgstr "Recargando, por favor espere."
 msgid "Search settings"
 msgstr "Buscar en la configuración"
 
-msgid "Clear search"
-msgstr "Borrar búsqueda"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "{0} ajuste coincide"
@@ -6715,29 +6741,23 @@ msgstr "Editar acción"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "No hay ninguna cuenta añadida. Vaya a Configuración, abra la pestaña Archivos y añada una cuenta"
 
-msgid "Filesize"
-msgstr "Tamaño"
-
-msgid "Last modified"
-msgstr "Última modificación"
-
-msgid "Is shared"
-msgstr "Se comparte"
-
-msgid "File preview"
-msgstr "Vista previa del archivo"
+msgid "File ({0})"
+msgstr "Archivo ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "File ({0})"
-msgstr "Archivo ({0})"
+msgid "Is shared"
+msgstr "Se comparte"
 
 msgid "Path"
 msgstr "Ruta"
 
 msgid "Sort by: Path"
 msgstr "Ordenar por: Ruta"
+
+msgid "Last modified"
+msgstr "Última modificación"
 
 msgid "Sort by: Last modified"
 msgstr "Ordenar por: Última modificación"
@@ -8594,6 +8614,21 @@ msgstr "Notificador desconocido '%s'"
 msgid "An unexpected error has occurred"
 msgstr "Se ha producido un error inesperado"
 
+msgid "Could not forward meeting request."
+msgstr "No se ha podido reenviar la solicitud de reunión."
+
+msgid "Your meeting has been forwarded"
+msgstr "Tu reunión ha sido reenviada"
+
+msgid "has forwarded your meeting request to others."
+msgstr "ha reenviado tu solicitud de reunión a otras personas."
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j \\d\\e F \\d\\e Y G:i"
+
+msgid "Meeting Time"
+msgstr "Hora de la reunión"
+
 msgid "To-Do List"
 msgstr "Lista de tareas pendientes"
 
@@ -8604,6 +8639,12 @@ msgstr "Lista de tareas pendientes"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s de %2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Ya existe una carpeta con este nombre. Utilice otro nombre."
+
+msgid "Could not delete folder."
+msgstr "No se pudo borrar la carpeta."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "OpenPGP está desactivado o no está disponible en este momento. Su mensaje no se ha enviado. Active OpenPGP antes de volver a intentarlo o desactive explícitamente la firma y el cifrado."
@@ -8650,25 +8691,11 @@ msgstr "El archivo adjunto eml no se importa correctamente"
 msgid "The vcf attachment is not imported successfully"
 msgstr "El archivo vcf adjunto no se importa correctamente"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "No se puede importar '%s' a '%s'. "
+msgid "Attachment is not imported successfully"
+msgstr "El archivo adjunto no se importa correctamente"
 
 msgid "There is no appointment found in this file."
 msgstr "No se ha encontrado ninguna cita en este expediente."
-
-msgid "The file is corrupt."
-msgstr "El archivo está dañado."
-
-msgid "The file is invalid."
-msgstr "El archivo no es válido."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "No se pudo importar '%s'. "
-
-msgid "Attachment is not imported successfully"
-msgstr "El archivo adjunto no se importa correctamente"
 
 msgid "Embedded attachment not found."
 msgstr "No se ha encontrado el archivo adjunto incrustado."
@@ -8679,20 +8706,34 @@ msgstr "El ZIP no se ha creado correctamente"
 msgid "Attachments can not be downloaded"
 msgstr "Los archivos adjuntos no se pueden descargar"
 
-msgid "Operation failed"
-msgstr "Error en la operación"
-
 msgid "Sticky Note"
 msgstr "Post-it"
 
 msgid "Task Request"
 msgstr "Solicitud de tarea"
 
+msgid "Operation failed"
+msgstr "Error en la operación"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "No se ha podido encontrar el mensaje, o ha sido movido o borrado."
 
 msgid "Action is not performed correctly."
 msgstr "La acción no se realiza correctamente."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "No se puede importar '%s' a '%s'. "
+
+msgid "The file is corrupt."
+msgstr "El archivo está dañado."
+
+msgid "The file is invalid."
+msgstr "El archivo no es válido."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "No se pudo importar '%s'. "
 
 msgid "Tentatively accepted"
 msgstr "Aceptado provisionalmente"
@@ -8876,6 +8917,13 @@ msgstr "No se pudo abrir la tienda."
 msgid "Could not load the hierarchy."
 msgstr "No se ha podido cargar la jerarquía."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "No tiene suficientes privilegios para abrir esta carpeta %1$s. El propietario de la carpeta puede establecerlos mediante la pestaña \"permisos\" de las propiedades de la carpeta (haga clic con el botón derecho en la carpeta %1$s > propiedades > permisos)."
+
+msgid "User could not be resolved."
+msgstr "No se ha podido resolver el usuario."
+
 msgid "Could not open the shared store."
 msgstr "No se pudo abrir la tienda compartida."
 
@@ -8887,9 +8935,6 @@ msgstr "No se ha podido eliminar la carpeta de favoritos."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "No tiene privilegios suficientes para eliminar la carpeta."
-
-msgid "Could not delete folder."
-msgstr "No se pudo borrar la carpeta."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "No tiene privilegios suficientes para copiar la carpeta."
@@ -8927,9 +8972,6 @@ msgstr "No se han podido establecer los permisos de carpeta."
 msgid "You have insufficient privileges to rename this folder."
 msgstr "No tiene privilegios suficientes para renombrar esta carpeta."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "Ya existe una carpeta con este nombre. Utilice otro nombre."
-
 msgid "Could not rename folder."
 msgstr "No se ha podido cambiar el nombre de la carpeta."
 
@@ -8941,13 +8983,6 @@ msgstr "No se ha podido crear la carpeta."
 
 msgid "Could not close shared folder."
 msgstr "No se ha podido cerrar la carpeta compartida."
-
-msgid "User could not be resolved."
-msgstr "No se ha podido resolver el usuario."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "No tiene suficientes privilegios para abrir esta carpeta %1$s. El propietario de la carpeta puede establecerlos mediante la pestaña \"permisos\" de las propiedades de la carpeta (haga clic con el botón derecho en la carpeta %1$s > propiedades > permisos)."
 
 msgid "default"
 msgstr "por defecto"
@@ -8984,9 +9019,6 @@ msgstr "No se puede copiar el mensaje."
 
 msgid "Could not move message."
 msgstr "No se puede mover el mensaje."
-
-msgid "Could not forward meeting request."
-msgstr "No se ha podido reenviar la solicitud de reunión."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "No tiene privilegios necesarios para guardar objetos en esta carpeta."
@@ -9044,18 +9076,6 @@ msgstr "No se ha podido contactar con el/los siguiente(s) destinatario(s)"
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "El administrador ha desactivado la eliminación de adjuntos."
-
-msgid "l, F j, Y g:i A"
-msgstr "l, j \\d\\e F \\d\\e Y G:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "Tu reunión ha sido reenviada"
-
-msgid "has forwarded your meeting request to others."
-msgstr "ha reenviado tu solicitud de reunión a otras personas."
-
-msgid "Meeting Time"
-msgstr "Hora de la reunión"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "No tiene privilegios suficientes para ver el contenido de esta carpeta."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Ukrainian (Ukraine)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2022-08-23 04:19+0000\n"
 "Last-Translator: Artem <artem@molotov.work>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/grommunio/grommunio-web/uk/>\n"
@@ -3059,6 +3059,9 @@ msgstr "Застосувати зміни"
 msgid "Do you wish to apply the changes?"
 msgstr "Чи бажаєте ви застосувати зміни?"
 
+msgid "Search in folder"
+msgstr "Шукати в папці"
+
 msgid "Recent searches"
 msgstr "Нещодавні пошукові запити"
 
@@ -3083,6 +3086,15 @@ msgstr "НЕ"
 msgid "Search in"
 msgstr "Шукати в"
 
+msgid "Whole mailbox"
+msgstr "Уся поштова скринька"
+
+msgid "No folder matches"
+msgstr "Немає відповідних папок"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "Ще {0}, продовжуйте вводити, щоб звузити"
+
 msgid "All folders"
 msgstr "Всі папки"
 
@@ -3092,8 +3104,16 @@ msgstr "Інше…"
 msgid "Search"
 msgstr "Пошук"
 
+msgid "Clear search"
+msgstr "Очистити пошук"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "Клацніть, щоб змінити цикл: AND → OR → NOT"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "папка"
 
 msgid "Folder does not exist"
 msgstr "Папка не існує"
@@ -4612,8 +4632,17 @@ msgstr "Опис"
 msgid "Folder size"
 msgstr "Розмір папки"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "Тека, що містить {0} елементів"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "Права доступу"
@@ -5682,9 +5711,6 @@ msgstr "Перезарядка, будь ласка, зачекайте."
 msgid "Search settings"
 msgstr "Пошук у налаштуваннях"
 
-msgid "Clear search"
-msgstr "Очистити пошук"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "Знайдено {0} налаштування"
@@ -6743,29 +6769,23 @@ msgstr "Редагувати спільний доступ"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "Облікові записи не додано. Перейдіть до налаштувань, вкладка \"Файли\" та додайте обліковий запис"
 
-msgid "Filesize"
-msgstr "Розмір файлу"
-
-msgid "Last modified"
-msgstr "Востаннє змінено"
-
-msgid "Is shared"
-msgstr "є спільною."
-
-msgid "File preview"
-msgstr "Попередній перегляд файлів"
+msgid "File ({0})"
+msgstr "File ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "File ({0})"
-msgstr "File ({0})"
+msgid "Is shared"
+msgstr "є спільною."
 
 msgid "Path"
 msgstr "Шлях"
 
 msgid "Sort by: Path"
 msgstr "Сортувати по: Шлях"
+
+msgid "Last modified"
+msgstr "Востаннє змінено"
 
 msgid "Sort by: Last modified"
 msgstr "Сортувати по: Останні зміни"
@@ -8622,6 +8642,21 @@ msgstr "Невідомий сповіщувач '%s'"
 msgid "An unexpected error has occurred"
 msgstr "Виникла непередбачувана помилка"
 
+msgid "Could not forward meeting request."
+msgstr "Не вдалося переслати запрошення на зустріч."
+
+msgid "Your meeting has been forwarded"
+msgstr "Ваша зустріч була перенесена"
+
+msgid "has forwarded your meeting request to others."
+msgstr "переслав ваш запит на зустріч іншим учасникам."
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j F Y G:i"
+
+msgid "Meeting Time"
+msgstr "Час зустрічі"
+
 msgid "To-Do List"
 msgstr "Список справ"
 
@@ -8632,6 +8667,12 @@ msgstr "Список справ"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s від %2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Тека з такою назвою вже існує. Використовуйте іншу назву."
+
+msgid "Could not delete folder."
+msgstr "Не вдалося видалити папку."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "Наразі OpenPGP вимкнено або він недоступний. Ваше повідомлення не надіслано. Увімкніть OpenPGP, перш ніж повторювати спробу, або явно вимкніть підписання та шифрування."
@@ -8678,25 +8719,11 @@ msgstr "Вкладення eml не вдалося успішно імпорту
 msgid "The vcf attachment is not imported successfully"
 msgstr "Вкладення vcf не вдалося успішно імпортувати"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Не вдалося імпортувати '%s' до '%s'. "
+msgid "Attachment is not imported successfully"
+msgstr "Вкладення не вдається успішно імпортувати"
 
 msgid "There is no appointment found in this file."
 msgstr "У цьому файлі не знайдено жодної зустрічі."
-
-msgid "The file is corrupt."
-msgstr "Файл пошкоджено."
-
-msgid "The file is invalid."
-msgstr "Файл є недійсним."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "Не вдалося імпортувати '%s'. "
-
-msgid "Attachment is not imported successfully"
-msgstr "Вкладення не вдається успішно імпортувати"
 
 msgid "Embedded attachment not found."
 msgstr "Вбудований файл не знайдено."
@@ -8707,20 +8734,34 @@ msgstr "ZIP не вдається створити успішно"
 msgid "Attachments can not be downloaded"
 msgstr "Вкладення не можуть бути завантажені"
 
-msgid "Operation failed"
-msgstr "Операція не вдалася"
-
 msgid "Sticky Note"
 msgstr "Липка записка"
 
 msgid "Task Request"
 msgstr "Запит на виконання завдання"
 
+msgid "Operation failed"
+msgstr "Операція не вдалася"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Не вдалося знайти повідомлення, або воно було переміщене, або видалене."
 
 msgid "Action is not performed correctly."
 msgstr "Дія виконується некоректно."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Не вдалося імпортувати '%s' до '%s'. "
+
+msgid "The file is corrupt."
+msgstr "Файл пошкоджено."
+
+msgid "The file is invalid."
+msgstr "Файл є недійсним."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Не вдалося імпортувати '%s'. "
 
 msgid "Tentatively accepted"
 msgstr "Попередньо прийнято"
@@ -8905,6 +8946,13 @@ msgstr "Не вдалося відкрити сховище."
 msgid "Could not load the hierarchy."
 msgstr "Не вдалося завантажити ієрархію."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "У вас недостатньо привілеїв для відкриття теки %1$s. Власник теки може встановити їх за допомогою вкладки \"дозволи\" у властивостях теки (клацніть правою кнопкою миші на теці %1$s > властивості > дозволи)."
+
+msgid "User could not be resolved."
+msgstr "Не вдалося вирішити проблему з користувачем."
+
 msgid "Could not open the shared store."
 msgstr "Не вдалося відкрити спільний магазин."
 
@@ -8916,9 +8964,6 @@ msgstr "Не вдалося видалити папку з обраного."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "У вас недостатньо привілеїв для видалення теки."
-
-msgid "Could not delete folder."
-msgstr "Не вдалося видалити папку."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "У вас недостатньо прав для копіювання теки."
@@ -8956,9 +9001,6 @@ msgstr "Не вдалося встановити права доступу до 
 msgid "You have insufficient privileges to rename this folder."
 msgstr "У вас недостатньо привілеїв для перейменування цієї теки."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "Тека з такою назвою вже існує. Використовуйте іншу назву."
-
 msgid "Could not rename folder."
 msgstr "Не вдалося перейменувати папку."
 
@@ -8970,13 +9012,6 @@ msgstr "Не вдалося створити папку."
 
 msgid "Could not close shared folder."
 msgstr "Не вдалося закрити спільну папку."
-
-msgid "User could not be resolved."
-msgstr "Не вдалося вирішити проблему з користувачем."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "У вас недостатньо привілеїв для відкриття теки %1$s. Власник теки може встановити їх за допомогою вкладки \"дозволи\" у властивостях теки (клацніть правою кнопкою миші на теці %1$s > властивості > дозволи)."
 
 msgid "default"
 msgstr "за замовчуванням"
@@ -9013,9 +9048,6 @@ msgstr "Не вдається скопіювати повідомлення."
 
 msgid "Could not move message."
 msgstr "Не вдається перемістити повідомлення."
-
-msgid "Could not forward meeting request."
-msgstr "Не вдалося переслати запрошення на зустріч."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "У вас недостатньо прав, щоб зберегти складники в цю теку."
@@ -9074,18 +9106,6 @@ msgstr "Не вдалося додзвонитися до наступних а�
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "Видалення вкладень вимкнено адміністратором."
-
-msgid "l, F j, Y g:i A"
-msgstr "l, j F Y G:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "Ваша зустріч була перенесена"
-
-msgid "has forwarded your meeting request to others."
-msgstr "переслав ваш запит на зустріч іншим учасникам."
-
-msgid "Meeting Time"
-msgstr "Час зустрічі"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "У вас недостатньо привілеїв для перегляду вмісту цієї теки."

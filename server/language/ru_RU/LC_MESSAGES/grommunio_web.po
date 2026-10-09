@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2022-07-26 17:59+0200\n"
 "Last-Translator: Artem <Localizer_in_Russian@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/grommunio/grommunio-web/ru/>\n"
@@ -3059,6 +3059,9 @@ msgstr "Применить изменения"
 msgid "Do you wish to apply the changes?"
 msgstr "Вы хотите применить изменения?"
 
+msgid "Search in folder"
+msgstr "Поиск в папке"
+
 msgid "Recent searches"
 msgstr "Последние поиски"
 
@@ -3083,6 +3086,15 @@ msgstr "НЕ"
 msgid "Search in"
 msgstr "Поиск в"
 
+msgid "Whole mailbox"
+msgstr "Весь почтовый ящик"
+
+msgid "No folder matches"
+msgstr "Нет подходящих папок"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "Ещё {0}, продолжайте ввод, чтобы сузить"
+
 msgid "All folders"
 msgstr "Все папки"
 
@@ -3092,8 +3104,16 @@ msgstr "Другие…"
 msgid "Search"
 msgstr "Поиск"
 
+msgid "Clear search"
+msgstr "Очистить поиск"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "Нажмите для переключения: И → ИЛИ → НЕ"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "папка"
 
 msgid "Folder does not exist"
 msgstr "Папки не существует"
@@ -4612,8 +4632,17 @@ msgstr "Описание"
 msgid "Folder size"
 msgstr "Размер каталога"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "Каталог содержит {0} элементов"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "Права доступа"
@@ -5682,9 +5711,6 @@ msgstr "Перезагрузка, пожалуйста, подождите."
 msgid "Search settings"
 msgstr "Поиск в настройках"
 
-msgid "Clear search"
-msgstr "Очистить поиск"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "{0} настройка найдена"
@@ -6743,29 +6769,23 @@ msgstr "Общий доступ"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "Учетные записи не добавлены. Перейдите в настройки, вкладка Файлы и добавьте учетную запись"
 
-msgid "Filesize"
-msgstr "Размер файла"
-
-msgid "Last modified"
-msgstr "Изменён"
-
-msgid "Is shared"
-msgstr "Общий доступ"
-
-msgid "File preview"
-msgstr "Предпросмотр"
+msgid "File ({0})"
+msgstr "Файл ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "File ({0})"
-msgstr "Файл ({0})"
+msgid "Is shared"
+msgstr "Общий доступ"
 
 msgid "Path"
 msgstr "Путь"
 
 msgid "Sort by: Path"
 msgstr "Сортировка по: Пути"
+
+msgid "Last modified"
+msgstr "Изменён"
 
 msgid "Sort by: Last modified"
 msgstr "Сортировка по: Изменён"
@@ -8622,6 +8642,21 @@ msgstr "Неизвестный нотификатор '%s'"
 msgid "An unexpected error has occurred"
 msgstr "Произошла неожиданная ошибка"
 
+msgid "Could not forward meeting request."
+msgstr "Не удалось переслать приглашение на встречу."
+
+msgid "Your meeting has been forwarded"
+msgstr "Ваша встреча была перенесена"
+
+msgid "has forwarded your meeting request to others."
+msgstr "переслал ваш запрос на встречу другим участникам."
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j F Y G:i"
+
+msgid "Meeting Time"
+msgstr "Время встречи"
+
 msgid "To-Do List"
 msgstr "Список дел"
 
@@ -8632,6 +8667,12 @@ msgstr "Список дел"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s из %2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Папка с таким именем уже существует. Используйте другое имя."
+
+msgid "Could not delete folder."
+msgstr "Не удалось удалить папку."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "OpenPGP сейчас отключён или недоступен. Ваше сообщение не отправлено. Включите OpenPGP, прежде чем повторять попытку, либо явно отключите подпись и шифрование."
@@ -8678,25 +8719,11 @@ msgstr "Вложение eml успешно не импортируется"
 msgid "The vcf attachment is not imported successfully"
 msgstr "Вложение vcf успешно не импортируется"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Невозможно импортировать '%s' в '%s'. "
+msgid "Attachment is not imported successfully"
+msgstr "Вложение успешно не импортируется"
 
 msgid "There is no appointment found in this file."
 msgstr "В этом файле не найдено ни одной встречи."
-
-msgid "The file is corrupt."
-msgstr "Файл поврежден."
-
-msgid "The file is invalid."
-msgstr "Файл недействителен."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "Невозможно импортировать '%s'. "
-
-msgid "Attachment is not imported successfully"
-msgstr "Вложение успешно не импортируется"
 
 msgid "Embedded attachment not found."
 msgstr "Встроенное вложение не найдено."
@@ -8707,20 +8734,34 @@ msgstr "ZIP не создан успешно"
 msgid "Attachments can not be downloaded"
 msgstr "Вложения не могут быть загружены"
 
-msgid "Operation failed"
-msgstr "Операция окончилась неудачей"
-
 msgid "Sticky Note"
 msgstr "Клейкая записка"
 
 msgid "Task Request"
 msgstr "Запрос Задания"
 
+msgid "Operation failed"
+msgstr "Операция окончилась неудачей"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Не удалось найти сообщение, оно было перемещено или удалено."
 
 msgid "Action is not performed correctly."
 msgstr "Действие не завершено корректно."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Невозможно импортировать '%s' в '%s'. "
+
+msgid "The file is corrupt."
+msgstr "Файл поврежден."
+
+msgid "The file is invalid."
+msgstr "Файл недействителен."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Невозможно импортировать '%s'. "
 
 msgid "Tentatively accepted"
 msgstr "Принято под вопросом"
@@ -8905,6 +8946,13 @@ msgstr "Не удалось открыть хранилище."
 msgid "Could not load the hierarchy."
 msgstr "Не удалось загрузить иерархию."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "У вас недостаточно прав для открытия этой папки %1$s. Владелец папки может назначить их на вкладке «Права доступа» в свойствах папки (щелкните папку %1$s правой кнопкой мыши > свойства > права доступа)."
+
+msgid "User could not be resolved."
+msgstr "Пользователь не может быть разрешен."
+
 msgid "Could not open the shared store."
 msgstr "Не удалось открыть общее хранилище."
 
@@ -8916,9 +8964,6 @@ msgstr "Не удалось удалить папку из избранного.
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "У вас недостаточно прав для удаления папки."
-
-msgid "Could not delete folder."
-msgstr "Не удалось удалить папку."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "У вас недостаточно прав для копирования папки."
@@ -8956,9 +9001,6 @@ msgstr "Не удалось установить права доступа к п
 msgid "You have insufficient privileges to rename this folder."
 msgstr "У вас недостаточно прав для переименования этой папки."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "Папка с таким именем уже существует. Используйте другое имя."
-
 msgid "Could not rename folder."
 msgstr "Не удалось переименовать папку."
 
@@ -8970,13 +9012,6 @@ msgstr "Не удалось создать папку."
 
 msgid "Could not close shared folder."
 msgstr "Не удалось закрыть общую папку."
-
-msgid "User could not be resolved."
-msgstr "Пользователь не может быть разрешен."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "У вас недостаточно прав для открытия этой папки %1$s. Владелец папки может назначить их на вкладке «Права доступа» в свойствах папки (щелкните папку %1$s правой кнопкой мыши > свойства > права доступа)."
 
 msgid "default"
 msgstr "по умолчанию"
@@ -9013,9 +9048,6 @@ msgstr "Не удалось скопировать сообщение."
 
 msgid "Could not move message."
 msgstr "Не удалось переместить сообщение."
-
-msgid "Could not forward meeting request."
-msgstr "Не удалось переслать приглашение на встречу."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "У вас не хватает прав для сохранения элементов в этот каталог."
@@ -9074,18 +9106,6 @@ msgstr "Не удалось обнаружить следующих получа
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "Удаление вложений отключено администратором."
-
-msgid "l, F j, Y g:i A"
-msgstr "l, j F Y G:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "Ваша встреча была перенесена"
-
-msgid "has forwarded your meeting request to others."
-msgstr "переслал ваш запрос на встречу другим участникам."
-
-msgid "Meeting Time"
-msgstr "Время встречи"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "У вас недостаточно прав для просмотра содержимого этой папки."

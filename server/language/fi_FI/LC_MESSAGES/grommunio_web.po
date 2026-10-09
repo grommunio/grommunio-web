@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Finnish (Finland)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2022-07-26 15:25+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -3035,6 +3035,9 @@ msgstr "Soveltaa muutoksia"
 msgid "Do you wish to apply the changes?"
 msgstr "Haluatko tallentaa muutokset?"
 
+msgid "Search in folder"
+msgstr "Hae kansiosta"
+
 msgid "Recent searches"
 msgstr "Viimeisimmät haut"
 
@@ -3059,6 +3062,15 @@ msgstr "EI"
 msgid "Search in"
 msgstr "Haku osoitteessa"
 
+msgid "Whole mailbox"
+msgstr "Koko postilaatikko"
+
+msgid "No folder matches"
+msgstr "Ei vastaavia kansioita"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "Vielä {0}, jatka kirjoittamista rajataksesi"
+
 msgid "All folders"
 msgstr "Kaikki kansiot"
 
@@ -3068,8 +3080,16 @@ msgstr "Muu…"
 msgid "Search"
 msgstr "Etsi"
 
+msgid "Clear search"
+msgstr "Tyhjennä haku"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "Klikkaa vaihtaaksesi: JA → TAI → EI"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "kansio"
 
 msgid "Folder does not exist"
 msgstr "Kansiota ei ole olemassa"
@@ -4581,8 +4601,17 @@ msgstr "Kuvaus"
 msgid "Folder size"
 msgstr "Kansion koko"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "Kansio sisältää {0} kohdetta"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "Oikeudet"
@@ -5651,9 +5680,6 @@ msgstr "Uudelleenlataus, odota."
 msgid "Search settings"
 msgstr "Hae asetuksista"
 
-msgid "Clear search"
-msgstr "Tyhjennä haku"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "Löytyi {0} vastaava asetus"
@@ -6708,29 +6734,23 @@ msgstr "Muokkaa osaketta"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "Tilejä ei ole lisätty. Mene asetuksiin, Tiedostot-välilehdelle ja lisää tili"
 
-msgid "Filesize"
-msgstr "Tiedostokoko"
-
-msgid "Last modified"
-msgstr "Viimeksi muokattu"
-
-msgid "Is shared"
-msgstr "Jaetaan"
-
-msgid "File preview"
-msgstr "Tiedoston esikatselu"
+msgid "File ({0})"
+msgstr "Tiedosto ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "File ({0})"
-msgstr "Tiedosto ({0})"
+msgid "Is shared"
+msgstr "Jaetaan"
 
 msgid "Path"
 msgstr "Polku"
 
 msgid "Sort by: Path"
 msgstr "Lajittelu: Polku"
+
+msgid "Last modified"
+msgstr "Viimeksi muokattu"
 
 msgid "Sort by: Last modified"
 msgstr "Lajittelu: Viimeksi muokattu"
@@ -8587,6 +8607,21 @@ msgstr "Tuntematon ilmoittaja '%s'"
 msgid "An unexpected error has occurred"
 msgstr "Odottamaton virhe on tapahtunut"
 
+msgid "Could not forward meeting request."
+msgstr "Kokouspyyntöä ei voitu välittää."
+
+msgid "Your meeting has been forwarded"
+msgstr "Kokouksesi on siirretty"
+
+msgid "has forwarded your meeting request to others."
+msgstr "on välittänyt kokouspyyntösi muille."
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j. F Y \\k\\l\\o G:i"
+
+msgid "Meeting Time"
+msgstr "Kokousaika"
+
 msgid "To-Do List"
 msgstr "Tehtävien lista"
 
@@ -8597,6 +8632,12 @@ msgstr "Tehtävien lista"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s / %2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Tämän niminen kansio on jo olemassa. Käytä toista nimeä."
+
+msgid "Could not delete folder."
+msgstr "Kansiota ei voitu poistaa."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "OpenPGP ei ole tällä hetkellä käytössä tai saatavilla. Viestiäsi ei lähetetty. Ota OpenPGP käyttöön ennen uutta yritystä tai poista allekirjoitus ja salaus nimenomaisesti käytöstä."
@@ -8643,25 +8684,11 @@ msgstr "EML-liitettä ei ole tuotu onnistuneesti"
 msgid "The vcf attachment is not imported successfully"
 msgstr "Vcf-liitettä ei tuoda onnistuneesti"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Tuonti '%s' ei onnistu '%s'-kohteeseen. "
+msgid "Attachment is not imported successfully"
+msgstr "Liitettä ei ole tuotu onnistuneesti"
 
 msgid "There is no appointment found in this file."
 msgstr "Tässä tiedostossa ei ole nimitystä."
-
-msgid "The file is corrupt."
-msgstr "Tiedosto on vioittunut."
-
-msgid "The file is invalid."
-msgstr "Tiedosto on virheellinen."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "Tuonti '%s' ei onnistu. "
-
-msgid "Attachment is not imported successfully"
-msgstr "Liitettä ei ole tuotu onnistuneesti"
 
 msgid "Embedded attachment not found."
 msgstr "Upotettua liitetiedostoa ei löydy."
@@ -8672,20 +8699,34 @@ msgstr "ZIP ei ole luotu onnistuneesti"
 msgid "Attachments can not be downloaded"
 msgstr "Liitteitä ei voi ladata"
 
-msgid "Operation failed"
-msgstr "Toiminta epäonnistui"
-
 msgid "Sticky Note"
 msgstr "Tarralappu"
 
 msgid "Task Request"
 msgstr "Tehtäväpyyntö"
 
+msgid "Operation failed"
+msgstr "Toiminta epäonnistui"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Viestiä ei löydy, joko se on siirretty tai poistettu."
 
 msgid "Action is not performed correctly."
 msgstr "Toimintaa ei suoriteta oikein."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Tuonti '%s' ei onnistu '%s'-kohteeseen. "
+
+msgid "The file is corrupt."
+msgstr "Tiedosto on vioittunut."
+
+msgid "The file is invalid."
+msgstr "Tiedosto on virheellinen."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Tuonti '%s' ei onnistu. "
 
 msgid "Tentatively accepted"
 msgstr "Hyväksytty alustavasti"
@@ -8869,6 +8910,13 @@ msgstr "Tietovarastoa ei voitu avata."
 msgid "Could not load the hierarchy."
 msgstr "Hierarkiaa ei voitu ladata."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "Sinulla ei ole riittäviä oikeuksia tämän %1$s-kansion avaamiseen. Kansion omistaja voi määrittää nämä oikeudet kansion ominaisuuksien Oikeudet-välilehdellä (napsauta %1$s-kansiota hiiren oikealla painikkeella > Ominaisuudet > Oikeudet)."
+
+msgid "User could not be resolved."
+msgstr "Käyttäjää ei saatu ratkaistua."
+
 msgid "Could not open the shared store."
 msgstr "Jaettua kauppaa ei voitu avata."
 
@@ -8880,9 +8928,6 @@ msgstr "Kansiota ei voitu poistaa suosikeista."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "Sinulla ei ole riittäviä oikeuksia kansion poistamiseen."
-
-msgid "Could not delete folder."
-msgstr "Kansiota ei voitu poistaa."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "Sinulla ei ole riittäviä oikeuksia kansion kopioimiseen."
@@ -8920,9 +8965,6 @@ msgstr "Kansioiden käyttöoikeuksia ei voitu asettaa."
 msgid "You have insufficient privileges to rename this folder."
 msgstr "Sinulla ei ole riittäviä oikeuksia tämän kansion uudelleennimeämiseen."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "Tämän niminen kansio on jo olemassa. Käytä toista nimeä."
-
 msgid "Could not rename folder."
 msgstr "Kansiota ei voitu nimetä uudelleen."
 
@@ -8934,13 +8976,6 @@ msgstr "Kansiota ei voitu luoda."
 
 msgid "Could not close shared folder."
 msgstr "Jaettua kansiota ei voitu sulkea."
-
-msgid "User could not be resolved."
-msgstr "Käyttäjää ei saatu ratkaistua."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "Sinulla ei ole riittäviä oikeuksia tämän %1$s-kansion avaamiseen. Kansion omistaja voi määrittää nämä oikeudet kansion ominaisuuksien Oikeudet-välilehdellä (napsauta %1$s-kansiota hiiren oikealla painikkeella > Ominaisuudet > Oikeudet)."
 
 msgid "default"
 msgstr "oletus"
@@ -8977,9 +9012,6 @@ msgstr "Viestiä ei voitu kopioida."
 
 msgid "Could not move message."
 msgstr "Viestiä ei voitu siirtää."
-
-msgid "Could not forward meeting request."
-msgstr "Kokouspyyntöä ei voitu välittää."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "Sinulla ei ole tarpeeksi oikeuksia tallentaa kohteita kansioon."
@@ -9037,18 +9069,6 @@ msgstr "Seuraavia vastaanottajia ei tavoitettu"
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "Järjestelmänvalvoja on poistanut liitetiedostojen poistamisen käytöstä."
-
-msgid "l, F j, Y g:i A"
-msgstr "l, j. F Y \\k\\l\\o G:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "Kokouksesi on siirretty"
-
-msgid "has forwarded your meeting request to others."
-msgstr "on välittänyt kokouspyyntösi muille."
-
-msgid "Meeting Time"
-msgstr "Kokousaika"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "Sinulla ei ole riittäviä oikeuksia nähdä tämän kansion sisältöä."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-17 16:44+0200\n"
+"POT-Creation-Date: 2026-10-09 21:00+0200\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -3059,6 +3059,9 @@ msgstr "Použít změny"
 msgid "Do you wish to apply the changes?"
 msgstr "Chcete použít tyto změny?"
 
+msgid "Search in folder"
+msgstr "Vyhledávání ve složce"
+
 msgid "Recent searches"
 msgstr "Nedávné vyhledávání"
 
@@ -3083,6 +3086,15 @@ msgstr "NE"
 msgid "Search in"
 msgstr "Vyhledávání v"
 
+msgid "Whole mailbox"
+msgstr "Celá poštovní schránka"
+
+msgid "No folder matches"
+msgstr "Žádná složka neodpovídá"
+
+msgid "{0} more, keep typing to narrow down"
+msgstr "Dalších {0}, pokračujte v psaní pro zúžení"
+
 msgid "All folders"
 msgstr "Všechny složky"
 
@@ -3092,8 +3104,16 @@ msgstr "Další…"
 msgid "Search"
 msgstr "Vyhledávání"
 
+msgid "Clear search"
+msgstr "Vymazat vyhledávání"
+
 msgid "Click to cycle: AND → OR → NOT"
 msgstr "Kliknutím procházet: AND → OR → NOT"
+
+#. TRANSLATORS: Typed into the search field before a folder name to search only that folder, as in "in:Inbox". One lower-case word without spaces or punctuation; the English "in" keeps working too.
+msgctxt "search keyword"
+msgid "in"
+msgstr "složka"
 
 msgid "Folder does not exist"
 msgstr "Složka neexistuje"
@@ -4619,8 +4639,17 @@ msgstr "Popis"
 msgid "Folder size"
 msgstr "Velikost složky"
 
+msgid "Send rights"
+msgstr ""
+
 msgid "Folder containing {0} Items"
 msgstr "Složka obsahuje {0} položek"
+
+msgid "Send on behalf"
+msgstr ""
+
+msgid "Send as"
+msgstr ""
 
 msgid "Permissions"
 msgstr "Oprávnění"
@@ -5689,9 +5718,6 @@ msgstr "Nabíjení, počkejte prosím."
 msgid "Search settings"
 msgstr "Hledat v nastavení"
 
-msgid "Clear search"
-msgstr "Vymazat vyhledávání"
-
 msgid "{0} setting matches"
 msgid_plural "{0} settings match"
 msgstr[0] "Nalezeno {0} odpovídající nastavení"
@@ -6750,29 +6776,23 @@ msgstr "Upravit sdílení"
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
 msgstr "Nejsou přidány žádné účty. Přejděte do nastavení, na kartu Soubory a přidejte účet"
 
-msgid "Filesize"
-msgstr "Velikost souboru"
-
-msgid "Last modified"
-msgstr "Poslední změna"
-
-msgid "Is shared"
-msgstr "Je sdílená"
-
-msgid "File preview"
-msgstr "Náhled souboru"
+msgid "File ({0})"
+msgstr "Soubor ({0})"
 
 msgid "d.m.Y G:i"
 msgstr "d.m.Y G:i"
 
-msgid "File ({0})"
-msgstr "Soubor ({0})"
+msgid "Is shared"
+msgstr "Je sdílená"
 
 msgid "Path"
 msgstr "Cesta"
 
 msgid "Sort by: Path"
 msgstr "Seřadit podle: Cesta"
+
+msgid "Last modified"
+msgstr "Poslední změna"
 
 msgid "Sort by: Last modified"
 msgstr "Seřadit podle: Naposledy upraveno"
@@ -8629,6 +8649,21 @@ msgstr "Neznámý oznamovatel '%s'"
 msgid "An unexpected error has occurred"
 msgstr "Došlo k neočekávané chybě"
 
+msgid "Could not forward meeting request."
+msgstr "Žádost o schůzku se nepodařilo přeposlat."
+
+msgid "Your meeting has been forwarded"
+msgstr "Vaše schůzka byla přesunuta"
+
+msgid "has forwarded your meeting request to others."
+msgstr "předal vaši žádost o schůzku dalším osobám."
+
+msgid "l, F j, Y g:i A"
+msgstr "l, j. F Y G:i"
+
+msgid "Meeting Time"
+msgstr "Čas schůzky"
+
 msgid "To-Do List"
 msgstr "Seznam úkolů"
 
@@ -8639,6 +8674,12 @@ msgstr "Seznam úkolů"
 #, php-format
 msgid "%1$s of %2$s"
 msgstr "%1$s v %2$s"
+
+msgid "A folder with this name already exists. Use another name."
+msgstr "Složka s tímto názvem již existuje. Použijte jiný název."
+
+msgid "Could not delete folder."
+msgstr "Složku se nepodařilo odstranit."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
 msgstr "OpenPGP je momentálně zakázán nebo není k dispozici. Vaše zpráva nebyla odeslána. Než to zkusíte znovu, povolte OpenPGP, nebo výslovně vypněte podepisování a šifrování."
@@ -8685,25 +8726,11 @@ msgstr "Příloha eml není úspěšně importována"
 msgid "The vcf attachment is not imported successfully"
 msgstr "Příloha vcf není úspěšně importována"
 
-#, php-format
-msgid "Unable to import '%s' to '%s'. "
-msgstr "Nelze importovat '%s' do '%s'. "
+msgid "Attachment is not imported successfully"
+msgstr "Příloha není úspěšně importována"
 
 msgid "There is no appointment found in this file."
 msgstr "V tomto souboru nebyla nalezena žádná schůzka."
-
-msgid "The file is corrupt."
-msgstr "Soubor je poškozený."
-
-msgid "The file is invalid."
-msgstr "Soubor je neplatný."
-
-#, php-format
-msgid "Unable to import '%s'. "
-msgstr "Nelze importovat '%s'. "
-
-msgid "Attachment is not imported successfully"
-msgstr "Příloha není úspěšně importována"
 
 msgid "Embedded attachment not found."
 msgstr "Vložená příloha nebyla nalezena."
@@ -8714,20 +8741,34 @@ msgstr "ZIP nebyl úspěšně vytvořen"
 msgid "Attachments can not be downloaded"
 msgstr "Přílohy nelze stáhnout"
 
-msgid "Operation failed"
-msgstr "Operace se nezdařila"
-
 msgid "Sticky Note"
 msgstr "Poznámka: Slepá poznámka"
 
 msgid "Task Request"
 msgstr "Žádost o úkol"
 
+msgid "Operation failed"
+msgstr "Operace se nezdařila"
+
 msgid "Could not find message, either it has been moved or deleted."
 msgstr "Zprávu se nepodařilo najít, buď byla přesunuta, nebo smazána."
 
 msgid "Action is not performed correctly."
 msgstr "Akce není provedena správně."
+
+#, php-format
+msgid "Unable to import '%s' to '%s'. "
+msgstr "Nelze importovat '%s' do '%s'. "
+
+msgid "The file is corrupt."
+msgstr "Soubor je poškozený."
+
+msgid "The file is invalid."
+msgstr "Soubor je neplatný."
+
+#, php-format
+msgid "Unable to import '%s'. "
+msgstr "Nelze importovat '%s'. "
 
 msgid "Tentatively accepted"
 msgstr "Předběžně přijato"
@@ -8912,6 +8953,13 @@ msgstr "Obchod se nepodařilo otevřít."
 msgid "Could not load the hierarchy."
 msgstr "Hierarchii se nepodařilo načíst."
 
+#, php-format
+msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
+msgstr "K otevření této složky %1$s nemáte dostatečná oprávnění. Vlastník složky je může nastavit pomocí záložky \"oprávnění\" ve vlastnostech složky (klikněte pravým tlačítkem myši na složku %1$s > vlastnosti > oprávnění)."
+
+msgid "User could not be resolved."
+msgstr "Uživatele se nepodařilo vyřešit."
+
 msgid "Could not open the shared store."
 msgstr "Nelze otevřít sdílený obchod."
 
@@ -8923,9 +8971,6 @@ msgstr "Nepodařilo se odstranit složku z oblíbených položek."
 
 msgid "You have insufficient privileges to delete folder."
 msgstr "Nemáte dostatečná práva k odstranění složky."
-
-msgid "Could not delete folder."
-msgstr "Složku se nepodařilo odstranit."
 
 msgid "You have insufficient privileges to copy folder."
 msgstr "Nemáte dostatečná práva ke kopírování složky."
@@ -8963,9 +9008,6 @@ msgstr "Nepodařilo se nastavit oprávnění složky."
 msgid "You have insufficient privileges to rename this folder."
 msgstr "K přejmenování této složky nemáte dostatečná práva."
 
-msgid "A folder with this name already exists. Use another name."
-msgstr "Složka s tímto názvem již existuje. Použijte jiný název."
-
 msgid "Could not rename folder."
 msgstr "Nepodařilo se přejmenovat složku."
 
@@ -8977,13 +9019,6 @@ msgstr "Nepodařilo se vytvořit složku."
 
 msgid "Could not close shared folder."
 msgstr "Nelze zavřít sdílenou složku."
-
-msgid "User could not be resolved."
-msgstr "Uživatele se nepodařilo vyřešit."
-
-#, php-format
-msgid "You have insufficient privileges to open this %1$s folder. The folder owner can set these using the 'permissions'-tab of the folder properties (right click the %1$s folder > properties > permissions)."
-msgstr "K otevření této složky %1$s nemáte dostatečná oprávnění. Vlastník složky je může nastavit pomocí záložky \"oprávnění\" ve vlastnostech složky (klikněte pravým tlačítkem myši na složku %1$s > vlastnosti > oprávnění)."
 
 msgid "default"
 msgstr "výchozí"
@@ -9020,9 +9055,6 @@ msgstr "Nelze kopírovat zprávu."
 
 msgid "Could not move message."
 msgstr "Nelze přesunout zprávu."
-
-msgid "Could not forward meeting request."
-msgstr "Žádost o schůzku se nepodařilo přeposlat."
 
 msgid "You have insufficient privileges to save items in this folder."
 msgstr "Nemáte oprávnění uložit položky v této složce."
@@ -9081,18 +9113,6 @@ msgstr "Nebyla doručena následujícímu příjemci/příjemcům"
 
 msgid "Removing attachments has been disabled by the administrator."
 msgstr "Odstraňování příloh bylo správcem zakázáno."
-
-msgid "l, F j, Y g:i A"
-msgstr "l, j. F Y G:i"
-
-msgid "Your meeting has been forwarded"
-msgstr "Vaše schůzka byla přesunuta"
-
-msgid "has forwarded your meeting request to others."
-msgstr "předal vaši žádost o schůzku dalším osobám."
-
-msgid "Meeting Time"
-msgstr "Čas schůzky"
 
 msgid "You have insufficient privileges to see the contents of this folder."
 msgstr "K zobrazení obsahu této složky nemáte dostatečná oprávnění."
