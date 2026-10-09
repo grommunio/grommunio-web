@@ -181,7 +181,7 @@ function callsOf($name) {
 }
 
 $props = ['goid' => 4, 'meeting' => 10, 'busystatus' => 5, 'intendedbusystatus' => 11, 'startdate' => 1, 'duedate' => 2, 'location' => 3, 'request_sent' => 12];
-$action = ['message_action' => ['forwardRecipients' => [
+$action = ['timezone_iana' => 'Europe/Vienna', 'message_action' => ['forwardRecipients' => [
 	['display_name' => 'Ann', 'smtp_address' => 'ann@example.test'],
 	['display_name' => '', 'smtp_address' => 'bob@example.test', 'recipient_type' => 2],
 ]]];
@@ -213,7 +213,7 @@ $notif = $setprops[1][2];
 $expectedBody = "Your meeting has been forwarded\n\n" .
 	"Delegate has forwarded your meeting request to others.\n\n" .
 	"     Meeting: Planning\n" .
-	'     Meeting Time: ' . date('l, F j, Y g:i A', 1700000000) . ' - ' . date('l, F j, Y g:i A', 1700003600) . "\n" .
+	"     Meeting Time: Tuesday, November 14, 2023 11:13 PM - Wednesday, November 15, 2023 12:13 AM (Europe/Vienna)\n" .
 	"     Location: Room 1\n" .
 	"     Recipients: Ann (ann@example.test), bob@example.test\n";
 assertForwarder($setprops[1][1] === 'msg3', 'Notification went to the wrong message');
