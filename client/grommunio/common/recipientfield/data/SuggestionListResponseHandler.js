@@ -32,6 +32,8 @@ Grommunio.common.recipientfield.data.SuggestionListResponseHandler = Ext.extend(
 			results = [ results ];
 		}
 
+		this.options.directorySearched = response.directory_searched === true;
+
 		this.receivedRecords = this.reader.readRecords({
 			count: results.length,
 			result: results

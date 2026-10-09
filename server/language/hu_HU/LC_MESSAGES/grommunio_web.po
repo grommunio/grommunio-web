@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hungarian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-07-26 16:08+0200\n"
 "Last-Translator: f3rr31 <5920873@disroot.org>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/grommunio/grommunio-web/hu/>\n"
@@ -2605,6 +2605,9 @@ msgstr "Email küldése"
 msgid "Delete recipient from suggestion list"
 msgstr "Címzett törlése a javaslatok listájáról"
 
+msgid "From the address book or contacts"
+msgstr "A címjegyzékből vagy a névjegyekből"
+
 msgid "Copy all email addresses"
 msgstr "Minden e-mail cím másolása"
 
@@ -5120,6 +5123,9 @@ msgstr "A küldött által küldött e-mailek mentése"
 
 msgid "Always request a read receipt"
 msgstr "Mindig kérjen olvasási visszaigazolást"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Címzettek javaslása a címjegyzékből és a névjegyekből is"
 
 msgid "Activate attachment reminder"
 msgstr "Melléklet emlékeztető aktiválása"

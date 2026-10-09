@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Dutch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-12-11 14:12+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/grommunio/grommunio-web/nl/>\n"
@@ -2598,6 +2598,9 @@ msgstr "Verzend e-mail"
 msgid "Delete recipient from suggestion list"
 msgstr "Verwijder de geadresseerde uit de suggestielijst"
 
+msgid "From the address book or contacts"
+msgstr "Uit het adresboek of de contactpersonen"
+
 msgid "Copy all email addresses"
 msgstr "Kopieer alle email adressen"
 
@@ -5104,6 +5107,9 @@ msgstr "E-mails opslaan die zijn verzonden door afgevaardigde"
 
 msgid "Always request a read receipt"
 msgstr "Vraag altijd om een leesbevestiging"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Ook ontvangers uit het adresboek en de contactpersonen voorstellen"
 
 msgid "Activate attachment reminder"
 msgstr "Activeer bijlageherinnering"

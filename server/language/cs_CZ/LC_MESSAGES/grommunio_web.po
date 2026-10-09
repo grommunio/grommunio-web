@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Czech\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-07-26 14:09+0200\n"
 "Last-Translator: import\n"
 "Language-Team: \n"
@@ -2614,6 +2614,9 @@ msgstr "Odeslat zprávu"
 msgid "Delete recipient from suggestion list"
 msgstr "Odstranit distribuční seznam"
 
+msgid "From the address book or contacts"
+msgstr "Z adresáře nebo kontaktů"
+
 msgid "Copy all email addresses"
 msgstr "Zkopírujte všechny e-mailové adresy"
 
@@ -5139,6 +5142,9 @@ msgstr "Uložení e-mailů odeslaných delegátem"
 
 msgid "Always request a read receipt"
 msgstr "Vždy vyžádat potvrzení o přečtení"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Navrhovat příjemce také z adresáře a kontaktů"
 
 msgid "Activate attachment reminder"
 msgstr "Aktivujte připomenutí přílohy"

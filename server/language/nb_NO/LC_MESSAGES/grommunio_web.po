@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Norwegian (Bokmål)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2023-09-06 16:56+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/grommunio/grommunio-web/nb_NO/>\n"
@@ -2593,6 +2593,9 @@ msgstr "Send e-post"
 msgid "Delete recipient from suggestion list"
 msgstr "Slett mottakeren fra forslagslisten"
 
+msgid "From the address book or contacts"
+msgstr "Fra adresseboken eller kontaktene"
+
 msgid "Copy all email addresses"
 msgstr "Kopier alle e-post adresser"
 
@@ -5099,6 +5102,9 @@ msgstr "Lagre e-poster sendt av delegaten"
 
 msgid "Always request a read receipt"
 msgstr "Alltid be om lesebekreftelse"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Foreslå også mottakere fra adresseboken og kontaktene"
 
 msgid "Activate attachment reminder"
 msgstr "Aktiver vedleggspåminnelse"

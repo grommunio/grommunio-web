@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Danish (Denmark)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-07-26 14:28+0200\n"
 "Last-Translator: Mike Williams <mike.williams@grammm.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/grommunio/grommunio-web/da/>\n"
@@ -2593,6 +2593,9 @@ msgstr "Send email"
 msgid "Delete recipient from suggestion list"
 msgstr "Slet modtageren fra forslagslisten"
 
+msgid "From the address book or contacts"
+msgstr "Fra adressebogen eller kontakterne"
+
 msgid "Copy all email addresses"
 msgstr "Kopier alle e-mailadresser"
 
@@ -5099,6 +5102,9 @@ msgstr "Gem e-mails sendt af en delegeret"
 
 msgid "Always request a read receipt"
 msgstr "Bed altid om kvittering for læsning"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Foreslå også modtagere fra adressebogen og kontakterne"
 
 msgid "Activate attachment reminder"
 msgstr "Aktiver påmindelse om vedhæftede filer"

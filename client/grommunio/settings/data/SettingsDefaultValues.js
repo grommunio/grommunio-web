@@ -743,6 +743,13 @@ Grommunio.settings.data.SettingsDefaultValue = function(){
 								'always_request_readreceipt': false,
 
 								/**
+								 * grommunio/v1/contexts/mail/suggest_from_directory
+								 * @property
+								 * @type Boolean
+								 */
+								'suggest_from_directory': false,
+
+								/**
 								 * grommunio/v1/contexts/mail/autosave_enable
 								 * @property
 								 * @type Boolean

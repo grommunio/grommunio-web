@@ -2565,6 +2565,14 @@ ul.x-tab-strip-top {
 .x-grommunio-boxfield-suggestion-item:hover .x-grommunio-boxfield-suggestion-cross {
   visibility: visible !important; }
 
+.k-suggestion-directory {
+  float: right;
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
+  background-size: 14px 14px !important;
+  opacity: 0.55; }
+
 .grommunio-compositefield > .x-box-inner {
   /* this is necessary because otherwise the shadows of the buttons in the new design (2015) will be cut off */
   overflow: visible; }

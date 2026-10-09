@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Russian\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-07-26 17:59+0200\n"
 "Last-Translator: Artem <Localizer_in_Russian@protonmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/grommunio/grommunio-web/ru/>\n"
@@ -2614,6 +2614,9 @@ msgstr "Отправить письмо"
 msgid "Delete recipient from suggestion list"
 msgstr "Удалить получателя из списка предложений"
 
+msgid "From the address book or contacts"
+msgstr "Из адресной книги или контактов"
+
 msgid "Copy all email addresses"
 msgstr "Скопируйте все адреса электронной почты"
 
@@ -5132,6 +5135,9 @@ msgstr "Сохраняйте электронные письма, отправл
 
 msgid "Always request a read receipt"
 msgstr "Всегда отправлять запрос на прочтение"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Также предлагать получателей из адресной книги и контактов"
 
 msgid "Activate attachment reminder"
 msgstr "Активировать напоминание о вложении"

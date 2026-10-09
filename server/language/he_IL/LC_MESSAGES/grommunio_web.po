@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Hebrew (Israel)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2017-10-03 22:09+0200\n"
 "Last-Translator: import\n"
 "Language: he_IL\n"
@@ -2591,6 +2591,9 @@ msgstr "שלח דואר"
 msgid "Delete recipient from suggestion list"
 msgstr "מחק את הנמען מרשימת ההצעות"
 
+msgid "From the address book or contacts"
+msgstr "מפנקס הכתובות או מאנשי הקשר"
+
 msgid "Copy all email addresses"
 msgstr "העתק את כל כתובות האימייל"
 
@@ -5097,6 +5100,9 @@ msgstr "שמור אימיילים שנשלחו על ידי נציג"
 
 msgid "Always request a read receipt"
 msgstr "בקש תמיד אישור קריאה"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "הצע נמענים גם מפנקס הכתובות ומאנשי הקשר"
 
 msgid "Activate attachment reminder"
 msgstr "הפעל תזכורת לקובץ מצורף"

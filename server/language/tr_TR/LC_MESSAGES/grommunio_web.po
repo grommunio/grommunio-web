@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Turkish\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-12-10 22:44+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/grommunio/grommunio-web/tr/>\n"
@@ -2593,6 +2593,9 @@ msgstr "E-posta gönder"
 msgid "Delete recipient from suggestion list"
 msgstr "Alıcıyı öneri listesinden silme"
 
+msgid "From the address book or contacts"
+msgstr "Adres defterinden veya kişilerden"
+
 msgid "Copy all email addresses"
 msgstr "Tüm e-posta adreslerini kopyalayın"
 
@@ -5099,6 +5102,9 @@ msgstr "Temsilci tarafından gönderilen e-postaları kaydetme"
 
 msgid "Always request a read receipt"
 msgstr "Her zaman okundu bilgisi istemek"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Alıcıları adres defterinden ve kişilerden de öner"
 
 msgid "Activate attachment reminder"
 msgstr "Ek hatırlatıcıyı etkinleştir"

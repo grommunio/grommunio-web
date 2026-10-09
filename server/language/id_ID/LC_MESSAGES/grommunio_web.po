@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2026-09-16 22:52+0000\n"
 "Last-Translator: Arif Budiman <arifpedia@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/grommunio/grommunio-web/id/>\n"
@@ -2593,6 +2593,9 @@ msgstr "Kirim email"
 msgid "Delete recipient from suggestion list"
 msgstr "Hapus penerima dari daftar saran"
 
+msgid "From the address book or contacts"
+msgstr "Dari buku alamat atau kontak"
+
 msgid "Copy all email addresses"
 msgstr "Salin semua alamat email"
 
@@ -5099,6 +5102,9 @@ msgstr "Simpan email yang dikirim oleh delegasi"
 
 msgid "Always request a read receipt"
 msgstr "Selalu minta tanda terima telah dibaca"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Sarankan juga penerima dari buku alamat dan kontak"
 
 msgid "Activate attachment reminder"
 msgstr "Aktifkan pengingat lampiran"

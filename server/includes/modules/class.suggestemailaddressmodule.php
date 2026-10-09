@@ -23,6 +23,11 @@
  * }
  */
 class suggestEmailAddressModule extends Module {
+	public const MAX_SUGGESTIONS = 10;
+
+	// Shorter queries match too much of a large address book to be useful.
+	public const DIRECTORY_MIN_CHARS = 3;
+
 	#[Override]
 	protected function getExecutionLockName() {
 		return null;
@@ -145,6 +150,129 @@ class suggestEmailAddressModule extends Module {
 	 * @return array data holding recipients that matched the query
 	 */
 	public function getRecipientList($action, $recipient_history) {
+		$data = $this->getHistoryList($action, $recipient_history);
+		$data['directory_searched'] = false;
+
+		$query = trim((string) ($action['query'] ?? ''));
+		$free = self::MAX_SUGGESTIONS - count($data['results']);
+		if ($free > 0 && ENABLE_DIRECTORY_SUGGESTIONS && ($action['directory'] ?? true) !== false &&
+			mb_strlen($query) >= self::DIRECTORY_MIN_CHARS) {
+			$known = [];
+			foreach ($data['results'] as $recipient) {
+				$known[strtolower((string) $recipient['smtp_address'])] = true;
+			}
+			foreach ($this->getDirectoryRecipients($query, $free, $known) as $recipient) {
+				$recipient['id'] = count($data['results']) + 1;
+				$data['results'][] = $recipient;
+			}
+			$data['directory_searched'] = true;
+		}
+
+		return $data;
+	}
+
+	/**
+	 * Look the query up in the global address book and then in the default contacts
+	 * folder, each with a single restricted table query of at most $limit rows.
+	 *
+	 * @param string $query search text
+	 * @param int    $limit maximum number of entries
+	 * @param array  $known lowercase SMTP addresses already suggested
+	 *
+	 * @return array suggestion entries, marked with source 'directory'
+	 */
+	public function getDirectoryRecipients($query, $limit, $known) {
+		$results = [];
+		$add = function ($entry) use (&$results, &$known, $limit) {
+			$key = strtolower((string) $entry['smtp_address']);
+			if ($key === '' || isset($known[$key]) || count($results) >= $limit) {
+				return;
+			}
+			$known[$key] = true;
+			$results[] = $entry + ['count' => 0, 'last_used' => 0, 'source' => 'directory'];
+		};
+		$match = fn ($tags) => [RES_OR, array_map(fn ($tag) => [RES_CONTENT,
+			[FUZZYLEVEL => FL_SUBSTRING | FL_IGNORECASE, ULPROPTAG => $tag, VALUE => $query]], $tags)];
+
+		try {
+			$ab = $GLOBALS['mapisession']->getAddressbook();
+			// The table lives only as long as its container, so keep it referenced.
+			$gal = mapi_ab_openentry($ab, mapi_ab_getdefaultdir($ab));
+			$table = mapi_folder_getcontentstable($gal, MAPI_DEFERRED_ERRORS);
+			mapi_table_restrict($table, $match([PR_DISPLAY_NAME, PR_SMTP_ADDRESS, PR_ACCOUNT]), TBL_BATCH);
+			$rows = mapi_table_queryrows($table, [PR_ENTRYID, PR_DISPLAY_NAME, PR_SMTP_ADDRESS, PR_EMAIL_ADDRESS,
+				PR_ADDRTYPE, PR_OBJECT_TYPE, PR_DISPLAY_TYPE, PR_DISPLAY_TYPE_EX, PR_SEARCH_KEY], 0, $limit);
+			foreach ($rows as $row) {
+				$add([
+					'entryid' => bin2hex((string) $row[PR_ENTRYID]),
+					'search_key' => isset($row[PR_SEARCH_KEY]) ? bin2hex((string) $row[PR_SEARCH_KEY]) : '',
+					'display_name' => $row[PR_DISPLAY_NAME] ?? '',
+					'smtp_address' => $row[PR_SMTP_ADDRESS] ?? '',
+					'email_address' => $row[PR_EMAIL_ADDRESS] ?? ($row[PR_SMTP_ADDRESS] ?? ''),
+					'address_type' => $row[PR_ADDRTYPE] ?? 'SMTP',
+					'object_type' => $row[PR_OBJECT_TYPE] ?? MAPI_MAILUSER,
+					'display_type' => $row[PR_DISPLAY_TYPE] ?? DT_MAILUSER,
+					'display_type_ex' => $row[PR_DISPLAY_TYPE_EX] ?? DT_MAILUSER,
+				]);
+			}
+		}
+		catch (MAPIException $e) {
+			$e->setHandled();
+		}
+
+		if (count($results) >= $limit) {
+			return $results;
+		}
+
+		try {
+			$store = $GLOBALS['mapisession']->getDefaultMessageStore();
+			$root = mapi_msgstore_openentry($store);
+			$contactsId = mapi_getprops($root, [PR_IPM_CONTACT_ENTRYID])[PR_IPM_CONTACT_ENTRYID] ?? null;
+			if ($contactsId === null) {
+				return $results;
+			}
+			$props = getPropIdsFromStrings($store, [
+				'email_address_1' => 'PT_STRING8:PSETID_Address:' . PidLidEmail1EmailAddress,
+				'email_address_2' => 'PT_STRING8:PSETID_Address:' . PidLidEmail2EmailAddress,
+				'email_address_3' => 'PT_STRING8:PSETID_Address:' . PidLidEmail3EmailAddress,
+			]);
+			$emails = [$props['email_address_1'], $props['email_address_2'], $props['email_address_3']];
+			$contacts = mapi_msgstore_openentry($store, $contactsId);
+			$table = mapi_folder_getcontentstable($contacts, MAPI_DEFERRED_ERRORS);
+			mapi_table_restrict($table, [RES_AND, [
+				[RES_PROPERTY, [RELOP => RELOP_EQ, ULPROPTAG => PR_MESSAGE_CLASS, VALUE => 'IPM.Contact']],
+				$match(array_merge([PR_DISPLAY_NAME], $emails)),
+			]], TBL_BATCH);
+			foreach (mapi_table_queryrows($table, array_merge([PR_DISPLAY_NAME], $emails), 0, $limit) as $row) {
+				foreach ($emails as $tag) {
+					if (!empty($row[$tag]) && str_contains((string) $row[$tag], '@')) {
+						$add([
+							'display_name' => $row[PR_DISPLAY_NAME] ?? $row[$tag],
+							'smtp_address' => $row[$tag],
+							'email_address' => $row[$tag],
+							'address_type' => 'SMTP',
+							'object_type' => MAPI_MAILUSER,
+						]);
+					}
+				}
+			}
+		}
+		catch (MAPIException $e) {
+			$e->setHandled();
+		}
+
+		return $results;
+	}
+
+	/**
+	 * Match the query against the stored recipient history.
+	 *
+	 * @param array $action            action data in associative array format
+	 * @param array $recipient_history recipient history stored in mapi property
+	 *
+	 * @return array data holding recipients that matched the query
+	 */
+	private function getHistoryList($action, $recipient_history) {
 		if (!empty($action["query"]) && !empty($recipient_history) && !empty($recipient_history['recipients'])) {
 			// Setup result array with match levels
 			$l_aResult = [
@@ -244,7 +372,7 @@ class suggestEmailAddressModule extends Module {
 				 * fewer items, the second list is sorted and included in the first list
 				 * as well. At the end the final list is sorted on name and email again.
 				 */
-				$l_iMaxNumListItems = 10;
+				$l_iMaxNumListItems = self::MAX_SUGGESTIONS;
 				$l_aSortedList = [];
 				usort($l_aResult[0], [self::class, 'cmpSortResultList']);
 				for ($i = 0, $len = min($l_iMaxNumListItems, count($l_aResult[0])); $i < $len; ++$i) {

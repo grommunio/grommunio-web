@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Arabic (Algeria)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2018-08-24 20:58+0200\n"
 "Last-Translator: import\n"
 "Language: ar_DZ\n"
@@ -2675,6 +2675,9 @@ msgstr "إرسال البريد الإلكتروني"
 msgid "Delete recipient from suggestion list"
 msgstr "حذف المستلم من قائمة الاقتراحات"
 
+msgid "From the address book or contacts"
+msgstr "من دفتر العناوين أو جهات الاتصال"
+
 msgid "Copy all email addresses"
 msgstr "انسخ كافة عناوين البريد الإلكتروني"
 
@@ -5229,6 +5232,9 @@ msgstr "حفظ رسائل البريد الإلكتروني المرسلة من 
 
 msgid "Always request a read receipt"
 msgstr "اطلب دائمًا إيصال القراءة"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "اقتراح المستلمين أيضًا من دفتر العناوين وجهات الاتصال"
 
 msgid "Activate attachment reminder"
 msgstr "تفعيل التذكير بالمرفقات"

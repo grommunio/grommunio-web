@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web English (United Kingdom)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Jan Engelhardt <jengelh@inai.de>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/grommunio/grommunio-web/en_GB/>\n"
@@ -2593,6 +2593,9 @@ msgstr "Send email"
 msgid "Delete recipient from suggestion list"
 msgstr "Delete recipient from suggestion list"
 
+msgid "From the address book or contacts"
+msgstr "From the address book or contacts"
+
 msgid "Copy all email addresses"
 msgstr "Copy all email addresses"
 
@@ -5099,6 +5102,9 @@ msgstr "Only in representee's Sent Items"
 
 msgid "Always request a read receipt"
 msgstr "Always request a read receipt"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Also suggest recipients from the address book and contacts"
 
 msgid "Activate attachment reminder"
 msgstr "Activate attachment reminder"

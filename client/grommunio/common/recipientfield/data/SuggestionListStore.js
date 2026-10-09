@@ -45,6 +45,9 @@ Grommunio.common.recipientfield.data.SuggestionListStore = Ext.extend(Ext.data.S
 
 		Grommunio.common.recipientfield.data.SuggestionListStore.superclass.constructor.call(this, config);
 
+		this.directoryMisses = [];
+		this.on('load', this.onSuggestionsLoad, this);
+
 		// Use multi-sorting on the suggestions,
 		// we can't apply this in the configuration object
 		// so we have to do it here.
@@ -83,7 +86,55 @@ Grommunio.common.recipientfield.data.SuggestionListStore = Ext.extend(Ext.data.S
 			options.actionType = this.actionType;
 		}
 
+		// The combo box passes the query through baseParams.
+		var query = Ext.value(options.params.query, this.baseParams.query);
+		if (!this.isDirectoryUseful(query)) {
+			options.params.directory = false;
+		}
+
 		Grommunio.common.recipientfield.data.SuggestionListStore.superclass.load.call(this, options);
+	},
+
+	/**
+	 * The directory is searched by substring, so a query that contains an earlier
+	 * query without directory hits cannot have any either.
+	 * @param {String} query The text to search for
+	 * @return {Boolean} false when the server should skip the directory lookup
+	 * @private
+	 */
+	isDirectoryUseful: function(query)
+	{
+		if (!container.getServerConfig().isDirectorySuggestionsEnabled() ||
+		    !container.getSettingsModel().get('grommunio/v1/contexts/mail/suggest_from_directory')) {
+			return false;
+		}
+
+		query = String(query || '').trim().toLowerCase();
+		return !this.directoryMisses.some(function(miss) {
+			return query.indexOf(miss) !== -1;
+		});
+	},
+
+	/**
+	 * Remember queries for which the server searched the directory without a hit.
+	 * @param {Ext.data.Store} store The store
+	 * @param {Ext.data.Record[]} records The loaded records
+	 * @param {Object} options The load options
+	 * @private
+	 */
+	onSuggestionsLoad: function(store, records, options)
+	{
+		if (!options || options.directorySearched !== true || !options.params) {
+			return;
+		}
+
+		var hit = records.some(function(record) {
+			return record.get('source') === 'directory';
+		});
+		// A full list may have cut directory entries off, so only an unfilled one proves a miss.
+		if (!hit && records.length < 10) {
+			this.directoryMisses.push(String(options.params.query).trim().toLowerCase());
+		}
 	}
 });
 

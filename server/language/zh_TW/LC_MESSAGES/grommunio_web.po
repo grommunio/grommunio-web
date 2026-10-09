@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Chinese (Taiwan)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-08-27 18:15+0000\n"
 "Last-Translator: Hugel <qihu@nfschina.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/grommunio/grommunio-web/zh_Hant/>\n"
@@ -2571,6 +2571,9 @@ msgstr "傳送郵件"
 msgid "Delete recipient from suggestion list"
 msgstr "從建議清單中刪除收件人"
 
+msgid "From the address book or contacts"
+msgstr "來自通訊錄或聯絡人"
+
 msgid "Copy all email addresses"
 msgstr "複製所有電子郵件地址"
 
@@ -5065,6 +5068,9 @@ msgstr "保存代表发送的电子邮件"
 
 msgid "Always request a read receipt"
 msgstr "總是要求讀取回條"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "同時從通訊錄和聯絡人中建議收件者"
 
 msgid "Activate attachment reminder"
 msgstr "啟動附件提醒"

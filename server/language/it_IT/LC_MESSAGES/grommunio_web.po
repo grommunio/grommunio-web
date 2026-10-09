@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Italian (Italy)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 21:51+0200\n"
+"POT-Creation-Date: 2026-10-09 22:41+0200\n"
 "PO-Revision-Date: 2022-12-11 16:35+0000\n"
 "Last-Translator: Orkan Eser <orkan.eser@grommunio.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/grommunio/grommunio-web/it/>\n"
@@ -2595,6 +2595,9 @@ msgstr "Invia e-mail"
 msgid "Delete recipient from suggestion list"
 msgstr "Elimina il destinatario dalla lista dei suggerimenti"
 
+msgid "From the address book or contacts"
+msgstr "Dalla rubrica o dai contatti"
+
 msgid "Copy all email addresses"
 msgstr "Copia tutti gli indirizzi e-mail"
 
@@ -5101,6 +5104,9 @@ msgstr "Salvare le e-mail inviate dal delegato"
 
 msgid "Always request a read receipt"
 msgstr "Richiedi sempre una conferma di lettura"
+
+msgid "Also suggest recipients from the address book and contacts"
+msgstr "Suggerisci anche destinatari dalla rubrica e dai contatti"
 
 msgid "Activate attachment reminder"
 msgstr "Attiva il promemoria degli allegati"

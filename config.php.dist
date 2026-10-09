@@ -67,6 +67,11 @@
 	// Overrides defaults.php
 	//define("ENABLE_RESOLVE_HIDDEN_USERS", true);
 
+	// Complete recipient suggestions from the address book and contacts when the
+	// recipient history has too few matches (enabled by default).
+	// Overrides defaults.php
+	//define("ENABLE_DIRECTORY_SUGGESTIONS", false);
+
 	// Whether to show domains without users/contacts in their global address book.
 	define("GAB_SHOW_EMPTY_DOMAINS", true);
 
