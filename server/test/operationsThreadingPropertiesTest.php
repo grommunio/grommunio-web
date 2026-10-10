@@ -21,11 +21,13 @@ class MAPIException extends Exception {
 
 	public function setDisplayMessage($message) {}
 }
-function getPropIdsFromStrings($store, $names) {
-	return [];
-}
-function mapi_getprops($message, $tags = null) {
-	return $message === 'unreadable' ? false : $message;
+if (!function_exists('mapi_getprops')) {
+	function getPropIdsFromStrings($store, $names) {
+		return [];
+	}
+	function mapi_getprops($message, $tags = null) {
+		return $message === 'unreadable' ? false : $message;
+	}
 }
 require_once dirname(__DIR__) . '/includes/core/class.operations.php';
 

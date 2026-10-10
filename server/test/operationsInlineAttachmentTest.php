@@ -27,43 +27,45 @@ $GLOBALS['inlineCreated'] = [];
 $GLOBALS['inlineProperties'] = [];
 $GLOBALS['inlineBytes'] = [];
 
-function mapi_message_openattach($message, $number) {
-	if (!is_int($number) || $number < 0) {
-		throw new RuntimeException('A temporary upload identifier reached mapi_message_openattach');
+if (!function_exists('mapi_message_openattach')) {
+	function mapi_message_openattach($message, $number) {
+		if (!is_int($number) || $number < 0) {
+			throw new RuntimeException('A temporary upload identifier reached mapi_message_openattach');
+		}
+		$GLOBALS['inlineOpened'][] = $number;
+
+		return 'saved-' . $number;
 	}
-	$GLOBALS['inlineOpened'][] = $number;
 
-	return 'saved-' . $number;
+	function mapi_message_deleteattach($message, $number) {
+		$GLOBALS['inlineDeleted'][] = $number;
+
+		return true;
+	}
+
+	function mapi_message_createattach($message) {
+		$id = 'created-' . count($GLOBALS['inlineCreated']);
+		$GLOBALS['inlineCreated'][] = $id;
+
+		return $id;
+	}
+
+	function mapi_setprops($attachment, $props) {
+		$GLOBALS['inlineProperties'][$attachment] = ($GLOBALS['inlineProperties'][$attachment] ?? []) + $props;
+
+		return true;
+	}
+
+	function mapi_savechanges($object) { return true; }
+	function mapi_openproperty($attachment, $property, $iid, $interface, $flags) { return $attachment; }
+	function mapi_stream_commit($stream) { return true; }
+	function mapi_stream_write($stream, $bytes) {
+		$GLOBALS['inlineBytes'][$stream] = ($GLOBALS['inlineBytes'][$stream] ?? '') . $bytes;
+
+		return strlen($bytes);
+	}
+
 }
-
-function mapi_message_deleteattach($message, $number) {
-	$GLOBALS['inlineDeleted'][] = $number;
-
-	return true;
-}
-
-function mapi_message_createattach($message) {
-	$id = 'created-' . count($GLOBALS['inlineCreated']);
-	$GLOBALS['inlineCreated'][] = $id;
-
-	return $id;
-}
-
-function mapi_setprops($attachment, $props) {
-	$GLOBALS['inlineProperties'][$attachment] = ($GLOBALS['inlineProperties'][$attachment] ?? []) + $props;
-
-	return true;
-}
-
-function mapi_savechanges($object) { return true; }
-function mapi_openproperty($attachment, $property, $iid, $interface, $flags) { return $attachment; }
-function mapi_stream_commit($stream) { return true; }
-function mapi_stream_write($stream, $bytes) {
-	$GLOBALS['inlineBytes'][$stream] = ($GLOBALS['inlineBytes'][$stream] ?? '') . $bytes;
-
-	return strlen($bytes);
-}
-
 class InlineUploadState {
 	public $files = [];
 	public $paths = [];

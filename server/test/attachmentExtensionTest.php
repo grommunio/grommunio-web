@@ -26,16 +26,18 @@ require_once dirname(__DIR__) . '/includes/core/class.operations.php';
 
 $GLOBALS['extensionRows'] = [];
 
-function mapi_getprops($object, $properties = null) {
-	return [PR_HASATTACH => true];
-}
+if (!function_exists('mapi_getprops')) {
+	function mapi_getprops($object, $properties = null) {
+		return [PR_HASATTACH => true];
+	}
 
-function mapi_message_getattachmenttable($message) {
-	return 'attachment-table';
-}
+	function mapi_message_getattachmenttable($message) {
+		return 'attachment-table';
+	}
 
-function mapi_table_queryallrows($table, $properties = null, $restriction = null) {
-	return $GLOBALS['extensionRows'];
+	function mapi_table_queryallrows($table, $properties = null, $restriction = null) {
+		return $GLOBALS['extensionRows'];
+	}
 }
 
 function row(array $extra) {

@@ -19,8 +19,10 @@ foreach (array_unique($matches[1]) as $index => $constant) {
 	defined($constant) || define($constant, $index + 1);
 }
 
-function mapi_getprops($object, $tags = null) {
-	return [PR_MAPPING_SIGNATURE => 'signature'];
+if (!function_exists('mapi_getprops')) {
+	function mapi_getprops($object, $tags = null) {
+		return [PR_MAPPING_SIGNATURE => 'signature'];
+	}
 }
 
 function getPropIdsFromStrings($store, $names) {

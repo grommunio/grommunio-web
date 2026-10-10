@@ -16,11 +16,13 @@ class MAPIException extends Exception {
 	public function setTitle($title) {}
 	public function setDisplayMessage($message) {}
 }
-function getPropIdsFromStrings($store, $names) {
-	return ['pgp_sign' => 10001, 'pgp_encrypt' => 10002];
-}
-function mapi_getprops($message, $names) {
-	return $message;
+if (!function_exists('mapi_getprops')) {
+	function getPropIdsFromStrings($store, $names) {
+		return ['pgp_sign' => 10001, 'pgp_encrypt' => 10002];
+	}
+	function mapi_getprops($message, $names) {
+		return $message;
+	}
 }
 require_once dirname(__DIR__) . '/includes/core/class.operations.php';
 
