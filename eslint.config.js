@@ -240,6 +240,8 @@ module.exports = [
 			],
 			"no-use-before-define": "warn",
 			"no-useless-escape": "warn",
+			// new in ESLint 10's recommended set; 50 dead stores still to clean up
+			"no-useless-assignment": "warn",
 			"no-useless-call": "warn",
 			"no-useless-computed-key": "error",
 			"no-useless-concat": "off",
