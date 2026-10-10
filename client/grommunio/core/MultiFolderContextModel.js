@@ -589,6 +589,13 @@ Grommunio.core.MultiFolderContextModel = Ext.extend(Grommunio.core.ContextModel,
 			}
 		}
 
+		// Same for the color map. JSON.stringify() drops the keys of an array and
+		// a primitive takes no keys at all, so assignments would never stick and
+		// every lookup would draw another random color.
+		if ( Ext.isDefined(state.colorMap) && !Ext.isObject(state.colorMap) ){
+			state.colorMap = Array.isArray(state.colorMap) ? Ext.apply({}, state.colorMap) : {};
+		}
+
 		Grommunio.core.MultiFolderContextModel.superclass.applyState.call(this, state);
 	},
 
