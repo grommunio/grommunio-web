@@ -28,8 +28,10 @@ defined('MVI_FLAG') || define('MVI_FLAG', 0x2000);
 defined('PT_UNICODE') || define('PT_UNICODE', 0x1F);
 defined('PT_STRING8') || define('PT_STRING8', 0x1E);
 
-function mapi_prop_type($property) {
-	return PT_STRING8;
+if (!function_exists('mapi_prop_type')) {
+	function mapi_prop_type($property) {
+		return PT_STRING8;
+	}
 }
 
 if (!class_exists('MAPIException')) {
@@ -40,44 +42,46 @@ if (!class_exists('MAPIException')) {
 
 $GLOBALS['bodyFlagProps'] = [];
 
-function mapi_getprops($object, $tags = null) {
-	return $GLOBALS['bodyFlagProps'];
-}
-function mapi_message_getprops($object, $tags = null) {
-	return $GLOBALS['bodyFlagProps'];
-}
-function mapi_message_openproperty($message, $tag) {
-	return $GLOBALS['bodyFlagProps'][$tag] ?? '';
-}
-function mapi_openproperty($object, $tag) {
-	return $GLOBALS['bodyFlagProps'][$tag] ?? '';
-}
-function mapi_ab_openentry($book, $entryid) {
-	return false;
-}
-function propIsError($property, $props) {
-	return false;
-}
-function readMapiProp($object, $tag, $props) {
-	return $props[$tag] ?? null;
-}
-function mapi_message_getrecipienttable($message) {
-	return 'recipients';
-}
-function mapi_message_getattachmenttable($message) {
-	return 'attachments';
-}
-function mapi_table_queryallrows($table, $properties = null, $restriction = null) {
-	return [];
-}
-function mapi_table_setcolumns($table, $properties) {
-	return true;
-}
-function mapi_folder_getcontentstable($folder) {
-	return 'contents';
-}
-function mapi_last_hresult() {
-	return 0;
+if (!function_exists('mapi_getprops')) {
+	function mapi_getprops($object, $tags = null) {
+		return $GLOBALS['bodyFlagProps'];
+	}
+	function mapi_message_getprops($object, $tags = null) {
+		return $GLOBALS['bodyFlagProps'];
+	}
+	function mapi_message_openproperty($message, $tag) {
+		return $GLOBALS['bodyFlagProps'][$tag] ?? '';
+	}
+	function mapi_openproperty($object, $tag) {
+		return $GLOBALS['bodyFlagProps'][$tag] ?? '';
+	}
+	function mapi_ab_openentry($book, $entryid) {
+		return false;
+	}
+	function propIsError($property, $props) {
+		return false;
+	}
+	function readMapiProp($object, $tag, $props) {
+		return $props[$tag] ?? null;
+	}
+	function mapi_message_getrecipienttable($message) {
+		return 'recipients';
+	}
+	function mapi_message_getattachmenttable($message) {
+		return 'attachments';
+	}
+	function mapi_table_queryallrows($table, $properties = null, $restriction = null) {
+		return [];
+	}
+	function mapi_table_setcolumns($table, $properties) {
+		return true;
+	}
+	function mapi_folder_getcontentstable($folder) {
+		return 'contents';
+	}
+	function mapi_last_hresult() {
+		return 0;
+	}
 }
 
 require_once dirname(__DIR__) . '/includes/core/class.conversion.php';
