@@ -3660,10 +3660,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/brace-expansion@1.1.18",
+			"bom-ref": "pkg:npm/brace-expansion@1.1.21",
 			"type": "library",
 			"name": "brace-expansion",
-			"version": "1.1.18",
+			"version": "1.1.21",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -3672,7 +3672,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/brace-expansion@1.1.18",
+			"purl": "pkg:npm/brace-expansion@1.1.21",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -3689,10 +3689,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/brace-expansion@5.0.9",
+			"bom-ref": "pkg:npm/brace-expansion@5.0.12",
 			"type": "library",
 			"name": "brace-expansion",
-			"version": "5.0.9",
+			"version": "5.0.12",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -3701,7 +3701,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/brace-expansion@5.0.9",
+			"purl": "pkg:npm/brace-expansion@5.0.12",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -9936,10 +9936,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/source-map-js@1.2.1",
+			"bom-ref": "pkg:npm/source-map-js@1.2.2",
 			"type": "library",
 			"name": "source-map-js",
-			"version": "1.2.1",
+			"version": "1.2.2",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -9948,7 +9948,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/source-map-js@1.2.1",
+			"purl": "pkg:npm/source-map-js@1.2.2",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",

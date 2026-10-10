@@ -3,9 +3,9 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.1-83-g4787e15",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.1-83-g4787e15-f8309c7eaba44bde",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.1-83-g4787e15-9009f537a836524a",
 	"creationInfo": {
-		"created": "2026-10-10T10:16:47Z",
+		"created": "2026-10-10T10:17:35Z",
 		"creators": [
 			"Tool: tools/build-bom.mjs",
 			"Organization: grommunio GmbH"
@@ -2049,9 +2049,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-brace-expansion-1.1.18",
+			"SPDXID": "SPDXRef-npm-brace-expansion-1.1.21",
 			"name": "brace-expansion",
-			"versionInfo": "1.1.18",
+			"versionInfo": "1.1.21",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -2061,14 +2061,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/brace-expansion@1.1.18"
+					"referenceLocator": "pkg:npm/brace-expansion@1.1.21"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-brace-expansion-5.0.9",
+			"SPDXID": "SPDXRef-npm-brace-expansion-5.0.12",
 			"name": "brace-expansion",
-			"versionInfo": "5.0.9",
+			"versionInfo": "5.0.12",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -2078,7 +2078,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/brace-expansion@5.0.9"
+					"referenceLocator": "pkg:npm/brace-expansion@5.0.12"
 				}
 			]
 		},
@@ -5687,9 +5687,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-source-map-js-1.2.1",
+			"SPDXID": "SPDXRef-npm-source-map-js-1.2.2",
 			"name": "source-map-js",
-			"versionInfo": "1.2.1",
+			"versionInfo": "1.2.2",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "BSD-3-Clause",
@@ -5699,7 +5699,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/source-map-js@1.2.1"
+					"referenceLocator": "pkg:npm/source-map-js@1.2.2"
 				}
 			]
 		},
@@ -7468,12 +7468,12 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-brace-expansion-1.1.18",
+			"spdxElementId": "SPDXRef-npm-brace-expansion-1.1.21",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-brace-expansion-5.0.9",
+			"spdxElementId": "SPDXRef-npm-brace-expansion-5.0.12",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -8538,7 +8538,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-source-map-js-1.2.1",
+			"spdxElementId": "SPDXRef-npm-source-map-js-1.2.2",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
