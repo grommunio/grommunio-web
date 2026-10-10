@@ -609,10 +609,10 @@
 			]
 		},
 		{
-			"bom-ref": "external:mapi-header-php@2.2",
+			"bom-ref": "external:mapi-header-php@2.3",
 			"type": "library",
 			"name": "mapi-header-php",
-			"version": "2.2",
+			"version": "2.3",
 			"description": "MAPI PHP bindings loaded from UMAPI_PATH (/usr/share/php-mapi); not vendored here",
 			"scope": "required",
 			"licenses": [
@@ -13375,7 +13375,7 @@
 				"pkg:composer/sabre/xml@2.2.11",
 				"pkg:composer/symfony/polyfill-iconv@1.37.0",
 				"external:gromox-php-mapi@NOASSERTION",
-				"external:mapi-header-php@2.2",
+				"external:mapi-header-php@2.3",
 				"pkg:npm/%40eslint/js@9.39.5",
 				"pkg:npm/css-tree@2.3.1",
 				"pkg:npm/cssnano@6.1.2",

@@ -958,7 +958,7 @@
 			"type": "library",
 			"ecosystem": "external",
 			"name": "mapi-header-php",
-			"version": "2.2",
+			"version": "2.3",
 			"license": "AGPL-3.0-or-later",
 			"scope": "runtime",
 			"paths": [],

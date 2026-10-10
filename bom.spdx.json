@@ -3,9 +3,9 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.1-83-g4787e15",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.1-83-g4787e15-9009f537a836524a",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.1-83-g4787e15-a5c2b3b50f5a1304",
 	"creationInfo": {
-		"created": "2026-10-10T10:17:35Z",
+		"created": "2026-10-10T10:17:41Z",
 		"creators": [
 			"Tool: tools/build-bom.mjs",
 			"Organization: grommunio GmbH"
@@ -271,9 +271,9 @@
 			"copyrightText": "NOASSERTION"
 		},
 		{
-			"SPDXID": "SPDXRef-external-mapi-header-php-2.2",
+			"SPDXID": "SPDXRef-external-mapi-header-php-2.3",
 			"name": "mapi-header-php",
-			"versionInfo": "2.2",
+			"versionInfo": "2.3",
 			"downloadLocation": "https://github.com/grommunio/mapi-header-php",
 			"filesAnalyzed": false,
 			"licenseConcluded": "AGPL-3.0-or-later",
@@ -6943,7 +6943,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-external-mapi-header-php-2.2",
+			"spdxElementId": "SPDXRef-external-mapi-header-php-2.3",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
