@@ -701,7 +701,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "postal-mime",
-			"version": "2.7.5",
+			"version": "4.0.5",
 			"license": "MIT-0",
 			"scope": "runtime",
 			"paths": [
@@ -709,7 +709,7 @@
 				"plugins/pgp/resources/vendor/postal-mime.LICENSE"
 			],
 			"copyright": "Copyright (c) 2021 - 2025 Andris Reinman",
-			"purl": "pkg:npm/postal-mime@2.7.5",
+			"purl": "pkg:npm/postal-mime@4.0.5",
 			"website": "https://github.com/postalsys/postal-mime"
 		},
 		{

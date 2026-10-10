@@ -26,7 +26,7 @@
 		"glob": "^13.0.6",
 		"html-minifier-terser": "^7.2.0",
 		"openpgp": "6.3.2",
-		"postal-mime": "2.7.5",
+		"postal-mime": "4.0.5",
 		"postcss": "^8.5.29",
 		"postcss-cli": "^12.0.0",
 		"postcss-preset-env": "^11.6.1",

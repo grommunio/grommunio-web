@@ -93,7 +93,7 @@ The globals are `openpgp`, `PostalMime` and `fflate.{zipSync,unzipSync}`.
 - [OpenPGP.js 6.3.2](https://github.com/openpgpjs/openpgpjs/releases/tag/v6.3.2)
   (LGPL-3.0-or-later), including the fix for
   [CVE-2025-47934](https://github.com/openpgpjs/openpgpjs/security/advisories/GHSA-8qff-qr5q-5pr8).
-- [postal-mime 2.7.5](https://github.com/postalsys/postal-mime/releases/tag/v2.7.5)
+- [postal-mime 4.0.5](https://github.com/postalsys/postal-mime/releases/tag/v4.0.5)
   (MIT), for local body/attachment extraction, not cryptographic framing.
 - [fflate 0.8.3](https://github.com/101arrowz/fflate/releases/tag/v0.8.3) (MIT),
   for local attachment ZIP downloads.

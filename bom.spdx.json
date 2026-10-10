@@ -3,9 +3,9 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.1-83-g4787e15",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.1-83-g4787e15-5b92d413831339cf",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.1-83-g4787e15-cc79d2e8f7cdb06f",
 	"creationInfo": {
-		"created": "2026-10-10T10:22:58Z",
+		"created": "2026-10-10T10:23:19Z",
 		"creators": [
 			"Tool: tools/build-bom.mjs",
 			"Organization: grommunio GmbH"
@@ -4072,9 +4072,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-postal-mime-2.7.5",
+			"SPDXID": "SPDXRef-npm-postal-mime-4.0.5",
 			"name": "postal-mime",
-			"versionInfo": "2.7.5",
+			"versionInfo": "4.0.5",
 			"downloadLocation": "https://github.com/postalsys/postal-mime",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -4084,7 +4084,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postal-mime@2.7.5"
+					"referenceLocator": "pkg:npm/postal-mime@4.0.5"
 				}
 			]
 		},
@@ -7638,7 +7638,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-postal-mime-2.7.5",
+			"spdxElementId": "SPDXRef-npm-postal-mime-4.0.5",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
