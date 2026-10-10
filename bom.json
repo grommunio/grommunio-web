@@ -4,10 +4,10 @@
 	"version": 1,
 	"metadata": {
 		"component": {
-			"bom-ref": "pkg:generic/grommunio-web@5.1-83-g4787e15",
+			"bom-ref": "pkg:generic/grommunio-web@5.2",
 			"type": "application",
 			"name": "grommunio-web",
-			"version": "5.1-83-g4787e15",
+			"version": "5.2",
 			"description": "Main grommunio web client",
 			"licenses": [
 				{
@@ -16,7 +16,7 @@
 					}
 				}
 			],
-			"purl": "pkg:generic/grommunio-web@5.1-83-g4787e15",
+			"purl": "pkg:generic/grommunio-web@5.2",
 			"externalReferences": [
 				{
 					"type": "vcs",
@@ -12633,7 +12633,7 @@
 	],
 	"dependencies": [
 		{
-			"ref": "pkg:generic/grommunio-web@5.1-83-g4787e15",
+			"ref": "pkg:generic/grommunio-web@5.2",
 			"dependsOn": [
 				"pkg:composer/paragonie/constant_time_encoding@3.1.3",
 				"pkg:composer/paragonie/random_compat@9.99.100",

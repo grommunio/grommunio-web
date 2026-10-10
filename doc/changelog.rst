@@ -1,3 +1,94 @@
+grommunio-web 5.2 (2026-10-10)
+==============================
+
+Fixes:
+
+* The default signature could not be reset to <None>
+* Notes of distribution lists were not saved
+* The delegate list failed with MAPI_E_AMBIGUOUS_RECIP when one delegate's
+  address was contained in another entry
+* Forwarded meeting requests keep the organizer, show the meeting time in
+  the user's zone, add the new attendees to the organizer's meeting and
+  fail on an unusable outbox; with a mapi-header-php that forwards meetings
+  itself, single occurrences are forwarded and the organizer is notified
+* A meeting request whose calendar cannot be read still opens
+* The organizer is no longer added to a meeting exception
+* Yearly recurrences treat their interval as years
+* All-day events moved near a DST transition no longer end up an hour off
+* Outlook ignored the recurrence timezone of series saved here; the
+  effective rule of PidLidAppointmentTimeZoneDefinitionRecur is now flagged
+* Automatically assigned calendar colours survive a reload
+* Removing a favourite deletes its hidden entry for good; navigation
+  shortcuts set by Outlook are no longer listed as favourites
+* Attachments: embedded messages are offered for download and in ZIP
+  archives and delivered as mail files, every contact of a vCard and every
+  event of a calendar attachment is imported, only meeting requests are
+  accepted from calendar attachments, recurrence exceptions stay out of
+  archives, an unsatisfiable range is answered with a bare 416
+* Folders: a soft delete or rename that did not take effect is reported,
+  Restore All brings back soft-deleted folders, a restored folder whose name
+  collides stays in its parent, search folders save, a shared folder that
+  cannot be opened says why, the folder filter finds folders in collapsed
+  branches
+* Mail list: sorting by mapped multi-value columns, the sent items folder
+  stays open while its table is in use, the Conflicts folder counts as
+  special, a preview load error clears on the next mail
+* Search: a leading NOT is kept, exclusion-only queries match, advanced
+  search takes a selected folder without a default folder
+* Postal addresses of contacts are stored with CRLF line endings
+* Rules read recipient search keys under their symbolic name
+* Files: failed uploads, rejected WebDAV writes and moves and existing
+  folder names are reported, the remaining files keep uploading after a
+  failure, deleting an item that is already gone counts as done, a renamed
+  folder is no longer taken for a file, Keycloak logins authenticate with
+  the access token
+* S/MIME: the same public certificate is never stored twice and duplicates
+  are removed when listing, a sender without entryid is looked up by SMTP
+  address, unwrapping keeps the outer subject, an unsupported GCM cipher is
+  reported only when encrypting
+* Settings requests carrying a single setting are applied; empty path
+  segments are skipped
+* Plugins: a disabled aliased plugin stays out of the plugin data,
+  dependencies of an unknown type are skipped, manifest errors name the
+  offending element
+* AI assistant: the window fits its buttons, the Replace draft label is
+  legible in dark mode
+* Unexpected MAPI errors of the delegate and reminder modules are reported
+  instead of swallowed
+
+Enhancements:
+
+* Search: "in:" scopes a search to a folder picked from suggestions and
+  shown as a chip, the keyword is translated, the folder is kept in recent
+  and saved searches; a leading minus excludes a term; the field lets go of
+  a finished search and gains a clear button
+* Tracking pixels: tiny, hidden and known tracking-service images stay
+  blocked after pictures are downloaded, are left out of replies and
+  forwards, and the preview says so; safe senders are exempt by default
+* Recipient suggestions are completed from the address book and contacts
+  (opt-in; ENABLE_DIRECTORY_SUGGESTIONS switches it off)
+* S/MIME: a warning when the signer certificate belongs to neither the From
+  nor the Sender address
+* OpenPGP: protected private keys, several public keys at once and public
+  keys from a mail attachment can be imported, a missing signing key is
+  named and fetched from the keyservers, keys can be refreshed
+* Login page in a unified design with brand variables and product mark;
+  themes can brand the title and favicon
+* The editor drops the fonts and colours of pasted content and offers the
+  Outfit font
+* New strings translated in all complete catalogues; the translation cache
+  in shared memory fits every language
+
+Changes:
+
+* pdf.js 6.4.299, TinyMCE 8.9.3, DOMPurify 3.4.16, OpenPGP.js 6.3.2 and
+  postal-mime 4.0.5
+* Build toolchain on its current major versions (cssnano 9,
+  postcss-preset-env 11, postcss-cli 12, svgo 4, esbuild 0.28, ESLint 10);
+  building needs Node.js 22.22.3 or 24.15.0 and later
+* Large server modules split into smaller classes without functional change
+* The build no longer rewrites the tracked version file
+
 grommunio-web 5.1 (2026-09-24)
 ==============================
 
