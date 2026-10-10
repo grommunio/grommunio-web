@@ -152,8 +152,7 @@ $(DESTDIR)/%: %
 	cp $< $@
 
 $(DESTDIR)/version: version
-	git describe --abbrev=7 --always  --long | sed 's#grommunio-web-##' > version
-	cp $< $@
+	git describe --abbrev=7 --always  --long | sed 's#grommunio-web-##' > $@
 
 # One ExtJS bundle per loader mode; the copies of its parts do not ship
 $(DESTDIR)/client/extjs/ext-base-all.js: $(EXTJS) $(JSDEPLOY)/extjs/resources/images/default/s.gif
