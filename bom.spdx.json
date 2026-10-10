@@ -3,9 +3,9 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.1",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.1-4efeba77ce4a7760",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.1-68ae98ca4be43e01",
 	"creationInfo": {
-		"created": "2026-10-05T19:03:08Z",
+		"created": "2026-10-10T09:56:29Z",
 		"creators": [
 			"Tool: tools/build-bom.mjs",
 			"Organization: grommunio GmbH"
@@ -6541,9 +6541,9 @@
 			"copyrightText": "Copyright (c) Microsoft Corporation"
 		},
 		{
-			"SPDXID": "SPDXRef-vendored-foxit-standard-pdf-fonts-6.3.289",
+			"SPDXID": "SPDXRef-vendored-foxit-standard-pdf-fonts-6.4.299",
 			"name": "foxit-standard-pdf-fonts",
-			"versionInfo": "6.3.289",
+			"versionInfo": "6.4.299",
 			"downloadLocation": "https://pdfium.googlesource.com/pdfium/",
 			"filesAnalyzed": false,
 			"licenseConcluded": "BSD-3-Clause",
@@ -6662,9 +6662,9 @@
 			"copyrightText": "Copyright (C) 2014 - 2017 Vitaly Puzrin and Andrei Tuputcyn"
 		},
 		{
-			"SPDXID": "SPDXRef-vendored-pdf.js-6.3.289",
+			"SPDXID": "SPDXRef-vendored-pdf.js-6.4.299",
 			"name": "pdf.js",
-			"versionInfo": "6.3.289",
+			"versionInfo": "6.4.299",
 			"downloadLocation": "https://mozilla.github.io/pdf.js/",
 			"filesAnalyzed": false,
 			"licenseConcluded": "Apache-2.0",
@@ -6674,7 +6674,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/pdfjs-dist@6.3.289"
+					"referenceLocator": "pkg:npm/pdfjs-dist@6.4.299"
 				}
 			]
 		},
@@ -8853,7 +8853,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-vendored-foxit-standard-pdf-fonts-6.3.289",
+			"spdxElementId": "SPDXRef-vendored-foxit-standard-pdf-fonts-6.4.299",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -8903,7 +8903,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-vendored-pdf.js-6.3.289",
+			"spdxElementId": "SPDXRef-vendored-pdf.js-6.4.299",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},

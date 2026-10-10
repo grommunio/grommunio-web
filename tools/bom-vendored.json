@@ -142,7 +142,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "pdf.js",
-			"version": "6.3.289",
+			"version": "6.4.299",
 			"license": "Apache-2.0",
 			"scope": "runtime",
 			"paths": [
@@ -161,7 +161,7 @@
 				"client/filepreviewer/pdfjs/web/locale/"
 			],
 			"copyright": "Copyright 2012, 2014, 2024 Mozilla Foundation",
-			"purl": "pkg:npm/pdfjs-dist@6.3.289",
+			"purl": "pkg:npm/pdfjs-dist@6.4.299",
 			"website": "https://mozilla.github.io/pdf.js/"
 		},
 		{
@@ -283,7 +283,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "foxit-standard-pdf-fonts",
-			"version": "6.3.289",
+			"version": "6.4.299",
 			"license": "BSD-3-Clause",
 			"scope": "runtime",
 			"paths": [
