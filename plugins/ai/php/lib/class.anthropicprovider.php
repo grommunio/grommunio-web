@@ -55,18 +55,47 @@ class AnthropicProvider extends AIProvider {
 			$turns[] = ['role' => $role, 'content' => $content];
 		}
 
+		$model = $opts['model'] ?? $this->config->model;
 		$body = [
-			'model' => $opts['model'] ?? $this->config->model,
+			'model' => $model,
 			'max_tokens' => $opts['max_tokens'] ?? $this->config->maxOutputTokens,
-			'temperature' => $opts['temperature'] ?? $this->config->temperature,
 			'messages' => $turns,
 			'stream' => $stream,
 		];
+		if ($this->config->takesTemperature($model)) {
+			$body['temperature'] = $opts['temperature'] ?? $this->config->temperature;
+		}
 		if ($system !== '') {
 			$body['system'] = $system;
 		}
+		$effort = $this->effortFor($model);
+		if ($effort !== null) {
+			$body['output_config'] = ['effort' => $effort];
+		}
 
 		return $body;
+	}
+
+	/**
+	 * The configured effort clamped to what the model accepts, null if it takes none.
+	 */
+	private function effortFor(string $model): ?string {
+		$effort = $this->config->effortFor($model);
+		if ($effort === '' || !preg_match('/^claude-(fable|mythos|opus-(4-[5-9]|[5-9])|sonnet-(4-[6-9]|[5-9])|haiku-[5-9])/', $model, $m)) {
+			return null;
+		}
+		$effort = match ($effort) {
+			'none', 'minimal' => 'low',
+			default => $effort,
+		};
+		if (str_starts_with($m[1], 'opus-4-5') && in_array($effort, ['xhigh', 'max'], true)) {
+			return 'high';
+		}
+		if (preg_match('/^(opus|sonnet)-4-6/', $m[1]) && $effort === 'xhigh') {
+			return 'high';
+		}
+
+		return $effort;
 	}
 
 	protected function extractContent(array $json): string {
@@ -92,11 +121,17 @@ class AnthropicProvider extends AIProvider {
 		return null;
 	}
 
-	/** The Messages API says 'max_tokens' where the OpenAI dialect says 'length'. */
 	protected function parseFinishReason(array $json): ?string {
-		$reason = $json['stop_reason'] ?? null;
+		return self::normalizeStop($json['stop_reason'] ?? null);
+	}
 
-		return $reason === 'max_tokens' ? 'length' : $reason;
+	/** The Messages API says 'max_tokens' where the OpenAI dialect says 'length'. */
+	private static function normalizeStop(?string $reason): ?string {
+		return match ($reason) {
+			'max_tokens' => 'length',
+			'model_context_window_exceeded' => 'context_window',
+			default => $reason,
+		};
 	}
 
 	protected function parseStreamFinish(string $data): ?string {
@@ -104,10 +139,9 @@ class AnthropicProvider extends AIProvider {
 		if (!is_array($json)) {
 			return null;
 		}
-		// The stop reason arrives on the message_delta event near the end.
-		$reason = $json['delta']['stop_reason'] ?? ($json['message']['stop_reason'] ?? null);
 
-		return $reason === 'max_tokens' ? 'length' : $reason;
+		// The stop reason arrives on the message_delta event near the end.
+		return self::normalizeStop($json['delta']['stop_reason'] ?? ($json['message']['stop_reason'] ?? null));
 	}
 
 	protected function parseStreamError(string $data): ?string {

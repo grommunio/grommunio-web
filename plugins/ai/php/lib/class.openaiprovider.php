@@ -10,12 +10,16 @@
  *
  * This single implementation covers OpenAI itself plus the many servers that
  * expose the same API: Ollama, LM Studio, vLLM, llama.cpp, LocalAI, Groq,
- * Mistral, Together, OpenRouter, Azure OpenAI, ... Authentication is a Bearer
- * token, omitted entirely when no key is configured (the local default).
+ * Mistral, Together, OpenRouter, IONOS AI Model Hub, Azure OpenAI, ...
+ * Authentication is a Bearer token, omitted entirely when no key is configured
+ * (the local default).
  */
 class OpenAIProvider extends AIProvider {
+	/** Whether the request being built goes to the Responses API. */
+	private bool $responses = false;
+
 	protected function endpoint(): string {
-		return rtrim($this->config->apiBase, '/') . '/chat/completions';
+		return rtrim($this->config->apiBase, '/') . ($this->responses ? '/responses' : '/chat/completions');
 	}
 
 	protected function headers(): array {
@@ -27,43 +31,117 @@ class OpenAIProvider extends AIProvider {
 		return $headers;
 	}
 
+	/**
+	 * IONOS rejects "stream" on its Responses endpoint.
+	 */
+	protected function canStream(array $opts): bool {
+		$model = $opts['model'] ?? $this->config->model;
+
+		return !($this->config->isIonos() && $this->config->apiFor($model) === AIConfig::API_RESPONSES);
+	}
+
 	protected function buildBody(array $messages, array $opts, bool $stream): array {
 		$model = $opts['model'] ?? $this->config->model;
 		$maxTokens = $opts['max_tokens'] ?? $this->config->maxOutputTokens;
+		$this->responses = $this->config->apiFor($model) === AIConfig::API_RESPONSES;
 
+		$body = $this->responses
+			? $this->responsesBody($model, $messages, $maxTokens, $stream)
+			: $this->chatBody($model, $messages, $maxTokens, $stream);
+
+		$effort = $this->config->effortFor($model);
+		$reasoning = $this->config->isReasoningModel($model);
+		if ((!$reasoning || $effort === 'none') && $this->config->takesTemperature($model)) {
+			$body['temperature'] = $opts['temperature'] ?? $this->config->temperature;
+		}
+		// OpenAI rejects an effort for gpt-4.1/gpt-4o
+		if ($effort !== '' && ($reasoning || $this->config->provider !== 'openai')) {
+			if ($this->responses) {
+				$body['reasoning'] = ['effort' => $effort];
+			}
+			else {
+				$body['reasoning_effort'] = $effort;
+			}
+		}
+
+		return $body;
+	}
+
+	private function chatBody(string $model, array $messages, int $maxTokens, bool $stream): array {
 		$body = [
 			'model' => $model,
 			'messages' => $messages,
 			'stream' => $stream,
 		];
 
-		// OpenAI's reasoning families (o1/o3/o4/..., gpt-5) reject the legacy
-		// 'max_tokens' (they require 'max_completion_tokens') and only accept the
-		// default temperature. Every other OpenAI-compatible server (Ollama, LM
-		// Studio, vLLM, Groq, Gemini, ...) uses the classic shape.
-		if ($this->isReasoningModel($model)) {
+		// Ollama reads only max_tokens
+		$provider = $this->config->provider;
+		if (in_array($provider, ['openai', 'groq'], true) || ($provider !== 'ollama' && $this->config->isReasoningModel($model))) {
 			$body['max_completion_tokens'] = $maxTokens;
 		}
 		else {
 			$body['max_tokens'] = $maxTokens;
-			$body['temperature'] = $opts['temperature'] ?? $this->config->temperature;
 		}
 
 		return $body;
 	}
 
 	/**
-	 * Whether the model is an OpenAI reasoning model that needs the newer
-	 * parameter shape. Tolerates a "provider/" prefix (OpenRouter, Azure).
+	 * The Responses API takes the system prompt as "instructions" and the
+	 * conversation as "input".
 	 */
-	private function isReasoningModel(string $model): bool {
-		$bare = strtolower((string) preg_replace('#^.*/#', '', trim($model)));
+	private function responsesBody(string $model, array $messages, int $maxTokens, bool $stream): array {
+		$instructions = '';
+		$input = [];
+		foreach ($messages as $message) {
+			$role = $message['role'] ?? 'user';
+			$content = (string) ($message['content'] ?? '');
+			if ($role === 'system') {
+				$instructions .= ($instructions === '' ? '' : "\n\n") . $content;
 
-		return (bool) preg_match('/^(o[1-9]|gpt-5)/', $bare);
+				continue;
+			}
+			$input[] = ['role' => $role, 'content' => $content];
+		}
+
+		$body = [
+			'model' => $model,
+			'input' => $input,
+			'max_output_tokens' => $maxTokens,
+		];
+		if ($instructions !== '') {
+			$body['instructions'] = $instructions;
+		}
+		// IONOS rejects "store"
+		if (!$this->config->isIonos()) {
+			$body['store'] = false;
+		}
+		if ($stream) {
+			$body['stream'] = true;
+		}
+
+		return $body;
 	}
 
 	protected function extractContent(array $json): string {
-		return (string) ($json['choices'][0]['message']['content'] ?? '');
+		if (!$this->responses) {
+			return (string) self::contentText($json['choices'][0]['message']['content'] ?? null);
+		}
+
+		// Reasoning items precede the message, so walk the whole output.
+		$text = '';
+		foreach (($json['output'] ?? []) as $item) {
+			if (($item['type'] ?? '') !== 'message') {
+				continue;
+			}
+			foreach (($item['content'] ?? []) as $part) {
+				if (($part['type'] ?? '') === 'output_text') {
+					$text .= (string) ($part['text'] ?? '');
+				}
+			}
+		}
+
+		return $text;
 	}
 
 	protected function parseStreamEvent(string $data): ?string {
@@ -71,23 +149,97 @@ class OpenAIProvider extends AIProvider {
 		if (!is_array($json)) {
 			return null;
 		}
+		if ($this->responses) {
+			return ($json['type'] ?? '') === 'response.output_text.delta' ? ($json['delta'] ?? null) : null;
+		}
 
-		return $json['choices'][0]['delta']['content'] ?? null;
+		return self::contentText($json['choices'][0]['delta']['content'] ?? null);
+	}
+
+	/**
+	 * Message content as text; Mistral reasoning models send a list of chunks.
+	 */
+	private static function contentText(mixed $content): ?string {
+		if (!is_array($content)) {
+			return is_string($content) ? $content : null;
+		}
+		$text = '';
+		foreach ($content as $part) {
+			if (is_array($part) && ($part['type'] ?? '') === 'text') {
+				$text .= (string) ($part['text'] ?? '');
+			}
+		}
+
+		return $text;
 	}
 
 	protected function parseFinishReason(array $json): ?string {
+		if ($this->responses) {
+			return $this->responseFinish($json);
+		}
+
 		return $json['choices'][0]['finish_reason'] ?? null;
 	}
 
 	protected function parseStreamFinish(string $data): ?string {
 		$json = json_decode($data, true);
+		if (!is_array($json)) {
+			return null;
+		}
+		if ($this->responses) {
+			$type = $json['type'] ?? '';
 
-		return is_array($json) ? ($json['choices'][0]['finish_reason'] ?? null) : null;
+			return in_array($type, ['response.completed', 'response.incomplete'], true)
+				? $this->responseFinish($json['response'] ?? [])
+				: null;
+		}
+
+		return $json['choices'][0]['finish_reason'] ?? null;
+	}
+
+	/**
+	 * A Responses API status as Chat Completions finish reason.
+	 */
+	private function responseFinish(array $response): ?string {
+		$status = $response['status'] ?? null;
+		if ($status === 'incomplete') {
+			$reason = $response['incomplete_details']['reason'] ?? null;
+
+			return $reason === 'max_output_tokens' ? 'length' : $reason;
+		}
+
+		return $status === 'completed' ? 'stop' : $status;
+	}
+
+	/**
+	 * Point at PLUGIN_AI_API_MODE for a model OpenAI serves on /responses only.
+	 */
+	protected function httpError(int $code, ?array $json): string {
+		$message = parent::httpError($code, $json);
+		if (!$this->responses && str_contains((string) ($json['error']['message'] ?? ''), 'v1/chat/completions')) {
+			$message .= ' ' . _("Set PLUGIN_AI_API_MODE to 'responses' in the plugin config.php.");
+		}
+
+		return $message;
 	}
 
 	protected function parseStreamError(string $data): ?string {
 		$json = json_decode($data, true);
-		if (is_array($json) && isset($json['error'])) {
+		if (!is_array($json)) {
+			return null;
+		}
+		if ($this->responses) {
+			$type = $json['type'] ?? '';
+			if ($type === 'error') {
+				return $this->httpError(200, ['message' => $json['message'] ?? '']);
+			}
+			if ($type === 'response.failed') {
+				return $this->httpError(200, ['error' => $json['response']['error'] ?? []]);
+			}
+
+			return null;
+		}
+		if (isset($json['error'])) {
 			return $this->httpError(200, $json);
 		}
 

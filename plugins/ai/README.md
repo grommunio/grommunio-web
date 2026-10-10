@@ -29,11 +29,14 @@ major LLM:
 
 - **OpenAI-compatible** `/v1/chat/completions` — the de-facto standard, used by
   **free cloud tiers** (Google **Gemini**, **Groq**, **OpenRouter**), by OpenAI,
-  Mistral, Together, Azure OpenAI, …, **and** by local/self-hosted servers
-  (**Ollama**, LM Studio, vLLM, llama.cpp, LocalAI).
+  **IONOS AI Model Hub** (hosted in Germany), Mistral, Together, Azure OpenAI,
+  …, **and** by local/self-hosted servers (**Ollama**, LM Studio, vLLM,
+  llama.cpp, LocalAI). OpenAI models that are only served on the newer
+  **Responses API** (`/v1/responses`, e.g. `gpt-5.5-pro`) are switched over
+  automatically; `PLUGIN_AI_API_MODE` forces either API.
 - **Anthropic Messages API** — the native Claude API.
 
-The shipped default is **Google Gemini's free tier** (`gemini-2.0-flash`): strong
+The shipped default is **Google Gemini's free tier** (`gemini-3.6-flash`): strong
 quality and excellent multilingual support, with a key you get in two clicks at
 <https://aistudio.google.com/apikey> (no credit card). For **full data
 sovereignty** — nothing leaves your server — switch to the local **Ollama**
@@ -66,15 +69,21 @@ define('PLUGIN_AI_ENABLE', true);
 define('PLUGIN_AI_PROVIDER', 'gemini');
 define('PLUGIN_AI_API_BASE', 'https://generativelanguage.googleapis.com/v1beta/openai');
 define('PLUGIN_AI_API_KEY', 'AIza...');           // from aistudio.google.com/apikey
-define('PLUGIN_AI_MODEL', 'gemini-2.0-flash');
+define('PLUGIN_AI_MODEL', 'gemini-3.6-flash');
 ```
 
 Ready-to-use commented presets for **Groq**, **OpenRouter**, **local Ollama**,
-**OpenAI** and **Anthropic/Claude** are included in `config.php`; uncomment one
-block to switch. Additional knobs: generation limits
+**OpenAI**, **IONOS AI Model Hub** and **Anthropic/Claude** are included in
+`config.php`; uncomment one block to switch. Additional knobs: generation limits
 (`PLUGIN_AI_MAX_INPUT_CHARS`, `..._MAX_OUTPUT_TOKENS`, `..._TEMPERATURE`,
-`..._TIMEOUT`), streaming on/off, and master switches to disable individual
-features and smart actions for the whole server.
+`..._TIMEOUT`), streaming on/off, reasoning models (`..._REASONING_EFFORT`,
+`..._REASONING_MODEL`, `..._API_MODE`), and master switches to disable
+individual features and smart actions for the whole server.
+
+Reasoning models (OpenAI GPT-5 and later such as `gpt-6-astra`, the o-series)
+are recognized by name: they get `max_completion_tokens` and no custom
+temperature, which they would refuse. For a name that does not tell — an Azure
+deployment, say — set `PLUGIN_AI_REASONING_MODEL` to `true` or `false`.
 
 End users can choose summary length, translation target language, compose tone,
 and which enabled features they use — but never see or set the API key.

@@ -1,3 +1,17 @@
+grommunio-web 5.2.x (development)
+=================================
+
+Fixes:
+
+* AI assistant: GPT-6 and current Claude models work again; the connection
+  test checks the fast model; streamed errors are translated
+
+Enhancements:
+
+* AI assistant: IONOS AI Model Hub, OpenAI Responses API and reasoning
+  effort settings; presets on current models
+
+
 grommunio-web 5.2 (2026-10-10)
 ==============================
 

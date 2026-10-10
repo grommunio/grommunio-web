@@ -420,7 +420,7 @@ Grommunio.plugins.ai.AIPlugin = Ext.extend(Grommunio.core.Plugin, {
 
 		Grommunio.plugins.ai.ui.AIAssistantWindow.showFeature({
 			title: title,
-			model: client.getModelName(),
+			model: feature === 'translate' ? client.getModelName('translate') : client.getModelName(),
 			runner: function(panel) {
 				panel.startLoading();
 				client.run(feature, record, requestOpts, panel);

@@ -94,7 +94,7 @@ abstract class AIProvider {
 	 * @throws AIException on transport or HTTP error
 	 */
 	public function chat(array $messages, array $opts = [], ?callable $onDelta = null): string {
-		$stream = $onDelta !== null;
+		$stream = $onDelta !== null && $this->canStream($opts);
 		$body = $this->buildBody($messages, $opts, $stream);
 		$this->finishReason = null;
 
@@ -112,8 +112,19 @@ abstract class AIProvider {
 		if ($stream) {
 			return $this->execStreaming($ch, $onDelta);
 		}
+		$text = self::stripThinking($this->execBuffered($ch));
+		if ($onDelta !== null && $text !== '') {
+			$onDelta($text);
+		}
 
-		return $this->execBuffered($ch);
+		return $text;
+	}
+
+	/**
+	 * Whether the request for these options can be streamed.
+	 */
+	protected function canStream(array $opts): bool {
+		return true;
 	}
 
 	/**
@@ -130,6 +141,12 @@ abstract class AIProvider {
 	 */
 	public function chatFull(array $messages, array $opts = [], ?callable $onDelta = null): array {
 		$text = $this->chat($messages, $opts, $onDelta);
+		if (trim($text) === '' && $this->finishReason === 'length') {
+			throw new AIException(_('The model spent its whole output budget on reasoning. Raise PLUGIN_AI_MAX_OUTPUT_TOKENS or lower PLUGIN_AI_REASONING_EFFORT in the plugin config.php.'));
+		}
+		if (trim($text) === '' && $this->finishReason === 'refusal') {
+			throw new AIException(_('The AI service declined to process this message.'));
+		}
 
 		for ($round = 0; $round < self::MAX_CONTINUATIONS && $this->finishReason === 'length' && $text !== ''; ++$round) {
 			$more = $this->chat(array_merge($messages, [
@@ -143,7 +160,35 @@ abstract class AIProvider {
 			$text .= $more;
 		}
 
-		return ['text' => $text, 'truncated' => $this->finishReason === 'length'];
+		return ['text' => $text, 'truncated' => in_array($this->finishReason, ['length', 'context_window'], true)];
+	}
+
+	/**
+	 * Drop the <think> block a thinking model puts in front of its answer.
+	 */
+	protected static function stripThinking(string $text): string {
+		if (!preg_match('/^\s*<think>/', $text)) {
+			return $text;
+		}
+		$end = strpos($text, '</think>');
+
+		return $end === false ? '' : ltrim(substr($text, $end + 8));
+	}
+
+	/**
+	 * The streamed answer without its <think> block, null while still inside it.
+	 */
+	private static function visibleSoFar(string $collected): ?string {
+		$text = ltrim($collected);
+		if ($text === '' || str_starts_with('<think>', $text)) {
+			return null;
+		}
+		if (!str_starts_with($text, '<think>')) {
+			return $collected;
+		}
+		$end = strpos($text, '</think>');
+
+		return $end === false ? null : ltrim(substr($text, $end + 8));
 	}
 
 	/**
@@ -180,12 +225,13 @@ abstract class AIProvider {
 	private function execStreaming($ch, callable $onDelta): string {
 		$buffer = '';
 		$collected = '';
+		$shown = 0;
 		// Capture a bounded copy of the body so a non-200 error can be reported.
 		$raw = '';
 		// A provider error delivered as an SSE event over an HTTP-200 stream.
 		$streamError = null;
 
-		curl_setopt($ch, CURLOPT_WRITEFUNCTION, function ($ch, string $chunk) use (&$buffer, &$collected, &$raw, &$streamError, $onDelta): int {
+		curl_setopt($ch, CURLOPT_WRITEFUNCTION, function ($ch, string $chunk) use (&$buffer, &$collected, &$shown, &$raw, &$streamError, $onDelta): int {
 			if (strlen($raw) < 8192) {
 				$raw .= $chunk;
 			}
@@ -219,7 +265,11 @@ abstract class AIProvider {
 				$delta = $this->parseStreamEvent($payload);
 				if ($delta !== null && $delta !== '') {
 					$collected .= $delta;
-					$onDelta($delta);
+					$visible = self::visibleSoFar($collected);
+					if ($visible !== null && strlen($visible) > $shown) {
+						$onDelta(substr($visible, $shown));
+						$shown = strlen($visible);
+					}
 				}
 			}
 
@@ -249,7 +299,7 @@ abstract class AIProvider {
 			}
 		}
 
-		return $collected;
+		return self::stripThinking($collected);
 	}
 
 	/**
@@ -266,8 +316,9 @@ abstract class AIProvider {
 	 * message. Never includes credentials.
 	 */
 	protected function httpError(int $code, ?array $json): string {
-		// OpenAI: {error:{message}}; Anthropic: {error:{message}} or {message}
-		$providerMsg = (string) ($json['error']['message'] ?? $json['message'] ?? '');
+		// OpenAI: {error:{message}}; Anthropic: {error:{message}} or {message};
+		// IONOS: {httpStatus, messages:[{errorCode, message}]}
+		$providerMsg = (string) ($json['error']['message'] ?? $json['message'] ?? $json['messages'][0]['message'] ?? '');
 		$providerMsg = mb_substr(trim($providerMsg), 0, 200);
 
 		$base = match (true) {

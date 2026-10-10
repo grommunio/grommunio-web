@@ -44,11 +44,13 @@ Grommunio.plugins.ai.AIClient = {
 
 	/**
 	 * The configured model's display name.
+	 * @param {String} feature (optional) 'translate' runs on the fast model
 	 * @return {String}
 	 */
-	getModelName: function()
+	getModelName: function(feature)
 	{
-		return this.getServerInfo().model || '';
+		var info = this.getServerInfo();
+		return (feature === 'translate' && info.fast_model) || info.model || '';
 	},
 
 	/**

@@ -129,7 +129,8 @@ Grommunio.plugins.ai.ui.AIAssistantWindow = Ext.extend(Ext.Window, {
 			this.replaceBtn.setText(options.replaceLabel || _('Replace draft'));
 		}
 
-		var title = options.title || _('AI Assistant');
+		// _() already returns encoded text
+		var title = Ext.util.Format.htmlDecode(options.title || _('AI Assistant'));
 		if (options.model) {
 			title += ' · ' + options.model;
 		}
