@@ -541,6 +541,6 @@
 			return BrowserCrypto.fromBinaryString(atob(value));
 		}
 	}
-	BrowserCrypto.VERSION = '6.3.1';
+	BrowserCrypto.VERSION = '6.3.2';
 	return BrowserCrypto;
 });

@@ -646,7 +646,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "openpgp",
-			"version": "6.3.1",
+			"version": "6.3.2",
 			"license": "LGPL-3.0-or-later",
 			"scope": "runtime",
 			"paths": [
@@ -655,7 +655,7 @@
 				"plugins/pgp/resources/vendor/openpgp.LICENSE"
 			],
 			"copyright": "Copyright (c) the OpenPGP.js contributors",
-			"purl": "pkg:npm/openpgp@6.3.1",
+			"purl": "pkg:npm/openpgp@6.3.2",
 			"website": "https://openpgpjs.org/"
 		},
 		{

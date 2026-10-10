@@ -2,10 +2,10 @@
 	"spdxVersion": "SPDX-2.3",
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
-	"name": "grommunio-web-5.1",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.1-68ae98ca4be43e01",
+	"name": "grommunio-web-5.1-83-g4787e15",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.1-83-g4787e15-f8309c7eaba44bde",
 	"creationInfo": {
-		"created": "2026-10-10T09:56:29Z",
+		"created": "2026-10-10T10:16:47Z",
 		"creators": [
 			"Tool: tools/build-bom.mjs",
 			"Organization: grommunio GmbH"
@@ -15,7 +15,7 @@
 		{
 			"SPDXID": "SPDXRef-Package-grommunio-web",
 			"name": "grommunio-web",
-			"versionInfo": "5.1",
+			"versionInfo": "5.1-83-g4787e15",
 			"downloadLocation": "https://github.com/grommunio/grommunio-web",
 			"filesAnalyzed": false,
 			"licenseConcluded": "AGPL-3.0-or-later",
@@ -4140,9 +4140,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-openpgp-6.3.1",
+			"SPDXID": "SPDXRef-npm-openpgp-6.3.2",
 			"name": "openpgp",
-			"versionInfo": "6.3.1",
+			"versionInfo": "6.3.2",
 			"downloadLocation": "https://openpgpjs.org/",
 			"filesAnalyzed": false,
 			"licenseConcluded": "LGPL-3.0-or-later",
@@ -4152,7 +4152,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/openpgp@6.3.1"
+					"referenceLocator": "pkg:npm/openpgp@6.3.2"
 				}
 			]
 		},
@@ -8083,7 +8083,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-openpgp-6.3.1",
+			"spdxElementId": "SPDXRef-npm-openpgp-6.3.2",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},

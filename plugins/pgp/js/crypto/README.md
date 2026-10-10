@@ -90,7 +90,7 @@ the lock file into `resources/vendor/pgp-vendor.js`, with local license files.
 There are no CDN imports. The build verifies the expected dependency versions.
 The globals are `openpgp`, `PostalMime` and `fflate.{zipSync,unzipSync}`.
 
-- [OpenPGP.js 6.3.1](https://github.com/openpgpjs/openpgpjs/releases/tag/v6.3.1)
+- [OpenPGP.js 6.3.2](https://github.com/openpgpjs/openpgpjs/releases/tag/v6.3.2)
   (LGPL-3.0-or-later), including the fix for
   [CVE-2025-47934](https://github.com/openpgpjs/openpgpjs/security/advisories/GHSA-8qff-qr5q-5pr8).
 - [postal-mime 2.7.5](https://github.com/postalsys/postal-mime/releases/tag/v2.7.5)

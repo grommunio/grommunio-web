@@ -4,10 +4,10 @@
 	"version": 1,
 	"metadata": {
 		"component": {
-			"bom-ref": "pkg:generic/grommunio-web@5.1",
+			"bom-ref": "pkg:generic/grommunio-web@5.1-83-g4787e15",
 			"type": "application",
 			"name": "grommunio-web",
-			"version": "5.1",
+			"version": "5.1-83-g4787e15",
 			"description": "Main grommunio web client",
 			"licenses": [
 				{
@@ -16,7 +16,7 @@
 					}
 				}
 			],
-			"purl": "pkg:generic/grommunio-web@5.1",
+			"purl": "pkg:generic/grommunio-web@5.1-83-g4787e15",
 			"externalReferences": [
 				{
 					"type": "vcs",
@@ -7263,10 +7263,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/openpgp@6.3.1",
+			"bom-ref": "pkg:npm/openpgp@6.3.2",
 			"type": "library",
 			"name": "openpgp",
-			"version": "6.3.1",
+			"version": "6.3.2",
 			"scope": "required",
 			"licenses": [
 				{
@@ -7276,7 +7276,7 @@
 				}
 			],
 			"copyright": "Copyright (c) the OpenPGP.js contributors",
-			"purl": "pkg:npm/openpgp@6.3.1",
+			"purl": "pkg:npm/openpgp@6.3.2",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -13358,7 +13358,7 @@
 	],
 	"dependencies": [
 		{
-			"ref": "pkg:generic/grommunio-web@5.1",
+			"ref": "pkg:generic/grommunio-web@5.1-83-g4787e15",
 			"dependsOn": [
 				"pkg:composer/paragonie/constant_time_encoding@3.1.3",
 				"pkg:composer/paragonie/random_compat@9.99.100",
@@ -13387,7 +13387,7 @@
 				"pkg:npm/glob@11.1.0",
 				"pkg:npm/html-minifier-terser@7.2.0",
 				"pkg:npm/mdn-data@2.0.30",
-				"pkg:npm/openpgp@6.3.1",
+				"pkg:npm/openpgp@6.3.2",
 				"pkg:npm/postal-mime@2.7.5",
 				"pkg:npm/postcss-cli@10.1.0",
 				"pkg:npm/postcss-preset-env@9.6.0",
