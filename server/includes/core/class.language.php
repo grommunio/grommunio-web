@@ -68,7 +68,7 @@ class XpgLocale {
 class Language {
 	// Key and size of the shared memory segment the parsed translations live in.
 	private const CACHE_KEY = 0x950412DE;
-	private const CACHE_SIZE = 16 * 1024 * 1024;
+	private const CACHE_SIZE = 32 * 1024 * 1024;
 
 	private $languages = ["en_US" => "English"];
 	private $lang;
