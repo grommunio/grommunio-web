@@ -51,66 +51,50 @@ Grommunio.mail.settings.SettingsBlockedSendersWidget = Ext.extend(Grommunio.sett
 						scope: this
 					}
 				},{
-					xtype: 'container',
-					width: 160,
-					layout: {
-						type: 'vbox',
-						align: 'center',
-						pack: 'start'
-					},
-					items: [{
-						xtype: 'button',
-						text: _('Add'),
-						handler: this.onAddEntry,
-						width: 130,
-						scope: this
-					}]
+					xtype: 'spacer',
+					width: 8
+				},{
+					xtype: 'button',
+					text: _('Add'),
+					handler: this.onAddEntry,
+					width: 130,
+					scope: this
 				}]
 			},{
 				xtype: 'spacer',
-				height: 10
+				height: 8
+			},{
+				xtype: 'grommunio.safesendergrid',
+				ref: 'blockedSendersGrid',
+				anchor: '100%',
+				height: 240,
+				emptyText: _('Blocked Senders list is empty')
 			},{
 				xtype: 'container',
 				anchor: '100%',
-				height: 300,
+				height: 40,
 				layout: {
 					type: 'hbox',
-					align: 'stretch',
-					pack: 'start'
+					align: 'middle',
+					pack: 'end'
+				},
+				defaults: {
+					xtype: 'button',
+					width: 130,
+					disabled: true,
+					scope: this
 				},
 				items: [{
-					xtype: 'grommunio.safesendergrid',
-					ref: '../blockedSendersGrid',
-					emptyText: _('Blocked Senders list is empty'),
-					flex: 1
+					text: _('Delete'),
+					handler: this.onDeleteEntry,
+					ref: '../deleteButton'
 				},{
-					xtype: 'container',
-					width: 160,
-					layout: {
-						type: 'vbox',
-						align: 'center',
-						pack: 'start'
-					},
-					items: [{
-						xtype: 'button',
-						handler: this.onDeleteEntry,
-						text: _('Delete'),
-						width: 130,
-						ref: '../../deleteButton',
-						disabled: true,
-						scope: this
-					},{
-						xtype: 'spacer',
-						height: 10
-					},{
-						xtype: 'button',
-						text: _('Delete all'),
-						handler: this.onDeleteAll,
-						width: 130,
-						ref: '../../deleteAllButton',
-						disabled: true,
-						scope: this
-					}]
+					xtype: 'spacer',
+					width: 8
+				},{
+					text: _('Delete all'),
+					handler: this.onDeleteAll,
+					ref: '../deleteAllButton'
 				}]
 			}]
 		});
