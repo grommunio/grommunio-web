@@ -26,22 +26,53 @@ Grommunio.mail.settings.SettingsSafeRecipientsWidget = Ext.extend(Grommunio.sett
 		Ext.applyIf(config, {
 			title: _('Safe Recipients'),
 			xtype: 'grommunio.settingssaferecipientswidget',
-			height: 400,
-			layout: {
-				type: 'vbox',
-				align: 'stretch',
-				pack: 'start'
-			},
+			layout: 'anchor',
 			items: [{
 				xtype: 'displayfield',
+				anchor: '100%',
 				value: _('Mailing lists or distribution lists that you have added to the Safe Recipients List are considered trustworthy.'),
-				fieldClass: 'x-form-display-field k-safesenders-extrainfo'
+				fieldClass: 'x-form-display-field grommunio-settings-widget-extrainfo'
+			},{
+				xtype: 'container',
+				anchor: '100%',
+				height: 32,
+				layout: {
+					type: 'hbox',
+					align: 'middle',
+					pack: 'start'
+				},
+				items: [{
+					xtype: 'textfield',
+					ref: '../addField',
+					emptyText: _('user@domain or @domain'),
+					flex: 1,
+					listeners: {
+						specialkey: this.onAddFieldKey,
+						scope: this
+					}
+				},{
+					xtype: 'container',
+					width: 160,
+					layout: {
+						type: 'vbox',
+						align: 'center',
+						pack: 'start'
+					},
+					items: [{
+						xtype: 'button',
+						text: _('Add'),
+						handler: this.onAddEntry,
+						width: 130,
+						scope: this
+					}]
+				}]
 			},{
 				xtype: 'spacer',
 				height: 10
 			},{
 				xtype: 'container',
-				flex: 1,
+				anchor: '100%',
+				height: 300,
 				layout: {
 					type: 'hbox',
 					align: 'stretch',
@@ -61,27 +92,6 @@ Grommunio.mail.settings.SettingsSafeRecipientsWidget = Ext.extend(Grommunio.sett
 						pack: 'start'
 					},
 					items: [{
-						xtype: 'textfield',
-						ref: '../../addField',
-						emptyText: _('user@domain or @domain'),
-						width: 130,
-						listeners: {
-							specialkey: this.onAddFieldKey,
-							scope: this
-						}
-					},{
-						xtype: 'spacer',
-						height: 10
-					},{
-						xtype: 'button',
-						text: _('Add'),
-						handler: this.onAddEntry,
-						width: 130,
-						scope: this
-					},{
-						xtype: 'spacer',
-						height: 20
-					},{
 						xtype: 'button',
 						handler: this.onDeleteEntry,
 						text: _('Delete'),
@@ -91,7 +101,7 @@ Grommunio.mail.settings.SettingsSafeRecipientsWidget = Ext.extend(Grommunio.sett
 						scope: this
 					},{
 						xtype: 'spacer',
-						height: 20
+						height: 10
 					},{
 						xtype: 'button',
 						text: _('Delete all'),

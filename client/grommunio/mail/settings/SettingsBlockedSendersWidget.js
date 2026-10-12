@@ -26,22 +26,53 @@ Grommunio.mail.settings.SettingsBlockedSendersWidget = Ext.extend(Grommunio.sett
 		Ext.applyIf(config, {
 			title: _('Blocked Senders'),
 			xtype: 'grommunio.settingsblockedsenderswidget',
-			height: 400,
-			layout: {
-				type: 'vbox',
-				align: 'stretch',
-				pack: 'start'
-			},
+			layout: 'anchor',
 			items: [{
 				xtype: 'displayfield',
+				anchor: '100%',
 				value: _('External content from blocked senders will always be blocked, even if the global block external content setting is disabled. Safe senders take priority over blocked senders.'),
-				fieldClass: 'x-form-display-field k-safesenders-extrainfo'
+				fieldClass: 'x-form-display-field grommunio-settings-widget-extrainfo'
+			},{
+				xtype: 'container',
+				anchor: '100%',
+				height: 32,
+				layout: {
+					type: 'hbox',
+					align: 'middle',
+					pack: 'start'
+				},
+				items: [{
+					xtype: 'textfield',
+					ref: '../addField',
+					emptyText: _('user@domain or @domain'),
+					flex: 1,
+					listeners: {
+						specialkey: this.onAddFieldKey,
+						scope: this
+					}
+				},{
+					xtype: 'container',
+					width: 160,
+					layout: {
+						type: 'vbox',
+						align: 'center',
+						pack: 'start'
+					},
+					items: [{
+						xtype: 'button',
+						text: _('Add'),
+						handler: this.onAddEntry,
+						width: 130,
+						scope: this
+					}]
+				}]
 			},{
 				xtype: 'spacer',
 				height: 10
 			},{
 				xtype: 'container',
-				flex: 1,
+				anchor: '100%',
+				height: 300,
 				layout: {
 					type: 'hbox',
 					align: 'stretch',
@@ -61,27 +92,6 @@ Grommunio.mail.settings.SettingsBlockedSendersWidget = Ext.extend(Grommunio.sett
 						pack: 'start'
 					},
 					items: [{
-						xtype: 'textfield',
-						ref: '../../addField',
-						emptyText: _('user@domain or @domain'),
-						width: 130,
-						listeners: {
-							specialkey: this.onAddFieldKey,
-							scope: this
-						}
-					},{
-						xtype: 'spacer',
-						height: 10
-					},{
-						xtype: 'button',
-						text: _('Add'),
-						handler: this.onAddEntry,
-						width: 130,
-						scope: this
-					},{
-						xtype: 'spacer',
-						height: 20
-					},{
 						xtype: 'button',
 						handler: this.onDeleteEntry,
 						text: _('Delete'),

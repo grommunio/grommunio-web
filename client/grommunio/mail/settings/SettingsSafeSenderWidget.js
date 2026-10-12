@@ -27,19 +27,16 @@ Grommunio.mail.settings.SettingsSafeSendersWidget = Ext.extend(Grommunio.setting
 			title: _('Safe Senders'),
 			cls: 'grommunio-settings-widget',
 			xtype: 'grommunio.settingssafesenderswidget',
-			height: 400,
-			layout: {
-				type: 'vbox',
-				align: 'stretch',
-				pack: 'start'
-			},
+			layout: 'anchor',
 			items: [{
 				xtype: 'displayfield',
+				anchor: '100%',
 				value: _('To protect your privacy email addresses or domains can only be added via the "Add to safe sender list" functionality in an opened email.'),
 				fieldClass: 'x-form-display-field grommunio-settings-widget-extrainfo'
 			},{
 				xtype: 'container',
-				flex: 1,
+				anchor: '100%',
+				height: 300,
 				layout: {
 					type: 'hbox',
 					align: 'stretch',
