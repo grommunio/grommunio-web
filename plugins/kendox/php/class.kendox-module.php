@@ -194,6 +194,8 @@ class KendoxModule extends Module {
 			$response["messageId"] = $mailEntryId;
 			$response["kendoxConnectionId"] = $this->kendoxClient->ConnectionId;
 			$response["kendoxFiles"] = $uploadFiles;
+			$response["from"] = $this->getSenderSmtpAddress();
+			$response["to"] = $this->getReceiverSmtpAddress();
 		}
 		catch (Exception $ex) {
 			if ($emlFile !== null && (is_file($emlFile) || is_link($emlFile)) && !@unlink($emlFile)) {
@@ -208,6 +210,114 @@ class KendoxModule extends Module {
 		}
 
 		return $response;
+	}
+
+	/**
+	 * SMTP address of the sender. The address properties of an EX sender carry
+	 * its X500 DN, which InfoShare would show as the sender.
+	 *
+	 * @return string SMTP address, or an empty string if none is known
+	 */
+	private function getSenderSmtpAddress() {
+		return $this->resolveSmtpAddress(
+			[PR_SENDER_ADDRTYPE, PR_SENDER_EMAIL_ADDRESS, PR_SENDER_SMTP_ADDRESS, PR_SENDER_ENTRYID, PR_SENDER_SEARCH_KEY],
+			[PR_SENT_REPRESENTING_ADDRTYPE, PR_SENT_REPRESENTING_EMAIL_ADDRESS, PR_SENT_REPRESENTING_SMTP_ADDRESS, PR_SENT_REPRESENTING_ENTRYID, PR_SENT_REPRESENTING_SEARCH_KEY],
+		) ?: $this->getHeaderSmtpAddress('From');
+	}
+
+	/**
+	 * SMTP address of the receiving mailbox, else of the first To recipient.
+	 *
+	 * @return string SMTP address, or an empty string if none is known
+	 */
+	private function getReceiverSmtpAddress() {
+		$address = $this->resolveSmtpAddress(
+			[PR_RECEIVED_BY_ADDRTYPE, PR_RECEIVED_BY_EMAIL_ADDRESS, PR_RECEIVED_BY_SMTP_ADDRESS, PR_RECEIVED_BY_ENTRYID, PR_RECEIVED_BY_SEARCH_KEY],
+		);
+		if ($address !== '') {
+			return $address;
+		}
+
+		$table = mapi_message_getrecipienttable($this->mapiMessage);
+		$rows = mapi_table_queryallrows($table, [PR_RECIPIENT_TYPE, PR_ADDRTYPE, PR_EMAIL_ADDRESS, PR_SMTP_ADDRESS, PR_ENTRYID, PR_SEARCH_KEY]);
+		foreach ($rows as $row) {
+			if (($row[PR_RECIPIENT_TYPE] ?? MAPI_TO) !== MAPI_TO) {
+				continue;
+			}
+			$address = $this->smtpAddressFromProps($row, [PR_ADDRTYPE, PR_EMAIL_ADDRESS, PR_SMTP_ADDRESS, PR_ENTRYID, PR_SEARCH_KEY]);
+			if ($address !== '') {
+				return $address;
+			}
+		}
+
+		return $this->getHeaderSmtpAddress('To');
+	}
+
+	/**
+	 * Resolves the first set of address properties of the message that
+	 * yields an SMTP address.
+	 *
+	 * @param array ...$tagSets [addrtype, email address, smtp address, entryid, search key] tags
+	 *
+	 * @return string SMTP address, or an empty string
+	 */
+	private function resolveSmtpAddress(array ...$tagSets) {
+		$props = mapi_getprops($this->mapiMessage, array_merge(...$tagSets));
+		foreach ($tagSets as $tags) {
+			$address = $this->smtpAddressFromProps($props, $tags);
+			if ($address !== '') {
+				return $address;
+			}
+		}
+
+		return '';
+	}
+
+	/**
+	 * @param array $props property values
+	 * @param array $tags  [addrtype, email address, smtp address, entryid, search key] tags
+	 *
+	 * @return string SMTP address, or an empty string
+	 */
+	private function smtpAddressFromProps($props, $tags) {
+		[$addrTypeTag, $emailTag, $smtpTag, $entryIdTag, $searchKeyTag] = $tags;
+		$operations = $GLOBALS['operations'];
+		$candidates = [$props[$smtpTag] ?? ''];
+		if (strcasecmp((string) ($props[$addrTypeTag] ?? ''), 'SMTP') === 0) {
+			$candidates[] = $props[$emailTag] ?? '';
+		}
+		foreach ($candidates as $candidate) {
+			if ($operations->isEmailAddressLike($candidate)) {
+				return $candidate;
+			}
+		}
+		if (!isset($props[$entryIdTag])) {
+			return '';
+		}
+		// the address book knows EX users; a DN from a foreign organisation stays unresolved
+		$address = $operations->getEmailAddress($props[$entryIdTag], $props[$searchKeyTag] ?? false);
+
+		return $operations->isEmailAddressLike($address) ? $address : '';
+	}
+
+	/**
+	 * First address in a header of the message, for mails whose address
+	 * properties hold nothing but a DN (e.g. migrated from Exchange).
+	 *
+	 * @param string $name header name
+	 *
+	 * @return string SMTP address, or an empty string
+	 */
+	private function getHeaderSmtpAddress($name) {
+		$headers = readMapiProp($this->mapiMessage, PR_TRANSPORT_MESSAGE_HEADERS, mapi_getprops($this->mapiMessage, [PR_TRANSPORT_MESSAGE_HEADERS]));
+		if (!is_string($headers) || !preg_match('/^' . preg_quote($name, '/') . ':((?:.*)(?:\r?\n[ \t].*)*)/mi', $headers, $match)) {
+			return '';
+		}
+		if (preg_match('/<([^<>\s]+@[^<>\s]+)>/', $match[1], $address) || preg_match('/([^\s<>",;:]+@[^\s<>",;]+)/', $match[1], $address)) {
+			return $address[1];
+		}
+
+		return '';
 	}
 
 	private function loadMapiMessage($storeId, $mailEntryId) {
