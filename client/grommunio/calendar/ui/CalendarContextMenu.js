@@ -372,7 +372,7 @@ Grommunio.calendar.ui.CalendarContextMenu = Ext.extend(Grommunio.core.ui.menu.Co
 		this.beforeShowNonPhantom(item, records);
 
 		var read = item.name !== 'mark_read';
-		item.setDisabled(!records.some(function(record) {
+		item.setDisabled(!records?.some(function(record) {
 			return record.isRead() === read;
 		}));
 	},
