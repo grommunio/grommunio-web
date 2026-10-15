@@ -166,8 +166,7 @@ class MeetingRequestForwarder {
 			'allattendees' => "PT_UNICODE:PSETID_Appointment:" . PidLidAllAttendeesString,
 			'toattendees' => "PT_UNICODE:PSETID_Appointment:" . PidLidToAttendeesString,
 			'ccattendees' => "PT_UNICODE:PSETID_Appointment:" . PidLidCcAttendeesString,
-			'forward_recipients' => "PT_MV_STRING8:PS_PUBLIC_STRINGS:GrommunioForwardRecipients",
-			'forward_recipient_names' => "PT_MV_STRING8:PS_PUBLIC_STRINGS:GrommunioForwardRecipientNames",
+			'forward_notification_recipients' => "PT_BINARY:PSETID_Appointment:0x8261",
 		]);
 	}
 
@@ -470,8 +469,7 @@ class MeetingRequestForwarder {
 		// The organizer's side adds these recipients as attendees.
 		$notifProps = [
 			$namedProps['attendee_critical_change'] => time(),
-			$namedProps['forward_recipients'] => array_map(fn ($recip) => ($recip[PR_SMTP_ADDRESS] ?? '') ?: ($recip[PR_EMAIL_ADDRESS] ?? ''), $recipientRows),
-			$namedProps['forward_recipient_names'] => array_map(fn ($recip) => $recip[PR_DISPLAY_NAME] ?? '', $recipientRows),
+			$namedProps['forward_notification_recipients'] => $this->packForwardRecipients($recipientRows),
 		];
 		if (isset($props['goid'], $messageProps[$props['goid']])) {
 			$notifProps[$namedProps['goid']] = $messageProps[$props['goid']];
@@ -492,6 +490,32 @@ class MeetingRequestForwarder {
 		}
 
 		return $notifProps;
+	}
+
+	/**
+	 * PidLidForwardNotificationRecipients, a RecipientRow list as in
+	 * MS-OXOCAL v22.1 §2.2.1.25 with the SMTP address and name of each row.
+	 *
+	 * @param array $recipientRows MAPI recipient rows of forward targets
+	 *
+	 * @return string
+	 */
+	private function packForwardRecipients($recipientRows) {
+		$utf16 = fn ($s) => (string) iconv('UTF-8', 'UTF-16LE', (string) $s) . "\0\0";
+		$blob = '';
+		$count = 0;
+		foreach ($recipientRows as $recip) {
+			$smtp = ($recip[PR_SMTP_ADDRESS] ?? '') ?: ($recip[PR_EMAIL_ADDRESS] ?? '');
+			if ($smtp === '') {
+				continue;
+			}
+			$name = ($recip[PR_DISPLAY_NAME] ?? '') ?: $smtp;
+			// SMTP type with E, D and U flags, no properties
+			$blob .= pack('v', 0x021B) . $utf16($smtp) . $utf16($name) . pack('vC', 0, 0);
+			++$count;
+		}
+
+		return pack('VV', 1, $count) . $blob;
 	}
 
 	/**

@@ -29,6 +29,13 @@ foreach ($constants as $index => $constant) {
 	defined($constant) || define($constant, 1000 + $index);
 }
 
+// php -n has no iconv, the test addresses are ASCII
+if (!function_exists('iconv')) {
+	function iconv($from, $to, $s) {
+		return implode('', array_map(fn ($c) => $c . "\0", str_split($s)));
+	}
+}
+
 $GLOBALS['fwdCalls'] = [];
 $GLOBALS['fwdLocalOrganiser'] = false;
 $GLOBALS['fwdOutboxFails'] = false;
@@ -244,7 +251,11 @@ assertForwarder($setprops[1][1] === 'msg2', 'Notification went to the wrong mess
 assertForwarder($notif[PR_BODY] === $expectedBody, 'Notification body is wrong');
 assertForwarder($notif[PR_SUBJECT] === 'Your meeting has been forwarded: Planning', 'Notification subject is wrong');
 assertForwarder($notif['named-goid'] === 'goid-value' && $notif['named-location'] === 'Room 1' && $notif[PR_START_DATE] === 1700000000, 'Notification appointment properties are wrong');
-assertForwarder($notif['named-forward_recipients'] === ['ann@example.test', 'bob@example.test'] && $notif['named-forward_recipient_names'] === ['Ann', ''], 'Notification forward recipients are wrong');
+$utf16 = fn ($s) => implode('', array_map(fn ($c) => $c . "\0", str_split($s))) . "\0\0";
+$expectedRecipients = pack('VV', 1, 2) .
+	pack('v', 0x021B) . $utf16('ann@example.test') . $utf16('Ann') . pack('vC', 0, 0) .
+	pack('v', 0x021B) . $utf16('bob@example.test') . $utf16('bob@example.test') . pack('vC', 0, 0);
+assertForwarder($notif['named-forward_notification_recipients'] === $expectedRecipients, 'Notification forward recipients are wrong');
 assertForwarder($recipients[1][2][0][PR_ENTRYID] === 'oneoff:Org:SMTP:org@example.test', 'Organizer recipient is wrong');
 assertForwarder(array_column(callsOf('submit'), 1) === ['msg1', 'msg2'], 'Submit order is wrong');
 
