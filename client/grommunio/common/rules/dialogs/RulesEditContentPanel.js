@@ -37,7 +37,7 @@ Grommunio.common.rules.dialogs.RulesEditContentPanel = Ext.extend(Grommunio.core
 			}),
 			autoSave: false,
 			width: 760,
-			height: 457,
+			height: 480,
 			title: _('Inbox Rule'),
 			items: [{
 				xtype: 'grommunio.ruleseditpanel',

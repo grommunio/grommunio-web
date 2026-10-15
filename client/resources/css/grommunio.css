@@ -6214,6 +6214,9 @@ body.grommunio-webclient > .ext-el-mask {
     .k-ruleseditpanel .x-panel-bwrap,
     .k-ruleseditpanel .x-form-label-left {
       overflow: visible !important; }
+    /* ...but the form itself scrolls, or extra rows cover the buttons */
+    .k-ruleseditpanel > .x-panel > .x-panel-bwrap > .x-panel-body {
+      overflow-y: auto !important; }
     #grommunio-mainpanel-contentpanel-settings .grommunio-settings-category-widget-panel .grommunio-settings-keyboard-shortcut-row {
       background-color: var(--ui-surface-2);
       padding: 8px 12px;
