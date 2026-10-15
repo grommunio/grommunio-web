@@ -524,14 +524,9 @@ Grommunio.plugins.kendox.UploadDialog = Ext.extend(Grommunio.core.ui.ContentPane
 		subject = subject.replace("#", "-");
 		dialogUrl = dialogUrl.replace("{connId}", response.kendoxConnectionId);
 		dialogUrl = dialogUrl.replace("{subject}", subject);
-		dialogUrl = dialogUrl.replace(
-			"{to}",
-			this.getReceiverEMailAddress(uploadRecord.data),
-		);
-		dialogUrl = dialogUrl.replace(
-			"{from}",
-			uploadRecord.data.sender_email_address,
-		);
+		// the server resolves both to SMTP; the record may hold X500 DNs
+		dialogUrl = dialogUrl.replace("{to}", response.to || "");
+		dialogUrl = dialogUrl.replace("{from}", response.from || "");
 		dialogUrl = dialogUrl.replace("{messageId}", response.messageId);
 		dialogUrl = dialogUrl.replace(
 			"{date}",
@@ -556,26 +551,6 @@ Grommunio.plugins.kendox.UploadDialog = Ext.extend(Grommunio.core.ui.ContentPane
 		dialogUrl = dialogUrl.replace("{files}", files);
 		dialogUrl = encodeURI(dialogUrl);
 		window.open(dialogUrl, "_blank");
-	},
-
-	/**
-	 * Gets the receiver e-mail address from e-mail record object
-	 */
-	getReceiverEMailAddress: function (message) {
-		if (
-			message.received_by_email_address !== "" &&
-			message.received_by_email_address !== undefined
-		)
-			return message.received_by_email_address;
-		let headers = message.transport_message_headers;
-		var entries = headers.split(/\r\n/);
-		var toEntry = entries.find((x) => x.substring(0, 3) === "To:");
-		if (toEntry === undefined) {
-			return "";
-		}
-		let values = toEntry.split(":");
-		if (values.length !== 2) return "";
-		return values[1].trim();
 	},
 
 	/**
