@@ -3389,10 +3389,11 @@ class Operations {
 				$props = $this->remapNamedProperties($propertyStore, $store, $props);
 			}
 
-			if ($copyFromMessage) {
-				// Get properties of original message, to copy recipients and attachments in new message
+			// Only a draft carries the message's own state; a reply or forward source
+			// would leak its Reply-To, receipt requests and transport properties.
+			if ($copyFromMessage && $copyIsDraft) {
 				$copyMessageProps = mapi_getprops($copyFromMessage);
-				if ($oldParentEntryId === false && $copyIsDraft) {
+				if ($oldParentEntryId === false) {
 					$oldParentEntryId = $copyMessageProps[PR_PARENT_ENTRYID] ?? false;
 				}
 				if ($this->storesDiffer($copySourceStore, $store)) {

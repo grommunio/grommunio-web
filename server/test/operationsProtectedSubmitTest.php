@@ -22,7 +22,8 @@ foreach ([
 	'PR_CLIENT_SUBMIT_TIME', 'PR_SEARCH_KEY', 'PR_STORE_ENTRYID', 'PR_HTML', 'PR_BODY',
 	'PR_SUBJECT_PREFIX', 'PR_DISPLAY_NAME', 'PR_EMAIL_ADDRESS', 'PR_SMTP_ADDRESS',
 	'PR_MDB_PROVIDER', 'PR_MAILBOX_OWNER_ENTRYID', 'PR_EMS_AB_PROXY_ADDRESSES',
-	'PR_NATIVE_BODY_INFO', 'PR_RTF_COMPRESSED', 'PR_IN_REPLY_TO_ID',
+	'PR_NATIVE_BODY_INFO', 'PR_RTF_COMPRESSED', 'PR_IN_REPLY_TO_ID', 'PR_REPLY_RECIPIENT_ENTRIES',
+	'PR_READ_RECEIPT_REQUESTED',
 ] as $index => $constant) {
 	define($constant, $index + 100);
 }
@@ -328,6 +329,23 @@ foreach (['store', 'delegate-store', 'own-store-delegate', 'own-keyed-delegate']
 			}
 		}
 	}
+}
+
+// A forward out of the delegator's mailbox must not inherit the source's own properties.
+$GLOBALS['submitMode'] = 'success';
+$GLOBALS['submitEvents'] = [];
+$GLOBALS['ownDraft'] = false;
+$GLOBALS['propertiesStore'] = 'delegate-store';
+$GLOBALS['submitMessages'] = [];
+$source = (object) ['props' => [
+	PR_ENTRYID => 'source-id', PR_PARENT_ENTRYID => 'inbox-id', PR_MESSAGE_CLASS => 'IPM.Note',
+	PR_REPLY_RECIPIENT_ENTRIES => 'external-reply-to', PR_READ_RECEIPT_REQUESTED => true,
+]];
+$messageProps = [];
+(new ProtectedSubmitOperations())->submitMessage('delegate-store', false, [PR_MESSAGE_CLASS => 'IPM.Note'], $messageProps, [], [], $source, true);
+$outgoing = $GLOBALS['submitMessages']['outgoing-id']->props;
+if (isset($outgoing[PR_REPLY_RECIPIENT_ENTRIES]) || isset($outgoing[PR_READ_RECEIPT_REQUESTED])) {
+	throw new RuntimeException('A forward from a delegator mailbox inherited the source message properties.');
 }
 
 echo "Protected submit preserves drafts and copies only final encrypted content\n";
