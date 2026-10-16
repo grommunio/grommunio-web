@@ -4190,6 +4190,103 @@ class Operations {
 	}
 
 	/**
+	 * Create linked sticky notes from messages.
+	 *
+	 * Only the source message's plain-text body is used as note content. Link
+	 * properties identify the source mail without changing it, matching notes
+	 * created through the mail context menu.
+	 *
+	 * @param resource     $store       source MAPI message store
+	 * @param resource     $destStore   destination MAPI message store
+	 * @param string       $destentryid destination Notes folder entry ID
+	 * @param array|string $entryids    source message entry IDs
+	 *
+	 * @return bool true if every note was created, false otherwise
+	 */
+	public function copyMessagesToNotes($store, $destStore, $destentryid, $entryids) {
+		$destfolder = mapi_msgstore_openentry($destStore, $destentryid);
+		if (!$destfolder) {
+			error_log("Could not open destination Notes folder. Aborting.");
+
+			return false;
+		}
+		$destFolderProps = mapi_getprops($destfolder, [PR_CONTAINER_CLASS]);
+		$containerClass = $destFolderProps[PR_CONTAINER_CLASS] ?? '';
+		if (!class_match_prefix($containerClass, 'IPF.StickyNote')) {
+			error_log("Mail-to-note copy destination is not a Notes folder. Aborting.");
+
+			return false;
+		}
+
+		if (!is_array($entryids)) {
+			$entryids = [$entryids];
+		}
+
+		$linkProperties = getPropIdsFromStrings($destStore, [
+			'note_link_id' => 'PT_STRING8:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkId',
+			'note_link_entryid' => 'PT_BINARY:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkEntryId',
+			'note_link_parent_entryid' => 'PT_BINARY:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkParentEntryId',
+			'note_link_store_entryid' => 'PT_BINARY:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkStoreEntryId',
+			'note_link_subject' => 'PT_STRING8:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkSubject',
+			'color' => 'PT_LONG:PSETID_Note:0x8B00',
+		]);
+
+		foreach ($entryids as $entryid) {
+			$message = mapi_msgstore_openentry($store, $entryid);
+			if (!$message) {
+				return false;
+			}
+
+			$sourceProps = mapi_getprops($message, [
+				PR_ENTRYID,
+				PR_PARENT_ENTRYID,
+				PR_STORE_ENTRYID,
+				PR_INTERNET_MESSAGE_ID,
+				PR_SUBJECT,
+			]);
+			$body = $this->getMessageBody($message, true)['body'];
+			$bodyLines = preg_split('/\R/u', $body, 2);
+			$subject = is_array($bodyLines) ? ($bodyLines[0] ?? '') : $body;
+			if (mb_strlen($subject, 'UTF-8') > 28) {
+				$subject = mb_substr($subject, 0, 25, 'UTF-8') . '...';
+			}
+
+			$note = mapi_folder_createmessage($destfolder);
+			if (!$note) {
+				return false;
+			}
+
+			$noteProps = [
+				PR_MESSAGE_CLASS => 'IPM.StickyNote',
+				PR_SUBJECT => $subject,
+				PR_ICON_INDEX => 0x00000303,
+				$linkProperties['color'] => 3,
+			];
+			if (isset($sourceProps[PR_INTERNET_MESSAGE_ID])) {
+				$noteProps[$linkProperties['note_link_id']] = $sourceProps[PR_INTERNET_MESSAGE_ID];
+			}
+			if (isset($sourceProps[PR_ENTRYID])) {
+				$noteProps[$linkProperties['note_link_entryid']] = $sourceProps[PR_ENTRYID];
+			}
+			if (isset($sourceProps[PR_PARENT_ENTRYID])) {
+				$noteProps[$linkProperties['note_link_parent_entryid']] = $sourceProps[PR_PARENT_ENTRYID];
+			}
+			if (isset($sourceProps[PR_STORE_ENTRYID])) {
+				$noteProps[$linkProperties['note_link_store_entryid']] = $sourceProps[PR_STORE_ENTRYID];
+			}
+			if (isset($sourceProps[PR_SUBJECT])) {
+				$noteProps[$linkProperties['note_link_subject']] = $sourceProps[PR_SUBJECT];
+			}
+
+			mapi_setprops($note, $noteProps);
+			writeMapiPropStream($note, PR_BODY, $body);
+			mapi_savechanges($note);
+		}
+
+		return true;
+	}
+
+	/**
 	 * Set message read flag.
 	 *
 	 * @param resource    $store      MAPI message store
