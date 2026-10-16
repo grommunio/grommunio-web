@@ -26,6 +26,8 @@ Grommunio.note.NoteRecordFields = [
 	// kept together: a mail record is identified by all of its id properties
 	{name: 'note_link_entryid'},
 	{name: 'note_link_parent_entryid'},
+	// Needed when a mail is copied to a Notes folder in another store.
+	{name: 'note_link_store_entryid'},
 	{name: 'note_link_subject', type: 'string', defaultValue: ''}
 ];
 
