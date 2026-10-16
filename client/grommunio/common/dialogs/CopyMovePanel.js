@@ -436,7 +436,11 @@ Grommunio.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 		this.createFolderButton.enable();
 
 		if (!this.isContainerClassCompatible(node.getFolder())) {
-			this.copyButton.disable();
+			if (this.isMailToNotesCopy(node.getFolder())) {
+				this.copyButton.enable();
+			} else {
+				this.copyButton.disable();
+			}
 			this.moveButton.disable();
 			return;
 		}
@@ -480,6 +484,33 @@ Grommunio.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			}
 
 			if (!Grommunio.core.MessageClass.isContainerClassCompatible(messageClass, containerClass)) {
+				return false;
+			}
+		}
+
+		return true;
+	},
+
+	/**
+	 * Check whether copying the selected emails should create linked sticky notes.
+	 * This is deliberately copy-only: moving mail to a Notes folder remains invalid.
+	 *
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The target folder
+	 * @return {Boolean} True when all selected records are emails and the target is a Notes folder
+	 * @private
+	 */
+	isMailToNotesCopy: function(folder)
+	{
+		if (this.objectType !== Grommunio.core.mapi.ObjectType.MAPI_MESSAGE ||
+			!folder.isContainerClass('IPF.StickyNote', true) || Ext.isEmpty(this.record)) {
+			return false;
+		}
+
+		for (var i = 0, len = this.record.length; i < len; i++) {
+			var record = this.record[i];
+			var messageClass = record && record.get('message_class');
+			if (Ext.isEmpty(messageClass) ||
+				!Grommunio.core.MessageClass.isContainerClassCompatible(messageClass, 'IPF.Note')) {
 				return false;
 			}
 		}
@@ -541,7 +572,7 @@ Grommunio.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			return;
 		}
 
-		if (!this.isContainerClassCompatible(folder)) {
+		if (!this.isContainerClassCompatible(folder) && !(isMoveAction === false && this.isMailToNotesCopy(folder))) {
 			var msg = isMoveAction
 				? _("The selected items cannot be moved into this folder because it holds a different type of content.")
 				: _("The selected items cannot be copied into this folder because it holds a different type of content.");
@@ -597,7 +628,8 @@ Grommunio.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 			return;
 		}
 
-		if (!this.isContainerClassCompatible(folder)) {
+		var copyToNotes = this.isMailToNotesCopy(folder);
+		if (!this.isContainerClassCompatible(folder) && !copyToNotes) {
 			container.getNotifier().notify('error', _("Incompatible folder"),
 				_("The selected items cannot be copied into this folder because it holds a different type of content."));
 			return;
@@ -617,7 +649,9 @@ Grommunio.common.dialogs.CopyMovePanel = Ext.extend(Ext.Panel, {
 				}	
 			}
 
-			if (Ext.isFunction(record.copyTo)) {
+			if (copyToNotes && Ext.isFunction(record.copyToNote)) {
+				record.copyToNote(folder);
+			} else if (Ext.isFunction(record.copyTo)) {
 				record.copyTo(folder);
 			}
 		}, this);
