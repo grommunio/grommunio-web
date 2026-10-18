@@ -74,6 +74,42 @@ namespace OCSAPI {
 	}
 }
 
+// OutboundGuard executes the requests: hand them to the stubs of the namespace that prepared the handle
+
+namespace Files\Core\Util {
+	function gethostbynamel($host) {
+		return $host === 'cloud.example.test' ? ['192.0.2.10'] : \gethostbynamel($host);
+	}
+
+	function dns_get_record($host, $type) {
+		return [];
+	}
+
+	function stubNamespace($curl) {
+		return property_exists($curl, 'url') ? 'Files\Backend\Webdav\sabredav\\' : 'OCSAPI\\';
+	}
+
+	function curl_setopt($curl, $option, $value) {
+		return (stubNamespace($curl) . 'curl_setopt')($curl, $option, $value);
+	}
+
+	function curl_setopt_array($curl, $options) {
+		foreach ($options as $option => $value) {
+			curl_setopt($curl, $option, $value);
+		}
+
+		return true;
+	}
+
+	function curl_exec($curl) {
+		return (stubNamespace($curl) . 'curl_exec')($curl);
+	}
+
+	function curl_getinfo($curl, $option) {
+		return $option === CURLINFO_REDIRECT_URL ? null : (stubNamespace($curl) . 'curl_getinfo')($curl, $option);
+	}
+}
+
 namespace {
 	if (!extension_loaded('curl') || !class_exists(SimpleXMLElement::class)) {
 		return;

@@ -7,6 +7,9 @@
 
 namespace Files\Backend\Webdav\sabredav;
 
+require_once __DIR__ . "/../../../Core/Util/class.outboundguard.php";
+
+use Files\Core\Util\OutboundGuard;
 use Sabre\DAV\Client;
 use Sabre\DAV\Exception;
 use Sabre\DAV\Exception\BadRequest;
@@ -20,6 +23,7 @@ use Sabre\DAV\Exception\NotImplemented;
 use Sabre\DAV\Exception\PaymentRequired;
 use Sabre\DAV\Exception\PreconditionFailed;
 use Sabre\DAV\Exception\RequestedRangeNotSatisfiable;
+use Sabre\HTTP\RequestInterface;
 
 include __DIR__ . "/vendor/autoload.php";
 
@@ -105,11 +109,12 @@ class FilesWebDavClient extends Client {
 				curl_setopt($curl, CURLOPT_USERPWD, $this->userName . ":" . $this->password);
 			}
 			curl_setopt($curl, CURLOPT_FILE, $file_handle);
-			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-			curl_setopt($curl, CURLOPT_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
-			curl_setopt($curl, CURLOPT_REDIR_PROTOCOLS, CURLPROTO_HTTP | CURLPROTO_HTTPS);
 
-			if (curl_exec($curl) === false) {
+			$truncate = function () use ($file_handle) {
+				ftruncate($file_handle, 0);
+				rewind($file_handle);
+			};
+			if (OutboundGuard::exec($curl, $url, 5, $truncate) === false) {
 				throw new Exception('[CURL] ' . curl_error($curl));
 			}
 
@@ -167,6 +172,17 @@ class FilesWebDavClient extends Client {
 		}
 
 		return $response;
+	}
+
+	/**
+	 * Sabre follows redirects itself, so every hop passes through here.
+	 */
+	#[\Override]
+	protected function createCurlSettingsArray(RequestInterface $request): array {
+		$settings = parent::createCurlSettingsArray($request);
+		[$settings[CURLOPT_URL], $settings[CURLOPT_RESOLVE]] = OutboundGuard::check($settings[CURLOPT_URL]);
+
+		return $settings;
 	}
 
 	public function uploadChunkedFile($destination, $resource) {
