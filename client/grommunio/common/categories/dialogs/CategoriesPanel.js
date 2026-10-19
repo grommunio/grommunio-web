@@ -202,11 +202,19 @@ Grommunio.common.categories.dialogs.CategoriesPanel = Ext.extend(Ext.Panel, {
 			cls += ' k-category-additional';
 		}
 
-		if(this.hideActionButtons) {
-			return Ext.util.Format.htmlEncode(value);
+		var name = Ext.util.Format.htmlEncode(value);
+		// Names set on the item or typed into a search are listed so they can
+		// be unchecked, but they are not in the category list: say so.
+		if ( record.get('stored') === false ) {
+			name += ' <span class="k-category-unlisted">' +
+				Ext.util.Format.htmlEncode(_('(not in category list)')) + '</span>';
 		}
 
-		return Ext.util.Format.htmlEncode(value) +
+		if(this.hideActionButtons) {
+			return name;
+		}
+
+		return name +
 			'<div class="grommunio-grid-button-container' + cls + '">' +
 				'<div class="grommunio-grid-button k-grid-button-edit" role="button" tabindex="0" aria-label="' + _('Rename category') + '"></div>' +
 				'<div class="grommunio-grid-button k-grid-button-delete" role="button" tabindex="0" aria-label="' + _('Delete category') + '"></div>' +

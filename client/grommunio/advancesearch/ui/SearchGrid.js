@@ -211,7 +211,7 @@ Grommunio.advancesearch.ui.SearchGrid = Ext.extend(Grommunio.common.ui.grid.Mapi
 			var folderLocation= String.format('<div class="k-folder-location-container">' +
 				'<div class="k-folder-location" ext:qtip="{0}" ext:qwidth="100%">' +
 					'<span class="k-folder-name">{1}</span>' +
-				'</div></div>', folderName, Ext.util.Format.ellipsis(folderName, 17));
+				'</div></div>', Ext.util.Format.htmlEncode(folderName), Ext.util.Format.htmlEncode(Ext.util.Format.ellipsis(folderName, 17)));
 
 			cssClass += ' with-categories';
 			var categories = Grommunio.common.categories.Util.getCategories(record);
