@@ -9096,6 +9096,13 @@ msgstr "anoniem"
 msgid "unknown"
 msgstr "onbekend"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s (verwijderd)"
+
+msgid "Deleted user"
+msgstr "Verwijderde gebruiker"
+
 msgid "Could not move folder"
 msgstr "Kon de map niet verplaatsen"
 

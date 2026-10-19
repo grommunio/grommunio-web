@@ -9089,6 +9089,13 @@ msgstr "אֲנוֹנִימִי"
 msgid "unknown"
 msgstr "לֹא יְדוּעַ"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s (נמחק)"
+
+msgid "Deleted user"
+msgstr "משתמש שנמחק"
+
 msgid "Could not move folder"
 msgstr "לא ניתן היה להעביר את התיקיה"
 

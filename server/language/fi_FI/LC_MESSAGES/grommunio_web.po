@@ -9091,6 +9091,13 @@ msgstr "anonyymi"
 msgid "unknown"
 msgstr "tuntematon"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s (poistettu)"
+
+msgid "Deleted user"
+msgstr "Poistettu käyttäjä"
+
 msgid "Could not move folder"
 msgstr "Kansiota ei voitu siirtää"
 

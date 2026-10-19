@@ -9241,6 +9241,13 @@ msgstr "مجهول"
 msgid "unknown"
 msgstr "مجهول"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s (محذوف)"
+
+msgid "Deleted user"
+msgstr "مستخدم محذوف"
+
 msgid "Could not move folder"
 msgstr "لا يمكن نقل المجلد"
 

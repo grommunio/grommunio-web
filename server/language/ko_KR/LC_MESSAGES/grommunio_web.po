@@ -9052,6 +9052,13 @@ msgstr "익명"
 msgid "unknown"
 msgstr "알 수 없음"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s(삭제됨)"
+
+msgid "Deleted user"
+msgstr "삭제된 사용자"
+
 msgid "Could not move folder"
 msgstr "폴더를 이동할 수 없습니다."
 

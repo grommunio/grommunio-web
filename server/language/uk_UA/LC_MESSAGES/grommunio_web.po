@@ -9129,6 +9129,13 @@ msgstr "анонімний"
 msgid "unknown"
 msgstr "невідомо"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s (видалено)"
+
+msgid "Deleted user"
+msgstr "Видалений користувач"
+
 msgid "Could not move folder"
 msgstr "Не вдалося перемістити папку"
 

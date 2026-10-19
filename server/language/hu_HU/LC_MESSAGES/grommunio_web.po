@@ -9112,6 +9112,13 @@ msgstr "anonymous"
 msgid "unknown"
 msgstr "ismeretlen"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s (törölve)"
+
+msgid "Deleted user"
+msgstr "Törölt felhasználó"
+
 msgid "Could not move folder"
 msgstr "Nem tudta áthelyezni a mappát"
 
