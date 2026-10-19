@@ -3245,6 +3245,9 @@ msgstr "附件"
 msgid "Download Pictures"
 msgstr "下載圖片"
 
+msgid "Allow Tracking Elements"
+msgstr "允許追蹤元素"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "新增寄件者到安全寄件者列表"
 
@@ -3279,6 +3282,10 @@ msgstr "此類元素會告知寄件者或第三方您何時開啟訊息。"
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "圖片已顯示，只有會告知寄件者或第三方您何時開啟此訊息的元素仍被封鎖。"
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "點擊此處允許這些元素。"
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."

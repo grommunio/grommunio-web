@@ -3296,6 +3296,9 @@ msgstr "Вкладення"
 msgid "Download Pictures"
 msgstr "Завантажити зображення"
 
+msgid "Allow Tracking Elements"
+msgstr "Дозволити елементи відстеження"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "Додати відправника до списку безпечних відправників"
 
@@ -3330,6 +3333,10 @@ msgstr "Такі елементи повідомляють відправник�
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "Зображення показано, заблокованими залишаються лише елементи, які повідомили б відправнику або третій стороні, коли ви відкриваєте це повідомлення."
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "Натисніть тут, щоб дозволити їх."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."

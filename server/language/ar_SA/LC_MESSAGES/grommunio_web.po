@@ -3370,6 +3370,9 @@ msgstr "المرفقات"
 msgid "Download Pictures"
 msgstr "تحميل الصور"
 
+msgid "Allow Tracking Elements"
+msgstr "السماح بعناصر التتبع"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "أضف المرسل إلى قائمة المرسلين الآمنين"
 
@@ -3404,6 +3407,10 @@ msgstr "تُعلم هذه العناصر المرسل أو طرفًا ثالثً
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "يتم عرض الصور، ولا تبقى محظورة إلا العناصر التي قد تُعلم المرسل أو طرفًا ثالثًا بوقت فتحك لهذه الرسالة."
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "انقر هنا للسماح بها."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."

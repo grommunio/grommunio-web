@@ -3276,6 +3276,9 @@ msgstr "Bijlagen"
 msgid "Download Pictures"
 msgstr "Afbeeldingen Downloaden"
 
+msgid "Allow Tracking Elements"
+msgstr "Trackingelementen toestaan"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "Afzender aan Vertrouwde Afzenderlijst toevoegen"
 
@@ -3310,6 +3313,10 @@ msgstr "Zulke elementen laten de afzender of een derde weten wanneer u een beric
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "Afbeeldingen worden weergegeven, alleen elementen die de afzender of een derde zouden laten weten wanneer u dit bericht opent, blijven geblokkeerd."
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "Klik hier om ze toe te staan."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."

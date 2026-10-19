@@ -3271,6 +3271,9 @@ msgstr "Lisad"
 msgid "Download Pictures"
 msgstr "Piltide allalaadimine"
 
+msgid "Allow Tracking Elements"
+msgstr "Luba jälgimiselemendid"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "Lisa saatja turvaliste saatjate nimekirja"
 
@@ -3305,6 +3308,10 @@ msgstr "Sellised elemendid annavad saatjale või kolmandale osapoolele teada, mi
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "Pildid on kuvatud, blokeerituks jäävad ainult elemendid, mis annaksid saatjale või kolmandale osapoolele teada, millal te selle sõnumi avate."
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "Nende lubamiseks klõpsake siin."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."

@@ -3245,6 +3245,9 @@ msgstr "첨부 파일"
 msgid "Download Pictures"
 msgstr "사진 다운로드"
 
+msgid "Allow Tracking Elements"
+msgstr "추적 요소 허용"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "발신자를 허용 발신자 목록에 추가"
 
@@ -3279,6 +3282,10 @@ msgstr "이러한 요소는 메시지를 연 시점을 보낸 사람이나 제3�
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "사진이 표시됩니다. 이 메시지를 연 시점을 보낸 사람이나 제3자에게 알리는 요소만 계속 차단됩니다."
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "허용하려면 여기를 클릭하세요."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."

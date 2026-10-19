@@ -3271,6 +3271,9 @@ msgstr "Συνημμένα"
 msgid "Download Pictures"
 msgstr "Λήψη εικόνων"
 
+msgid "Allow Tracking Elements"
+msgstr "Αποδοχή στοιχείων παρακολούθησης"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "Προσθήκη αποστολέα στη λίστα ασφαλών αποστολέων"
 
@@ -3305,6 +3308,10 @@ msgstr "Τέτοια στοιχεία ενημερώνουν τον αποστο
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "Οι εικόνες εμφανίζονται, αποκλεισμένα παραμένουν μόνο τα στοιχεία που θα ενημέρωναν τον αποστολέα ή τρίτους πότε ανοίγετε αυτό το μήνυμα."
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "Κάντε κλικ εδώ για να τα επιτρέψετε."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."

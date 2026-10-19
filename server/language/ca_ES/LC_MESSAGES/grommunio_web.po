@@ -3271,6 +3271,9 @@ msgstr "Adjuntos"
 msgid "Download Pictures"
 msgstr "Descargar Fotos"
 
+msgid "Allow Tracking Elements"
+msgstr "Permet els elements de seguiment"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "Afegeix un remitent a la llista de remitents segurs"
 
@@ -3305,6 +3308,10 @@ msgstr "Aquests elements indiquen al remitent o a tercers quan obriu un missatge
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "Es mostren les imatges; només continuen bloquejats els elements que indicarien al remitent o a tercers quan obriu aquest missatge."
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "Feu clic aquí per permetre'ls."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
