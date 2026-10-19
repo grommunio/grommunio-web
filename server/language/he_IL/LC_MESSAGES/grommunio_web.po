@@ -4692,8 +4692,8 @@ msgstr "איש קשר בתיקייה"
 msgid "Folder visible"
 msgstr "תיקיה נראית"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "החל (העתק) הרשאות שהשתנו באופן רקורסיבי"
+msgid "Apply (copy) permissions recursively"
+msgstr "החל (העתק) הרשאות באופן רקורסיבי"
 
 msgid "User already exists"
 msgstr "המשתמש כבר קיים"

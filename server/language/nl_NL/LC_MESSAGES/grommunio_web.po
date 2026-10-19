@@ -4699,8 +4699,8 @@ msgstr "Mapcontact"
 msgid "Folder visible"
 msgstr "Map zichtbaar"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "Toepassen (kopiëren) van gewijzigde permissies recursief"
+msgid "Apply (copy) permissions recursively"
+msgstr "Toepassen (kopiëren) van permissies recursief"
 
 msgid "User already exists"
 msgstr "Gebruiker bestaat al"

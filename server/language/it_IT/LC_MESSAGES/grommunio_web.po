@@ -4696,8 +4696,8 @@ msgstr "Contatto cartella"
 msgid "Folder visible"
 msgstr "Cartella visibile"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "Applica (copia) i permessi modificati in modo ricorsivo"
+msgid "Apply (copy) permissions recursively"
+msgstr "Applica (copia) i permessi in modo ricorsivo"
 
 msgid "User already exists"
 msgstr "L'utente esiste già"

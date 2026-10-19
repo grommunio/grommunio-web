@@ -4727,8 +4727,8 @@ msgstr "Контакт папки"
 msgid "Folder visible"
 msgstr "Просмотр каталога"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "Применять (копировать) измененные разрешения рекурсивно"
+msgid "Apply (copy) permissions recursively"
+msgstr "Применять (копировать) разрешения рекурсивно"
 
 msgid "User already exists"
 msgstr "Пользователь уже существует"

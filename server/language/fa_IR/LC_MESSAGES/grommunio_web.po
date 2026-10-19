@@ -4692,8 +4692,8 @@ msgstr "تماس پوشه"
 msgid "Folder visible"
 msgstr "پوشه قابل مشاهده است"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "اعمال (کپی) مجوزهای تغییر یافته به صورت بازگشتی"
+msgid "Apply (copy) permissions recursively"
+msgstr "اعمال (کپی) مجوزها به صورت بازگشتی"
 
 msgid "User already exists"
 msgstr "کاربر از قبل وجود دارد"

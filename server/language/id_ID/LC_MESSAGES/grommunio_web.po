@@ -4694,8 +4694,8 @@ msgstr "Kontak folder"
 msgid "Folder visible"
 msgstr "Folder terlihat"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "Terapkan (salin) perubahan izin secara rekursif"
+msgid "Apply (copy) permissions recursively"
+msgstr "Terapkan (salin) izin secara rekursif"
 
 msgid "User already exists"
 msgstr "Pengguna sudah ada"

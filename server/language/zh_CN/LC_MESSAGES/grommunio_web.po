@@ -4663,8 +4663,8 @@ msgstr "文件夹联系人"
 msgid "Folder visible"
 msgstr "文件夹可见"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "递归应用（复制）已更改的权限"
+msgid "Apply (copy) permissions recursively"
+msgstr "递归应用（复制）权限"
 
 msgid "User already exists"
 msgstr "用户已存在"

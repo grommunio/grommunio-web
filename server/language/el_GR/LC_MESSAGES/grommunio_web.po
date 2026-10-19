@@ -4694,8 +4694,8 @@ msgstr "Επικοινωνία φακέλου"
 msgid "Folder visible"
 msgstr "Φάκελος ορατός"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "Εφαρμογή (αντιγραφή) αλλαγμένων δικαιωμάτων αναδρομικά"
+msgid "Apply (copy) permissions recursively"
+msgstr "Εφαρμογή (αντιγραφή) δικαιωμάτων αναδρομικά"
 
 msgid "User already exists"
 msgstr "Ο χρήστης υπάρχει ήδη"

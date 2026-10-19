@@ -4694,8 +4694,8 @@ msgstr "Folder contact"
 msgid "Folder visible"
 msgstr "Folder visible"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "Apply (copy) changed permissions recursively"
+msgid "Apply (copy) permissions recursively"
+msgstr "Apply (copy) permissions recursively"
 
 msgid "User already exists"
 msgstr "User already exists"

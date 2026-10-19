@@ -4692,8 +4692,8 @@ msgstr "Tengiliður í möppu"
 msgid "Folder visible"
 msgstr "Mappa sýnileg"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "Notaðu (afritaðu) breyttar heimildir endurtekið"
+msgid "Apply (copy) permissions recursively"
+msgstr "Notaðu (afritaðu) heimildir endurtekið"
 
 msgid "User already exists"
 msgstr "Notandi er nú þegar til"

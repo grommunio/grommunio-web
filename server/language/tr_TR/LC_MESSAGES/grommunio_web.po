@@ -4694,8 +4694,8 @@ msgstr "Klasör bağlantısı"
 msgid "Folder visible"
 msgstr "Klasör görülebilir"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "Değiştirilen izinleri özyinelemeli olarak uygulama (kopyalama)"
+msgid "Apply (copy) permissions recursively"
+msgstr "İzinleri özyinelemeli olarak uygulama (kopyalama)"
 
 msgid "User already exists"
 msgstr "Kullanıcı zaten var"
