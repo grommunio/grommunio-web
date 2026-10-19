@@ -676,7 +676,7 @@ Grommunio.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 				prepareData: function (data) {
 					Ext.apply(data, {
 						hoverString: Ext.util.Format.htmlEncode(data.name.length > 20 ? data.name : '').replace(/\s/g, '&nbsp;'),
-						categoryName: Ext.util.Format.ellipsis(data.name, 20)
+						categoryName: Ext.util.Format.htmlEncode(Ext.util.Format.ellipsis(data.name, 20))
 					});
 					return data;
 				},
