@@ -1773,12 +1773,14 @@ body.k-density-compact {
 .x-grid3-body .x-grid3-row-selected .x-grid3-col.x-grid3-td-checker {
   background-image: none; }
 
-/* Task grid Due tasks row */
-.grommunio-task-overdue {
+/* Task grid Due tasks row; grid cells set their own colour, so colour them too */
+.grommunio-task-overdue,
+.x-grid3-row.grommunio-task-overdue td {
   color: var(--color-error); }
 
 /* Task grid Completed tasks row */
-.grommunio-task-complete {
+.grommunio-task-complete,
+.x-grid3-row.grommunio-task-complete td {
   color: var(--ui-text-3); }
   .grommunio-task-complete .k-task-complete {
     text-decoration: line-through; }
