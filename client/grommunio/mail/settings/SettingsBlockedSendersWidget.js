@@ -26,81 +26,75 @@ Grommunio.mail.settings.SettingsBlockedSendersWidget = Ext.extend(Grommunio.sett
 		Ext.applyIf(config, {
 			title: _('Blocked Senders'),
 			xtype: 'grommunio.settingsblockedsenderswidget',
-			height: 400,
-			layout: {
-				type: 'vbox',
-				align: 'stretch',
-				pack: 'start'
-			},
+			layout: 'anchor',
 			items: [{
 				xtype: 'displayfield',
+				anchor: '100%',
 				value: _('External content from blocked senders will always be blocked, even if the global block external content setting is disabled. Safe senders take priority over blocked senders.'),
-				fieldClass: 'x-form-display-field k-safesenders-extrainfo'
-			},{
-				xtype: 'spacer',
-				height: 10
+				fieldClass: 'x-form-display-field grommunio-settings-widget-extrainfo'
 			},{
 				xtype: 'container',
-				flex: 1,
+				anchor: '100%',
+				height: 32,
 				layout: {
 					type: 'hbox',
-					align: 'stretch',
+					align: 'middle',
 					pack: 'start'
 				},
 				items: [{
-					xtype: 'grommunio.safesendergrid',
-					ref: '../blockedSendersGrid',
-					emptyText: _('Blocked Senders list is empty'),
-					flex: 1
+					xtype: 'textfield',
+					ref: '../addField',
+					emptyText: _('user@domain or @domain'),
+					flex: 1,
+					listeners: {
+						specialkey: this.onAddFieldKey,
+						scope: this
+					}
 				},{
-					xtype: 'container',
-					width: 160,
-					layout: {
-						type: 'vbox',
-						align: 'center',
-						pack: 'start'
-					},
-					items: [{
-						xtype: 'textfield',
-						ref: '../../addField',
-						emptyText: _('user@domain or @domain'),
-						width: 130,
-						listeners: {
-							specialkey: this.onAddFieldKey,
-							scope: this
-						}
-					},{
-						xtype: 'spacer',
-						height: 10
-					},{
-						xtype: 'button',
-						text: _('Add'),
-						handler: this.onAddEntry,
-						width: 130,
-						scope: this
-					},{
-						xtype: 'spacer',
-						height: 20
-					},{
-						xtype: 'button',
-						handler: this.onDeleteEntry,
-						text: _('Delete'),
-						width: 130,
-						ref: '../../deleteButton',
-						disabled: true,
-						scope: this
-					},{
-						xtype: 'spacer',
-						height: 10
-					},{
-						xtype: 'button',
-						text: _('Delete all'),
-						handler: this.onDeleteAll,
-						width: 130,
-						ref: '../../deleteAllButton',
-						disabled: true,
-						scope: this
-					}]
+					xtype: 'spacer',
+					width: 8
+				},{
+					xtype: 'button',
+					text: _('Add'),
+					handler: this.onAddEntry,
+					width: 130,
+					scope: this
+				}]
+			},{
+				xtype: 'spacer',
+				height: 8
+			},{
+				xtype: 'grommunio.safesendergrid',
+				ref: 'blockedSendersGrid',
+				anchor: '100%',
+				height: 240,
+				emptyText: _('Blocked Senders list is empty')
+			},{
+				xtype: 'container',
+				anchor: '100%',
+				height: 40,
+				layout: {
+					type: 'hbox',
+					align: 'middle',
+					pack: 'end'
+				},
+				defaults: {
+					xtype: 'button',
+					width: 130,
+					disabled: true,
+					scope: this
+				},
+				items: [{
+					text: _('Delete'),
+					handler: this.onDeleteEntry,
+					ref: '../deleteButton'
+				},{
+					xtype: 'spacer',
+					width: 8
+				},{
+					text: _('Delete all'),
+					handler: this.onDeleteAll,
+					ref: '../deleteAllButton'
 				}]
 			}]
 		});

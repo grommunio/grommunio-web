@@ -27,57 +27,47 @@ Grommunio.mail.settings.SettingsSafeSendersWidget = Ext.extend(Grommunio.setting
 			title: _('Safe Senders'),
 			cls: 'grommunio-settings-widget',
 			xtype: 'grommunio.settingssafesenderswidget',
-			height: 400,
-			layout: {
-				type: 'vbox',
-				align: 'stretch',
-				pack: 'start'
-			},
+			layout: 'anchor',
 			items: [{
 				xtype: 'displayfield',
+				anchor: '100%',
 				value: _('To protect your privacy email addresses or domains can only be added via the "Add to safe sender list" functionality in an opened email.'),
 				fieldClass: 'x-form-display-field grommunio-settings-widget-extrainfo'
 			},{
+				xtype: 'spacer',
+				height: 8
+			},{
+				xtype: 'grommunio.safesendergrid',
+				ref: 'safeSendersGrid',
+				anchor: '100%',
+				height: 240,
+				emptyText: _('Safe Senders list is empty')
+			},{
 				xtype: 'container',
-				flex: 1,
+				anchor: '100%',
+				height: 40,
 				layout: {
 					type: 'hbox',
-					align: 'stretch',
-					pack: 'start'
+					align: 'middle',
+					pack: 'end'
+				},
+				defaults: {
+					xtype: 'button',
+					width: 130,
+					disabled: true,
+					scope: this
 				},
 				items: [{
-					xtype: 'grommunio.safesendergrid',
-					ref: '../safeSendersGrid',
-					emptyText: _('Safe Senders list is empty'),
-					flex: 1
+					text: _('Delete'),
+					handler: this.onDeleteSafeSender,
+					ref: '../deleteButton'
 				},{
-					xtype: 'container',
-					width: 160,
-					layout: {
-						type: 'vbox',
-						align: 'center',
-						pack: 'start'
-					},
-					items: [{
-						xtype: 'button',
-						handler: this.onDeleteSafeSender,
-						text: _('Delete'),
-						width: 130,
-						ref: '../../deleteButton',
-						disabled: true,
-						scope: this
-					},{
-						xtype: 'spacer',
-						height: 10
-					},{
-						xtype: 'button',
-						text: _('Delete all'),
-						width: 130,
-						handler: this.onDeleteAll,
-						ref: '../../deleteAllButton',
-						disabled: true,
-						scope: this
-					}]
+					xtype: 'spacer',
+					width: 8
+				},{
+					text: _('Delete all'),
+					handler: this.onDeleteAll,
+					ref: '../deleteAllButton'
 				}]
 			}]
 		});
