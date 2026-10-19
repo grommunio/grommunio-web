@@ -136,6 +136,7 @@ Grommunio.common.recipientfield.ui.RecipientHoverCardView = Ext.extend(Ext.Windo
 				items: [{
 					xtype: 'displayfield',
 					value: Ext.util.Format.ellipsis(emailAddress, this.ellipsisStringEndLength),
+					htmlEncode: true,
 					cls: 'k-hover-card-email-text',
 					tooltip: toolTip,
 					plugins: 'grommunio.formfieldtooltipplugin'
@@ -301,13 +302,15 @@ Grommunio.common.recipientfield.ui.RecipientHoverCardView = Ext.extend(Ext.Windo
 
 	/**
 	 * Function will return html template that contain display name along with presence status.
+	 * The display name comes from the message (e.g. the From header), so it is encoded.
 	 * @param {Ext.data.Record} record which will show in hover card view.
 	 * @returns {string} html string contains display name with presence status.
 	 */
 	getDisplayName: function (record)
 	{
+		var name = Ext.util.Format.htmlEncode(Ext.util.Format.ellipsis(String(record.get('display_name') || ''), 30));
 		return '<span class="grommunio-presence-status ' + Grommunio.core.data.PresenceStatus.getCssClass(record.get('presence_status')) + '">' +
-			' <span class="grommunio-presence-status-icon" aria-hidden="true"></span>' + Ext.util.Format.ellipsis(record.get('display_name'), 30) + '</span>';
+			' <span class="grommunio-presence-status-icon" aria-hidden="true"></span>' + name + '</span>';
 	},
 
 	/**
@@ -319,10 +322,10 @@ Grommunio.common.recipientfield.ui.RecipientHoverCardView = Ext.extend(Ext.Windo
 	{
 		var senderUserImage = record.get('user_image');
 		if (Ext.isEmpty(senderUserImage)) {
-			return '<span class="preview-header-sender-initial">'+ record.getSenderInitials() +'</span>';
+			return '<span class="preview-header-sender-initial">'+ Ext.util.Format.htmlEncode(record.getSenderInitials()) +'</span>';
 		}
 
-		return '<span class="preview-header-sender-image" style ="background-image:url('+ senderUserImage +');"></span>';
+		return '<span class="preview-header-sender-image" style ="background-image:url('+ Ext.util.Format.htmlEncode(senderUserImage) +');"></span>';
 	}
 });
 

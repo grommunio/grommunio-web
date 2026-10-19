@@ -52,10 +52,10 @@ Grommunio.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 				'<span>&nbsp;' + pgettext('mail.previewpanel', 'on behalf of') + '&nbsp;</span>' +
 				/* Display the initials of a sender */
 				'<tpl if="!Ext.isEmpty(values.user_image)">'+
-					'<span class="preview-header-sender-image" style="background-image:url({user_image});" aria-hidden="true"></span>' +
+					'<span class="preview-header-sender-image" style="background-image:url({user_image:htmlEncode});" aria-hidden="true"></span>' +
 				'</tpl>'+
 				'<tpl if="Ext.isEmpty(values.user_image)">'+
-					'<span class="preview-header-sender-initial" aria-hidden="true">{sender_initials}</span>' +
+					'<span class="preview-header-sender-initial" aria-hidden="true">{sender_initials:htmlEncode}</span>' +
 				'</tpl>'+
 				'<span class="grommunio-emailaddress-link grommunio-sentinfo-on-behalf">' +
 					'<span class="grommunio-presence-status {[Grommunio.core.data.PresenceStatus.getCssClass(values.sent_representing_presence_status)]}">'+
@@ -73,10 +73,10 @@ Grommunio.common.ui.messagepanel.SentInfoLinks = Ext.extend(Ext.Container, {
 				'<span class="grommunio-presence-status-icon" aria-hidden="true"></span>' +
 				/* Display the initials of a sender */
 				'<tpl if="!Ext.isEmpty(values.user_image)">'+
-					'<span class="preview-header-sender-image" style="background-image:url({user_image});" aria-hidden="true"></span>' +
+					'<span class="preview-header-sender-image" style="background-image:url({user_image:htmlEncode});" aria-hidden="true"></span>' +
 				'</tpl>'+
 				'<tpl if="Ext.isEmpty(values.user_image)">'+
-					'<span class="preview-header-sender-initial" aria-hidden="true">{sender_initials}</span>' +
+					'<span class="preview-header-sender-initial" aria-hidden="true">{sender_initials:htmlEncode}</span>' +
 				'</tpl>'+
 				'<span class="grommunio-emailaddress-link grommunio-sentinfo-link">' +
 					'{sender_name:htmlEncodeElide(this.ellipsisStringStartLength, this.ellipsisStringEndLength)}&nbsp;' +
