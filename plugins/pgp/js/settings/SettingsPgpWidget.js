@@ -45,13 +45,12 @@ Grommunio.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Grommunio.settings
 					{text: _('Find public key'), cls: 'pgp-settings-button', handler: this.lookupKey, scope: this}, '->',
 					{text: _('Refresh'), cls: 'pgp-settings-button', handler: this.reload, scope: this}],
 				bbar: [{text: _('Details / verify'), cls: 'pgp-settings-button', itemId: 'verify', disabled: true, handler: this.verifyKey, scope: this},
-					{xtype: 'splitbutton', text: _('Export public key'), cls: 'pgp-settings-button', itemId: 'export', disabled: true, handler: this.exportPublic, scope: this,
-						menu: {items: [{text: _('Back up private key'), secretOnly: true, handler: this.exportPrivate, scope: this}],
-							listeners: {beforeshow: this.updateKeyMenu, scope: this}}},
+					{text: _('Export public key'), cls: 'pgp-settings-button', itemId: 'export', disabled: true, handler: this.exportPublic, scope: this},
 					{text: _('Refresh from keyserver'), cls: 'pgp-settings-button', itemId: 'refreshkey', disabled: true, handler: this.refreshKey, scope: this},
 					{text: _('Private key'), cls: 'pgp-settings-button', itemId: 'private', disabled: true, menu: {items: [
 						{text: _('Unlock in this browser'), handler: this.unlockKey, scope: this},
-						{text: _('Change passphrase'), handler: this.changePassphrase, scope: this}]}},
+						{text: _('Change passphrase'), handler: this.changePassphrase, scope: this},
+						{text: _('Back up private key'), handler: this.exportPrivate, scope: this}]}},
 					{text: _('Delete'), cls: 'pgp-settings-button', itemId: 'delete', disabled: true, handler: this.deleteKey, scope: this}, '->',
 					{text: _('Lock all'), cls: 'pgp-settings-button', handler: this.lockKeys, scope: this}]
 			}, {xtype: 'box', ref: 'operationStatus', hidden: true, autoEl: {tag: 'p', cls: 'pgp-operation-status', role: 'status', 'aria-live': 'polite'}},
@@ -128,11 +127,6 @@ Grommunio.plugins.pgp.settings.SettingsPgpWidget = Ext.extend(Grommunio.settings
 		var key = this.keyGrid.getSelectionModel().getSelected(), toolbar = this.keyGrid.getBottomToolbar();
 		Ext.each(['verify', 'export', 'refreshkey', 'delete'], function(id) { toolbar.getComponent(id).setDisabled(!key); });
 		toolbar.getComponent('private').setDisabled(!key || !key.get('secret'));
-	},
-	updateKeyMenu: function(menu)
-	{
-		var key = this.selectedKey();
-		menu.items.each(function(item) { item.setDisabled(!key || (item.secretOnly && !key.secret)); });
 	},
 	selectedKey: function(secret)
 	{
