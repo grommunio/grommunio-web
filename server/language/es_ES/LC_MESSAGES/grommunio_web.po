@@ -9098,6 +9098,13 @@ msgstr "anónimo"
 msgid "unknown"
 msgstr "desconocido"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s (eliminado)"
+
+msgid "Deleted user"
+msgstr "Usuario eliminado"
+
 msgid "Could not move folder"
 msgstr "No se ha podido mover la carpeta"
 

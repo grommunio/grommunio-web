@@ -20,6 +20,7 @@ Ext.namespace('Grommunio.hierarchy.data');
 Grommunio.hierarchy.data.UserPermissionsFields = [
 	{name: 'entryid'},
 	{name: 'display_name'},
+	{name: 'memberid'},
 	{name: 'object_type', type: 'int', defaultValue: Grommunio.core.mapi.ObjectType.MAPI_MAILUSER},
 	{name: 'rights', type: 'int', defaultValue: Grommunio.core.mapi.Rights.RIGHTS_NONE}
 ];

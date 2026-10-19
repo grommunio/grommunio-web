@@ -9089,6 +9089,13 @@ msgstr "nafnlaus"
 msgid "unknown"
 msgstr "óþekkt"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s (eytt)"
+
+msgid "Deleted user"
+msgstr "Eyddur notandi"
+
 msgid "Could not move folder"
 msgstr "Ekki tókst að færa möppuna"
 

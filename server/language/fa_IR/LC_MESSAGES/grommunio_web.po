@@ -9089,6 +9089,13 @@ msgstr "ناشناس"
 msgid "unknown"
 msgstr "ناشناخته"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s (حذف‌شده)"
+
+msgid "Deleted user"
+msgstr "کاربر حذف‌شده"
+
 msgid "Could not move folder"
 msgstr "پوشه منتقل نشد"
 

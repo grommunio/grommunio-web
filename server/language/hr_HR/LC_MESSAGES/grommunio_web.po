@@ -9128,6 +9128,13 @@ msgstr "anoniman"
 msgid "unknown"
 msgstr "nepoznato"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s (izbrisan)"
+
+msgid "Deleted user"
+msgstr "Izbrisani korisnik"
+
 msgid "Could not move folder"
 msgstr "Nije moguće premjestiti mapu"
 

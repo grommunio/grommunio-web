@@ -9091,6 +9091,13 @@ msgstr "anonim"
 msgid "unknown"
 msgstr "tidak dikenal"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s (dihapus)"
+
+msgid "Deleted user"
+msgstr "Pengguna yang dihapus"
+
 msgid "Could not move folder"
 msgstr "Tidak dapat memindahkan folder"
 

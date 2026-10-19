@@ -9077,6 +9077,13 @@ msgstr ""
 msgid "unknown"
 msgstr ""
 
+#, php-format
+msgid "%s (deleted)"
+msgstr ""
+
+msgid "Deleted user"
+msgstr ""
+
 msgid "Could not move folder"
 msgstr ""
 

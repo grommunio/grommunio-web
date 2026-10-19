@@ -9052,6 +9052,13 @@ msgstr "匿名"
 msgid "unknown"
 msgstr "未知"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s（已刪除）"
+
+msgid "Deleted user"
+msgstr "已刪除的使用者"
+
 msgid "Could not move folder"
 msgstr "無法移動資料夾"
 

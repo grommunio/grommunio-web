@@ -9062,6 +9062,13 @@ msgstr "アノニマス"
 msgid "unknown"
 msgstr "不明"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s（削除済み）"
+
+msgid "Deleted user"
+msgstr "削除済みユーザー"
+
 msgid "Could not move folder"
 msgstr "フォルダを移動できませんでした"
 

@@ -9167,6 +9167,13 @@ msgstr "anonimno"
 msgid "unknown"
 msgstr "neznano"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s (izbrisan)"
+
+msgid "Deleted user"
+msgstr "Izbrisani uporabnik"
+
 msgid "Could not move folder"
 msgstr "Mape ni bilo mogoče premakniti"
 

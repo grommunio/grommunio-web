@@ -9091,6 +9091,13 @@ msgstr "ανώνυμο"
 msgid "unknown"
 msgstr "άγνωστο"
 
+#, php-format
+msgid "%s (deleted)"
+msgstr "%s (διαγράφηκε)"
+
+msgid "Deleted user"
+msgstr "Διαγραμμένος χρήστης"
+
 msgid "Could not move folder"
 msgstr "Δεν ήταν δυνατή η μετακίνηση φακέλου"
 
