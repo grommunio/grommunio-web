@@ -782,6 +782,7 @@ class HierarchyModule extends Module {
 			$rights["props"]["entryid"] = $userinfo["entryid"];
 			$rights["props"]["rights"] = $grant["rights"];
 			$rights["props"]["memberid"] = $grant["memberid"];
+			$rights["deleted"] = !empty($userinfo["deleted"]);
 
 			$grants[$id] = $rights;
 		}
@@ -821,10 +822,9 @@ class HierarchyModule extends Module {
 		// First check which permissions should be removed from the existing list
 		if (isset($permissions['remove']) && !empty($permissions['remove'])) {
 			foreach ($permissions['remove'] as $i => &$delAcl) {
-				$userid = hex2bin((string) $delAcl['entryid']);
 				foreach ($curAcls as $aclIndex => &$curAcl) {
 					// do not remove default and anonymous grants
-					if ($curAcl['userid'] === $userid && $curAcl['memberid'] != 0 && $curAcl['memberid'] != 0xFFFFFFFF) {
+					if ($this->aclMatches($curAcl, $delAcl) && $curAcl['memberid'] != 0 && $curAcl['memberid'] != 0xFFFFFFFF) {
 						$curAcl['rights'] = ecRightsNone;
 						$curAcl['state'] = RIGHT_DELETED | RIGHT_AUTOUPDATE_DENIED;
 					}
@@ -849,9 +849,8 @@ class HierarchyModule extends Module {
 					array_push($permissions['add'], $modAcl);
 				}
 				else {
-					$userid = hex2bin((string) $entryid);
 					foreach ($curAcls as $aclIndex => &$curAcl) {
-						if ($curAcl['userid'] === $userid) {
+						if ($this->aclMatches($curAcl, $modAcl)) {
 							$curAcl['rights'] = $modAcl['rights'];
 							$curAcl['state'] = RIGHT_MODIFY | RIGHT_AUTOUPDATE_DENIED;
 						}
@@ -911,7 +910,7 @@ class HierarchyModule extends Module {
 		}
 		$permissions = ['modify' => [], 'remove' => $removed];
 		foreach ($grants as $grant) {
-			if ($grant['entryid'] !== null) {
+			if (!$grant['deleted']) {
 				$permissions['modify'][] = ['entryid' => $grant['entryid'], 'rights' => $grant['props']['rights']];
 			}
 		}
@@ -923,6 +922,19 @@ class HierarchyModule extends Module {
 			$this->setFolderPermissions($folderObject, $permissions);
 			mapi_savechanges($folderObject);
 		}
+	}
+
+	/**
+	 * @param array $acl  permission row as returned by getUserInfo()
+	 * @param array $sent permission record sent by the client
+	 */
+	private function aclMatches($acl, $sent) {
+		if (isset($acl['entryid']) && strcasecmp((string) $acl['entryid'], (string) ($sent['entryid'] ?? '')) === 0) {
+			return true;
+		}
+
+		// the entryid of a deleted user changes once gromox forgets the user
+		return !empty($acl['deleted']) && isset($sent['memberid']) && $acl['memberid'] == $sent['memberid'];
 	}
 
 	public function idInCurrentPermissions($currentPermissions, $entryid) {
@@ -957,30 +969,37 @@ class HierarchyModule extends Module {
 			return $grant;
 		}
 
-		// open the addressbook
-		$ab = $GLOBALS["mapisession"]->getAddressbook();
-		$user = mapi_ab_openentry($ab, $grant["userid"]);
-		if ($user) {
-			$props = mapi_getprops($user, [PR_ACCOUNT, PR_DISPLAY_NAME, PR_OBJECT_TYPE]);
+		$userid = (string) $grant["userid"];
+		$props = [];
+		if ($userid !== '') {
+			try {
+				$user = mapi_ab_openentry($GLOBALS["mapisession"]->getAddressbook(), $userid);
+				if ($user) {
+					$props = mapi_getprops($user, [PR_ACCOUNT, PR_DISPLAY_NAME, PR_OBJECT_TYPE]);
+				}
+			}
+			catch (MAPIException $e) {
+				$e->setHandled();
+			}
+		}
 
+		// Users gone from the directory come back with no entryid or, from newer gromox, a one-off
+		if (!empty($props) && !$GLOBALS["entryid"]->hasAddressBookOneOff(bin2hex($userid))) {
 			$grant["fullname"] = $props[PR_DISPLAY_NAME] ?? _("unknown");
 			$grant["username"] = $props[PR_ACCOUNT] ?? _("unknown");
-			$grant["entryid"] = bin2hex((string) $grant["userid"]);
+			$grant["entryid"] = bin2hex($userid);
 
 			return $grant;
 		}
 
-		error_log(sprintf("No user with the entryid %s found (memberid: %s)", bin2hex((string) $grant["userid"]), $grant["memberid"]));
+		$name = $props[PR_DISPLAY_NAME] ?? '';
+		$grant["fullname"] = $name !== '' ? sprintf(_("%s (deleted)"), $name) : _("Deleted user");
+		$grant["username"] = $name;
+		$grant["deleted"] = true;
+		$grant["entryid"] = $userid !== '' ? bin2hex($userid) :
+			$GLOBALS["entryid"]->createMuidemsabEntryid($cnUserBase . '/cn=' . sprintf('%016x', $grant["memberid"]) . '-deleted');
 
-		// default return stuff
-		return [
-			"fullname" => _("Unknown user/group"),
-			"username" => _("unknown"),
-			"entryid" => null,
-			"type" => MAPI_MAILUSER,
-			"id" => $grant["userid"],
-			"userid" => null,
-		];
+		return $grant;
 	}
 
 	/**
