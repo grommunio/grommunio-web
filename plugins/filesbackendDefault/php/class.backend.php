@@ -20,6 +20,7 @@ use Files\Backend\Exception as BackendException;
 use Files\Backend\iFeatureRecipientSearch;
 use Files\Backend\iFeatureSharing;
 use Files\Backend\Webdav\sabredav\FilesWebDavClient;
+use Files\Core\Util\OutboundGuard;
 use OCSAPI\Exception\ConnectionException;
 use OCSAPI\Exception\FileNotFoundException;
 use OCSAPI\ocsclient;
@@ -266,13 +267,11 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 		curl_setopt($ch, CURLOPT_AUTOREFERER, true);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 3); // timeout of 3 seconds
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 		if ($this->allowselfsigned) {
 			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 		}
-		$versiondata = curl_exec($ch);
+		$versiondata = OutboundGuard::exec($ch, $url);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
 		if ($httpcode === 200) {

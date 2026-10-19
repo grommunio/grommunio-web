@@ -16,7 +16,9 @@ require_once __DIR__ . "/Exception/class.PermissionDeniedException.php";
 require_once __DIR__ . "/Exception/class.InvalidResponseException.php";
 require_once __DIR__ . "/Exception/class.InvalidRequestException.php";
 require_once __DIR__ . "/class.ocsshare.php";
+require_once __DIR__ . "/../../../../files/php/Files/Core/Util/class.outboundguard.php";
 
+use Files\Core\Util\OutboundGuard;
 use OCSAPI\Exception\ConnectionException;
 use OCSAPI\Exception\InvalidResponseException;
 
@@ -60,7 +62,6 @@ class ocsclient {
 		CURLOPT_AUTOREFERER => true,
 		CURLOPT_TIMEOUT => self::OCS_TIMEOUT,
 		CURLOPT_RETURNTRANSFER => 1,
-		CURLOPT_FOLLOWLOCATION => true,
 		CURLOPT_HTTPHEADER => ['OCS-APIREQUEST: true'],
 	];
 
@@ -136,20 +137,17 @@ class ocsclient {
 	}
 
 	/**
-	 * Creates a cURL handle for $url with the default, certificate and auth options.
-	 *
-	 * @param string $url
+	 * Creates a cURL handle with the default, certificate and auth options.
 	 *
 	 * @return \CurlHandle
 	 *
 	 * @throws ConnectionException
 	 */
-	private function curlHandle($url) {
+	private function curlHandle() {
 		$ch = curl_init();
 		if ($ch === false) {
 			throw new ConnectionException('Unable to initialise cURL session.');
 		}
-		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt_array($ch, $this->curlDefaultOptions);
 		if ($this->allowSelfSignedCerts) {
 			curl_setopt_array($ch, $this->curlSSLVerifyOptions);
@@ -182,12 +180,13 @@ class ocsclient {
 	 * @throws InvalidResponseException
 	 */
 	private function doCurlRequest($url, $curlOptions) {
-		$ch = $this->curlHandle($url);
+		$ch = $this->curlHandle();
 		if (!empty($curlOptions)) {
 			curl_setopt_array($ch, $curlOptions);
 		}
 
-		$responsedata = curl_exec($ch);
+		// a redirected POST/PUT/DELETE is not replayed
+		$responsedata = OutboundGuard::exec($ch, $url, empty($curlOptions) ? 5 : 0);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
 		if ($httpcode === 0) {
@@ -297,8 +296,8 @@ class ocsclient {
 	public function getRecipients($search) {
 		$url = $this->baseurl . self::OCS_PATH . "/sharees?itemType=file&search=" . urlencode((string) $search);
 
-		$ch = $this->curlHandle($url);
-		$responsedata = curl_exec($ch);
+		$ch = $this->curlHandle();
+		$responsedata = OutboundGuard::exec($ch, $url);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
 		if ($httpcode === 200) {

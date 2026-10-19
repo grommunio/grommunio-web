@@ -58,3 +58,18 @@ define('PLUGIN_FILES_REDIS_AUTH', '');
  * Seconds a folder listing stays cached before the backend is asked again, a positive number.
  */
 define('PLUGIN_FILES_CACHE_TTL', 900);
+
+/*
+ * The server address of a Files account is chosen by the user, so grommunio Web
+ * refuses to send requests to link-local (cloud metadata), multicast and reserved
+ * addresses, and reaches this server itself only on port 443.
+ * Hosts listed here are exempt, as "host" or "host:port" separated by spaces,
+ * e.g. "localhost:8080 files.example.lan".
+ */
+define('PLUGIN_FILES_ALLOWED_HOSTS', '');
+
+/*
+ * Also refuse private network addresses (10/8, 172.16/12, 192.168/16, 100.64/10, fc00::/7).
+ * Leave this off when file servers live in the local network, or list them above.
+ */
+define('PLUGIN_FILES_BLOCK_PRIVATE_NETWORKS', false);

@@ -9,9 +9,12 @@ declare(strict_types=1);
 
 namespace Datamate\SeafileApi;
 
+require_once __DIR__ . '/../../../../files/php/Files/Core/Util/class.outboundguard.php';
+
 use Datamate\SeafileApi\Exception\ConnectionException;
 use Datamate\SeafileApi\Exception\InvalidArgumentException;
 use Datamate\SeafileApi\Exception\InvalidResponseException;
+use Files\Core\Util\OutboundGuard;
 
 /**
  * Seafile API.
@@ -1405,6 +1408,8 @@ final class SeafileApi {
 	 * @return bool|string
 	 */
 	private function curlExec(string $url, array $options) {
+		[$url, $options[CURLOPT_RESOLVE]] = OutboundGuard::check($url);
+		$options[CURLOPT_FOLLOWLOCATION] = false;
 		$handle = curl_init($url);
 		if (!$handle instanceof \CurlHandle) {
 			throw new ConnectionException('Unable to initialise cURL session.', self::ERROR_CODE_NO_CURL);
