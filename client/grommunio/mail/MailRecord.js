@@ -37,6 +37,7 @@ Grommunio.mail.MailRecordFields = [
 	{name: 'percent_complete', type: 'float', defaultValue: 0},
 	{name: 'date_completed', type:'date', dateFormat:'timestamp', defaultValue: null},
 	{name: 'block_status', type: 'int', defaultValue: undefined},
+	{name: 'tracking_allowed', type: 'boolean', defaultValue: false},
 	{name: 'stubbed', type: 'boolean', defaultValue: false},
 	{name: 'startdate', type: 'date', dateFormat: 'timestamp', defaultValue: null},
 	{name: 'duedate', type: 'date', dateFormat: 'timestamp', defaultValue: null},

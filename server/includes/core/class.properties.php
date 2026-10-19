@@ -986,6 +986,7 @@ class Properties {
 			$properties["flag_complete_time"] = PR_FLAG_COMPLETE_TIME;
 			$properties["flag_icon"] = PR_FOLLOWUP_ICON;
 			$properties["block_status"] = PR_BLOCK_STATUS;
+			$properties["tracking_allowed"] = "PT_BOOLEAN:PS_PUBLIC_STRINGS:GrommunioWebTrackingAllowed";
 			$properties["reminder_time"] = "PT_SYSTIME:PSETID_Common:" . PidLidReminderTime;
 			$properties["reminder"] = "PT_BOOLEAN:PSETID_Common:" . PidLidReminderSet;
 			$properties["flag_request"] = "PT_STRING8:PSETID_Common:" . PidLidFlagRequest;

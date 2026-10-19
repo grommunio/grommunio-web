@@ -62,6 +62,12 @@ Grommunio.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 	trackingAfterDownloadInfoString: pgettext('mail.previewpanel', 'Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked.'),
 
 	/**
+	 * @cfg {String} trackingAllowInfoString string which is appended to the tracking
+	 * element notices when no other external content is blocked.
+	 */
+	trackingAllowInfoString: pgettext('mail.previewpanel', 'Click here to allow them.'),
+
+	/**
 	 * @cfg {String} faultyMessageInfoString string which will be displayed in the {@link #header}
 	 * if the current {@link Grommunio.core.data.IPMRecord record} is faulty and we will not be able to
 	 * perform operations on this record.
@@ -393,13 +399,25 @@ Grommunio.common.ui.messagepanel.ExtraInfoLinks = Ext.extend(Ext.Container, {
 
 				isVisible = true;
 			} else if (trackers > 0) {
+				var trackingText = this.trackingInfoString;
 				if (record.hasExternalContent()) {
 					trackingHtml = '<span class="k-extrainfo-tracking">' + String.format(npgettext('mail.previewpanel',
 						'{0} potential tracking element still blocked.', '{0} potential tracking elements still blocked.', trackers), trackers) + '</span> ';
-					el.createChild({tag: 'div', html: trackingHtml + this.trackingAfterDownloadInfoString, cls: this.itemCls});
-				} else {
-					el.createChild({tag: 'div', html: trackingHtml + this.trackingInfoString, cls: this.itemCls});
+					trackingText = this.trackingAfterDownloadInfoString;
 				}
+				var trackingElement = el.createChild({tag: 'div', html: trackingHtml + trackingText + ' ' + this.trackingAllowInfoString, cls: this.itemCls});
+				trackingElement.set({ 'role': 'button', 'tabindex': '0' });
+
+				// same menu as for blocked pictures, it offers to allow the trackers
+				this.mon(trackingElement, 'click', this.onExtraInfoBlockClick, this);
+				this.mon(trackingElement, 'keydown', function(e) {
+					if (e.getKey() === e.ENTER || e.getKey() === e.SPACE) {
+						e.stopEvent();
+						this.onExtraInfoBlockClick();
+					}
+				}, this);
+				trackingElement.addClassOnOver('preview-header-extrainfobox-item-over');
+
 				isVisible = true;
 			}
 

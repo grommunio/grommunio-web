@@ -95,12 +95,19 @@ Grommunio.core.data.MessageRecord = Ext.extend(Grommunio.core.data.IPMRecord, {
 	/**
 	 * True when likely tracking pixels are removed from this message, even after the
 	 * user chose to download its pictures. Depends on the block_tracking_elements
-	 * setting: 'always', 'except_safe_senders' or 'never'.
+	 * setting: 'always', 'except_safe_senders' or 'never', and on whether the user
+	 * allowed them for this message.
+	 * @param {Boolean} ignoreAllowed (optional) disregard the per-message allowance,
+	 * so replies and forwards never pass trackers on.
 	 * @return {Boolean}
 	 */
-	shouldBlockTrackingElements: function()
+	shouldBlockTrackingElements: function(ignoreAllowed)
 	{
 		if (this.isUnsent()) {
+			return false;
+		}
+
+		if (ignoreAllowed !== true && this.get('tracking_allowed') === true) {
 			return false;
 		}
 

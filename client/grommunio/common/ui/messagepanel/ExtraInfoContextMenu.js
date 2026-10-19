@@ -37,7 +37,14 @@ Grommunio.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Grommunio.cor
 			items: [{
 				xtype: 'grommunio.conditionalitem',
 				text: _('Download Pictures'),
+				beforeShow: this.onDownloadPicturesBeforeShow,
 				handler: this.showPictures,
+				scope: this
+			}, {
+				xtype: 'grommunio.conditionalitem',
+				text: _('Allow Tracking Elements'),
+				beforeShow: this.onAllowTrackingBeforeShow,
+				handler: this.allowTrackingElements,
 				scope: this
 			}, {
 				xtype: 'menuseparator'
@@ -65,6 +72,43 @@ Grommunio.common.ui.messagepanel.ExtraInfoContextMenu = Ext.extend(Grommunio.cor
 	showPictures: function()
 	{
 		this.setBlockStatus();
+	},
+
+	/**
+	 * Hides the download item once the pictures of this message are shown.
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item The item which is about to be shown.
+	 * @private
+	 */
+	onDownloadPicturesBeforeShow: function(item)
+	{
+		item.setVisible(this.records.isExternalContentBlocked());
+	},
+
+	/**
+	 * Shows the allow item only when this message has blocked tracking elements.
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item The item which is about to be shown.
+	 * @private
+	 */
+	onAllowTrackingBeforeShow: function(item)
+	{
+		var record = this.records;
+		item.setVisible(Ext.isFunction(record.shouldBlockTrackingElements) &&
+			record.shouldBlockTrackingElements() && record.getTrackingElementCount() > 0);
+	},
+
+	/**
+	 * Allows the tracking elements of this message for good. They are remote
+	 * pictures, so the other pictures are downloaded along with them.
+	 * @private
+	 */
+	allowTrackingElements: function()
+	{
+		this.records.set('tracking_allowed', true);
+		var blockStatusValue = this.records.calculateBlockStatus();
+		if (blockStatusValue) {
+			this.records.set('block_status', blockStatusValue);
+		}
+		this.records.save();
 	},
 
 	/**
