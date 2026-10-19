@@ -4726,8 +4726,8 @@ msgstr "Kontakt mape"
 msgid "Folder visible"
 msgstr "Mapa je vidljiva"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "Primijeni (kopiraj) promijenjena dopuštenja rekurzivno"
+msgid "Apply (copy) permissions recursively"
+msgstr "Primijeni (kopiraj) dopuštenja rekurzivno"
 
 msgid "User already exists"
 msgstr "Korisnik već postoji"

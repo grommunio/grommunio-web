@@ -4660,8 +4660,8 @@ msgstr "폴더 연락처"
 msgid "Folder visible"
 msgstr "폴더 표시"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "변경된 권한 재귀적으로 적용(복사)"
+msgid "Apply (copy) permissions recursively"
+msgstr "권한 재귀적으로 적용(복사)"
 
 msgid "User already exists"
 msgstr "사용자가 이미 존재합니다."

@@ -515,7 +515,7 @@ class HierarchyModule extends Module {
 						}
 						else {
 							// Exception generated while setting folder permissions.
-							if (isset($action["permissions"])) {
+							if (isset($action["permissions"]) || !empty($action["props"]["recursive"])) {
 								if ($e->getCode() == MAPI_E_NO_ACCESS) {
 									$e->setDisplayMessage(_("You have insufficient privileges to set permissions for this folder."));
 								}
@@ -746,15 +746,9 @@ class HierarchyModule extends Module {
 
 		if (isset($action["permissions"])) {
 			$this->setFolderPermissions($folder, $action["permissions"]);
-			if (isset($action['props']['recursive'])) {
-				$hierarchyTable = mapi_folder_gethierarchytable($folder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
-				$subfolders = mapi_table_queryallrows($hierarchyTable, [PR_ENTRYID]);
-				foreach ($subfolders as $subfolder) {
-					$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
-					$this->setFolderPermissions($folderObject, $action["permissions"]);
-					mapi_savechanges($folderObject);
-				}
-			}
+		}
+		if (!empty($action['props']['recursive'])) {
+			$this->copyPermissionsToSubfolders($store, $folder, $action["permissions"]["remove"] ?? []);
 		}
 
 		mapi_savechanges($folder);
@@ -900,6 +894,34 @@ class HierarchyModule extends Module {
 				unset($acl);
 				mapi_zarafa_setpermissionrules($freebusy, $curAcls);
 			}
+		}
+	}
+
+	/**
+	 * Copy the folder's permission list to all of its subfolders.
+	 *
+	 * @param resource $store   MAPI message store
+	 * @param resource $folder  MAPI folder
+	 * @param array    $removed grants removed from the folder, removed from the subfolders too
+	 */
+	public function copyPermissionsToSubfolders($store, $folder, $removed) {
+		$grants = $this->getFolderPermissions($folder);
+		if ($grants === false) {
+			throw new RuntimeException('Unable to read folder permissions');
+		}
+		$permissions = ['modify' => [], 'remove' => $removed];
+		foreach ($grants as $grant) {
+			if ($grant['entryid'] !== null) {
+				$permissions['modify'][] = ['entryid' => $grant['entryid'], 'rights' => $grant['props']['rights']];
+			}
+		}
+
+		$hierarchyTable = mapi_folder_gethierarchytable($folder, CONVENIENT_DEPTH | MAPI_DEFERRED_ERRORS);
+		$subfolders = mapi_table_queryallrows($hierarchyTable, [PR_ENTRYID]);
+		foreach ($subfolders as $subfolder) {
+			$folderObject = mapi_msgstore_openentry($store, $subfolder[PR_ENTRYID]);
+			$this->setFolderPermissions($folderObject, $permissions);
+			mapi_savechanges($folderObject);
 		}
 	}
 

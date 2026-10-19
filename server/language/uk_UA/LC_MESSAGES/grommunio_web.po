@@ -4727,8 +4727,8 @@ msgstr "Контакт теки"
 msgid "Folder visible"
 msgstr "Перегляд тек"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "Застосовувати (копіювати) змінені дозволи рекурсивно"
+msgid "Apply (copy) permissions recursively"
+msgstr "Застосовувати (копіювати) дозволи рекурсивно"
 
 msgid "User already exists"
 msgstr "Користувач вже існує"

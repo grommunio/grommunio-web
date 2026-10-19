@@ -4694,8 +4694,8 @@ msgstr "Kausta kontakt"
 msgid "Folder visible"
 msgstr "Kausta nähtavus"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "Rakendada (kopeerida) muudetud õigusi rekursiivselt"
+msgid "Apply (copy) permissions recursively"
+msgstr "Rakendada (kopeerida) õigusi rekursiivselt"
 
 msgid "User already exists"
 msgstr "Kasutaja on juba olemas"

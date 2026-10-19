@@ -4730,8 +4730,8 @@ msgstr "Kontakt katalogu"
 msgid "Folder visible"
 msgstr "Pokaż folder"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "Stosowanie (kopiowanie) zmienionych uprawnień rekurencyjnie"
+msgid "Apply (copy) permissions recursively"
+msgstr "Stosowanie (kopiowanie) uprawnień rekurencyjnie"
 
 msgid "User already exists"
 msgstr "Ten użytkownik już istnieje"

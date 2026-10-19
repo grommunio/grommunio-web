@@ -4694,8 +4694,8 @@ msgstr "Mappkontakt"
 msgid "Folder visible"
 msgstr "Mapp synlig"
 
-msgid "Apply (copy) changed permissions recursively"
-msgstr "Tillämpa (kopiera) ändrade behörigheter rekursivt"
+msgid "Apply (copy) permissions recursively"
+msgstr "Tillämpa (kopiera) behörigheter rekursivt"
 
 msgid "User already exists"
 msgstr "Användaren finns redan"
