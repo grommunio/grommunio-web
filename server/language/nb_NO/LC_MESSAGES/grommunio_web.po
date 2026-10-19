@@ -3271,6 +3271,9 @@ msgstr "Vedlegg"
 msgid "Download Pictures"
 msgstr "Last ned bildene"
 
+msgid "Allow Tracking Elements"
+msgstr "Tillat sporingselementer"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "Legg avsender til listen over sikre avsendere"
 
@@ -3305,6 +3308,10 @@ msgstr "Slike elementer forteller avsenderen eller en tredjepart når du åpner 
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "Bildene vises, bare elementer som ville fortalt avsenderen eller en tredjepart når du åpner denne meldingen, forblir blokkert."
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "Klikk her for å tillate dem."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."

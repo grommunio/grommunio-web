@@ -3271,6 +3271,9 @@ msgstr "Eklenti"
 msgid "Download Pictures"
 msgstr "Resimleri indir"
 
+msgid "Allow Tracking Elements"
+msgstr "İzleme öğelerine izin ver"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "Güvenli gönderenler listesine gönderici ekle"
 
@@ -3305,6 +3308,10 @@ msgstr "Bu tür öğeler, bir iletiyi ne zaman açtığınızı gönderene veya 
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "Resimler gösteriliyor; yalnızca bu iletiyi ne zaman açtığınızı gönderene veya üçüncü bir tarafa bildirecek öğeler engelli kalıyor."
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "İzin vermek için buraya tıklayın."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."

@@ -3271,6 +3271,9 @@ msgstr "Bilagor"
 msgid "Download Pictures"
 msgstr "Ladda ner bilder"
 
+msgid "Allow Tracking Elements"
+msgstr "Tillåt spårningselement"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "Lägg till avsändare i listan över säkra avsändare"
 
@@ -3305,6 +3308,10 @@ msgstr "Sådana element talar om för avsändaren eller en tredje part när du �
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "Bilderna visas, endast element som skulle tala om för avsändaren eller en tredje part när du öppnar meddelandet förblir blockerade."
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "Klicka här för att tillåta dem."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."

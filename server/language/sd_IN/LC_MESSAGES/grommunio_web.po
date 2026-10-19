@@ -3268,6 +3268,9 @@ msgstr ""
 msgid "Download Pictures"
 msgstr ""
 
+msgid "Allow Tracking Elements"
+msgstr ""
+
 msgid "Add Sender to Safe Senders List"
 msgstr ""
 
@@ -3301,6 +3304,10 @@ msgstr ""
 
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
+msgstr ""
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
 msgstr ""
 
 msgctxt "mail.previewpanel"

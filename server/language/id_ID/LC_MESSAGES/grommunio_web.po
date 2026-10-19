@@ -3271,6 +3271,9 @@ msgstr "Lampiran"
 msgid "Download Pictures"
 msgstr "Unduh Gambar"
 
+msgid "Allow Tracking Elements"
+msgstr "Izinkan Elemen Pelacak"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "Tambahkan Pengirim ke Daftar Pengirim Aman"
 
@@ -3305,6 +3308,10 @@ msgstr "Elemen semacam ini memberi tahu pengirim atau pihak ketiga kapan Anda me
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "Gambar ditampilkan, hanya elemen yang akan memberi tahu pengirim atau pihak ketiga kapan Anda membuka pesan ini yang tetap diblokir."
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "Klik di sini untuk mengizinkannya."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."

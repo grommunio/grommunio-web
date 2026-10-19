@@ -3271,6 +3271,9 @@ msgstr "Anexos"
 msgid "Download Pictures"
 msgstr "Baixar Figuras"
 
+msgid "Allow Tracking Elements"
+msgstr "Permitir elementos de rastreamento"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "Adicionar Remetente à Lista dos Remetentes Seguros"
 
@@ -3305,6 +3308,10 @@ msgstr "Esses elementos informam ao remetente ou a terceiros quando você abre u
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "As imagens são exibidas; apenas os elementos que informariam ao remetente ou a terceiros quando você abre esta mensagem continuam bloqueados."
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "Clique aqui para permiti-los."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."

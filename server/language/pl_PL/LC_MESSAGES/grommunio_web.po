@@ -3299,6 +3299,9 @@ msgstr "Załączniki"
 msgid "Download Pictures"
 msgstr "Pobierz obraz"
 
+msgid "Allow Tracking Elements"
+msgstr "Zezwól na elementy śledzące"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "Dołącz nadawcę do listy bezpiecznych nadawców"
 
@@ -3333,6 +3336,10 @@ msgstr "Takie elementy informują nadawcę lub osobę trzecią, kiedy otwierasz 
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "Obrazy są wyświetlane, zablokowane pozostają tylko elementy, które poinformowałyby nadawcę lub osobę trzecią, kiedy otwierasz tę wiadomość."
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "Kliknij tutaj, aby na nie zezwolić."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."

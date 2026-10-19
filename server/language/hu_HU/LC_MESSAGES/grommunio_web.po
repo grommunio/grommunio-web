@@ -3285,6 +3285,9 @@ msgstr "Mellékletek"
 msgid "Download Pictures"
 msgstr "Képek letöltése"
 
+msgid "Allow Tracking Elements"
+msgstr "Nyomkövető elemek engedélyezése"
+
 msgid "Add Sender to Safe Senders List"
 msgstr "Feladó hozzáadása a megbízható feladók listájához"
 
@@ -3319,6 +3322,10 @@ msgstr "Az ilyen elemek jelzik a feladónak vagy harmadik félnek, mikor nyit me
 msgctxt "mail.previewpanel"
 msgid "Pictures are shown, only elements that would tell the sender or a third party when you open this message stay blocked."
 msgstr "A képek megjelennek, csak azok az elemek maradnak letiltva, amelyek jeleznék a feladónak vagy harmadik félnek, mikor nyitja meg ezt az üzenetet."
+
+msgctxt "mail.previewpanel"
+msgid "Click here to allow them."
+msgstr "Kattintson ide az engedélyezésükhöz."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
