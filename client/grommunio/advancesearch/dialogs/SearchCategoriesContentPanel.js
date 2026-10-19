@@ -23,6 +23,12 @@ Grommunio.advancesearch.dialogs.SearchCategoriesContentPanel = Ext.extend(Grommu
 	searchCategoryStore: undefined,
 
 	/**
+	 * @cfg {String} storeEntryId The entryid of the mailbox whose category list
+	 * is offered. When omitted, the per-user list is used.
+	 */
+	storeEntryId: undefined,
+
+	/**
 	 * @constructor
 	 * @param {Object} config Configuration structure
 	 */
@@ -47,6 +53,7 @@ Grommunio.advancesearch.dialogs.SearchCategoriesContentPanel = Ext.extend(Grommu
 			items: [{
 				xtype: 'grommunio.categoriespanel',
 				record: config.record,
+				storeEntryId: config.storeEntryId,
 				ref: 'categoriesPanel',
 				hideActionButtons: true,
 				buttons: [{

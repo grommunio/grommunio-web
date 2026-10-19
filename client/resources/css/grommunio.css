@@ -1824,6 +1824,12 @@ body.k-density-compact {
 .x-grid3-row-over .k-category-additional .k-grid-button-delete {
   display: none; }
 
+/* Names listed although they are not in the category list (set on the item
+   or typed into a search). */
+.k-category-unlisted {
+  font-style: italic;
+  opacity: 0.7; }
+
 .x-grid3 .grommunio-pinned .k-grid-button-pin {
   display: block; }
 

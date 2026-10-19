@@ -1606,9 +1606,18 @@ Grommunio.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	 */
 	onSelectCategory: function ()
 	{
+		// Offer the category list of the searched mailbox, the one Manage
+		// Categories edits, instead of the legacy per-user list.
+		var storeEntryId = this.model.getStore().searchStoreEntryId;
+		if (!storeEntryId) {
+			var folder = this.model.getDefaultFolder();
+			storeEntryId = folder ? folder.get('store_entryid') : undefined;
+		}
+
 		Grommunio.advancesearch.Actions.openSearchCategoryContentPanel({
 			modal: true,
 			searchCategoryStore: this.searchCategoriesStore,
+			storeEntryId: storeEntryId,
 			scope: this
 		});
 	},
