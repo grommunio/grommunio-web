@@ -350,7 +350,7 @@ Grommunio.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel
 					hideLabel: true,
 					itemCls: 'k-recursive-item',
 					name: 'recursive',
-					boxLabel: _('Apply (copy) changed permissions recursively'),
+					boxLabel: _('Apply (copy) permissions recursively'),
 					handler: this.onFolderFieldChange,
 					scope: this,
 					ref: 'recursivePermissionsCheckbox'
