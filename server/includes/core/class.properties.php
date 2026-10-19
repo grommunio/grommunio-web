@@ -1133,6 +1133,7 @@ class Properties {
 			$properties["note_link_id"] = "PT_STRING8:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkId";
 			$properties["note_link_entryid"] = "PT_BINARY:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkEntryId";
 			$properties["note_link_parent_entryid"] = "PT_BINARY:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkParentEntryId";
+			$properties["note_link_store_entryid"] = "PT_BINARY:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkStoreEntryId";
 			$properties["note_link_subject"] = "PT_STRING8:PS_PUBLIC_STRINGS:GrommunioWebNoteLinkSubject";
 
 			return getPropIdsFromStrings($this->store, $properties);

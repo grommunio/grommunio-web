@@ -69,6 +69,7 @@ Grommunio.note.Actions = {
 			note_link_id: mailRecord.get('internet_message_id'),
 			note_link_entryid: mailRecord.get('entryid'),
 			note_link_parent_entryid: mailRecord.get('parent_entryid'),
+			note_link_store_entryid: mailRecord.get('store_entryid'),
 			note_link_subject: mailRecord.get('subject')
 		});
 
@@ -127,12 +128,13 @@ Grommunio.note.Actions = {
 			return undefined;
 		}
 
-		// The note always lives in the same store as the mail it annotates, so the
-		// note's own store locates the mail.
+		// Older linked notes always lived beside their mail and therefore do not
+		// carry note_link_store_entryid. Keep using the note's store for those.
+		var storeEntryid = noteRecord.get('note_link_store_entryid') || noteRecord.get('store_entryid');
 		var mail = Grommunio.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Note', {
 			entryid: entryid,
 			parent_entryid: parentEntryid,
-			store_entryid: noteRecord.get('store_entryid')
+			store_entryid: storeEntryid
 		}, entryid);
 
 		mail.opened = false;

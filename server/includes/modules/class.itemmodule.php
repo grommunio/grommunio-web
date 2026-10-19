@@ -157,6 +157,7 @@ class ItemModule extends Module {
 
 							case "copy":
 							case "move":
+							case "copyToNote":
 								$this->copy($store, $parententryid, $entryid, $action);
 								break;
 
@@ -450,6 +451,7 @@ class ItemModule extends Module {
 									break;
 
 								case "copy":
+								case "copyToNote":
 									$e->setDisplayMessage(_("Could not copy message."));
 									break;
 
@@ -1090,7 +1092,8 @@ class ItemModule extends Module {
 			$dest_storeentryid = $destStoreProps[PR_ENTRYID];
 
 			$moveMessages = false;
-			if (($action["message_action"]["action_type"] ?? null) == "move") {
+			$actionType = $action["message_action"]["action_type"] ?? null;
+			if ($actionType == "move") {
 				$moveMessages = true;
 			}
 
@@ -1129,12 +1132,17 @@ class ItemModule extends Module {
 			// they are not mistaken for the freshly copied/moved items.
 			$searchKeys = [];
 			$existingEntryids = [];
-			if (!empty($action["message_action"]["track_new_entryids"])) {
+			if ($actionType !== "copyToNote" && !empty($action["message_action"]["track_new_entryids"])) {
 				$searchKeys = $GLOBALS["operations"]->getMessageSearchKeys($store, $entryids);
 				$existingEntryids = $GLOBALS["operations"]->getFolderEntryidsBySearchKey($dest_store, $dest_folderentryid, $searchKeys);
 			}
 
-			$result = $GLOBALS["operations"]->copyMessages($store, $parententryid, $dest_store, $dest_folderentryid, $entryids, $moveMessages ? $skipCopyProperties : $this->skipCopyProperties, $moveMessages, $copyProps);
+			if ($actionType === "copyToNote") {
+				$result = $GLOBALS["operations"]->copyMessagesToNotes($store, $dest_store, $dest_folderentryid, $entryids);
+			}
+			else {
+				$result = $GLOBALS["operations"]->copyMessages($store, $parententryid, $dest_store, $dest_folderentryid, $entryids, $moveMessages ? $skipCopyProperties : $this->skipCopyProperties, $moveMessages, $copyProps);
+			}
 
 			if ($result) {
 				if ($moveMessages) {

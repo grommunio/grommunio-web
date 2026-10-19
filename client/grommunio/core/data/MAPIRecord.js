@@ -673,6 +673,19 @@ Grommunio.core.data.MAPIRecord = Ext.extend(Ext.data.Record, {
 	},
 
 	/**
+	 * Create a linked sticky note from this message in the supplied Notes folder.
+	 * The server performs the conversion so the complete plain-text body is used,
+	 * even when this record only contains the fields returned by a list module.
+	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The Notes folder
+	 */
+	copyToNote: function(folder)
+	{
+		this.addMessageAction('action_type', 'copyToNote');
+		this.addMessageAction('destination_parent_entryid', folder.get('entryid'));
+		this.addMessageAction('destination_store_entryid', folder.get('store_entryid'));
+	},
+
+	/**
 	 * Move the {@link Grommunio.core.data.MAPIRecord record} to a different
 	 * {@link Grommunio.hierarchy.data.MAPIFolderRecord folder}.
 	 * @param {Grommunio.hierarchy.data.MAPIFolderRecord} folder The folder to copy the record to
