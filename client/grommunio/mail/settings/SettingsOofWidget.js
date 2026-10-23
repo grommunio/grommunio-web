@@ -261,8 +261,6 @@ Grommunio.mail.settings.SettingsOofWidget = Ext.extend(Grommunio.settings.ui.Set
 						xtype: 'textfield',
 						name: 'internal_subject',
 						ref: '../../../intSubjectField',
-						emptyText: _('Out of Office'),
-						defaultValue: _('Out of Office'),
 						flex: 1,
 						listeners: {
 							change: this.onFieldChange,
@@ -355,8 +353,6 @@ Grommunio.mail.settings.SettingsOofWidget = Ext.extend(Grommunio.settings.ui.Set
 						xtype: 'textfield',
 						name: 'external_subject',
 						ref: '../../../extSubjectField',
-						emptyText: _('Out of Office'),
-						defaultValue: _('Out of Office'),
 						flex: 1,
 						listeners: {
 							change: this.onFieldChange,
@@ -552,11 +548,9 @@ Grommunio.mail.settings.SettingsOofWidget = Ext.extend(Grommunio.settings.ui.Set
 			this.backDateTimeField.setValue(this.backDateTimeField.defaultValue);
 		}
 
-		var intSubject = record.get(this.intSubjectField.name) || this.intSubjectField.defaultValue;
-		this.intSubjectField.setValue(intSubject);
+		this.intSubjectField.setValue(record.get(this.intSubjectField.name) || '');
 
-		var extSubject = record.get(this.extSubjectField.name) || this.extSubjectField.defaultValue;
-		this.extSubjectField.setValue(extSubject);
+		this.extSubjectField.setValue(record.get(this.extSubjectField.name) || '');
 
 		var intBody = record.get(this.intBodyField.name) || this.intBodyField.defaultValue;
 		this.intBodyField.setValue(intBody);
@@ -599,10 +593,10 @@ Grommunio.mail.settings.SettingsOofWidget = Ext.extend(Grommunio.settings.ui.Set
 	 */
 	updateSettings: function()
 	{
-		// We must either set the requested subject, or the default subject.
-		// A subject of nothing but spaces is as empty as no subject at all.
-		var intsubject = this.intSubjectField.getValue().trim() || this.intSubjectField.emptyText;
-		var extsubject = this.extSubjectField.getValue().trim() || this.extSubjectField.emptyText;
+		// An empty subject lets the server title the reply like Exchange
+		// does, from the subject of the incoming message.
+		var intsubject = this.intSubjectField.getValue().trim();
+		var extsubject = this.extSubjectField.getValue().trim();
 
 		// We must either set the requested body, or the default body
 		var intbody = this.intBodyField.getValue() || this.intBodyField.emptyText;
