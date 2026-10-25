@@ -26,6 +26,15 @@ define('PLUGIN_FILES_ONLYOFFICE_ENABLE', false);
 define('PLUGIN_FILES_ONLYOFFICE_FILETYPES', ".doc,.docx,.docxf,.oform,.odp,.ods,.odt,.ppt,.pptx,.xls,.xlsx");
 
 /*
+ * Name of the Nextcloud app that serves the office editor. The Files plugin builds
+ * <server>/<webroot>/index.php/apps/<name>/ from it. Use the default for the ONLYOFFICE
+ * connector. Set it to "eurooffice" for the Euro-Office connector, which exposes the same
+ * routes under its own app id. Only letters, digits, "_" and "-" are accepted.
+ * Default: onlyoffice
+ */
+define('PLUGIN_FILES_ONLYOFFICE_APP', 'onlyoffice');
+
+/*
  * Display a confirmation popup to the user before a file gets deleted.
  */
 define('PLUGIN_FILES_ASK_BEFORE_DELETE', true);
