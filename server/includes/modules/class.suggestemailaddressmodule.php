@@ -26,7 +26,7 @@ class suggestEmailAddressModule extends Module {
 	public const MAX_SUGGESTIONS = 10;
 
 	// Shorter queries match too much of a large address book to be useful.
-	public const DIRECTORY_MIN_CHARS = 3;
+	public const DIRECTORY_MIN_CHARS = 2;
 
 	#[Override]
 	protected function getExecutionLockName() {
@@ -157,11 +157,20 @@ class suggestEmailAddressModule extends Module {
 		$free = self::MAX_SUGGESTIONS - count($data['results']);
 		if ($free > 0 && ENABLE_DIRECTORY_SUGGESTIONS && ($action['directory'] ?? true) !== false &&
 			mb_strlen($query) >= self::DIRECTORY_MIN_CHARS) {
+			// A history entry that is only the bare address does not hide a named directory
+			// or contact entry for the same address; it is replaced by that one below.
 			$known = [];
 			foreach ($data['results'] as $recipient) {
-				$known[strtolower((string) $recipient['smtp_address'])] = true;
+				$address = strtolower((string) $recipient['smtp_address']);
+				if (strtolower(trim((string) ($recipient['display_name'] ?? ''))) !== $address) {
+					$known[$address] = true;
+				}
 			}
-			foreach ($this->getDirectoryRecipients($query, $free, $known) as $recipient) {
+			$found = $this->getDirectoryRecipients($query, $free, $known);
+			$named = array_flip(array_map(fn ($r) => strtolower((string) $r['smtp_address']), $found));
+			$data['results'] = array_values(array_filter($data['results'],
+				fn ($r) => !isset($named[strtolower((string) $r['smtp_address'])])));
+			foreach ($found as $recipient) {
 				$recipient['id'] = count($data['results']) + 1;
 				$data['results'][] = $recipient;
 			}
