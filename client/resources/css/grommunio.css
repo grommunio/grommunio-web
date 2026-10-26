@@ -7366,7 +7366,8 @@ body .k-category-block {
   color: #ffffff;
   width: auto !important;
   /* calculation of Ext is incorrect */
-  white-space: nowrap; }
+  height: auto;
+  white-space: normal; }
 
 /* Allow multi-line text for S/MIME button tooltips */
 .x-tip.smime-tooltip .x-tip-body {
