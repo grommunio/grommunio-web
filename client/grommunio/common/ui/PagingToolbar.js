@@ -305,7 +305,10 @@ Grommunio.common.ui.PagingToolbar = Ext.extend(Ext.PagingToolbar, {
 		o.restriction[pn.restriction.limit] = this.pageSize;
 		if(this.fireEvent('beforechange', this, o) !== false){
 			if (this.store.hasFilterApplied) {
-				o.restriction["filter"] = this.store.getFilterRestriction(Grommunio.common.data.Filters.UNREAD);
+				var lastRestriction = this.store?.lastOptions?.params?.restriction;
+				// Keep the filter used for the current result set between the pagination requests.
+				o.restriction["filter"] = lastRestriction && Ext.isDefined(lastRestriction.filter) ?
+					lastRestriction.filter : this.store.getFilterRestriction(Grommunio.common.data.Filters.UNREAD);
 				this.cursor = 0;
 			}
 			this.store.load({
