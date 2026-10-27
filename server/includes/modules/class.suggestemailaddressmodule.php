@@ -26,7 +26,7 @@ class suggestEmailAddressModule extends Module {
 	public const MAX_SUGGESTIONS = 10;
 
 	// Shorter queries match too much of a large address book to be useful.
-	public const DIRECTORY_MIN_CHARS = 3;
+	public const DIRECTORY_MIN_CHARS = 2;
 
 	#[Override]
 	protected function getExecutionLockName() {
@@ -157,11 +157,20 @@ class suggestEmailAddressModule extends Module {
 		$free = self::MAX_SUGGESTIONS - count($data['results']);
 		if ($free > 0 && ENABLE_DIRECTORY_SUGGESTIONS && ($action['directory'] ?? true) !== false &&
 			mb_strlen($query) >= self::DIRECTORY_MIN_CHARS) {
+			// A history entry that is only the bare address does not hide a named directory
+			// or contact entry for the same address; it is replaced by that one below.
 			$known = [];
 			foreach ($data['results'] as $recipient) {
-				$known[strtolower((string) $recipient['smtp_address'])] = true;
+				$address = strtolower((string) $recipient['smtp_address']);
+				if (strtolower(trim((string) ($recipient['display_name'] ?? ''))) !== $address) {
+					$known[$address] = true;
+				}
 			}
-			foreach ($this->getDirectoryRecipients($query, $free, $known) as $recipient) {
+			$found = $this->getDirectoryRecipients($query, $free, $known);
+			$named = array_flip(array_map(fn ($r) => strtolower((string) $r['smtp_address']), $found));
+			$data['results'] = array_values(array_filter($data['results'],
+				fn ($r) => !isset($named[strtolower((string) $r['smtp_address'])])));
+			foreach ($found as $recipient) {
 				$recipient['id'] = count($data['results']) + 1;
 				$data['results'][] = $recipient;
 			}
@@ -172,8 +181,11 @@ class suggestEmailAddressModule extends Module {
 	}
 
 	/**
-	 * Look the query up in the global address book and then in the default contacts
-	 * folder, each with a single restricted table query of at most $limit rows.
+	 * Look the query up in the global address book, then in the default contacts folder
+	 * and finally in the contacts folders of shared stores and the public store, each
+	 * with a single restricted table query of at most $limit rows. The shared and public
+	 * folders follow ENABLE_SHARED_CONTACT_FOLDERS and ENABLE_PUBLIC_CONTACT_FOLDERS, the
+	 * same switches that decide which contact folders the address book dialog lists.
 	 *
 	 * @param string $query search text
 	 * @param int    $limit maximum number of entries
@@ -228,40 +240,119 @@ class suggestEmailAddressModule extends Module {
 			$store = $GLOBALS['mapisession']->getDefaultMessageStore();
 			$root = mapi_msgstore_openentry($store);
 			$contactsId = mapi_getprops($root, [PR_IPM_CONTACT_ENTRYID])[PR_IPM_CONTACT_ENTRYID] ?? null;
-			if ($contactsId === null) {
-				return $results;
-			}
-			$props = getPropIdsFromStrings($store, [
-				'email_address_1' => 'PT_STRING8:PSETID_Address:' . PidLidEmail1EmailAddress,
-				'email_address_2' => 'PT_STRING8:PSETID_Address:' . PidLidEmail2EmailAddress,
-				'email_address_3' => 'PT_STRING8:PSETID_Address:' . PidLidEmail3EmailAddress,
-			]);
-			$emails = [$props['email_address_1'], $props['email_address_2'], $props['email_address_3']];
-			$contacts = mapi_msgstore_openentry($store, $contactsId);
-			$table = mapi_folder_getcontentstable($contacts, MAPI_DEFERRED_ERRORS);
-			mapi_table_restrict($table, [RES_AND, [
-				[RES_PROPERTY, [RELOP => RELOP_EQ, ULPROPTAG => PR_MESSAGE_CLASS, VALUE => 'IPM.Contact']],
-				$match(array_merge([PR_DISPLAY_NAME], $emails)),
-			]], TBL_BATCH);
-			foreach (mapi_table_queryrows($table, array_merge([PR_DISPLAY_NAME], $emails), 0, $limit) as $row) {
-				foreach ($emails as $tag) {
-					if (!empty($row[$tag]) && str_contains((string) $row[$tag], '@')) {
-						$add([
-							'display_name' => $row[PR_DISPLAY_NAME] ?? $row[$tag],
-							'smtp_address' => $row[$tag],
-							'email_address' => $row[$tag],
-							'address_type' => 'SMTP',
-							'object_type' => MAPI_MAILUSER,
-						]);
-					}
-				}
+			if ($contactsId !== null) {
+				$this->addContactMatches($store, $contactsId, $match, $limit, $add);
 			}
 		}
 		catch (MAPIException $e) {
 			$e->setHandled();
 		}
 
+		foreach ($this->getSharedContactFolders() as $folder) {
+			if (count($results) >= $limit) {
+				break;
+			}
+
+			try {
+				$this->addContactMatches($folder['store'], $folder['entryid'], $match, $limit, $add);
+			}
+			catch (MAPIException $e) {
+				// A folder that cannot be read must not hide the suggestions of the others.
+				$e->setHandled();
+			}
+		}
+
 		return $results;
+	}
+
+	/**
+	 * Hand every e-mail address of the contacts in one folder that match the query to $add.
+	 *
+	 * @param resource $store         store that holds the folder
+	 * @param string   $folderEntryId entry id of the contacts folder
+	 * @param callable $match         builds the restriction for a list of property tags
+	 * @param int      $limit         maximum number of rows to read
+	 * @param callable $add           receives one suggestion entry per address
+	 */
+	private function addContactMatches($store, $folderEntryId, $match, $limit, $add) {
+		// Named properties are numbered per store, so they have to be looked up for each one.
+		$props = getPropIdsFromStrings($store, [
+			'email_address_1' => 'PT_STRING8:PSETID_Address:' . PidLidEmail1EmailAddress,
+			'email_address_2' => 'PT_STRING8:PSETID_Address:' . PidLidEmail2EmailAddress,
+			'email_address_3' => 'PT_STRING8:PSETID_Address:' . PidLidEmail3EmailAddress,
+		]);
+		$emails = [$props['email_address_1'], $props['email_address_2'], $props['email_address_3']];
+		$contacts = mapi_msgstore_openentry($store, $folderEntryId);
+		$table = mapi_folder_getcontentstable($contacts, MAPI_DEFERRED_ERRORS);
+		mapi_table_restrict($table, [RES_AND, [
+			[RES_PROPERTY, [RELOP => RELOP_EQ, ULPROPTAG => PR_MESSAGE_CLASS, VALUE => 'IPM.Contact']],
+			$match(array_merge([PR_DISPLAY_NAME], $emails)),
+		]], TBL_BATCH);
+		foreach (mapi_table_queryrows($table, array_merge([PR_DISPLAY_NAME], $emails), 0, $limit) as $row) {
+			foreach ($emails as $tag) {
+				if (!empty($row[$tag]) && str_contains((string) $row[$tag], '@')) {
+					$add([
+						'display_name' => $row[PR_DISPLAY_NAME] ?? $row[$tag],
+						'smtp_address' => $row[$tag],
+						'email_address' => $row[$tag],
+						'address_type' => 'SMTP',
+						'object_type' => MAPI_MAILUSER,
+					]);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Contacts folders the user can see besides the own one: those of the shared
+	 * (delegate) stores that are open and the public ones. They come from the same
+	 * session calls and follow the same switches as the contact folders the address
+	 * book dialog lists, so a folder shows up in the suggestions exactly when the
+	 * dialog offers it.
+	 *
+	 * @return array list of ['store' => store, 'entryid' => folder entry id]
+	 */
+	public function getSharedContactFolders() {
+		$session = $GLOBALS['mapisession'];
+		$folders = [];
+
+		if (ENABLE_SHARED_CONTACT_FOLDERS) {
+			try {
+				foreach ($session->getOtherUserStore() as $sharedStore) {
+					try {
+						$provider = mapi_getprops($sharedStore, [PR_MDB_PROVIDER])[PR_MDB_PROVIDER] ?? null;
+						if ($provider != ZARAFA_STORE_DELEGATE_GUID) {
+							continue;
+						}
+						foreach ($session->getContactFoldersForABContactProvider($sharedStore) as $folder) {
+							$folders[] = ['store' => $sharedStore, 'entryid' => $folder[PR_ENTRYID]];
+						}
+					}
+					catch (MAPIException $e) {
+						$e->setHandled();
+					}
+				}
+			}
+			catch (MAPIException $e) {
+				$e->setHandled();
+			}
+		}
+
+		if (ENABLE_PUBLIC_CONTACT_FOLDERS && ENABLE_PUBLIC_FOLDERS) {
+			try {
+				$publicStore = $session->getPublicMessageStore();
+				if ($publicStore !== false) {
+					foreach ($session->getContactFoldersForABContactProvider($publicStore) as $folder) {
+						$folders[] = ['store' => $publicStore, 'entryid' => $folder[PR_ENTRYID]];
+					}
+				}
+			}
+			catch (MAPIException $e) {
+				$e->setHandled();
+			}
+		}
+
+		return $folders;
 	}
 
 	/**
