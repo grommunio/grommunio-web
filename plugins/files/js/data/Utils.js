@@ -488,9 +488,16 @@ Grommunio.plugins.files.data.Utils = {
 				webroot = '/' + webroot;
 			}
 
+			// The app id comes from the admin config. Anything that is not a plain app id
+			// falls back to the default instead of ending up in the URL path.
+			var appName = String(container.getSettingsModel().get('grommunio/v1/plugins/files/onlyoffice_app') || '');
+			if (!/^[A-Za-z0-9_-]+$/.test(appName)) {
+				appName = 'onlyoffice';
+			}
+
 			return {
 				origin: origin,
-				app: origin + webroot + '/index.php/apps/onlyoffice/'
+				app: origin + webroot + '/index.php/apps/' + appName + '/'
 			};
 		}
 	},
