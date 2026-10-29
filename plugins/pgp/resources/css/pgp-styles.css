@@ -48,7 +48,7 @@
 .pgp-info .x-btn-text {
 	white-space: normal;
 	text-align: left;
-	color: #1d2939;
+	color: var(--ui-text);
 }
 
 .pgp-info-info {

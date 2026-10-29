@@ -87,6 +87,30 @@ body.dark-mode.theme-highcontrast {
 	/* Foreground-only alias for elements that use primary as text/indicator color */
 	--theme-primary-fg: #ffffff;
 	--ui-check-mark: #000000;
+	--dm-fg: #ffffff;
+	--dm-fg-secondary: #ffffff;
+	--dm-fg-muted: #ffffff;
+	--dm-border: #808080;
+	--dm-border-strong: #c8c8c8;
+	--ui-focus-ring: color-mix(in srgb, #ffffff 50%, transparent);
+	--ui-accent-text: #ffffff;
+	--ui-accent-soft: var(--dm-bg-elevated);
+	--ui-accent-ring: color-mix(in srgb, #ffffff 45%, transparent);
+	/* The light palette of the theme loads later and would win otherwise */
+	--theme-selection-bg: #264f78;
+	--theme-border-color: var(--dm-bg-elevated);
+	--theme-border-hover: var(--dm-border-strong);
+	--theme-panel-bg: var(--dm-bg-paper);
+}
+@media (prefers-contrast: more) {
+	body.dark-mode {
+		--dm-fg: #ffffff;
+		--dm-fg-secondary: #ffffff;
+		--dm-fg-muted: #ffffff;
+		--dm-border: #808080;
+		--dm-border-strong: #c8c8c8;
+		--ui-focus-ring: color-mix(in srgb, #ffffff 50%, transparent);
+	}
 }
 
 /* Links, email links, and other foreground uses of --theme-primary-color (#000)
@@ -1068,7 +1092,7 @@ body.dark-mode .x-btn.x-btn-selected :is(.x-btn-small, .x-btn-medium, .x-btn-lar
 /* Text-icon buttons (non-action): invert(1) flips icon+text together.
    Set text to dark so invert makes it light. Exclude action buttons - they have white icons already.
    Also exclude the coloured-icon buttons, which are NOT inverted and need light text. */
-body.dark-mode .x-btn.x-btn-text-icon:not(.grommunio-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text:not(.icon_calendar_appt_accept):not(.icon_calendar_appt_tentative):not(.icon_calendar_appt_cancelled):not(.icon_no_response_required) {
+body.dark-mode .x-btn.x-btn-text-icon:not(.grommunio-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text:not(.icon_calendar_appt_accept):not(.icon_calendar_appt_tentative):not(.icon_calendar_appt_cancelled):not(.icon_no_response_required):not(.icon_security_sign, .icon_security_sign_selected, .icon_security_encrypt, .icon_security_encrypt_selected) {
 	color: #1a1a1a !important;
 }
 
