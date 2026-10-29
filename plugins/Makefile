@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: Copyright 2005 - 2016 Zarafa B.V. and its licensors
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-SUBDIRS = ai archive chat desktopnotifications files filesbackendDefault filesbackendSeafile intranet kendox maps mdm meet passwd pgp smime templatesnippets
+SUBDIRS = ai archive chat desktopnotifications files filesbackendDefault filesbackendSeafile intranet kendox maps mdm meet passkey passwd pgp smime templatesnippets
 
 .PHONY: subdirs $(SUBDIRS)
 
