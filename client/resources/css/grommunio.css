@@ -2781,7 +2781,7 @@ input.x-form-text.k-searchfolder-field {
   box-shadow: none !important;
   padding: 0 8px 0 26px !important;
   font-size: 13px;
-  color: #333;
+  color: var(--ui-text);
   transition: background-color 0.15s ease; }
 input.x-form-text.k-searchfolder-field:hover {
   background-color: transparent !important;
@@ -5785,7 +5785,7 @@ body.grommunio-webclient > .ext-el-mask {
 .grommunio-searchgrid .x-grid3-hd-row .x-grid3-hd.x-grid3-cell.x-grid3-td-column_icon.x-grid3-cell-first {
   width: 100% !important; }
 .grommunio-searchgrid span.body {
-  opacity: 0.65; }
+  color: var(--ui-text-3); }
 .grommunio-searchgrid span.subject {
   /* some padding to have some space between the fields */
   padding-right: 12px; }
@@ -6111,7 +6111,7 @@ body.grommunio-webclient > .ext-el-mask {
     #grommunio-mainpanel-contentpanel-settings .grommunio-settings-category-widget-panel .grommunio-settings-widget:last-child {
       margin-bottom: 0; }
     #grommunio-mainpanel-contentpanel-settings .grommunio-settings-category-widget-panel .k-settings-label-minor {
-      opacity: 0.7;
+      color: var(--ui-text-3);
       margin-left: 3px; }
     .k-settings-profile-widget .x-panel-body {
       padding: 0 !important; }
@@ -7274,7 +7274,7 @@ body .k-category-block {
     background: var(--ui-surface-3);
     color: var(--ui-text); }
   .k-appt-tip.k-light .k-appt-tip-head {
-    color: #1d2939; }
+    color: #000000; }
   .k-appt-tip.k-dark .k-appt-tip-head {
     color: #ffffff; }
   .k-appt-tip .k-appt-tip-title {
@@ -7559,7 +7559,7 @@ body {
   --ui-surface: #ffffff;
   --ui-surface-2: #f7f8fa;
   --ui-surface-3: #eceef2;
-  --ui-text: #1d2939;
+  --ui-text: #000000;
   --ui-text-2: #475467;
   --ui-text-3: #667085;
   --ui-border: #e4e7ec;

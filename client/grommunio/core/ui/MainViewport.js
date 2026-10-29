@@ -94,7 +94,7 @@ Grommunio.core.ui.MainViewport = Ext.extend(Ext.Viewport, {
 					overflow: 'visible',
 					padding: '8px 16px',
 					background: '#fff',
-					color: '#1d2939',
+					color: '#000000',
 					'font-size': '14px',
 					'font-weight': '600',
 					'border-radius': '4px',
