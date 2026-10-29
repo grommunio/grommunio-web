@@ -1092,7 +1092,7 @@ body.dark-mode .x-btn.x-btn-selected :is(.x-btn-small, .x-btn-medium, .x-btn-lar
 /* Text-icon buttons (non-action): invert(1) flips icon+text together.
    Set text to dark so invert makes it light. Exclude action buttons - they have white icons already.
    Also exclude the coloured-icon buttons, which are NOT inverted and need light text. */
-body.dark-mode .x-btn.x-btn-text-icon:not(.grommunio-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text:not(.icon_calendar_appt_accept):not(.icon_calendar_appt_tentative):not(.icon_calendar_appt_cancelled):not(.icon_no_response_required) {
+body.dark-mode .x-btn.x-btn-text-icon:not(.grommunio-action) :is(.x-btn-small, .x-btn-medium, .x-btn-large) button.x-btn-text:not(.icon_calendar_appt_accept):not(.icon_calendar_appt_tentative):not(.icon_calendar_appt_cancelled):not(.icon_no_response_required):not(.icon_security_sign, .icon_security_sign_selected, .icon_security_encrypt, .icon_security_encrypt_selected) {
 	color: #1a1a1a !important;
 }
 
