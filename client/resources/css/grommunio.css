@@ -7656,6 +7656,26 @@ body.theme-highcontrast,
   --theme-gradient-end: #323232;
 }
 
+/* High contrast: a single text level and component borders of at least 3:1 */
+body.theme-highcontrast:not(.dark-mode) {
+  --ui-text: #000000;
+  --ui-text-2: #000000;
+  --ui-text-3: #000000;
+  --ui-border: #8a8a8a;
+  --ui-border-strong: #595959;
+  --ui-focus-ring: color-mix(in srgb, var(--theme-primary-color) 50%, transparent);
+}
+@media (prefers-contrast: more) {
+  body:not(.dark-mode) {
+    --ui-text: #000000;
+    --ui-text-2: #000000;
+    --ui-text-3: #000000;
+    --ui-border: #8a8a8a;
+    --ui-border-strong: #595959;
+    --ui-focus-ring: color-mix(in srgb, var(--theme-primary-color) 50%, transparent);
+  }
+}
+
 /* Cyan Theme - Material Design Cyan */
 body.theme-cyan,
 .k-theme-dot.theme-cyan {

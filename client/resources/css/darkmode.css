@@ -87,6 +87,30 @@ body.dark-mode.theme-highcontrast {
 	/* Foreground-only alias for elements that use primary as text/indicator color */
 	--theme-primary-fg: #ffffff;
 	--ui-check-mark: #000000;
+	--dm-fg: #ffffff;
+	--dm-fg-secondary: #ffffff;
+	--dm-fg-muted: #ffffff;
+	--dm-border: #808080;
+	--dm-border-strong: #c8c8c8;
+	--ui-focus-ring: color-mix(in srgb, #ffffff 50%, transparent);
+	--ui-accent-text: #ffffff;
+	--ui-accent-soft: var(--dm-bg-elevated);
+	--ui-accent-ring: color-mix(in srgb, #ffffff 45%, transparent);
+	/* The light palette of the theme loads later and would win otherwise */
+	--theme-selection-bg: #264f78;
+	--theme-border-color: var(--dm-bg-elevated);
+	--theme-border-hover: var(--dm-border-strong);
+	--theme-panel-bg: var(--dm-bg-paper);
+}
+@media (prefers-contrast: more) {
+	body.dark-mode {
+		--dm-fg: #ffffff;
+		--dm-fg-secondary: #ffffff;
+		--dm-fg-muted: #ffffff;
+		--dm-border: #808080;
+		--dm-border-strong: #c8c8c8;
+		--ui-focus-ring: color-mix(in srgb, #ffffff 50%, transparent);
+	}
 }
 
 /* Links, email links, and other foreground uses of --theme-primary-color (#000)
