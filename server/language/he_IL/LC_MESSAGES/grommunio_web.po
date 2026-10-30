@@ -8499,6 +8499,9 @@ msgstr "ההעתקה נכשלה"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "לא ניתן להגיע לשרת הקבצים. נא לאמת את החיבור."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "לא ניתן לאמת את תעודת ה-TLS של שרת הקבצים."
+
 msgid "Unknown backend"
 msgstr "קצה אחורי לא ידוע"
 

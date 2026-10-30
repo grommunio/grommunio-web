@@ -8501,6 +8501,9 @@ msgstr "Penyalinan gagal"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Server file tidak dapat dijangkau. Harap verifikasi koneksi."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "Sertifikat TLS server file tidak dapat diverifikasi."
+
 msgid "Unknown backend"
 msgstr "Backend tidak dikenal"
 

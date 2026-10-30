@@ -8463,6 +8463,9 @@ msgstr "복사 실패"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "파일 서버에 연결할 수 없습니다. 연결을 확인하세요."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "파일 서버의 TLS 인증서를 확인할 수 없습니다."
+
 msgid "Unknown backend"
 msgstr "알 수 없는 백엔드"
 

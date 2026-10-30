@@ -8499,6 +8499,9 @@ msgstr "Afritun mistókst"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Ekki er hægt að ná í skráaþjón. Vinsamlegast staðfestu tenginguna."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "Ekki tókst að staðfesta TLS-vottorð skráaþjónsins."
+
 msgid "Unknown backend"
 msgstr "Óþekktur bakendi"
 

@@ -8499,6 +8499,9 @@ msgstr "کپی نشد"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "فایل سرور قابل دسترسی نیست. لطفاً اتصال را تأیید کنید."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "گواهی TLS فایل سرور تأیید نشد."
+
 msgid "Unknown backend"
 msgstr "Backend ناشناخته"
 

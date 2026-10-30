@@ -8648,6 +8648,9 @@ msgstr "فشل النسخ"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "خادم الملفات غير قابل للوصول. الرجاء التحقق من الاتصال."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "تعذر التحقق من شهادة TLS الخاصة بخادم الملفات."
+
 msgid "Unknown backend"
 msgstr "واجهة خلفية غير معروفة"
 

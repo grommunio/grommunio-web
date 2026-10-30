@@ -8501,6 +8501,9 @@ msgstr "Falha na cópia"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "O servidor de arquivos não pode ser acessado. Verifique a conexão."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "O certificado TLS do servidor de arquivos não pôde ser verificado."
+
 msgid "Unknown backend"
 msgstr "Backend desconhecido"
 

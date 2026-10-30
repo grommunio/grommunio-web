@@ -8501,6 +8501,9 @@ msgstr "No s'ha pogut copiar"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "No es pot accedir al servidor de fitxers. Verifiqueu la connexió."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "No s'ha pogut verificar el certificat TLS del servidor de fitxers."
+
 msgid "Unknown backend"
 msgstr "Backend desconegut"
 

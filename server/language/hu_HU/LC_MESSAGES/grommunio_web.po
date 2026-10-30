@@ -8522,6 +8522,9 @@ msgstr "A másolás sikertelen"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "A fájlkiszolgáló nem érhető el. Kérjük, ellenőrizze a kapcsolatot."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "A fájlkiszolgáló TLS-tanúsítványa nem ellenőrizhető."
+
 msgid "Unknown backend"
 msgstr "Ismeretlen háttértár"
 

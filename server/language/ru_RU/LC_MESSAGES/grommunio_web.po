@@ -8538,6 +8538,9 @@ msgstr "Копирование не удалось"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Файловый сервер недоступен. Пожалуйста, проверьте соединение."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "Не удалось проверить TLS-сертификат файлового сервера."
+
 msgid "Unknown backend"
 msgstr "Неизвестный сервер"
 
