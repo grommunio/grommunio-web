@@ -468,7 +468,6 @@ Grommunio.plugins.kendox.UploadDialog = Ext.extend(Grommunio.core.ui.ContentPane
 			selectedAttachments: selectedAttachments,
 			environment: this.configEnvironment,
 			apiUrl: this.configApiUrl,
-			userEMail: user.getSMTPAddress(),
 		};
 		container.getRequest().singleRequest(
 			"kendoxmodule",
