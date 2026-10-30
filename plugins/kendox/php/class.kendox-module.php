@@ -65,7 +65,7 @@ class KendoxModule extends Module {
 							break;
 
 						case "upload":
-							$response = $this->upload($actionData["storeId"], $actionData["mailEntryId"], $actionData["uploadType"], $actionData["selectedAttachments"], $actionData["environment"], $actionData["apiUrl"], $actionData["userEMail"]);
+							$response = $this->upload($actionData["storeId"], $actionData["mailEntryId"], $actionData["uploadType"], $actionData["selectedAttachments"], $actionData["environment"], $actionData["apiUrl"]);
 							$this->addActionData($actionType, $response);
 							$GLOBALS['bus']->addData($this->getResponseData());
 							break;
@@ -128,11 +128,14 @@ class KendoxModule extends Module {
 	 * @param mixed  $selectedAttachments
 	 * @param mixed  $environment
 	 * @param mixed  $apiUrl
-	 * @param mixed  $userEMail
 	 *
 	 * @return array upload result
 	 */
-	private function upload($storeId, $mailEntryId, $uploadType, $selectedAttachments, $environment, $apiUrl, $userEMail) {
+	private function upload($storeId, $mailEntryId, $uploadType, $selectedAttachments, $environment, $apiUrl) {
+		$userEMail = $GLOBALS['mapisession']->getSMTPAddress();
+		if (!is_string($userEMail) || $userEMail === '') {
+			throw new Exception("The e-mail address of the current user is unknown.");
+		}
 		$emlFile = null;
 		$this->loadMapiMessage($storeId, $mailEntryId);
 		// Write temporary message file (.EML)
