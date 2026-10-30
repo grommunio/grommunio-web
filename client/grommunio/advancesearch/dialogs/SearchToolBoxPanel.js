@@ -1659,9 +1659,6 @@ Grommunio.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 	{
 		var categories = this.searchCategoriesStore.getCategories();
 		this.setCategoriesRestriction(categories);
-		if (!this.syncing) {
-			this.afterUpdateRestriction();
-		}
 		this.categoryFilterLabel.setVisible(!this.searchCategoriesStore.getCount());
 
 		// Sync categories → search bar chips
@@ -1693,6 +1690,10 @@ Grommunio.advancesearch.dialogs.SearchToolBoxPanel = Ext.extend(Ext.Panel, {
 		}
 
 		this.syncing = false;
+
+		// Start the search after the chips are in the search field. The
+		// search does not start when the field has no query.
+		this.afterUpdateRestriction();
 	}
 });
 
