@@ -3551,40 +3551,29 @@ class Operations {
 				!$this->isOwnIdentity($reprEmail)) {
 				$ab = $GLOBALS['mapisession']->getAddressbook();
 				$abitem = mapi_ab_openentry($ab, $reprEntryid);
-				$abitemprops = mapi_getprops($abitem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SEARCH_KEY]);
+				$abitemprops = mapi_getprops($abitem, [PR_DISPLAY_NAME, PR_EMAIL_ADDRESS, PR_SMTP_ADDRESS, PR_SEARCH_KEY, PR_EMS_AB_PROXY_ADDRESSES]);
+				$proxies = array_map('strtolower', (array) ($abitemprops[PR_EMS_AB_PROXY_ADDRESSES] ?? []));
 
+				// An alias of the entry stays the SMTP identity: gromox resolves it to
+				// the mailbox itself and keeps the alias as the sender address.
+				if (!empty($abitemprops[PR_SMTP_ADDRESS]) &&
+					in_array(strtolower('smtp:' . $reprEmail), $proxies, true) &&
+					strcasecmp((string) $reprEmail, (string) $abitemprops[PR_SMTP_ADDRESS]) != 0) {
+					$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $props[PR_SENT_REPRESENTING_SMTP_ADDRESS] = $props[PR_SENDER_EMAIL_ADDRESS] = $reprEmail;
+					$props[PR_SENT_REPRESENTING_ADDRTYPE] = $props[PR_SENDER_ADDRTYPE] = 'SMTP';
+					$sendingAsDelegate = true;
+				}
 				// Only enrich from the address book entry when it actually resolved. Stamping the
 				// representing props from an empty mapi_getprops() result would clear the requested
 				// identity and silently fall back to the user's own address; in that case we leave
-				// the client-supplied $props untouched so the alias branch below (or the pre-submit
-				// guard) can still handle it.
-				if (isset($abitemprops[PR_EMAIL_ADDRESS]) && $abitemprops[PR_EMAIL_ADDRESS] !== '') {
+				// the client-supplied $props untouched so the pre-submit guard can still handle it.
+				elseif (isset($abitemprops[PR_EMAIL_ADDRESS]) && $abitemprops[PR_EMAIL_ADDRESS] !== '') {
 					$props[PR_SENT_REPRESENTING_NAME] = $abitemprops[PR_DISPLAY_NAME];
 					$props[PR_SENT_REPRESENTING_EMAIL_ADDRESS] = $abitemprops[PR_EMAIL_ADDRESS];
 					$props[PR_SENT_REPRESENTING_ADDRTYPE] = "EX";
 					$props[PR_SENT_REPRESENTING_SEARCH_KEY] = $abitemprops[PR_SEARCH_KEY];
 					$sendingAsDelegate = true;
 				}
-			}
-			if (!$sendingAsDelegate &&
-				isset($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], $props[PR_SENDER_EMAIL_ADDRESS], $props[PR_SENT_REPRESENTING_ENTRYID]) &&
-				strcasecmp((string) $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS], (string) $props[PR_SENDER_EMAIL_ADDRESS]) != 0 &&
-				!$this->isOwnIdentity($props[PR_SENT_REPRESENTING_EMAIL_ADDRESS])) {
-				// preserve sending from an alias
-				$ab = $GLOBALS['mapisession']->getAddressbook();
-				$abitem = mapi_ab_openentry($ab, $props[PR_SENT_REPRESENTING_ENTRYID]);
-				$abitemprops = mapi_getprops($abitem, [PR_EMS_AB_PROXY_ADDRESSES]);
-				// Lowercase the needle as well as the haystack: proxy addresses are
-				// matched case-insensitively, so an alias address containing uppercase
-				// characters must not cause the lookup (and therefore the sender rewrite) to miss.
-				$searchstr = strtolower('smtp:' . $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS]);
-				if (isset($abitemprops[PR_EMS_AB_PROXY_ADDRESSES]) &&
-					is_array($abitemprops[PR_EMS_AB_PROXY_ADDRESSES]) &&
-					in_array($searchstr, array_map('strtolower', $abitemprops[PR_EMS_AB_PROXY_ADDRESSES]))) {
-					$props[PR_SENT_REPRESENTING_SMTP_ADDRESS] = $props[PR_SENDER_EMAIL_ADDRESS] = $props[PR_SENT_REPRESENTING_EMAIL_ADDRESS];
-					$props[PR_SENDER_ADDRTYPE] = 'SMTP';
-				}
-				$sendingAsDelegate = true;
 			}
 			// Save the new message properties
 			$message = $this->saveMessage($store, $entryid, $storeprops[PR_IPM_OUTBOX_ENTRYID], $props, $messageProps, $recipients, $attachments, [], $copyFromMessage, $copyAttachments, $copyRecipients, $copyInlineAttachmentsOnly, true, true, $isPlainText);

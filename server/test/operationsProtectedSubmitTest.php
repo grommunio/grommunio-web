@@ -180,7 +180,22 @@ function mapi_message_submitmessage($message) {
 }
 
 function mapi_ab_openentry($ab, $entryid) {
-	return (object) ['props' => [PR_DISPLAY_NAME => 'Test identity', PR_EMAIL_ADDRESS => $entryid === 'bob-id' ? 'bob@example.test' : 'alice@example.test', PR_SEARCH_KEY => $entryid]];
+	// gromox lists the primary address first among the proxies
+	$props = [PR_DISPLAY_NAME => 'Test identity', PR_EMAIL_ADDRESS => 'alice@example.test', PR_SEARCH_KEY => $entryid];
+	if ($entryid === 'alice-id') {
+		$props[PR_SMTP_ADDRESS] = 'alice@example.test';
+		$props[PR_EMS_AB_PROXY_ADDRESSES] = ['SMTP:alice@example.test', 'SMTP:Sales@example.test'];
+	}
+	elseif ($entryid === 'bob-id') {
+		$props[PR_EMAIL_ADDRESS] = $props[PR_SMTP_ADDRESS] = 'bob@example.test';
+		$props[PR_EMS_AB_PROXY_ADDRESSES] = ['SMTP:bob@example.test', 'SMTP:bob-info@example.test'];
+	}
+	elseif ($entryid === 'list-id') {
+		$props[PR_EMAIL_ADDRESS] = 'list@example.test';
+		$props[PR_EMS_AB_PROXY_ADDRESSES] = ['SMTP:list@example.test'];
+	}
+
+	return (object) ['props' => $props];
 }
 
 function parse_smime($store, $message) {}
@@ -346,6 +361,34 @@ $messageProps = [];
 $outgoing = $GLOBALS['submitMessages']['outgoing-id']->props;
 if (isset($outgoing[PR_REPLY_RECIPIENT_ENTRIES]) || isset($outgoing[PR_READ_RECEIPT_REQUESTED])) {
 	throw new RuntimeException('A forward from a delegator mailbox inherited the source message properties.');
+}
+
+// An alias of an address book entry goes out as that SMTP identity, whether it
+// belongs to the sender or to another mailbox; a primary address is still
+// represented by the EX entry, and an entry without an SMTP address never is an alias.
+foreach ([
+	['sales@example.test', 'alice-id', 'SMTP', 'sales@example.test'],
+	['bob@example.test', 'bob-id', 'EX', 'bob@example.test'],
+	['bob-info@example.test', 'bob-id', 'SMTP', 'bob-info@example.test'],
+	['list@example.test', 'list-id', 'EX', 'list@example.test'],
+] as [$address, $abEntryId, $addrtype, $email]) {
+	$GLOBALS['submitEvents'] = [];
+	$GLOBALS['propertiesStore'] = 'store';
+	$GLOBALS['submitMessages'] = ['draft-id' => (object) ['props' => [
+		PR_ENTRYID => 'draft-id', PR_PARENT_ENTRYID => 'drafts-id', PR_MESSAGE_CLASS => 'IPM.Note',
+		PR_BODY => 'original plaintext', PR_NATIVE_BODY_INFO => 3, PR_MESSAGE_FLAGS => MSGFLAG_UNSENT,
+	]]];
+	$messageProps = [];
+	(new ProtectedSubmitOperations())->submitMessage('store', 'draft-id', [
+		PR_SENT_REPRESENTING_NAME => 'Test identity', PR_SENT_REPRESENTING_EMAIL_ADDRESS => $address,
+		PR_SENT_REPRESENTING_SMTP_ADDRESS => $address, PR_SENT_REPRESENTING_ADDRTYPE => 'SMTP',
+		PR_SENT_REPRESENTING_ENTRYID => $abEntryId, PR_SENDER_EMAIL_ADDRESS => 'alice@example.test',
+	], $messageProps);
+	$outgoing = $GLOBALS['submitMessages']['outgoing-id']->props;
+	if (($outgoing[PR_SENT_REPRESENTING_ADDRTYPE] ?? '') !== $addrtype || ($outgoing[PR_SENT_REPRESENTING_EMAIL_ADDRESS] ?? '') !== $email ||
+		($outgoing[PR_SENT_REPRESENTING_SMTP_ADDRESS] ?? '') !== $address) {
+		throw new RuntimeException("{$address}: sent as {$outgoing[PR_SENT_REPRESENTING_ADDRTYPE]} {$outgoing[PR_SENT_REPRESENTING_EMAIL_ADDRESS]}.");
+	}
 }
 
 echo "Protected submit preserves drafts and copies only final encrypted content\n";
