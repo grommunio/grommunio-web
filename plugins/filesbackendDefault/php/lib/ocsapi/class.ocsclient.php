@@ -66,20 +66,11 @@ class ocsclient {
 	];
 
 	/**
-	 * @var array curl SSL verify options for self signed certificates
-	 */
-	private $curlSSLVerifyOptions = [
-		CURLOPT_SSL_VERIFYHOST => 0,
-		CURLOPT_SSL_VERIFYPEER => 0,
-	];
-
-	/**
 	 * Constructor.
 	 *
 	 * @param string $baseurl
 	 * @param string $user
 	 * @param string $pass
-	 * @param bool   $allowSelfSignedCerts
 	 * @param string $bearer
 	 *
 	 * @throws ConnectionException
@@ -94,9 +85,6 @@ class ocsclient {
 	 * @var string Password
 	 */
 		private $pass, /**
-	 * @var bool Allow self signed certs
-	 */
-		private $allowSelfSignedCerts = false, /**
 	 * @var string Bearer token, used instead of user and pass
 	 */
 		private $bearer = ""
@@ -137,7 +125,7 @@ class ocsclient {
 	}
 
 	/**
-	 * Creates a cURL handle with the default, certificate and auth options.
+	 * Creates a cURL handle with the default and auth options.
 	 *
 	 * @return \CurlHandle
 	 *
@@ -149,9 +137,6 @@ class ocsclient {
 			throw new ConnectionException('Unable to initialise cURL session.');
 		}
 		curl_setopt_array($ch, $this->curlDefaultOptions);
-		if ($this->allowSelfSignedCerts) {
-			curl_setopt_array($ch, $this->curlSSLVerifyOptions);
-		}
 		curl_setopt_array($ch, $this->curlAuthOptions());
 
 		return $ch;

@@ -1408,9 +1408,8 @@ final class SeafileApi {
 	 * @return bool|string
 	 */
 	private function curlExec(string $url, array $options) {
-		[$url, $options[CURLOPT_RESOLVE]] = OutboundGuard::check($url);
-		$options[CURLOPT_FOLLOWLOCATION] = false;
-		$handle = curl_init($url);
+		$options = OutboundGuard::curlOptions($url) + $options;
+		$handle = curl_init();
 		if (!$handle instanceof \CurlHandle) {
 			throw new ConnectionException('Unable to initialise cURL session.', self::ERROR_CODE_NO_CURL);
 		}

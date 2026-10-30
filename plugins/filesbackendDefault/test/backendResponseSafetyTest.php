@@ -150,6 +150,7 @@ namespace {
 	$ocsClient = new ocsclient('https://cloud.example.test', 'user', 'password');
 	$ocsClient->loadShares();
 	assertBackendResponse($ocsClient->getAllShares() === [], 'A valid empty OCS response was not parsed.');
+	assertBackendResponse($GLOBALS['ocsTestCurlOptions'][CURLOPT_SSL_VERIFYPEER] === true && $GLOBALS['ocsTestCurlOptions'][CURLOPT_SSL_VERIFYHOST] === 2, 'The TLS certificate of the OCS server is not verified.');
 
 	$GLOBALS['ocsTestCurlOptions'] = [];
 	$ocsClient->createShare('/Documents', ['shareType' => 3, 'permissions' => 1]);
@@ -197,7 +198,6 @@ namespace {
 			'userName' => 'user',
 			'password' => 'password',
 		]);
-		$webdavClient->addCurlSetting(CURLOPT_SSL_VERIFYPEER, false);
 		$webdavClient->addCurlSetting(CURLOPT_CAINFO, '/test/ca.pem');
 		$GLOBALS['webdavTestCurlOptions'] = [];
 		$GLOBALS['webdavTestCurlResult'] = false;
@@ -212,7 +212,7 @@ namespace {
 			assertBackendResponse($e->getMessage() === '[CURL] transport failed', 'The WebDAV transport error was not reported.');
 		}
 		assertBackendResponse(!is_resource($GLOBALS['webdavTestFileHandle']), 'The WebDAV destination handle was left open.');
-		assertBackendResponse($GLOBALS['webdavTestCurlOptions'][CURLOPT_SSL_VERIFYPEER] === false, 'The configured TLS verification mode was ignored.');
+		assertBackendResponse($GLOBALS['webdavTestCurlOptions'][CURLOPT_SSL_VERIFYPEER] === true && $GLOBALS['webdavTestCurlOptions'][CURLOPT_SSL_VERIFYHOST] === 2, 'The TLS certificate of the file server is not verified.');
 		assertBackendResponse($GLOBALS['webdavTestCurlOptions'][CURLOPT_CAINFO] === '/test/ca.pem', 'The configured CA file was ignored.');
 
 		$GLOBALS['webdavTestCurlResult'] = true;

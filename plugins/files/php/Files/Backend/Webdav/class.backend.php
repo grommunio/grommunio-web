@@ -75,11 +75,6 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	public $ssl = false;
 
 	/**
-	 * @var bool allow self signed certificates
-	 */
-	public $allowselfsigned = true;
-
-	/**
 	 * @var string the username
 	 */
 	public $user = "";
@@ -271,15 +266,6 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 	}
 
 	/**
-	 * Allow self signed certificates - unimplemented.
-	 *
-	 * @param bool $allowselfsigned Allow self signed certificates. Not yet implemented.
-	 */
-	public function set_selfsigned($allowselfsigned) {
-		$this->allowselfsigned = $allowselfsigned;
-	}
-
-	/**
 	 * Set tcp port of webdav server. Default is 80.
 	 *
 	 * @param int $port the port of the ftp server
@@ -363,7 +349,6 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 
 		try {
 			$this->sabre_client = new FilesWebDavClient($this->davSettings());
-			$this->sabre_client->addCurlSetting(CURLOPT_SSL_VERIFYPEER, !$this->allowselfsigned);
 
 			return true;
 		}
@@ -965,6 +950,7 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$contactAdmin = ' ' . _('Please contact your system administrator.');
 		$unauthorized = _('Unauthorized. Wrong username or password.');
 		$unreachable = _('File server is not reachable. Please verify the connection.');
+		$unverified = _('The TLS certificate of the file server could not be verified.') . $contactAdmin;
 
 		$messages = [
 			self::WD_ERR_UNAUTHORIZED => $unauthorized,
@@ -984,6 +970,8 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		$curlErrors = [
 			'CURLE_BAD_PASSWORD_ENTERED' => $unauthorized,
 			'CURLE_SSL_CONNECT_ERROR' => $unreachable,
+			'CURLE_SSL_CACERT' => $unverified,
+			'CURLE_SSL_PEER_CERTIFICATE' => $unverified,
 			'CURLE_COULDNT_RESOLVE_HOST' => $unreachable,
 			'CURLE_COULDNT_CONNECT' => $unreachable,
 			'CURLE_OPERATION_TIMEOUTED' => $unreachable,
@@ -1088,10 +1076,6 @@ class Backend extends AbstractBackend implements iFeatureQuota, iFeatureVersionI
 		curl_setopt($ch, CURLOPT_AUTOREFERER, true);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 3); // timeout of 3 seconds
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		if ($this->allowselfsigned) {
-			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-		}
 		$versiondata = OutboundGuard::exec($ch, $url);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 

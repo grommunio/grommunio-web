@@ -73,3 +73,11 @@ define('PLUGIN_FILES_ALLOWED_HOSTS', '');
  * Leave this off when file servers live in the local network, or list them above.
  */
 define('PLUGIN_FILES_BLOCK_PRIVATE_NETWORKS', false);
+
+/*
+ * The TLS certificate of a file server is verified against the system trust
+ * store, except on this server itself. Hosts listed here, same syntax as above,
+ * are reached without verification, e.g. a file server with a self-signed
+ * certificate.
+ */
+define('PLUGIN_FILES_UNVERIFIED_HOSTS', '');
