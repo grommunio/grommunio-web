@@ -13,6 +13,7 @@ if (!function_exists('_')) {
 
 define('PLUGIN_FILESBROWSER_LOGLEVEL', 'NONE');
 define('PLUGIN_FILES_ALLOWED_HOSTS', 'allowed.invalid:8080 [::1]:6000, 127.0.0.2');
+define('PLUGIN_FILES_UNVERIFIED_HOSTS', '198.51.100.7:8443 allowed.invalid');
 
 require_once dirname(__DIR__) . '/php/Files/Core/Util/class.outboundguard.php';
 
@@ -77,6 +78,18 @@ expect(OutboundGuard::check('http://allowed.invalid:8080/')[0] === 'http://allow
 expect(refused('http://allowed.invalid:8081/'), 'allowlisted host was allowed on another port');
 expect(OutboundGuard::check('http://[::1]:6000/')[1] === [], 'allowlisted IPv6 address was refused');
 expect(OutboundGuard::check('http://127.0.0.2:8080/')[1] === [], 'host allowlisted without a port was refused');
+
+// the peer certificate is verified except towards this machine and listed hosts
+expect(OutboundGuard::check('https://localhost/')[2] === false, 'this machine was to be verified');
+expect(OutboundGuard::check('https://[::1]/')[2] === false, 'this machine was to be verified over IPv6');
+expect(OutboundGuard::check('https://93.184.216.34:8443/')[2] === true, 'a remote host was not to be verified');
+expect(OutboundGuard::check('https://198.51.100.7:8443/')[2] === false, 'a listed host was to be verified');
+expect(OutboundGuard::check('https://198.51.100.7/')[2] === true, 'a listed host was exempt on another port');
+expect(OutboundGuard::check('http://allowed.invalid:8080/')[2] === false, 'a host listed without a port was to be verified');
+$options = OutboundGuard::curlOptions('https://93.184.216.34:8443/');
+expect($options[CURLOPT_SSL_VERIFYPEER] === true && $options[CURLOPT_SSL_VERIFYHOST] === 2, 'verification is not requested from curl');
+$options = OutboundGuard::curlOptions('https://198.51.100.7:8443/');
+expect($options[CURLOPT_SSL_VERIFYPEER] === false && $options[CURLOPT_SSL_VERIFYHOST] === 0, 'verification is requested for a listed host');
 
 // redirects are vetted hop by hop, credentials stay with their host
 $docroot = sys_get_temp_dir() . '/outboundguard-' . getmypid();

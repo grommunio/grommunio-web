@@ -8473,6 +8473,9 @@ msgstr "コピー失敗"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "ファイルサーバーにアクセスできません。接続を確認してください。"
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "ファイルサーバーのTLS証明書を確認できませんでした。"
+
 msgid "Unknown backend"
 msgstr "不明なバックエンド"
 

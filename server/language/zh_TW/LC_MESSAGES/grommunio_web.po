@@ -8463,6 +8463,9 @@ msgstr "複製失敗"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "檔案伺服器無法連線。請確認連線。"
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "無法驗證檔案伺服器的 TLS 憑證。"
+
 msgid "Unknown backend"
 msgstr "未知的後端"
 

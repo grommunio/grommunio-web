@@ -8501,6 +8501,9 @@ msgstr "Kopeerimine ebaõnnestus"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Failiserver ei ole kättesaadav. Palun kontrollige ühendust."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "Failiserveri TLS-sertifikaati ei olnud võimalik kontrollida."
+
 msgid "Unknown backend"
 msgstr "Tundmatu taustsüsteem"
 

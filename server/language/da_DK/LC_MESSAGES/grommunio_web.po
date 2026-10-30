@@ -8501,6 +8501,9 @@ msgstr "Kopiering mislykkedes"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Filserveren kan ikke nås. Bekræft venligst forbindelsen."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "Filserverens TLS-certifikat kunne ikke verificeres."
+
 msgid "Unknown backend"
 msgstr "Ukendt backend"
 

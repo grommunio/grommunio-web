@@ -169,9 +169,8 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 
 		try {
 			$this->sabre_client = new FilesWebDavClient($this->davSettings());
-			$this->sabre_client->addCurlSetting(CURLOPT_SSL_VERIFYPEER, !$this->allowselfsigned);
 
-			$this->ocs_client = new ocsclient($this->getOwncloudBaseURL(), $this->user, $this->pass, $this->allowselfsigned, $this->bearer);
+			$this->ocs_client = new ocsclient($this->getOwncloudBaseURL(), $this->user, $this->pass, $this->bearer);
 
 			return true;
 		}
@@ -206,6 +205,7 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 		return match ($error) {
 			CURLE_BAD_PASSWORD_ENTERED, self::WD_ERR_UNAUTHORIZED => _('Unauthorized. Wrong username or password.'),
 			CURLE_SSL_CONNECT_ERROR, CURLE_COULDNT_RESOLVE_HOST, CURLE_COULDNT_CONNECT, CURLE_OPERATION_TIMEOUTED, self::WD_ERR_UNREACHABLE => _('File server is not reachable. Please verify the file server URL.'),
+			CURLE_SSL_CACERT, CURLE_SSL_PEER_CERTIFICATE => _('The TLS certificate of the file server could not be verified.') . ' ' . $contactAdmin,
 			self::WD_ERR_FORBIDDEN => _('You don\'t have enough permissions to view this file or folder.'),
 			self::WD_ERR_NOTFOUND => _('The file or folder is not available anymore.'),
 			self::WD_ERR_TIMEOUT => _('Connection to the file server timed out. Please check again later.'),
@@ -267,10 +267,6 @@ class Backend extends \Files\Backend\Webdav\Backend implements iFeatureSharing, 
 		curl_setopt($ch, CURLOPT_AUTOREFERER, true);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 3); // timeout of 3 seconds
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		if ($this->allowselfsigned) {
-			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-		}
 		$versiondata = OutboundGuard::exec($ch, $url);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 

@@ -8545,6 +8545,9 @@ msgstr "Kopírování se nezdařilo"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Souborový server není dosažitelný. Ověřte prosím připojení."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "Certifikát TLS souborového serveru se nepodařilo ověřit."
+
 msgid "Unknown backend"
 msgstr "Neznámý backend"
 

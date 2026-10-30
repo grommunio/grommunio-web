@@ -21,6 +21,10 @@ use Files\Backend\Exception as BackendException;
  * which keeps a grommunio Files on the same host working however its name
  * resolves locally; link-local (cloud metadata), multicast and reserved
  * addresses are never reachable.
+ *
+ * The TLS certificate of the file server is verified, except on the way to
+ * this machine, which cannot be intercepted, and to the hosts listed in
+ * PLUGIN_FILES_UNVERIFIED_HOSTS.
  */
 class OutboundGuard {
 	private const LOCAL_PORT = 443;
@@ -41,11 +45,12 @@ class OutboundGuard {
 
 	/**
 	 * Check a URL and return it rebuilt from the vetted parts, together with
-	 * the CURLOPT_RESOLVE entries that pin curl to the vetted addresses.
+	 * the CURLOPT_RESOLVE entries that pin curl to the vetted addresses and
+	 * whether the peer certificate is to be verified.
 	 *
 	 * @param string $url
 	 *
-	 * @return array [url, resolve entries]
+	 * @return array [url, resolve entries, verify]
 	 *
 	 * @throws BackendException if the destination is not allowed
 	 */
@@ -75,27 +80,54 @@ class OutboundGuard {
 		}
 		$urlHost = str_contains($name, ':') ? "[{$name}]" : $name;
 		$rebuilt = "{$scheme}://{$urlHost}:{$port}{$path}" . (isset($parts['query']) ? '?' . $parts['query'] : '');
-		if (self::isAllowlisted($name, $port)) {
-			return [$rebuilt, []];
+		$verify = !self::isListed('PLUGIN_FILES_UNVERIFIED_HOSTS', $name, $port);
+		if (self::isListed('PLUGIN_FILES_ALLOWED_HOSTS', $name, $port)) {
+			return [$rebuilt, [], $verify];
 		}
 
 		$addresses = self::resolve($name);
 		if (empty($addresses)) {
 			self::deny($url, 'host name does not resolve');
 		}
+		$local = true;
 		foreach ($addresses as $address) {
 			$reason = self::refusal($address, $port);
 			if ($reason !== null) {
 				self::deny($url, "{$address} is {$reason}");
 			}
+			$local = $local && self::isLocal($address);
 		}
+		// nothing sits between this machine and itself to impersonate the server
+		$verify = $verify && !$local;
 		if ($isIp) {
-			return [$rebuilt, []];
+			return [$rebuilt, [], $verify];
 		}
 		// curl connects to exactly the addresses vetted here, a second lookup could differ
 		$pinned = array_map(fn ($a) => str_contains($a, ':') ? "[{$a}]" : $a, $addresses);
 
-		return [$rebuilt, ["{$name}:{$port}:" . implode(',', $pinned)]];
+		return [$rebuilt, ["{$name}:{$port}:" . implode(',', $pinned)], $verify];
+	}
+
+	/**
+	 * The curl options that send a request to a vetted destination.
+	 *
+	 * @param string $url
+	 *
+	 * @return array
+	 *
+	 * @throws BackendException if the destination is not allowed
+	 */
+	public static function curlOptions($url) {
+		[$target, $resolve, $verify] = self::check($url);
+
+		return [
+			CURLOPT_URL => $target,
+			CURLOPT_RESOLVE => $resolve,
+			CURLOPT_FOLLOWLOCATION => false,
+			CURLOPT_PROTOCOLS => CURLPROTO_HTTP | CURLPROTO_HTTPS,
+			CURLOPT_SSL_VERIFYPEER => $verify,
+			CURLOPT_SSL_VERIFYHOST => $verify ? 2 : 0,
+		];
 	}
 
 	/**
@@ -115,13 +147,7 @@ class OutboundGuard {
 	public static function exec($ch, $url, $maxRedirects = 5, $rewind = null) {
 		$origin = strtolower((string) parse_url((string) $url, PHP_URL_HOST));
 		for ($hop = 0;; ++$hop) {
-			[$target, $resolve] = self::check($url);
-			curl_setopt_array($ch, [
-				CURLOPT_URL => $target,
-				CURLOPT_RESOLVE => $resolve,
-				CURLOPT_FOLLOWLOCATION => false,
-				CURLOPT_PROTOCOLS => CURLPROTO_HTTP | CURLPROTO_HTTPS,
-			]);
+			curl_setopt_array($ch, self::curlOptions($url));
 			$result = curl_exec($ch);
 			$next = curl_getinfo($ch, CURLINFO_REDIRECT_URL);
 			if ($result === false || !is_string($next) || $next === '' || $hop >= $maxRedirects) {
@@ -149,7 +175,7 @@ class OutboundGuard {
 		if ($embedded !== null) {
 			return self::refusal($embedded, $port);
 		}
-		if (self::inRanges($address, self::LOOPBACK_RANGES) || in_array(inet_pton($address), self::localAddresses(), true)) {
+		if (self::isLocal($address)) {
 			return (int) $port === self::LOCAL_PORT ? null : 'this server (port ' . (int) $port . ')';
 		}
 		if (self::inRanges($address, self::DENIED_RANGES)) {
@@ -178,18 +204,33 @@ class OutboundGuard {
 	}
 
 	/**
-	 * PLUGIN_FILES_ALLOWED_HOSTS lists "host" or "host:port" entries that skip the check.
+	 * @param string $address IP address
 	 *
+	 * @return bool whether the address is one of this machine's
+	 */
+	private static function isLocal($address) {
+		$embedded = self::embeddedIpv4($address);
+		if ($embedded !== null) {
+			return self::isLocal($embedded);
+		}
+
+		return self::inRanges($address, self::LOOPBACK_RANGES) || in_array(inet_pton($address), self::localAddresses(), true);
+	}
+
+	/**
+	 * Whether the "host" or "host:port" entries listed in $constant include this destination.
+	 *
+	 * @param string $constant
 	 * @param string $host
 	 * @param int    $port
 	 *
 	 * @return bool
 	 */
-	private static function isAllowlisted($host, $port) {
-		if (!defined('PLUGIN_FILES_ALLOWED_HOSTS')) {
+	private static function isListed($constant, $host, $port) {
+		if (!defined($constant)) {
 			return false;
 		}
-		foreach (preg_split('/[\s,]+/', strtolower((string) PLUGIN_FILES_ALLOWED_HOSTS), -1, PREG_SPLIT_NO_EMPTY) as $entry) {
+		foreach (preg_split('/[\s,]+/', strtolower((string) constant($constant)), -1, PREG_SPLIT_NO_EMPTY) as $entry) {
 			// host, host:port, bare IPv6 address or [IPv6]:port
 			if (substr_count($entry, ':') > 1 && $entry[0] !== '[') {
 				$entry = "[{$entry}]";

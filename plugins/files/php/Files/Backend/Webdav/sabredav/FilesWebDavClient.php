@@ -94,9 +94,6 @@ class FilesWebDavClient extends Client {
 				throw new Exception('[CURL] Unable to initialize request');
 			}
 
-			if (array_key_exists(CURLOPT_SSL_VERIFYPEER, $this->curlSettings)) {
-				curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, $this->curlSettings[CURLOPT_SSL_VERIFYPEER]);
-			}
 			if (array_key_exists(CURLOPT_CAINFO, $this->curlSettings)) {
 				curl_setopt($curl, CURLOPT_CAINFO, $this->curlSettings[CURLOPT_CAINFO]);
 			}
@@ -180,9 +177,8 @@ class FilesWebDavClient extends Client {
 	#[\Override]
 	protected function createCurlSettingsArray(RequestInterface $request): array {
 		$settings = parent::createCurlSettingsArray($request);
-		[$settings[CURLOPT_URL], $settings[CURLOPT_RESOLVE]] = OutboundGuard::check($settings[CURLOPT_URL]);
 
-		return $settings;
+		return OutboundGuard::curlOptions($settings[CURLOPT_URL]) + $settings;
 	}
 
 	public function uploadChunkedFile($destination, $resource) {

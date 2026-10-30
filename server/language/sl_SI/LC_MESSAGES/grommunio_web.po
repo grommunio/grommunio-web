@@ -8575,6 +8575,9 @@ msgstr "Kopiranje ni uspelo"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Datotečni strežnik ni dosegljiv. Preverite povezavo."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "Potrdila TLS datotečnega strežnika ni bilo mogoče preveriti."
+
 msgid "Unknown backend"
 msgstr "Neznano zaledje"
 

@@ -8501,6 +8501,9 @@ msgstr "Η αντιγραφή απέτυχε"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Ο διακομιστής αρχείων δεν είναι προσβάσιμος. Παρακαλούμε επαληθεύστε τη σύνδεση."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "Το πιστοποιητικό TLS του διακομιστή αρχείων δεν μπόρεσε να επαληθευτεί."
+
 msgid "Unknown backend"
 msgstr "Άγνωστο backend"
 

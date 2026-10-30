@@ -40,6 +40,7 @@ if (defined('CURLE_COULDNT_CONNECT')) {
 	$expected[CURLE_COULDNT_CONNECT] = $unreachable;
 	$expected[CURLE_COULDNT_RESOLVE_HOST] = $unreachable;
 	$expected[CURLE_SSL_CONNECT_ERROR] = $unreachable;
+	$expected[CURLE_SSL_CACERT] = 'The TLS certificate of the file server could not be verified.' . $admin;
 }
 
 foreach ($expected as $code => $message) {

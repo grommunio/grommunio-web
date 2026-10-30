@@ -8501,6 +8501,9 @@ msgstr "Kopiointi epäonnistui"
 msgid "File server is not reachable. Please verify the connection."
 msgstr "Tiedostopalvelinta ei tavoiteta. Tarkista yhteys."
 
+msgid "The TLS certificate of the file server could not be verified."
+msgstr "Tiedostopalvelimen TLS-varmennetta ei voitu todentaa."
+
 msgid "Unknown backend"
 msgstr "Tuntematon backend"
 
