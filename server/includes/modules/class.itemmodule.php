@@ -646,8 +646,7 @@ class ItemModule extends Module {
 
 			// A forward notification adds the forwarded attendees to the
 			// organizer's meeting, other notifications are informational only.
-			$isForwardNotification = class_match_prefix($messageClass, "IPM.Schedule.Meeting.Notification.Forward") &&
-				method_exists('Meetingrequest', 'processMeetingForwardNotification');
+			$isForwardNotification = class_match_prefix($messageClass, "IPM.Schedule.Meeting.Notification.Forward");
 			$isMeetingNotification = !$isForwardNotification && class_match_prefix($messageClass, "IPM.Schedule.Meeting.Notification");
 
 			// Check for meeting request, do processing if necessary
