@@ -11,6 +11,10 @@ Enhancements:
 * AI assistant: IONOS AI Model Hub, OpenAI Responses API and reasoning
   effort settings; presets on current models
 
+Changes:
+
+* mapi-header-php 2.4 is required
+
 
 grommunio-web 5.2 (2026-10-10)
 ==============================
