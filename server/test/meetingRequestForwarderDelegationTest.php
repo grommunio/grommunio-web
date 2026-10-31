@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-// A mapi-header-php that forwards meetings itself gets the whole forward.
+// mapi-header-php gets the whole forward.
 if (function_exists('mapi_getprops')) {
 	echo "Meeting request forwarder delegation checks skipped with php-mapi loaded\n";
 
@@ -52,13 +52,12 @@ function assertDelegation($condition, $message) {
 	}
 }
 
-$forwarder = new MeetingRequestForwarder([]);
+$forwarder = new MeetingRequestForwarder();
 $action = ['basedate' => '1700000000', 'message_action' => [
 	'forwardRecipients' => [['display_name' => 'Ann', 'smtp_address' => 'ann@example.test']],
 	'forwardSubjectPrefix' => 'WG: ',
 ]];
 
-// Without the mapi stubs any MAPI call of the web's own forward would be fatal.
 assertDelegation($forwarder->forward('store', 'appt', $action) === true, 'The delegated forward failed');
 assertDelegation(Meetingrequest::$calls[0] === ['construct', 'store', 'appointment', 'session'], 'The forward was built on the wrong message');
 $rows = [[PR_DISPLAY_NAME => 'Ann', PR_SMTP_ADDRESS => 'ann@example.test', PR_RECIPIENT_TYPE => MAPI_TO]];

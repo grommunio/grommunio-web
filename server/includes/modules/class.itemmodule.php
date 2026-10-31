@@ -1404,7 +1404,7 @@ class ItemModule extends Module {
 	 * @param bool      $directBookingMeetingRequest direct-booking flag
 	 */
 	public function forwardMeetingRequest($store, $entryid, $action, $directBookingMeetingRequest) {
-		if ((new MeetingRequestForwarder($this->properties))->forward($store, $entryid, $action)) {
+		if ((new MeetingRequestForwarder())->forward($store, $entryid, $action)) {
 			$this->sendFeedback(true);
 		}
 	}
