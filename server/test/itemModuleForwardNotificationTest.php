@@ -44,41 +44,32 @@ $child = <<<'PHP'
 		return strncasecmp($h, $n, strlen($n)) === 0;
 	}
 
-	if ($scenario === 'old') {
-		class Meetingrequest {
-			public function __construct(...$args) {
-				$GLOBALS['log'][] = 'constructed';
-			}
+	class Meetingrequest {
+		public $message = 'message';
+		public $proptags = ['goid2' => GOID2];
+
+		public function __construct(...$args) {}
+
+		public function processMeetingForwardNotification() {
+			$GLOBALS['log'][] = 'processed';
+
+			return true;
 		}
-	}
-	else {
-		class Meetingrequest {
-			public $message = 'message';
-			public $proptags = ['goid2' => GOID2];
 
-			public function __construct(...$args) {}
+		public function findCalendarItems($goid, $calendar = false, $useCleanGlobalId = false) {
+			$GLOBALS['log'][] = 'find';
 
-			public function processMeetingForwardNotification() {
-				$GLOBALS['log'][] = 'processed';
+			return ['cal-eid'];
+		}
 
-				return true;
-			}
+		public function isInCalendar() {
+			return false;
+		}
 
-			public function findCalendarItems($goid, $calendar = false, $useCleanGlobalId = false) {
-				$GLOBALS['log'][] = 'find';
+		public function __call($name, $args) {
+			$GLOBALS['log'][] = $name;
 
-				return ['cal-eid'];
-			}
-
-			public function isInCalendar() {
-				return false;
-			}
-
-			public function __call($name, $args) {
-				$GLOBALS['log'][] = $name;
-
-				return false;
-			}
+			return false;
 		}
 	}
 
@@ -176,9 +167,6 @@ try {
 
 	$other = runForwardNotification($file, 'other');
 	assertForwardNotification($other['log'] === [] && $other['notified'] === [], 'Another meeting notification was processed');
-
-	$old = runForwardNotification($file, 'old');
-	assertForwardNotification($old['log'] === [] && $old['notified'] === [], 'An older mapi-header-php was asked to process a forward notification');
 }
 finally {
 	unlink($file);
