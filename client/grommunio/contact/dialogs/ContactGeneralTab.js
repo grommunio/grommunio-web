@@ -1008,7 +1008,7 @@ Grommunio.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		this.mon(attachmentStore, 'update', this.updateContactPhoto, this);
 
 		var attachComponent = new Grommunio.common.attachment.ui.UploadAttachmentComponent({
-			callback: this.uploadContactPhotoCallback,
+			callback: this.openContactPhotoEditor,
 			accept: 'image/*',
 			scope: this
 		});
@@ -1018,7 +1018,52 @@ Grommunio.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 
 	/**
 	 * Callback function for {@link Grommunio.common.attachment.ui.UploadAttachmentComponent}.
-	 * which is going to add the contact picture(Attachment record) in {@link Grommunio.core.data.IPMAttachmentStore store}.
+	 * Lets the user crop the selected picture, which also scales it down to the
+	 * size used for profile pictures. A camera photo of several megabytes would
+	 * otherwise be stored as it is, and ActiveSync and other clients drop it.
+	 *
+	 * @param {Object/Array} files The files is contains file information.
+	 * @private
+	 */
+	openContactPhotoEditor: function(files)
+	{
+		var serverConfig = container.getServerConfig();
+		var file = files[0];
+
+		new Grommunio.common.ui.ImageCropPanel({
+			// copy into a Blob of this window, the dialog may live in a popout
+			source: new window.Blob([file], {type: file.type}),
+			outputSize: serverConfig.getProfilePictureMaxEdge(),
+			maxBytes: serverConfig.getProfilePictureMaxBytes(),
+			callback: this.onContactPhotoCropped,
+			scope: this
+		}).show();
+	},
+
+	/**
+	 * Callback function for {@link Grommunio.common.ui.ImageCropPanel}, uploads
+	 * the cropped picture as the contact picture.
+	 *
+	 * @param {String} dataUrl The cropped picture as a JPEG data URL
+	 * @private
+	 */
+	onContactPhotoCropped: function(dataUrl)
+	{
+		// uploadFiles() wants a FileList of the window the dialog lives in
+		var win = Grommunio.core.BrowserWindowMgr.getActive() || window;
+		var binary = win.atob(dataUrl.slice(dataUrl.indexOf(',') + 1));
+		var bytes = new win.Uint8Array(binary.length);
+		for (var i = 0, len = binary.length; i < len; i++) {
+			bytes[i] = binary.charCodeAt(i);
+		}
+
+		var transfer = new win.DataTransfer();
+		transfer.items.add(new win.File([bytes], 'ContactPicture.jpg', {type: 'image/jpeg'}));
+		this.uploadContactPhotoCallback(transfer.files);
+	},
+
+	/**
+	 * Adds the contact picture (Attachment record) to the {@link Grommunio.core.data.IPMAttachmentStore store}.
 	 *
 	 * @param {Object/Array} files The files is contains file information.
 	 * @param {Object} form the form is contains {@link Ext.form.BasicForm bacisform} info.
