@@ -515,6 +515,28 @@ Grommunio.plugins.files.data.Utils = {
 	 */
 	Validator: {
 		/**
+		 * Check whether all selected files fit within PHP's memory limit.
+		 *
+		 * @param {Grommunio.plugins.files.data.FilesRecord[]} records The selected files
+		 * @return {Boolean} True when the selection can be downloaded
+		 */
+		downloadSelectionFitsMemoryLimit: function (records) {
+			var memoryLimit = container.getServerConfig().getMemoryLimit();
+			if (memoryLimit === -1) {
+				return true;
+			}
+
+			records = Ext.isArray(records) ? records : [records];
+			for (var i = 0; i < records.length; i++) {
+				if (records[i] && records[i].get('message_size') > memoryLimit) {
+					return false;
+				}
+			}
+
+			return true;
+		},
+
+		/**
 		 * This filter should be applied to all action buttons. It will for example hide the button if
 		 * a special functionality is not available.
 		 *

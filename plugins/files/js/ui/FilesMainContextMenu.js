@@ -84,6 +84,9 @@ Grommunio.plugins.files.ui.FilesMainContextMenu = Ext.extend(
 							);
 
 						item.setVisible(visible);
+						item.setDisabled(
+							!Grommunio.plugins.files.data.Utils.Validator.downloadSelectionFitsMemoryLimit(records),
+						);
 					},
 					scope: this,
 				},
