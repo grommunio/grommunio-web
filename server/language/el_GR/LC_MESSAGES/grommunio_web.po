@@ -9342,6 +9342,9 @@ msgstr "Σφάλμα σύνταξης"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Κακοσχηματισμένοι χαρακτήρες UTF-8, πιθανώς εσφαλμένα κωδικοποιημένοι"
 
+msgid "This file is too large to download. The PHP memory_limit value ({0}) is too low."
+msgstr ""
+
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Παρουσιάστηκε κάποιο πρόβλημα κατά την κωδικοποίηση/αποκωδικοποίηση δεδομένων JSON: - %s"

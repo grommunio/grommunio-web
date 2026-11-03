@@ -9363,6 +9363,9 @@ msgstr "Szintaxis hiba"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Rosszul formázott UTF-8 karakterek, esetleg helytelenül kódolva"
 
+msgid "This file is too large to download. The PHP memory_limit value ({0}) is too low."
+msgstr ""
+
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "A JSON-adatok kódolásakor/dekódolásakor valamilyen probléma merült fel: - %s"

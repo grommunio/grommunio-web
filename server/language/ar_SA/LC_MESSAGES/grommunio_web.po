@@ -9497,6 +9497,9 @@ msgstr "خطأ في بناء الجملة"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "أحرف UTF-8 مشوهة، ربما تم ترميزها بشكل غير صحيح"
 
+msgid "This file is too large to download. The PHP memory_limit value ({0}) is too low."
+msgstr ""
+
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "تمت مواجهة بعض المشكلات عند تشفير/فك تشفير بيانات JSON: -%s"

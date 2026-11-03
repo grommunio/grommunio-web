@@ -9420,6 +9420,9 @@ msgstr "Napaka sintakse"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Napačno oblikovani znaki UTF-8, morda nepravilno kodirani"
 
+msgid "This file is too large to download. The PHP memory_limit value ({0}) is too low."
+msgstr ""
+
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Pri kodiranju/dekodiranju podatkov JSON je prišlo do težave: - %s"

@@ -241,7 +241,9 @@ Grommunio.plugins.files.ui.FilesListToolbar = Ext.extend(
 					false,
 					true,
 				);
-			this.downloadBtn.setDisabled(!isVisible);
+			this.downloadBtn.setDisabled(
+				!isVisible || !validator.downloadSelectionFitsMemoryLimit(records),
+			);
 			var selected = Ext.isArray(records) ? records : [records].filter(Boolean);
 			this.previewBtn.setDisabled(
 				selected.length !== 1 ||

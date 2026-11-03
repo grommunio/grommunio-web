@@ -111,24 +111,13 @@ function is_assoc_array($data) {
  * @return string return max value either upload max filesize or post max size
  */
 function getMaxUploadSize($as_string = false) {
-	$upload_max_value = strtoupper(ini_get('upload_max_filesize'));
-	$post_max_value = getMaxPostRequestSize();
+	$upload_max_value = parsePhpIniValue('upload_max_filesize');
+	$post_max_value = parsePhpIniValue('post_max_size');
 
 	/*
 	 * If POST_MAX_SIZE is lower than UPLOAD_MAX_FILESIZE, it becomes the
 	 * effective upload limit because the request also contains header data.
 	 */
-
-	// calculate upload_max_value value to bytes
-	if (str_contains($upload_max_value, "K")) {
-		$upload_max_value = ((int) $upload_max_value) * 1024;
-	}
-	elseif (str_contains($upload_max_value, "M")) {
-		$upload_max_value = ((int) $upload_max_value) * 1024 * 1024;
-	}
-	elseif (str_contains($upload_max_value, "G")) {
-		$upload_max_value = ((int) $upload_max_value) * 1024 * 1024 * 1024;
-	}
 
 	// check which one is larger
 	$value = $upload_max_value;
@@ -153,30 +142,6 @@ function getMaxUploadSize($as_string = false) {
 	}
 
 	return $value;
-}
-
-/**
- * Gets maximum post request size of attachment from php ini settings.
- * post_max_size specifies maximum size of a post request,
- * we are uploading attachment using post method.
- *
- * @return string returns the post request size with proper unit(MB, GB, KB etc.).
- */
-function getMaxPostRequestSize() {
-	$post_max_value = strtoupper(ini_get('post_max_size'));
-
-	// calculate post_max_value value to bytes
-	if (str_contains($post_max_value, "K")) {
-		$post_max_value = ((int) $post_max_value) * 1024;
-	}
-	elseif (str_contains($post_max_value, "M")) {
-		$post_max_value = ((int) $post_max_value) * 1024 * 1024;
-	}
-	elseif (str_contains($post_max_value, "G")) {
-		$post_max_value = ((int) $post_max_value) * 1024 * 1024 * 1024;
-	}
-
-	return $post_max_value;
 }
 
 /**
@@ -1261,4 +1226,24 @@ function class_match_prefix($h, $n) {
 	}
 
 	return strlen($h) == $z || $h[$z] == '.' ? true : false;
+}
+
+/**
+ * Get a PHP ini value in bytes.
+ */
+function parsePhpIniValue(string $name): int {
+	$value = trim((string) ini_get($name));
+
+	if ($value === '-1') {
+		return -1;
+	}
+
+	$number = (int) $value;
+
+	return match (strtoupper(substr($value, -1))) {
+		'G' => $number * 0x40000000,
+		'M' => $number * 0x100000,
+		'K' => $number * 0x400,
+		default => $number,
+	};
 }

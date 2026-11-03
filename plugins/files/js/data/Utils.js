@@ -177,6 +177,27 @@ Grommunio.plugins.files.data.Utils = {
 	 * Rendering methods
 	 */
 	Renderer: {
+		/**
+		 * Render a filename and explain why an oversized file cannot be downloaded.
+		 *
+		 * @param {String} value The filename
+		 * @param {Object} p An object with metadata
+		 * @param {Ext.data.Record} record The file record
+		 * @return {String} The encoded filename
+		 */
+		filenameRenderer: function (value, p, record) {
+			var tooltip = '';
+			if (record.get('type') === Grommunio.plugins.files.data.FileTypes.FILE) {
+				tooltip = Grommunio.plugins.files.data.Utils.Validator.getDownloadMemoryLimitTooltip(
+					record.get('message_size'),
+				);
+			}
+			if (tooltip) {
+				p.attr = 'ext:qtip="' + Ext.util.Format.htmlEncode(tooltip) + '"';
+			}
+
+			return Ext.util.Format.htmlEncode(value);
+		},
 
 		/**
 		 * Typerenderer for folders or files.
@@ -514,6 +535,53 @@ Grommunio.plugins.files.data.Utils = {
 	 * Validator methods
 	 */
 	Validator: {
+		/**
+		 * Check whether a file exceeds PHP's memory limit.
+		 *
+		 * @param {Number} fileSize The file size in bytes
+		 * @return {Boolean} True when the file is too large to download
+		 */
+		fileExceedsMemoryLimit: function (fileSize) {
+			var memoryLimit = container.getServerConfig().getMemoryLimit();
+
+			return memoryLimit !== -1 && fileSize > memoryLimit;
+		},
+
+		/**
+		 * Get the warning shown when a file exceeds PHP's memory limit.
+		 *
+		 * @param {Number} fileSize The file size in bytes
+		 * @return {String} The warning, or an empty string when downloading is allowed
+		 */
+		getDownloadMemoryLimitTooltip: function (fileSize) {
+			if (!this.fileExceedsMemoryLimit(fileSize)) {
+				return '';
+			}
+
+			var memoryLimit = container.getServerConfig().getMemoryLimit();
+			return String.format(
+				_('This file is too large to download. The PHP memory_limit value ({0}) is too low.'),
+				Grommunio.plugins.files.data.Utils.Format.fileSize(memoryLimit),
+			);
+		},
+
+		/**
+		 * Check whether all selected files fit within PHP's memory limit.
+		 *
+		 * @param {Grommunio.plugins.files.data.FilesRecord[]} records The selected files
+		 * @return {Boolean} True when the selection can be downloaded
+		 */
+		downloadSelectionFitsMemoryLimit: function (records) {
+			records = Ext.isArray(records) ? records : [records];
+			for (var i = 0; i < records.length; i++) {
+				if (records[i] && this.fileExceedsMemoryLimit(records[i].get('message_size'))) {
+					return false;
+				}
+			}
+
+			return true;
+		},
+
 		/**
 		 * This filter should be applied to all action buttons. It will for example hide the button if
 		 * a special functionality is not available.
