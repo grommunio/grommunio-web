@@ -9388,6 +9388,9 @@ msgstr "Syntaktická chyba"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Chybné znaky UTF-8, pravděpodobně nesprávně kódované"
 
+msgid "This file is too large to download. The PHP memory_limit value ({0}) is too low."
+msgstr ""
+
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Při kódování/dekódování dat JSON se vyskytl nějaký problém: - %s"

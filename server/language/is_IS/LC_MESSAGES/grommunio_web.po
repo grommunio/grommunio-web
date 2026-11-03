@@ -9340,6 +9340,9 @@ msgstr "Setningarvilla"
 msgid "Malformed UTF-8 characters, possibly incorrectly encoded"
 msgstr "Gallaðir UTF-8 stafir, hugsanlega rangt kóðaðir"
 
+msgid "This file is too large to download. The PHP memory_limit value ({0}) is too low."
+msgstr ""
+
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Eitthvað vandamál kom upp við kóðun/afkóðun JSON gagna: -%s"
