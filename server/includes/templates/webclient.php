@@ -30,6 +30,7 @@ $serverConfig = array_merge($serverConfig, [
 	'always_enabled_plugins' => $GLOBALS['PluginManager']->expandPluginList(ALWAYS_ENABLED_PLUGINS_LIST),
 	'enable_advanced_settings' => ENABLE_ADVANCED_SETTINGS ? true : false,
 	'post_max_size' => parsePhpIniValue('post_max_size'),
+	'memory_limit' => parsePhpIniValue('memory_limit'),
 	'max_file_uploads' => getMaxFileUploads(),
 	'client_timeout' => defined('CLIENT_TIMEOUT') && is_numeric(CLIENT_TIMEOUT) && CLIENT_TIMEOUT > 0 ? CLIENT_TIMEOUT : false,
 	'active_theme' => Theming::getActiveTheme(),

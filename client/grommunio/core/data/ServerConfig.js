@@ -184,6 +184,14 @@ Grommunio.core.data.ServerConfig = Ext.extend(Object, {
 	},
 
 	/**
+	 * @return {Number} The PHP memory limit in bytes, or -1 when unlimited.
+	 */
+	getMemoryLimit: function()
+	{
+		return this.meta.memory_limit;
+	},
+
+	/**
 	 * @return {Number} The maximum size of a single attachment
 	 */
 	getMaxAttachmentSize: function()
