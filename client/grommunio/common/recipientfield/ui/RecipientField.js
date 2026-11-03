@@ -170,19 +170,42 @@ Grommunio.common.recipientfield.ui.RecipientField = Ext.extend(Grommunio.common.
 			splitAddresses = emailAddresses;
 		}
 
-		// Remove duplicate email addresses.
-		splitAddresses = splitAddresses.filter(function (emailAddress, index, self) {
-			self[index] = self[index].trim();
-			return index === self.indexOf(emailAddress.trim());
+		// Normalize the values before removing blanks and duplicates. In
+		// particular, never turn whitespace committed with Tab into a recipient.
+		splitAddresses = splitAddresses.map(function (emailAddress) {
+			return emailAddress.trim();
+		}).filter(function (emailAddress, index, self) {
+			return emailAddress !== '' && index === self.indexOf(emailAddress);
 		});
 
 		var newRecords = splitAddresses.map(function (emailAddress) {
-			return this.boxStore.parseRecipient(emailAddress.trim(), this.defaultRecipientType);
-		}, this);
+			return this.boxStore.parseRecipient(emailAddress, this.defaultRecipientType);
+		}, this).filter(function (record) {
+			return record !== null;
+		});
 
 		if (newRecords.length > 0) {
 			this.boxStore.add(newRecords);
 		}
+	},
+
+	/**
+	 * Allow Tab to leave the field when its input contains only whitespace.
+	 *
+	 * @param {Number} key The key which was pressed
+	 * @param {Ext.EventObject} e The event object which fired the event
+	 * @private
+	 */
+	onInputKeyTab: function(key, e)
+	{
+		if (String(this.getValue() || '').trim() === '') {
+			this.el.dom.value = '';
+			this.sizeInputfield();
+			this.triggerBlur();
+			return;
+		}
+
+		Grommunio.common.recipientfield.ui.RecipientField.superclass.onInputKeyTab.apply(this, arguments);
 	},
 
 	/**

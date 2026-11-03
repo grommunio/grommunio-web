@@ -87,7 +87,12 @@ Grommunio.common.recipientfield.data.SuggestionListStore = Ext.extend(Ext.data.S
 		}
 
 		// The combo box passes the query through baseParams.
-		var query = Ext.value(options.params.query, this.baseParams.query);
+		var query = Ext.isDefined(options.params.query) ? options.params.query : this.baseParams.query;
+		query = String(query || '').trim();
+		if (query === '') {
+			return false;
+		}
+
 		if (!this.isDirectoryUseful(query)) {
 			options.params.directory = false;
 		}
