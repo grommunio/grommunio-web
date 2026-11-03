@@ -282,8 +282,8 @@ Grommunio.core.data.IPMRecipientStore = Ext.extend(Grommunio.core.data.MAPISubSt
 		for (var i = 0; i < records.length; i++) {
 			var recipientRecord = records[i];
 
-			var displayName = recipientRecord.get('display_name').trim();
-			var smtpAddress = recipientRecord.get('smtp_address').trim();
+			var displayName = Ext.value(recipientRecord.get('display_name'), '').trim();
+			var smtpAddress = Ext.value(recipientRecord.get('smtp_address'), '').trim();
 			var addressType = recipientRecord.get('address_type');
 
 			/*
@@ -321,6 +321,12 @@ Grommunio.core.data.IPMRecipientStore = Ext.extend(Grommunio.core.data.MAPISubSt
 				emailAddress = smtpAddress;
 			}
 
+			// Do not ask the server to resolve an empty recipient. This can happen
+			// when a whitespace-only value is committed by keyboard navigation.
+			if (displayName === '' && emailAddress === '') {
+				continue;
+			}
+
 			resolveRequests.push({
 				id: recipientRecord.id,
 				display_name: displayName,
@@ -330,6 +336,10 @@ Grommunio.core.data.IPMRecipientStore = Ext.extend(Grommunio.core.data.MAPISubSt
 			});
 
 			pendingRecords.push(recipientRecord);
+		}
+
+		if (resolveRequests.length === 0) {
+			return;
 		}
 
 		// Setup the parameters that will make up the resolve request to the server
@@ -349,7 +359,7 @@ Grommunio.core.data.IPMRecipientStore = Ext.extend(Grommunio.core.data.MAPISubSt
 
 		this.fireEvent('beforeresolve', this, pendingRecords);
 
-		this.resolveProxy.request(Grommunio.core.Actions['checknames'], records, parameters, this.resolveReader, this.onCheckNamesResult, this, args);
+		this.resolveProxy.request(Grommunio.core.Actions['checknames'], pendingRecords, parameters, this.resolveReader, this.onCheckNamesResult, this, args);
 	},
 
 	/**
