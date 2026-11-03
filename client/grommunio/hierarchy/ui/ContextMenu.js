@@ -392,7 +392,9 @@ Grommunio.hierarchy.ui.ContextMenu = Ext.extend(Grommunio.core.ui.menu.Condition
 		var formattedTitle = '';
 		var emptyText = '';
 		var isIPMSubTree = folder.isIPMSubTree();
-		var isAppointmentDialog = folder.isContainerClass('IPF.Appointment', true);
+		// Free/busy permissions only apply to the main calendar folder. Treat
+		// additional calendar folders like regular folders when editing rights.
+		var isAppointmentDialog = folder.isContainerClass('IPF.Appointment', true) && folder.isSpecialFolder('calendar');
 
 		if (mapiStore.isDefaultStore() || isIPMSubTree) {
 			var text = isIPMSubTree ? storeName : folderName;
