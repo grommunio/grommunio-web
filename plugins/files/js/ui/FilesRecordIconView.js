@@ -62,13 +62,24 @@ Grommunio.plugins.files.ui.FilesRecordIconView = Ext.extend(Grommunio.common.ui.
 		return new Ext.XTemplate(
 			'<div style="height: 100%; width: 100%; overflow: auto;">',
 				'<tpl for=".">',
-					'<div class="grommunio-files-iconview-thumb">',
+					'<div class="grommunio-files-iconview-thumb" {[this.getDownloadTooltip(values)]}>',
 						'<div class="grommunio-files-iconview-icon {.:this.getTheme} {.:this.getHidden}"></div>',
 						'<div class="grommunio-files-iconview-subject">{filename:htmlEncode}</div>',
 					'</div>',
 				'</tpl>',
 			'</div>',
 			{
+				getDownloadTooltip: function (record) {
+					if (record.type !== Grommunio.plugins.files.data.FileTypes.FILE) {
+						return '';
+					}
+
+					var tooltip = Grommunio.plugins.files.data.Utils.Validator.getDownloadMemoryLimitTooltip(
+						record.message_size,
+					);
+
+					return tooltip ? 'ext:qtip="' + Ext.util.Format.htmlEncode(tooltip) + '"' : '';
+				},
 				getHidden: function (record) {
 					if (record.filename === "..") {
 						return "files_type_hidden";

@@ -60,6 +60,7 @@ Grommunio.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Grommunio.com
 				header   : _('Filename'),
 				dataIndex: 'filename',
 				width    : 160,
+				renderer : Grommunio.plugins.files.data.Utils.Renderer.filenameRenderer,
 				tooltip  : _('Sort by: Filename')
 			},
 			{
@@ -107,6 +108,7 @@ Grommunio.plugins.files.ui.FilesRecordGridColumnModel = Ext.extend(Grommunio.com
 				header   : _('Filename'),
 				dataIndex: 'filename',
 				width    : 160,
+				renderer : Grommunio.plugins.files.data.Utils.Renderer.filenameRenderer,
 				tooltip  : _('Sort by: Filename')
 			},
 			{
