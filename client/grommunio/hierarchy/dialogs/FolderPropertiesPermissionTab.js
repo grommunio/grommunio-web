@@ -444,6 +444,7 @@ Grommunio.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel
 	 */
 	updateProfileCombo: function(permissions)
 	{
+		permissions = this.getEffectivePermissions(permissions);
 		var store = this.profileCombo.store;
 
 		// Check if the given permissions mask is set on one
@@ -459,6 +460,24 @@ Grommunio.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel
 	},
 
 	/**
+	 * Remove free/busy permissions when evaluating rights on additional calendar
+	 * folders. These permissions only have meaning on the main calendar folder.
+	 *
+	 * @param {Number} permissions The permissions to evaluate
+	 * @return {Number} Permissions applicable to this folder
+	 * @private
+	 */
+	getEffectivePermissions: function(permissions)
+	{
+		if (permissions !== null && this.record && this.record.isCalendarFolder() && !this.record.isSpecialFolder('calendar')) {
+			permissions &= ~(Grommunio.core.mapi.Rights.RIGHTS_FBSIMPLE |
+				Grommunio.core.mapi.Rights.RIGHTS_FBDETAILED);
+		}
+
+		return permissions;
+	},
+
+	/**
 	 * Load a permissions mask into the {@link Ext.form.CheckboxGroup} or {@Link Ext.form.RadioGroup}.
 	 * This will toggle all radios and checkboxes to ensure they reflect the given permission mask.
 	 * @param {Ext.form.CheckboxGroup} group The group to update
@@ -467,6 +486,7 @@ Grommunio.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel
 	 */
 	loadPermissionToGroup: function(group, permissions)
 	{
+		permissions = this.getEffectivePermissions(permissions);
 		var items = group.items;
 
 		group.suspendEvents(false);
@@ -553,6 +573,7 @@ Grommunio.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel
 	 */
 	updatePermissionFromGroup: function(group, permissions)
 	{
+		permissions = this.getEffectivePermissions(permissions);
 		var mask = 0;
 		var flag = 0;
 		var items = group.items;
@@ -580,7 +601,7 @@ Grommunio.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel
 			}
 		});
 
-		return (permissions & ~mask) | flag;
+		return this.getEffectivePermissions((permissions & ~mask) | flag);
 	},
 
 	/**
@@ -592,6 +613,7 @@ Grommunio.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel
 	 */
 	loadPermissionValue: function(permissions)
 	{
+		permissions = this.getEffectivePermissions(permissions);
 		this.updateProfileCombo(permissions);
 
 		// Search for all checkbox and radiogroups,
@@ -625,7 +647,7 @@ Grommunio.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel
 			}
 		}, this);
 
-		return permissions;
+		return this.getEffectivePermissions(permissions);
 	},
 
 	/**
@@ -699,7 +721,7 @@ Grommunio.hierarchy.dialogs.FolderPropertiesPermissionTab = Ext.extend(Ext.Panel
 	 */
 	onProfileSelect: function(combo, record, index)
 	{
-		var permissions = record.get('value');
+		var permissions = this.getEffectivePermissions(record.get('value'));
 		if (permissions !== null) {
 			this.loadPermissionValue(permissions);
 			if (this.selectedUser) {
