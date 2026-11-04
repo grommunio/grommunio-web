@@ -9391,6 +9391,21 @@ msgstr "Chybné znaky UTF-8, pravděpodobně nesprávně kódované"
 msgid "This file is too large to download. The PHP memory_limit value ({0}) is too low."
 msgstr ""
 
+msgid "Move to Junk Folder and add the Email to blacklist"
+msgstr
+
+msgid "Move to Junk Folder and add the domain to blacklist"
+msgstr
+
+msgid "Blacklist rule created successfully"
+msgstr
+
+msgid "Unable to create the blacklist rule."
+msgstr
+
+msgid "Unable to create a blacklist rule for this sender."
+msgstr
+
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "Při kódování/dekódování dat JSON se vyskytl nějaký problém: - %s"
