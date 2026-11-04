@@ -9308,6 +9308,21 @@ msgstr "格式错误的UTF-8字符，可能编码错误"
 msgid "This file is too large to download. The PHP memory_limit value ({0}) is too low."
 msgstr ""
 
+msgid "Move to Junk Folder and add the Email to blacklist"
+msgstr
+
+msgid "Move to Junk Folder and add the domain to blacklist"
+msgstr
+
+msgid "Blacklist rule created successfully"
+msgstr
+
+msgid "Unable to create the blacklist rule."
+msgstr
+
+msgid "Unable to create a blacklist rule for this sender."
+msgstr
+
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
 msgstr "在编码/解码JSON数据时遇到一些问题： - %s"
