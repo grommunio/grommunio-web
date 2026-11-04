@@ -2232,6 +2232,11 @@ class Operations {
 			foreach ($props as $propTag => $propVal) {
 				switch (mapi_prop_type($propTag)) {
 					case PT_SYSTIME:
+						// An empty creation_time must not delete PR_CREATION_TIME
+						if ($propTag === PR_CREATION_TIME && empty($propVal)) {
+							unset($props[$propTag]);
+							break;
+						}
 						// Empty PT_SYSTIME values mean they should be deleted (there is no way to set an empty PT_SYSTIME)
 						// case PT_STRING8:	// not enabled at this moment
 						// Empty Strings
