@@ -205,9 +205,40 @@ Grommunio.mail.ui.MailGridContextMenu = Ext.extend(Grommunio.core.ui.menu.Condit
 		},{
 			xtype: 'grommunio.conditionalitem',
 			text: _('Move to Junk Folder'),
+			cls: 'k-unclickable',
 			iconCls: 'icon_folder_default_junk',
+			hideOnClick: false,
 			beforeShow: this.onMoveToJunkBeforeShow,
-			handler: this.onContextItemJunk,
+			menu: {
+				xtype: 'grommunio.conditionalmenu',
+				items: [{
+					xtype: 'grommunio.conditionalitem',
+					text: _('Move to Junk Folder'),
+					iconCls: 'icon_folder_default_junk',
+					handler: this.onContextItemJunk,
+					scope: this
+				},{
+					xtype: 'grommunio.conditionalitem',
+					text: _('Move to Junk Folder and add the Email to blacklist'),
+					iconCls: 'icon_folder_default_junk',
+					singleSelectOnly: true,
+					hideOnDisabled: false,
+					beforeShow: this.onJunkBlacklistBeforeShow,
+					blacklistDomain: false,
+					handler: this.onContextItemJunkAndBlacklist,
+					scope: this
+				},{
+					xtype: 'grommunio.conditionalitem',
+					text: _('Move to Junk Folder and add the domain to blacklist'),
+					iconCls: 'icon_folder_default_junk',
+					singleSelectOnly: true,
+					hideOnDisabled: false,
+					beforeShow: this.onJunkBlacklistBeforeShow,
+					blacklistDomain: true,
+					handler: this.onContextItemJunkAndBlacklist,
+					scope: this
+				}]
+			},
 			scope: this
 		},{
 			xtype: 'grommunio.conditionalitem',
@@ -396,6 +427,23 @@ Grommunio.mail.ui.MailGridContextMenu = Ext.extend(Grommunio.core.ui.menu.Condit
 	},
 
 	/**
+	 * Enable the blacklist actions only for one message with a valid sender address.
+	 * @param {Grommunio.core.ui.menu.ConditionalItem} item The item to enable/disable
+	 * @private
+	 */
+	onJunkBlacklistBeforeShow: function(item)
+	{
+		item.applySelectionFilter();
+		if (item.disabled) {
+			return;
+		}
+
+		var records = item.getRecords();
+		var address = records && records.length === 1 ? this.getJunkBlacklistSender(records[0]) : '';
+		item.setDisabled(!Grommunio.core.Util.validateEmailAddress(address));
+	},
+
+	/**
 	 * Event handler which determines if the 'Not Junk Email' menu item should be visible or not.
 	 * If context menu is opened in the "Junk Items" folder, it will show the menu item.
 	 *
@@ -479,6 +527,116 @@ Grommunio.mail.ui.MailGridContextMenu = Ext.extend(Grommunio.core.ui.menu.Condit
 		}, this);
 
 		store.save(this.records);
+	},
+
+	/**
+	 * Return the visible sender's normalized SMTP address.
+	 * @param {Grommunio.core.data.IPMRecord} record The selected message
+	 * @return {String} The sender address, or an empty string
+	 * @private
+	 */
+	getJunkBlacklistSender: function(record)
+	{
+		if (!record) {
+			return '';
+		}
+
+		return Ext.value(record.get('sent_representing_smtp_address') ||
+			record.get('sent_representing_email_address') ||
+			record.get('sender_email_address'), '').trim().toLowerCase();
+	},
+
+	/**
+	 * Move the selected message to Junk Mail and create a sender or domain rule.
+	 * @param {Ext.menu.Item} button The selected blacklist action
+	 * @private
+	 */
+	onContextItemJunkAndBlacklist: function(button)
+	{
+		var address = this.getJunkBlacklistSender(this.records[0]);
+		var domain = address.substring(address.lastIndexOf('@') + 1);
+
+		// Moving the message is independent from creating the rule and must always happen.
+		this.onContextItemJunk();
+
+		if (!Grommunio.core.Util.validateEmailAddress(address) || Ext.isEmpty(domain)) {
+			container.getNotifier().notify('error.rules', _('Error'), _('Unable to create a blacklist rule for this sender.'));
+			return;
+		}
+
+		if (button.blacklistDomain) {
+			this.createJunkBlacklistRule('@' + domain, this.getJunkBlacklistRuleName(domain));
+		} else {
+			this.createJunkBlacklistRule(address, this.getJunkBlacklistRuleName(address));
+		}
+	},
+
+	/**
+	 * Build the requested rule name from an email address or domain.
+	 * @param {String} value Sender email address or domain
+	 * @return {String} An alphanumeric/underscore rule name
+	 * @private
+	 */
+	getJunkBlacklistRuleName: function(value)
+	{
+		var suffix = '_tojunk';
+		return value.replace(/[^a-z0-9]/gi, '_').substring(0, 33) + suffix;
+	},
+
+	/**
+	 * Create a rule which moves matching senders to Junk Mail. Rules are saved
+	 * through RulesStore so the request contains the complete existing rule set.
+	 * @param {String} senderWord Sender email address or @domain match
+	 * @param {String} ruleName Name for the new rule
+	 * @private
+	 */
+	createJunkBlacklistRule: function(senderWord, ruleName)
+	{
+		var hierarchyStore = container.getHierarchyStore();
+		var junkFolder = hierarchyStore.getDefaultFolder('junk');
+		var storeEntryId = hierarchyStore.getDefaultStore().get('store_entryid');
+		var wordStore = new Ext.data.Store({ fields: [ 'words' ] });
+		wordStore.add(new Ext.data.Record({ words: senderWord.toUpperCase() }));
+
+		var conditionFactory = container.getRulesFactoryByType(Grommunio.common.data.RulesFactoryType.CONDITION);
+		var actionFactory = container.getRulesFactoryByType(Grommunio.common.data.RulesFactoryType.ACTION);
+		var conditionDefinition = conditionFactory.getConditionById(Grommunio.common.rules.data.ConditionFlags.SENDER_WORDS);
+		var actionDefinition = actionFactory.getActionById(Grommunio.common.rules.data.ActionFlags.MOVE);
+		var ruleRecord = Grommunio.core.data.RecordFactory.createRecordObjectByCustomType(
+			Grommunio.core.data.RecordCustomObjectType.GROMMUNIO_RULE
+		);
+
+		ruleRecord.set('rule_name', ruleName);
+		ruleRecord.set('rule_condition', conditionDefinition({ store: wordStore }));
+		ruleRecord.set('rule_actions', [actionDefinition({ folder: junkFolder })]);
+
+		var onError = function() {
+			container.getNotifier().notify('error.rules', _('Error'), _('Unable to create the blacklist rule.'));
+		};
+		var rulesStore = new Grommunio.common.rules.data.RulesStore({
+			storeEntryId: storeEntryId,
+			autoLoad: false
+		});
+		rulesStore.load({
+			callback: function(records, options, success) {
+				if (success === false) {
+					onError();
+					return;
+				}
+
+				rulesStore.add(ruleRecord);
+				rulesStore.on('save', function() {
+					container.getNotifier().notify('info.saved', _('Saved'), _('Blacklist rule created successfully'));
+				}, this, { single: true });
+				rulesStore.on('exception', onError, this, { single: true });
+
+				var batch = rulesStore.save();
+				if (Ext.isEmpty(batch) || batch === -1) {
+					onError();
+				}
+			},
+			scope: this
+		});
 	},
 
 	/**
