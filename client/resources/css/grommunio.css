@@ -3941,10 +3941,10 @@ span.preview-header-sender-image {
   .k-appointmentcreatetab .k-recurrence-panel .x-form-display-field {
     padding-top: 6px;
     line-height: 20px; }
-  .k-taskgeneraltab .k-subject-panel label.x-form-item-label {
-    padding-left: 6px; }
 .k-taskgeneraltab .k-datetime-panel table {
   white-space: nowrap; }
+  .k-taskgeneraltab .k-datetime-panel > .x-panel-bwrap > .x-panel-body > table > tbody > tr > td {
+    vertical-align: top; }
   .k-taskgeneraltab .k-datetime-panel table tr:nth-child(2) {
     border-bottom: none; }
   .k-taskgeneraltab .k-datetime-panel .k-date-panel table {
@@ -3967,17 +3967,19 @@ span.preview-header-sender-image {
     padding-left: 0;
     padding-right: 0; }
   .k-taskgeneraltab .k-date-panel .x-form-item:first-child label {
+    box-sizing: border-box;
     text-align: left;
-    padding: 0 6px;
+    padding: 2px 6px 0 0;
     line-height: 20px;
-    padding-top: 2px;
-    width: 72px !important; }
+    width: var(--k-form-label-width) !important; }
+  .k-taskgeneraltab .k-date-panel .x-form-item + .x-form-item {
+    margin-top: 12px; }
   .k-taskgeneraltab .k-date-panel .x-form-item:last-child label {
+    box-sizing: border-box;
     text-align: left;
-    padding: 0 6px;
+    padding: 2px 6px 0 0;
     line-height: 20px;
-    padding-top: 2px;
-    width: 110px !important; }
+    width: var(--k-form-label-width) !important; }
 .k-appointmentcreatetab .k-label-panel,
 .k-appointmentcreatetab .k-status-panel,
 .k-appointmentcreatetab .k-priority-complete-panel {
@@ -4042,6 +4044,11 @@ span.preview-header-sender-image {
     line-height: 20px;
     padding-top: 2px;
     width: 72px !important; }
+  .k-taskgeneraltab .k-status-panel label,
+  .k-taskgeneraltab .k-priority-complete-panel .x-form-item:first-child label {
+    box-sizing: border-box;
+    padding: 2px 6px 0 0;
+    width: 100px !important; }
 .k-appointmentcreatetab .k-taskrequestsettings,
 .k-taskgeneraltab .k-reminder-panel,
 .k-taskgeneraltab .k-taskrequestsettings {
@@ -4051,11 +4058,15 @@ span.preview-header-sender-image {
   .k-taskgeneraltab .k-taskrequestsettings .x-form-check-wrap {
     line-height: 20px;
     padding-top: 2px; }
+  .k-taskgeneraltab .k-reminder-panel .x-form-check-wrap {
+    position: relative;
+    left: -4px; }
   .k-taskgeneraltab .k-reminder-panel .k-reminder-label {
+    box-sizing: border-box;
     text-align: left;
-    padding: 0 6px;
+    padding: 0 6px 0 0;
     line-height: 28px;
-    width: 84px !important; }
+    width: var(--k-form-label-width) !important; }
 .k-appointmentcreatetab .k-taskrequestsettings,
 .k-taskgeneraltab .k-taskrequestsettings {
   border-bottom: 1px solid var(--ui-border); }
