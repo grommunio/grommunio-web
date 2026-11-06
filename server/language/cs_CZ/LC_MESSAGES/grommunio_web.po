@@ -9392,19 +9392,19 @@ msgid "This file is too large to download. The PHP memory_limit value ({0}) is t
 msgstr ""
 
 msgid "Move to Junk Folder and add the Email to blacklist"
-msgstr
+msgstr ""
 
 msgid "Move to Junk Folder and add the domain to blacklist"
-msgstr
+msgstr ""
 
 msgid "Blacklist rule created successfully"
-msgstr
+msgstr ""
 
 msgid "Unable to create the blacklist rule."
-msgstr
+msgstr ""
 
 msgid "Unable to create a blacklist rule for this sender."
-msgstr
+msgstr ""
 
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
