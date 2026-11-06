@@ -162,14 +162,14 @@ Grommunio.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			cls: 'k-subject-panel',
 			layout: 'form',
 			ref: 'subjectPanel',
-			labelWidth: 79,
+			labelWidth: 125,
 			labelAlign: 'left',
 			autoHeight: true,
 			border: false,
 			items: [{
 				xtype: 'textfield',
 				fieldLabel: _('Subject'),
-				anchor: '100%',
+				anchor: '99%',
 				name: 'subject',
 				listeners:{
 					'change': this.onPropertyChange,
@@ -181,8 +181,8 @@ Grommunio.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 
 	/**
 	 * Create the {@link Ext.Panel panel} containing the following elements
-	 * in a table layout: the date panel, recurrence panel, busy status panel,
-	 * reminder panel, and the label panel.
+	 * in a table layout: start date and status in the first row, due date,
+	 * priority, and completion in the second row, and reminder in the last row.
 	 * @return {Object} Configuration object for the panel containing the fields
 	 * @private
 	 */
@@ -201,9 +201,8 @@ Grommunio.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			items: [
 				this.createDatePanel(),
 				this.createStatusPanel(),
-
-				this.createReminderPanel(),
-				this.createPriorityCompletePanel()
+				this.createPriorityCompletePanel(),
+				this.createReminderPanel()
 			]
 		};
 	},
@@ -219,6 +218,7 @@ Grommunio.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		return {
 			xtype: 'panel',
 			cls: 'k-date-panel',
+			rowspan: 2,
 			ref: '../datePanel',
 			autoHeight: true,
 			autoWidth: true,
@@ -228,25 +228,27 @@ Grommunio.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				ref: '../../dateField',
 				allowBlank: true,
 				defaultPeriod: container.getSettingsModel().get('grommunio/v1/contexts/task/default_task_period'),
-				width: 480,
-				layout: 'hbox',
+				width: 330,
+				layout: 'form',
+				labelWidth: 125,
+				labelAlign: 'left',
 				listeners: {
 					change: this.onDateRangeFieldChange,
 					scope: this
 				},
 				startFieldConfig: {
 					fieldLabel: _('Start date'),
-					labelWidth: 79,
+					labelWidth: 125,
 					labelAlign: 'left',
 					cls: 'from-field',
-					width: 220
+					width: 150
 				},
 				endFieldConfig: {
 					fieldLabel: _('Due date'),
-					labelWidth: 110,
+					labelWidth: 125,
 					labelAlign: 'left',
 					cls: 'to-field',
-					width: 250
+					width: 150
 				}
 			}]
 		};
@@ -271,6 +273,7 @@ Grommunio.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			layout: 'form',
 			autoHeight: true,
 			border: false,
+			labelWidth: 100,
 			labelAlign: 'left',
 			items: [{
 				xtype: 'combo',
@@ -318,6 +321,7 @@ Grommunio.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				xtype: 'combo',
 				plugins: [ 'grommunio.fieldlabeler' ],
 				fieldLabel:_('Priority'),
+				labelWidth: 100,
 				labelAlign: 'left',
 				width: 100,
 				editable: false,
@@ -367,6 +371,7 @@ Grommunio.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		return {
 			xtype: 'panel',
 			cls: 'k-reminder-panel',
+			colspan: 2,
 			ref: '../reminderPanel',
 			autoHeight: true,
 			border: false,
@@ -376,7 +381,7 @@ Grommunio.task.dialogs.TaskGeneralTab = Ext.extend(Ext.form.FormPanel, {
 				items: [{
 					xtype: 'label',
 					text: Grommunio.util.Translations.Label(_('Reminder')),
-					width: 84,
+					width: 125,
 					cls: 'k-reminder-label'
 				},{
 					xtype: 'checkbox',
