@@ -4,17 +4,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Swedish (Sweden)\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 23:48+0200\n"
-"PO-Revision-Date: 2026-02-17 22:26+0000\n"
-"Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/grommunio/grommunio-web/se/>\n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
+"POT-Creation-Date: 2026-09-15 22:48+0200\n"
+"PO-Revision-Date: 2026-09-18 01:06+0000\n"
+"Last-Translator: Petter Ramme <petter@rammes.se>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/grommunio/"
+"grommunio-web/sv/>\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.11-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 msgid "Color palette"
 msgstr "Färgpalett"
@@ -36,10 +37,10 @@ msgid "Now"
 msgstr "Nu"
 
 msgid "Value must be between 0% to 100%"
-msgstr "Värdet måste vara mellan 0% to 100 %"
+msgstr "Värdet måste vara mellan 0 % och 100 %"
 
 msgid "Number must be higher than zero"
-msgstr "Antalet måste vara högre än noll"
+msgstr "Numret måste vara högre än 0"
 
 #. TRANSLATORS: punctuation appended to every form label, {0} is the label
 #. itself. French puts a space before the colon, Chinese the full-width one.
@@ -100,7 +101,7 @@ msgstr[0] "{0} vecka"
 msgstr[1] "{0} veckor"
 
 msgid "The quick brown fox jumps over the lazy dog"
-msgstr "Den kvicka bruna räven hoppar över den lata hunden"
+msgstr "Flygande bäckasiner söka hwila på mjuka tuvor."
 
 msgid "Sunday"
 msgstr "söndag"
@@ -124,25 +125,25 @@ msgid "Saturday"
 msgstr "lördag"
 
 msgid "Sun"
-msgstr "Sol"
+msgstr "Sön"
 
 msgid "Mon"
-msgstr "mån"
+msgstr "Mån"
 
 msgid "Tue"
-msgstr "tis"
+msgstr "Tis"
 
 msgid "Wed"
-msgstr "ons"
+msgstr "Ons"
 
 msgid "Thu"
-msgstr "tors"
+msgstr "Tor"
 
 msgid "Fri"
-msgstr "fre"
+msgstr "Fre"
 
 msgid "Sat"
-msgstr "lö"
+msgstr "Lör"
 
 msgid "January"
 msgstr "januari"
@@ -184,7 +185,7 @@ msgid "Page {A} of {0}"
 msgstr "Sida {A} av {0}"
 
 msgid "Displaying messages {0} - {1} of {2}"
-msgstr "Visar meddelanden {0} - {1} av {2}"
+msgstr "Visar meddelande {0} - {1} av {2}"
 
 msgid "No messages to display"
 msgstr "Inga meddelanden att visa"
@@ -211,7 +212,7 @@ msgid "OK"
 msgstr "OK"
 
 msgid "Cancel"
-msgstr "Avboka"
+msgstr "Avbryt"
 
 msgid "{0} (Spacebar)"
 msgstr "{0} (mellanslag)"
@@ -263,10 +264,10 @@ msgid "Yes"
 msgstr "Ja"
 
 msgid "No"
-msgstr "Inga"
+msgstr "Nej"
 
 msgid "Loading…"
-msgstr "Belastning…"
+msgstr "Läser in…"
 
 msgid "The value in this field is invalid"
 msgstr "Värdet i det här fältet är ogiltigt"
@@ -351,7 +352,7 @@ msgid "Group details"
 msgstr "Gruppinformation"
 
 msgid "General"
-msgstr "Allmän"
+msgstr "Allmänt"
 
 msgid "Display Name"
 msgstr "Visningsnamn"
@@ -402,7 +403,7 @@ msgid "City"
 msgstr "Stad"
 
 msgid "State"
-msgstr "Ange"
+msgstr "Delstat"
 
 msgid "Zip Code"
 msgstr "Postnummer"
@@ -438,16 +439,16 @@ msgid "Manager"
 msgstr "Chef"
 
 msgid "Direct reports"
-msgstr "Direktrapporter"
+msgstr "Underställda"
 
 msgid "Phone numbers"
 msgstr "Telefonnummer"
 
 msgid "Business"
-msgstr "Företag"
+msgstr "Arbete"
 
 msgid "Business 2"
-msgstr "Affär 2"
+msgstr "Arbete 2"
 
 msgid "Fax"
 msgstr "Fax"
@@ -474,7 +475,7 @@ msgid "You must select a user."
 msgstr "Du måste välja en användare."
 
 msgid "Select"
-msgstr "Välja"
+msgstr "Välj"
 
 msgid "Show Details"
 msgstr "Visa detaljer"
@@ -489,7 +490,8 @@ msgid "Address book"
 msgstr "Adressbok"
 
 msgid "Showing only the first {0} names. Use search to find more specific results."
-msgstr "Visar endast de första {0}-namnen. Använd sökning för att hitta mer specifika resultat."
+msgstr ""
+"Visar endast de första {0} namnen. Använd sökning för mer specifika resultat."
 
 msgid "Use the search bar to get results"
 msgstr "Använd sökfältet för att få resultat"
@@ -501,7 +503,7 @@ msgid "Show Names from the"
 msgstr "Visa namn från"
 
 msgid "Search…"
-msgstr "Söka…"
+msgstr "Sök…"
 
 msgid "Sort by: Icon"
 msgstr "Sortera efter: Ikon"
@@ -513,10 +515,10 @@ msgid "Sort by: Display Name"
 msgstr "Sortera efter: Visningsnamn"
 
 msgid "File as"
-msgstr "Arkivera som"
+msgstr "Visas som"
 
 msgid "Sort by: File As"
-msgstr "Sortera efter: Arkiv som"
+msgstr "Sortera efter \"Visas som\""
 
 msgid "First Name"
 msgstr "Förnamn"
@@ -534,7 +536,7 @@ msgid "Sort by: Email Address"
 msgstr "Sortera efter: E-postadress"
 
 msgid "Job Title"
-msgstr "Arbetstitel"
+msgstr "Befattning"
 
 msgid "Sort by: Job Title"
 msgstr "Sortera efter: Befattning"
@@ -576,31 +578,31 @@ msgid "Sort by: Fax"
 msgstr "Sortera efter: Fax"
 
 msgid "Print single item"
-msgstr "Skriv ut enstaka objekt"
+msgstr "Skriv ut ett enskilt objekt"
 
 msgid "Print selected item"
 msgstr "Skriv ut valt objekt"
 
 msgid "Print"
-msgstr "Skriva ut"
+msgstr "Skriv ut"
 
 msgid "No item selected"
 msgstr "Inget objekt valt"
 
 msgid "No preview"
-msgstr "Ingen förhandsvisning"
+msgstr "Ingen förhandsgranskning"
 
 msgid "Right preview"
-msgstr "Höger förhandsvisning"
+msgstr "Förhandsgranskning till höger"
 
 msgid "Bottom preview"
-msgstr "Nedre förhandsvisning"
+msgstr "Förhandsgranskning nedtill"
 
 msgid "Any date"
-msgstr "Vilket datum som helst"
+msgstr "Valfritt datum"
 
 msgid "Past week"
-msgstr "Förra veckan"
+msgstr "Senaste veckan"
 
 msgid "Past 2 weeks"
 msgstr "Senaste 2 veckorna"
@@ -612,7 +614,7 @@ msgid "Past 6 month"
 msgstr "Senaste 6 månaderna"
 
 msgid "Past year"
-msgstr "Förra året"
+msgstr "Senaste året"
 
 msgid "Custom date"
 msgstr "Anpassat datum"
@@ -621,7 +623,7 @@ msgid "Add to favorites"
 msgstr "Lägg till i favoriter"
 
 msgid "Add"
-msgstr "Tillägga"
+msgstr "Lägg till"
 
 msgid "Empty folder name"
 msgstr "Tomt mappnamn"
@@ -639,19 +641,19 @@ msgid "Select Category"
 msgstr "Välj Kategori"
 
 msgid "Apply"
-msgstr "Tillämpas"
+msgstr "Spara"
 
 msgid "All folders are selected"
 msgstr "Alla mappar är markerade"
 
 msgid "Reply"
-msgstr "Svar"
+msgstr "Svara"
 
 msgid "Reply All"
 msgstr "Svara alla"
 
 msgid "Forward"
-msgstr "Fram"
+msgstr "Vidarebefordra"
 
 msgid "Edit as New"
 msgstr "Redigera som ny"
@@ -669,7 +671,7 @@ msgid "Mails"
 msgstr "E-postmeddelanden"
 
 msgid "Appointments"
-msgstr "Utnämningar"
+msgstr "Avtalade tider"
 
 msgid "Contacts"
 msgstr "Kontakter"
@@ -698,7 +700,7 @@ msgid "To"
 msgstr "Till"
 
 msgid "Filter category…"
-msgstr "Filtrera kategori…"
+msgstr "Filtrera kategorier…"
 
 msgid "Add Category"
 msgstr "Lägg till kategori"
@@ -713,7 +715,7 @@ msgid "Subject"
 msgstr "Ämne"
 
 msgid "Body & Attachments"
-msgstr "Kropp & tillbehör"
+msgstr "Brödtext och bilagor"
 
 msgid "Favorites"
 msgstr "Favoriter"
@@ -737,7 +739,7 @@ msgid "Body"
 msgstr "Brödtext"
 
 msgid "Attachment"
-msgstr "Fastsättning"
+msgstr "Bilaga"
 
 msgid "Category"
 msgstr "Kategori"
@@ -755,7 +757,7 @@ msgid "Search results"
 msgstr "Sökresultat"
 
 msgid "Loading Search results"
-msgstr "Laddar sökresultat"
+msgstr "Läser in sökresultat"
 
 msgid "Sorting tip"
 msgstr "Sorteringstips"
@@ -792,16 +794,16 @@ msgid "Could not view proposal as this meeting is not available in calendar; It 
 msgstr "Det gick inte att visa förslaget eftersom detta möte inte är tillgängligt i kalendern; Det kan ha flyttats eller tagits bort."
 
 msgid "Required"
-msgstr "Nödvändig"
+msgstr "Obligatorisk"
 
 msgid "Optional"
-msgstr "Frivillig"
+msgstr "Valfri"
 
 msgid "Resource"
 msgstr "Resurs"
 
 msgid "Could not open store."
-msgstr "Kunde inte öppna butiken."
+msgstr "Kunde inte öppna brevlådan."
 
 msgid "Could not open default calendar folder."
 msgstr "Det gick inte att öppna standardkalendermappen."
@@ -923,7 +925,7 @@ msgid "Organizer"
 msgstr "Arrangör"
 
 msgid "Where"
-msgstr "Där"
+msgstr "Var"
 
 msgid "Required Attendee"
 msgstr "Obligatorisk deltagare"
@@ -935,7 +937,7 @@ msgid "Show Time As"
 msgstr "Visa tid som"
 
 msgid "Recurrence pattern"
-msgstr "Återkommande mönster"
+msgstr "Upprepningsmönster"
 
 msgid "All Day Event"
 msgstr "Heldagsevenemang"
@@ -956,16 +958,16 @@ msgid "Accept Meeting Request"
 msgstr "Acceptera mötesförfrågan"
 
 msgid "Tentative"
-msgstr "Trevande"
+msgstr "Preliminärt"
 
 msgid "Tentatively Accept Meeting Request"
-msgstr "Acceptera preliminärt mötesförfrågan"
+msgstr "Acceptera mötesförfrågan preliminärt"
 
 msgid "Decline"
-msgstr "Nedgång"
+msgstr "Avböj"
 
 msgid "Decline Meeting Request"
-msgstr "Avvisa mötesförfrågan"
+msgstr "Avböj mötesförfrågan"
 
 msgid "Propose New Time"
 msgstr "Föreslå ny tid"
@@ -1001,22 +1003,22 @@ msgid "List"
 msgstr "Lista"
 
 msgid "Appointment"
-msgstr "Utnämning"
+msgstr "Avtalad tid"
 
 msgid "Meeting request"
 msgstr "Mötesförfrågan"
 
 msgid "Print selected appointment"
-msgstr "Skriv ut valt möte"
+msgstr "Skriv ut vald avtalad tid"
 
 msgid "No appointment selected"
-msgstr "Inget möte valt"
+msgstr "Ingen avtalad tid vald"
 
 msgid "Print overview"
 msgstr "Skriv ut översikt"
 
 msgid "Create Appointment"
-msgstr "Skapa möte"
+msgstr "Skapa avtalad tid"
 
 msgid "Create in other calendar"
 msgstr "Skapa i en annan kalender"
@@ -1025,7 +1027,7 @@ msgid "The selected calendar has \"read-only\" permissions. Instead you can crea
 msgstr "Den valda kalendern har \"skrivskyddad\" behörighet. Istället kan du skapa ett objekt i din egen kalender."
 
 msgid "What would you like?"
-msgstr "Vad skulle du vilja ha?"
+msgstr "Vad vill du göra?"
 
 msgid "Own calendar"
 msgstr "Egen kalender"
@@ -1044,7 +1046,7 @@ msgid "Subject or Sender"
 msgstr "Ämne eller avsändare"
 
 msgid "To or cc"
-msgstr "Till eller cc"
+msgstr "Till eller Kopia"
 
 msgid "Meeting"
 msgstr "Möte"
@@ -1054,7 +1056,7 @@ msgid "Resources have been planned"
 msgstr "Resurser har planerats"
 
 msgid "Insufficient privileges"
-msgstr "Otillräckliga privilegier"
+msgstr "Otillräckliga behörigheter"
 
 msgid "You do not have permission to modify this item."
 msgstr "Du har inte behörighet att ändra det här objektet."
@@ -1084,7 +1086,7 @@ msgid "Busy attendees"
 msgstr "Upptagna deltagare"
 
 msgid "One or more attendees are busy. Are you sure to invite?"
-msgstr "En eller flera deltagare är upptagna. Är du säker på att du bjuder in?"
+msgstr "En eller flera deltagare är upptagna. Vill du bjuda in ändå?"
 
 msgid "Scheduling"
 msgstr "Schemaläggning"
@@ -1094,43 +1096,45 @@ msgstr "Spårning"
 
 msgctxt "calendar.dialog"
 msgid "Not all attendees could be resolved."
-msgstr "Alla deltagare kunde inte lösas."
+msgstr "Alla deltagare kunde inte slås upp."
 
 msgctxt "calendar.dialog"
 msgid "{0} attendees accepted, {1} tentatively accepted, {2} declined."
-msgstr "{0}-deltagare accepterade, {1} preliminärt accepterade, {2} tackade nej."
+msgstr "{0} deltagare har accepterat, {1} preliminärt, {2} har tackat nej."
 
 msgctxt "calendar.dialog"
 msgid "{0} attendees proposed a new time for this meeting. Click the Scheduling tab for details."
-msgstr "{0}-deltagare föreslog en ny tid för detta möte. Klicka på fliken Schemaläggning för mer information."
+msgstr ""
+"{0} deltagare har föreslagit en ny tid för mötet. Klicka på fliken "
+"Schemaläggning för mer information."
 
 msgctxt "calendar.dialog"
 msgid "You proposed a new time for this meeting on {0}"
-msgstr "Du föreslog en ny tid för detta möte på {0}"
+msgstr "Du föreslog en ny tid för det här mötet den {0}"
 
 msgctxt "calendar.dialog"
 msgid "{0} proposed a new time for this meeting on {1}"
-msgstr "{0} föreslog en ny tid för detta möte på {1}"
+msgstr "{0} föreslog en ny tid för det här mötet den {1}"
 
 msgctxt "calendar.dialog"
 msgid "Accepted on {0}"
-msgstr "Godkänd på {0}"
+msgstr "Accepterad den {0}"
 
 msgctxt "calendar.dialog"
 msgid "Accepted by {0} on {1}"
-msgstr "Godkänd av {0} på {1}"
+msgstr "Accepterad av {0} den {1}"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted on {0}"
-msgstr "Preliminärt accepterat på {0}"
+msgstr "Preliminärt accepterat den {0}"
 
 msgctxt "calendar.dialog"
 msgid "Tentatively Accepted by {0} on {1}"
-msgstr "Preliminärt accepterat av {0} på {1}"
+msgstr "Preliminärt accepterat av {0} den {1}"
 
 msgctxt "calendar.dialog"
 msgid "This appointment occurs in the past."
-msgstr "Denna utnämning förekommer i det förflutna."
+msgstr "Den här avtalade tiden ligger i det förflutna."
 
 msgctxt "calendar.dialog"
 msgid "Please respond."
@@ -1146,7 +1150,7 @@ msgstr "Mötet har ställts in."
 
 msgctxt "calendar.dialog"
 msgid "Invitations have not been sent for this meeting."
-msgstr "Inbjudningar har inte skickats till detta möte."
+msgstr "Inbjudningar har inte skickats för det här mötet."
 
 msgctxt "calendar.dialog"
 msgid "Please note that any changes you make will be overwritten when this meeting request is updated by the organizer"
@@ -1159,13 +1163,13 @@ msgid "Reminder"
 msgstr "Påminnelse"
 
 msgid "Create in"
-msgstr "Skapa in"
+msgstr "Skapa i"
 
 msgid "Time"
 msgstr "Tid"
 
 msgid "until"
-msgstr "tills"
+msgstr "till och med"
 
 msgid "Recurrence"
 msgstr "Upprepning"
@@ -1207,10 +1211,10 @@ msgid "Save"
 msgstr "Spara"
 
 msgid "Close"
-msgstr "Nära"
+msgstr "Stäng"
 
 msgid "Delete"
-msgstr "Radera"
+msgstr "Ta bort"
 
 msgid "Add attachment"
 msgstr "Lägg till bilaga"
@@ -1243,13 +1247,13 @@ msgid "High priority"
 msgstr "Hög prioritet"
 
 msgid "Mark this appointment as high priority"
-msgstr "Markera detta möte som högprioriterat"
+msgstr "Markera den här avtalade tiden som högprioriterad"
 
 msgid "Low priority"
 msgstr "Låg prioritet"
 
 msgid "Mark this appointment as low priority"
-msgstr "Markera detta möte som låg prioritet"
+msgstr "Markera den här avtalade tiden som lågprioriterad"
 
 msgid "Categories"
 msgstr "Kategorier"
@@ -1261,7 +1265,7 @@ msgid "Private"
 msgstr "Privat"
 
 msgid "Mark this appointment as private"
-msgstr "Markera detta möte som privat"
+msgstr "Markera den här avtalade tiden som privat"
 
 msgctxt "calendar.toolbar"
 msgid "Use Reply All to reply to all attendees of your meeting."
@@ -1286,7 +1290,7 @@ msgid "Current Meeting Time"
 msgstr "Aktuell mötestid"
 
 msgid "Show only working hours"
-msgstr "Visa endast arbetstider"
+msgstr "Visa endast arbetstid"
 
 msgid "Start time"
 msgstr "Starttid"
@@ -1298,7 +1302,7 @@ msgid "Comment"
 msgstr "Kommentar"
 
 msgid "Send Meeting Request Cancellation"
-msgstr "Skicka mötesförfrågan avbokning"
+msgstr "Skicka avbokning av mötesförfrågan"
 
 msgid "This meeting will be cancelled. Do you want to include comments with your cancellation?"
 msgstr "Detta möte kommer att ställas in. Vill du inkludera kommentarer i din avbokning?"
@@ -1322,7 +1326,9 @@ msgid "This meeting will be tentatively accepted and moved to your calendar. Do 
 msgstr "Det här mötet kommer preliminärt att accepteras och flyttas till din kalender. Vill du inkludera kommentarer i ditt svar?"
 
 msgid "This meeting will be declined and moved to your Deleted Items folder. Do you want to include comments with your response?"
-msgstr "Det här mötet kommer att avvisas och flyttas till mappen Borttagna objekt. Vill du inkludera kommentarer i ditt svar?"
+msgstr ""
+"Mötet kommer att avböjas och flyttas till mappen Borttagna objekt. Vill du "
+"skicka med en kommentar i svaret?"
 
 msgid "Edit the response before sending"
 msgstr "Redigera svaret innan du skickar det"
@@ -1346,7 +1352,7 @@ msgid "Response"
 msgstr "Svar"
 
 msgid "New appointment"
-msgstr "Nytt möte"
+msgstr "Ny avtalad tid"
 
 msgid "Creating an item"
 msgstr "Skapar ett objekt"
@@ -1372,7 +1378,7 @@ msgstr "Start"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "End"
-msgstr "Avsluta"
+msgstr "Slut"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 #. TRANSLATORS: {0} is the name of the user printing, {1} the current date and time
@@ -1422,10 +1428,10 @@ msgid "Resources"
 msgstr "Resurser"
 
 msgid "Sensitivity"
-msgstr "Känslighet"
+msgstr "Sekretess"
 
 msgid "Importance"
-msgstr "Betydelse"
+msgstr "Prioritet"
 
 msgid "M j"
 msgstr "M j"
@@ -1437,25 +1443,25 @@ msgid "General calendar settings"
 msgstr "Allmänna kalenderinställningar"
 
 msgid "First day of the week"
-msgstr "Första dagen i veckan"
+msgstr "Första veckodagen"
 
 msgid "Start of workday"
-msgstr "Början på arbetsdagen"
+msgstr "Arbetsdagens början"
 
 msgid "End of workday"
-msgstr "Slut på arbetsdagen"
+msgstr "Arbetsdagens slut"
 
 msgid "Calendar resolution"
 msgstr "Kalenderupplösning"
 
 msgid "Default appointment duration {A} minutes"
-msgstr "Standard möteslängd {A} minuter"
+msgstr "Standardlängd för avtalad tid: {A} minuter"
 
 msgid "Duration must be between 1 and 120 minutes."
 msgstr "Längden måste vara mellan 1 och 120 minuter."
 
 msgid "Default status for all day appointment"
-msgstr "Standardstatus för hela dagen möte"
+msgstr "Standardstatus för heldagshändelse"
 
 msgid "Working days"
 msgstr "Arbetsdagar"
@@ -1467,7 +1473,7 @@ msgid "Delete the meeting request from the inbox when answering from the calenda
 msgstr "Ta bort mötesförfrågan från inkorgen när du svarar från kalendern"
 
 msgid "Side-by-side mode"
-msgstr "Sida vid sida läge"
+msgstr "Sida-vid-sida-läge"
 
 msgid "Overlay mode"
 msgstr "Överlagringsläge"
@@ -1476,19 +1482,19 @@ msgid "Calendar view settings"
 msgstr "Inställningar för kalendervy"
 
 msgid "View multiple calendars in"
-msgstr "Se flera kalendrar i"
+msgstr "Visa flera kalendrar i"
 
 msgid "Reminder settings"
 msgstr "Påminnelseinställningar"
 
 msgid "Enable reminder for new appointments"
-msgstr "Aktivera påminnelse för nya möten"
+msgstr "Aktivera påminnelse för nya avtalade tider"
 
 msgid "Default reminder time"
-msgstr "Standard påminnelsetid"
+msgstr "Standardtid för påminnelse"
 
 msgid "Default all-day appointment reminder time"
-msgstr "Standard påminnelsetid för möten hela dagen"
+msgstr "Standardtid för heldagshändelser"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS"
@@ -1500,7 +1506,7 @@ msgstr[0] "{0} valt objekt"
 msgstr[1] "{0} valda objekt"
 
 msgid "New Appointment"
-msgstr "Nytt möte"
+msgstr "Ny avtalad tid"
 
 msgid "New Meeting Request"
 msgstr "Ny mötesförfrågan"
@@ -1512,10 +1518,10 @@ msgid "Copy/Move"
 msgstr "Kopiera/flytta"
 
 msgid "Mark Read"
-msgstr "Markera Läs"
+msgstr "Markera som läst"
 
 msgid "Mark Unread"
-msgstr "Markera oläst"
+msgstr "Markera som oläst"
 
 msgid "Send to…"
 msgstr "Skicka till…"
@@ -1524,16 +1530,17 @@ msgid "Export as"
 msgstr "Exportera som"
 
 msgid "Occurrence"
-msgstr "Förekomst"
+msgstr "Tillfälle"
 
 msgid "Series"
 msgstr "Serie"
 
 msgid "Appointment not found"
-msgstr "Mötet hittades inte"
+msgstr "Den avtalade tiden hittades inte"
 
 msgid "This appointment has been moved or deleted, do you want to continue?"
-msgstr "Det här mötet har flyttats eller tagits bort, vill du fortsätta?"
+msgstr ""
+"Den här avtalade tiden har flyttats eller tagits bort. Vill du fortsätta?"
 
 msgid "Options"
 msgstr "Alternativ"
@@ -1572,13 +1579,13 @@ msgid "Sort by: Created On"
 msgstr "Sortera efter: Skapad den"
 
 msgid "Due By"
-msgstr "Förfaller av"
+msgstr "Förfaller"
 
 msgid "Sort by: Due By"
-msgstr "Sortera efter: Förfaller till"
+msgstr "Sortera efter: Förfaller"
 
 msgid "Label"
-msgstr "Märka"
+msgstr "Etikett"
 
 msgid "Sort by: Label"
 msgstr "Sortera efter: Etikett"
@@ -1596,19 +1603,19 @@ msgid "Sort by: Resources"
 msgstr "Sortera efter: Resurser"
 
 msgid "Recurring Start Date"
-msgstr "Återkommande startdatum"
+msgstr "Startdatum för upprepning"
 
 msgid "Sort by: Recurring Start Date"
 msgstr "Sortera efter: Återkommande startdatum"
 
 msgid "Recurring End Date"
-msgstr "Återkommande slutdatum"
+msgstr "Slutdatum för upprepning"
 
 msgid "Sort by: Recurring End Date"
 msgstr "Sortera efter: Återkommande slutdatum"
 
 msgid "Recurring Pattern"
-msgstr "Återkommande mönster"
+msgstr "Upprepningsmönster"
 
 msgid "Sort by: Recurring Pattern"
 msgstr "Sortera efter: Återkommande mönster"
@@ -1623,10 +1630,10 @@ msgid "Sort by: Importance"
 msgstr "Sortera efter: Betydelse"
 
 msgid "Appointments list"
-msgstr "Lista över möten"
+msgstr "Lista över avtalade tider"
 
 msgid "Loading appointments…"
-msgstr "Läser in möten…"
+msgstr "Läser in avtalade tider…"
 
 msgid "You have insufficient privileges to move and copy this item. Ask the folder owner to grant you permissions or contact your system administrator."
 msgstr "Du har inte tillräckliga rättigheter för att flytta och kopiera det här objektet. Be mappägaren att ge dig behörigheter eller kontakta din systemadministratör."
@@ -1635,7 +1642,9 @@ msgid "You have insufficient privileges to copy this item. Ask the folder owner 
 msgstr "Du har inte tillräckliga rättigheter för att kopiera det här objektet. Be mappägaren att ge dig behörigheter eller kontakta din systemadministratör."
 
 msgid "Copying this appointment will unset it as private. Are you sure you want to continue?"
-msgstr "Om du kopierar det här mötet avaktiveras det som privat. Är du säker på att du vill fortsätta?"
+msgstr ""
+"Om du kopierar den här avtalade tiden tas markeringen Privat bort. Är du "
+"säker på att du vill fortsätta?"
 
 msgid "Private item"
 msgstr "Privat objekt"
@@ -1644,7 +1653,9 @@ msgid "Copy"
 msgstr "Kopiera"
 
 msgid "Moving this appointment will unset it as private. Are you sure you want to continue?"
-msgstr "Om du flyttar det här mötet avaktiveras det som privat. Är du säker på att du vill fortsätta?"
+msgstr ""
+"Om du flyttar den här avtalade tiden tas markeringen Privat bort. Är du "
+"säker på att du vill fortsätta?"
 
 msgid "Move"
 msgstr "Flytta"
@@ -1659,7 +1670,7 @@ msgid "Save changes and send an update to all recipients"
 msgstr "Spara ändringar och skicka en uppdatering till alla mottagare"
 
 msgid "Open meeting request with changes"
-msgstr "Öppen mötesförfrågan med ändringar"
+msgstr "Öppna mötesförfrågan med ändringar"
 
 msgid "Previous"
 msgstr "Föregående"
@@ -1674,16 +1685,16 @@ msgid "Please note that any changes you make will be overwritten when this meeti
 msgstr "Observera att alla ändringar du gör kommer att skrivas över när denna mötesförfrågan uppdateras av arrangören. Vill du flytta detta möte?"
 
 msgid "Don't move"
-msgstr "Rör dig inte"
+msgstr "Flytta inte"
 
 msgid "F j"
 msgstr "F j"
 
 msgid "Switch to day view to see all appointments"
-msgstr "Byt till dagsvy för att se alla möten"
+msgstr "Byt till dagsvy för att se alla avtalade tider"
 
 msgid "Show all appointments"
-msgstr "Visa alla möten"
+msgstr "Visa alla avtalade tider"
 
 #. TRANSLATORS: This message is used as label for the field which to indicates to whom the given mail was sent.
 msgctxt "mail.previewpanel"
@@ -1707,7 +1718,7 @@ msgid "Your calendar has been updated automatically. This meeting request will n
 msgstr "Din kalender har uppdaterats automatiskt. Denna mötesförfrågan kommer nu att tas bort."
 
 msgid "New appointment subject"
-msgstr "Ämne för nytt möte"
+msgstr "Ämne för ny avtalad tid"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "jS F Y"
@@ -1735,25 +1746,25 @@ msgid "{0}"
 msgstr "{0}"
 
 msgid "Upcoming Appointments"
-msgstr "Kommande möten"
+msgstr "Kommande avtalade tider"
 
 msgid "Appointments of {0}"
-msgstr "Utnämningar av {0}"
+msgstr "Avtalade tider för {0}"
 
 msgid "Appointments of {0} - {1}"
-msgstr "Utnämningar av {0} - {1}"
+msgstr "Avtalade tider för {0} - {1}"
 
 msgid "No appointments"
-msgstr "Inga möten"
+msgstr "Inga avtalade tider"
 
 msgid "Exception"
 msgstr "Undantag"
 
 msgid "Today {0} - {1}"
-msgstr "Idag {0} - {1}"
+msgstr "I dag {0} - {1}"
 
 msgid "Today (all day)"
-msgstr "Idag (hela dagen)"
+msgstr "I dag (hela dagen)"
 
 #. TRANSLATORS: Display name of a folder: "FOLDERNAME - STORENAME".
 #. TRANSLATORS: Displayed on top of a tree with folders: "FOLDERNAME - USERNAME".
@@ -1776,16 +1787,16 @@ msgid "Unnamed folder"
 msgstr "Namnlös mapp"
 
 msgid "Discard"
-msgstr "Kassera"
+msgstr "Återställ"
 
 msgid "Quick Appointment"
-msgstr "Snabbt möte"
+msgstr "Snabb avtalad tid"
 
 msgid "Printing of multiple items has not been implemented."
-msgstr "Utskrift av flera artiklar har inte implementerats."
+msgstr "Utskrift av flera objekt är inte implementerat."
 
 msgid "Printing of this item is not yet available"
-msgstr "Utskrift av denna artikel är ännu inte tillgänglig"
+msgstr "Utskrift av det här objektet är ännu inte tillgänglig"
 
 msgid "Item type: {0}"
 msgstr "Artikeltyp: {0}"
@@ -1797,25 +1808,33 @@ msgid "Recurring Message"
 msgstr "Återkommande meddelande"
 
 msgid "This is a recurring message. Do you want to open only this occurrence or the series?"
-msgstr "Detta är ett återkommande meddelande. Vill du bara öppna denna förekomst eller serien?"
+msgstr ""
+"Detta är ett återkommande meddelande. Vill du öppna bara det här tillfället "
+"eller hela serien?"
 
 msgid "Recurring Appointment"
-msgstr "Återkommande möte"
+msgstr "Återkommande avtalad tid"
 
 msgid "This is a recurring appointment. Do you want to open only this occurrence or the series?"
-msgstr "Detta är ett återkommande möte. Vill du bara öppna denna förekomst eller serien?"
+msgstr ""
+"Detta är en återkommande avtalad tid. Vill du öppna bara det här tillfället "
+"eller hela serien?"
 
 msgid "Recurring Meeting Request"
 msgstr "Återkommande mötesförfrågan"
 
 msgid "This is a recurring meeting request. Do you want to open only this occurrence or the series?"
-msgstr "Detta är en återkommande mötesförfrågan. Vill du bara öppna denna förekomst eller serien?"
+msgstr ""
+"Detta är en återkommande mötesförfrågan. Vill du öppna bara det här "
+"tillfället eller hela serien?"
 
 msgid "Recurring Task Request"
 msgstr "Återkommande uppgiftsbegäran"
 
 msgid "This is a recurring task request. Do you want to open only this occurrence or the series?"
-msgstr "Detta är en återkommande uppgiftsförfrågan. Vill du bara öppna denna förekomst eller serien?"
+msgstr ""
+"Detta är en återkommande uppgiftsförfrågan. Vill du öppna bara det här "
+"tillfället eller hela serien?"
 
 msgid "Open this occurrence"
 msgstr "Öppna denna förekomst"
@@ -1827,7 +1846,9 @@ msgid "Paste Recurring {0}"
 msgstr "Klistra in återkommande {0}"
 
 msgid "This is a recurring {0}. Do you want to paste only this occurrence or the series?"
-msgstr "Detta är en återkommande {0}. Vill du bara klistra in den här förekomsten eller serien?"
+msgstr ""
+"Detta är en återkommande {0}. Vill du klistra in bara det här tillfället "
+"eller hela serien?"
 
 msgid "message"
 msgstr "meddelande"
@@ -1836,7 +1857,7 @@ msgid "meeting request"
 msgstr "mötesförfrågan"
 
 msgid "appointment"
-msgstr "utnämning"
+msgstr "avtalad tid"
 
 msgid "Paste this occurrence only"
 msgstr "Klistra in endast denna förekomst"
@@ -1845,16 +1866,24 @@ msgid "Paste the series…"
 msgstr "Klistra in serien…"
 
 msgid "This is a recurring message. Do you want to delete only this occurrence or the series?"
-msgstr "Detta är ett återkommande meddelande. Vill du bara ta bort denna förekomst eller serien?"
+msgstr ""
+"Detta är ett återkommande meddelande. Vill du ta bort bara det här "
+"tillfället eller hela serien?"
 
 msgid "This is a recurring appointment. Do you want to delete only this occurrence or the series?"
-msgstr "Detta är ett återkommande möte. Vill du bara ta bort denna förekomst eller serien?"
+msgstr ""
+"Detta är en återkommande avtalad tid. Vill du ta bort bara det här "
+"tillfället eller hela serien?"
 
 msgid "This is a recurring meeting request. Do you want to delete only this occurrence or the series?"
-msgstr "Detta är en återkommande mötesförfrågan. Vill du bara ta bort denna förekomst eller serien?"
+msgstr ""
+"Detta är en återkommande mötesförfrågan. Vill du ta bort bara det här "
+"tillfället eller hela serien?"
 
 msgid "This is a recurring task request. Do you want to delete only this occurrence or the series?"
-msgstr "Detta är en återkommande uppgiftsförfrågan. Vill du bara ta bort denna förekomst eller serien?"
+msgstr ""
+"Detta är en återkommande uppgiftsförfrågan. Vill du ta bort bara det här "
+"tillfället eller hela serien?"
 
 msgid "Delete this occurrence"
 msgstr "Ta bort den här förekomsten"
@@ -1866,7 +1895,7 @@ msgid "Confirm Delete"
 msgstr "Bekräfta radering"
 
 msgid "This \"{0}\" meeting was already accepted."
-msgstr "Detta \"{0}\"-möte har redan godkänts."
+msgstr "Mötet \"{0}\" har redan accepterats."
 
 msgid "You have not responded to the meeting request \"{0}\"."
 msgstr "Du har inte svarat på mötesförfrågan \"{0}\"."
@@ -1875,7 +1904,7 @@ msgid "Delete and send a response to the meeting organizer"
 msgstr "Ta bort och skicka ett svar till mötesarrangören"
 
 msgid "Delete without sending"
-msgstr "Radera utan att skicka"
+msgstr "Ta bort utan att skicka"
 
 msgid "Insufficient permissions"
 msgstr "Otillräckliga behörigheter"
@@ -1907,10 +1936,10 @@ msgid "The task \"{0}\" has not been completed. What do you want to do?"
 msgstr "Uppgiften \"{0}\" har inte slutförts. Vad vill du göra?"
 
 msgid "Decline and delete"
-msgstr "Avvisa och ta bort"
+msgstr "Avböj och ta bort"
 
 msgid "Mark complete and delete"
-msgstr "Markera komplett och ta bort"
+msgstr "Markera som slutförd och ta bort"
 
 msgid "Following recipients are already exists"
 msgstr "Följande mottagare finns redan"
@@ -1937,7 +1966,7 @@ msgid "Import"
 msgstr "Importera"
 
 msgid "Successfully imported item(s) to {0}"
-msgstr "Lyckade importerade objekt till {0}"
+msgstr "Objekten har importerats till {0}"
 
 msgid "Failed to import item(s) to {0}"
 msgstr "Det gick inte att importera objekt till {0}"
@@ -1955,7 +1984,7 @@ msgid "You have insufficient privileges to move this item. Would you like to cop
 msgstr "Du har inte tillräckliga rättigheter för att flytta detta objekt. Vill du kopiera istället?"
 
 msgid "Untitled"
-msgstr "Ofrälse"
+msgstr "Namnlös"
 
 msgid "The attachments could not be saved."
 msgstr "Det gick inte att spara bilagorna."
@@ -1998,7 +2027,7 @@ msgid "Download as ZIP"
 msgstr "Ladda ner som ZIP"
 
 msgid "Continue"
-msgstr "Fortsätta"
+msgstr "Fortsätt"
 
 msgid "These attachments have an unsupported file type and can not be added to the ZIP file:"
 msgstr "Dessa bilagor har en filtyp som inte stöds och kan inte läggas till i ZIP-filen:"
@@ -2016,7 +2045,7 @@ msgid "Attach item"
 msgstr "Bifoga objekt"
 
 msgid "Preview"
-msgstr "Förhandsvisning"
+msgstr "Förhandsgranskning"
 
 msgid "Preview in a dialog"
 msgstr "Förhandsvisa i dialogruta"
@@ -2046,7 +2075,7 @@ msgid "Preview in a browser window"
 msgstr "Förhandsvisa i webbläsarfönster"
 
 msgid "Attachment error"
-msgstr "Bilaga fel"
+msgstr "Fel på bilaga"
 
 msgid "Cannot create ZIP, The allowed maximum size is 30 MB."
 msgstr "Det går inte att skapa ZIP, den tillåtna maximala storleken är 30 MB."
@@ -2094,7 +2123,9 @@ msgid "Delete Category"
 msgstr "Ta bort kategori"
 
 msgid "Are you sure you want to delete the category \"{0}\"? Other items keep this category, but lose the assigned color."
-msgstr "Är du säker på att du vill ta bort kategorin \"{0}\"? Andra föremål behåller den här kategorin, men förlorar den tilldelade färgen."
+msgstr ""
+"Är du säker på att du vill ta bort kategorin \"{0}\"? Andra objekt behåller "
+"kategorin, men förlorar den tilldelade färgen."
 
 msgid "Rename Category"
 msgstr "Byt namn på kategori"
@@ -2109,19 +2140,21 @@ msgid "Category name"
 msgstr "Kategorinamn"
 
 msgid "Pin to quick access"
-msgstr "Fäst för snabb åtkomst"
+msgstr "Fäst i snabbåtkomst"
 
 msgid "Create"
 msgstr "Skapa"
 
 msgid "You must apply the changes you have made to the categories before you can create this category."
-msgstr "Du måste tillämpa de ändringar du har gjort i kategorierna innan du kan skapa denna kategori."
+msgstr ""
+"Du måste spara dina ändringar av kategorierna innan du kan skapa den här "
+"kategorin."
 
 msgid "You already have a category named '{0}' in your pending changes. Please use another name."
 msgstr "Du har redan en kategori som heter '{0}' i dina väntande ändringar. Använd ett annat namn."
 
 msgid "Rename"
-msgstr "Döpa om"
+msgstr "Byt namn"
 
 msgid "This is the first time you have used \"{0}\" category."
 msgstr "Det här är första gången du använder kategorin \"{0}\"."
@@ -2151,22 +2184,22 @@ msgid "More than one '{0}' found."
 msgstr "Mer än en \"{0}\" hittades."
 
 msgid "Alert"
-msgstr "Varna"
+msgstr "Avisering"
 
 msgid "Please select a recipient"
 msgstr "Välj en mottagare"
 
 msgid "Mail and Post"
-msgstr "Post och Post"
+msgstr "E-post och inlägg"
 
 msgid "Contact"
-msgstr "Kontakta"
+msgstr "Kontakt"
 
 msgid "Journal"
 msgstr "Journal"
 
 msgid "Note"
-msgstr "Notera"
+msgstr "Anteckning"
 
 msgid "Task"
 msgstr "Uppgift"
@@ -2184,43 +2217,43 @@ msgid "Secretary"
 msgstr "Sekreterare"
 
 msgid "Only read"
-msgstr "Bara läsa"
+msgstr "Endast läsa"
 
 msgid "Delegate Permissions"
-msgstr "Delegera behörigheter"
+msgstr "Behörigheter för delegat"
 
 msgid "This delegate has the following permissions"
 msgstr "Denna delegat har följande behörigheter"
 
 msgid "Delegate can see my private items."
-msgstr "Delegat kan se mina privata föremål."
+msgstr "Delegaten kan se mina privata objekt."
 
 msgid "Delegate receives copies of meeting-related messages sent to me."
 msgstr "Delegaten får kopior av mötesrelaterade meddelanden som skickas till mig."
 
 msgid "Other"
-msgstr "Andra"
+msgstr "Övrigt"
 
 msgid "No delegates configured"
 msgstr "Inga delegater har konfigurerats"
 
 msgid "Loading delegates"
-msgstr "Laddar ombud"
+msgstr "Läser in delegater"
 
 msgid "Please select a delegate."
 msgstr "Välj en delegat."
 
 msgid "Delegates can send items on your behalf."
-msgstr "Delegater kan skicka föremål för din räkning."
+msgstr "Delegater kan skicka objekt för din räkning."
 
 msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
 msgstr "Om du bara vill ställa in mappbehörigheter, högerklicka på en mapp för att öppna snabbmenyn och klicka på \"Dela mapp…\""
 
 msgid "Permission"
-msgstr "Tillstånd"
+msgstr "Behörighet"
 
 msgid "Duplicate delegate"
-msgstr "Dubblett delegat"
+msgstr "Delegaten finns redan"
 
 msgid "Delegate already exists in the list."
 msgstr "Delegat finns redan i listan."
@@ -2249,10 +2282,14 @@ msgid "Suggested folders"
 msgstr "Föreslagna mappar"
 
 msgid "The selected items cannot be moved into this folder because it holds a different type of content."
-msgstr "De markerade objekten kan inte flyttas till den här mappen eftersom den innehåller en annan typ av innehåll."
+msgstr ""
+"De valda objekten kan inte flyttas till den här mappen eftersom den "
+"innehåller en annan typ av innehåll."
 
 msgid "The selected items cannot be copied into this folder because it holds a different type of content."
-msgstr "De markerade objekten kan inte kopieras till den här mappen eftersom den innehåller en annan typ av innehåll."
+msgstr ""
+"De valda objekten kan inte kopieras till den här mappen eftersom den "
+"innehåller en annan typ av innehåll."
 
 msgid "Incompatible folder"
 msgstr "Inkompatibel mapp"
@@ -2285,13 +2322,13 @@ msgid "Properties"
 msgstr "Egenskaper"
 
 msgid "Object ID"
-msgstr "Objekt ID"
+msgstr "Objekt-ID"
 
 msgid "ICS"
 msgstr "ICS"
 
 msgid "Set custom flag"
-msgstr "Ställ in anpassad flagga"
+msgstr "Sätt anpassad flagga"
 
 msgid "Start date"
 msgstr "Startdatum"
@@ -2309,13 +2346,13 @@ msgid "Next week"
 msgstr "Nästa vecka"
 
 msgid "Custom"
-msgstr "Beställnings"
+msgstr "Anpassad"
 
 msgid "Set reminder"
 msgstr "Ställ in påminnelse"
 
 msgid "Complete"
-msgstr "Komplett"
+msgstr "Slutförd"
 
 msgid "today"
 msgstr "i dag"
@@ -2342,13 +2379,13 @@ msgid "Copy email address"
 msgstr "Kopiera e-postadress"
 
 msgid "Set as required"
-msgstr "Ställ in efter behov"
+msgstr "Ange som obligatorisk"
 
 msgid "Set as optional"
-msgstr "Ställ in som valfritt"
+msgstr "Ange som valfri"
 
 msgid "Set as resource"
-msgstr "Ställ in som resurs"
+msgstr "Ange som resurs"
 
 msgid "Select attendees"
 msgstr "Välj deltagare"
@@ -2360,7 +2397,7 @@ msgid "Busy"
 msgstr "Upptagen"
 
 msgid "Out of Office"
-msgstr "Utanför kontoret"
+msgstr "Frånvaro"
 
 msgid "Working Elsewhere"
 msgstr "Arbetar på annan plats"
@@ -2369,13 +2406,13 @@ msgid "No Information"
 msgstr "Ingen information"
 
 msgid "Show non-working hours"
-msgstr "Visa ej arbetstid"
+msgstr "Visa tid utanför arbetstid"
 
 msgid "Hide non-working hours"
-msgstr "Dölj icke-arbetstider"
+msgstr "Dölj tid utanför arbetstid"
 
 msgid "No freebusy information available for this date"
-msgstr "Ingen ledig-upptagen-information tillgänglig för detta datum"
+msgstr "Ingen ledig/upptagen-information finns för det här datumet"
 
 msgid "No suggestions available"
 msgstr "Inga förslag tillgängliga"
@@ -2390,7 +2427,7 @@ msgid "Switch between different views"
 msgstr "Växla mellan olika vyer"
 
 msgid "New item"
-msgstr "Nytt föremål"
+msgstr "Nytt objekt"
 
 msgid "All views"
 msgstr "Alla vyer"
@@ -2402,13 +2439,13 @@ msgid "Print item"
 msgstr "Skriv ut objekt"
 
 msgid "Items"
-msgstr "Föremål"
+msgstr "Objekt"
 
 msgid "Save an item e.g. mail, contact, etc."
-msgstr "Spara en vara t.ex. mail, kontakt osv."
+msgstr "Spara ett objekt, t.ex. ett meddelande eller en kontakt."
 
 msgid "Send an item e.g. mail, meeting request, etc."
-msgstr "Skicka en vara t.ex. mail, mötesförfrågan m.m."
+msgstr "Skicka ett objekt, t.ex. ett meddelande eller en mötesförfrågan."
 
 msgid "Select all items"
 msgstr "Välj alla objekt"
@@ -2435,7 +2472,9 @@ msgid "Delete selected item"
 msgstr "Ta bort markerat objekt"
 
 msgid "Delete selected item without moving it to the Deleted Items folder. The deleted item can still be restored."
-msgstr "Ta bort markerat objekt utan att flytta det till mappen Raderade objekt. Det raderade objektet kan fortfarande återställas."
+msgstr ""
+"Ta bort markerat objekt utan att flytta det till mappen Borttagna objekt. "
+"Det borttagna objektet kan fortfarande återställas."
 
 msgid "Undo the last action"
 msgstr "Ångra den senaste åtgärden"
@@ -2453,7 +2492,7 @@ msgid "Add/Edit Cc recipient"
 msgstr "Lägg till/redigera kopia-mottagare"
 
 msgid "Resolving recipient"
-msgstr "Fastställa mottagare"
+msgstr "Slår upp mottagare"
 
 msgid "Disable for new mail"
 msgstr "Inaktivera för ny e-post"
@@ -2471,16 +2510,16 @@ msgid "No Cc recipient configured"
 msgstr "Ingen kopia-mottagare konfigurerad"
 
 msgid "Loading Cc recipients"
-msgstr "Laddar Cc-mottagare"
+msgstr "Läser in Kopia-mottagare"
 
 msgid "Reply Mail"
-msgstr "Svara Mail"
+msgstr "Svara på meddelande"
 
 msgid "New Mail"
-msgstr "Nytt mail"
+msgstr "Nytt meddelande"
 
 msgid "Please select a Cc recipient record."
-msgstr "Välj en Cc-mottagarepost."
+msgstr "Välj en Kopia-mottagare."
 
 msgid "Help"
 msgstr "Hjälp"
@@ -2489,7 +2528,7 @@ msgid "Web Manual"
 msgstr "Webbmanual"
 
 msgid "Item data"
-msgstr "Artikeldata"
+msgstr "Objektdata"
 
 msgid "INSERT"
 msgstr "INFOGA"
@@ -2579,7 +2618,7 @@ msgid "Email address"
 msgstr "E-postadress"
 
 msgid "Expand distribution list"
-msgstr "Utöka distributionslistan"
+msgstr "Expandera distributionslistan"
 
 msgid "Distribution list will be replaced with its members. You will not be able to collapse it again."
 msgstr "Distributionslistan kommer att ersättas med dess medlemmar. Du kommer inte att kunna komprimera den igen."
@@ -2645,10 +2684,10 @@ msgid "Regenerate new task {A} month(s) after each task is completed"
 msgstr "Återskapa ny uppgift {A} månad(er) efter att varje uppgift är slutförd"
 
 msgid "Appointment Recurrence"
-msgstr "Återkommande möte"
+msgstr "Upprepning av avtalad tid"
 
 msgid "Remove Recurrence"
-msgstr "Ta bort återkommande"
+msgstr "Ta bort upprepning"
 
 msgid "Reset recurring"
 msgstr "Återställ återkommande"
@@ -2657,7 +2696,7 @@ msgid "This will reset every exception. Do you want to continue?"
 msgstr "Detta kommer att återställa alla undantag. Vill du fortsätta?"
 
 msgid "Task Recurrence"
-msgstr "Återkommande uppgift"
+msgstr "Upprepning av uppgift"
 
 msgid "Daily"
 msgstr "Dagligen"
@@ -2666,33 +2705,33 @@ msgid "Weekly"
 msgstr "Varje vecka"
 
 msgid "Monthly"
-msgstr "Månatlig"
+msgstr "Varje månad"
 
 msgid "Yearly"
-msgstr "Årlig"
+msgstr "Varje år"
 
 msgid "Range of recurrence"
-msgstr "Omfattning av återfall"
+msgstr "Upprepningens omfattning"
 
 msgid "No end date"
 msgstr "Inget slutdatum"
 
 msgid "End after {A} occurrences"
-msgstr "Slutar efter {A}-förekomster"
+msgstr "Slutar efter {A} tillfällen"
 
 msgid "End by {A}"
-msgstr "Avsluta med {A}"
+msgstr "Slutar den {A}"
 
 #. TRANSLATORS: This informs the user what the exact duration of the appointment is. Where {D} represents the days, {H} the hours and {M} the minutes.
 #. For example: 'Occurrence duration: 1 day 2 hours 45 minutes', or when the appointment is shorter then 1 day: 'Occurrence duration: 1 hour'
 msgid "Occurrence duration: {D} {H} {M}"
-msgstr "Förekomstens varaktighet: {D} {H} {M}"
+msgstr "Längd per tillfälle: {D} {H} {M}"
 
 msgid "Every {A} week(s) on"
 msgstr "Varje {A} vecka(r) på"
 
 msgid "Regenerate new task {A} week(s) after each task is completed"
-msgstr "Återskapa ny uppgift {A} vecka(r) efter att varje uppgift är klar"
+msgstr "Återskapa ny uppgift {A} vecka(r) efter att varje uppgift är slutförd"
 
 msgid "Every {A} year(s) on"
 msgstr "Varje {A} år"
@@ -2701,10 +2740,10 @@ msgid "{A} {B}"
 msgstr "{A} {B}"
 
 msgid "The {A} {B} of {C}"
-msgstr "{A} {B} av {C}"
+msgstr "{A} {B} i {C}"
 
 msgid "Regenerate new task {A} year(s) after each task is completed"
-msgstr "Återskapa ny uppgift {A} år efter varje uppgift är slutförd"
+msgstr "Återskapa ny uppgift {A} år efter att varje uppgift är slutförd"
 
 msgid "Info"
 msgstr "Info"
@@ -2724,7 +2763,7 @@ msgid "There are no reminders"
 msgstr "Det finns inga påminnelser"
 
 msgid "Due In"
-msgstr "Kommer in"
+msgstr "Förfaller om"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Due"
@@ -2734,19 +2773,19 @@ msgid "Reminder time"
 msgstr "Påminnelsetid"
 
 msgid "Dismiss All"
-msgstr "Avvisa alla"
+msgstr "Ignorera alla"
 
 msgid "Open Item"
 msgstr "Öppna objekt"
 
 msgid "Dismiss"
-msgstr "Avfärda"
+msgstr "Ignorera"
 
 msgid "Click Snooze to be reminded again in"
-msgstr "Klicka på Snooze för att bli påmind igen"
+msgstr "Klicka på Påminn senare för att få en ny påminnelse om"
 
 msgid "Snooze"
-msgstr "Skjut upp"
+msgstr "Påminn senare"
 
 msgctxt "reminder.dialog"
 msgid "{0} reminder is selected."
@@ -2755,13 +2794,13 @@ msgstr[0] "{0} påminnelse är vald."
 msgstr[1] "{0}-påminnelser är valda."
 
 msgid "Restore Softdeleted Items"
-msgstr "Återställ Softdeleted Objekt"
+msgstr "Återställ mjukraderade objekt"
 
 msgid "Restore From {0}"
 msgstr "Återställ från {0}"
 
 msgid "Restore"
-msgstr "Återställa"
+msgstr "Återställ"
 
 msgid "Restore All"
 msgstr "Återställ alla"
@@ -2793,13 +2832,13 @@ msgstr[0] "Totalt {0} återvinningsbart föremål"
 msgstr[1] "Totalt {0} återvinningsbara objekt"
 
 msgid "Deleted On"
-msgstr "Raderad på"
+msgstr "Borttaget den"
 
 msgid "Sort by: Deleted On"
-msgstr "Sortera efter: Raderad på"
+msgstr "Sortera efter: Borttaget den"
 
 msgid "Item Count"
-msgstr "Antal föremål"
+msgstr "Antal objekt"
 
 msgid "Sort by: Item Count"
 msgstr "Sortera efter: Antal objekt"
@@ -2808,7 +2847,7 @@ msgid "Sort by: From"
 msgstr "Sortera efter: Från"
 
 msgid "Received"
-msgstr "Mottagen"
+msgstr "Mottaget"
 
 msgid "Sort by: Received"
 msgstr "Sortera efter: Mottaget"
@@ -2844,22 +2883,22 @@ msgid "is received from…"
 msgstr "tas emot från…"
 
 msgid "includes these words in the sender's address…"
-msgstr "inkluderar dessa ord i avsändarens adress…"
+msgstr "innehåller dessa ord i avsändarens adress…"
 
 msgid "includes these words in the recipient's address…"
-msgstr "inkluderar dessa ord i mottagarens adress…"
+msgstr "innehåller dessa ord i mottagarens adress…"
 
 msgid "includes these words in the subject…"
-msgstr "inkluderar dessa ord i ämnet…"
+msgstr "innehåller dessa ord i ämnet…"
 
 msgid "includes these words in the body…"
-msgstr "inkluderar dessa ord i kroppen…"
+msgstr "innehåller dessa ord i brödtexten…"
 
 msgid "includes these words in the transport headers…"
-msgstr "inkluderar dessa ord i transporthuvuden…"
+msgstr "innehåller dessa ord i transporthuvudena…"
 
 msgid "has importance…"
-msgstr "har betydelse…"
+msgstr "har prioriteten…"
 
 msgid "has an attachment"
 msgstr "har en bilaga"
@@ -2871,7 +2910,7 @@ msgid "is sent only to me"
 msgstr "skickas bara till mig"
 
 msgid "has my name in the Cc field"
-msgstr "har mitt namn i Cc-fältet"
+msgstr "har mitt namn i fältet Kopia"
 
 msgid "does not have my name in the To or Cc field"
 msgstr "har inte mitt namn i fältet Till eller Kopia"
@@ -2880,13 +2919,13 @@ msgid "has my name in the To or Cc field"
 msgstr "har mitt namn i fältet Till eller Kopia"
 
 msgid "has sensitivity…"
-msgstr "har känslighet…"
+msgstr "har sekretessnivån…"
 
 msgid "is received after…"
 msgstr "tas emot efter…"
 
 msgid "is received before…"
-msgstr "mottages innan…"
+msgstr "tas emot före…"
 
 msgid "size is at least…"
 msgstr "storleken är minst…"
@@ -2904,13 +2943,13 @@ msgid "Message size"
 msgstr "Meddelandets storlek"
 
 msgid "Size unit"
-msgstr "Måttenhet"
+msgstr "Storleksenhet"
 
 msgid "Condition"
 msgstr "Villkor"
 
 msgid "Unknown condition"
-msgstr "Okänt tillstånd"
+msgstr "Okänt villkor"
 
 msgid "This condition for the current rule is unknown"
 msgstr "Detta villkor för den nuvarande regeln är okänt"
@@ -2934,7 +2973,7 @@ msgid "Add condition"
 msgstr "Lägg till villkor"
 
 msgid "Remove condition"
-msgstr "Ta bort skick"
+msgstr "Ta bort villkor"
 
 msgid "Inbox Rule"
 msgstr "Inkorgsregel"
@@ -2994,22 +3033,22 @@ msgid "Active"
 msgstr "Aktiv"
 
 msgid "Out of office"
-msgstr "Frånvarande"
+msgstr "Frånvaro"
 
 msgid "Rule"
 msgstr "Regel"
 
 msgid "Loading rules"
-msgstr "Laddar regler"
+msgstr "Läser in regler"
 
 msgid "Please select a rule."
 msgstr "Välj en regel."
 
 msgid "Rule already has highest priority."
-msgstr "Regel har redan högsta prioritet."
+msgstr "Regeln har redan högsta prioritet."
 
 msgid "Rule already has lowest priority."
-msgstr "Regel har redan lägsta prioritet."
+msgstr "Regeln har redan lägsta prioritet."
 
 msgid "Always move messages from {0}"
 msgstr "Flytta alltid meddelanden från {0}"
@@ -3027,19 +3066,19 @@ msgid "Saved"
 msgstr "Sparad"
 
 msgid "Saved successfully"
-msgstr "Sparad framgångsrikt"
+msgstr "Sparat"
 
 msgid "myself"
-msgstr "själv"
+msgstr "mig själv"
 
 msgid "Update rules for"
 msgstr "Uppdatera regler för"
 
 msgid "Apply changes"
-msgstr "Tillämpa ändringar"
+msgstr "Spara ändringar"
 
 msgid "Do you wish to apply the changes?"
-msgstr "Vill du tillämpa ändringarna?"
+msgstr "Vill du spara ändringarna?"
 
 msgid "Search in folder"
 msgstr "Sök i mapp"
@@ -3054,7 +3093,7 @@ msgid "Show"
 msgstr "Visa"
 
 msgid "Operators"
-msgstr "Operatörer"
+msgstr "Operatorer"
 
 msgid "AND"
 msgstr "OCH"
@@ -3081,7 +3120,7 @@ msgid "All folders"
 msgstr "Alla mappar"
 
 msgid "Other…"
-msgstr "Andra…"
+msgstr "Övrigt…"
 
 msgid "Search"
 msgstr "Sök"
@@ -3107,40 +3146,40 @@ msgid "Add/Edit sender"
 msgstr "Lägg till/redigera avsändare"
 
 msgid "No from addresses configured"
-msgstr "Nej från adresser konfigurerade"
+msgstr "Inga Från-adresser har konfigurerats"
 
 msgid "Loading from addresses"
-msgstr "Laddar från adresser"
+msgstr "Läser in Från-adresser"
 
 msgid "Forward Mail"
-msgstr "Vidarebefordra mail"
+msgstr "Vidarebefordra meddelande"
 
 msgid "Please select a from address record."
-msgstr "Vänligen välj en från adressposten."
+msgstr "Välj en Från-adress."
 
 msgid "Add/Edit From recipient"
-msgstr "Lägg till/redigera från mottagare"
+msgstr "Lägg till/redigera Från-mottagare"
 
 msgid "Manage the recipients used in the 'From' field"
-msgstr "Hantera mottagarna som används i fältet \"Från\"."
+msgstr "Hantera mottagarna som används i fältet Från"
 
 msgid "View"
-msgstr "Se"
+msgstr "Visa"
 
 msgid "Please select a sendas record."
-msgstr "Välj en sendas-post."
+msgstr "Välj en Skicka som-post."
 
 msgid "Delegates"
 msgstr "Delegater"
 
 msgid "Delegate settings"
-msgstr "Delegera inställningar"
+msgstr "Inställningar för delegater"
 
 msgid "Desktop Notifications Settings"
 msgstr "Inställningar för skrivbordsaviseringar"
 
 msgid "We need permissions to enable desktop notifications."
-msgstr "Vi behöver behörigheter för att aktivera skrivbordsaviseringar."
+msgstr "Nödvändiga behörigheter för att aktivera skrivbordsaviseringar."
 
 msgid "Request Permissions"
 msgstr "Begär behörigheter"
@@ -3184,10 +3223,10 @@ msgid "Rules"
 msgstr "Regler"
 
 msgid "From Addresses"
-msgstr "Från adresser"
+msgstr "Från-adresser"
 
 msgid "From Addresses settings"
-msgstr "Från Adressinställningar"
+msgstr "Inställningar för Från-adresser"
 
 msgid "Select color"
 msgstr "Välj färg"
@@ -3199,10 +3238,10 @@ msgid "Phone Numbers"
 msgstr "Telefonnummer"
 
 msgid "Business Fax"
-msgstr "Företagsfax"
+msgstr "Arbetsfax"
 
 msgid "Webpage"
-msgstr "webbsida"
+msgstr "Webbsida"
 
 msgid "IM Address"
 msgstr "IM-adress"
@@ -3225,7 +3264,7 @@ msgid "d-m-Y"
 msgstr "d-m-Y"
 
 msgid "l d/m/Y"
-msgstr "l d/m/Å"
+msgstr "l d/m/Y"
 
 msgid "l d/m/Y {0}"
 msgstr "l Y-m-d {0}"
@@ -3240,7 +3279,7 @@ msgid "Meeting Organizer"
 msgstr "Mötesarrangör"
 
 msgid "Follow up"
-msgstr "Följa upp"
+msgstr "Följ upp"
 
 msgid "{0} overdue"
 msgstr "{0} försenad"
@@ -3286,7 +3325,7 @@ msgstr "Lägg till domän till listan över säkra avsändare"
 #. 'This message was sent with low importance.'
 msgctxt "mail.previewpanel"
 msgid "This message was sent with {0} importance."
-msgstr "Detta meddelande skickades med {0} betydelse."
+msgstr "Det här meddelandet skickades med prioriteten {0}."
 
 #. TRANSLATORS: This sentence is given in the Email previewpanel, and indicates which
 #. sensitivity level applies to the message. For example:
@@ -3315,7 +3354,9 @@ msgstr "Klicka här för att tillåta dem."
 
 msgctxt "mail.previewpanel"
 msgid "This message is corrupt and will not be displayed correctly, Click here to fix it."
-msgstr "Det här meddelandet är korrupt och kommer inte att visas korrekt. Klicka här för att åtgärda det."
+msgstr ""
+"Det här meddelandet är skadat och visas inte korrekt. Klicka här för att "
+"åtgärda det."
 
 msgctxt "mail.previewpanel"
 msgid "{0} has accepted."
@@ -3359,7 +3400,8 @@ msgstr "{0} tackade nej på uppdrag av {1} och föreslog en ny tid för detta m�
 
 msgctxt "mail.previewpanel"
 msgid "This meeting is not in the Calendar; it may have been moved or deleted."
-msgstr "Det här mötet finns inte i kalendern; den kan ha flyttats eller tagits bort."
+msgstr ""
+"Det här mötet finns inte i kalendern; det kan ha flyttats eller tagits bort."
 
 msgctxt "mail.previewpanel"
 msgid "This meeting request was updated after this message was sent. You should open the latest update or open the item from the calendar."
@@ -3375,7 +3417,7 @@ msgstr "Mötet uppdaterades efter att deltagaren skickat detta svar"
 
 msgctxt "mail.previewpanel"
 msgid "This appointment occurs in the past."
-msgstr "Denna utnämning förekommer i det förflutna."
+msgstr "Den här avtalade tiden ligger i det förflutna."
 
 msgctxt "mail.previewpanel"
 msgid "Please respond."
@@ -3395,15 +3437,15 @@ msgstr "Du svarade på det här meddelandet."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message."
-msgstr "Du vidarebefordrade detta meddelande."
+msgstr "Du vidarebefordrade det här meddelandet."
 
 msgctxt "mail.previewpanel"
 msgid "You replied to this message on {0}."
-msgstr "Du svarade på det här meddelandet på {0}."
+msgstr "Du svarade på det här meddelandet den {0}."
 
 msgctxt "mail.previewpanel"
 msgid "You forwarded this message on {0}."
-msgstr "Du vidarebefordrade detta meddelande på {0}."
+msgstr "Du vidarebefordrade det här meddelandet den {0}."
 
 msgid "Assigned by {0} on {1}."
 msgstr "Tilldelad av {0} på {1}."
@@ -3412,13 +3454,13 @@ msgid "Waiting for response from recipient"
 msgstr "Väntar på svar från mottagaren"
 
 msgid "Accepted by {0} on {1}."
-msgstr "Godkänd av {0} på {1}."
+msgstr "Accepterad av {0} den {1}."
 
 msgid "{0} has accepted on behalf of {1} {2}."
 msgstr "{0} har accepterat på uppdrag av {1} {2}."
 
 msgid "Declined by {0} on {1}."
-msgstr "Avvisades av {0} på {1}."
+msgstr "Avböjt av {0} den {1}."
 
 msgid "{0} has declined on behalf of {1} {2}."
 msgstr "{0} har tackat nej på uppdrag av {1} {2}."
@@ -3442,16 +3484,16 @@ msgstr[0] "{0} möjligt spårningselement är fortfarande blockerat."
 msgstr[1] "{0} möjliga spårningselement är fortfarande blockerade."
 
 msgid "Fix message"
-msgstr "Fixa meddelande"
+msgstr "Åtgärda meddelandet"
 
 msgid "We are going to try to fix a corrupted mail message, do you wish to continue?"
-msgstr "Vi ska försöka fixa ett skadat e-postmeddelande, vill du fortsätta?"
+msgstr "Vi försöker reparera ett skadat meddelande. Vill du fortsätta?"
 
 msgid "The matching task was not found in your task list."
 msgstr "Den matchande uppgiften hittades inte i din uppgiftslista."
 
 msgid "Toggle header"
-msgstr "Växla rubrik"
+msgstr "Visa/dölj huvud"
 
 msgctxt "mail.previewpanel"
 msgid "To"
@@ -3518,7 +3560,7 @@ msgid "options"
 msgstr "alternativ"
 
 msgid "Sign"
-msgstr "Tecken"
+msgstr "Signera"
 
 msgid "Encrypt"
 msgstr "Kryptera"
@@ -3530,7 +3572,7 @@ msgid "Datepicker"
 msgstr "Datumväljare"
 
 msgid "File As"
-msgstr "Arkiv som"
+msgstr "Visas som"
 
 msgid "Full Name"
 msgstr "Fullständigt namn"
@@ -3542,16 +3584,16 @@ msgid "Home Address"
 msgstr "Hemadress"
 
 msgid "Business Address"
-msgstr "Företagsadress"
+msgstr "Arbetsadress"
 
 msgid "Other Address"
 msgstr "Annan adress"
 
 msgid "Business Phone"
-msgstr "Företagstelefon"
+msgstr "Arbetstelefon"
 
 msgid "Business 2 Phone"
-msgstr "Business 2 telefon"
+msgstr "Arbetstelefon 2"
 
 msgid "Assistant Phone"
 msgstr "Assistenttelefon"
@@ -3560,7 +3602,7 @@ msgid "Company Main Phone"
 msgstr "Företagets huvudtelefon"
 
 msgid "Home 2 Phone"
-msgstr "Hem 2 Telefon"
+msgstr "Hemtelefon 2"
 
 msgid "Car Phone"
 msgstr "Biltelefon"
@@ -3575,7 +3617,7 @@ msgid "Other Phone"
 msgstr "Annan telefon"
 
 msgid "Primary Phone"
-msgstr "Primär telefon"
+msgstr "Primärtelefon"
 
 msgid "Telex"
 msgstr "Telex"
@@ -3587,25 +3629,25 @@ msgid "ISDN"
 msgstr "ISDN"
 
 msgid "Other Fax"
-msgstr "Övrigt Fax"
+msgstr "Annan fax"
 
 msgid "Home Fax"
 msgstr "Hemfax"
 
 msgid "Email Display As"
-msgstr "E-postvisning som"
+msgstr "E-post visas som"
 
 msgid "Email 2"
 msgstr "E-post 2"
 
 msgid "Email2 Display As"
-msgstr "E-post2 Visa som"
+msgstr "E-post 2 visas som"
 
 msgid "Email 3"
 msgstr "E-post 3"
 
 msgid "Email3 Display As"
-msgstr "E-post3 Visa som"
+msgstr "E-post 3 visas som"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Birthday"
@@ -3615,7 +3657,7 @@ msgid "Wedding Anniversary"
 msgstr "Bröllopsdag"
 
 msgid "Spouse/Partner"
-msgstr "Maka/partner"
+msgstr "Make/maka/partner"
 
 msgid "Profession"
 msgstr "Yrke"
@@ -3651,13 +3693,13 @@ msgid "Dr."
 msgstr "Dr."
 
 msgid "Miss"
-msgstr "Miss"
+msgstr "Fröken"
 
 msgid "Mr."
-msgstr "herr"
+msgstr "Herr"
 
 msgid "Mrs."
-msgstr "fru"
+msgstr "Fru"
 
 msgid "Ms."
 msgstr "Ms."
@@ -3678,7 +3720,7 @@ msgid "Check address"
 msgstr "Kontrollera adressen"
 
 msgid "State/Province"
-msgstr "stat/provins"
+msgstr "Delstat/provins"
 
 msgid "Zip/Postal code"
 msgstr "Postnummer"
@@ -3705,14 +3747,14 @@ msgid "Nickname"
 msgstr "Smeknamn"
 
 msgid "Suffix"
-msgstr "Ändelse"
+msgstr "Suffix"
 
 #. TRANSLATORS: See http://docs.sencha.com/extjs/3.4.0/#!/api/Date for the meaning of these formatting instructions
 msgid "Anniversary"
 msgstr "Årsdag"
 
 msgid "Photo"
-msgstr "Bild"
+msgstr "Foto"
 
 msgid "Addresses"
 msgstr "Adresser"
@@ -3760,7 +3802,7 @@ msgid "Local number"
 msgstr "Lokalt nummer"
 
 msgid "Extension"
-msgstr "Förlängning"
+msgstr "Anknytning"
 
 msgid "Add attachments to this contact"
 msgstr "Lägg till bilagor till den här kontakten"
@@ -3778,7 +3820,7 @@ msgid "New email address"
 msgstr "Ny e-postadress"
 
 msgid "Please enter a valid email address"
-msgstr "Vänligen ange en giltig e-postadress"
+msgstr "Ange en giltig e-postadress"
 
 msgid "Select Members"
 msgstr "Välj Medlemmar"
@@ -3796,13 +3838,13 @@ msgid "New distribution list"
 msgstr "Ny distributionslista"
 
 msgid "Email 2 Display As"
-msgstr "E-post 2 Visa som"
+msgstr "E-post 2 visas som"
 
 msgid "Email 3 Display As"
-msgstr "E-post 3 Visa som"
+msgstr "E-post 3 visas som"
 
 msgid "Loading contacts"
-msgstr "Laddar kontakter"
+msgstr "Läser in kontakter"
 
 msgid "There are no items to show in this list. Update the filter for more results."
 msgstr "Det finns inga objekt att visa i den här listan. Uppdatera filtret för fler resultat."
@@ -3835,10 +3877,10 @@ msgid "Sort by: Mobile Phone"
 msgstr "Sortera efter: Mobiltelefon"
 
 msgid "Sort by: Business Phone"
-msgstr "Sortera efter: Företagstelefon"
+msgstr "Sortera efter: Arbetstelefon"
 
 msgid "Sort by: Business Fax"
-msgstr "Sortera efter: Företagsfax"
+msgstr "Sortera efter: Arbetsfax"
 
 msgid "Sort by: Department Name"
 msgstr "Sortera efter: Avdelningens namn"
@@ -3874,7 +3916,7 @@ msgid "Sort by: Anniversary"
 msgstr "Sortera efter: Årsdag"
 
 msgid "Sort by: Business Address"
-msgstr "Sortera efter: Företagsadress"
+msgstr "Sortera efter: Arbetsadress"
 
 msgid "Sort by: Home Address"
 msgstr "Sortera efter: Hemadress"
@@ -3901,10 +3943,10 @@ msgid "Sort by: Assistant's Phone"
 msgstr "Sortera efter: Assistentens telefon"
 
 msgid "Business Phone 2"
-msgstr "Företagstelefon 2"
+msgstr "Arbetstelefon 2"
 
 msgid "Sort by: Business Phone 2"
-msgstr "Sortera efter: Företagstelefon 2"
+msgstr "Sortera efter: Arbetstelefon 2"
 
 msgid "Sort by: Callback"
 msgstr "Sortera efter: Återuppringning"
@@ -3934,7 +3976,7 @@ msgid "Sort by: Other Phone"
 msgstr "Sortera efter: Övrigt Telefon"
 
 msgid "Radio Phone"
-msgstr "Radio telefon"
+msgstr "Radiotelefon"
 
 msgid "Sort by: Radio Phone"
 msgstr "Sortera efter: Radiotelefon"
@@ -3979,7 +4021,9 @@ msgid "Cannot upload attachment, total attachment is {0} while the allowed maxim
 msgstr "Det går inte att ladda upp bilagan, den totala bilagan är {0} medan den tillåtna maximala bilagan i en begäran är {1}."
 
 msgid "Cannot upload attachment, total attachments are {0} files while the maximum {1} files are allowed in single request."
-msgstr "Det går inte att ladda upp bilagor, det totala antalet bilagor är {0}-filer medan det maximala antalet {1}-filer är tillåtna i en enda begäran."
+msgstr ""
+"Det går inte att ladda upp bilagor: totalt {0} filer, medan högst {1} filer "
+"tillåts i en och samma begäran."
 
 #. TRANSLATORS: {0} indicates name/email address of secretary and {1} indicates boss' name/email address
 msgid "{0} on behalf of {1}"
@@ -4050,7 +4094,7 @@ msgid "Y"
 msgstr "Y"
 
 msgid "Important"
-msgstr "Viktig"
+msgstr "Viktigt"
 
 msgid "Work"
 msgstr "Arbete"
@@ -4059,22 +4103,22 @@ msgid "Personal"
 msgstr "Personlig"
 
 msgid "Holiday"
-msgstr "Semester"
+msgstr "Ledighet"
 
 msgid "Travel Required"
-msgstr "Resor krävs"
+msgstr "Resa krävs"
 
 msgid "Preparation Required"
 msgstr "Förberedelse krävs"
 
 msgid "Special Date"
-msgstr "Speciellt datum"
+msgstr "Särskilt datum"
 
 msgid "Phone Interview"
 msgstr "Telefonintervju"
 
 msgid "Free"
-msgstr "Gratis"
+msgstr "Ledig"
 
 msgid "Low"
 msgstr "Låg"
@@ -4107,37 +4151,37 @@ msgid "No response"
 msgstr "Inget svar"
 
 msgid "Not responded"
-msgstr "Inte svarat"
+msgstr "Har inte svarat"
 
 msgid "Accepted"
 msgstr "Accepterad"
 
 msgid "Declined"
-msgstr "Avböjde"
+msgstr "Avböjt"
 
 msgid "Confidential"
 msgstr "Konfidentiell"
 
 msgid "Not Started"
-msgstr "Inte startat"
+msgstr "Ej påbörjad"
 
 msgid "In Progress"
 msgstr "Pågår"
 
 msgid "Wait for other person"
-msgstr "Vänta på en annan person"
+msgstr "Vänta på annan person"
 
 msgid "Deferred"
 msgstr "Uppskjuten"
 
 msgid "Purple"
-msgstr "Purpur"
+msgstr "Lila"
 
 msgid "Orange"
 msgstr "Orange"
 
 msgid "Lime"
-msgstr "Kalk"
+msgstr "Limegrön"
 
 msgid "Magenta"
 msgstr "Magenta"
@@ -4149,7 +4193,7 @@ msgid "Cyan"
 msgstr "Cyan"
 
 msgid "Teal"
-msgstr "Kricka"
+msgstr "Blågrön"
 
 msgid "Indigo"
 msgstr "Indigo"
@@ -4197,7 +4241,7 @@ msgid "Compact list spacing"
 msgstr "Kompakt radavstånd i listor"
 
 msgid "Logout"
-msgstr "Utloggning"
+msgstr "Logga ut"
 
 msgid "No matching commands"
 msgstr "Inga matchande kommandon"
@@ -4209,7 +4253,7 @@ msgid "Light"
 msgstr "Ljust"
 
 msgid "Dark"
-msgstr "Mörk"
+msgstr "Mörkt"
 
 msgid "Main toolbar"
 msgstr "Huvudverktygsfält"
@@ -4239,16 +4283,16 @@ msgid "Widgets"
 msgstr "Widgetar"
 
 msgid "Sending…"
-msgstr "Sändning…"
+msgstr "Skickar…"
 
 msgid "Sent successfully"
-msgstr "Skickat framgångsrikt"
+msgstr "Skickat"
 
 msgid "No recipient"
 msgstr "Ingen mottagare"
 
 msgid "Please specify at least one recipient"
-msgstr "Vänligen ange minst en mottagare"
+msgstr "Ange minst en mottagare"
 
 msgid "Please specify a recipient"
 msgstr "Ange en mottagare"
@@ -4278,19 +4322,19 @@ msgid "Send this message without a subject?"
 msgstr "Skicka det här meddelandet utan ämne?"
 
 msgid "Unresolved recipients"
-msgstr "Olösta mottagare"
+msgstr "Mottagare som inte kunde slås upp"
 
 msgid "Not all recipients could be resolved"
-msgstr "Alla mottagare kunde inte lösas"
+msgstr "Alla mottagare kunde inte slås upp"
 
 msgid "Collapse hierarchy"
-msgstr "Komprimera hierarkin"
+msgstr "Fäll ihop hierarkin"
 
 msgid "Expand hierarchy"
-msgstr "Utöka hierarkin"
+msgstr "Expandera hierarkin"
 
 msgid "Folders List"
-msgstr "Lista över mappar"
+msgstr "Mapplista"
 
 msgid "Loaded {0} of {1}"
 msgstr "Laddade {0} av {1}"
@@ -4305,19 +4349,19 @@ msgid "Copied!"
 msgstr "Kopierat!"
 
 msgid "Saving…"
-msgstr "Sparande…"
+msgstr "Sparar…"
 
 msgid "You will lose all unsaved work. Are you sure you want to close this window?"
 msgstr "Du kommer att förlora allt osparat arbete. Är du säker på att du vill stänga det här fönstret?"
 
 msgid "grommunio Content Panel"
-msgstr "grommunio innehållspanel"
+msgstr "grommunio-innehållspanel"
 
 msgid "Delete item"
 msgstr "Ta bort objekt"
 
 msgid "This item has been changed. Are you sure you want to delete it?"
-msgstr "Denna artikel har ändrats. Är du säker på att du vill ta bort den?"
+msgstr "Det här objektet har ändrats. Är du säker på att du vill ta bort det?"
 
 msgid "Unsaved changes"
 msgstr "Osparade ändringar"
@@ -4332,7 +4376,7 @@ msgid "Get Started"
 msgstr "Kom igång"
 
 msgid "Widget height"
-msgstr "Widget höjd"
+msgstr "Widgethöjd"
 
 msgid "pixels"
 msgstr "pixlar"
@@ -4359,7 +4403,7 @@ msgid "Remove widget"
 msgstr "Ta bort widget"
 
 msgid "Collapse widget"
-msgstr "Komprimera widget"
+msgstr "Fäll ihop widget"
 
 msgid "Expand widget"
 msgstr "Expandera widget"
@@ -4371,7 +4415,7 @@ msgid "Add new widget"
 msgstr "Lägg till ny widget"
 
 msgid "Collapse widget panel"
-msgstr "Dölj widgetpanelen"
+msgstr "Fäll ihop widgetpanelen"
 
 msgid "Expand widget panel"
 msgstr "Expandera widgetpanelen"
@@ -4401,7 +4445,7 @@ msgid "The server reported an unspecified error on your request."
 msgstr "Servern rapporterade ett ospecificerat fel på din begäran."
 
 msgid "The session has expired, reauthentication is required."
-msgstr "Sessionen har löpt ut, omautentisering krävs."
+msgstr "Sessionen har löpt ut, du måste logga in igen."
 
 msgid "The session in the current browser window has been closed from another browser window or tab."
 msgstr "Sessionen i det aktuella webbläsarfönstret har stängts från ett annat webbläsarfönster eller flik."
@@ -4446,10 +4490,10 @@ msgid "Invalid data received from the server"
 msgstr "Ogiltig data mottagen från servern"
 
 msgid "Missing store"
-msgstr "Saknad butik"
+msgstr "Brevlådan saknas"
 
 msgid "The default store is missing from the hierarchy."
-msgstr "Standardarkivet saknas i hierarkin."
+msgstr "Standardbrevlådan saknas i hierarkin."
 
 msgid "Not all functionality of grommunio Web might be working properly because of this."
 msgstr "Alla funktioner hos grommunio Web kanske inte fungerar korrekt på grund av detta."
@@ -4468,7 +4512,7 @@ msgstr "Skickade objekt"
 
 msgctxt "hierarchy.foldername"
 msgid "Deleted items"
-msgstr "Raderade objekt"
+msgstr "Borttagna objekt"
 
 msgctxt "hierarchy.foldername"
 msgid "Calendar"
@@ -4510,28 +4554,32 @@ msgid "Loading model from server failed"
 msgstr "Det gick inte att ladda modellen från servern"
 
 msgid "Out of Office is currently activated. Would you like to turn it off?"
-msgstr "Out of Office är för närvarande aktiverat. Vill du stänga av den?"
+msgstr "Frånvaro är aktiverat. Vill du stänga av det?"
 
 msgid "Not enough permissions to open this store, do you want to remove it from the hierarchy?"
-msgstr "Inte tillräckligt med behörigheter för att öppna den här butiken, vill du ta bort den från hierarkin?"
+msgstr ""
+"Otillräckliga behörigheter för att öppna den här brevlådan. Vill du ta bort "
+"den från hierarkin?"
 
 msgid "Not enough permissions to open this folder, do you want to remove it from the hierarchy?"
-msgstr "Inte tillräckligt med behörigheter för att öppna den här mappen, vill du ta bort den från hierarkin?"
+msgstr ""
+"Otillräckliga behörigheter för att öppna den här mappen. Vill du ta bort den "
+"från hierarkin?"
 
 msgid "Not enough permissions to open this folder."
-msgstr "Inte tillräckliga behörigheter för att öppna den här mappen."
+msgstr "Otillräckliga behörigheter för att öppna den här mappen."
 
 msgid "Empty folder"
-msgstr "Tom mapp"
+msgstr "Töm mappen"
 
 msgid "Emptying {0}… (0%)"
-msgstr "Tömning av {0}… (0%)"
+msgstr "Tömmer {0}… (0 %)"
 
 msgid "Successfully emptied {0}. ({1} items removed)"
-msgstr "Framgångsrikt tömt {0}. ({1} objekt borttagna)"
+msgstr "{0} har tömts. ({1} objekt borttagna)"
 
 msgid "Emptying {0}… ({1}%)"
-msgstr "Tömning av {0}… ({1}%)"
+msgstr "Tömmer {0}… ({1} %)"
 
 msgid "There is {0} unread message in the folder {1} of {2}"
 msgid_plural "There are {0} unread messages in the folder {1} of {2}"
@@ -4544,7 +4592,7 @@ msgstr[0] "Det finns {0} oläst meddelande i mappen {1}"
 msgstr[1] "Det finns {0} olästa meddelanden i mappen {1}"
 
 msgid "New mail from {0}"
-msgstr "Nytt mail från {0}"
+msgstr "Nytt meddelande från {0}"
 
 msgid "In folder {0} of {1}"
 msgstr "I mappen {0} av {1}"
@@ -4563,22 +4611,22 @@ msgstr[0] "{0} nytt meddelande i mappen {1}"
 msgstr[1] "{0} nya meddelanden i mappen {1}"
 
 msgid "Publishing Editor"
-msgstr "Förlagsredaktör"
+msgstr "Publicerande redigerare"
 
 msgid "Editor"
-msgstr "Redaktör"
+msgstr "Redigerare"
 
 msgid "Publishing Author"
-msgstr "Förlagsförfattare"
+msgstr "Publicerande författare"
 
 msgid "Author"
 msgstr "Författare"
 
 msgid "Nonediting Author"
-msgstr "Ej redigerande författare"
+msgstr "Icke-redigerande författare"
 
 msgid "Reviewer"
-msgstr "Recensent"
+msgstr "Granskare"
 
 msgid "Contributor"
 msgstr "Bidragsgivare"
@@ -4590,7 +4638,7 @@ msgid "Free/Busy time"
 msgstr "Ledig/upptagen tid"
 
 msgid "Unable to import:"
-msgstr "Det går inte att importera:"
+msgstr "Det gick inte att importera:"
 
 msgid "The files are not valid"
 msgstr "Filerna är inte giltiga"
@@ -4605,13 +4653,13 @@ msgid "Calendar Items"
 msgstr "Kalenderobjekt"
 
 msgid "Mail and Post Items"
-msgstr "Post och postförsändelser"
+msgstr "E-post och inlägg"
 
 msgid "Contacts Items"
 msgstr "Kontaktobjekt"
 
 msgid "Note Items"
-msgstr "Notera objekt"
+msgstr "Anteckningar"
 
 msgid "Task Items"
 msgstr "Uppgiftsobjekt"
@@ -4656,13 +4704,13 @@ msgid "Profile"
 msgstr "Profil"
 
 msgid "Full Details"
-msgstr "Fullständiga detaljer"
+msgstr "Fullständig information"
 
 msgid "Read"
-msgstr "Läsa"
+msgstr "Läst"
 
 msgid "Write"
-msgstr "Skriva"
+msgstr "Skriv"
 
 msgid "Create items"
 msgstr "Skapa objekt"
@@ -4692,10 +4740,10 @@ msgid "Folder contact"
 msgstr "Mappkontakt"
 
 msgid "Folder visible"
-msgstr "Mapp synlig"
+msgstr "Mappen synlig"
 
-msgid "Apply (copy) permissions recursively"
-msgstr "Tillämpa (kopiera) behörigheter rekursivt"
+msgid "Apply (copy) changed permissions recursively"
+msgstr "Spara (kopiera) ändrade behörigheter rekursivt"
 
 msgid "User already exists"
 msgstr "Användaren finns redan"
@@ -4716,7 +4764,7 @@ msgid "Total size (including subfolders)"
 msgstr "Total storlek (inklusive undermappar)"
 
 msgid "Loading subfolder sizes"
-msgstr "Laddar undermappsstorlekar"
+msgstr "Läser in storlek på undermappar"
 
 msgid "No subfolders present"
 msgstr "Inga undermappar finns"
@@ -4740,22 +4788,22 @@ msgid "Open Shared Folders"
 msgstr "Öppna delade mappar"
 
 msgid "Unresolved user"
-msgstr "Olöst användare"
+msgstr "Användare som inte kunde slås upp"
 
 msgid "Username '{0}' could not be resolved."
-msgstr "Användarnamnet '{0}' kunde inte lösas."
+msgstr "Användarnamnet \"{0}\" kunde inte slås upp."
 
 msgid "Invalid user"
 msgstr "Ogiltig användare"
 
 msgid "Username '{0}' is not a valid user."
-msgstr "Användarnamnet '{0}' är inte en giltig användare."
+msgstr "Användarnamnet \"{0}\" är inte en giltig användare."
 
 msgid "Own store"
-msgstr "Egen butik"
+msgstr "Egen brevlåda"
 
 msgid "It is not possible to open your own store twice."
-msgstr "Det går inte att öppna egen butik två gånger."
+msgstr "Det går inte att öppna din egen brevlåda två gånger."
 
 msgid "Folder already open"
 msgstr "Mappen är redan öppen"
@@ -4776,16 +4824,16 @@ msgid "Show subfolders"
 msgstr "Visa undermappar"
 
 msgid "Open shared folder/store"
-msgstr "Öppna delad mapp/butik"
+msgstr "Öppna delad mapp/brevlåda"
 
 msgid "Rename folder"
 msgstr "Byt namn på mapp"
 
 msgid "Empty Junk Email"
-msgstr "Tom skräppost"
+msgstr "Töm Skräppost"
 
 msgid "Empty Deleted Items"
-msgstr "Töm borttagna objekt"
+msgstr "Töm Borttagna objekt"
 
 msgid "Rename Folder"
 msgstr "Byt namn på mapp"
@@ -4800,7 +4848,7 @@ msgid "Delete Folder"
 msgstr "Ta bort mapp"
 
 msgid "Close store"
-msgstr "Stäng butik"
+msgstr "Stäng brevlåda"
 
 msgid "Close folder"
 msgstr "Stäng mapp"
@@ -4824,7 +4872,7 @@ msgid "Import emails"
 msgstr "Importera e-postmeddelanden"
 
 msgid "Import appointments"
-msgstr "Importera möten"
+msgstr "Importera avtalade tider"
 
 msgid "Import contacts"
 msgstr "Importera kontakter"
@@ -4869,7 +4917,7 @@ msgid "CC"
 msgstr "CC"
 
 msgid "BCC"
-msgstr "BCC"
+msgstr "Hemlig kopia"
 
 msgid "Sort by: To"
 msgstr "Sortera efter: Till"
@@ -4888,7 +4936,7 @@ msgid "Original message"
 msgstr "Ursprungligt meddelande"
 
 msgid "Schedule mail to be sent out"
-msgstr "Schemalägg mail som ska skickas ut"
+msgstr "Schemalägg när meddelandet ska skickas"
 
 msgid "Scheduled Items"
 msgstr "Schemalagda objekt"
@@ -4909,7 +4957,7 @@ msgid "at a specific time"
 msgstr "vid en viss tidpunkt"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
-msgstr "Tiden du angav är i det förflutna. Vänligen boka om din e-post."
+msgstr "Tiden du angav har redan passerat. Välj en ny tid."
 
 msgid "Your email will be sent today at {0}"
 msgstr "Din e-post kommer att skickas i dag kl. {0}"
@@ -4942,7 +4990,7 @@ msgid "Send Later"
 msgstr "Skicka senare"
 
 msgid "Schedule your mail to be sent on a specific date and time"
-msgstr "Schemalägg att din e-post ska skickas vid ett specifikt datum och tid"
+msgstr "Schemalägg meddelandet att skickas ett visst datum och klockslag"
 
 msgid "Add attachments to this email"
 msgstr "Lägg till bilagor till detta e-postmeddelande"
@@ -4954,16 +5002,16 @@ msgid "Open options dialog"
 msgstr "Öppna alternativdialogrutan"
 
 msgid "Set flag"
-msgstr "Ställ flagga"
+msgstr "Sätt flagga"
 
 msgid "Set flag on this email"
-msgstr "Ange flagga på det här e-postmeddelandet"
+msgstr "Sätt flagga på det här meddelandet"
 
 msgid "Mark this mail as high priority"
-msgstr "Markera detta mail som hög prioritet"
+msgstr "Markera det här meddelandet som högprioriterat"
 
 msgid "Mark this mail as low priority"
-msgstr "Markera detta mail som låg prioritet"
+msgstr "Markera det här meddelandet som lågprioriterat"
 
 msgid "Set read receipt"
 msgstr "Ställ in läskvitto"
@@ -4975,16 +5023,16 @@ msgid "Show Bcc"
 msgstr "Visa hemlig kopia"
 
 msgid "Show Bcc field"
-msgstr "Visa fältet Bcc"
+msgstr "Visa fältet Hemlig kopia"
 
 msgid "Show From field"
-msgstr "Visa från fält"
+msgstr "Visa fältet Från"
 
 msgid "Cannot save while attachment is being uploaded"
 msgstr "Det går inte att spara medan bilagan laddas upp"
 
 msgid "Internet Headers"
-msgstr "Internetrubriker"
+msgstr "Internethuvuden"
 
 msgid "Message Settings"
 msgstr "Meddelandeinställningar"
@@ -4999,16 +5047,16 @@ msgid "no subject"
 msgstr "inget ämne"
 
 msgid "Set Category"
-msgstr "Ställ in kategori"
+msgstr "Ange kategori"
 
 msgid "Pop-Out"
-msgstr "Pop-out"
+msgstr "Öppna i nytt fönster"
 
 msgid "New mail"
-msgstr "Nytt mail"
+msgstr "Nytt meddelande"
 
 msgid "Mail"
-msgstr "Post"
+msgstr "E-post"
 
 msgid "Reply all"
 msgstr "Svara alla"
@@ -5017,16 +5065,16 @@ msgid "Toggle read/unread"
 msgstr "Växla mellan läst/oläst"
 
 msgid "Toggle red/complete flag"
-msgstr "Växla röd/fullständig flagga"
+msgstr "Växla röd flagga/slutförd"
 
 msgid "Open Shared Mails"
 msgstr "Öppna delade e-postmeddelanden"
 
 msgid "Print single email"
-msgstr "Skriv ut enstaka e-postmeddelanden"
+msgstr "Skriv ut ett enskilt meddelande"
 
 msgid "Print selected email"
-msgstr "Skriv ut vald e-post"
+msgstr "Skriv ut valt meddelande"
 
 msgid "Filter"
 msgstr "Filter"
@@ -5093,7 +5141,7 @@ msgid "Only in representee's Sent Items"
 msgstr "Endast i företrädarens skickade objekt"
 
 msgid "Compose mail settings"
-msgstr "Skriv e-postinställningar"
+msgstr "Inställningar för e-postredigering"
 
 msgid "Compose mail in this format"
 msgstr "Skriv e-post i detta format"
@@ -5102,10 +5150,10 @@ msgid "Default font"
 msgstr "Standardteckensnitt"
 
 msgid "Default font size"
-msgstr "Standard teckenstorlek"
+msgstr "Standardteckenstorlek"
 
 msgid "Save emails sent by delegate"
-msgstr "Spara e-postmeddelanden som skickats av ombud"
+msgstr "Spara e-post som skickats av delegat"
 
 msgid "Always request a read receipt"
 msgstr "Begär alltid ett läskvitto"
@@ -5119,7 +5167,7 @@ msgstr "Aktivera påminnelse om bilaga"
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of minutes which the user will type in.
 msgid "{A}AutoSave unsent mail every {B} minute(s)"
-msgstr "{A}AutoSpara osänd e-post varje {B} minut(er)"
+msgstr "{A}Spara osänd e-post automatiskt var {B} minut"
 
 msgid "Also autosave while encryption is selected (drafts are stored unencrypted)"
 msgstr "AutoSpara även när kryptering är vald (utkast lagras okrypterade)"
@@ -5131,16 +5179,16 @@ msgid "Enable conversation view"
 msgstr "Aktivera konversationsvy"
 
 msgid "Collapse conversation when selecting a different email"
-msgstr "Dölj konversationen när du väljer ett annat e-postmeddelande"
+msgstr "Fäll ihop konversationen när ett annat meddelande väljs"
 
 msgid "Show the entire conversation in the reading pane"
 msgstr "Visa hela konversationen i läsfönstret"
 
 msgid "Incoming mail"
-msgstr "Inkommande mail"
+msgstr "Inkommande e-post"
 
 msgid "How to respond to requests for read receipts"
-msgstr "Hur man svarar på förfrågningar om läskvitton"
+msgstr "Så här besvaras begäran om läskvitto"
 
 msgid "Always send a response"
 msgstr "Skicka alltid ett svar"
@@ -5154,10 +5202,10 @@ msgstr "Fråga mig innan du skickar ett svar"
 #. TRANSLATORS: The {A} _must_ always be at the start of the translation
 #. The '{B}' represents the number of seconds which the user will type in.
 msgid "{A}Automatically mark mail as read after {B} second(s)"
-msgstr "{A} Markera automatiskt e-post som läst efter {B} sekund(er)"
+msgstr "{A}Markera e-post som läst automatiskt efter {B} sekund(er)"
 
 msgid "View mail in this format"
-msgstr "Visa mail i detta format"
+msgstr "Visa e-post i detta format"
 
 msgid "Block potential tracking elements"
 msgstr "Blockera möjliga spårningselement"
@@ -5175,10 +5223,10 @@ msgid "Cc recipients"
 msgstr "Cc mottagare"
 
 msgid "Right"
-msgstr "Rätt"
+msgstr "Höger"
 
 msgid "Bottom"
-msgstr "Botten"
+msgstr "Nederkant"
 
 msgid "Into mailbox owner's wastebasket"
 msgstr "Till mappen Borttagna objekt för postlådans ägare"
@@ -5205,7 +5253,7 @@ msgid "General mail settings"
 msgstr "Allmänna e-postinställningar"
 
 msgid "Open or compose a mail item in a"
-msgstr "Öppna eller komponera ett försändelse i en"
+msgstr "Öppna eller skriv ett meddelande i"
 
 msgid "grommunio Web tab"
 msgstr "grommunio Web-flik"
@@ -5217,19 +5265,19 @@ msgid "Update Out of Office settings for"
 msgstr "Uppdatera frånvaroinställningar för"
 
 msgid "I am currently in the office"
-msgstr "Jag är just nu på kontoret"
+msgstr "Jag är på kontoret"
 
 msgid "I am out of the office from"
 msgstr "Jag är borta från kontoret från"
 
 msgid "Out of office from"
-msgstr "Borta från kontoret från"
+msgstr "Frånvarande från"
 
 msgid "I will be back on"
-msgstr "Jag kommer tillbaka"
+msgstr "Jag är tillbaka den"
 
 msgid "Back on"
-msgstr "Tillbaka"
+msgstr "Tillbaka den"
 
 msgid "Automatically reply with the following message:"
 msgstr "Svara automatiskt med följande meddelande:"
@@ -5238,10 +5286,10 @@ msgid "(The frequency of replies is dependent on server configuration.)"
 msgstr "(Frekvensen av svar beror på serverkonfigurationen.)"
 
 msgid "Inside My Organization"
-msgstr "Inuti min organisation"
+msgstr "I min organisation"
 
 msgid "User is currently out of office."
-msgstr "Användaren är för närvarande inte på kontoret."
+msgstr "Användaren är frånvarande."
 
 msgid "Outside My Organization"
 msgstr "Utanför min organisation"
@@ -5256,7 +5304,7 @@ msgid "Anyone outside my organization"
 msgstr "Alla utanför min organisation"
 
 msgid "The time you entered is before the out of office date. Please reschedule."
-msgstr "Tiden du angav är före frånvarodatumet. Vänligen boka om."
+msgstr "Tiden du angav ligger före frånvarodatumet. Välj en ny tid."
 
 msgid "Safe Recipients"
 msgstr "Säkra mottagare"
@@ -5292,7 +5340,7 @@ msgid "New messages"
 msgstr "Nya meddelanden"
 
 msgid "Replies/forwards"
-msgstr "Svar/vidarebefordrar"
+msgstr "Svar/vidarebefordran"
 
 msgid "Signature name"
 msgstr "Signaturnamn"
@@ -5358,7 +5406,7 @@ msgid "Last Month"
 msgstr "Förra månaden"
 
 msgid "Small"
-msgstr "Små"
+msgstr "Liten"
 
 msgid "Medium"
 msgstr "Medel"
@@ -5370,7 +5418,7 @@ msgid "Very large"
 msgstr "Mycket stor"
 
 msgid "Huge"
-msgstr "Enorm"
+msgstr "Extra stor"
 
 msgid "Move to Junk Folder"
 msgstr "Flytta till skräppostmappen"
@@ -5382,22 +5430,24 @@ msgid "Message list"
 msgstr "Meddelandelista"
 
 msgid "Loading mail"
-msgstr "Laddar mail"
+msgstr "Läser in e-post"
 
 msgid "Conversation view"
 msgstr "Konversationsvy"
 
 msgid "Sorting shows the flat message list. Sort by \"Received\" (newest first) to show conversations again."
-msgstr "Vid sortering visas den ogrupperade meddelandelistan. Sortera efter \"Mottagen\" (nyaste först) för att visa konversationer igen."
+msgstr ""
+"Vid sortering visas den ogrupperade meddelandelistan. Sortera efter "
+"\"Mottaget\" (nyaste först) för att visa konversationer igen."
 
 msgid "No unread mail."
-msgstr "Inget oläst mail."
+msgstr "Ingen oläst e-post."
 
 msgid "Unread Mail"
-msgstr "Oläst mail"
+msgstr "Oläst e-post"
 
 msgid "Quick Mail"
-msgstr "Snabbpost"
+msgstr "Snabbmeddelande"
 
 msgid "Create note"
 msgstr "Skapa anteckning"
@@ -5417,7 +5467,7 @@ msgid "Color"
 msgstr "Färg"
 
 msgid "New note"
-msgstr "Ny lapp"
+msgstr "Ny anteckning"
 
 msgid "Open Shared Notes"
 msgstr "Öppna Delade anteckningar"
@@ -5453,10 +5503,10 @@ msgid "Notes list"
 msgstr "Anteckningslista"
 
 msgid "Loading notes"
-msgstr "Laddar anteckningar"
+msgstr "Läser in anteckningar"
 
 msgid "Quick Note"
-msgstr "Snabb anmärkning"
+msgstr "Snabbanteckning"
 
 msgid "You must reload grommunio Web for the changes to take effect. Unsaved changes will be lost."
 msgstr "Du måste ladda om grommunio Web för att ändringarna ska träda i kraft. Osparade ändringar kommer att gå förlorade."
@@ -5513,7 +5563,7 @@ msgid "Name Display Format"
 msgstr "Namnvisningsformat"
 
 msgid "Advanced"
-msgstr "Avancerad"
+msgstr "Avancerat"
 
 msgid "Advanced settings"
 msgstr "Avancerade inställningar"
@@ -5561,16 +5611,16 @@ msgid "Time format"
 msgstr "Tidsformat"
 
 msgid "12h clock"
-msgstr "12h klockan"
+msgstr "12 h"
 
 msgid "24h clock"
-msgstr "24h klocka"
+msgstr "24 h"
 
 msgid "Hide favorites"
-msgstr "Göm favoriter"
+msgstr "Dölj favoriter"
 
 msgid "Unpin favorites from top"
-msgstr "Lossa favoriter från toppen"
+msgstr "Frigör favoriter från överkanten"
 
 msgid "Show favorites in the mail folder list only"
 msgstr "Visa favoriter endast i mapplistan för e-post"
@@ -5585,7 +5635,7 @@ msgid "Interface"
 msgstr "Gränssnitt"
 
 msgid "Give unread items a colored border"
-msgstr "Ge olästa objekt en färgad ram"
+msgstr "Visa olästa objekt med en färgad ram"
 
 msgid "Show 'help' button in top-right corner"
 msgstr "Visa \"hjälp\"-knappen i det övre högra hörnet"
@@ -5597,7 +5647,7 @@ msgid "Hide widget panel"
 msgstr "Dölj widgetpanelen"
 
 msgid "Auto"
-msgstr "Bil"
+msgstr "Auto"
 
 msgid "Preview documents and files in grommunio Web"
 msgstr "Förhandsvisa dokument och filer i grommunio Web"
@@ -5621,7 +5671,7 @@ msgid "Inbox navigation"
 msgstr "Inkorgsnavigering"
 
 msgid "I want to navigate through my items by using:"
-msgstr "Jag vill navigera genom mina föremål genom att använda:"
+msgstr "Jag vill navigera bland mina objekt med:"
 
 msgid "Navigation method"
 msgstr "Navigeringsmetod"
@@ -5648,7 +5698,7 @@ msgid "Extended"
 msgstr "Utökad"
 
 msgid "Keyboard shortcuts"
-msgstr "Tangentbordsgenvägar"
+msgstr "Kortkommandon"
 
 msgid "Keyboard shortcuts off"
 msgstr "Kortkommandon av"
@@ -5684,19 +5734,23 @@ msgid "Mailbox Usage"
 msgstr "Användning av brevlåda"
 
 msgid "A quota is not set on your store."
-msgstr "En kvot är inte satt på din butik."
+msgstr "Ingen kvot är satt på din brevlåda."
 
 msgid "{0} of mailbox space is used."
-msgstr "{0} postlådeutrymme används."
+msgstr "{0} av brevlådans utrymme används."
 
 msgid "You have exceeded hard quota, you can not send or receive mails."
-msgstr "Du har överskridit hård kvot, du kan inte skicka eller ta emot e-post."
+msgstr ""
+"Du har överskridit den hårda kvoten och kan varken skicka eller ta emot e-"
+"post."
 
 msgid "At {0} you won't be able to send mails."
 msgstr "På {0} kommer du inte att kunna skicka e-post."
 
 msgid "You can not send mails as you have exceeded soft quota, at {0} you won't be able to receive mails."
-msgstr "Du kan inte skicka mail eftersom du har överskridit den mjuka kvoten, på {0} kommer du inte att kunna ta emot mail."
+msgstr ""
+"Du kan inte skicka e-post eftersom du har överskridit den mjuka kvoten. Vid "
+"{0} kan du inte längre ta emot e-post."
 
 msgid "At {0} you won't be able to send or receive mails."
 msgstr "På {0} kommer du inte att kunna skicka eller ta emot e-post."
@@ -5711,16 +5765,18 @@ msgid "Reset settings to their original defaults."
 msgstr "Återställ inställningarna till deras ursprungliga standardvärden."
 
 msgid "This will close all opened shared stores and resets all settings to the default value."
-msgstr "Detta stänger alla öppnade delade butiker och återställer alla inställningar till standardvärdet."
+msgstr ""
+"Detta stänger alla öppnade delade brevlådor och återställer alla "
+"inställningar till standardvärdet."
 
 msgid "grommunio Web will automatically reload in order for these changes to take effect"
 msgstr "grommunio Web kommer automatiskt att laddas om för att dessa ändringar ska träda i kraft"
 
 msgid "Reset"
-msgstr "Återställa"
+msgstr "Återställ"
 
 msgid "Reloading, Please wait."
-msgstr "Laddar om, vänligen vänta."
+msgstr "Laddar om, vänta."
 
 msgid "Search settings"
 msgstr "Sök i inställningar"
@@ -5734,7 +5790,7 @@ msgid "No settings match"
 msgstr "Inga matchande inställningar"
 
 msgid "Setting"
-msgstr "Miljö"
+msgstr "Inställning"
 
 msgid "The setting '{0}' can not be edited"
 msgstr "Inställningen '{0}' kan inte redigeras"
@@ -5802,7 +5858,7 @@ msgstr[0] "Observera att tilldelade uppgifter kommer att skrivas över när mott
 msgstr[1] "Observera att tilldelade uppgifter kommer att skrivas över när mottagaren gör ändringar."
 
 msgid "Delete confirmation"
-msgstr "Ta bort bekräftelse"
+msgstr "Bekräfta borttagning"
 
 msgid "Deleting the item will also delete the original item."
 msgid_plural "Deleting the items will also delete the original items."
@@ -5830,7 +5886,7 @@ msgid "Sort by: Due Date"
 msgstr "Sortera efter: Förfallodatum"
 
 msgid "% Completed"
-msgstr "% Completed"
+msgstr "% slutfört"
 
 msgid "Sort by: Percent Completed"
 msgstr "Sortera efter: Procent slutförda"
@@ -5839,7 +5895,7 @@ msgid "Task Status"
 msgstr "Uppgiftsstatus"
 
 msgid "Percent Complete"
-msgstr "Procent klar"
+msgstr "Procent slutfört"
 
 msgid "Total Work"
 msgstr "Totalt arbete"
@@ -5854,25 +5910,27 @@ msgid "Billing Information"
 msgstr "Faktureringsinformation"
 
 msgid "Mileage"
-msgstr "Miltal"
+msgstr "Körsträcka"
 
 msgid "Accepting Task"
 msgstr "Accepterar uppgift"
 
 msgid "Declining Task"
-msgstr "Avvisar uppgift"
+msgstr "Avböjer uppgift"
 
 msgid "This task will be accepted and moved to your task folder. Do you want to include comments with your response?"
 msgstr "Denna uppgift kommer att accepteras och flyttas till din uppgiftsmapp. Vill du inkludera kommentarer i ditt svar?"
 
 msgid "This task will be declined and moved into the Deleted Items folder. Do you want to edit the response before sending it?"
-msgstr "Den här uppgiften kommer att avvisas och flyttas till mappen Borttagna objekt. Vill du redigera svaret innan du skickar det?"
+msgstr ""
+"Uppgiften kommer att avböjas och flyttas till mappen Borttagna objekt. Vill "
+"du redigera svaret innan du skickar det?"
 
 msgid "Send the response now"
 msgstr "Skicka svaret nu"
 
 msgid "Date Complete"
-msgstr "Datum klart"
+msgstr "Slutfört datum"
 
 msgid "Multiple companies name must be separated by"
 msgstr "Flera företagsnamn måste separeras med"
@@ -5905,16 +5963,17 @@ msgid "Priority"
 msgstr "Prioritet"
 
 msgid "% Complete"
-msgstr "% Complete"
+msgstr "% klart"
 
 msgid "Track progress"
-msgstr "Spåra framsteg"
+msgstr "Följ förloppet"
 
 msgid "Keep updated copy of task and receive automated status reports"
-msgstr "Håll uppdaterad kopia av uppgiften och få automatiska statusrapporter"
+msgstr ""
+"Behåll en uppdaterad kopia av uppgiften och få automatiska statusrapporter"
 
 msgid "Send task to assignees"
-msgstr "Skicka uppgift till uppdragstagare"
+msgstr "Skicka uppgiften till mottagarna"
 
 msgid "Restore to Task List"
 msgstr "Återställ till uppgiftslistan"
@@ -5926,10 +5985,10 @@ msgid "Add attachments to this task"
 msgstr "Lägg till bilagor till denna uppgift"
 
 msgid "Mark as Complete"
-msgstr "Markera som klar"
+msgstr "Markera som slutförd"
 
 msgid "Mark this task as complete"
-msgstr "Markera denna uppgift som klar"
+msgstr "Markera den här uppgiften som slutförd"
 
 msgid "Print this task"
 msgstr "Skriv ut denna uppgift"
@@ -5947,7 +6006,7 @@ msgid "New task"
 msgstr "Ny uppgift"
 
 msgid "Completed"
-msgstr "Avslutad"
+msgstr "Slutförd"
 
 msgid "Printed by: {0}"
 msgstr "Utskriven av: {0}"
@@ -5957,7 +6016,7 @@ msgid "Printed on: {0}"
 msgstr "Utskriven: {0}"
 
 msgid "Percent complete"
-msgstr "Procent klar"
+msgstr "Procent slutfört"
 
 msgid "Total work"
 msgstr "Totalt arbete"
@@ -5966,7 +6025,7 @@ msgid "{totalwork} hours"
 msgstr "{totalwork} timmar"
 
 msgid "Actual work"
-msgstr "Verkligt arbete"
+msgstr "Faktiskt arbete"
 
 msgid "{actualwork} hours"
 msgstr "{actualwork} timmar"
@@ -6002,16 +6061,16 @@ msgid "Overdue"
 msgstr "Försenad"
 
 msgid "Mark Complete"
-msgstr "Markera som komplett"
+msgstr "Markera som slutförd"
 
 msgid "Mark Incomplete"
-msgstr "Markera som ofullständig"
+msgstr "Markera som ej slutförd"
 
 msgid "Remove from To-Do List"
 msgstr "Ta bort från att göra-listan"
 
 msgid "Sort by: Complete"
-msgstr "Sortera efter: Komplett"
+msgstr "Sortera efter: Slutförd"
 
 msgid "Reminder Time"
 msgstr "Påminnelsetid"
@@ -6023,7 +6082,7 @@ msgid "Assigned To"
 msgstr "Tilldelad till"
 
 msgid "Sort by: Assignee"
-msgstr "Sortera efter: Uppdragstagare"
+msgstr "Sortera efter: Mottagare"
 
 msgid "Sort by: Owner"
 msgstr "Sortera efter: Ägare"
@@ -6038,10 +6097,10 @@ msgid "Tasks list"
 msgstr "Uppgiftslista"
 
 msgid "Loading tasks"
-msgstr "Laddar uppgifter"
+msgstr "Läser in uppgifter"
 
 msgid "Date completed"
-msgstr "Datum slutfört"
+msgstr "Slutfört datum"
 
 msgid "hours"
 msgstr "timmar"
@@ -6356,7 +6415,7 @@ msgid "Shorten"
 msgstr "Förkorta"
 
 msgid "Expand"
-msgstr "Utöka"
+msgstr "Expandera"
 
 msgid "Change tone"
 msgstr "Ändra ton"
@@ -6560,7 +6619,7 @@ msgid "grommunio Web will automatically restart in order for these changes to ta
 msgstr "grommunio Web kommer automatiskt att starta om för att dessa ändringar ska träda i kraft."
 
 msgid "grommunio Web is reloading, Please wait."
-msgstr "grommunio Web laddas om, vänligen vänta."
+msgstr "grommunio Web laddas om. Vänta."
 
 msgid "Edit Account"
 msgstr "Redigera konto"
@@ -6602,7 +6661,7 @@ msgid "Share files"
 msgstr "Dela filer"
 
 msgid "Fast Down/Upload"
-msgstr "Snabb ner/uppladdning"
+msgstr "Snabb ned- och uppladdning"
 
 msgid "No account created!"
 msgstr "Inget konto skapat!"
@@ -6650,7 +6709,7 @@ msgid "You have to choose at least one file!"
 msgstr "Du måste välja minst en fil!"
 
 msgid "Document"
-msgstr "Dokumentera"
+msgstr "Dokument"
 
 #. TRANSLATORS: {0} is a translated file type such as Document, Presentation or Spreadsheet
 msgid "Create New {0}"
@@ -6825,10 +6884,10 @@ msgid "Constraints for single attachment archiving"
 msgstr "Begränsningar för arkivering av en bilaga"
 
 msgid "Max count attachments"
-msgstr "Max antal bilagor"
+msgstr "Maxantal bilagor"
 
 msgid "Max size all selected attachments (MB)"
-msgstr "Max storlek på alla valda bilagor (MB)"
+msgstr "Maxstorlek för alla valda bilagor (MB)"
 
 msgid "Selection Kendox InfoShare environment"
 msgstr "Val Kendox InfoShare-miljö"
@@ -6843,10 +6902,10 @@ msgid "URLs for production environment"
 msgstr "URL:er för produktionsmiljö"
 
 msgid "Kendox InfoShare API URL"
-msgstr "Kendox InfoShare API URL"
+msgstr "API-URL för Kendox InfoShare"
 
 msgid "Kendox InfoShare Web dialog URL"
-msgstr "URL för Kendox InfoShare webbdialog"
+msgstr "URL till webbdialogen i Kendox InfoShare"
 
 msgid "URLs for test environment"
 msgstr "URL:er för testmiljö"
@@ -6864,7 +6923,7 @@ msgid "files, max"
 msgstr "filer, max"
 
 msgid "MB total size)"
-msgstr "MB total storlek)"
+msgstr "MB totalt)"
 
 msgid "Everything - Store mail in original format"
 msgstr "Allt - Lagra post i originalformat"
@@ -6964,7 +7023,7 @@ msgid "Not Available"
 msgstr "Inte tillgänglig"
 
 msgid "Device"
-msgstr "Anordning"
+msgstr "Enhet"
 
 msgid "Operating System"
 msgstr "Operativsystem"
@@ -7051,7 +7110,7 @@ msgid "First Sync time"
 msgstr "Första synkroniseringstid"
 
 msgid "Wipe Device"
-msgstr "Torka av enheten"
+msgstr "Rensa enheten"
 
 msgid "Full resync"
 msgstr "Fullständig omsynkronisering"
@@ -7148,7 +7207,7 @@ msgid "Open meeting in"
 msgstr "Öppna möte i"
 
 msgid "Web tab"
-msgstr "Webbfliken"
+msgstr "Webbflik"
 
 msgid "Popup"
 msgstr "Popup-fönster"
@@ -7199,7 +7258,7 @@ msgid "Password is changed successfully."
 msgstr "Lösenordet har ändrats."
 
 msgid "Success"
-msgstr "Framgång"
+msgstr "Klart"
 
 msgid "Change Password"
 msgstr "Ändra lösenord"
@@ -7823,7 +7882,7 @@ msgid "S/MIME Passphrase"
 msgstr "S/MIME-lösenfras"
 
 msgid "Submit"
-msgstr "Överlämna"
+msgstr "Skicka"
 
 msgid "Certificate passphrase"
 msgstr "Certifikatlösenfras"
@@ -7907,7 +7966,7 @@ msgid "Change passphrase for last certificate"
 msgstr "Ändra lösenordsfras för det senaste certifikatet"
 
 msgid "Default encryption algorithm"
-msgstr "Standard krypteringsalgoritm"
+msgstr "Standardkrypteringsalgoritm"
 
 msgid "Recommended"
 msgstr "Rekommenderas"
@@ -7916,7 +7975,7 @@ msgid "Legacy"
 msgstr "Äldre"
 
 msgid "Default signing digest"
-msgstr "Standard signeringsdigest"
+msgstr "Standarddigest för signering"
 
 msgid "You have a valid certificate corresponding to your account"
 msgstr "Du har ett giltigt certifikat som motsvarar ditt konto"
@@ -7940,7 +7999,7 @@ msgid "bits"
 msgstr "bitar"
 
 msgid "signing"
-msgstr "undertecknande"
+msgstr "signering"
 
 msgid "encryption"
 msgstr "kryptering"
@@ -8070,7 +8129,7 @@ msgid "Message decryption failed"
 msgstr "Meddelandedekryptering misslyckades"
 
 msgid "Please"
-msgstr "Behaga"
+msgstr "Vänligen"
 
 msgid "click here"
 msgstr "klicka här"
@@ -8259,7 +8318,7 @@ msgid "VIP"
 msgstr "VIP"
 
 msgid "Waiting"
-msgstr "Väntan"
+msgstr "Väntar"
 
 msgid "You have been automatically logged out"
 msgstr "Du har blivit automatiskt utloggad"
@@ -8322,10 +8381,11 @@ msgid "The message appears to be empty."
 msgstr "Meddelandet verkar vara tomt."
 
 msgid "This backend provides the default WebDAV integration for Files."
-msgstr "Denna backend tillhandahåller standard WebDAV-integration för filer."
+msgstr ""
+"Denna backend tillhandahåller standardintegrationen med WebDAV för filer."
 
 msgid "Files Default Backend: "
-msgstr "Filer Standard Backend: "
+msgstr "Standardbackend för Filer: "
 
 msgid "Server address"
 msgstr "Serveradress"
@@ -8475,7 +8535,7 @@ msgid "With this backend, you can connect to any WebDAV server."
 msgstr "Med denna backend kan du ansluta till vilken WebDAV-server som helst."
 
 msgid "Files WebDAV Backend: "
-msgstr "Filer WebDAV Backend: "
+msgstr "WebDAV-backend för Filer: "
 
 msgid "PHP-CURL is not installed"
 msgstr "PHP-CURL är inte installerat"
@@ -8526,7 +8586,7 @@ msgid "Unable to look up recipients"
 msgstr "Det gick inte att slå upp mottagare"
 
 msgid "Kendox certificate path is not configured."
-msgstr "Kendox certifikatsökväg är inte konfigurerad."
+msgstr "Sökvägen till Kendox-certifikatet är inte konfigurerad."
 
 msgid "Kendox certificate password is not configured."
 msgstr "Kendox-certifikatlösenordet är inte konfigurerat."
@@ -8802,7 +8862,7 @@ msgid "Embedded attachment not found."
 msgstr "Den inbäddade bilagan hittades inte."
 
 msgid "ZIP is not created successfully"
-msgstr "ZIP skapades inte framgångsrikt"
+msgstr "ZIP-filen kunde inte skapas"
 
 msgid "Attachments can not be downloaded"
 msgstr "Bilagor kan inte laddas ner"
@@ -8991,10 +9051,12 @@ msgid "Send quota limit reached"
 msgstr "Sändningskvoten har uppnåtts"
 
 msgid "Sender address could not be applied"
-msgstr "Avsändaradressen kunde inte tillämpas"
+msgstr "Avsändaradressen kunde inte sparas"
 
 msgid "The message was not sent because the selected sender address could not be applied. Please try again."
-msgstr "Meddelandet skickades inte eftersom den valda avsändaradressen inte kunde tillämpas. Försök igen."
+msgstr ""
+"Meddelandet skickades inte eftersom den valda avsändaradressen inte kunde "
+"användas. Försök igen."
 
 #, php-format
 msgid "Email sending failed (%s). Check the log files for more information."
@@ -9250,7 +9312,7 @@ msgid "Unknown action type specified - %s"
 msgstr "Okänd åtgärdstyp specificerad - %s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "Det går inte att snooze påminnelsen. Du kan bli påmind igen."
+msgstr "Påminnelsen kunde inte skjutas upp, men den kan komma att visas igen."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
 msgstr "Kan inte avvisa påminnelsen. Du kan bli påmind igen."
@@ -9280,7 +9342,7 @@ msgid "Sign in"
 msgstr "Logga in"
 
 msgid "Loading"
-msgstr "Belastning"
+msgstr "Läser in"
 
 msgid "File is not imported successfully"
 msgstr "Filen har inte importerats"
