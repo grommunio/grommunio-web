@@ -4,17 +4,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: grommunio Web Estonian (Estonia)\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2026-10-09 23:48+0200\n"
-"PO-Revision-Date: 2025-05-21 10:01+0000\n"
-"Last-Translator: Priit Jõerüüt <hwlate@joeruut.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/grommunio-web/et/>\n"
+"PO-Revision-Date: 2026-11-10 10:51+0000\n"
+"Last-Translator: Priit Jõerüüt <jrthwlate@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Estonian <https://hosted.weblate.org/projects/grommunio/"
+"grommunio-web/et/>\n"
 "Language: et_EE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 2026.11.2.dev0\n"
 
 msgid "Color palette"
 msgstr "Värvipalett"
@@ -1319,10 +1320,14 @@ msgid "This meeting will be accepted and moved to your calendar. Do you want to 
 msgstr "Selle koosolekuga nõustutakse ja kantakse sinu kalendrisse. Kas soovid oma vastusega lisada kommentaare?"
 
 msgid "This meeting will be tentatively accepted and moved to your calendar. Do you want to include comments with your response?"
-msgstr "See kohtumine võetakse esialgu vastu ja kantakse teie kalendrisse. Kas soovite lisada oma kommentaarid koos vastusega?"
+msgstr ""
+"See kohtumine võetakse esialgu vastu ja kantakse sinu kalendrisse. Kas "
+"soovid lisada oma kommentaarid koos vastusega?"
 
 msgid "This meeting will be declined and moved to your Deleted Items folder. Do you want to include comments with your response?"
-msgstr "See koosolek lükatakse tagasi ja viiakse teie kausta \"Kustutatud asjad\". Kas soovite lisada oma vastusele kommentaare?"
+msgstr ""
+"See koosolekukutse lükatakse tagasi ja tõstetakse sinu kausta \"Kustutatud "
+"asjad\". Kas soovid lisada oma vastusele kommentaare?"
 
 msgid "Edit the response before sending"
 msgstr "Vastuse muutmine enne saatmist"
@@ -2064,7 +2069,7 @@ msgid "This browser cannot download a picture from a service."
 msgstr "See brauser ei saa teenusest pilti alla laadida."
 
 msgid "{0} has no picture for your address."
-msgstr "Teenusel {0} ei ole teie aadressi jaoks pilti."
+msgstr "Teenusel {0} ei ole sinu aadressi jaoks pilti."
 
 msgid "{0} answered with an error."
 msgstr "Teenus {0} vastas veaga."
@@ -2211,7 +2216,7 @@ msgid "Please select a delegate."
 msgstr "Palun valige delegaat."
 
 msgid "Delegates can send items on your behalf."
-msgstr "Delegaadid võivad teie nimel saadetisi saata."
+msgstr "Delegaadid võivad sinu nimel saadetisi saata."
 
 msgid "If you only want to set folder permissions, right-click on a folder to open the context menu and click on \"Share folder…\""
 msgstr "Kui soovid määrata ainult kaustade õigusi, ava paremklõpsuga kaustal kontekstmenüü ja klõpsa „Jaga kausta…“"
@@ -3448,7 +3453,7 @@ msgid "We are going to try to fix a corrupted mail message, do you wish to conti
 msgstr "Me üritame parandada rikutud kirjasõnumit, kas soovite jätkata?"
 
 msgid "The matching task was not found in your task list."
-msgstr "Vastavat ülesannet ei leitud teie ülesannete nimekirjast."
+msgstr "Vastavat ülesannet ei leitud sinu ülesannete loendist."
 
 msgid "Toggle header"
 msgstr "Pealkirja lülitamine"
@@ -3491,7 +3496,7 @@ msgid "Page number"
 msgstr "Leheküljenumber"
 
 msgid "Pop-out"
-msgstr "Pop-out"
+msgstr "Hüpikaken"
 
 msgid "Mark as read"
 msgstr "Märgi loetuks"
@@ -3578,7 +3583,7 @@ msgid "Primary Phone"
 msgstr "Esmane telefon"
 
 msgid "Telex"
-msgstr "Telex"
+msgstr "Teleks"
 
 msgid "TTY/TDD Phone"
 msgstr "TTY/TDD telefon"
@@ -3964,7 +3969,10 @@ msgid "Open in new browser window"
 msgstr "Avaneb uues brauseriaknas"
 
 msgid "Your browser seems to have blocked one or more pop-ups. Please change your browser's settings to always allow pop-ups from grommunio Web."
-msgstr "Teie brauser näib olevat blokeerinud ühe või mitu hüpikaknaid. Palun muutke oma brauseri seadeid nii, et need lubaksid alati grommunio Webi hüpikaknad."
+msgstr ""
+"Sinu brauser näib olevat blokeerinud ühe või mitu hüpikakent. Palun muuda "
+"oma brauseri seadistusi nii, et need lubaksid alati grommunio veebisaidi "
+"hüpikaknad."
 
 msgid "Cannot upload attachment, only {0} attachments are allowed to be added to the message"
 msgstr "Manuse üleslaadimine ei õnnestu, sõnumile on lubatud lisada ainult {0} manust"
@@ -4272,7 +4280,9 @@ msgid "Missing attachment"
 msgstr "Manus puudub"
 
 msgid "Your message appears to reference an attachment but no file is attached. Send anyway?"
-msgstr "Teie sõnum näib viitavat manusele, kuid faili pole manustatud. Kas ikkagi saata?"
+msgstr ""
+"Sinu sõnum näib viitavat manusele, kuid faili pole lisatud. Kas ikkagi "
+"saadame kirja ära?"
 
 msgid "Send this message without a subject?"
 msgstr "Saadan selle kirja ilma pealkirjata?"
@@ -4377,7 +4387,7 @@ msgid "Expand widget panel"
 msgstr "Laiendage vidina paneeli"
 
 msgid "Your changes will be lost if you leave this page now."
-msgstr "Teie muudatused lähevad kaduma, kui te lahkute sellelt lehelt nüüd."
+msgstr "Sinu muudatused lähevad kaduma, kui te lahkud nüüd sellelt lehelt."
 
 msgid "d-m-Y G:i"
 msgstr "d-m-Y G:i"
@@ -4395,10 +4405,10 @@ msgid "Click the link to open the URL in a new window."
 msgstr "Klõpsake lingil, et avada URL-aadress uues aknas."
 
 msgid "The server reported an unknown error on your request."
-msgstr "Server vastas teie päringule tundmatu veaga."
+msgstr "Server vastas sinu päringule tundmatu veaga."
 
 msgid "The server reported an unspecified error on your request."
-msgstr "Server vastas teie päringule määratlemata veaga."
+msgstr "Server vastas sinu päringule määratlemata veaga."
 
 msgid "The session has expired, reauthentication is required."
 msgstr "Seanss on aegunud, palume uuesti autentida."
@@ -4420,8 +4430,8 @@ msgstr "Ühenduse probleem"
 
 msgid "Could not connect to server, retrying in {0} second"
 msgid_plural "Could not connect to server, retrying in {0} seconds"
-msgstr[0] "Ei suutnud ühendada serveriga, uuesti ühendamine {0} sekundi pärast"
-msgstr[1] "Ei suutnud ühendada serveriga, uuesti ühendamine {0} sekundi pärast"
+msgstr[0] "Ei suutnud ühendada serveriga, proovin uuesti {0} sekundi pärast"
+msgstr[1] "Ei suutnud ühendada serveriga, proovin uuesti {0} sekundi pärast"
 
 msgid "Click to retry now"
 msgstr "Klõpsa uuesti proovimiseks"
@@ -4909,21 +4919,21 @@ msgid "at a specific time"
 msgstr "konkreetsel ajal"
 
 msgid "The time you entered is in the past. Please reschedule your mail."
-msgstr "Teie sisestatud aeg on minevikus. Palun tehke oma postitus ümber."
+msgstr "Sinu sisestatud aeg on minevikus. Palun muuda oma kirja."
 
 msgid "Your email will be sent today at {0}"
-msgstr "Teie e-kiri saadetakse täna kell {0}"
+msgstr "Sinu e-kiri saadetakse täna kell {0}"
 
 msgid "Your email will be sent tomorrow at {0}"
-msgstr "Teie e-kiri saadetakse homme kell {0}"
+msgstr "Sinu e-kiri saadetakse homme kell {0}"
 
 #. TRANSLATORS: {0} is a weekday name, {1} a time of day
 msgid "Your email will be sent {0} at {1}"
-msgstr "Teie e-kiri saadetakse {0} kell {1}"
+msgstr "Sinu e-kiri saadetakse {0} kell {1}"
 
 #. TRANSLATORS: {0} is a full date, {1} a time of day
 msgid "Your email will be sent at {0}, {1}"
-msgstr "Teie e-kiri saadetakse {0} kell {1}"
+msgstr "Sinu e-kiri saadetakse {0} kell {1}"
 
 msgid "Saved at {0}"
 msgstr "Salvestatud kell {0}"
@@ -5002,7 +5012,7 @@ msgid "Set Category"
 msgstr "Määra kategooria"
 
 msgid "Pop-Out"
-msgstr "Pop-Out"
+msgstr "Hüpikaken"
 
 msgid "New mail"
 msgstr "Uus post"
@@ -5190,7 +5200,7 @@ msgid "Location of preview pane"
 msgstr "Eelvaateakna asukoht"
 
 msgid "Use subject prefixes in accordance with RFC 5256/5322"
-msgstr "Kasutage teema eesliiteid vastavalt RFC 5256/5322-le"
+msgstr "Kasuta teema eesliiteid vastavalt RFC 5256/5322-le"
 
 msgid "Close original message on reply or forward"
 msgstr "Sulge algne sõnum vastamisel või edastamisel"
@@ -5274,7 +5284,9 @@ msgid "Safe Senders"
 msgstr "Turvalised saatjad"
 
 msgid "To protect your privacy email addresses or domains can only be added via the \"Add to safe sender list\" functionality in an opened email."
-msgstr "Teie privaatsuse kaitsmiseks saab e-posti aadresse või domeene lisada ainult avatud e-kirjade \"Lisa turvaliste saatjate nimekirja\" funktsiooni kaudu."
+msgstr ""
+"Sinu privaatsuse kaitsmiseks saab e-posti aadresse või domeene lisada ainult "
+"avatud e-kirjade „Lisa turvaliste saatjate nimekirja“ funktsiooni kaudu."
 
 msgid "Safe Senders list is empty"
 msgstr "Turvaliste saatjate nimekiri on tühi"
@@ -5495,7 +5507,9 @@ msgid "Looking for a picture…"
 msgstr "Pildi otsimine…"
 
 msgid "The picture is copied into your account. It stays as it is now, also when you change it at {0}."
-msgstr "Pilt kopeeritakse teie kontole. See jääb praegusel kujul alles ka siis, kui muudate seda teenuses {0}."
+msgstr ""
+"Pilt kopeeritakse sinu kontole. See jääb praegusel kujul alles ka siis, kui "
+"muudad seda teenuses {0}."
 
 msgid "Click here to change your profile picture"
 msgstr "Profiilipildi muutmiseks klõpsake siin"
@@ -5684,7 +5698,7 @@ msgid "Mailbox Usage"
 msgstr "Postkasti kasutamine"
 
 msgid "A quota is not set on your store."
-msgstr "Teie poes ei ole kvooti määratud."
+msgstr "Sinu salvestusruumis ei ole kvooti määratud."
 
 msgid "{0} of mailbox space is used."
 msgstr "{0} postkasti ruumi kasutatakse."
@@ -5798,21 +5812,25 @@ msgstr "Muudatused määratud ülesandes"
 
 msgid "Please note that the assigned task will be overwritten when the assignee makes changes."
 msgid_plural "Please note that the assigned tasks will be overwritten when the assignee makes changes."
-msgstr[0] "Pange tähele, et määratud ülesanne(d) kirjutatakse üle, kui määratud isik teeb muudatusi."
-msgstr[1] "Pange tähele, et määratud ülesanne(d) kirjutatakse üle, kui määratud isik teeb muudatusi."
+msgstr[0] ""
+"Palun arvesta, et määratud ülesanne kirjutatakse üle, kui määratud isik teeb "
+"muudatusi."
+msgstr[1] ""
+"Palun arvesta, et määratud ülesanded kirjutatakse üle, kui määratud isik "
+"teeb muudatusi."
 
 msgid "Delete confirmation"
 msgstr "Kustuta kinnitus"
 
 msgid "Deleting the item will also delete the original item."
 msgid_plural "Deleting the items will also delete the original items."
-msgstr[0] "Elemendi(te) kustutamine kustutab ka esialgse(d) elemendi(d)."
-msgstr[1] "Elemendi(te) kustutamine kustutab ka esialgse(d) elemendi(d)."
+msgstr[0] "Selle objekti kustutamine kustutab ka algse objekti."
+msgstr[1] "Nende objektide kustutamine kustutab ka algsed objektid."
 
 msgid "Do you want to delete the item?"
 msgid_plural "Do you want to delete the items?"
-msgstr[0] "Kas soovite objekti(d) kustutada?"
-msgstr[1] "Kas soovite objekti(d) kustutada?"
+msgstr[0] "Kas soovid selle objekti kustutada?"
+msgstr[1] "Kas soovid need objektid kustutada?"
 
 msgid "Sort by: Priority"
 msgstr "Järjestamine: Olulisus"
@@ -5911,7 +5929,7 @@ msgid "Track progress"
 msgstr "Jälgi edenemist"
 
 msgid "Keep updated copy of task and receive automated status reports"
-msgstr "Hoida ülesande ajakohastatud koopiat ja saada automaatseid olekuteateid"
+msgstr "Hoia ülesande ajakohastatud koopiat ja saa automaatseid olekuteateid"
 
 msgid "Send task to assignees"
 msgstr "Ülesande saatmine määratud isikutele"
@@ -6816,7 +6834,7 @@ msgid "Archive to InfoShare"
 msgstr "Arhiveeri InfoShare'i teenusesse"
 
 msgid "Kendox InfoShare plugin"
-msgstr "Kendox InfoShare plugin"
+msgstr "Kendox InfoShare’i pistikprogramm"
 
 msgid "Kendox InfoShare"
 msgstr "Kendox InfoShare"
@@ -7030,7 +7048,7 @@ msgid "Devices"
 msgstr "Seadmed"
 
 msgid "No devices connected to your account"
-msgstr "Teie kontoga ei ole ühendatud ühtegi seadet"
+msgstr "Sinu kontoga ei ole ühendatud ühtegi seadet"
 
 msgid "Provisioning Status"
 msgstr "Provisionimise staatus"
@@ -7151,7 +7169,7 @@ msgid "Web tab"
 msgstr "Veebileht"
 
 msgid "Popup"
-msgstr "Popup"
+msgstr "Hüpikaken"
 
 msgid "Hide the button in the main toolbar"
 msgstr "Pea tööriistariba nupu peitmine"
@@ -7328,7 +7346,10 @@ msgid "Unlock"
 msgstr "Ava lukust"
 
 msgid "Your passphrase and unlocked key remain in this browser tab. The key locks automatically after a limited time or when the tab closes. Fingerprint: "
-msgstr "Teie salasõna ja lukust avatud võti jäävad sellesse brauseri vahekaarti. Võti lukustub automaatselt teatud aja möödudes või vahekaardi sulgemisel. Sõrmejälg: "
+msgstr ""
+"Sinu salasõna ja lukust avatud võti jäävad sellesse brauseri vahekaarti. "
+"Võti lukustub automaatselt teatud aja möödudes või vahekaardi sulgemisel. "
+"Sõrmejälg: "
 
 msgid "Set up OpenPGP"
 msgstr "OpenPGP seadistamine"
@@ -7373,7 +7394,10 @@ msgid "OpenPGP security information"
 msgstr "OpenPGP turbeteave"
 
 msgid "Your keyservers can be searched for the missing key. They learn which key you look for. A key found this way still needs its fingerprint verified before you trust the sender."
-msgstr "Puuduvat võtit saab otsida teie võtmeserveritest. Need saavad teada, millist võtit te otsite. Ka sel viisil leitud võtme sõrmejälge tuleb enne saatja usaldamist kontrollida."
+msgstr ""
+"Puuduvat võtit saab otsida sinu võtmeserveritest. Need saavad teada, millist "
+"võtit otsid. Ka sel viisil leitud võtme sõrmejälge tuleb enne saatja "
+"usaldamist kontrollida."
 
 msgid "Find key on keyserver"
 msgstr "Otsi võtit võtmeserverist"
@@ -7481,7 +7505,8 @@ msgid "No keyserver is configured. Add one under Settings → OpenPGP → Manage
 msgstr "Ühtegi võtmeserverit pole seadistatud. Lisage see menüüs Seaded → OpenPGP → Halda võtmeservereid."
 
 msgid "None of your keyservers has this key. Ask the sender for their public key."
-msgstr "Ühelgi teie võtmeserveril pole seda võtit. Paluge saatjalt tema avalikku võtit."
+msgstr ""
+"Üheski sinu võtmeserveril pole seda võtit. Palu saatjalt tema avalikku võtit."
 
 msgid "OpenPGP: checking message security…"
 msgstr "OpenPGP: kontrollime sõnumi turvalisust…"
@@ -7502,7 +7527,8 @@ msgid "Encrypted message — unlock your private key to read"
 msgstr "Krüpteeritud sõnum — lugemiseks avage privaatvõti lukust"
 
 msgid "Signature not checked — signing key {0} is not in your keyring"
-msgstr "Allkirja ei kontrollitud — allkirjastamisvõtit {0} pole teie võtmehoidlas"
+msgstr ""
+"Allkirja ei kontrollitud - allkirjastamisvõtit {0} pole sinu võtmehoidlas"
 
 msgid "Signature could not be verified"
 msgstr "Allkirja ei olnud võimalik kontrollida"
@@ -7529,7 +7555,9 @@ msgid "Unprotected text after the OpenPGP block is not shown"
 msgstr "OpenPGP ploki järel olevat kaitsmata teksti ei kuvata"
 
 msgid "Your public keys could not be loaded, so signatures could not be checked"
-msgstr "Teie avalikke võtmeid ei õnnestunud laadida, seetõttu jäid allkirjad kontrollimata"
+msgstr ""
+"Sinu avalikke võtmeid ei õnnestunud laadida, seetõttu jäid allkirjad "
+"kontrollimata"
 
 msgid "Security information"
 msgstr "Turbeteave"
@@ -7541,7 +7569,11 @@ msgid "Personal and public keys"
 msgstr "Isiklikud ja avalikud võtmed"
 
 msgid "Your keys are stored in your mailbox. Private keys stay passphrase-protected; signing, encryption and unlocking happen in this browser. Verify your contacts’ fingerprints through a separate trusted channel. Key changes take effect immediately."
-msgstr "Teie võtmed salvestatakse teie postkasti. Privaatvõtmed jäävad salasõnaga kaitstuks; allkirjastamine, krüpteerimine ja lukust avamine toimuvad selles brauseris. Kontrollige oma kontaktide sõrmejälgi eraldi usaldusväärse kanali kaudu. Võtmete muudatused jõustuvad kohe."
+msgstr ""
+"Sinu võtmed salvestatakse sinu postkasti. Privaatvõtmed jäävad salasõnaga "
+"kaitstuks; allkirjastamine, krüptimine ja lukust avamine toimuvad selles "
+"brauseris. Kontrolli oma kontaktide sõrmejälgi eraldi usaldusväärse kanali "
+"kaudu. Võtmete muudatused jõustuvad kohe."
 
 msgid "No OpenPGP keys. Import or generate a key to get started."
 msgstr "OpenPGP võtmeid pole. Alustamiseks importige või genereerige võti."
@@ -7643,7 +7675,7 @@ msgid "5 years"
 msgstr "5 aastat"
 
 msgid "Repeat passphrase"
-msgstr "Korrake salasõna"
+msgstr "Korda salasõna"
 
 msgid "Passphrases do not match."
 msgstr "Salasõnad ei ühti."
@@ -7667,7 +7699,7 @@ msgid "The key file could not be read."
 msgstr "Võtmefaili ei õnnestunud lugeda."
 
 msgid "Armored key"
-msgstr "ASCII-vormingus võti"
+msgstr "Base64-vormingus võti"
 
 msgid "Current passphrase"
 msgstr "Praegune salasõna"
@@ -7676,7 +7708,7 @@ msgid "New passphrase"
 msgstr "Uus salasõna"
 
 msgid "Repeat new passphrase"
-msgstr "Korrake uut salasõna"
+msgstr "Korda uut salasõna"
 
 msgid "Private key imported. Make a private-key backup if you changed its passphrase."
 msgstr "Privaatvõti imporditi. Kui muutsite selle salasõna, varundage privaatvõti."
@@ -7748,13 +7780,15 @@ msgid "Delete key"
 msgstr "Kustuta võti"
 
 msgid "Key removed from your mailbox."
-msgstr "Võti on teie postkastist eemaldatud."
+msgstr "Võti on sinu postkastist eemaldatud."
 
 msgid "Deleting this private key prevents you from reading messages encrypted to it unless you have a backup. Make a private-key backup before continuing."
 msgstr "Selle privaatvõtme kustutamisel ei saa te enam lugeda sõnumeid, mis on sellele krüpteeritud, kui teil pole varukoopiat. Tehke enne jätkamist privaatvõtmest varukoopia."
 
 msgid "This removes the public key and its verified fingerprints from your keyring."
-msgstr "See eemaldab teie võtmehoidlast avaliku võtme ja selle kinnitatud sõrmejäljed."
+msgstr ""
+"See eemaldab sinu võtmehoidlast avaliku võtme ja selle kinnitatud "
+"sõrmejäljed."
 
 msgid "Manage OpenPGP keyservers"
 msgstr "Halda OpenPGP võtmeservereid"
@@ -7778,7 +7812,7 @@ msgid "Approved servers: {0}"
 msgstr "Lubatud serverid: {0}"
 
 msgid "Searching your keyservers…"
-msgstr "Otsitakse teie võtmeserveritest…"
+msgstr "Otsin sinu võtmeserveritest…"
 
 msgid "Key refreshed from the keyserver. New expiry dates, subkeys and revocations now apply."
 msgstr "Võti uuendati võtmeserverist. Uued aegumiskuupäevad, alamvõtmed ja tühistamised kehtivad nüüd."
@@ -7829,7 +7863,7 @@ msgid "Certificate passphrase"
 msgstr "Sertifikaadi tunnussõna"
 
 msgid "The passphrase you typed is incorrect. Please try again."
-msgstr "Teie sisestatud salasõna on vale. Palun proovige uuesti."
+msgstr "Sinu sisestatud salasõna on vale. Palun proovi uuesti."
 
 msgid "No certificates imported, please upload your private certificate"
 msgstr "Sertifikaate ei ole imporditud, palun laadige üles oma isiklik sertifikaat"
@@ -7913,13 +7947,13 @@ msgid "Recommended"
 msgstr "Soovitatav"
 
 msgid "Legacy"
-msgstr "Legacy"
+msgstr "Vana lahendus"
 
 msgid "Default signing digest"
 msgstr "Vaikimisi allkirjastamise digesti"
 
 msgid "You have a valid certificate corresponding to your account"
-msgstr "Teil on kehtiv sertifikaat, mis vastab teie kontole"
+msgstr "Sul on kehtiv sertifikaat, mis vastab sinu kontole"
 
 msgid "Upload your certificate"
 msgstr "Laadige oma sertifikaat üles"
@@ -8115,7 +8149,7 @@ msgid "Signature verified, but the certificate does not belong to the sender"
 msgstr "Allkirja kontrollimine õnnestus, kuid sertifikaat ei kuulu saatjale"
 
 msgid "Digest"
-msgstr "Digest"
+msgstr "Räsi"
 
 msgid "Signature"
 msgstr "Allkiri"
@@ -8184,34 +8218,34 @@ msgid "No templates available"
 msgstr "Malle pole saadaval"
 
 msgid "Charm pink"
-msgstr "Charm roosa"
+msgstr "Võluv roosa"
 
 msgid "Cadmium red"
-msgstr "Kaadmiumi punane"
+msgstr "Kaadmiumipunane"
 
 msgid "Apricot"
 msgstr "Aprikoos"
 
 msgid "California"
-msgstr "California"
+msgstr "Kalifornia"
 
 msgid "Soft green"
 msgstr "Pehme roheline"
 
 msgid "Mint"
-msgstr "Mündi"
+msgstr "Mündiroheline"
 
 msgid "Pearl aqua"
-msgstr "Pearl aqua"
+msgstr "Veepärlid"
 
 msgid "Grommunio blue"
 msgstr "Grommunio sinine"
 
 msgid "Baby blue"
-msgstr "Beebi sinine"
+msgstr "Beebisinine"
 
 msgid "Mauve"
-msgstr "Mauve"
+msgstr "Lillakas"
 
 msgid "Silver sand"
 msgstr "Hõbedane liiv"
@@ -8262,7 +8296,7 @@ msgid "Waiting"
 msgstr "Oodates"
 
 msgid "You have been automatically logged out"
-msgstr "Teid on automaatselt välja logitud"
+msgstr "Sind on automaatselt välja logitud"
 
 msgid "Sorry, access to grommunio Web is not available with this user account. Please contact your system administrator."
 msgstr "Vabandame, juurdepääs grommunio Webile ei ole selle kasutajakontoga saadaval. Palun võtke ühendust oma süsteemiadministraatoriga."
@@ -8613,7 +8647,9 @@ msgid "Missing public certificates for the following recipients: %s. Please cont
 msgstr "Järgmiste saajate avalikud sertifikaadid puuduvad: %s. Palun võtke ühendust oma süsteemiadministraatoriga üksikasjade saamiseks"
 
 msgid "Your public certificate is not installed. Without this certificate, you will not be able to read encrypted messages you have sent to others."
-msgstr "Teie avalik sertifikaat ei ole paigaldatud. Ilma selle sertifikaadita ei saa te lugeda teistele saadetud krüpteeritud sõnumeid."
+msgstr ""
+"Sinu avalik sertifikaat ei ole paigaldatud. Ilma selle sertifikaadita ei saa "
+"sa lugeda teistele saadetud krüptitud sõnumeid."
 
 msgid "Certificate is already stored on the server"
 msgstr "Sertifikaat on juba serveris salvestatud"
@@ -8719,10 +8755,10 @@ msgid "Could not forward meeting request."
 msgstr "Koosolekukutset ei õnnestunud edastada."
 
 msgid "Your meeting has been forwarded"
-msgstr "Teie koosolek on edasi lükatud"
+msgstr "Sinu koosolek on edasi lükatud"
 
 msgid "has forwarded your meeting request to others."
-msgstr "on edastanud teie koosolekukutse teistele."
+msgstr "on edastanud sinu koosolekukutse teistele."
 
 msgid "l, F j, Y g:i A"
 msgstr "l, j. F Y G:i"
@@ -8748,7 +8784,10 @@ msgid "Could not delete folder."
 msgstr "Ei saanud kausta kustutada."
 
 msgid "OpenPGP is currently disabled or unavailable. Your message was not sent. Enable OpenPGP before retrying, or explicitly turn off signing and encryption."
-msgstr "OpenPGP on praegu välja lülitatud või kättesaamatu. Teie sõnumit ei saadetud. Enne uut katset lubage OpenPGP või lülitage allkirjastamine ja krüpteerimine sõnaselgelt välja."
+msgstr ""
+"penPGP on praegu välja lülitatud või kättesaamatu. Sinu sõnumid on saatmata. "
+"Enne uut katset luba OpenPGP või lülita allkirjastamine ja krüptimine "
+"sõnaselgelt välja."
 
 msgid "Too many messages were sent in a short time. Please wait a moment and send again."
 msgstr "Lühikese aja jooksul saadeti liiga palju sõnumeid. Palun oodake hetk ja saatke uuesti."
@@ -8939,7 +8978,9 @@ msgstr "'%s' on sinu kohtumisest keeldunud, sest '%s' ei võta automaatselt vast
 
 #, php-format
 msgid "'%s' has declined your meeting because it is recurring. You must book each meeting separately with this resource."
-msgstr "'%s' on teie kohtumisest keeldunud, sest see on korduv. Te peate broneerima iga kohtumise eraldi selle ressursi abil."
+msgstr ""
+"'%s' on sinu kohtumisest keeldunud, sest see on korduv. Sa pead broneerima "
+"iga kohtumise eraldi selle ressursi abil."
 
 #, php-format
 msgid "'%s' is already booked for this specified time. You must use another time or find another resource."
@@ -8957,8 +8998,8 @@ msgstr "Koosolekut ei saanud päästa."
 #, php-format
 msgid "There was %d skipped appointment:"
 msgid_plural "There were %d skipped appointments:"
-msgstr[0] "Vahele jäetud kohtumised (%d):"
-msgstr[1] "Vahele jäetud kohtumised (%d):"
+msgstr[0] "Leidus %d vahelejäetud kohtumine:"
+msgstr[1] "Leidus %d vahelejäetud kohtumist:"
 
 msgid "More skipped appointments are not shown."
 msgstr "Rohkem vahele jäetud kohtumisi ei kuvata."
@@ -9250,10 +9291,12 @@ msgid "Unknown action type specified - %s"
 msgstr "Tundmatu tegevuse tüüp on määratud - %s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
-msgstr "Ei saa meeldetuletust torkida. Teid võidakse uuesti meelde tuletada."
+msgstr ""
+"Meeldetuletuse edasilükkamine ei õnnestu. Ilmselt saad uuesti meeldetuletuse."
 
 msgid "Cannot dismiss the reminder. You may be reminded again."
-msgstr "Ei saa jätta meeldetuletust kõrvale. Teid võidakse uuesti meelde tuletada."
+msgstr ""
+"Meeldetuletusest loobumine ei õnnestu. Ilmselt saad uuesti meeldetuletuse."
 
 msgid "You have insufficient privileges to perform this action."
 msgstr "Teil ei ole selle toimingu sooritamiseks piisavalt õigusi."
@@ -9344,21 +9387,23 @@ msgstr "Ebakorrektselt vormitud UTF-8 tähemärgid, võimalik, et valesti kodeer
 
 msgid "This file is too large to download. The PHP memory_limit value ({0}) is too low."
 msgstr ""
+"See fail on allalaadimiseks liiga suur. PHP-i seadistuse „memory_limit“ "
+"väärtus ({0}) on liiga madal."
 
 msgid "Move to Junk Folder and add the Email to blacklist"
-msgstr ""
+msgstr "Viska rämpsposti kausta ja lisa e-kiri keeluloendisse"
 
 msgid "Move to Junk Folder and add the domain to blacklist"
-msgstr ""
+msgstr "Viska rämpsposti kausta ja lisa e-kirja domeen keeluloendisse"
 
 msgid "Blacklist rule created successfully"
-msgstr ""
+msgstr "Keeluloendi reegli lisamine õnnestus"
 
 msgid "Unable to create the blacklist rule."
-msgstr ""
+msgstr "Keeluloendi reegli lisamine ei õnnestunud."
 
 msgid "Unable to create a blacklist rule for this sender."
-msgstr ""
+msgstr "Keeluloendi reegli lisamine selle saatja kohta ei õnnestunud."
 
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
