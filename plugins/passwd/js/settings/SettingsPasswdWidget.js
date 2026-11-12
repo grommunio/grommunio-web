@@ -85,7 +85,7 @@ Grommunio.plugins.passwd.settings.SettingsPasswdWidget = Ext.extend(Grommunio.se
 		} else if (container.getSettingsModel().get("grommunio/v1/plugins/passwd/enable_strict_check")) {
 			// do a quick score check:
 			if(this.passwdPanel.new_password.getScore() < 70) {
-				container.getNotifier().notify('warning.passwd', _('Error'), _('Password is weak. Password should contain capital, non-capital letters and numbers. Password should have 8 to 20 characters.'));
+				container.getNotifier().notify('warning.passwd', _('Error'), _('Password is not changed. The new password does not meet the password requirements.'));
 				return false;
 			}
 		}
