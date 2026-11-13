@@ -4724,6 +4724,9 @@ body.grommunio-webclient > .ext-el-mask {
 .x-window .ext-mb-text {
   color: var(--ui-text-2); }
 
+.x-window-dlg .ext-mb-text {
+  white-space: pre-line; }
+
 .x-window .x-panel-header {
   font-weight: 600;
   border-bottom: 1px solid var(--ui-border);
