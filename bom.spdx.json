@@ -3,7 +3,7 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.2",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-3a319ba9b0c34474",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-c1f41328a585277f",
 	"creationInfo": {
 		"created": "2026-11-20T09:18:12Z",
 		"creators": [
@@ -5580,9 +5580,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-vendored-dompurify-3.4.15",
+			"SPDXID": "SPDXRef-vendored-dompurify-3.4.18",
 			"name": "dompurify",
-			"versionInfo": "3.4.15",
+			"versionInfo": "3.4.18",
 			"downloadLocation": "https://github.com/cure53/DOMPurify",
 			"filesAnalyzed": false,
 			"licenseConcluded": "Apache-2.0 OR MPL-2.0",
@@ -5592,7 +5592,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/dompurify@3.4.15"
+					"referenceLocator": "pkg:npm/dompurify@3.4.18"
 				}
 			]
 		},
@@ -7708,7 +7708,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-vendored-dompurify-3.4.15",
+			"spdxElementId": "SPDXRef-vendored-dompurify-3.4.18",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},

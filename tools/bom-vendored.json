@@ -125,7 +125,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "dompurify",
-			"version": "3.4.15",
+			"version": "3.4.18",
 			"license": "Apache-2.0 OR MPL-2.0",
 			"scope": "runtime",
 			"paths": [
@@ -135,7 +135,7 @@
 				"client/dompurify/purify.min.js.map"
 			],
 			"copyright": "Copyright (c) Cure53 and other contributors",
-			"purl": "pkg:npm/dompurify@3.4.15",
+			"purl": "pkg:npm/dompurify@3.4.18",
 			"website": "https://github.com/cure53/DOMPurify"
 		},
 		{
