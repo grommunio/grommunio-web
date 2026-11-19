@@ -43,8 +43,10 @@ class Config implements \ArrayAccess {
 			'filter' => FILTER_VALIDATE_INT,
 			'options' => ['min_range' => 0, 'max_range' => 65535, 'default' => 443],
 		],
+		// without NULL_ON_FAILURE every false value failed over to the default
 		self::DEF['ssl'] => [
 			'filter' => FILTER_VALIDATE_BOOLEAN,
+			'flags' => FILTER_NULL_ON_FAILURE,
 			'options' => ['default' => true],
 		],
 		self::DEF['path'] => [
