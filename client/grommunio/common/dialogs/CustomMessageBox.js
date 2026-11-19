@@ -179,7 +179,7 @@ Grommunio.common.dialogs.CustomMessageBox = Ext.extend(Ext.Window, {
 	{
 		this.msgEl.update(this.msg);
 		var iw = this.iconCls != '' ? (this.iconEl.getWidth() + this.iconEl.getMargins('lr')) : 0,
-			mw = this.msgEl.getWidth() + this.msgEl.getMargins('lr'),
+			mw = Math.ceil(this.msgEl.dom.getBoundingClientRect().width) + this.msgEl.getMargins('lr'),
 			fw = this.getFrameWidth('lr'),
 			bw = this.body.getFrameWidth('lr'),
 			w;

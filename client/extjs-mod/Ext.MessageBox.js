@@ -365,7 +365,7 @@ Ext.MessageBox = Ext.extend(Object, {
 		this.msgEl.update(text ? text + ' ' : '&#160;');
 
 		var iw = this.iconCls != '' ? (this.iconEl.getWidth() + this.iconEl.getMargins('lr')) : 0,
-			mw = this.msgEl.getWidth() + this.msgEl.getMargins('lr'),
+			mw = Math.ceil(this.msgEl.dom.getBoundingClientRect().width) + this.msgEl.getMargins('lr'),
 			fw = this.dlg.getFrameWidth('lr'),
 			bw = this.dlg.body.getFrameWidth('lr'),
 			w;
