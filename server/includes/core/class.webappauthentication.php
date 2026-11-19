@@ -338,6 +338,22 @@ class WebAppAuthentication {
 	}
 
 	/**
+	 * Checks if Keycloak is configured for this server. Keycloak is
+	 * configured when the Keycloak configuration file is on the server,
+	 * also if PHP cannot read or parse it.
+	 *
+	 * @return bool
+	 */
+	public static function isKeycloakConfigured() {
+		if (defined('DISABLE_KEYCLOAK') && DISABLE_KEYCLOAK) {
+			return false;
+		}
+		$configPath = defined('GROMOX_CONFIG_PATH') ? GROMOX_CONFIG_PATH : '/etc/gromox/';
+
+		return file_exists($configPath . 'keycloak.json');
+	}
+
+	/**
 	 * Checks if a user tries to log in by submitting the login form.
 	 *
 	 * @return bool
@@ -360,6 +376,15 @@ class WebAppAuthentication {
 	 * @return int
 	 */
 	public static function authenticateWithPostedCredentials() {
+		// When Keycloak is configured, Keycloak does the login (and the
+		// second factor). Do not accept a password that a client sends
+		// directly to index.php or to the authenticate service.
+		if (WebAppAuthentication::isKeycloakConfigured()) {
+			error_log('Posted credentials refused: Keycloak is configured');
+			WebAppAuthentication::$_errorCode = MAPI_E_LOGON_FAILED;
+
+			return WebAppAuthentication::getErrorCode();
+		}
 		$email = appendDefaultDomain($_POST['username']);
 		if (empty($email) || empty($_POST['password'])) {
 			WebAppAuthentication::$_errorCode = MAPI_E_LOGON_FAILED;
