@@ -1444,7 +1444,10 @@ final class SeafileApi {
 	 */
 	private function curlExecHandleResult($curlResult): void {
 		if ($curlResult === false) {
-			throw new ConnectionException(curl_error($this->handle), -1);
+			// curl's text tells closed, filtered and open ports apart; keep it in the log
+			error_log(sprintf('Seafile: %s', curl_error($this->handle)));
+
+			throw new ConnectionException('The Seafile server could not be reached.', -1);
 		}
 
 		$code = (int) curl_getinfo($this->handle)['http_code'];
