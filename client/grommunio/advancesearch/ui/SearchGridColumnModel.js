@@ -95,7 +95,7 @@ Grommunio.advancesearch.ui.SearchGridColumnModel = Ext.extend(Grommunio.common.u
 			hideable: false,
 			renderer: Grommunio.advancesearch.ui.SearchGridRenderers.dateColumn,
 			css: 'padding: 0; margin:0;'
-		}];
+		}, this.createFlagColumn()];
 	},
 
 	/**
@@ -139,7 +139,24 @@ Grommunio.advancesearch.ui.SearchGridColumnModel = Ext.extend(Grommunio.common.u
 			hideable: false,
 			renderer: Grommunio.advancesearch.ui.SearchGridRenderers.dateColumn,
 			css: 'padding: 0; margin:0;'
-		}];
+		}, this.createFlagColumn()];
+	},
+
+	/**
+	 * @return {Object} The config for the flag column, used by both views.
+	 * @private
+	 */
+	createFlagColumn: function()
+	{
+		return {
+			header: '<p class="icon_flag">&nbsp;<span class="title">' + _('Flag') + '</span></p>',
+			headerCls: 'grommunio-icon-column flag',
+			dataIndex: 'flag_due_by',
+			width: 24,
+			fixed: true,
+			sortable: false,
+			renderer: Grommunio.common.ui.grid.Renderers.flag
+		};
 	},
 
 	/**
