@@ -488,12 +488,28 @@ Grommunio.core.MultiFolderContextModel = Ext.extend(Grommunio.core.ContextModel,
 		var colorSchemeName = this.colorMap[folderId];
 		var colorScheme = Grommunio.core.ColorSchemes.getColorScheme(colorSchemeName);
 		if ( !Ext.isDefined(colorScheme) ){
-			// No scheme defined yet. Let's just use a random color scheme.
-			colorScheme = this.colorScheme[Math.floor(Math.random()*this.colorScheme.length)];
+			// Derived from the entryid, so a shared calendar starts out the same for everyone
+			colorScheme = this.colorScheme[this.hashFolderId(folderId) % this.colorScheme.length];
 			this.setColorScheme(folderId, colorScheme);
 		}
 
 		return colorScheme;
+	},
+
+	/**
+	 * FNV-1a hash of a folder entryid
+	 * @param {String} folderId Entry id of a folder
+	 * @return {Number} Unsigned 32-bit hash
+	 * @private
+	 */
+	hashFolderId: function(folderId)
+	{
+		var hash = 0x811c9dc5;
+		folderId = folderId.toLowerCase();
+		for (var i = 0; i < folderId.length; i++) {
+			hash = Math.imul(hash ^ folderId.charCodeAt(i), 0x01000193);
+		}
+		return hash >>> 0;
 	},
 
 	/**
