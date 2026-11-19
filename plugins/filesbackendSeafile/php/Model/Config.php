@@ -43,14 +43,16 @@ class Config implements \ArrayAccess {
 			'filter' => FILTER_VALIDATE_INT,
 			'options' => ['min_range' => 0, 'max_range' => 65535, 'default' => 443],
 		],
+		// without NULL_ON_FAILURE every false value failed over to the default
 		self::DEF['ssl'] => [
 			'filter' => FILTER_VALIDATE_BOOLEAN,
+			'flags' => FILTER_NULL_ON_FAILURE,
 			'options' => ['default' => true],
 		],
+		// a path only: a query or fragment would swallow the API endpoint appended to it
 		self::DEF['path'] => [
-			'filter' => FILTER_UNSAFE_RAW,
-			'flags' => FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH,
-			'options' => ['default' => ''],
+			'filter' => FILTER_VALIDATE_REGEXP,
+			'options' => ['regexp' => '#^[A-Za-z0-9/._~%-]*$#', 'default' => ''],
 		],
 		self::DEF['user'] => [
 			'filter' => FILTER_UNSAFE_RAW,

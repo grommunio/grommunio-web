@@ -1110,8 +1110,16 @@ final class SeafileApi {
 
 	/**
 	 * set authorization token.
+	 *
+	 * It goes into the Authorization header of every request, so a line
+	 * break in it (from the password or the server) would add headers.
+	 *
+	 * @throws ConnectionException
 	 */
 	public function setToken(string $token): void {
+		if (preg_match('/^[\x21-\x7e]+$/', $token) !== 1) {
+			throw new ConnectionException('token authentication failure', -1);
+		}
 		$this->token = $token;
 	}
 
@@ -1319,7 +1327,7 @@ final class SeafileApi {
 		// @auth:token:<email> : password is auth token
 		if (str_starts_with($this->user, $needle = self::USER_PREFIX_AUTH_TOKEN)) {
 			$this->user = \substr($this->user, strlen($needle)) ?: '';
-			$this->token = $this->pass;
+			$this->setToken($this->pass);
 			if ($this->ping() !== 'pong') {
 				throw new ConnectionException('token authentication failure');
 			}
@@ -1331,11 +1339,11 @@ final class SeafileApi {
 			$this->post(
 				"{$this->baseurl}/api2/auth-token/",
 				['username' => $this->user, 'password' => $this->pass],
-				$otp ? [CURLOPT_HTTPHEADER => ["X-SEAFILE-OTP: {$otp}"]] : [],
+				$otp !== null && ctype_digit($otp) ? [CURLOPT_HTTPHEADER => ["X-SEAFILE-OTP: {$otp}"]] : [],
 			),
 			self::JSON_DECODE_ACCEPT_OBJECT,
 		);
-		$this->token = (string) $data->token;
+		$this->setToken((string) $data->token);
 	}
 
 	/**
@@ -1436,7 +1444,10 @@ final class SeafileApi {
 	 */
 	private function curlExecHandleResult($curlResult): void {
 		if ($curlResult === false) {
-			throw new ConnectionException(curl_error($this->handle), -1);
+			// curl's text tells closed, filtered and open ports apart; keep it in the log
+			error_log(sprintf('Seafile: %s', curl_error($this->handle)));
+
+			throw new ConnectionException('The Seafile server could not be reached.', -1);
 		}
 
 		$code = (int) curl_getinfo($this->handle)['http_code'];
