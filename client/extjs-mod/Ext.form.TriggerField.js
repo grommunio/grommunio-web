@@ -16,6 +16,19 @@
 	     * See <tt>{@link Ext.Component#autoEl autoEl}</tt> for details.  Defaults to:</p>
 	     * <pre><code>{tag: "input", type: "text", size: "16", autocomplete: "off"}</code></pre>
 	     */
-    	defaultAutoCreate: {tag: "input", type: "text", size: "16", autocomplete: "off", spellcheck: "true"}
+    	defaultAutoCreate: {tag: "input", type: "text", size: "16", autocomplete: "off", spellcheck: "true"},
+
+		// A hidden input measures 0, which shrank the wrap to the trigger in hidden cards
+		onResize: function(w, h)
+		{
+			Ext.form.TriggerField.superclass.onResize.call(this, w, h);
+			var tw = this.getTriggerWidth();
+			if (Ext.isNumber(w)) {
+				this.el.setWidth(w - tw);
+				this.wrap.setWidth(w);
+			} else {
+				this.wrap.setWidth(this.el.getWidth() + tw);
+			}
+		}
 	});
 })();
