@@ -7174,10 +7174,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/postal-mime@4.0.5",
+			"bom-ref": "pkg:npm/postal-mime@4.2.1",
 			"type": "library",
 			"name": "postal-mime",
-			"version": "4.0.5",
+			"version": "4.2.1",
 			"scope": "required",
 			"licenses": [
 				{
@@ -7187,7 +7187,7 @@
 				}
 			],
 			"copyright": "Copyright (c) 2021 - 2025 Andris Reinman",
-			"purl": "pkg:npm/postal-mime@4.0.5",
+			"purl": "pkg:npm/postal-mime@4.2.1",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -11935,7 +11935,7 @@
 				"pkg:npm/glob@14.0.6",
 				"pkg:npm/html-minifier-terser@7.2.0",
 				"pkg:npm/openpgp@6.3.2",
-				"pkg:npm/postal-mime@4.0.5",
+				"pkg:npm/postal-mime@4.2.1",
 				"pkg:npm/postcss-cli@12.0.0",
 				"pkg:npm/postcss-preset-env@11.6.3",
 				"pkg:npm/postcss-svgo@9.1.0",
