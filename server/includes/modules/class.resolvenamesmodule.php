@@ -270,7 +270,41 @@ class ResolveNamesModule extends Module {
 			}
 		}
 
-		return $items;
+		return $this->dropDuplicateContacts($items);
+	}
+
+	/**
+	 * Drop personal contacts whose address is already in the result, so a
+	 * person kept both in the GAB and in the contacts resolves without asking.
+	 * GAB entries win over contacts, the first contact over later ones.
+	 *
+	 * @param array $items resolve results
+	 *
+	 * @return array the results without the duplicate contacts
+	 */
+	public function dropDuplicateContacts($items) {
+		$seen = [];
+		$isContact = [];
+		foreach ($items as $i => $item) {
+			$isContact[$i] = $GLOBALS['entryid']->hasContactProviderGUID($item['entryid']);
+			$smtp = strtolower($item['smtp_address'] ?? '');
+			if (!$isContact[$i] && $smtp !== '') {
+				$seen[$smtp] = true;
+			}
+		}
+		$result = [];
+		foreach ($items as $i => $item) {
+			$smtp = strtolower($item['smtp_address'] ?? '');
+			if ($isContact[$i] && $smtp !== '') {
+				if (isset($seen[$smtp])) {
+					continue;
+				}
+				$seen[$smtp] = true;
+			}
+			$result[] = $item;
+		}
+
+		return $result;
 	}
 
 	/**
