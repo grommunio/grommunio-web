@@ -3,9 +3,9 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.2",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-d4c33e66074785b4",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-9d50b762b687aa08",
 	"creationInfo": {
-		"created": "2026-10-30T23:59:46Z",
+		"created": "2026-11-20T09:18:12Z",
 		"creators": [
 			"Tool: tools/build-bom.mjs",
 			"Organization: grommunio GmbH"
@@ -332,9 +332,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-cascade-layer-name-parser-3.0.2",
+			"SPDXID": "SPDXRef-npm--csstools-cascade-layer-name-parser-3.0.3",
 			"name": "@csstools/cascade-layer-name-parser",
-			"versionInfo": "3.0.2",
+			"versionInfo": "3.0.3",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -344,14 +344,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/cascade-layer-name-parser@3.0.2"
+					"referenceLocator": "pkg:npm/%40csstools/cascade-layer-name-parser@3.0.3"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-color-helpers-6.1.2",
+			"SPDXID": "SPDXRef-npm--csstools-color-helpers-6.1.3",
 			"name": "@csstools/color-helpers",
-			"versionInfo": "6.1.2",
+			"versionInfo": "6.1.3",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -361,14 +361,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/color-helpers@6.1.2"
+					"referenceLocator": "pkg:npm/%40csstools/color-helpers@6.1.3"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-css-calc-3.4.3",
+			"SPDXID": "SPDXRef-npm--csstools-css-calc-3.4.4",
 			"name": "@csstools/css-calc",
-			"versionInfo": "3.4.3",
+			"versionInfo": "3.4.4",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -378,14 +378,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/css-calc@3.4.3"
+					"referenceLocator": "pkg:npm/%40csstools/css-calc@3.4.4"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-css-color-parser-4.2.6",
+			"SPDXID": "SPDXRef-npm--csstools-css-color-parser-4.2.8",
 			"name": "@csstools/css-color-parser",
-			"versionInfo": "4.2.6",
+			"versionInfo": "4.2.8",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -395,14 +395,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/css-color-parser@4.2.6"
+					"referenceLocator": "pkg:npm/%40csstools/css-color-parser@4.2.8"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-css-parser-algorithms-4.0.2",
+			"SPDXID": "SPDXRef-npm--csstools-css-parser-algorithms-4.0.3",
 			"name": "@csstools/css-parser-algorithms",
-			"versionInfo": "4.0.2",
+			"versionInfo": "4.0.3",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -412,14 +412,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/css-parser-algorithms@4.0.2"
+					"referenceLocator": "pkg:npm/%40csstools/css-parser-algorithms@4.0.3"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-css-tokenizer-4.0.2",
+			"SPDXID": "SPDXRef-npm--csstools-css-tokenizer-4.0.3",
 			"name": "@csstools/css-tokenizer",
-			"versionInfo": "4.0.2",
+			"versionInfo": "4.0.3",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -429,31 +429,48 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/css-tokenizer@4.0.2"
+					"referenceLocator": "pkg:npm/%40csstools/css-tokenizer@4.0.3"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-custom-function-parser-1.0.0",
+			"SPDXID": "SPDXRef-npm--csstools-custom-function-parser-2.0.0",
 			"name": "@csstools/custom-function-parser",
+			"versionInfo": "2.0.0",
+			"downloadLocation": "NOASSERTION",
+			"filesAnalyzed": false,
+			"licenseConcluded": "MIT",
+			"licenseDeclared": "MIT",
+			"copyrightText": "NOASSERTION",
+			"externalRefs": [
+				{
+					"referenceCategory": "PACKAGE-MANAGER",
+					"referenceType": "purl",
+					"referenceLocator": "pkg:npm/%40csstools/custom-function-parser@2.0.0"
+				}
+			]
+		},
+		{
+			"SPDXID": "SPDXRef-npm--csstools-generate-idents-1.0.0",
+			"name": "@csstools/generate-idents",
 			"versionInfo": "1.0.0",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
+			"licenseConcluded": "MIT-0",
+			"licenseDeclared": "MIT-0",
 			"copyrightText": "NOASSERTION",
 			"externalRefs": [
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/custom-function-parser@1.0.0"
+					"referenceLocator": "pkg:npm/%40csstools/generate-idents@1.0.0"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-media-query-list-parser-5.0.2",
+			"SPDXID": "SPDXRef-npm--csstools-media-query-list-parser-5.0.3",
 			"name": "@csstools/media-query-list-parser",
-			"versionInfo": "5.0.2",
+			"versionInfo": "5.0.3",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -463,14 +480,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/media-query-list-parser@5.0.2"
+					"referenceLocator": "pkg:npm/%40csstools/media-query-list-parser@5.0.3"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-alpha-function-2.0.16",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-alpha-function-2.0.18",
 			"name": "@csstools/postcss-alpha-function",
-			"versionInfo": "2.0.16",
+			"versionInfo": "2.0.18",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -480,7 +497,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-alpha-function@2.0.16"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-alpha-function@2.0.18"
 				}
 			]
 		},
@@ -502,9 +519,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-color-function-display-p3-linear-2.0.15",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-color-function-display-p3-linear-2.0.17",
 			"name": "@csstools/postcss-color-function-display-p3-linear",
-			"versionInfo": "2.0.15",
+			"versionInfo": "2.0.17",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -514,14 +531,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-color-function-display-p3-linear@2.0.15"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-color-function-display-p3-linear@2.0.17"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-color-function-5.0.15",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-color-function-5.0.17",
 			"name": "@csstools/postcss-color-function",
-			"versionInfo": "5.0.15",
+			"versionInfo": "5.0.17",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -531,14 +548,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-color-function@5.0.15"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-color-function@5.0.17"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-color-mix-function-4.0.15",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-color-mix-function-4.0.17",
 			"name": "@csstools/postcss-color-mix-function",
-			"versionInfo": "4.0.15",
+			"versionInfo": "4.0.17",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -548,14 +565,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-color-mix-function@4.0.15"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-color-mix-function@4.0.17"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-color-mix-variadic-function-arguments-2.0.15",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-color-mix-variadic-function-arguments-2.0.17",
 			"name": "@csstools/postcss-color-mix-variadic-function-arguments",
-			"versionInfo": "2.0.15",
+			"versionInfo": "2.0.17",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -565,14 +582,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-color-mix-variadic-function-arguments@2.0.15"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-color-mix-variadic-function-arguments@2.0.17"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-container-rule-prelude-list-1.0.4",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-container-rule-prelude-list-1.0.5",
 			"name": "@csstools/postcss-container-rule-prelude-list",
-			"versionInfo": "1.0.4",
+			"versionInfo": "1.0.5",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -582,64 +599,13 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-container-rule-prelude-list@1.0.4"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-container-rule-prelude-list@1.0.5"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-content-alt-text-3.0.7",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-content-alt-text-3.0.9",
 			"name": "@csstools/postcss-content-alt-text",
-			"versionInfo": "3.0.7",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT-0",
-			"licenseDeclared": "MIT-0",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-content-alt-text@3.0.7"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-contrast-color-function-3.0.15",
-			"name": "@csstools/postcss-contrast-color-function",
-			"versionInfo": "3.0.15",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT-0",
-			"licenseDeclared": "MIT-0",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-contrast-color-function@3.0.15"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-custom-functions-1.0.1",
-			"name": "@csstools/postcss-custom-functions",
-			"versionInfo": "1.0.1",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT-0",
-			"licenseDeclared": "MIT-0",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-custom-functions@1.0.1"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-exponential-functions-3.0.9",
-			"name": "@csstools/postcss-exponential-functions",
 			"versionInfo": "3.0.9",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
@@ -650,7 +616,58 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-exponential-functions@3.0.9"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-content-alt-text@3.0.9"
+				}
+			]
+		},
+		{
+			"SPDXID": "SPDXRef-npm--csstools-postcss-contrast-color-function-3.0.17",
+			"name": "@csstools/postcss-contrast-color-function",
+			"versionInfo": "3.0.17",
+			"downloadLocation": "NOASSERTION",
+			"filesAnalyzed": false,
+			"licenseConcluded": "MIT-0",
+			"licenseDeclared": "MIT-0",
+			"copyrightText": "NOASSERTION",
+			"externalRefs": [
+				{
+					"referenceCategory": "PACKAGE-MANAGER",
+					"referenceType": "purl",
+					"referenceLocator": "pkg:npm/%40csstools/postcss-contrast-color-function@3.0.17"
+				}
+			]
+		},
+		{
+			"SPDXID": "SPDXRef-npm--csstools-postcss-custom-functions-1.1.0",
+			"name": "@csstools/postcss-custom-functions",
+			"versionInfo": "1.1.0",
+			"downloadLocation": "NOASSERTION",
+			"filesAnalyzed": false,
+			"licenseConcluded": "MIT-0",
+			"licenseDeclared": "MIT-0",
+			"copyrightText": "NOASSERTION",
+			"externalRefs": [
+				{
+					"referenceCategory": "PACKAGE-MANAGER",
+					"referenceType": "purl",
+					"referenceLocator": "pkg:npm/%40csstools/postcss-custom-functions@1.1.0"
+				}
+			]
+		},
+		{
+			"SPDXID": "SPDXRef-npm--csstools-postcss-exponential-functions-3.0.10",
+			"name": "@csstools/postcss-exponential-functions",
+			"versionInfo": "3.0.10",
+			"downloadLocation": "NOASSERTION",
+			"filesAnalyzed": false,
+			"licenseConcluded": "MIT-0",
+			"licenseDeclared": "MIT-0",
+			"copyrightText": "NOASSERTION",
+			"externalRefs": [
+				{
+					"referenceCategory": "PACKAGE-MANAGER",
+					"referenceType": "purl",
+					"referenceLocator": "pkg:npm/%40csstools/postcss-exponential-functions@3.0.10"
 				}
 			]
 		},
@@ -706,9 +723,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-gamut-mapping-3.0.15",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-gamut-mapping-3.0.17",
 			"name": "@csstools/postcss-gamut-mapping",
-			"versionInfo": "3.0.15",
+			"versionInfo": "3.0.17",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -718,14 +735,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-gamut-mapping@3.0.15"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-gamut-mapping@3.0.17"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-gradients-interpolation-method-6.0.15",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-gradients-interpolation-method-6.0.17",
 			"name": "@csstools/postcss-gradients-interpolation-method",
-			"versionInfo": "6.0.15",
+			"versionInfo": "6.0.17",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -735,14 +752,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-gradients-interpolation-method@6.0.15"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-gradients-interpolation-method@6.0.17"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-hwb-function-5.0.15",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-hwb-function-5.0.17",
 			"name": "@csstools/postcss-hwb-function",
-			"versionInfo": "5.0.15",
+			"versionInfo": "5.0.17",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -752,14 +769,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-hwb-function@5.0.15"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-hwb-function@5.0.17"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-ic-unit-5.0.5",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-ic-unit-5.0.6",
 			"name": "@csstools/postcss-ic-unit",
-			"versionInfo": "5.0.5",
+			"versionInfo": "5.0.6",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -769,14 +786,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-ic-unit@5.0.5"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-ic-unit@5.0.6"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-image-function-1.0.6",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-image-function-1.0.8",
 			"name": "@csstools/postcss-image-function",
-			"versionInfo": "1.0.6",
+			"versionInfo": "1.0.8",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -786,7 +803,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-image-function@1.0.6"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-image-function@1.0.8"
 				}
 			]
 		},
@@ -825,9 +842,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-light-dark-function-3.0.7",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-light-dark-function-3.0.9",
 			"name": "@csstools/postcss-light-dark-function",
-			"versionInfo": "3.0.7",
+			"versionInfo": "3.0.9",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -837,7 +854,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-light-dark-function@3.0.7"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-light-dark-function@3.0.9"
 				}
 			]
 		},
@@ -910,8 +927,42 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-logical-viewport-units-4.0.3",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-logical-viewport-units-4.0.5",
 			"name": "@csstools/postcss-logical-viewport-units",
+			"versionInfo": "4.0.5",
+			"downloadLocation": "NOASSERTION",
+			"filesAnalyzed": false,
+			"licenseConcluded": "MIT-0",
+			"licenseDeclared": "MIT-0",
+			"copyrightText": "NOASSERTION",
+			"externalRefs": [
+				{
+					"referenceCategory": "PACKAGE-MANAGER",
+					"referenceType": "purl",
+					"referenceLocator": "pkg:npm/%40csstools/postcss-logical-viewport-units@4.0.5"
+				}
+			]
+		},
+		{
+			"SPDXID": "SPDXRef-npm--csstools-postcss-media-minmax-3.0.9",
+			"name": "@csstools/postcss-media-minmax",
+			"versionInfo": "3.0.9",
+			"downloadLocation": "NOASSERTION",
+			"filesAnalyzed": false,
+			"licenseConcluded": "MIT",
+			"licenseDeclared": "MIT",
+			"copyrightText": "NOASSERTION",
+			"externalRefs": [
+				{
+					"referenceCategory": "PACKAGE-MANAGER",
+					"referenceType": "purl",
+					"referenceLocator": "pkg:npm/%40csstools/postcss-media-minmax@3.0.9"
+				}
+			]
+		},
+		{
+			"SPDXID": "SPDXRef-npm--csstools-postcss-media-queries-aspect-ratio-number-values-4.0.3",
+			"name": "@csstools/postcss-media-queries-aspect-ratio-number-values",
 			"versionInfo": "4.0.3",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
@@ -922,48 +973,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-logical-viewport-units@4.0.3"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-media-queries-aspect-ratio-number-values@4.0.3"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-media-minmax-3.0.8",
-			"name": "@csstools/postcss-media-minmax",
-			"versionInfo": "3.0.8",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-media-minmax@3.0.8"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-media-queries-aspect-ratio-number-values-4.0.2",
-			"name": "@csstools/postcss-media-queries-aspect-ratio-number-values",
-			"versionInfo": "4.0.2",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT-0",
-			"licenseDeclared": "MIT-0",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-media-queries-aspect-ratio-number-values@4.0.2"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-mixins-1.1.0",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-mixins-1.2.0",
 			"name": "@csstools/postcss-mixins",
-			"versionInfo": "1.1.0",
+			"versionInfo": "1.2.0",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -973,7 +990,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-mixins@1.1.0"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-mixins@1.2.0"
 				}
 			]
 		},
@@ -1012,9 +1029,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-oklab-function-5.0.15",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-oklab-function-5.0.17",
 			"name": "@csstools/postcss-oklab-function",
-			"versionInfo": "5.0.15",
+			"versionInfo": "5.0.17",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -1024,7 +1041,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-oklab-function@5.0.15"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-oklab-function@5.0.17"
 				}
 			]
 		},
@@ -1046,26 +1063,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-private-rule-1.1.1",
-			"name": "@csstools/postcss-private-rule",
-			"versionInfo": "1.1.1",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT-0",
-			"licenseDeclared": "MIT-0",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-private-rule@1.1.1"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-progressive-custom-properties-5.1.4",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-progressive-custom-properties-5.1.5",
 			"name": "@csstools/postcss-progressive-custom-properties",
-			"versionInfo": "5.1.4",
+			"versionInfo": "5.1.5",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -1075,7 +1075,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-progressive-custom-properties@5.1.4"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-progressive-custom-properties@5.1.5"
 				}
 			]
 		},
@@ -1097,9 +1097,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-property-rule-prelude-list-2.0.3",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-property-rule-prelude-list-2.0.4",
 			"name": "@csstools/postcss-property-rule-prelude-list",
-			"versionInfo": "2.0.3",
+			"versionInfo": "2.0.4",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -1109,14 +1109,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-property-rule-prelude-list@2.0.3"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-property-rule-prelude-list@2.0.4"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-random-function-4.0.5",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-random-function-4.0.6",
 			"name": "@csstools/postcss-random-function",
-			"versionInfo": "4.0.5",
+			"versionInfo": "4.0.6",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -1126,14 +1126,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-random-function@4.0.5"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-random-function@4.0.6"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-relative-color-syntax-4.0.15",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-relative-color-syntax-4.0.17",
 			"name": "@csstools/postcss-relative-color-syntax",
-			"versionInfo": "4.0.15",
+			"versionInfo": "4.0.17",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -1143,7 +1143,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-relative-color-syntax@4.0.15"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-relative-color-syntax@4.0.17"
 				}
 			]
 		},
@@ -1165,9 +1165,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-sign-functions-2.0.9",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-sign-functions-2.0.10",
 			"name": "@csstools/postcss-sign-functions",
-			"versionInfo": "2.0.9",
+			"versionInfo": "2.0.10",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -1177,14 +1177,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-sign-functions@2.0.9"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-sign-functions@2.0.10"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-stepped-value-functions-5.0.9",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-stepped-value-functions-5.0.10",
 			"name": "@csstools/postcss-stepped-value-functions",
-			"versionInfo": "5.0.9",
+			"versionInfo": "5.0.10",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -1194,14 +1194,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-stepped-value-functions@5.0.9"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-stepped-value-functions@5.0.10"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-syntax-descriptor-syntax-production-2.0.1",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-syntax-descriptor-syntax-production-2.0.2",
 			"name": "@csstools/postcss-syntax-descriptor-syntax-production",
-			"versionInfo": "2.0.1",
+			"versionInfo": "2.0.2",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -1211,14 +1211,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-syntax-descriptor-syntax-production@2.0.1"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-syntax-descriptor-syntax-production@2.0.2"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-system-ui-font-family-2.0.3",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-system-ui-font-family-2.0.4",
 			"name": "@csstools/postcss-system-ui-font-family",
-			"versionInfo": "2.0.3",
+			"versionInfo": "2.0.4",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -1228,14 +1228,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-system-ui-font-family@2.0.3"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-system-ui-font-family@2.0.4"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-text-decoration-shorthand-5.0.7",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-text-decoration-shorthand-5.0.8",
 			"name": "@csstools/postcss-text-decoration-shorthand",
-			"versionInfo": "5.0.7",
+			"versionInfo": "5.0.8",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -1245,14 +1245,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-text-decoration-shorthand@5.0.7"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-text-decoration-shorthand@5.0.8"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--csstools-postcss-trigonometric-functions-5.0.9",
+			"SPDXID": "SPDXRef-npm--csstools-postcss-trigonometric-functions-5.0.10",
 			"name": "@csstools/postcss-trigonometric-functions",
-			"versionInfo": "5.0.9",
+			"versionInfo": "5.0.10",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -1262,7 +1262,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40csstools/postcss-trigonometric-functions@5.0.9"
+					"referenceLocator": "pkg:npm/%40csstools/postcss-trigonometric-functions@5.0.10"
 				}
 			]
 		},
@@ -1314,6 +1314,40 @@
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
 					"referenceLocator": "pkg:npm/%40csstools/selector-specificity@6.0.1"
+				}
+			]
+		},
+		{
+			"SPDXID": "SPDXRef-npm--csstools-utilities-for-private-properties-1.0.1",
+			"name": "@csstools/utilities-for-private-properties",
+			"versionInfo": "1.0.1",
+			"downloadLocation": "NOASSERTION",
+			"filesAnalyzed": false,
+			"licenseConcluded": "MIT-0",
+			"licenseDeclared": "MIT-0",
+			"copyrightText": "NOASSERTION",
+			"externalRefs": [
+				{
+					"referenceCategory": "PACKAGE-MANAGER",
+					"referenceType": "purl",
+					"referenceLocator": "pkg:npm/%40csstools/utilities-for-private-properties@1.0.1"
+				}
+			]
+		},
+		{
+			"SPDXID": "SPDXRef-npm--csstools-utilities-for-property-registrations-1.0.0",
+			"name": "@csstools/utilities-for-property-registrations",
+			"versionInfo": "1.0.0",
+			"downloadLocation": "NOASSERTION",
+			"filesAnalyzed": false,
+			"licenseConcluded": "MIT-0",
+			"licenseDeclared": "MIT-0",
+			"copyrightText": "NOASSERTION",
+			"externalRefs": [
+				{
+					"referenceCategory": "PACKAGE-MANAGER",
+					"referenceType": "purl",
+					"referenceLocator": "pkg:npm/%40csstools/utilities-for-property-registrations@1.0.0"
 				}
 			]
 		},
@@ -1794,9 +1828,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--eslint-community-regexpp-4.12.2",
+			"SPDXID": "SPDXRef-npm--eslint-community-regexpp-4.12.3",
 			"name": "@eslint-community/regexpp",
-			"versionInfo": "4.12.2",
+			"versionInfo": "4.12.3",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -1806,14 +1840,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40eslint-community/regexpp@4.12.2"
+					"referenceLocator": "pkg:npm/%40eslint-community/regexpp@4.12.3"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--eslint-config-array-0.23.5",
+			"SPDXID": "SPDXRef-npm--eslint-config-array-0.23.6",
 			"name": "@eslint/config-array",
-			"versionInfo": "0.23.5",
+			"versionInfo": "0.23.6",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "Apache-2.0",
@@ -1823,7 +1857,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40eslint/config-array@0.23.5"
+					"referenceLocator": "pkg:npm/%40eslint/config-array@0.23.6"
 				}
 			]
 		},
@@ -1998,6 +2032,23 @@
 			]
 		},
 		{
+			"SPDXID": "SPDXRef-npm--isaacs-nonrecursive-glob-match-1.1.0",
+			"name": "@isaacs/nonrecursive-glob-match",
+			"versionInfo": "1.1.0",
+			"downloadLocation": "NOASSERTION",
+			"filesAnalyzed": false,
+			"licenseConcluded": "BlueOak-1.0.0",
+			"licenseDeclared": "BlueOak-1.0.0",
+			"copyrightText": "NOASSERTION",
+			"externalRefs": [
+				{
+					"referenceCategory": "PACKAGE-MANAGER",
+					"referenceType": "purl",
+					"referenceLocator": "pkg:npm/%40isaacs/nonrecursive-glob-match@1.1.0"
+				}
+			]
+		},
+		{
 			"SPDXID": "SPDXRef-npm--jridgewell-gen-mapping-0.3.13",
 			"name": "@jridgewell/gen-mapping",
 			"versionInfo": "0.3.13",
@@ -2015,9 +2066,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--jridgewell-resolve-uri-3.1.2",
+			"SPDXID": "SPDXRef-npm--jridgewell-resolve-uri-3.1.3",
 			"name": "@jridgewell/resolve-uri",
-			"versionInfo": "3.1.2",
+			"versionInfo": "3.1.3",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -2027,7 +2078,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40jridgewell/resolve-uri@3.1.2"
+					"referenceLocator": "pkg:npm/%40jridgewell/resolve-uri@3.1.3"
 				}
 			]
 		},
@@ -2134,9 +2185,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm--types-estree-1.0.9",
+			"SPDXID": "SPDXRef-npm--types-estree-1.0.10",
 			"name": "@types/estree",
-			"versionInfo": "1.0.9",
+			"versionInfo": "1.0.10",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -2146,7 +2197,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40types/estree@1.0.9"
+					"referenceLocator": "pkg:npm/%40types/estree@1.0.10"
 				}
 			]
 		},
@@ -2185,9 +2236,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-acorn-8.18.0",
+			"SPDXID": "SPDXRef-npm-acorn-8.19.0",
 			"name": "acorn",
-			"versionInfo": "8.18.0",
+			"versionInfo": "8.19.0",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -2197,7 +2248,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/acorn@8.18.0"
+					"referenceLocator": "pkg:npm/acorn@8.19.0"
 				}
 			]
 		},
@@ -2219,9 +2270,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-ansi-regex-6.4.0",
+			"SPDXID": "SPDXRef-npm-ansi-regex-6.6.0",
 			"name": "ansi-regex",
-			"versionInfo": "6.4.0",
+			"versionInfo": "6.6.0",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -2231,7 +2282,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/ansi-regex@6.4.0"
+					"referenceLocator": "pkg:npm/ansi-regex@6.6.0"
 				}
 			]
 		},
@@ -2253,9 +2304,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-autoprefixer-10.6.1",
+			"SPDXID": "SPDXRef-npm-autoprefixer-10.7.0",
 			"name": "autoprefixer",
-			"versionInfo": "10.6.1",
+			"versionInfo": "10.7.0",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -2265,7 +2316,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/autoprefixer@10.6.1"
+					"referenceLocator": "pkg:npm/autoprefixer@10.7.0"
 				}
 			]
 		},
@@ -2287,9 +2338,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-baseline-browser-mapping-2.11.28",
+			"SPDXID": "SPDXRef-npm-baseline-browser-mapping-2.11.39",
 			"name": "baseline-browser-mapping",
-			"versionInfo": "2.11.28",
+			"versionInfo": "2.11.39",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "Apache-2.0",
@@ -2299,7 +2350,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/baseline-browser-mapping@2.11.28"
+					"referenceLocator": "pkg:npm/baseline-browser-mapping@2.11.39"
 				}
 			]
 		},
@@ -2321,9 +2372,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-brace-expansion-5.0.12",
+			"SPDXID": "SPDXRef-npm-brace-expansion-5.0.13",
 			"name": "brace-expansion",
-			"versionInfo": "5.0.12",
+			"versionInfo": "5.0.13",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -2333,14 +2384,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/brace-expansion@5.0.12"
+					"referenceLocator": "pkg:npm/brace-expansion@5.0.13"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-browserslist-4.29.3",
+			"SPDXID": "SPDXRef-npm-browserslist-4.29.6",
 			"name": "browserslist",
-			"versionInfo": "4.29.3",
+			"versionInfo": "4.29.6",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -2350,7 +2401,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/browserslist@4.29.3"
+					"referenceLocator": "pkg:npm/browserslist@4.29.6"
 				}
 			]
 		},
@@ -2423,9 +2474,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-caniuse-lite-1.0.30001815",
+			"SPDXID": "SPDXRef-npm-caniuse-lite-1.0.30001826",
 			"name": "caniuse-lite",
-			"versionInfo": "1.0.30001815",
+			"versionInfo": "1.0.30001826",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "CC-BY-4.0",
@@ -2435,7 +2486,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/caniuse-lite@1.0.30001815"
+					"referenceLocator": "pkg:npm/caniuse-lite@1.0.30001826"
 				}
 			]
 		},
@@ -2678,9 +2729,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-cssdb-8.11.0",
+			"SPDXID": "SPDXRef-npm-cssdb-8.12.1",
 			"name": "cssdb",
-			"versionInfo": "8.11.0",
+			"versionInfo": "8.12.1",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -2690,48 +2741,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/cssdb@8.11.0"
+					"referenceLocator": "pkg:npm/cssdb@8.12.1"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-cssesc-3.0.0",
-			"name": "cssesc",
-			"versionInfo": "3.0.0",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/cssesc@3.0.0"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-cssnano-preset-default-9.5.0",
-			"name": "cssnano-preset-default",
-			"versionInfo": "9.5.0",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/cssnano-preset-default@9.5.0"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-cssnano-utils-8.2.1",
+			"SPDXID": "SPDXRef-npm-cssnano-utils-9.0.0",
 			"name": "cssnano-utils",
-			"versionInfo": "8.2.1",
+			"versionInfo": "9.0.0",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -2741,14 +2758,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/cssnano-utils@8.2.1"
+					"referenceLocator": "pkg:npm/cssnano-utils@9.0.0"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-cssnano-9.5.0",
+			"SPDXID": "SPDXRef-npm-cssnano-9.9.0",
 			"name": "cssnano",
-			"versionInfo": "9.5.0",
+			"versionInfo": "9.9.0",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -2758,7 +2775,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/cssnano@9.5.0"
+					"referenceLocator": "pkg:npm/cssnano@9.9.0"
 				}
 			]
 		},
@@ -2916,9 +2933,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-electron-to-chromium-1.5.452",
+			"SPDXID": "SPDXRef-npm-electron-to-chromium-1.5.492",
 			"name": "electron-to-chromium",
-			"versionInfo": "1.5.452",
+			"versionInfo": "1.5.492",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "ISC",
@@ -2928,7 +2945,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/electron-to-chromium@1.5.452"
+					"referenceLocator": "pkg:npm/electron-to-chromium@1.5.492"
 				}
 			]
 		},
@@ -3069,9 +3086,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-eslint-10.12.0",
+			"SPDXID": "SPDXRef-npm-eslint-10.15.0",
 			"name": "eslint",
-			"versionInfo": "10.12.0",
+			"versionInfo": "10.15.0",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -3081,7 +3098,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/eslint@10.12.0"
+					"referenceLocator": "pkg:npm/eslint@10.15.0"
 				}
 			]
 		},
@@ -3392,9 +3409,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-globals-17.13.0",
+			"SPDXID": "SPDXRef-npm-globals-17.14.0",
 			"name": "globals",
-			"versionInfo": "17.13.0",
+			"versionInfo": "17.14.0",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -3404,14 +3421,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/globals@17.13.0"
+					"referenceLocator": "pkg:npm/globals@17.14.0"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-glob-13.0.6",
+			"SPDXID": "SPDXRef-npm-glob-14.0.6",
 			"name": "glob",
-			"versionInfo": "13.0.6",
+			"versionInfo": "14.0.6",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "BlueOak-1.0.0",
@@ -3421,7 +3438,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/glob@13.0.6"
+					"referenceLocator": "pkg:npm/glob@14.0.6"
 				}
 			]
 		},
@@ -3647,9 +3664,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-lilconfig-3.1.3",
+			"SPDXID": "SPDXRef-npm-lilconfig-3.1.5",
 			"name": "lilconfig",
-			"versionInfo": "3.1.3",
+			"versionInfo": "3.1.5",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -3659,7 +3676,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/lilconfig@3.1.3"
+					"referenceLocator": "pkg:npm/lilconfig@3.1.5"
 				}
 			]
 		},
@@ -3698,9 +3715,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-lru-cache-11.5.2",
+			"SPDXID": "SPDXRef-npm-lru-cache-11.5.3",
 			"name": "lru-cache",
-			"versionInfo": "11.5.2",
+			"versionInfo": "11.5.3",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "BlueOak-1.0.0",
@@ -3710,7 +3727,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/lru-cache@11.5.2"
+					"referenceLocator": "pkg:npm/lru-cache@11.5.3"
 				}
 			]
 		},
@@ -3749,9 +3766,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-minimatch-10.2.6",
+			"SPDXID": "SPDXRef-npm-minimatch-11.0.9",
 			"name": "minimatch",
-			"versionInfo": "10.2.6",
+			"versionInfo": "11.0.9",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "BlueOak-1.0.0",
@@ -3761,7 +3778,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/minimatch@10.2.6"
+					"referenceLocator": "pkg:npm/minimatch@11.0.9"
 				}
 			]
 		},
@@ -3851,9 +3868,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-node-releases-2.0.58",
+			"SPDXID": "SPDXRef-npm-node-releases-2.0.65",
 			"name": "node-releases",
-			"versionInfo": "2.0.58",
+			"versionInfo": "2.0.65",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -3863,7 +3880,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/node-releases@2.0.58"
+					"referenceLocator": "pkg:npm/node-releases@2.0.65"
 				}
 			]
 		},
@@ -4021,9 +4038,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-path-scurry-2.0.2",
+			"SPDXID": "SPDXRef-npm-path-scurry-3.0.0",
 			"name": "path-scurry",
-			"versionInfo": "2.0.2",
+			"versionInfo": "3.0.0",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "BlueOak-1.0.0",
@@ -4033,7 +4050,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/path-scurry@2.0.2"
+					"referenceLocator": "pkg:npm/path-scurry@3.0.0"
 				}
 			]
 		},
@@ -4106,9 +4123,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-postcss-calc-11.2.2",
+			"SPDXID": "SPDXRef-npm-postcss-calc-11.3.0",
 			"name": "postcss-calc",
-			"versionInfo": "11.2.2",
+			"versionInfo": "11.3.0",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -4118,7 +4135,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-calc@11.2.2"
+					"referenceLocator": "pkg:npm/postcss-calc@11.3.0"
 				}
 			]
 		},
@@ -4157,9 +4174,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-postcss-color-functional-notation-8.0.15",
+			"SPDXID": "SPDXRef-npm-postcss-color-functional-notation-8.0.17",
 			"name": "postcss-color-functional-notation",
-			"versionInfo": "8.0.15",
+			"versionInfo": "8.0.17",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -4169,7 +4186,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-color-functional-notation@8.0.15"
+					"referenceLocator": "pkg:npm/postcss-color-functional-notation@8.0.17"
 				}
 			]
 		},
@@ -4208,43 +4225,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-postcss-colormin-9.0.7",
-			"name": "postcss-colormin",
-			"versionInfo": "9.0.7",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-colormin@9.0.7"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-convert-values-9.0.8",
-			"name": "postcss-convert-values",
-			"versionInfo": "9.0.8",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-convert-values@9.0.8"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-custom-media-12.0.3",
+			"SPDXID": "SPDXRef-npm-postcss-custom-media-12.0.4",
 			"name": "postcss-custom-media",
-			"versionInfo": "12.0.3",
+			"versionInfo": "12.0.4",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -4254,14 +4237,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-custom-media@12.0.3"
+					"referenceLocator": "pkg:npm/postcss-custom-media@12.0.4"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-postcss-custom-properties-15.0.4",
+			"SPDXID": "SPDXRef-npm-postcss-custom-properties-15.0.5",
 			"name": "postcss-custom-properties",
-			"versionInfo": "15.0.4",
+			"versionInfo": "15.0.5",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -4271,14 +4254,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-custom-properties@15.0.4"
+					"referenceLocator": "pkg:npm/postcss-custom-properties@15.0.5"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-postcss-custom-selectors-9.0.4",
+			"SPDXID": "SPDXRef-npm-postcss-custom-selectors-9.0.5",
 			"name": "postcss-custom-selectors",
-			"versionInfo": "9.0.4",
+			"versionInfo": "9.0.5",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -4288,7 +4271,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-custom-selectors@9.0.4"
+					"referenceLocator": "pkg:npm/postcss-custom-selectors@9.0.5"
 				}
 			]
 		},
@@ -4310,77 +4293,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-postcss-discard-comments-9.0.7",
-			"name": "postcss-discard-comments",
-			"versionInfo": "9.0.7",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-discard-comments@9.0.7"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-discard-duplicates-9.0.6",
-			"name": "postcss-discard-duplicates",
-			"versionInfo": "9.0.6",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-discard-duplicates@9.0.6"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-discard-empty-9.0.7",
-			"name": "postcss-discard-empty",
-			"versionInfo": "9.0.7",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-discard-empty@9.0.7"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-discard-overridden-9.0.6",
-			"name": "postcss-discard-overridden",
-			"versionInfo": "9.0.6",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-discard-overridden@9.0.6"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-double-position-gradients-7.0.5",
+			"SPDXID": "SPDXRef-npm-postcss-double-position-gradients-7.0.6",
 			"name": "postcss-double-position-gradients",
-			"versionInfo": "7.0.5",
+			"versionInfo": "7.0.6",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -4390,7 +4305,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-double-position-gradients@7.0.5"
+					"referenceLocator": "pkg:npm/postcss-double-position-gradients@7.0.6"
 				}
 			]
 		},
@@ -4480,9 +4395,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-postcss-lab-function-8.0.15",
+			"SPDXID": "SPDXRef-npm-postcss-lab-function-8.0.17",
 			"name": "postcss-lab-function",
-			"versionInfo": "8.0.15",
+			"versionInfo": "8.0.17",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -4492,7 +4407,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-lab-function@8.0.15"
+					"referenceLocator": "pkg:npm/postcss-lab-function@8.0.17"
 				}
 			]
 		},
@@ -4531,108 +4446,6 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-postcss-merge-longhand-9.3.0",
-			"name": "postcss-merge-longhand",
-			"versionInfo": "9.3.0",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-merge-longhand@9.3.0"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-merge-rules-9.1.3",
-			"name": "postcss-merge-rules",
-			"versionInfo": "9.1.3",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-merge-rules@9.1.3"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-minify-font-values-9.0.8",
-			"name": "postcss-minify-font-values",
-			"versionInfo": "9.0.8",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-minify-font-values@9.0.8"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-minify-gradients-9.0.7",
-			"name": "postcss-minify-gradients",
-			"versionInfo": "9.0.7",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-minify-gradients@9.0.7"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-minify-params-9.0.7",
-			"name": "postcss-minify-params",
-			"versionInfo": "9.0.7",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-minify-params@9.0.7"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-minify-selectors-9.0.7",
-			"name": "postcss-minify-selectors",
-			"versionInfo": "9.0.7",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-minify-selectors@9.0.7"
-				}
-			]
-		},
-		{
 			"SPDXID": "SPDXRef-npm-postcss-nesting-14.0.3",
 			"name": "postcss-nesting",
 			"versionInfo": "14.0.3",
@@ -4650,159 +4463,6 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-postcss-normalize-charset-9.0.6",
-			"name": "postcss-normalize-charset",
-			"versionInfo": "9.0.6",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-normalize-charset@9.0.6"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-normalize-display-values-9.0.6",
-			"name": "postcss-normalize-display-values",
-			"versionInfo": "9.0.6",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-normalize-display-values@9.0.6"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-normalize-positions-9.0.7",
-			"name": "postcss-normalize-positions",
-			"versionInfo": "9.0.7",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-normalize-positions@9.0.7"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-normalize-repeat-style-9.0.6",
-			"name": "postcss-normalize-repeat-style",
-			"versionInfo": "9.0.6",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-normalize-repeat-style@9.0.6"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-normalize-string-9.0.6",
-			"name": "postcss-normalize-string",
-			"versionInfo": "9.0.6",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-normalize-string@9.0.6"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-normalize-timing-functions-9.0.6",
-			"name": "postcss-normalize-timing-functions",
-			"versionInfo": "9.0.6",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-normalize-timing-functions@9.0.6"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-normalize-unicode-9.1.0",
-			"name": "postcss-normalize-unicode",
-			"versionInfo": "9.1.0",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-normalize-unicode@9.1.0"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-normalize-url-9.0.6",
-			"name": "postcss-normalize-url",
-			"versionInfo": "9.0.6",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-normalize-url@9.0.6"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-normalize-whitespace-9.0.7",
-			"name": "postcss-normalize-whitespace",
-			"versionInfo": "9.0.7",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-normalize-whitespace@9.0.7"
-				}
-			]
-		},
-		{
 			"SPDXID": "SPDXRef-npm-postcss-opacity-percentage-3.0.0",
 			"name": "postcss-opacity-percentage",
 			"versionInfo": "3.0.0",
@@ -4816,23 +4476,6 @@
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
 					"referenceLocator": "pkg:npm/postcss-opacity-percentage@3.0.0"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-ordered-values-9.0.8",
-			"name": "postcss-ordered-values",
-			"versionInfo": "9.0.8",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-ordered-values@9.0.8"
 				}
 			]
 		},
@@ -4888,9 +4531,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-postcss-preset-env-11.6.1",
+			"SPDXID": "SPDXRef-npm-postcss-preset-env-11.6.3",
 			"name": "postcss-preset-env",
-			"versionInfo": "11.6.1",
+			"versionInfo": "11.6.3",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT-0",
@@ -4900,7 +4543,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-preset-env@11.6.1"
+					"referenceLocator": "pkg:npm/postcss-preset-env@11.6.3"
 				}
 			]
 		},
@@ -4918,40 +4561,6 @@
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
 					"referenceLocator": "pkg:npm/postcss-pseudo-class-any-link@11.0.1"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-reduce-initial-9.0.7",
-			"name": "postcss-reduce-initial",
-			"versionInfo": "9.0.7",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-reduce-initial@9.0.7"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-reduce-transforms-9.0.5",
-			"name": "postcss-reduce-transforms",
-			"versionInfo": "9.0.5",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-reduce-transforms@9.0.5"
 				}
 			]
 		},
@@ -5007,9 +4616,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-postcss-selector-parser-7.1.6",
+			"SPDXID": "SPDXRef-npm-postcss-selector-parser-7.2.1",
 			"name": "postcss-selector-parser",
-			"versionInfo": "7.1.6",
+			"versionInfo": "7.2.1",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -5019,14 +4628,14 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-selector-parser@7.1.6"
+					"referenceLocator": "pkg:npm/postcss-selector-parser@7.2.1"
 				}
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-postcss-svgo-9.0.5",
+			"SPDXID": "SPDXRef-npm-postcss-svgo-9.1.0",
 			"name": "postcss-svgo",
-			"versionInfo": "9.0.5",
+			"versionInfo": "9.1.0",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -5036,24 +4645,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-svgo@9.0.5"
-				}
-			]
-		},
-		{
-			"SPDXID": "SPDXRef-npm-postcss-unique-selectors-9.0.6",
-			"name": "postcss-unique-selectors",
-			"versionInfo": "9.0.6",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss-unique-selectors@9.0.6"
+					"referenceLocator": "pkg:npm/postcss-svgo@9.1.0"
 				}
 			]
 		},
@@ -5075,9 +4667,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-postcss-8.5.29",
+			"SPDXID": "SPDXRef-npm-postcss-8.5.33",
 			"name": "postcss",
-			"versionInfo": "8.5.29",
+			"versionInfo": "8.5.33",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -5087,7 +4679,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/postcss@8.5.29"
+					"referenceLocator": "pkg:npm/postcss@8.5.33"
 				}
 			]
 		},
@@ -5279,9 +4871,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-source-map-js-1.2.2",
+			"SPDXID": "SPDXRef-npm-source-map-js-1.2.4",
 			"name": "source-map-js",
-			"versionInfo": "1.2.2",
+			"versionInfo": "1.2.4",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "BSD-3-Clause",
@@ -5291,7 +4883,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/source-map-js@1.2.2"
+					"referenceLocator": "pkg:npm/source-map-js@1.2.4"
 				}
 			]
 		},
@@ -5381,23 +4973,6 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-stylehacks-9.0.8",
-			"name": "stylehacks",
-			"versionInfo": "9.0.8",
-			"downloadLocation": "NOASSERTION",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/stylehacks@9.0.8"
-				}
-			]
-		},
-		{
 			"SPDXID": "SPDXRef-npm-svgo-4.1.0",
 			"name": "svgo",
 			"versionInfo": "4.1.0",
@@ -5415,9 +4990,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-terser-5.51.2",
+			"SPDXID": "SPDXRef-npm-terser-5.51.3",
 			"name": "terser",
-			"versionInfo": "5.51.2",
+			"versionInfo": "5.51.3",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "BSD-2-Clause",
@@ -5427,7 +5002,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/terser@5.51.2"
+					"referenceLocator": "pkg:npm/terser@5.51.3"
 				}
 			]
 		},
@@ -5466,9 +5041,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-tslib-2.8.1",
+			"SPDXID": "SPDXRef-npm-tslib-2.9.1",
 			"name": "tslib",
-			"versionInfo": "2.8.1",
+			"versionInfo": "2.9.1",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "0BSD",
@@ -5478,7 +5053,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/tslib@2.8.1"
+					"referenceLocator": "pkg:npm/tslib@2.9.1"
 				}
 			]
 		},
@@ -5500,9 +5075,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-npm-update-browserslist-db-1.3.4",
+			"SPDXID": "SPDXRef-npm-update-browserslist-db-1.4.0",
 			"name": "update-browserslist-db",
-			"versionInfo": "1.3.4",
+			"versionInfo": "1.4.0",
 			"downloadLocation": "NOASSERTION",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -5512,7 +5087,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/update-browserslist-db@1.3.4"
+					"referenceLocator": "pkg:npm/update-browserslist-db@1.4.0"
 				}
 			]
 		},
@@ -6538,47 +6113,52 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-cascade-layer-name-parser-3.0.2",
+			"spdxElementId": "SPDXRef-npm--csstools-cascade-layer-name-parser-3.0.3",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-color-helpers-6.1.2",
+			"spdxElementId": "SPDXRef-npm--csstools-color-helpers-6.1.3",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-css-calc-3.4.3",
+			"spdxElementId": "SPDXRef-npm--csstools-css-calc-3.4.4",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-css-color-parser-4.2.6",
+			"spdxElementId": "SPDXRef-npm--csstools-css-color-parser-4.2.8",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-css-parser-algorithms-4.0.2",
+			"spdxElementId": "SPDXRef-npm--csstools-css-parser-algorithms-4.0.3",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-css-tokenizer-4.0.2",
+			"spdxElementId": "SPDXRef-npm--csstools-css-tokenizer-4.0.3",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-custom-function-parser-1.0.0",
+			"spdxElementId": "SPDXRef-npm--csstools-custom-function-parser-2.0.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-media-query-list-parser-5.0.2",
+			"spdxElementId": "SPDXRef-npm--csstools-generate-idents-1.0.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-alpha-function-2.0.16",
+			"spdxElementId": "SPDXRef-npm--csstools-media-query-list-parser-5.0.3",
+			"relationshipType": "BUILD_TOOL_OF",
+			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
+		},
+		{
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-alpha-function-2.0.18",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -6588,47 +6168,47 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-color-function-display-p3-linear-2.0.15",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-color-function-display-p3-linear-2.0.17",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-color-function-5.0.15",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-color-function-5.0.17",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-color-mix-function-4.0.15",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-color-mix-function-4.0.17",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-color-mix-variadic-function-arguments-2.0.15",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-color-mix-variadic-function-arguments-2.0.17",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-container-rule-prelude-list-1.0.4",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-container-rule-prelude-list-1.0.5",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-content-alt-text-3.0.7",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-content-alt-text-3.0.9",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-contrast-color-function-3.0.15",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-contrast-color-function-3.0.17",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-custom-functions-1.0.1",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-custom-functions-1.1.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-exponential-functions-3.0.9",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-exponential-functions-3.0.10",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -6648,27 +6228,27 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-gamut-mapping-3.0.15",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-gamut-mapping-3.0.17",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-gradients-interpolation-method-6.0.15",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-gradients-interpolation-method-6.0.17",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-hwb-function-5.0.15",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-hwb-function-5.0.17",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-ic-unit-5.0.5",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-ic-unit-5.0.6",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-image-function-1.0.6",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-image-function-1.0.8",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -6683,7 +6263,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-light-dark-function-3.0.7",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-light-dark-function-3.0.9",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -6708,22 +6288,22 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-logical-viewport-units-4.0.3",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-logical-viewport-units-4.0.5",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-media-minmax-3.0.8",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-media-minmax-3.0.9",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-media-queries-aspect-ratio-number-values-4.0.2",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-media-queries-aspect-ratio-number-values-4.0.3",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-mixins-1.1.0",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-mixins-1.2.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -6738,7 +6318,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-oklab-function-5.0.15",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-oklab-function-5.0.17",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -6748,12 +6328,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-private-rule-1.1.1",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-progressive-custom-properties-5.1.4",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-progressive-custom-properties-5.1.5",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -6763,17 +6338,17 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-property-rule-prelude-list-2.0.3",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-property-rule-prelude-list-2.0.4",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-random-function-4.0.5",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-random-function-4.0.6",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-relative-color-syntax-4.0.15",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-relative-color-syntax-4.0.17",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -6783,32 +6358,32 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-sign-functions-2.0.9",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-sign-functions-2.0.10",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-stepped-value-functions-5.0.9",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-stepped-value-functions-5.0.10",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-syntax-descriptor-syntax-production-2.0.1",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-syntax-descriptor-syntax-production-2.0.2",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-system-ui-font-family-2.0.3",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-system-ui-font-family-2.0.4",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-text-decoration-shorthand-5.0.7",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-text-decoration-shorthand-5.0.8",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--csstools-postcss-trigonometric-functions-5.0.9",
+			"spdxElementId": "SPDXRef-npm--csstools-postcss-trigonometric-functions-5.0.10",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -6824,6 +6399,16 @@
 		},
 		{
 			"spdxElementId": "SPDXRef-npm--csstools-selector-specificity-6.0.1",
+			"relationshipType": "BUILD_TOOL_OF",
+			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
+		},
+		{
+			"spdxElementId": "SPDXRef-npm--csstools-utilities-for-private-properties-1.0.1",
+			"relationshipType": "BUILD_TOOL_OF",
+			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
+		},
+		{
+			"spdxElementId": "SPDXRef-npm--csstools-utilities-for-property-registrations-1.0.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -6968,12 +6553,12 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--eslint-community-regexpp-4.12.2",
+			"spdxElementId": "SPDXRef-npm--eslint-community-regexpp-4.12.3",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--eslint-config-array-0.23.5",
+			"spdxElementId": "SPDXRef-npm--eslint-config-array-0.23.6",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7028,12 +6613,17 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
+			"spdxElementId": "SPDXRef-npm--isaacs-nonrecursive-glob-match-1.1.0",
+			"relationshipType": "BUILD_TOOL_OF",
+			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
+		},
+		{
 			"spdxElementId": "SPDXRef-npm--jridgewell-gen-mapping-0.3.13",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--jridgewell-resolve-uri-3.1.2",
+			"spdxElementId": "SPDXRef-npm--jridgewell-resolve-uri-3.1.3",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7068,7 +6658,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm--types-estree-1.0.9",
+			"spdxElementId": "SPDXRef-npm--types-estree-1.0.10",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7083,7 +6673,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-acorn-8.18.0",
+			"spdxElementId": "SPDXRef-npm-acorn-8.19.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7093,7 +6683,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-ansi-regex-6.4.0",
+			"spdxElementId": "SPDXRef-npm-ansi-regex-6.6.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7103,7 +6693,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-autoprefixer-10.6.1",
+			"spdxElementId": "SPDXRef-npm-autoprefixer-10.7.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7113,7 +6703,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-baseline-browser-mapping-2.11.28",
+			"spdxElementId": "SPDXRef-npm-baseline-browser-mapping-2.11.39",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7123,12 +6713,12 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-brace-expansion-5.0.12",
+			"spdxElementId": "SPDXRef-npm-brace-expansion-5.0.13",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-browserslist-4.29.3",
+			"spdxElementId": "SPDXRef-npm-browserslist-4.29.6",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7153,7 +6743,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-caniuse-lite-1.0.30001815",
+			"spdxElementId": "SPDXRef-npm-caniuse-lite-1.0.30001826",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7228,27 +6818,17 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-cssdb-8.11.0",
+			"spdxElementId": "SPDXRef-npm-cssdb-8.12.1",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-cssesc-3.0.0",
+			"spdxElementId": "SPDXRef-npm-cssnano-utils-9.0.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-cssnano-preset-default-9.5.0",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-cssnano-utils-8.2.1",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-cssnano-9.5.0",
+			"spdxElementId": "SPDXRef-npm-cssnano-9.9.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7298,7 +6878,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-electron-to-chromium-1.5.452",
+			"spdxElementId": "SPDXRef-npm-electron-to-chromium-1.5.492",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7343,7 +6923,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-eslint-10.12.0",
+			"spdxElementId": "SPDXRef-npm-eslint-10.15.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7438,12 +7018,12 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-globals-17.13.0",
+			"spdxElementId": "SPDXRef-npm-globals-17.14.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-glob-13.0.6",
+			"spdxElementId": "SPDXRef-npm-glob-14.0.6",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7513,7 +7093,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-lilconfig-3.1.3",
+			"spdxElementId": "SPDXRef-npm-lilconfig-3.1.5",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7528,7 +7108,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-lru-cache-11.5.2",
+			"spdxElementId": "SPDXRef-npm-lru-cache-11.5.3",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7543,7 +7123,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-minimatch-10.2.6",
+			"spdxElementId": "SPDXRef-npm-minimatch-11.0.9",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7573,7 +7153,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-node-releases-2.0.58",
+			"spdxElementId": "SPDXRef-npm-node-releases-2.0.65",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7623,7 +7203,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-path-scurry-2.0.2",
+			"spdxElementId": "SPDXRef-npm-path-scurry-3.0.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7648,7 +7228,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-postcss-calc-11.2.2",
+			"spdxElementId": "SPDXRef-npm-postcss-calc-11.3.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7663,7 +7243,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-postcss-color-functional-notation-8.0.15",
+			"spdxElementId": "SPDXRef-npm-postcss-color-functional-notation-8.0.17",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7678,27 +7258,17 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-postcss-colormin-9.0.7",
+			"spdxElementId": "SPDXRef-npm-postcss-custom-media-12.0.4",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-postcss-convert-values-9.0.8",
+			"spdxElementId": "SPDXRef-npm-postcss-custom-properties-15.0.5",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-postcss-custom-media-12.0.3",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-custom-properties-15.0.4",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-custom-selectors-9.0.4",
+			"spdxElementId": "SPDXRef-npm-postcss-custom-selectors-9.0.5",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7708,27 +7278,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-postcss-discard-comments-9.0.7",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-discard-duplicates-9.0.6",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-discard-empty-9.0.7",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-discard-overridden-9.0.6",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-double-position-gradients-7.0.5",
+			"spdxElementId": "SPDXRef-npm-postcss-double-position-gradients-7.0.6",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7758,7 +7308,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-postcss-lab-function-8.0.15",
+			"spdxElementId": "SPDXRef-npm-postcss-lab-function-8.0.17",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7773,92 +7323,12 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-postcss-merge-longhand-9.3.0",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-merge-rules-9.1.3",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-minify-font-values-9.0.8",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-minify-gradients-9.0.7",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-minify-params-9.0.7",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-minify-selectors-9.0.7",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
 			"spdxElementId": "SPDXRef-npm-postcss-nesting-14.0.3",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-postcss-normalize-charset-9.0.6",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-normalize-display-values-9.0.6",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-normalize-positions-9.0.7",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-normalize-repeat-style-9.0.6",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-normalize-string-9.0.6",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-normalize-timing-functions-9.0.6",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-normalize-unicode-9.1.0",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-normalize-url-9.0.6",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-normalize-whitespace-9.0.7",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
 			"spdxElementId": "SPDXRef-npm-postcss-opacity-percentage-3.0.0",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-ordered-values-9.0.8",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7878,22 +7348,12 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-postcss-preset-env-11.6.1",
+			"spdxElementId": "SPDXRef-npm-postcss-preset-env-11.6.3",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
 			"spdxElementId": "SPDXRef-npm-postcss-pseudo-class-any-link-11.0.1",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-reduce-initial-9.0.7",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-reduce-transforms-9.0.5",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7913,17 +7373,12 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-postcss-selector-parser-7.1.6",
+			"spdxElementId": "SPDXRef-npm-postcss-selector-parser-7.2.1",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-postcss-svgo-9.0.5",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-npm-postcss-unique-selectors-9.0.6",
+			"spdxElementId": "SPDXRef-npm-postcss-svgo-9.1.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7933,7 +7388,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-postcss-8.5.29",
+			"spdxElementId": "SPDXRef-npm-postcss-8.5.33",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7993,7 +7448,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-source-map-js-1.2.2",
+			"spdxElementId": "SPDXRef-npm-source-map-js-1.2.4",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -8023,17 +7478,12 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-stylehacks-9.0.8",
-			"relationshipType": "BUILD_TOOL_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
 			"spdxElementId": "SPDXRef-npm-svgo-4.1.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-terser-5.51.2",
+			"spdxElementId": "SPDXRef-npm-terser-5.51.3",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -8048,7 +7498,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-tslib-2.8.1",
+			"spdxElementId": "SPDXRef-npm-tslib-2.9.1",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -8058,7 +7508,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-npm-update-browserslist-db-1.3.4",
+			"spdxElementId": "SPDXRef-npm-update-browserslist-db-1.4.0",
 			"relationshipType": "BUILD_TOOL_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},

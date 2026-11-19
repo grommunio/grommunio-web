@@ -731,10 +731,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/cascade-layer-name-parser@3.0.2",
+			"bom-ref": "pkg:npm/%40csstools/cascade-layer-name-parser@3.0.3",
 			"type": "library",
 			"name": "@csstools/cascade-layer-name-parser",
-			"version": "3.0.2",
+			"version": "3.0.3",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -743,7 +743,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/cascade-layer-name-parser@3.0.2",
+			"purl": "pkg:npm/%40csstools/cascade-layer-name-parser@3.0.3",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -760,10 +760,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/color-helpers@6.1.2",
+			"bom-ref": "pkg:npm/%40csstools/color-helpers@6.1.3",
 			"type": "library",
 			"name": "@csstools/color-helpers",
-			"version": "6.1.2",
+			"version": "6.1.3",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -772,7 +772,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/color-helpers@6.1.2",
+			"purl": "pkg:npm/%40csstools/color-helpers@6.1.3",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -789,10 +789,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/css-calc@3.4.3",
+			"bom-ref": "pkg:npm/%40csstools/css-calc@3.4.4",
 			"type": "library",
 			"name": "@csstools/css-calc",
-			"version": "3.4.3",
+			"version": "3.4.4",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -801,7 +801,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/css-calc@3.4.3",
+			"purl": "pkg:npm/%40csstools/css-calc@3.4.4",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -818,10 +818,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/css-color-parser@4.2.6",
+			"bom-ref": "pkg:npm/%40csstools/css-color-parser@4.2.8",
 			"type": "library",
 			"name": "@csstools/css-color-parser",
-			"version": "4.2.6",
+			"version": "4.2.8",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -830,7 +830,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/css-color-parser@4.2.6",
+			"purl": "pkg:npm/%40csstools/css-color-parser@4.2.8",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -847,10 +847,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/css-parser-algorithms@4.0.2",
+			"bom-ref": "pkg:npm/%40csstools/css-parser-algorithms@4.0.3",
 			"type": "library",
 			"name": "@csstools/css-parser-algorithms",
-			"version": "4.0.2",
+			"version": "4.0.3",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -859,7 +859,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/css-parser-algorithms@4.0.2",
+			"purl": "pkg:npm/%40csstools/css-parser-algorithms@4.0.3",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -876,10 +876,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/css-tokenizer@4.0.2",
+			"bom-ref": "pkg:npm/%40csstools/css-tokenizer@4.0.3",
 			"type": "library",
 			"name": "@csstools/css-tokenizer",
-			"version": "4.0.2",
+			"version": "4.0.3",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -888,7 +888,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/css-tokenizer@4.0.2",
+			"purl": "pkg:npm/%40csstools/css-tokenizer@4.0.3",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -905,19 +905,48 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/custom-function-parser@1.0.0",
+			"bom-ref": "pkg:npm/%40csstools/custom-function-parser@2.0.0",
 			"type": "library",
 			"name": "@csstools/custom-function-parser",
+			"version": "2.0.0",
+			"scope": "excluded",
+			"licenses": [
+				{
+					"license": {
+						"id": "MIT"
+					}
+				}
+			],
+			"purl": "pkg:npm/%40csstools/custom-function-parser@2.0.0",
+			"properties": [
+				{
+					"name": "grommunio:dependencyScope",
+					"value": "build"
+				},
+				{
+					"name": "grommunio:ecosystem",
+					"value": "npm"
+				},
+				{
+					"name": "grommunio:direct",
+					"value": "false"
+				}
+			]
+		},
+		{
+			"bom-ref": "pkg:npm/%40csstools/generate-idents@1.0.0",
+			"type": "library",
+			"name": "@csstools/generate-idents",
 			"version": "1.0.0",
 			"scope": "excluded",
 			"licenses": [
 				{
 					"license": {
-						"id": "MIT"
+						"id": "MIT-0"
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/custom-function-parser@1.0.0",
+			"purl": "pkg:npm/%40csstools/generate-idents@1.0.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -934,10 +963,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/media-query-list-parser@5.0.2",
+			"bom-ref": "pkg:npm/%40csstools/media-query-list-parser@5.0.3",
 			"type": "library",
 			"name": "@csstools/media-query-list-parser",
-			"version": "5.0.2",
+			"version": "5.0.3",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -946,7 +975,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/media-query-list-parser@5.0.2",
+			"purl": "pkg:npm/%40csstools/media-query-list-parser@5.0.3",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -963,10 +992,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-alpha-function@2.0.16",
+			"bom-ref": "pkg:npm/%40csstools/postcss-alpha-function@2.0.18",
 			"type": "library",
 			"name": "@csstools/postcss-alpha-function",
-			"version": "2.0.16",
+			"version": "2.0.18",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -975,7 +1004,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-alpha-function@2.0.16",
+			"purl": "pkg:npm/%40csstools/postcss-alpha-function@2.0.18",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1021,10 +1050,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-color-function-display-p3-linear@2.0.15",
+			"bom-ref": "pkg:npm/%40csstools/postcss-color-function-display-p3-linear@2.0.17",
 			"type": "library",
 			"name": "@csstools/postcss-color-function-display-p3-linear",
-			"version": "2.0.15",
+			"version": "2.0.17",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -1033,7 +1062,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-color-function-display-p3-linear@2.0.15",
+			"purl": "pkg:npm/%40csstools/postcss-color-function-display-p3-linear@2.0.17",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1050,10 +1079,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-color-function@5.0.15",
+			"bom-ref": "pkg:npm/%40csstools/postcss-color-function@5.0.17",
 			"type": "library",
 			"name": "@csstools/postcss-color-function",
-			"version": "5.0.15",
+			"version": "5.0.17",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -1062,7 +1091,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-color-function@5.0.15",
+			"purl": "pkg:npm/%40csstools/postcss-color-function@5.0.17",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1079,10 +1108,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-color-mix-function@4.0.15",
+			"bom-ref": "pkg:npm/%40csstools/postcss-color-mix-function@4.0.17",
 			"type": "library",
 			"name": "@csstools/postcss-color-mix-function",
-			"version": "4.0.15",
+			"version": "4.0.17",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -1091,7 +1120,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-color-mix-function@4.0.15",
+			"purl": "pkg:npm/%40csstools/postcss-color-mix-function@4.0.17",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1108,10 +1137,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-color-mix-variadic-function-arguments@2.0.15",
+			"bom-ref": "pkg:npm/%40csstools/postcss-color-mix-variadic-function-arguments@2.0.17",
 			"type": "library",
 			"name": "@csstools/postcss-color-mix-variadic-function-arguments",
-			"version": "2.0.15",
+			"version": "2.0.17",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -1120,7 +1149,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-color-mix-variadic-function-arguments@2.0.15",
+			"purl": "pkg:npm/%40csstools/postcss-color-mix-variadic-function-arguments@2.0.17",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1137,10 +1166,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-container-rule-prelude-list@1.0.4",
+			"bom-ref": "pkg:npm/%40csstools/postcss-container-rule-prelude-list@1.0.5",
 			"type": "library",
 			"name": "@csstools/postcss-container-rule-prelude-list",
-			"version": "1.0.4",
+			"version": "1.0.5",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -1149,7 +1178,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-container-rule-prelude-list@1.0.4",
+			"purl": "pkg:npm/%40csstools/postcss-container-rule-prelude-list@1.0.5",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1166,96 +1195,9 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-content-alt-text@3.0.7",
+			"bom-ref": "pkg:npm/%40csstools/postcss-content-alt-text@3.0.9",
 			"type": "library",
 			"name": "@csstools/postcss-content-alt-text",
-			"version": "3.0.7",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT-0"
-					}
-				}
-			],
-			"purl": "pkg:npm/%40csstools/postcss-content-alt-text@3.0.7",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-contrast-color-function@3.0.15",
-			"type": "library",
-			"name": "@csstools/postcss-contrast-color-function",
-			"version": "3.0.15",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT-0"
-					}
-				}
-			],
-			"purl": "pkg:npm/%40csstools/postcss-contrast-color-function@3.0.15",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-custom-functions@1.0.1",
-			"type": "library",
-			"name": "@csstools/postcss-custom-functions",
-			"version": "1.0.1",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT-0"
-					}
-				}
-			],
-			"purl": "pkg:npm/%40csstools/postcss-custom-functions@1.0.1",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-exponential-functions@3.0.9",
-			"type": "library",
-			"name": "@csstools/postcss-exponential-functions",
 			"version": "3.0.9",
 			"scope": "excluded",
 			"licenses": [
@@ -1265,7 +1207,94 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-exponential-functions@3.0.9",
+			"purl": "pkg:npm/%40csstools/postcss-content-alt-text@3.0.9",
+			"properties": [
+				{
+					"name": "grommunio:dependencyScope",
+					"value": "build"
+				},
+				{
+					"name": "grommunio:ecosystem",
+					"value": "npm"
+				},
+				{
+					"name": "grommunio:direct",
+					"value": "false"
+				}
+			]
+		},
+		{
+			"bom-ref": "pkg:npm/%40csstools/postcss-contrast-color-function@3.0.17",
+			"type": "library",
+			"name": "@csstools/postcss-contrast-color-function",
+			"version": "3.0.17",
+			"scope": "excluded",
+			"licenses": [
+				{
+					"license": {
+						"id": "MIT-0"
+					}
+				}
+			],
+			"purl": "pkg:npm/%40csstools/postcss-contrast-color-function@3.0.17",
+			"properties": [
+				{
+					"name": "grommunio:dependencyScope",
+					"value": "build"
+				},
+				{
+					"name": "grommunio:ecosystem",
+					"value": "npm"
+				},
+				{
+					"name": "grommunio:direct",
+					"value": "false"
+				}
+			]
+		},
+		{
+			"bom-ref": "pkg:npm/%40csstools/postcss-custom-functions@1.1.0",
+			"type": "library",
+			"name": "@csstools/postcss-custom-functions",
+			"version": "1.1.0",
+			"scope": "excluded",
+			"licenses": [
+				{
+					"license": {
+						"id": "MIT-0"
+					}
+				}
+			],
+			"purl": "pkg:npm/%40csstools/postcss-custom-functions@1.1.0",
+			"properties": [
+				{
+					"name": "grommunio:dependencyScope",
+					"value": "build"
+				},
+				{
+					"name": "grommunio:ecosystem",
+					"value": "npm"
+				},
+				{
+					"name": "grommunio:direct",
+					"value": "false"
+				}
+			]
+		},
+		{
+			"bom-ref": "pkg:npm/%40csstools/postcss-exponential-functions@3.0.10",
+			"type": "library",
+			"name": "@csstools/postcss-exponential-functions",
+			"version": "3.0.10",
+			"scope": "excluded",
+			"licenses": [
+				{
+					"license": {
+						"id": "MIT-0"
+					}
+				}
+			],
+			"purl": "pkg:npm/%40csstools/postcss-exponential-functions@3.0.10",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1369,10 +1398,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-gamut-mapping@3.0.15",
+			"bom-ref": "pkg:npm/%40csstools/postcss-gamut-mapping@3.0.17",
 			"type": "library",
 			"name": "@csstools/postcss-gamut-mapping",
-			"version": "3.0.15",
+			"version": "3.0.17",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -1381,7 +1410,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-gamut-mapping@3.0.15",
+			"purl": "pkg:npm/%40csstools/postcss-gamut-mapping@3.0.17",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1398,10 +1427,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-gradients-interpolation-method@6.0.15",
+			"bom-ref": "pkg:npm/%40csstools/postcss-gradients-interpolation-method@6.0.17",
 			"type": "library",
 			"name": "@csstools/postcss-gradients-interpolation-method",
-			"version": "6.0.15",
+			"version": "6.0.17",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -1410,7 +1439,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-gradients-interpolation-method@6.0.15",
+			"purl": "pkg:npm/%40csstools/postcss-gradients-interpolation-method@6.0.17",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1427,10 +1456,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-hwb-function@5.0.15",
+			"bom-ref": "pkg:npm/%40csstools/postcss-hwb-function@5.0.17",
 			"type": "library",
 			"name": "@csstools/postcss-hwb-function",
-			"version": "5.0.15",
+			"version": "5.0.17",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -1439,7 +1468,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-hwb-function@5.0.15",
+			"purl": "pkg:npm/%40csstools/postcss-hwb-function@5.0.17",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1456,10 +1485,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-ic-unit@5.0.5",
+			"bom-ref": "pkg:npm/%40csstools/postcss-ic-unit@5.0.6",
 			"type": "library",
 			"name": "@csstools/postcss-ic-unit",
-			"version": "5.0.5",
+			"version": "5.0.6",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -1468,7 +1497,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-ic-unit@5.0.5",
+			"purl": "pkg:npm/%40csstools/postcss-ic-unit@5.0.6",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1485,10 +1514,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-image-function@1.0.6",
+			"bom-ref": "pkg:npm/%40csstools/postcss-image-function@1.0.8",
 			"type": "library",
 			"name": "@csstools/postcss-image-function",
-			"version": "1.0.6",
+			"version": "1.0.8",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -1497,7 +1526,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-image-function@1.0.6",
+			"purl": "pkg:npm/%40csstools/postcss-image-function@1.0.8",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1572,10 +1601,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-light-dark-function@3.0.7",
+			"bom-ref": "pkg:npm/%40csstools/postcss-light-dark-function@3.0.9",
 			"type": "library",
 			"name": "@csstools/postcss-light-dark-function",
-			"version": "3.0.7",
+			"version": "3.0.9",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -1584,7 +1613,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-light-dark-function@3.0.7",
+			"purl": "pkg:npm/%40csstools/postcss-light-dark-function@3.0.9",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1717,9 +1746,67 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-logical-viewport-units@4.0.3",
+			"bom-ref": "pkg:npm/%40csstools/postcss-logical-viewport-units@4.0.5",
 			"type": "library",
 			"name": "@csstools/postcss-logical-viewport-units",
+			"version": "4.0.5",
+			"scope": "excluded",
+			"licenses": [
+				{
+					"license": {
+						"id": "MIT-0"
+					}
+				}
+			],
+			"purl": "pkg:npm/%40csstools/postcss-logical-viewport-units@4.0.5",
+			"properties": [
+				{
+					"name": "grommunio:dependencyScope",
+					"value": "build"
+				},
+				{
+					"name": "grommunio:ecosystem",
+					"value": "npm"
+				},
+				{
+					"name": "grommunio:direct",
+					"value": "false"
+				}
+			]
+		},
+		{
+			"bom-ref": "pkg:npm/%40csstools/postcss-media-minmax@3.0.9",
+			"type": "library",
+			"name": "@csstools/postcss-media-minmax",
+			"version": "3.0.9",
+			"scope": "excluded",
+			"licenses": [
+				{
+					"license": {
+						"id": "MIT"
+					}
+				}
+			],
+			"purl": "pkg:npm/%40csstools/postcss-media-minmax@3.0.9",
+			"properties": [
+				{
+					"name": "grommunio:dependencyScope",
+					"value": "build"
+				},
+				{
+					"name": "grommunio:ecosystem",
+					"value": "npm"
+				},
+				{
+					"name": "grommunio:direct",
+					"value": "false"
+				}
+			]
+		},
+		{
+			"bom-ref": "pkg:npm/%40csstools/postcss-media-queries-aspect-ratio-number-values@4.0.3",
+			"type": "library",
+			"name": "@csstools/postcss-media-queries-aspect-ratio-number-values",
 			"version": "4.0.3",
 			"scope": "excluded",
 			"licenses": [
@@ -1729,7 +1816,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-logical-viewport-units@4.0.3",
+			"purl": "pkg:npm/%40csstools/postcss-media-queries-aspect-ratio-number-values@4.0.3",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1746,68 +1833,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-media-minmax@3.0.8",
-			"type": "library",
-			"name": "@csstools/postcss-media-minmax",
-			"version": "3.0.8",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/%40csstools/postcss-media-minmax@3.0.8",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-media-queries-aspect-ratio-number-values@4.0.2",
-			"type": "library",
-			"name": "@csstools/postcss-media-queries-aspect-ratio-number-values",
-			"version": "4.0.2",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT-0"
-					}
-				}
-			],
-			"purl": "pkg:npm/%40csstools/postcss-media-queries-aspect-ratio-number-values@4.0.2",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-mixins@1.1.0",
+			"bom-ref": "pkg:npm/%40csstools/postcss-mixins@1.2.0",
 			"type": "library",
 			"name": "@csstools/postcss-mixins",
-			"version": "1.1.0",
+			"version": "1.2.0",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -1816,7 +1845,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-mixins@1.1.0",
+			"purl": "pkg:npm/%40csstools/postcss-mixins@1.2.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1891,10 +1920,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-oklab-function@5.0.15",
+			"bom-ref": "pkg:npm/%40csstools/postcss-oklab-function@5.0.17",
 			"type": "library",
 			"name": "@csstools/postcss-oklab-function",
-			"version": "5.0.15",
+			"version": "5.0.17",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -1903,7 +1932,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-oklab-function@5.0.15",
+			"purl": "pkg:npm/%40csstools/postcss-oklab-function@5.0.17",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -1949,39 +1978,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-private-rule@1.1.1",
-			"type": "library",
-			"name": "@csstools/postcss-private-rule",
-			"version": "1.1.1",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT-0"
-					}
-				}
-			],
-			"purl": "pkg:npm/%40csstools/postcss-private-rule@1.1.1",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-progressive-custom-properties@5.1.4",
+			"bom-ref": "pkg:npm/%40csstools/postcss-progressive-custom-properties@5.1.5",
 			"type": "library",
 			"name": "@csstools/postcss-progressive-custom-properties",
-			"version": "5.1.4",
+			"version": "5.1.5",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -1990,7 +1990,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-progressive-custom-properties@5.1.4",
+			"purl": "pkg:npm/%40csstools/postcss-progressive-custom-properties@5.1.5",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -2036,10 +2036,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-property-rule-prelude-list@2.0.3",
+			"bom-ref": "pkg:npm/%40csstools/postcss-property-rule-prelude-list@2.0.4",
 			"type": "library",
 			"name": "@csstools/postcss-property-rule-prelude-list",
-			"version": "2.0.3",
+			"version": "2.0.4",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -2048,7 +2048,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-property-rule-prelude-list@2.0.3",
+			"purl": "pkg:npm/%40csstools/postcss-property-rule-prelude-list@2.0.4",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -2065,10 +2065,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-random-function@4.0.5",
+			"bom-ref": "pkg:npm/%40csstools/postcss-random-function@4.0.6",
 			"type": "library",
 			"name": "@csstools/postcss-random-function",
-			"version": "4.0.5",
+			"version": "4.0.6",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -2077,7 +2077,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-random-function@4.0.5",
+			"purl": "pkg:npm/%40csstools/postcss-random-function@4.0.6",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -2094,10 +2094,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-relative-color-syntax@4.0.15",
+			"bom-ref": "pkg:npm/%40csstools/postcss-relative-color-syntax@4.0.17",
 			"type": "library",
 			"name": "@csstools/postcss-relative-color-syntax",
-			"version": "4.0.15",
+			"version": "4.0.17",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -2106,7 +2106,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-relative-color-syntax@4.0.15",
+			"purl": "pkg:npm/%40csstools/postcss-relative-color-syntax@4.0.17",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -2152,10 +2152,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-sign-functions@2.0.9",
+			"bom-ref": "pkg:npm/%40csstools/postcss-sign-functions@2.0.10",
 			"type": "library",
 			"name": "@csstools/postcss-sign-functions",
-			"version": "2.0.9",
+			"version": "2.0.10",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -2164,7 +2164,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-sign-functions@2.0.9",
+			"purl": "pkg:npm/%40csstools/postcss-sign-functions@2.0.10",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -2181,10 +2181,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-stepped-value-functions@5.0.9",
+			"bom-ref": "pkg:npm/%40csstools/postcss-stepped-value-functions@5.0.10",
 			"type": "library",
 			"name": "@csstools/postcss-stepped-value-functions",
-			"version": "5.0.9",
+			"version": "5.0.10",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -2193,7 +2193,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-stepped-value-functions@5.0.9",
+			"purl": "pkg:npm/%40csstools/postcss-stepped-value-functions@5.0.10",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -2210,10 +2210,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-syntax-descriptor-syntax-production@2.0.1",
+			"bom-ref": "pkg:npm/%40csstools/postcss-syntax-descriptor-syntax-production@2.0.2",
 			"type": "library",
 			"name": "@csstools/postcss-syntax-descriptor-syntax-production",
-			"version": "2.0.1",
+			"version": "2.0.2",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -2222,7 +2222,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-syntax-descriptor-syntax-production@2.0.1",
+			"purl": "pkg:npm/%40csstools/postcss-syntax-descriptor-syntax-production@2.0.2",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -2239,10 +2239,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-system-ui-font-family@2.0.3",
+			"bom-ref": "pkg:npm/%40csstools/postcss-system-ui-font-family@2.0.4",
 			"type": "library",
 			"name": "@csstools/postcss-system-ui-font-family",
-			"version": "2.0.3",
+			"version": "2.0.4",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -2251,7 +2251,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-system-ui-font-family@2.0.3",
+			"purl": "pkg:npm/%40csstools/postcss-system-ui-font-family@2.0.4",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -2268,10 +2268,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-text-decoration-shorthand@5.0.7",
+			"bom-ref": "pkg:npm/%40csstools/postcss-text-decoration-shorthand@5.0.8",
 			"type": "library",
 			"name": "@csstools/postcss-text-decoration-shorthand",
-			"version": "5.0.7",
+			"version": "5.0.8",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -2280,7 +2280,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-text-decoration-shorthand@5.0.7",
+			"purl": "pkg:npm/%40csstools/postcss-text-decoration-shorthand@5.0.8",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -2297,10 +2297,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40csstools/postcss-trigonometric-functions@5.0.9",
+			"bom-ref": "pkg:npm/%40csstools/postcss-trigonometric-functions@5.0.10",
 			"type": "library",
 			"name": "@csstools/postcss-trigonometric-functions",
-			"version": "5.0.9",
+			"version": "5.0.10",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -2309,7 +2309,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40csstools/postcss-trigonometric-functions@5.0.9",
+			"purl": "pkg:npm/%40csstools/postcss-trigonometric-functions@5.0.10",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -2397,6 +2397,64 @@
 				}
 			],
 			"purl": "pkg:npm/%40csstools/selector-specificity@6.0.1",
+			"properties": [
+				{
+					"name": "grommunio:dependencyScope",
+					"value": "build"
+				},
+				{
+					"name": "grommunio:ecosystem",
+					"value": "npm"
+				},
+				{
+					"name": "grommunio:direct",
+					"value": "false"
+				}
+			]
+		},
+		{
+			"bom-ref": "pkg:npm/%40csstools/utilities-for-private-properties@1.0.1",
+			"type": "library",
+			"name": "@csstools/utilities-for-private-properties",
+			"version": "1.0.1",
+			"scope": "excluded",
+			"licenses": [
+				{
+					"license": {
+						"id": "MIT-0"
+					}
+				}
+			],
+			"purl": "pkg:npm/%40csstools/utilities-for-private-properties@1.0.1",
+			"properties": [
+				{
+					"name": "grommunio:dependencyScope",
+					"value": "build"
+				},
+				{
+					"name": "grommunio:ecosystem",
+					"value": "npm"
+				},
+				{
+					"name": "grommunio:direct",
+					"value": "false"
+				}
+			]
+		},
+		{
+			"bom-ref": "pkg:npm/%40csstools/utilities-for-property-registrations@1.0.0",
+			"type": "library",
+			"name": "@csstools/utilities-for-property-registrations",
+			"version": "1.0.0",
+			"scope": "excluded",
+			"licenses": [
+				{
+					"license": {
+						"id": "MIT-0"
+					}
+				}
+			],
+			"purl": "pkg:npm/%40csstools/utilities-for-property-registrations@1.0.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -3225,10 +3283,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40eslint-community/regexpp@4.12.2",
+			"bom-ref": "pkg:npm/%40eslint-community/regexpp@4.12.3",
 			"type": "library",
 			"name": "@eslint-community/regexpp",
-			"version": "4.12.2",
+			"version": "4.12.3",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -3237,7 +3295,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40eslint-community/regexpp@4.12.2",
+			"purl": "pkg:npm/%40eslint-community/regexpp@4.12.3",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -3254,10 +3312,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40eslint/config-array@0.23.5",
+			"bom-ref": "pkg:npm/%40eslint/config-array@0.23.6",
 			"type": "library",
 			"name": "@eslint/config-array",
-			"version": "0.23.5",
+			"version": "0.23.6",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -3266,7 +3324,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40eslint/config-array@0.23.5",
+			"purl": "pkg:npm/%40eslint/config-array@0.23.6",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -3573,6 +3631,35 @@
 			]
 		},
 		{
+			"bom-ref": "pkg:npm/%40isaacs/nonrecursive-glob-match@1.1.0",
+			"type": "library",
+			"name": "@isaacs/nonrecursive-glob-match",
+			"version": "1.1.0",
+			"scope": "excluded",
+			"licenses": [
+				{
+					"license": {
+						"id": "BlueOak-1.0.0"
+					}
+				}
+			],
+			"purl": "pkg:npm/%40isaacs/nonrecursive-glob-match@1.1.0",
+			"properties": [
+				{
+					"name": "grommunio:dependencyScope",
+					"value": "build"
+				},
+				{
+					"name": "grommunio:ecosystem",
+					"value": "npm"
+				},
+				{
+					"name": "grommunio:direct",
+					"value": "false"
+				}
+			]
+		},
+		{
 			"bom-ref": "pkg:npm/%40jridgewell/gen-mapping@0.3.13",
 			"type": "library",
 			"name": "@jridgewell/gen-mapping",
@@ -3602,10 +3689,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40jridgewell/resolve-uri@3.1.2",
+			"bom-ref": "pkg:npm/%40jridgewell/resolve-uri@3.1.3",
 			"type": "library",
 			"name": "@jridgewell/resolve-uri",
-			"version": "3.1.2",
+			"version": "3.1.3",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -3614,7 +3701,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40jridgewell/resolve-uri@3.1.2",
+			"purl": "pkg:npm/%40jridgewell/resolve-uri@3.1.3",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -3805,10 +3892,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40types/estree@1.0.9",
+			"bom-ref": "pkg:npm/%40types/estree@1.0.10",
 			"type": "library",
 			"name": "@types/estree",
-			"version": "1.0.9",
+			"version": "1.0.10",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -3817,7 +3904,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/%40types/estree@1.0.9",
+			"purl": "pkg:npm/%40types/estree@1.0.10",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -3892,10 +3979,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/acorn@8.18.0",
+			"bom-ref": "pkg:npm/acorn@8.19.0",
 			"type": "library",
 			"name": "acorn",
-			"version": "8.18.0",
+			"version": "8.19.0",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -3904,7 +3991,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/acorn@8.18.0",
+			"purl": "pkg:npm/acorn@8.19.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -3950,10 +4037,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/ansi-regex@6.4.0",
+			"bom-ref": "pkg:npm/ansi-regex@6.6.0",
 			"type": "library",
 			"name": "ansi-regex",
-			"version": "6.4.0",
+			"version": "6.6.0",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -3962,7 +4049,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/ansi-regex@6.4.0",
+			"purl": "pkg:npm/ansi-regex@6.6.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -4008,10 +4095,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/autoprefixer@10.6.1",
+			"bom-ref": "pkg:npm/autoprefixer@10.7.0",
 			"type": "library",
 			"name": "autoprefixer",
-			"version": "10.6.1",
+			"version": "10.7.0",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -4020,7 +4107,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/autoprefixer@10.6.1",
+			"purl": "pkg:npm/autoprefixer@10.7.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -4066,10 +4153,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/baseline-browser-mapping@2.11.28",
+			"bom-ref": "pkg:npm/baseline-browser-mapping@2.11.39",
 			"type": "library",
 			"name": "baseline-browser-mapping",
-			"version": "2.11.28",
+			"version": "2.11.39",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -4078,7 +4165,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/baseline-browser-mapping@2.11.28",
+			"purl": "pkg:npm/baseline-browser-mapping@2.11.39",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -4124,10 +4211,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/brace-expansion@5.0.12",
+			"bom-ref": "pkg:npm/brace-expansion@5.0.13",
 			"type": "library",
 			"name": "brace-expansion",
-			"version": "5.0.12",
+			"version": "5.0.13",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -4136,7 +4223,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/brace-expansion@5.0.12",
+			"purl": "pkg:npm/brace-expansion@5.0.13",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -4153,10 +4240,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/browserslist@4.29.3",
+			"bom-ref": "pkg:npm/browserslist@4.29.6",
 			"type": "library",
 			"name": "browserslist",
-			"version": "4.29.3",
+			"version": "4.29.6",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -4165,7 +4252,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/browserslist@4.29.3",
+			"purl": "pkg:npm/browserslist@4.29.6",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -4298,10 +4385,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/caniuse-lite@1.0.30001815",
+			"bom-ref": "pkg:npm/caniuse-lite@1.0.30001826",
 			"type": "library",
 			"name": "caniuse-lite",
-			"version": "1.0.30001815",
+			"version": "1.0.30001826",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -4310,7 +4397,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/caniuse-lite@1.0.30001815",
+			"purl": "pkg:npm/caniuse-lite@1.0.30001826",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -4733,10 +4820,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/cssdb@8.11.0",
+			"bom-ref": "pkg:npm/cssdb@8.12.1",
 			"type": "library",
 			"name": "cssdb",
-			"version": "8.11.0",
+			"version": "8.12.1",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -4745,7 +4832,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/cssdb@8.11.0",
+			"purl": "pkg:npm/cssdb@8.12.1",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -4762,68 +4849,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/cssesc@3.0.0",
-			"type": "library",
-			"name": "cssesc",
-			"version": "3.0.0",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/cssesc@3.0.0",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/cssnano-preset-default@9.5.0",
-			"type": "library",
-			"name": "cssnano-preset-default",
-			"version": "9.5.0",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/cssnano-preset-default@9.5.0",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/cssnano-utils@8.2.1",
+			"bom-ref": "pkg:npm/cssnano-utils@9.0.0",
 			"type": "library",
 			"name": "cssnano-utils",
-			"version": "8.2.1",
+			"version": "9.0.0",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -4832,7 +4861,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/cssnano-utils@8.2.1",
+			"purl": "pkg:npm/cssnano-utils@9.0.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -4849,10 +4878,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/cssnano@9.5.0",
+			"bom-ref": "pkg:npm/cssnano@9.9.0",
 			"type": "library",
 			"name": "cssnano",
-			"version": "9.5.0",
+			"version": "9.9.0",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -4861,7 +4890,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/cssnano@9.5.0",
+			"purl": "pkg:npm/cssnano@9.9.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -5139,10 +5168,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/electron-to-chromium@1.5.452",
+			"bom-ref": "pkg:npm/electron-to-chromium@1.5.492",
 			"type": "library",
 			"name": "electron-to-chromium",
-			"version": "1.5.452",
+			"version": "1.5.492",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -5151,7 +5180,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/electron-to-chromium@1.5.452",
+			"purl": "pkg:npm/electron-to-chromium@1.5.492",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -5400,10 +5429,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/eslint@10.12.0",
+			"bom-ref": "pkg:npm/eslint@10.15.0",
 			"type": "library",
 			"name": "eslint",
-			"version": "10.12.0",
+			"version": "10.15.0",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -5412,7 +5441,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/eslint@10.12.0",
+			"purl": "pkg:npm/eslint@10.15.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -5966,10 +5995,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/globals@17.13.0",
+			"bom-ref": "pkg:npm/globals@17.14.0",
 			"type": "library",
 			"name": "globals",
-			"version": "17.13.0",
+			"version": "17.14.0",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -5978,7 +6007,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/globals@17.13.0",
+			"purl": "pkg:npm/globals@17.14.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -5995,10 +6024,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/glob@13.0.6",
+			"bom-ref": "pkg:npm/glob@14.0.6",
 			"type": "library",
 			"name": "glob",
-			"version": "13.0.6",
+			"version": "14.0.6",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -6007,7 +6036,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/glob@13.0.6",
+			"purl": "pkg:npm/glob@14.0.6",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -6401,10 +6430,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/lilconfig@3.1.3",
+			"bom-ref": "pkg:npm/lilconfig@3.1.5",
 			"type": "library",
 			"name": "lilconfig",
-			"version": "3.1.3",
+			"version": "3.1.5",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -6413,7 +6442,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/lilconfig@3.1.3",
+			"purl": "pkg:npm/lilconfig@3.1.5",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -6488,10 +6517,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/lru-cache@11.5.2",
+			"bom-ref": "pkg:npm/lru-cache@11.5.3",
 			"type": "library",
 			"name": "lru-cache",
-			"version": "11.5.2",
+			"version": "11.5.3",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -6500,7 +6529,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/lru-cache@11.5.2",
+			"purl": "pkg:npm/lru-cache@11.5.3",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -6575,10 +6604,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/minimatch@10.2.6",
+			"bom-ref": "pkg:npm/minimatch@11.0.9",
 			"type": "library",
 			"name": "minimatch",
-			"version": "10.2.6",
+			"version": "11.0.9",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -6587,7 +6616,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/minimatch@10.2.6",
+			"purl": "pkg:npm/minimatch@11.0.9",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -6749,10 +6778,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/node-releases@2.0.58",
+			"bom-ref": "pkg:npm/node-releases@2.0.65",
 			"type": "library",
 			"name": "node-releases",
-			"version": "2.0.58",
+			"version": "2.0.65",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -6761,7 +6790,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/node-releases@2.0.58",
+			"purl": "pkg:npm/node-releases@2.0.65",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -7058,10 +7087,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/path-scurry@2.0.2",
+			"bom-ref": "pkg:npm/path-scurry@3.0.0",
 			"type": "library",
 			"name": "path-scurry",
-			"version": "2.0.2",
+			"version": "3.0.0",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -7070,7 +7099,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/path-scurry@2.0.2",
+			"purl": "pkg:npm/path-scurry@3.0.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -7218,10 +7247,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/postcss-calc@11.2.2",
+			"bom-ref": "pkg:npm/postcss-calc@11.3.0",
 			"type": "library",
 			"name": "postcss-calc",
-			"version": "11.2.2",
+			"version": "11.3.0",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -7230,7 +7259,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/postcss-calc@11.2.2",
+			"purl": "pkg:npm/postcss-calc@11.3.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -7305,10 +7334,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/postcss-color-functional-notation@8.0.15",
+			"bom-ref": "pkg:npm/postcss-color-functional-notation@8.0.17",
 			"type": "library",
 			"name": "postcss-color-functional-notation",
-			"version": "8.0.15",
+			"version": "8.0.17",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -7317,7 +7346,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/postcss-color-functional-notation@8.0.15",
+			"purl": "pkg:npm/postcss-color-functional-notation@8.0.17",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -7392,68 +7421,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/postcss-colormin@9.0.7",
-			"type": "library",
-			"name": "postcss-colormin",
-			"version": "9.0.7",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-colormin@9.0.7",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-convert-values@9.0.8",
-			"type": "library",
-			"name": "postcss-convert-values",
-			"version": "9.0.8",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-convert-values@9.0.8",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-custom-media@12.0.3",
+			"bom-ref": "pkg:npm/postcss-custom-media@12.0.4",
 			"type": "library",
 			"name": "postcss-custom-media",
-			"version": "12.0.3",
+			"version": "12.0.4",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -7462,7 +7433,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/postcss-custom-media@12.0.3",
+			"purl": "pkg:npm/postcss-custom-media@12.0.4",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -7479,10 +7450,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/postcss-custom-properties@15.0.4",
+			"bom-ref": "pkg:npm/postcss-custom-properties@15.0.5",
 			"type": "library",
 			"name": "postcss-custom-properties",
-			"version": "15.0.4",
+			"version": "15.0.5",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -7491,7 +7462,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/postcss-custom-properties@15.0.4",
+			"purl": "pkg:npm/postcss-custom-properties@15.0.5",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -7508,10 +7479,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/postcss-custom-selectors@9.0.4",
+			"bom-ref": "pkg:npm/postcss-custom-selectors@9.0.5",
 			"type": "library",
 			"name": "postcss-custom-selectors",
-			"version": "9.0.4",
+			"version": "9.0.5",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -7520,7 +7491,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/postcss-custom-selectors@9.0.4",
+			"purl": "pkg:npm/postcss-custom-selectors@9.0.5",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -7566,126 +7537,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/postcss-discard-comments@9.0.7",
-			"type": "library",
-			"name": "postcss-discard-comments",
-			"version": "9.0.7",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-discard-comments@9.0.7",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-discard-duplicates@9.0.6",
-			"type": "library",
-			"name": "postcss-discard-duplicates",
-			"version": "9.0.6",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-discard-duplicates@9.0.6",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-discard-empty@9.0.7",
-			"type": "library",
-			"name": "postcss-discard-empty",
-			"version": "9.0.7",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-discard-empty@9.0.7",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-discard-overridden@9.0.6",
-			"type": "library",
-			"name": "postcss-discard-overridden",
-			"version": "9.0.6",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-discard-overridden@9.0.6",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-double-position-gradients@7.0.5",
+			"bom-ref": "pkg:npm/postcss-double-position-gradients@7.0.6",
 			"type": "library",
 			"name": "postcss-double-position-gradients",
-			"version": "7.0.5",
+			"version": "7.0.6",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -7694,7 +7549,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/postcss-double-position-gradients@7.0.5",
+			"purl": "pkg:npm/postcss-double-position-gradients@7.0.6",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -7856,10 +7711,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/postcss-lab-function@8.0.15",
+			"bom-ref": "pkg:npm/postcss-lab-function@8.0.17",
 			"type": "library",
 			"name": "postcss-lab-function",
-			"version": "8.0.15",
+			"version": "8.0.17",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -7868,7 +7723,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/postcss-lab-function@8.0.15",
+			"purl": "pkg:npm/postcss-lab-function@8.0.17",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -7943,180 +7798,6 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/postcss-merge-longhand@9.3.0",
-			"type": "library",
-			"name": "postcss-merge-longhand",
-			"version": "9.3.0",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-merge-longhand@9.3.0",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-merge-rules@9.1.3",
-			"type": "library",
-			"name": "postcss-merge-rules",
-			"version": "9.1.3",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-merge-rules@9.1.3",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-minify-font-values@9.0.8",
-			"type": "library",
-			"name": "postcss-minify-font-values",
-			"version": "9.0.8",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-minify-font-values@9.0.8",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-minify-gradients@9.0.7",
-			"type": "library",
-			"name": "postcss-minify-gradients",
-			"version": "9.0.7",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-minify-gradients@9.0.7",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-minify-params@9.0.7",
-			"type": "library",
-			"name": "postcss-minify-params",
-			"version": "9.0.7",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-minify-params@9.0.7",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-minify-selectors@9.0.7",
-			"type": "library",
-			"name": "postcss-minify-selectors",
-			"version": "9.0.7",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-minify-selectors@9.0.7",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
 			"bom-ref": "pkg:npm/postcss-nesting@14.0.3",
 			"type": "library",
 			"name": "postcss-nesting",
@@ -8146,267 +7827,6 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/postcss-normalize-charset@9.0.6",
-			"type": "library",
-			"name": "postcss-normalize-charset",
-			"version": "9.0.6",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-normalize-charset@9.0.6",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-normalize-display-values@9.0.6",
-			"type": "library",
-			"name": "postcss-normalize-display-values",
-			"version": "9.0.6",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-normalize-display-values@9.0.6",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-normalize-positions@9.0.7",
-			"type": "library",
-			"name": "postcss-normalize-positions",
-			"version": "9.0.7",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-normalize-positions@9.0.7",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-normalize-repeat-style@9.0.6",
-			"type": "library",
-			"name": "postcss-normalize-repeat-style",
-			"version": "9.0.6",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-normalize-repeat-style@9.0.6",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-normalize-string@9.0.6",
-			"type": "library",
-			"name": "postcss-normalize-string",
-			"version": "9.0.6",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-normalize-string@9.0.6",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-normalize-timing-functions@9.0.6",
-			"type": "library",
-			"name": "postcss-normalize-timing-functions",
-			"version": "9.0.6",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-normalize-timing-functions@9.0.6",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-normalize-unicode@9.1.0",
-			"type": "library",
-			"name": "postcss-normalize-unicode",
-			"version": "9.1.0",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-normalize-unicode@9.1.0",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-normalize-url@9.0.6",
-			"type": "library",
-			"name": "postcss-normalize-url",
-			"version": "9.0.6",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-normalize-url@9.0.6",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-normalize-whitespace@9.0.7",
-			"type": "library",
-			"name": "postcss-normalize-whitespace",
-			"version": "9.0.7",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-normalize-whitespace@9.0.7",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
 			"bom-ref": "pkg:npm/postcss-opacity-percentage@3.0.0",
 			"type": "library",
 			"name": "postcss-opacity-percentage",
@@ -8420,35 +7840,6 @@
 				}
 			],
 			"purl": "pkg:npm/postcss-opacity-percentage@3.0.0",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-ordered-values@9.0.8",
-			"type": "library",
-			"name": "postcss-ordered-values",
-			"version": "9.0.8",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-ordered-values@9.0.8",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -8552,10 +7943,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/postcss-preset-env@11.6.1",
+			"bom-ref": "pkg:npm/postcss-preset-env@11.6.3",
 			"type": "library",
 			"name": "postcss-preset-env",
-			"version": "11.6.1",
+			"version": "11.6.3",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -8564,7 +7955,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/postcss-preset-env@11.6.1",
+			"purl": "pkg:npm/postcss-preset-env@11.6.3",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -8594,64 +7985,6 @@
 				}
 			],
 			"purl": "pkg:npm/postcss-pseudo-class-any-link@11.0.1",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-reduce-initial@9.0.7",
-			"type": "library",
-			"name": "postcss-reduce-initial",
-			"version": "9.0.7",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-reduce-initial@9.0.7",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-reduce-transforms@9.0.5",
-			"type": "library",
-			"name": "postcss-reduce-transforms",
-			"version": "9.0.5",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-reduce-transforms@9.0.5",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -8755,10 +8088,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/postcss-selector-parser@7.1.6",
+			"bom-ref": "pkg:npm/postcss-selector-parser@7.2.1",
 			"type": "library",
 			"name": "postcss-selector-parser",
-			"version": "7.1.6",
+			"version": "7.2.1",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -8767,7 +8100,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/postcss-selector-parser@7.1.6",
+			"purl": "pkg:npm/postcss-selector-parser@7.2.1",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -8784,10 +8117,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/postcss-svgo@9.0.5",
+			"bom-ref": "pkg:npm/postcss-svgo@9.1.0",
 			"type": "library",
 			"name": "postcss-svgo",
-			"version": "9.0.5",
+			"version": "9.1.0",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -8796,7 +8129,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/postcss-svgo@9.0.5",
+			"purl": "pkg:npm/postcss-svgo@9.1.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -8808,36 +8141,7 @@
 				},
 				{
 					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
-			"bom-ref": "pkg:npm/postcss-unique-selectors@9.0.6",
-			"type": "library",
-			"name": "postcss-unique-selectors",
-			"version": "9.0.6",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/postcss-unique-selectors@9.0.6",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
+					"value": "true"
 				}
 			]
 		},
@@ -8871,10 +8175,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/postcss@8.5.29",
+			"bom-ref": "pkg:npm/postcss@8.5.33",
 			"type": "library",
 			"name": "postcss",
-			"version": "8.5.29",
+			"version": "8.5.33",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -8883,7 +8187,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/postcss@8.5.29",
+			"purl": "pkg:npm/postcss@8.5.33",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -9219,10 +8523,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/source-map-js@1.2.2",
+			"bom-ref": "pkg:npm/source-map-js@1.2.4",
 			"type": "library",
 			"name": "source-map-js",
-			"version": "1.2.2",
+			"version": "1.2.4",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -9231,7 +8535,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/source-map-js@1.2.2",
+			"purl": "pkg:npm/source-map-js@1.2.4",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -9393,35 +8697,6 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/stylehacks@9.0.8",
-			"type": "library",
-			"name": "stylehacks",
-			"version": "9.0.8",
-			"scope": "excluded",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:npm/stylehacks@9.0.8",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "build"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "npm"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "false"
-				}
-			]
-		},
-		{
 			"bom-ref": "pkg:npm/svgo@4.1.0",
 			"type": "library",
 			"name": "svgo",
@@ -9451,10 +8726,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/terser@5.51.2",
+			"bom-ref": "pkg:npm/terser@5.51.3",
 			"type": "library",
 			"name": "terser",
-			"version": "5.51.2",
+			"version": "5.51.3",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -9463,7 +8738,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/terser@5.51.2",
+			"purl": "pkg:npm/terser@5.51.3",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -9538,10 +8813,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/tslib@2.8.1",
+			"bom-ref": "pkg:npm/tslib@2.9.1",
 			"type": "library",
 			"name": "tslib",
-			"version": "2.8.1",
+			"version": "2.9.1",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -9550,7 +8825,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/tslib@2.8.1",
+			"purl": "pkg:npm/tslib@2.9.1",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -9596,10 +8871,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/update-browserslist-db@1.3.4",
+			"bom-ref": "pkg:npm/update-browserslist-db@1.4.0",
 			"type": "library",
 			"name": "update-browserslist-db",
-			"version": "1.3.4",
+			"version": "1.4.0",
 			"scope": "excluded",
 			"licenses": [
 				{
@@ -9608,7 +8883,7 @@
 					}
 				}
 			],
-			"purl": "pkg:npm/update-browserslist-db@1.3.4",
+			"purl": "pkg:npm/update-browserslist-db@1.4.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -12652,20 +11927,21 @@
 				"external:gromox-php-mapi@NOASSERTION",
 				"external:mapi-header-php@2.4",
 				"pkg:npm/%40eslint/js@10.0.1",
-				"pkg:npm/cssnano@9.5.0",
+				"pkg:npm/cssnano@9.9.0",
 				"pkg:npm/esbuild@0.28.2",
-				"pkg:npm/eslint@10.12.0",
+				"pkg:npm/eslint@10.15.0",
 				"pkg:npm/fflate@0.8.3",
-				"pkg:npm/globals@17.13.0",
-				"pkg:npm/glob@13.0.6",
+				"pkg:npm/globals@17.14.0",
+				"pkg:npm/glob@14.0.6",
 				"pkg:npm/html-minifier-terser@7.2.0",
 				"pkg:npm/openpgp@6.3.2",
 				"pkg:npm/postal-mime@4.0.5",
 				"pkg:npm/postcss-cli@12.0.0",
-				"pkg:npm/postcss-preset-env@11.6.1",
-				"pkg:npm/postcss@8.5.29",
+				"pkg:npm/postcss-preset-env@11.6.3",
+				"pkg:npm/postcss-svgo@9.1.0",
+				"pkg:npm/postcss@8.5.33",
 				"pkg:npm/svgo@4.1.0",
-				"pkg:npm/terser@5.51.2",
+				"pkg:npm/terser@5.51.3",
 				"php:ext-bcmath@NOASSERTION",
 				"php:ext-curl@NOASSERTION",
 				"php:ext-dom@NOASSERTION",

@@ -31,7 +31,7 @@ SVGCOMPRESS ?= node_modules/svgo/bin/svgo
 PRECOMPRESS ?= node tools/precompress.mjs
 
 JSOPTIONS = --compress ecma=2015,computed_props=false --mangle reserved=['FormData','Ext','Grommunio','container','settings','properties','languages','serverconfig','user','version','urlActionData','console','Tokenizr','module','define','global','require','proxy','_','dgettext','dngettext','dnpgettext','ngettext','pgettext','onResize','tinymce','resizeLoginBox','userManager','DOMPurify','PDFJS','odf','L','GeoSearch','inlineCSS','CSSTree']
-CSSOPTIONS = --no-map --use postcss-preset-env --use cssnano --use $(CURDIR)/tools/postcss-asset-version.mjs
+CSSOPTIONS = --no-map --use postcss-preset-env --use postcss-svgo --use cssnano --use $(CURDIR)/tools/postcss-asset-version.mjs
 WEBAPPVERSION = $(shell git describe --abbrev=7 --always --long | sed 's/grommunio-web-//')
 HTMLOPTIONS = --collapse-whitespace --remove-comments
 
