@@ -109,15 +109,10 @@ class RulesModule extends Module {
 
 					case 'save':
 						// When saving the rules, we expect _all_ rules
-						// to have been send. So our first task, is to
-						// delete all existing rules.
-						$this->deleteRules($store);
-
-						// Now can save all rules, note that $action can contain just a store key when
-						// all rules are removed.
-						if (isset($action[0])) {
-							$this->saveRules($store, $action);
-						}
+						// to have been send, so they replace the existing
+						// ones. $action holds just a store key when all
+						// rules are removed.
+						$this->saveRules($store, isset($action[0]) ? $action : []);
 
 						// delete (outlook) client rules
 						$this->deleteOLClientRules($store);
@@ -234,7 +229,7 @@ class RulesModule extends Module {
 	 * use ROW_ADD flag.
 	 *
 	 * @param resource $store     The store into which the rules must be saved
-	 * @param array    $rulesData rules data that should be deleted
+	 * @param array    $rulesData rules data that replace the existing rules
 	 */
 	public function saveRules($store, $rulesData) {
 		if (is_assoc_array($rulesData)) {
@@ -289,6 +284,9 @@ class RulesModule extends Module {
 			];
 		}
 
+		// before the old rules are gone, so a refused grant keeps them
+		$this->grantRuleTargets($store, $saveRules);
+		$this->deleteRules($store);
 		if (!empty($saveRules)) {
 			mapi_folder_modifyrules($this->getRulesFolder($store), $saveRules);
 
@@ -296,6 +294,80 @@ class RulesModule extends Module {
 			if ($hresult !== NOERROR) {
 				throw new MAPIException(_('Could not save rules.'), $hresult);
 			}
+		}
+	}
+
+	/**
+	 * gromox runs a rule as the mailbox that holds it, and moves or copies into
+	 * another mailbox only where that mailbox may create items. Grant this on
+	 * the target folders, on top of the rights the mailbox already has there.
+	 *
+	 * @param resource $store The store the rules are saved in
+	 * @param array    $rules Rows for mapi_folder_modifyrules
+	 */
+	private function grantRuleTargets($store, $rules) {
+		$props = mapi_getprops($store, [PR_RECORD_KEY, PR_MAILBOX_OWNER_ENTRYID]);
+		if (empty($props[PR_MAILBOX_OWNER_ENTRYID])) {
+			return;
+		}
+		foreach ($rules as $rule) {
+			foreach ($rule['properties'][PR_RULE_ACTIONS] ?? [] as $action) {
+				if (!in_array($action['action'] ?? null, [OP_MOVE, OP_COPY], true) ||
+					empty($action['storeentryid']) || empty($action['folderentryid'])) {
+					continue;
+				}
+
+				$folder = null;
+
+				try {
+					$target = $GLOBALS['mapisession']->openMessageStore($action['storeentryid']);
+					if (mapi_getprops($target, [PR_RECORD_KEY])[PR_RECORD_KEY] === $props[PR_RECORD_KEY]) {
+						continue;
+					}
+					$folder = mapi_msgstore_openentry($target, $action['folderentryid']);
+					$this->grantCreate($folder, $props[PR_MAILBOX_OWNER_ENTRYID]);
+				}
+				catch (MAPIException $e) {
+					$e->setHandled();
+					$name = $folder ? (mapi_getprops($folder, [PR_DISPLAY_NAME])[PR_DISPLAY_NAME] ?? '') : '';
+
+					$error = new MAPIException('', $e->getCode());
+					$error->setDisplayMessage(sprintf(_('The rule cannot move or copy messages to the folder "%s": its mailbox is not allowed to create items there, and you cannot grant this.'), $name));
+
+					throw $error;
+				}
+			}
+		}
+	}
+
+	/**
+	 * Give a member the right to create items in a folder unless it has it.
+	 *
+	 * @param resource $folder
+	 * @param string   $member address book entryid
+	 */
+	private function grantCreate($folder, $member) {
+		$own = null;
+		$default = ecRightsNone;
+		foreach (mapi_zarafa_getpermissionrules($folder, ACCESS_TYPE_GRANT) as $acl) {
+			if ($acl['memberid'] == 0) {
+				$default = $acl['rights'];
+			}
+			elseif (($acl['userid'] ?? null) === $member) {
+				$own = $acl;
+			}
+		}
+		// an entry of its own replaces the default rights
+		$rights = $own['rights'] ?? $default;
+		if ($rights & (ecRightsCreate | ecRightsFolderAccess)) {
+			return;
+		}
+		// php-mapi drops an entry without memberid; it is ignored when new
+		$acl = $own ?? ['type' => ACCESS_TYPE_GRANT, 'userid' => $member, 'memberid' => 0];
+		$acl['rights'] = $rights | ecRightsCreate;
+		$acl['state'] = ($own === null ? RIGHT_NEW : RIGHT_MODIFY) | RIGHT_AUTOUPDATE_DENIED;
+		if (!mapi_zarafa_setpermissionrules($folder, [$acl])) {
+			throw new MAPIException('', mapi_last_hresult());
 		}
 	}
 
