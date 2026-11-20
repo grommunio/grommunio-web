@@ -144,6 +144,7 @@ Grommunio.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 				setup: function(editor) {
 					editor.on("PreProcess", function(e) {
 						self.normalizeHostnameLinks(e.node);
+						self.keepFormattedBlankLines(e.node);
 					});
 					// TinyMCE drops <style> while parsing, so a quoted mail
 					// keeps its formatting only when inlined beforehand
@@ -519,6 +520,37 @@ Grommunio.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 		var hostnamePattern = /^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?::\d+)?(?:[\/?#]|$)/i;
 
 		return hostnamePattern.test(trimmedHref) ? 'https://' + trimmedHref : href;
+	},
+
+	/**
+	 * Keep blank lines that carry formatting. Enter after bold text leaves a
+	 * paragraph holding only an empty strong with a bogus br, which TinyMCE drops
+	 * on serialization, so the line collapses in the sent mail. Only typing
+	 * produces this, so loaded content such as quoted mails stays untouched.
+	 *
+	 * @param {HTMLElement} root The editor content root
+	 * @private
+	 */
+	keepFormattedBlankLines: function(root)
+	{
+		if (!root || !root.querySelectorAll) {
+			return;
+		}
+
+		var brs = root.querySelectorAll('br[data-mce-bogus]');
+		for (var i = 0; i < brs.length; i++) {
+			var parent = brs[i].parentNode;
+			var block = parent && parent.closest ? parent.closest('p, div, li, h1, h2, h3, h4, h5, h6') : null;
+			// A bogus br directly in the block is TinyMCE's own empty-block padding
+			if (!block || parent === block) {
+				continue;
+			}
+			if (block.textContent.replace(/\uFEFF/g, '').trim() !== '' ||
+			    block.querySelector('img, hr, table, input, br:not([data-mce-bogus])')) {
+				continue;
+			}
+			brs[i].removeAttribute('data-mce-bogus');
+		}
 	},
 
 	/**
