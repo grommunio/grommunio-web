@@ -555,8 +555,8 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "leaflet-geosearch",
-			"version": "3.11.1",
-			"license": "MIT AND Apache-2.0 AND 0BSD",
+			"version": "5.3.0",
+			"license": "MIT AND Apache-2.0",
 			"scope": "runtime",
 			"paths": [
 				"plugins/maps/js/external/geosearch.umd.js",
@@ -564,7 +564,7 @@
 				"plugins/maps/resources/css/geocoder.css"
 			],
 			"copyright": "Copyright (c) 2010 - 2016 Stephan Meijer",
-			"purl": "pkg:npm/leaflet-geosearch@3.11.1",
+			"purl": "pkg:npm/leaflet-geosearch@5.3.0",
 			"website": "https://github.com/smeijer/leaflet-geosearch"
 		},
 		{
@@ -592,7 +592,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "@googlemaps/js-api-loader",
-			"version": "1.16.6",
+			"version": "2.1.3",
 			"license": "Apache-2.0",
 			"scope": "runtime",
 			"paths": [
@@ -600,7 +600,7 @@
 				"plugins/maps/js/external/geosearch.umd.js.map"
 			],
 			"copyright": "Copyright (c) Google LLC",
-			"purl": "pkg:npm/%40googlemaps%2Fjs-api-loader@1.16.6",
+			"purl": "pkg:npm/%40googlemaps%2Fjs-api-loader@2.1.3",
 			"website": "https://github.com/googlemaps/js-api-loader"
 		},
 		{

@@ -3,7 +3,7 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.2",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-fefffb10f1db7eb4",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-acd8d55d5c593627",
 	"creationInfo": {
 		"created": "2026-11-20T10:43:12Z",
 		"creators": [
@@ -5445,9 +5445,9 @@
 			"copyrightText": "NOASSERTION"
 		},
 		{
-			"SPDXID": "SPDXRef-vendored--googlemaps-js-api-loader-1.16.6",
+			"SPDXID": "SPDXRef-vendored--googlemaps-js-api-loader-2.1.3",
 			"name": "@googlemaps/js-api-loader",
-			"versionInfo": "1.16.6",
+			"versionInfo": "2.1.3",
 			"downloadLocation": "https://github.com/googlemaps/js-api-loader",
 			"filesAnalyzed": false,
 			"licenseConcluded": "Apache-2.0",
@@ -5457,7 +5457,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/%40googlemaps%2Fjs-api-loader@1.16.6"
+					"referenceLocator": "pkg:npm/%40googlemaps%2Fjs-api-loader@2.1.3"
 				}
 			]
 		},
@@ -5701,19 +5701,19 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-vendored-leaflet-geosearch-3.11.1",
+			"SPDXID": "SPDXRef-vendored-leaflet-geosearch-5.3.0",
 			"name": "leaflet-geosearch",
-			"versionInfo": "3.11.1",
+			"versionInfo": "5.3.0",
 			"downloadLocation": "https://github.com/smeijer/leaflet-geosearch",
 			"filesAnalyzed": false,
-			"licenseConcluded": "MIT AND Apache-2.0 AND 0BSD",
-			"licenseDeclared": "MIT AND Apache-2.0 AND 0BSD",
+			"licenseConcluded": "MIT AND Apache-2.0",
+			"licenseDeclared": "MIT AND Apache-2.0",
 			"copyrightText": "Copyright (c) 2010 - 2016 Stephan Meijer",
 			"externalRefs": [
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/leaflet-geosearch@3.11.1"
+					"referenceLocator": "pkg:npm/leaflet-geosearch@5.3.0"
 				}
 			]
 		},
@@ -7658,7 +7658,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-vendored--googlemaps-js-api-loader-1.16.6",
+			"spdxElementId": "SPDXRef-vendored--googlemaps-js-api-loader-2.1.3",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -7758,7 +7758,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-vendored-leaflet-geosearch-3.11.1",
+			"spdxElementId": "SPDXRef-vendored-leaflet-geosearch-5.3.0",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},

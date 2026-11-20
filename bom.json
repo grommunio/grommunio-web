@@ -9741,10 +9741,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/%40googlemaps%2Fjs-api-loader@1.16.6",
+			"bom-ref": "pkg:npm/%40googlemaps%2Fjs-api-loader@2.1.3",
 			"type": "library",
 			"name": "@googlemaps/js-api-loader",
-			"version": "1.16.6",
+			"version": "2.1.3",
 			"scope": "required",
 			"licenses": [
 				{
@@ -9754,7 +9754,7 @@
 				}
 			],
 			"copyright": "Copyright (c) Google LLC",
-			"purl": "pkg:npm/%40googlemaps%2Fjs-api-loader@1.16.6",
+			"purl": "pkg:npm/%40googlemaps%2Fjs-api-loader@2.1.3",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -10637,18 +10637,18 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/leaflet-geosearch@3.11.1",
+			"bom-ref": "pkg:npm/leaflet-geosearch@5.3.0",
 			"type": "library",
 			"name": "leaflet-geosearch",
-			"version": "3.11.1",
+			"version": "5.3.0",
 			"scope": "required",
 			"licenses": [
 				{
-					"expression": "MIT AND Apache-2.0 AND 0BSD"
+					"expression": "MIT AND Apache-2.0"
 				}
 			],
 			"copyright": "Copyright (c) 2010 - 2016 Stephan Meijer",
-			"purl": "pkg:npm/leaflet-geosearch@3.11.1",
+			"purl": "pkg:npm/leaflet-geosearch@5.3.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -11978,7 +11978,7 @@
 				"php:ext-zip@NOASSERTION",
 				"php:ext-zlib@NOASSERTION",
 				"php:php@>=8.2",
-				"pkg:npm/%40googlemaps%2Fjs-api-loader@1.16.6",
+				"pkg:npm/%40googlemaps%2Fjs-api-loader@2.1.3",
 				"vendored:@noble/ciphers@NOASSERTION",
 				"vendored:@noble/curves@NOASSERTION",
 				"vendored:@noble/hashes@NOASSERTION",
@@ -11998,7 +11998,7 @@
 				"vendored:fluentui-system-icons@1.1.159",
 				"vendored:foxit-standard-pdf-fonts@6.5.438",
 				"pkg:npm/jszip@3.10.2",
-				"pkg:npm/leaflet-geosearch@3.11.1",
+				"pkg:npm/leaflet-geosearch@5.3.0",
 				"pkg:npm/leaflet@1.9.4",
 				"vendored:liberation-fonts@1.07.4",
 				"pkg:npm/mdn-data@2.0.30",
