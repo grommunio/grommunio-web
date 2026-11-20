@@ -78,7 +78,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "tinymce",
-			"version": "8.9.1",
+			"version": "8.10.2",
 			"license": "GPL-2.0-or-later",
 			"scope": "runtime",
 			"paths": [
@@ -91,7 +91,7 @@
 				"client/tinymce/plugins/ (29 upstream plugins: accordion, advlist, anchor, autolink, autoresize, autosave, charmap, code, codesample, directionality, emoticons, fullscreen, help, image, importcss, insertdatetime, link, lists, media, nonbreaking, pagebreak, preview, quickbars, save, searchreplace, table, visualblocks, visualchars, wordcount)"
 			],
 			"copyright": "Copyright (c) Tiny Technologies, Inc.",
-			"purl": "pkg:npm/tinymce@8.9.1",
+			"purl": "pkg:npm/tinymce@8.10.2",
 			"website": "https://www.tiny.cloud/"
 		},
 		{
@@ -125,7 +125,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "dompurify",
-			"version": "3.4.15",
+			"version": "3.4.18",
 			"license": "Apache-2.0 OR MPL-2.0",
 			"scope": "runtime",
 			"paths": [
@@ -135,20 +135,22 @@
 				"client/dompurify/purify.min.js.map"
 			],
 			"copyright": "Copyright (c) Cure53 and other contributors",
-			"purl": "pkg:npm/dompurify@3.4.15",
+			"purl": "pkg:npm/dompurify@3.4.18",
 			"website": "https://github.com/cure53/DOMPurify"
 		},
 		{
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "pdf.js",
-			"version": "6.4.299",
+			"version": "6.5.438",
 			"license": "Apache-2.0",
 			"scope": "runtime",
 			"paths": [
 				"client/filepreviewer/pdfjs/LICENSE",
 				"client/filepreviewer/pdfjs/build/pdf.mjs",
 				"client/filepreviewer/pdfjs/build/pdf.mjs.map",
+				"client/filepreviewer/pdfjs/build/pdf.renderer.mjs",
+				"client/filepreviewer/pdfjs/build/pdf.renderer.mjs.map",
 				"client/filepreviewer/pdfjs/build/pdf.sandbox.mjs",
 				"client/filepreviewer/pdfjs/build/pdf.sandbox.mjs.map",
 				"client/filepreviewer/pdfjs/build/pdf.worker.mjs",
@@ -161,7 +163,7 @@
 				"client/filepreviewer/pdfjs/web/locale/"
 			],
 			"copyright": "Copyright 2012, 2014, 2024 Mozilla Foundation",
-			"purl": "pkg:npm/pdfjs-dist@6.4.299",
+			"purl": "pkg:npm/pdfjs-dist@6.5.438",
 			"website": "https://mozilla.github.io/pdf.js/"
 		},
 		{
@@ -197,7 +199,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "video.js",
-			"version": "8.24.0",
+			"version": "8.24.1",
 			"license": "Apache-2.0",
 			"scope": "runtime",
 			"paths": [
@@ -209,7 +211,7 @@
 				"client/filepreviewer/ViewerJS/video-js/lang/"
 			],
 			"copyright": "Copyright (c) Brightcove, Inc. and the Video.js contributors",
-			"purl": "pkg:npm/video.js@8.24.0",
+			"purl": "pkg:npm/video.js@8.24.1",
 			"website": "https://videojs.com/"
 		},
 		{
@@ -229,28 +231,28 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "docx-preview",
-			"version": "0.3.7",
+			"version": "0.4.1",
 			"license": "Apache-2.0",
 			"scope": "runtime",
 			"paths": [
 				"client/filepreviewer/ViewerJS/vendor/docx-preview.min.js"
 			],
 			"copyright": "Copyright (c) Volodymyr Baydalka and the docx-preview contributors",
-			"purl": "pkg:npm/docx-preview@0.3.7",
+			"purl": "pkg:npm/docx-preview@0.4.1",
 			"website": "https://github.com/VolodymyrBaydalka/docxjs"
 		},
 		{
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "jszip",
-			"version": "3.10.1",
+			"version": "3.10.2",
 			"license": "MIT OR GPL-3.0-only",
 			"scope": "runtime",
 			"paths": [
 				"client/filepreviewer/ViewerJS/vendor/jszip.min.js"
 			],
 			"copyright": "Copyright (c) 2009 - 2016 Stuart Knightley and the JSZip contributors",
-			"purl": "pkg:npm/jszip@3.10.1",
+			"purl": "pkg:npm/jszip@3.10.2",
 			"website": "https://stuk.github.io/jszip/"
 		},
 		{
@@ -283,7 +285,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "foxit-standard-pdf-fonts",
-			"version": "6.4.299",
+			"version": "6.5.438",
 			"license": "BSD-3-Clause",
 			"scope": "runtime",
 			"paths": [
@@ -388,7 +390,9 @@
 			"scope": "runtime",
 			"paths": [
 				"client/filepreviewer/pdfjs/web/wasm/quickjs-eval.js",
-				"client/filepreviewer/pdfjs/web/wasm/quickjs-eval.wasm"
+				"client/filepreviewer/pdfjs/web/wasm/quickjs-eval.wasm",
+				"client/filepreviewer/pdfjs/web/wasm/LICENSE_QUICKJS",
+				"client/filepreviewer/pdfjs/web/wasm/LICENSE_PDFJS_QUICKJS"
 			],
 			"copyright": "Copyright (c) 2017 - 2025 Fabrice Bellard and Charlie Gordon",
 			"website": "https://bellard.org/quickjs/"
@@ -396,64 +400,23 @@
 		{
 			"type": "library",
 			"ecosystem": "vendored",
-			"name": "css-tree",
-			"version": "2.3.1",
-			"license": "MIT",
-			"scope": "runtime",
-			"paths": [
-				"client/third-party/csstree/csstree.js"
-			],
-			"copyright": "Copyright (c) 2016 - present Roman Dvornov",
-			"purl": "pkg:npm/css-tree@2.3.1",
-			"website": "https://github.com/csstree/csstree"
-		},
-		{
-			"type": "library",
-			"ecosystem": "vendored",
-			"name": "mdn-data",
-			"version": "2.0.30",
-			"license": "CC0-1.0",
-			"scope": "runtime",
-			"paths": [
-				"client/third-party/csstree/csstree.js"
-			],
-			"purl": "pkg:npm/mdn-data@2.0.30",
-			"website": "https://github.com/mdn/data"
-		},
-		{
-			"type": "library",
-			"ecosystem": "vendored",
-			"name": "source-map-js",
-			"version": "NOASSERTION",
-			"license": "BSD-3-Clause",
-			"scope": "runtime",
-			"paths": [
-				"client/third-party/csstree/csstree.js"
-			],
-			"copyright": "Copyright (c) 2009 - 2011 Mozilla Foundation and contributors",
-			"purl": "pkg:npm/source-map-js",
-			"website": "https://github.com/7rulnik/source-map-js"
-		},
-		{
-			"type": "library",
-			"ecosystem": "vendored",
 			"name": "tokenizr",
-			"version": "1.7.0",
+			"version": "2.2.1",
 			"license": "MIT",
 			"scope": "runtime",
 			"paths": [
 				"client/third-party/tokenizr/tokenizr.js",
 				"client/third-party/tokenizr/README.md"
 			],
-			"copyright": "Copyright (c) 2015 - 2024 Dr. Ralf S. Engelschall",
-			"purl": "pkg:npm/tokenizr@1.7.0",
+			"copyright": "Copyright (c) 2015 - 2025 Dr. Ralf S. Engelschall",
+			"purl": "pkg:npm/tokenizr@2.2.1",
 			"website": "https://github.com/rse/tokenizr"
 		},
 		{
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "roboto",
-			"version": "2.137",
+			"version": "3.015",
 			"license": "Apache-2.0",
 			"scope": "runtime",
 			"paths": [
@@ -486,7 +449,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "fira-mono",
-			"version": "3.201",
+			"version": "3.206",
 			"license": "OFL-1.1",
 			"scope": "runtime",
 			"paths": [
@@ -520,7 +483,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "fluentui-system-icons",
-			"version": "1.1.159",
+			"version": "1.1.347",
 			"license": "MIT",
 			"scope": "runtime",
 			"paths": [
@@ -551,8 +514,8 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "leaflet-geosearch",
-			"version": "3.11.1",
-			"license": "MIT AND Apache-2.0 AND 0BSD",
+			"version": "5.3.0",
+			"license": "MIT AND Apache-2.0",
 			"scope": "runtime",
 			"paths": [
 				"plugins/maps/js/external/geosearch.umd.js",
@@ -560,7 +523,7 @@
 				"plugins/maps/resources/css/geocoder.css"
 			],
 			"copyright": "Copyright (c) 2010 - 2016 Stephan Meijer",
-			"purl": "pkg:npm/leaflet-geosearch@3.11.1",
+			"purl": "pkg:npm/leaflet-geosearch@5.3.0",
 			"website": "https://github.com/smeijer/leaflet-geosearch"
 		},
 		{
@@ -588,7 +551,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "@googlemaps/js-api-loader",
-			"version": "1.16.6",
+			"version": "2.1.3",
 			"license": "Apache-2.0",
 			"scope": "runtime",
 			"paths": [
@@ -596,7 +559,7 @@
 				"plugins/maps/js/external/geosearch.umd.js.map"
 			],
 			"copyright": "Copyright (c) Google LLC",
-			"purl": "pkg:npm/%40googlemaps%2Fjs-api-loader@1.16.6",
+			"purl": "pkg:npm/%40googlemaps%2Fjs-api-loader@2.1.3",
 			"website": "https://github.com/googlemaps/js-api-loader"
 		},
 		{
@@ -701,7 +664,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "postal-mime",
-			"version": "4.0.5",
+			"version": "4.2.1",
 			"license": "MIT-0",
 			"scope": "runtime",
 			"paths": [
@@ -709,7 +672,7 @@
 				"plugins/pgp/resources/vendor/postal-mime.LICENSE"
 			],
 			"copyright": "Copyright (c) 2021 - 2025 Andris Reinman",
-			"purl": "pkg:npm/postal-mime@4.0.5",
+			"purl": "pkg:npm/postal-mime@4.2.1",
 			"website": "https://github.com/postalsys/postal-mime"
 		},
 		{

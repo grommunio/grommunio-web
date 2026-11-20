@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 8.9.3 (2026-10-06)
+ * TinyMCE version 8.10.2 (2026-11-11)
  */
 
 (function () {
@@ -1155,6 +1155,35 @@
         return isNaN(num) ? Optional.none() : Optional.some(num);
     };
 
+    // Run a function fn after rate ms. If another invocation occurs
+    // during the time it is waiting, update the arguments f will run
+    // with (but keep the current schedule)
+    const adaptable = (fn, rate) => {
+        let timer = null;
+        let args = null;
+        const cancel = () => {
+            if (!isNull(timer)) {
+                clearTimeout(timer);
+                timer = null;
+                args = null;
+            }
+        };
+        const throttle = (...newArgs) => {
+            args = newArgs;
+            if (isNull(timer)) {
+                timer = setTimeout(() => {
+                    const tempArgs = args;
+                    timer = null;
+                    args = null;
+                    fn.apply(null, tempArgs);
+                }, rate);
+            }
+        };
+        return {
+            cancel,
+            throttle
+        };
+    };
     // Run a function fn after rate ms. If another invocation occurs
     // during the time it is waiting, ignore it completely.
     const first$1 = (fn, rate) => {
@@ -3374,47 +3403,6 @@
         }
     }
 
-    const whiteSpaceRegExp = /^[ \t\r\n]*$/;
-    const isWhitespaceText = (text) => whiteSpaceRegExp.test(text);
-    const isZwsp$1 = (text) => {
-        for (const c of text) {
-            if (!isZwsp$2(c)) {
-                return false;
-            }
-        }
-        return true;
-    };
-    // Don't compare other unicode spaces here, as we're only concerned about whitespace the browser would collapse
-    const isCollapsibleWhitespace$1 = (c) => ' \f\t\v'.indexOf(c) !== -1;
-    const isNewLineChar = (c) => c === '\n' || c === '\r';
-    const isNewline = (text, idx) => (idx < text.length && idx >= 0) ? isNewLineChar(text[idx]) : false;
-    // Converts duplicate whitespace to alternating space/nbsps and tabs to spaces
-    const normalize$4 = (text, tabSpaces = 4, isStartOfContent = true, isEndOfContent = true) => {
-        // Replace tabs with a variable amount of spaces
-        // Note: We don't use an actual tab character here, as it only works when in a "whitespace: pre" element,
-        // which will cause other issues, such as trying to type the content will also be treated as being in a pre.
-        const tabSpace = repeat(' ', tabSpaces);
-        const normalizedText = text.replace(/\t/g, tabSpace);
-        const result = foldl(normalizedText, (acc, c) => {
-            // Are we dealing with a char other than some collapsible whitespace or nbsp? if so then just use it as is
-            if (isCollapsibleWhitespace$1(c) || c === nbsp) {
-                // If the previous char is a space, we are at the start or end, or if the next char is a new line char, then we need
-                // to convert the space to a nbsp
-                if (acc.pcIsSpace || (acc.str === '' && isStartOfContent) || (acc.str.length === normalizedText.length - 1 && isEndOfContent) || isNewline(normalizedText, acc.str.length + 1)) {
-                    return { pcIsSpace: false, str: acc.str + nbsp };
-                }
-                else {
-                    return { pcIsSpace: true, str: acc.str + ' ' };
-                }
-            }
-            else {
-                // Treat newlines as being a space, since we'll need to convert any leading spaces to nsbps
-                return { pcIsSpace: isNewLineChar(c), str: acc.str + c };
-            }
-        }, { pcIsSpace: false, str: '' });
-        return result.str;
-    };
-
     const isNodeType = (type) => {
         return (node) => {
             return !!node && node.nodeType === type;
@@ -3501,6 +3489,47 @@
     const isSummary$1 = matchNodeName$1('summary');
     const ucVideoNodeName = 'uc-video';
     const isUcVideo = matchNodeName$1(ucVideoNodeName);
+
+    const whiteSpaceRegExp = /^[ \t\r\n]*$/;
+    const isWhitespaceText = (text) => whiteSpaceRegExp.test(text);
+    const isZwsp$1 = (text) => {
+        for (const c of text) {
+            if (!isZwsp$2(c)) {
+                return false;
+            }
+        }
+        return true;
+    };
+    // Don't compare other unicode spaces here, as we're only concerned about whitespace the browser would collapse
+    const isCollapsibleWhitespace$1 = (c) => ' \f\t\v'.indexOf(c) !== -1;
+    const isNewLineChar = (c) => c === '\n' || c === '\r';
+    const isNewline = (text, idx) => (idx < text.length && idx >= 0) ? isNewLineChar(text[idx]) : false;
+    // Converts duplicate whitespace to alternating space/nbsps and tabs to spaces
+    const normalize$4 = (text, tabSpaces = 4, isStartOfContent = true, isEndOfContent = true) => {
+        // Replace tabs with a variable amount of spaces
+        // Note: We don't use an actual tab character here, as it only works when in a "whitespace: pre" element,
+        // which will cause other issues, such as trying to type the content will also be treated as being in a pre.
+        const tabSpace = repeat(' ', tabSpaces);
+        const normalizedText = text.replace(/\t/g, tabSpace);
+        const result = foldl(normalizedText, (acc, c) => {
+            // Are we dealing with a char other than some collapsible whitespace or nbsp? if so then just use it as is
+            if (isCollapsibleWhitespace$1(c) || c === nbsp) {
+                // If the previous char is a space, we are at the start or end, or if the next char is a new line char, then we need
+                // to convert the space to a nbsp
+                if (acc.pcIsSpace || (acc.str === '' && isStartOfContent) || (acc.str.length === normalizedText.length - 1 && isEndOfContent) || isNewline(normalizedText, acc.str.length + 1)) {
+                    return { pcIsSpace: false, str: acc.str + nbsp };
+                }
+                else {
+                    return { pcIsSpace: true, str: acc.str + ' ' };
+                }
+            }
+            else {
+                // Treat newlines as being a space, since we'll need to convert any leading spaces to nsbps
+                return { pcIsSpace: isNewLineChar(c), str: acc.str + c };
+            }
+        }, { pcIsSpace: false, str: '' });
+        return result.str;
+    };
 
     const defaultOptionValues = {
         skipBogus: true,
@@ -12038,6 +12067,23 @@
     const isSelectionOverWholeHTMLElement = (range) => isSelectionOverWholeNode(range, isHTMLElement);
     const isSelectionOverWholeTextNode = (range) => isSelectionOverWholeNode(range, isText$b);
     const isSelectionOverWholeAnchor = (range) => isSelectionOverWholeNode(range, isAnchor);
+    const isRngStartAtStartOfElement = (rng, elm) => prevPosition(elm, CaretPosition.fromRangeStart(rng)).isNone();
+    const isRngEndAtEndOfElement = (rng, elm) => {
+        return nextPosition(elm, CaretPosition.fromRangeEnd(rng))
+            .exists((pos) => !isBr$7(pos.getNode()) || nextPosition(elm, pos).isSome()) === false;
+    };
+    const getFullySelectedBlocksFromRange = (rng, blocks) => {
+        if (blocks.length === 1) {
+            return isRngStartAtStartOfElement(rng, blocks[0]) && isRngEndAtEndOfElement(rng, blocks[0]) ? blocks : [];
+        }
+        else {
+            const first = head(blocks).filter((elm) => isRngStartAtStartOfElement(rng, elm)).toArray();
+            const last = last$2(blocks).filter((elm) => isRngEndAtEndOfElement(rng, elm)).toArray();
+            const middle = blocks.slice(1, -1);
+            return first.concat(middle).concat(last);
+        }
+    };
+    const getFullySelectedBlocks$1 = (selection) => selection.isCollapsed() ? [] : getFullySelectedBlocksFromRange(selection.getRng(), selection.getSelectedBlocks());
 
     const isNode = (node) => isNumber(node?.nodeType);
     const isElementNode$1 = (node) => isElement$7(node) && !isBookmarkNode$1(node) && !isCaretNode(node) && !isBogus$1(node);
@@ -13765,6 +13811,12 @@
             editor.nodeChanged();
         };
         const showResizeRect = (targetElm) => {
+            // The throttled call can fire after setContent has replaced the target, leaving
+            // handles bound to the zero-sized geometry of a detached element
+            if (!targetElm.isConnected) {
+                hideResizeRect();
+                return;
+            }
             unbindResizeHandleEvents();
             // Get position and size of target
             const position = dom.getPos(targetElm, rootElement);
@@ -13801,7 +13853,8 @@
                         startScrollHeight = rootElement.scrollHeight;
                         resizeBackdrop = dom.add(rootElement, 'div', {
                             'class': 'mce-resize-backdrop',
-                            'data-mce-bogus': 'all'
+                            'data-mce-bogus': 'all',
+                            'aria-hidden': 'true'
                         });
                         dom.setStyles(resizeBackdrop, {
                             position: 'fixed',
@@ -13813,6 +13866,7 @@
                         selectedElmGhost = createGhostElement(dom, selectedElm);
                         dom.addClass(selectedElmGhost, 'mce-clonedresizable');
                         dom.setAttrib(selectedElmGhost, 'data-mce-bogus', 'all');
+                        dom.setAttrib(selectedElmGhost, 'aria-hidden', 'true');
                         selectedElmGhost.contentEditable = 'false'; // Hides IE move layer cursor
                         dom.setStyles(selectedElmGhost, {
                             left: selectedElmX,
@@ -13831,7 +13885,8 @@
                         }
                         resizeHelper = dom.add(rootElement, 'div', {
                             'class': 'mce-resize-helper',
-                            'data-mce-bogus': 'all'
+                            'data-mce-bogus': 'all',
+                            'aria-hidden': 'true'
                         }, startW + ' &times; ' + startH);
                     };
                     // Get existing or render resize handle
@@ -13844,6 +13899,7 @@
                         'data-mce-bogus': 'all',
                         'class': 'mce-resizehandle',
                         'unselectable': true,
+                        'aria-hidden': 'true',
                         'style': 'cursor:' + name + '-resize; margin:0; padding:0'
                     });
                     dom.bind(handleElm, 'mousedown', (e) => {
@@ -13863,7 +13919,9 @@
                 hideResizeRect(false);
             }
         };
-        const throttledShowResizeRect = first$1(showResizeRect, 0);
+        // Adaptable so a burst of update requests shows the rect for the most recently
+        // requested element rather than the first, which may since have been detached
+        const throttledShowResizeRect = adaptable(showResizeRect, 0);
         const hideResizeRect = (removeSelected = true) => {
             throttledShowResizeRect.cancel();
             unbindResizeHandleEvents();
@@ -16532,156 +16590,6 @@
         };
     };
 
-    const getNormalizedPoint$1 = (container, offset) => {
-        if (isText$b(container)) {
-            return { container, offset };
-        }
-        const node = RangeUtils.getNode(container, offset);
-        if (isText$b(node)) {
-            return {
-                container: node,
-                offset: offset >= container.childNodes.length ? node.data.length : 0
-            };
-        }
-        else if (node.previousSibling && isText$b(node.previousSibling)) {
-            return {
-                container: node.previousSibling,
-                offset: node.previousSibling.data.length
-            };
-        }
-        else if (node.nextSibling && isText$b(node.nextSibling)) {
-            return {
-                container: node.nextSibling,
-                offset: 0
-            };
-        }
-        return { container, offset };
-    };
-    const normalizeRange$1 = (rng) => {
-        const outRng = rng.cloneRange();
-        const rangeStart = getNormalizedPoint$1(rng.startContainer, rng.startOffset);
-        outRng.setStart(rangeStart.container, rangeStart.offset);
-        const rangeEnd = getNormalizedPoint$1(rng.endContainer, rng.endOffset);
-        outRng.setEnd(rangeEnd.container, rangeEnd.offset);
-        return outRng;
-    };
-
-    const DOM$b = DOMUtils.DOM;
-    const defaultMarker = () => DOM$b.create('span', { 'data-mce-type': 'bookmark' });
-    const setupEndPoint = (container, offset, createMarker) => {
-        if (isElement$7(container)) {
-            const offsetNode = createMarker();
-            if (container.hasChildNodes()) {
-                if (offset === container.childNodes.length) {
-                    container.appendChild(offsetNode);
-                }
-                else {
-                    container.insertBefore(offsetNode, container.childNodes[offset]);
-                }
-            }
-            else {
-                container.appendChild(offsetNode);
-            }
-            return { container: offsetNode, offset: 0 };
-        }
-        else {
-            return { container, offset };
-        }
-    };
-    const restoreEndPoint = (container, offset) => {
-        const nodeIndex = (container) => {
-            let node = container.parentNode?.firstChild;
-            let idx = 0;
-            while (node) {
-                if (node === container) {
-                    return idx;
-                }
-                // Skip data-mce-type=bookmark nodes
-                if (!isElement$7(node) || node.getAttribute('data-mce-type') !== 'bookmark') {
-                    idx++;
-                }
-                node = node.nextSibling;
-            }
-            return -1;
-        };
-        if (isElement$7(container) && isNonNullable(container.parentNode)) {
-            const node = container;
-            offset = nodeIndex(container);
-            container = container.parentNode;
-            DOM$b.remove(node);
-            if (!container.hasChildNodes() && DOM$b.isBlock(container)) {
-                container.appendChild(DOM$b.create('br'));
-            }
-        }
-        return { container, offset };
-    };
-    const createNormalizedRange = (startContainer, startOffset, endContainer, endOffset) => {
-        const rng = DOM$b.createRng();
-        rng.setStart(startContainer, startOffset);
-        rng.setEnd(endContainer, endOffset);
-        return normalizeRange$1(rng);
-    };
-    /**
-     * Returns a range bookmark. This will convert indexed bookmarks into temporary span elements with
-     * index 0 so that they can be restored properly after the DOM has been modified. Text bookmarks will not have spans
-     * added to them since they can be restored after a dom operation.
-     *
-     * So this: <p><b>|</b><b>|</b></p>
-     * becomes: <p><b><span data-mce-type="bookmark">|</span></b><b data-mce-type="bookmark">|</span></b></p>
-     */
-    const createBookmark = (rng, createMarker = defaultMarker) => {
-        const { container: startContainer, offset: startOffset } = setupEndPoint(rng.startContainer, rng.startOffset, createMarker);
-        if (rng.collapsed) {
-            return { startContainer, startOffset };
-        }
-        else {
-            const { container: endContainer, offset: endOffset } = setupEndPoint(rng.endContainer, rng.endOffset, createMarker);
-            return { startContainer, startOffset, endContainer, endOffset };
-        }
-    };
-    const resolveBookmark = (bookmark) => {
-        const { container: startContainer, offset: startOffset } = restoreEndPoint(bookmark.startContainer, bookmark.startOffset);
-        if (!isUndefined(bookmark.endContainer) && !isUndefined(bookmark.endOffset)) {
-            const { container: endContainer, offset: endOffset } = restoreEndPoint(bookmark.endContainer, bookmark.endOffset);
-            return createNormalizedRange(startContainer, startOffset, endContainer, endOffset);
-        }
-        else {
-            return createNormalizedRange(startContainer, startOffset, startContainer, startOffset);
-        }
-    };
-
-    const applyStyles = (dom, elm, format, vars) => {
-        Tools.each(format.styles, (value, name) => {
-            dom.setStyle(elm, name, replaceVars(value, vars));
-        });
-        // Needed for the WebKit span spam bug
-        // TODO: Remove this once WebKit/Blink fixes this
-        if (format.styles) {
-            const styleVal = dom.getAttrib(elm, 'style');
-            if (styleVal) {
-                dom.setAttrib(elm, 'data-mce-style', styleVal);
-            }
-        }
-    };
-    const setElementFormat = (ed, elm, fmt, vars, node) => {
-        const dom = ed.dom;
-        if (isFunction(fmt.onformat)) {
-            fmt.onformat(elm, fmt, vars, node);
-        }
-        applyStyles(dom, elm, fmt, vars);
-        Tools.each(fmt.attributes, (value, name) => {
-            dom.setAttrib(elm, name, replaceVars(value, vars));
-        });
-        Tools.each(fmt.classes, (value) => {
-            const newValue = replaceVars(value, vars);
-            if (!dom.hasClass(elm, newValue)) {
-                dom.addClass(elm, newValue);
-            }
-        });
-    };
-
-    const isApplyFormat = (format) => !isArray$1(format.attributes) && !isArray$1(format.styles);
-
     const isEq$3 = isEq$5;
     const matchesUnInheritedFormatSelector = (ed, node, name) => {
         const formatList = ed.formatter.get(name);
@@ -16935,14 +16843,18 @@
             selection.setRng(rng);
         }
     };
+    const isAdjacent = (node, sibling) => node.nextSibling === sibling || node.previousSibling === sibling;
+    const isCaretContainerNodeAdjacentToSelection = (node, startContainer, endContainer) => node === startContainer || node === endContainer || isAdjacent(node, startContainer) || isAdjacent(node, endContainer);
     // Removes the caret container for the specified node or all on the current document
     const removeCaretContainer = (editor, node, moveCaret) => {
         const dom = editor.dom, selection = editor.selection;
         if (!node) {
             node = getParentCaretContainer(editor.getBody(), selection.getStart());
             if (!node) {
+                const startContainer = editor.selection.getRng().startContainer;
+                const endContainer = editor.selection.getRng().endContainer;
                 while ((node = dom.get(CARET_ID))) {
-                    removeCaretContainerNode(editor, node, moveCaret);
+                    removeCaretContainerNode(editor, node, isCaretContainerNodeAdjacentToSelection(node, startContainer, endContainer));
                 }
             }
         }
@@ -17145,9 +17057,9 @@
             }
         }
     };
-    const disableCaretContainer = (editor, keyCode, moveCaret) => {
+    const disableCaretContainer = (editor, keyCode) => {
         const selection = editor.selection, body = editor.getBody();
-        removeCaretContainer(editor, null, moveCaret);
+        removeCaretContainer(editor, null, false);
         // Remove caret container if it's empty
         if ((keyCode === 8 || keyCode === 46) && selection.isCollapsed() && selection.getStart().innerHTML === ZWSP) {
             removeCaretContainer(editor, getParentCaretContainer(body, selection.getStart()), true);
@@ -17157,10 +17069,9 @@
             removeCaretContainer(editor, getParentCaretContainer(body, selection.getStart()), true);
         }
     };
-    const endsWithNbsp = (element) => isText$b(element) && endsWith(element.data, nbsp);
     const setup$B = (editor) => {
         editor.on('mouseup keydown', (e) => {
-            disableCaretContainer(editor, e.keyCode, endsWithNbsp(editor.selection.getRng().endContainer));
+            disableCaretContainer(editor, e.keyCode);
         });
     };
     const createCaretFormat = (formatNodes) => {
@@ -17187,66 +17098,155 @@
         return has$2(inlineElements, name(element)) && !isCaretNode(element.dom) && !isBogus$1(element.dom);
     };
 
-    const listItemStyles = ['fontWeight', 'fontStyle', 'color', 'fontSize', 'fontFamily'];
-    const hasListStyles = (fmt) => isObject(fmt.styles) && exists(keys(fmt.styles), (name) => contains$2(listItemStyles, name));
-    const findExpandedListItemFormat = (formats) => find$2(formats, (fmt) => isInlineFormat(fmt) && fmt.inline === 'span' && hasListStyles(fmt));
-    const getExpandedListItemFormat = (formatter, format) => {
-        const formatList = formatter.get(format);
-        return isArray$1(formatList) ? findExpandedListItemFormat(formatList) : Optional.none();
+    const getNormalizedPoint$1 = (container, offset) => {
+        if (isText$b(container)) {
+            return { container, offset };
+        }
+        const node = RangeUtils.getNode(container, offset);
+        if (isText$b(node)) {
+            return {
+                container: node,
+                offset: offset >= container.childNodes.length ? node.data.length : 0
+            };
+        }
+        else if (node.previousSibling && isText$b(node.previousSibling)) {
+            return {
+                container: node.previousSibling,
+                offset: node.previousSibling.data.length
+            };
+        }
+        else if (node.nextSibling && isText$b(node.nextSibling)) {
+            return {
+                container: node.nextSibling,
+                offset: 0
+            };
+        }
+        return { container, offset };
     };
-    const isRngStartAtStartOfElement = (rng, elm) => prevPosition(elm, CaretPosition.fromRangeStart(rng)).isNone();
-    const isRngEndAtEndOfElement = (rng, elm) => {
-        return nextPosition(elm, CaretPosition.fromRangeEnd(rng))
-            .exists((pos) => !isBr$7(pos.getNode()) || nextPosition(elm, pos).isSome()) === false;
+    const normalizeRange$1 = (rng) => {
+        const outRng = rng.cloneRange();
+        const rangeStart = getNormalizedPoint$1(rng.startContainer, rng.startOffset);
+        outRng.setStart(rangeStart.container, rangeStart.offset);
+        const rangeEnd = getNormalizedPoint$1(rng.endContainer, rng.endOffset);
+        outRng.setEnd(rangeEnd.container, rangeEnd.offset);
+        return outRng;
     };
-    const isEditableListItem = (dom) => (elm) => isListItem$3(elm) && dom.isEditable(elm);
-    // TINY-13197: If the content is wrapped inside a block element, the first block returned by getSelectedBlocks() is not LI, even when the content is fully selected.
-    // However, the second and subsequent do return LI as the selected block so only the first block needs to be adjusted
-    const getAndOnlyNormalizeFirstBlockIf = (selection, pred) => map$3(selection.getSelectedBlocks(), (block, i) => {
-        if (i === 0 && pred(block)) {
-            return selection.dom.getParent(block, isListItem$3) ?? block;
+
+    const DOM$b = DOMUtils.DOM;
+    const defaultMarker = () => DOM$b.create('span', { 'data-mce-type': 'bookmark' });
+    const setupEndPoint = (container, offset, createMarker) => {
+        if (isElement$7(container)) {
+            const offsetNode = createMarker();
+            if (container.hasChildNodes()) {
+                if (offset === container.childNodes.length) {
+                    container.appendChild(offsetNode);
+                }
+                else {
+                    container.insertBefore(offsetNode, container.childNodes[offset]);
+                }
+            }
+            else {
+                container.appendChild(offsetNode);
+            }
+            return { container: offsetNode, offset: 0 };
         }
         else {
-            return block;
+            return { container, offset };
         }
-    });
-    // Resolve list items from the
-    // selected cells directly instead, matching how SelectionUtils.runOnRanges resolves fake selections.
-    const getCellSelectionListItems = (editor) => {
-        const fakeSelectionNodes = getCellsFromEditor(editor);
-        if (fakeSelectionNodes.length > 0) {
-            const listItems = bind$3(fakeSelectionNodes, (cell) => descendants(cell, 'li'));
-            return Optional.some(map$3(listItems, (item) => item.dom));
+    };
+    const restoreEndPoint = (container, offset) => {
+        const nodeIndex = (container) => {
+            let node = container.parentNode?.firstChild;
+            let idx = 0;
+            while (node) {
+                if (node === container) {
+                    return idx;
+                }
+                // Skip data-mce-type=bookmark nodes
+                if (!isElement$7(node) || node.getAttribute('data-mce-type') !== 'bookmark') {
+                    idx++;
+                }
+                node = node.nextSibling;
+            }
+            return -1;
+        };
+        if (isElement$7(container) && isNonNullable(container.parentNode)) {
+            const node = container;
+            offset = nodeIndex(container);
+            container = container.parentNode;
+            DOM$b.remove(node);
+            if (!container.hasChildNodes() && DOM$b.isBlock(container)) {
+                container.appendChild(DOM$b.create('br'));
+            }
+        }
+        return { container, offset };
+    };
+    const createNormalizedRange = (startContainer, startOffset, endContainer, endOffset) => {
+        const rng = DOM$b.createRng();
+        rng.setStart(startContainer, startOffset);
+        rng.setEnd(endContainer, endOffset);
+        return normalizeRange$1(rng);
+    };
+    /**
+     * Returns a range bookmark. This will convert indexed bookmarks into temporary span elements with
+     * index 0 so that they can be restored properly after the DOM has been modified. Text bookmarks will not have spans
+     * added to them since they can be restored after a dom operation.
+     *
+     * So this: <p><b>|</b><b>|</b></p>
+     * becomes: <p><b><span data-mce-type="bookmark">|</span></b><b data-mce-type="bookmark">|</span></b></p>
+     */
+    const createBookmark = (rng, createMarker = defaultMarker) => {
+        const { container: startContainer, offset: startOffset } = setupEndPoint(rng.startContainer, rng.startOffset, createMarker);
+        if (rng.collapsed) {
+            return { startContainer, startOffset };
         }
         else {
-            return Optional.none();
+            const { container: endContainer, offset: endOffset } = setupEndPoint(rng.endContainer, rng.endOffset, createMarker);
+            return { startContainer, startOffset, endContainer, endOffset };
         }
     };
-    const getFullySelectedBlocks = (selection) => {
-        if (selection.isCollapsed()) {
-            return [];
-        }
-        const rng = selection.getRng();
-        const blocks = getAndOnlyNormalizeFirstBlockIf(selection, (el) => isRngStartAtStartOfElement(rng, el) && !isListItem$3(el));
-        if (blocks.length === 1) {
-            return isRngStartAtStartOfElement(rng, blocks[0]) && isRngEndAtEndOfElement(rng, blocks[0]) ? blocks : [];
+    const resolveBookmark = (bookmark) => {
+        const { container: startContainer, offset: startOffset } = restoreEndPoint(bookmark.startContainer, bookmark.startOffset);
+        if (!isUndefined(bookmark.endContainer) && !isUndefined(bookmark.endOffset)) {
+            const { container: endContainer, offset: endOffset } = restoreEndPoint(bookmark.endContainer, bookmark.endOffset);
+            return createNormalizedRange(startContainer, startOffset, endContainer, endOffset);
         }
         else {
-            const first = head(blocks).filter((elm) => isRngStartAtStartOfElement(rng, elm)).toArray();
-            const last = last$2(blocks).filter((elm) => isRngEndAtEndOfElement(rng, elm)).toArray();
-            const middle = blocks.slice(1, -1);
-            return first.concat(middle).concat(last);
+            return createNormalizedRange(startContainer, startOffset, startContainer, startOffset);
         }
     };
-    const getFullySelectedListItems = (editor) => {
-        const items = getCellSelectionListItems(editor).getOrThunk(() => getFullySelectedBlocks(editor.selection));
-        return filter$5(items, isEditableListItem(editor.selection.dom));
+
+    const applyStyles = (dom, elm, format, vars) => {
+        Tools.each(format.styles, (value, name) => {
+            dom.setStyle(elm, name, replaceVars(value, vars));
+        });
+        // Needed for the WebKit span spam bug
+        // TODO: Remove this once WebKit/Blink fixes this
+        if (format.styles) {
+            const styleVal = dom.getAttrib(elm, 'style');
+            if (styleVal) {
+                dom.setAttrib(elm, 'data-mce-style', styleVal);
+            }
+        }
     };
-    const getPartiallySelectedListItems = (editor) => {
-        const items = getCellSelectionListItems(editor)
-            .getOrThunk(() => getAndOnlyNormalizeFirstBlockIf(editor.selection, (el) => !isListItem$3(el)));
-        return filter$5(items, isEditableListItem(editor.selection.dom));
+    const setElementFormat = (ed, elm, fmt, vars, node) => {
+        const dom = ed.dom;
+        if (isFunction(fmt.onformat)) {
+            fmt.onformat(elm, fmt, vars, node);
+        }
+        applyStyles(dom, elm, fmt, vars);
+        Tools.each(fmt.attributes, (value, name) => {
+            dom.setAttrib(elm, name, replaceVars(value, vars));
+        });
+        Tools.each(fmt.classes, (value) => {
+            const newValue = replaceVars(value, vars);
+            if (!dom.hasClass(elm, newValue)) {
+                dom.addClass(elm, newValue);
+            }
+        });
     };
+
+    const isApplyFormat = (format) => !isArray$1(format.attributes) && !isArray$1(format.styles);
 
     const each$8 = Tools.each;
     const isElementNode = (node) => isElement$7(node) && !isBookmarkNode$1(node) && !isCaretNode(node) && !isBogus$1(node);
@@ -17333,6 +17333,54 @@
             node.removeAttribute('style');
         }
         unwrapEmptySpan(dom, node);
+    };
+
+    const listItemStyles = ['fontWeight', 'fontStyle', 'color', 'fontSize', 'fontFamily'];
+    const hasListStyles = (fmt) => isObject(fmt.styles) && exists(keys(fmt.styles), (name) => contains$2(listItemStyles, name));
+    const findExpandedListItemFormat = (formats) => find$2(formats, (fmt) => isInlineFormat(fmt) && fmt.inline === 'span' && hasListStyles(fmt));
+    const getExpandedListItemFormat = (formatter, format) => {
+        const formatList = formatter.get(format);
+        return isArray$1(formatList) ? findExpandedListItemFormat(formatList) : Optional.none();
+    };
+    const isEditableListItem = (dom) => (elm) => isListItem$3(elm) && dom.isEditable(elm);
+    // TINY-13197: If the content is wrapped inside a block element, the first block returned by getSelectedBlocks() is not LI, even when the content is fully selected.
+    // However, the second and subsequent do return LI as the selected block so only the first block needs to be adjusted
+    const getAndOnlyNormalizeFirstBlockIf = (selection, pred) => map$3(selection.getSelectedBlocks(), (block, i) => {
+        if (i === 0 && pred(block)) {
+            return selection.dom.getParent(block, isListItem$3) ?? block;
+        }
+        else {
+            return block;
+        }
+    });
+    // Resolve list items from the
+    // selected cells directly instead, matching how SelectionUtils.runOnRanges resolves fake selections.
+    const getCellSelectionListItems = (editor) => {
+        const fakeSelectionNodes = getCellsFromEditor(editor);
+        if (fakeSelectionNodes.length > 0) {
+            const listItems = bind$3(fakeSelectionNodes, (cell) => descendants(cell, 'li'));
+            return Optional.some(map$3(listItems, (item) => item.dom));
+        }
+        else {
+            return Optional.none();
+        }
+    };
+    const getFullySelectedBlocks = (selection) => {
+        if (selection.isCollapsed()) {
+            return [];
+        }
+        const rng = selection.getRng();
+        const blocks = getAndOnlyNormalizeFirstBlockIf(selection, (el) => isRngStartAtStartOfElement(rng, el) && !isListItem$3(el));
+        return getFullySelectedBlocksFromRange(rng, blocks);
+    };
+    const getFullySelectedListItems = (editor) => {
+        const items = getCellSelectionListItems(editor).getOrThunk(() => getFullySelectedBlocks(editor.selection));
+        return filter$5(items, isEditableListItem(editor.selection.dom));
+    };
+    const getPartiallySelectedListItems = (editor) => {
+        const items = getCellSelectionListItems(editor)
+            .getOrThunk(() => getAndOnlyNormalizeFirstBlockIf(editor.selection, (el) => !isListItem$3(el)));
+        return filter$5(items, isEditableListItem(editor.selection.dom));
     };
 
     const removeResult = Adt.generate([
@@ -17854,12 +17902,91 @@
         }, always);
     };
 
-    const fontSizeAlteringFormats = ['fontsize', 'subscript', 'superscript'];
-    const formatsToActOn = ['strikethrough', ...fontSizeAlteringFormats];
+    const each$6 = Tools.each;
+    const mergeTextDecorationsAndColor = (dom, format, vars, node) => {
+        const processTextDecorationsAndColor = (n) => {
+            if (isHTMLElement(n) && isElement$7(n.parentNode) && dom.isEditable(n)) {
+                const parentTextDecoration = getTextDecoration(dom, n.parentNode);
+                if (dom.getStyle(n, 'color') && parentTextDecoration) {
+                    dom.setStyle(n, 'text-decoration', parentTextDecoration);
+                }
+                else if (dom.getStyle(n, 'text-decoration') === parentTextDecoration) {
+                    dom.setStyle(n, 'text-decoration', null);
+                }
+            }
+        };
+        // Colored nodes should be underlined so that the color of the underline matches the text color.
+        if (format.styles && (format.styles.color || format.styles.textDecoration)) {
+            Tools.walk(node, processTextDecorationsAndColor, 'childNodes');
+            processTextDecorationsAndColor(node);
+        }
+    };
+    const mergeBackgroundColorAndFontSize = (dom, format, vars, node) => {
+        // nodes with font-size should have their own background color as well to fit the line-height (see TINY-882)
+        if (format.styles && format.styles.backgroundColor) {
+            const hasFontSize = hasStyle(dom, 'fontSize');
+            processChildElements(node, (elm) => hasFontSize(elm) && dom.isEditable(elm), applyStyle(dom, 'backgroundColor', replaceVars(format.styles.backgroundColor, vars)));
+        }
+    };
+    const mergeSubSup = (dom, format, vars, node) => {
+        // Remove font size on all descendants of a sub/sup and remove the inverse elements
+        if (isInlineFormat(format) && (format.inline === 'sub' || format.inline === 'sup')) {
+            const hasFontSize = hasStyle(dom, 'fontSize');
+            processChildElements(node, (elm) => hasFontSize(elm) && dom.isEditable(elm), applyStyle(dom, 'fontSize', ''));
+            const inverseTagDescendants = filter$5(dom.select(format.inline === 'sup' ? 'sub' : 'sup', node), dom.isEditable);
+            dom.remove(inverseTagDescendants, true);
+        }
+    };
+    const mergeWithChildren = (editor, formatList, vars, node) => {
+        // Remove/merge children
+        // Note: RemoveFormat.removeFormat will not remove formatting from noneditable nodes
+        each$6(formatList, (format) => {
+            // Merge all children of similar type will move styles from child to parent
+            // this: <span style="color:red"><b><span style="color:red; font-size:10px">text</span></b></span>
+            // will become: <span style="color:red"><b><span style="font-size:10px">text</span></b></span>
+            if (isInlineFormat(format)) {
+                each$6(editor.dom.select(format.inline, node), (child) => {
+                    if (isElementNode(child)) {
+                        removeNodeFormat(editor, format, vars, child, format.exact ? child : null);
+                    }
+                });
+            }
+            clearChildStyles(editor.dom, format, node);
+        });
+    };
+    const mergeWithParents = (editor, format, name, vars, node) => {
+        // Remove format if direct parent already has the same format
+        // Note: RemoveFormat.removeFormat will not remove formatting from noneditable nodes
+        const parentNode = node.parentNode;
+        if (matchNode$1(editor, parentNode, name, vars)) {
+            if (removeNodeFormat(editor, format, vars, node)) {
+                return;
+            }
+        }
+        // Remove format if any ancestor already has the same format
+        if (format.merge_with_parents && parentNode) {
+            editor.dom.getParent(parentNode, (parent) => {
+                if (matchNode$1(editor, parent, name, vars)) {
+                    removeNodeFormat(editor, format, vars, node);
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            });
+        }
+    };
+
+    const subSupFormats = ['subscript', 'superscript'];
+    const fontSizeAlteringFormats = ['fontsize', ...subSupFormats];
+    const rules = [
+        { format: 'strikethrough', fontSizeAlteringFormats, keepsColoredDecorations: false },
+        { format: 'underline', fontSizeAlteringFormats: subSupFormats, keepsColoredDecorations: true }
+    ];
     const hasFormat = (formatter, el, format) => isNonNullable(formatter.matchNode(el.dom, format, {}, format === 'fontsize'));
-    const isFontSizeAlteringElement = (formatter, el) => exists(fontSizeAlteringFormats, (format) => hasFormat(formatter, el, format));
-    const isNormalizingFormat = (format) => contains$2(formatsToActOn, format);
-    const gatherWrapperData = (isRoot, scope, hasFormat, createFormatElement, removeFormatFromElement) => {
+    const isFontSizeAlteringElement = (formatter, rule, el) => exists(rule.fontSizeAlteringFormats, (format) => hasFormat(formatter, el, format));
+    const isTriggeredBy = (rule, appliedFormat) => rule.format === appliedFormat || contains$2(rule.fontSizeAlteringFormats, appliedFormat);
+    const gatherWrapperData = (isRoot, scope, hasFormat, keepsDecoration, createFormatElement, removeFormatFromElement) => {
         const parents = parents$1(scope, isRoot).filter(isElement$8);
         return findLastIndex(parents, hasFormat).map((index) => {
             const container = parents[index];
@@ -17868,7 +17995,8 @@
                 ...removeFormatFromElement(shallow(container)).toArray(),
                 ...bind$3(parents.slice(0, index), (wrapper) => {
                     if (hasFormat(wrapper)) {
-                        return removeFormatFromElement(wrapper).toArray();
+                        // Stripping the live element would also strip the content that the split clones on either side of the scope
+                        return removeFormatFromElement(keepsDecoration(wrapper) ? shallow(wrapper) : wrapper).toArray();
                     }
                     else {
                         return [shallow(wrapper)];
@@ -17878,9 +18006,9 @@
             return { container, innerWrapper, outerWrappers };
         });
     };
-    const wrapChildrenInInnerWrapper = (target, wrapper, hasFormat, removeFormatFromElement) => {
+    const wrapChildrenInInnerWrapper = (target, wrapper, hasFormat, keepsDecoration, removeFormatFromElement) => {
         each$e(children$2(target), (child) => {
-            if (isElement$8(child) && hasFormat(child)) {
+            if (isElement$8(child) && hasFormat(child) && !keepsDecoration(child)) {
                 if (removeFormatFromElement(child).isNone()) {
                     unwrap(child);
                 }
@@ -17900,18 +18028,20 @@
             append$1(innerMost, target);
         }
     };
-    const normalizeFontSizeElementsInternal = (domUtils, fontSizeElements, hasFormat, createFormatElement, removeFormatFromElement) => {
+    const normalizeFontSizeElementsInternal = (domUtils, fontSizeElements, hasFormat, keepsDecoration, createFormatElement, removeFormatFromElement) => {
         const isRoot = (el) => eq(SugarElement.fromDom(domUtils.getRoot()), el) || domUtils.isBlock(el.dom);
         each$e(fontSizeElements, (fontSizeElement) => {
-            gatherWrapperData(isRoot, fontSizeElement, hasFormat, createFormatElement, removeFormatFromElement).each(({ container, innerWrapper, outerWrappers }) => {
+            gatherWrapperData(isRoot, fontSizeElement, hasFormat, keepsDecoration, createFormatElement, removeFormatFromElement).each(({ container, innerWrapper, outerWrappers }) => {
                 domUtils.split(container.dom, fontSizeElement.dom);
-                wrapChildrenInInnerWrapper(fontSizeElement, innerWrapper, hasFormat, removeFormatFromElement);
+                wrapChildrenInInnerWrapper(fontSizeElement, innerWrapper, hasFormat, keepsDecoration, removeFormatFromElement);
                 wrapInOuterWrappers(fontSizeElement, outerWrappers);
             });
         });
     };
-    const normalizeFontSizeElementsWithFormat = (editor, formatName, fontSizeElements) => {
+    const normalizeFontSizeElementsWithFormat = (editor, rule, fontSizeElements) => {
+        const formatName = rule.format;
         const hasFormat = (el) => isNonNullable(matchNode$1(editor, el.dom, formatName));
+        const keepsDecoration = (el) => rule.keepsColoredDecorations && getRaw$1(el, 'color').isSome();
         const createFormatElement = (el) => {
             const newEl = SugarElement.fromTag(name(el));
             const format = matchNode$1(editor, el.dom, formatName, {});
@@ -17929,23 +18059,42 @@
                 return Optional.some(el);
             }
         };
+        normalizeFontSizeElementsInternal(editor.dom, fontSizeElements, hasFormat, keepsDecoration, createFormatElement, removeFormatFromElement);
+    };
+    // The wrappers are split and replaced by clones before ApplyFormat merges the decorations of their colored descendants
+    const mergeColoredDecorations = (editor, rule, wrappers) => each$e(wrappers, (wrapper) => {
+        const format = matchNode$1(editor, wrapper.dom, rule.format, {});
+        if (isNonNullable(format) && isApplyFormat(format) && descendant(wrapper, (el) => isFontSizeAlteringElement(editor.formatter, rule, el))) {
+            mergeTextDecorationsAndColor(editor.dom, format, {}, wrapper.dom);
+        }
+    });
+    const withBookmark = (editor, f) => {
         const bookmark = createBookmark(editor.selection.getRng());
-        normalizeFontSizeElementsInternal(editor.dom, fontSizeElements, hasFormat, createFormatElement, removeFormatFromElement);
+        f();
         editor.selection.setRng(resolveBookmark(bookmark));
     };
-    const collectFontSizeElements = (formatter, wrappers) => bind$3(wrappers, (wrapper) => {
-        const fontSizeDescendants = descendants$1(wrapper, (el) => isFontSizeAlteringElement(formatter, el));
-        return isFontSizeAlteringElement(formatter, wrapper) ? [wrapper, ...fontSizeDescendants] : fontSizeDescendants;
+    const collectFontSizeElements = (formatter, rule, wrappers) => bind$3(wrappers, (wrapper) => {
+        const fontSizeDescendants = descendants$1(wrapper, (el) => isFontSizeAlteringElement(formatter, rule, el));
+        return isFontSizeAlteringElement(formatter, rule, wrapper) ? [wrapper, ...fontSizeDescendants] : fontSizeDescendants;
     });
     const normalizeFontSizeElementsAfterApply = (editor, appliedFormat, wrappers) => {
-        if (isNormalizingFormat(appliedFormat)) {
-            const fontSizeElements = collectFontSizeElements(editor.formatter, wrappers);
-            normalizeFontSizeElementsWithFormat(editor, 'strikethrough', fontSizeElements);
+        const collect = (rule) => collectFontSizeElements(editor.formatter, rule, wrappers);
+        const rulesToRun = filter$5(rules, (rule) => isTriggeredBy(rule, appliedFormat) && collect(rule).length > 0);
+        if (rulesToRun.length > 0) {
+            withBookmark(editor, () => each$e(rulesToRun, (rule) => {
+                if (rule.keepsColoredDecorations && rule.format === appliedFormat) {
+                    mergeColoredDecorations(editor, rule, wrappers);
+                }
+                normalizeFontSizeElementsWithFormat(editor, rule, collect(rule));
+            }));
         }
     };
     const normalizeElements = (editor, elements) => {
-        const fontSizeElements = filter$5(elements, (el) => isFontSizeAlteringElement(editor.formatter, el));
-        normalizeFontSizeElementsWithFormat(editor, 'strikethrough', fontSizeElements);
+        const collect = (rule) => filter$5(elements, (el) => isFontSizeAlteringElement(editor.formatter, rule, el));
+        const rulesToRun = filter$5(rules, (rule) => collect(rule).length > 0);
+        if (rulesToRun.length > 0) {
+            withBookmark(editor, () => each$e(rulesToRun, (rule) => normalizeFontSizeElementsWithFormat(editor, rule, collect(rule))));
+        }
     };
 
     const isHeading = (node) => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.name);
@@ -21103,7 +21252,7 @@
      * This class handles parsing, modification and serialization of URI/URL strings.
      * @class tinymce.util.URI
      */
-    const each$6 = Tools.each, trim = Tools.trim;
+    const each$5 = Tools.each, trim = Tools.trim;
     const queryParts = [
         'source', 'protocol', 'authority', 'userInfo', 'user', 'password', 'host',
         'port', 'relative', 'path', 'directory', 'file', 'query', 'anchor'
@@ -21260,7 +21409,7 @@
             url = url.replace(/@@/g, '(mce_at)'); // Zope 3 workaround, they use @@something
             const urlMatch = /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@\/]*):?([^:@\/]*))?@)?(\[[a-zA-Z0-9:.%]+\]|[^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/.exec(url);
             if (urlMatch) {
-                each$6(queryParts, (v, i) => {
+                each$5(queryParts, (v, i) => {
                     let part = urlMatch[i];
                     // Zope 3 workaround, they use @@something
                     if (part) {
@@ -21440,7 +21589,7 @@
             const normalizedPath = path.split('/');
             // Remove empty chunks
             const baseParts = [];
-            each$6(normalizedBase, (k) => {
+            each$5(normalizedBase, (k) => {
                 if (k) {
                     baseParts.push(k);
                 }
@@ -22837,6 +22986,18 @@
         }
         selection.setRng(rng);
     };
+    const isWholeBlockContentInInlineFormat = (editor, rng) => {
+        const dom = editor.dom;
+        const ancestor = rng.commonAncestorContainer;
+        const elm = isText$b(ancestor) ? ancestor.parentNode : ancestor;
+        if (!isElement$7(elm) || !dom.isEditable(elm) || !isFormatElement(editor, SugarElement.fromDom(elm))) {
+            return false;
+        }
+        const block = dom.getParent(elm, dom.isBlock);
+        return isNonNullable(block)
+            && prevPosition(block, CaretPosition.fromRangeStart(rng)).isNone()
+            && nextPosition(block, CaretPosition.fromRangeEnd(rng)).isNone();
+    };
     const deleteSelectedContent = (editor) => {
         const dom = editor.dom;
         // Fix for #2595 seems that delete removes one extra character on
@@ -22850,8 +23011,9 @@
             deleteCellContents(editor, rng, SugarElement.fromDom(startCell));
             // TINY-9193: If the selection is over the whole text node in an element then Firefox incorrectly moves the caret to the previous line
             // TINY-11953: If the selection is over the whole anchor node, then Chrome incorrectly removes parent node alongside with it's child - anchor
+            // TINY-11317: If the whole block content is selected inside a common inline format element, native delete removes the format element
         }
-        else if (isSelectionOverWholeAnchor(rng) || isSelectionOverWholeTextNode(rng)) {
+        else if (isSelectionOverWholeAnchor(rng) || isSelectionOverWholeTextNode(rng) || isWholeBlockContentInInlineFormat(editor, rng)) {
             rng.deleteContents();
         }
         else {
@@ -23101,81 +23263,6 @@
             });
         }
     });
-
-    const each$5 = Tools.each;
-    const mergeTextDecorationsAndColor = (dom, format, vars, node) => {
-        const processTextDecorationsAndColor = (n) => {
-            if (isHTMLElement(n) && isElement$7(n.parentNode) && dom.isEditable(n)) {
-                const parentTextDecoration = getTextDecoration(dom, n.parentNode);
-                if (dom.getStyle(n, 'color') && parentTextDecoration) {
-                    dom.setStyle(n, 'text-decoration', parentTextDecoration);
-                }
-                else if (dom.getStyle(n, 'text-decoration') === parentTextDecoration) {
-                    dom.setStyle(n, 'text-decoration', null);
-                }
-            }
-        };
-        // Colored nodes should be underlined so that the color of the underline matches the text color.
-        if (format.styles && (format.styles.color || format.styles.textDecoration)) {
-            Tools.walk(node, processTextDecorationsAndColor, 'childNodes');
-            processTextDecorationsAndColor(node);
-        }
-    };
-    const mergeBackgroundColorAndFontSize = (dom, format, vars, node) => {
-        // nodes with font-size should have their own background color as well to fit the line-height (see TINY-882)
-        if (format.styles && format.styles.backgroundColor) {
-            const hasFontSize = hasStyle(dom, 'fontSize');
-            processChildElements(node, (elm) => hasFontSize(elm) && dom.isEditable(elm), applyStyle(dom, 'backgroundColor', replaceVars(format.styles.backgroundColor, vars)));
-        }
-    };
-    const mergeSubSup = (dom, format, vars, node) => {
-        // Remove font size on all descendants of a sub/sup and remove the inverse elements
-        if (isInlineFormat(format) && (format.inline === 'sub' || format.inline === 'sup')) {
-            const hasFontSize = hasStyle(dom, 'fontSize');
-            processChildElements(node, (elm) => hasFontSize(elm) && dom.isEditable(elm), applyStyle(dom, 'fontSize', ''));
-            const inverseTagDescendants = filter$5(dom.select(format.inline === 'sup' ? 'sub' : 'sup', node), dom.isEditable);
-            dom.remove(inverseTagDescendants, true);
-        }
-    };
-    const mergeWithChildren = (editor, formatList, vars, node) => {
-        // Remove/merge children
-        // Note: RemoveFormat.removeFormat will not remove formatting from noneditable nodes
-        each$5(formatList, (format) => {
-            // Merge all children of similar type will move styles from child to parent
-            // this: <span style="color:red"><b><span style="color:red; font-size:10px">text</span></b></span>
-            // will become: <span style="color:red"><b><span style="font-size:10px">text</span></b></span>
-            if (isInlineFormat(format)) {
-                each$5(editor.dom.select(format.inline, node), (child) => {
-                    if (isElementNode(child)) {
-                        removeNodeFormat(editor, format, vars, child, format.exact ? child : null);
-                    }
-                });
-            }
-            clearChildStyles(editor.dom, format, node);
-        });
-    };
-    const mergeWithParents = (editor, format, name, vars, node) => {
-        // Remove format if direct parent already has the same format
-        // Note: RemoveFormat.removeFormat will not remove formatting from noneditable nodes
-        const parentNode = node.parentNode;
-        if (matchNode$1(editor, parentNode, name, vars)) {
-            if (removeNodeFormat(editor, format, vars, node)) {
-                return;
-            }
-        }
-        // Remove format if any ancestor already has the same format
-        if (format.merge_with_parents && parentNode) {
-            editor.dom.getParent(parentNode, (parent) => {
-                if (matchNode$1(editor, parent, name, vars)) {
-                    removeNodeFormat(editor, format, vars, node);
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            });
-        }
-    };
 
     const each$4 = Tools.each;
     const canFormatBR = (editor, format, node, parentName) => {
@@ -24947,6 +25034,17 @@
          */
         const getNode$1 = () => getNode(editor.getBody(), getRng$1());
         const getSelectedBlocks$1 = (startElm, endElm) => getSelectedBlocks(dom, getRng$1(), startElm, endElm);
+        /**
+         * Returns the blocks whose whole content is inside the current selection. Blocks that are only
+         * partially selected are not included, and a collapsed selection returns an empty array.
+         *
+         * @method getFullySelectedBlocks
+         * @return {Array} Array with the fully selected block elements.
+         * @example
+         * // Alerts the number of blocks that are entirely selected
+         * alert(tinymce.activeEditor.selection.getFullySelectedBlocks().length);
+         */
+        const getFullySelectedBlocks = () => getFullySelectedBlocks$1(exports);
         const isForward = () => {
             const sel = getSel();
             const anchorNode = sel?.anchorNode;
@@ -25055,6 +25153,7 @@
             getStart: getStart$1,
             getEnd: getEnd$1,
             getSelectedBlocks: getSelectedBlocks$1,
+            getFullySelectedBlocks,
             normalize,
             selectorChanged,
             selectorChangedWithUnbind,
@@ -26488,6 +26587,13 @@
         const isRoot = (elm) => eq(elm, SugarElement.fromDom(editor.getBody()));
         return closest$2(elm, 'details', isRoot);
     };
+    const openEnclosingDetails = (editor, target) => {
+        each$e(editor.dom.getParents(target.parentNode, 'details', editor.getBody()), (details) => {
+            if (!details.querySelector(':scope > summary')?.contains(target)) {
+                details.setAttribute('open', 'open');
+            }
+        });
+    };
     const processDisabledEvents = (editor, e) => {
         /*
           If an event is a click event on or within an anchor, and the CMD/CTRL key is
@@ -26507,6 +26613,7 @@
                     const id = removeLeading(href, '#');
                     const targetEl = editor.dom.select(`[id="${id}"],[name="${id}"]`);
                     if (targetEl.length) {
+                        openEnclosingDetails(editor, targetEl[0]);
                         editor.selection.scrollIntoView(targetEl[0], true);
                     }
                 }
@@ -28952,6 +29059,16 @@
         }
     };
 
+    const clearShadowingItemStyles = (editor) => {
+        each$e(getSelectedListItems(editor), (item) => {
+            const styleType = editor.dom.getStyle(item, 'list-style-type');
+            // Keep none intact as TinyMCE uses it for nested lists
+            if (isNonNullable(styleType) && styleType !== 'none') {
+                editor.dom.setStyle(item, 'list-style-type', '');
+            }
+        });
+    };
+
     const updateListStyle = (dom, el, detail) => {
         const type = detail['list-style-type'] ? detail['list-style-type'] : null;
         dom.setStyle(el, 'list-style-type', type);
@@ -29286,6 +29403,7 @@
         else {
             toggleSingleList(editor, parentList, listName, detail);
         }
+        clearShadowingItemStyles(editor);
     };
 
     const findNextCaretContainer = (editor, rng, isForward, root) => {
@@ -30954,13 +31072,47 @@
         const contentEditable = editor.dom.getContentEditable(block.dom);
         return contentEditable !== 'false' && intentValue > 0;
     });
+    const getCellContentBlocks = (editor, cell) => filter$5(fromDom$1(from(cell.dom.childNodes)), (child) => editor.dom.isBlock(child.dom));
     const canOutdent = (editor) => {
         const blocks = getBlocksToIndent(editor);
-        return !editor.mode.isReadOnly() && (blocks.length > 1 || validateBlocks(editor, blocks));
+        const indentedBlocks = bind$3(blocks, (block) => {
+            if (!isTableCell$3(block.dom)) {
+                return [block];
+            }
+            const inner = getCellContentBlocks(editor, block);
+            return inner.length > 0 ? inner : [block];
+        });
+        return !editor.mode.isReadOnly() && (blocks.length > 1 || validateBlocks(editor, indentedBlocks));
     };
     const canIndent = (editor) => !editor.mode.isReadOnly() && canIndent$1(editor);
     const isListComponent = (el) => isList$1(el) || isListItem$2(el);
     const parentIsListComponent = (el) => parent(el).exists(isListComponent);
+    const wrapCellInlineContent = (editor, cell) => {
+        const { dom } = editor;
+        const children = filter$5(from(cell.childNodes), (child) => !isEmptyTextNode$1(child));
+        const blocks = [];
+        let run = [];
+        const flushRun = () => {
+            if (run.length > 0 && !forall(run, isBookmarkNode$1)) {
+                const wrapper = dom.create('p');
+                cell.insertBefore(wrapper, run[0]);
+                each$e(run, (n) => wrapper.appendChild(n));
+                blocks.push(wrapper);
+            }
+            run = [];
+        };
+        each$e(children, (c) => {
+            if (dom.isBlock(c)) {
+                flushRun();
+                blocks.push(c);
+            }
+            else {
+                run.push(c);
+            }
+        });
+        flushRun();
+        return blocks;
+    };
     const getBlocksToIndent = (editor) => {
         const selectedCells = getCellsFromEditor(editor);
         return selectedCells.length === 0 ?
@@ -30976,7 +31128,16 @@
         const indentValue = parseIndentValue(indentation);
         const useMargin = shouldIndentUseMargin(editor);
         each$e(getBlocksToIndent(editor), (block) => {
-            indentElement(dom, command, useMargin, indentValue, indentUnit, block.dom);
+            if (isTableCell$3(block.dom)) {
+                const bm = editor.selection.getBookmark();
+                each$e(wrapCellInlineContent(editor, block.dom), (w) => {
+                    indentElement(dom, command, useMargin, indentValue, indentUnit, w);
+                });
+                editor.selection.moveToBookmark(bm);
+            }
+            else {
+                indentElement(dom, command, useMargin, indentValue, indentUnit, block.dom);
+            }
         });
         if (command === 'indent') {
             indentListSelection(editor);
@@ -33279,9 +33440,9 @@
         if (isNestedList(containerBlock)) {
             newBlockName = 'LI';
         }
-        const parentBlockStyles = isListItem(parentBlock) ? getStyles(parentBlock) : undefined;
-        let newBlock = isListItem(parentBlock) && parentBlockStyles
-            ? createNewBlock(newBlockName, { style: getStyles(parentBlock) })
+        const parentBlockStyles = isListItem(parentBlock) && newBlockName === 'LI' ? getStyles(parentBlock) : '';
+        let newBlock = isNotEmpty(parentBlockStyles)
+            ? createNewBlock(newBlockName, { style: parentBlockStyles })
             : createNewBlock(newBlockName);
         if (isFirstOrLastLi(containerBlock, parentBlock, true) && isFirstOrLastLi(containerBlock, parentBlock, false)) {
             if (hasParent(containerBlock, 'LI')) {
@@ -33331,7 +33492,7 @@
                 newBlock = fragment.firstChild;
                 dom.insertAfter(fragment, containerBlock);
                 each$e(previousChildren, (child) => prepend(SugarElement.fromDom(newBlock), child));
-                if (parentBlockStyles) {
+                if (isNotEmpty(parentBlockStyles)) {
                     newBlock.setAttribute('style', parentBlockStyles);
                 }
             }
@@ -37598,16 +37759,6 @@
             }, true);
         };
         /**
-         * Forces Gecko to render a broken image icon if it fails to load an image.
-         */
-        const showBrokenImageIcon = () => {
-            editor.contentStyles.push('img:-moz-broken {' +
-                '-moz-force-broken-image-icon:1;' +
-                'min-width:24px;' +
-                'min-height:24px' +
-                '}');
-        };
-        /**
          * iOS has a bug where it's impossible to type if the document has a touchstart event
          * bound and the user touches the document while having the on screen keyboard visible.
          *
@@ -37783,8 +37934,8 @@
         const clickAfterEl = (clientX, clientY, el) => get$c(getClientRects([el.dom]), 0).exists((rect) => clientX >= rect.right && clientY >= rect.top && clientY <= rect.bottom);
         const selectPos = (editor, e, pos) => {
             e.preventDefault();
-            editor.focus();
             editor.selection.setRng(pos.toRange());
+            editor.focus();
         };
         /**
          * In Chrome in a `LI` that contains a block element and where the first child is an inline element
@@ -37792,7 +37943,7 @@
          * issue: https://issues.chromium.org/issues/40767343
         **/
         const fixInLISelection = () => {
-            editor.on('mousedown', (e) => {
+            editor.on('click', (e) => {
                 const target = SugarElement.fromDom(e.target);
                 if (isListItem$2(target)) {
                     firstBlockChildOrNewLine(target).fold(() => {
@@ -37836,7 +37987,6 @@
             if (isGecko) {
                 focusBody();
                 setGeckoEditingOptions();
-                showBrokenImageIcon();
                 blockCmdArrowNavigation();
             }
         };
@@ -37880,7 +38030,6 @@
                 removeStylesWhenDeletingAcrossBlockElements();
                 setGeckoEditingOptions();
                 addBrAfterLastLinks();
-                showBrokenImageIcon();
                 blockCmdArrowNavigation();
                 disableBackspaceIntoATable();
             }
@@ -38399,7 +38548,7 @@
             id: id + '_ifr',
             frameBorder: '0',
             allowTransparency: 'true',
-            ...Env.browser.isFirefox() ? { title } : {}
+            title
         });
         add$2(iframe, 'tox-edit-area__iframe');
         return iframe;
@@ -38415,12 +38564,15 @@
         const bodyId = getBodyId(editor);
         const bodyClass = getBodyClass(editor);
         const translatedAriaText = editor.translate(getIframeAriaText(editor));
-        const iframeBodyAriaLabel = Env.browser.isFirefox() ? '' : `aria-label="${translatedAriaText}"`;
+        // TINYMCE-13100: VoiceOver does not read the iframe title, so the body is labelled
+        // for it. VoiceOver only runs on macOS, and elsewhere the title is announced.
+        // The role goes with it, since aria-label on a generic role is a violation.
+        const iframeBodyAriaAttrs = Env.os.isMacOS() || Env.os.isiOS() ? `role="textbox" aria-multiline="true" aria-label="${translatedAriaText}"` : '';
         if (getContentSecurityPolicy(editor)) {
             iframeHTML += '<meta http-equiv="Content-Security-Policy" content="' + getContentSecurityPolicy(editor) + '" />';
         }
         iframeHTML += '</head>' +
-            `<body id="${bodyId}" class="mce-content-body ${bodyClass}" data-id="${editor.id}" ${iframeBodyAriaLabel}>` +
+            `<body id="${bodyId}" class="mce-content-body ${bodyClass}" data-id="${editor.id}" ${iframeBodyAriaAttrs}>` +
             '<br>' +
             '</body></html>';
         return iframeHTML;
@@ -39725,7 +39877,7 @@
                 return false;
             }
             if (lowerCaseCommand !== 'mcefocus') {
-                if (!/^(mceAddUndoLevel|mceEndUndoLevel)$/i.test(lowerCaseCommand) && !skipFocus) {
+                if (!/^(mceAddUndoLevel|mceEndUndoLevel|toggleview)$/i.test(lowerCaseCommand) && !skipFocus) {
                     editor.focus();
                 }
                 else {
@@ -42102,14 +42254,14 @@
          * @property minorVersion
          * @type String
          */
-        minorVersion: '9.3',
+        minorVersion: '10.2',
         /**
          * Release date of TinyMCE build.
          *
          * @property releaseDate
          * @type String
          */
-        releaseDate: '2026-10-06',
+        releaseDate: '2026-11-11',
         /**
          * Collection of language pack data.
          *

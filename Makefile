@@ -30,8 +30,8 @@ HTMLCOMPILER ?= node_modules/html-minifier-terser/cli.js
 SVGCOMPRESS ?= node_modules/svgo/bin/svgo
 PRECOMPRESS ?= node tools/precompress.mjs
 
-JSOPTIONS = --compress ecma=2015,computed_props=false --mangle reserved=['FormData','Ext','Grommunio','container','settings','properties','languages','serverconfig','user','version','urlActionData','console','Tokenizr','module','define','global','require','proxy','_','dgettext','dngettext','dnpgettext','ngettext','pgettext','onResize','tinymce','resizeLoginBox','userManager','DOMPurify','PDFJS','odf','L','GeoSearch','inlineCSS','CSSTree']
-CSSOPTIONS = --no-map --use postcss-preset-env --use cssnano --use $(CURDIR)/tools/postcss-asset-version.mjs
+JSOPTIONS = --compress ecma=2015,computed_props=false --mangle reserved=['FormData','Ext','Grommunio','container','settings','properties','languages','serverconfig','user','version','urlActionData','console','Tokenizr','module','define','global','require','proxy','_','dgettext','dngettext','dnpgettext','ngettext','pgettext','onResize','tinymce','resizeLoginBox','userManager','DOMPurify','PDFJS','odf','L','GeoSearch']
+CSSOPTIONS = --no-map --use postcss-preset-env --use postcss-svgo --use cssnano --use $(CURDIR)/tools/postcss-asset-version.mjs
 WEBAPPVERSION = $(shell git describe --abbrev=7 --always --long | sed 's/grommunio-web-//')
 HTMLOPTIONS = --collapse-whitespace --remove-comments
 
@@ -234,7 +234,8 @@ $(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.html: client/filepreviewer/pdfj
 $(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.mjs: client/filepreviewer/pdfjs/web/viewer.mjs
 	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/web
 	sed -e 's#"../build/pdf.worker.mjs"#"../build/pdf.worker.mjs?version=$(WEBAPPVERSION)"#' \
-	    -e 's#"../build/pdf.sandbox.mjs"#"../build/pdf.sandbox.mjs?version=$(WEBAPPVERSION)"#' $< > $@
+	    -e 's#"../build/pdf.sandbox.mjs"#"../build/pdf.sandbox.mjs?version=$(WEBAPPVERSION)"#' \
+	    -e 's#"../build/pdf.renderer.mjs"#"../build/pdf.renderer.mjs?version=$(WEBAPPVERSION)"#' $< > $@
 
 $(DESTDIR)/client/filepreviewer/ViewerJS/index.html: client/filepreviewer/ViewerJS/index.html
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS

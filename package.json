@@ -23,13 +23,14 @@
 	"dependencies": {
 		"cssnano": "^9.5.0",
 		"fflate": "0.8.3",
-		"glob": "^13.0.6",
+		"glob": "^14.0.6",
 		"html-minifier-terser": "^7.2.0",
 		"openpgp": "6.3.2",
-		"postal-mime": "4.0.5",
+		"postal-mime": "4.2.1",
 		"postcss": "^8.5.29",
 		"postcss-cli": "^12.0.0",
 		"postcss-preset-env": "^11.6.1",
+		"postcss-svgo": "^9.1.0",
 		"svgo": "^4.1.0",
 		"terser": "^5.21.0"
 	}

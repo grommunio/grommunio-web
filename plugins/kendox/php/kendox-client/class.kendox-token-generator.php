@@ -7,8 +7,8 @@
 
 namespace Kendox;
 
-use phpseclib3\Crypt\RSA;
-use phpseclib3\Crypt\RSA\PrivateKey;
+use phpseclib4\Crypt\RSA;
+use phpseclib4\Crypt\RSA\PrivateKey;
 
 class TokenGenerator {
 	/**

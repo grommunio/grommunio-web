@@ -5,7 +5,7 @@
         }
     },
     "require": {
-        "phpseclib/phpseclib": "^3.0.57",
+        "phpseclib/phpseclib": "^4.0.4",
         "symfony/polyfill-iconv": "^1.37"
     }
 }

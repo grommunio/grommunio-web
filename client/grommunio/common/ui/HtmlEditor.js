@@ -145,9 +145,11 @@ Grommunio.common.ui.HtmlEditor = Ext.extend(Ext.ux.form.TinyMCETextArea, {
 					editor.on("PreProcess", function(e) {
 						self.normalizeHostnameLinks(e.node);
 					});
-					editor.on("PostProcess", function (e) {
-						if (e.get) {
-							e.content = inlineCSS(e.content);
+					// TinyMCE drops <style> while parsing, so a quoted mail
+					// keeps its formatting only when inlined beforehand
+					editor.on("BeforeSetContent", function (e) {
+						if (e.content && /<style[\s>]/i.test(e.content)) {
+							e.content = Grommunio.common.ui.htmleditor.InlineCSS.inline(e.content);
 						}
 					});
 					// Add accessible title to TinyMCE iframe

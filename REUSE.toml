@@ -191,12 +191,6 @@ SPDX-FileCopyrightText = "Copyright 2020 - 2026 grommunio GmbH"
 SPDX-License-Identifier = "AGPL-3.0-or-later"
 
 [[annotations]]
-path = ["client/third-party/csstree/csstree.js"]
-precedence = "override"
-SPDX-FileCopyrightText = "Copyright (c) Roman Dvornov and css-tree contributors"
-SPDX-License-Identifier = "MIT AND CC0-1.0 AND BSD-3-Clause"
-
-[[annotations]]
 path = ["client/third-party/tokenizr/**"]
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright (c) Ralf S. Engelschall"
