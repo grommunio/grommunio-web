@@ -356,6 +356,53 @@ foreach (['headers_only', 'hint_only', 'hint_encrypted'] as $case) {
 	transportCheck($status['unverifiable'] === true && !$status['pending'] && !$status['error'] && $status['mime'] === '' && $status['signed'] === ($case !== 'hint_encrypted') && $status['encrypted'] === ($case === 'hint_encrypted'), 'Legacy ' . $case . ' reports an advisory status');
 	transportCheck($opened['data']['item']['props']['body'] === 'Signed text' && $opened['data']['item']['attachments']['item'] === [['old' => true]], 'Legacy ' . $case . ' keeps body and attachments');
 }
+// eM Client over EWS: an empty mail whose only attachment is the encrypted message.
+$emArmor = "-----BEGIN PGP MESSAGE-----\r\nVersion: MailClient.Security v11\r\n\r\nhQEMA4uADafw\r\n-----END PGP MESSAGE-----\r\n";
+$emCases = ['em_client' => true, 'em_upper_name' => true, 'em_no_body' => true, 'em_body_text' => false, 'em_two_files' => false,
+	'em_other_name' => false, 'em_other_type' => false, 'em_binary' => false, 'em_embedded' => false, 'em_draft' => false,
+	'em_smime_class' => false, 'em_meeting' => false, 'em_user_off' => false, 'em_oversized' => false, 'em_stream_fault' => false,
+	'em_custom_class' => false, 'em_blank_body' => true, 'em_signed_headers' => false];
+foreach ($emCases as $case => $expected) {
+	$plugin = new Pluginpgp(); $message = fixture(false, false);
+	$message->props[PR_MESSAGE_FLAGS] = $case === 'em_draft' ? MSGFLAG_UNSENT : 1;
+	$message->props[PR_BODY] = $case === 'em_body_text' ? 'Please find the file attached.' : '';
+	if ($case === 'em_no_body') { unset($message->props[PR_BODY]); }
+	if ($case === 'em_smime_class') { $message->props[PR_MESSAGE_CLASS] = 'IPM.Note.SMIME'; }
+	if ($case === 'em_meeting') { $message->props[PR_MESSAGE_CLASS] = 'IPM.Schedule.Meeting.Request'; }
+	if ($case === 'em_custom_class') { $message->props[PR_MESSAGE_CLASS] = 'IPM.Note.Custom'; }
+	// gromox derives this text body from the empty HTML part
+	if ($case === 'em_blank_body') { $message->props[PR_BODY] = "\r\n \r\n"; }
+	// A legacy signed layout keeps its advisory status, it is not relabelled as encrypted
+	if ($case === 'em_signed_headers') { $message->props[PR_TRANSPORT_MESSAGE_HEADERS] = "Content-Type: multipart/signed; protocol=\"application/pgp-signature\"; boundary=\"b\"\r\n\r\n"; }
+	$item = attachment($case === 'em_binary' ? "\x84\x8c\x03\x8b\x80\x0d\xa7" : $emArmor);
+	if ($case === 'em_oversized') { $item->props[PR_ATTACH_DATA_BIN] = $emArmor . str_repeat('A', PLUGIN_PGP_MAX_MESSAGE_BYTES - 1024); }
+	$item->props[PR_ATTACH_LONG_FILENAME] = ['em_upper_name' => 'Encrypted.EML.PGP', 'em_other_name' => 'encrypted.asc'][$case] ?? 'encrypted.eml.pgp';
+	if ($case === 'em_other_type') { $item->props[PR_ATTACH_MIME_TAG] = 'application/pgp-encrypted'; }
+	if ($case === 'em_embedded') { $item->props[PR_ATTACH_METHOD] = ATTACH_EMBEDDED_MSG; }
+	if ($case === 'em_stream_fault') { $item->faults['stat'] = true; }
+	$message->attachments = $case === 'em_two_files' ? [$item, attachment()] : [$item];
+	$GLOBALS['settings']->values['grommunio/v1/plugins/pgp/enable'] = $case !== 'em_user_off';
+	$event = ['message' => $message, 'handled' => false];
+	$plugin->execute('server.util.parse_secure.before', $event);
+	$opened = ['message' => $message, 'data' => ['item' => ['props' => ['body' => 'stored'], 'attachments' => ['item' => [['old' => true]]]]]];
+	$plugin->execute('server.module.itemmodule.open.after', $opened);
+	$status = $opened['data']['item']['props']['pgp'] ?? null;
+	if ($case === 'em_signed_headers') {
+		transportCheck(!$event['handled'] && $status['signed'] && !$status['encrypted'] && $status['advisory'], 'eM Client case ' . $case . ' keeps the advisory signed status');
+		continue;
+	}
+	transportCheck($event['handled'] === $expected && ($status !== null) === $expected, 'eM Client case ' . $case . ($expected ? ' opens as encrypted' : ' stays an ordinary attachment'));
+	if (!$expected) {
+		transportCheck($opened['data']['item']['props']['body'] === 'stored' && $opened['data']['item']['attachments']['item'] === [['old' => true]], 'eM Client case ' . $case . ' keeps body and attachment');
+		continue;
+	}
+	transportCheck($status['encrypted'] && !$status['signed'] && $status['pending'] && $status['locked'] && !$status['error'] && !$status['inline'] && $status['format'] === 'mime', 'eM Client case ' . $case . ' reports a locked encrypted message');
+	$unwrapped = PgpMime::unwrap(base64_decode($status['mime']));
+	transportCheck($unwrapped['kind'] === 'encrypted' && $unwrapped['ciphertext'] === $emArmor, 'eM Client case ' . $case . ' hands the exact ciphertext to the browser');
+	transportCheck($opened['data']['item']['attachments']['item'] === [] && $opened['data']['item']['props']['body'] === '', 'eM Client case ' . $case . ' hides the stored file until decrypted');
+	transportCheck(count($message->attachments) === 1 && $message->saves === 0, 'eM Client case ' . $case . ' leaves the stored message untouched');
+}
+unset($GLOBALS['settings']->values['grommunio/v1/plugins/pgp/enable']);
 // Drafts, other item types and users who switched the plugin off are never touched.
 $envelope = PgpMime::signed("Content-Type: text/plain\r\n\r\nExact signed body", 'signature', 'pgp-sha256');
 foreach (['draft', 'note', 'meeting', 'bad_sender', 'user_off', 'user_off_plain', 'user_on', 'unsent_envelope'] as $case) {
