@@ -442,15 +442,15 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "tokenizr",
-			"version": "1.7.0",
+			"version": "2.2.1",
 			"license": "MIT",
 			"scope": "runtime",
 			"paths": [
 				"client/third-party/tokenizr/tokenizr.js",
 				"client/third-party/tokenizr/README.md"
 			],
-			"copyright": "Copyright (c) 2015 - 2024 Dr. Ralf S. Engelschall",
-			"purl": "pkg:npm/tokenizr@1.7.0",
+			"copyright": "Copyright (c) 2015 - 2025 Dr. Ralf S. Engelschall",
+			"purl": "pkg:npm/tokenizr@2.2.1",
 			"website": "https://github.com/rse/tokenizr"
 		},
 		{

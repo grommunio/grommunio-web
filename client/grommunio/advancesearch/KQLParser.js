@@ -283,7 +283,7 @@ Grommunio.advancesearch.KQLParser = Ext.extend(Object, {
 		}
 
 		// eslint-disable-next-line no-undef
-		this.lexer = new Tokenizr();
+		this.lexer = new Tokenizr.Tokenizr();
 
 		var self = this;
 		var ops = [':', '=', '<>'];

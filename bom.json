@@ -11645,10 +11645,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/tokenizr@1.7.0",
+			"bom-ref": "pkg:npm/tokenizr@2.2.1",
 			"type": "library",
 			"name": "tokenizr",
-			"version": "1.7.0",
+			"version": "2.2.1",
 			"scope": "required",
 			"licenses": [
 				{
@@ -11657,8 +11657,8 @@
 					}
 				}
 			],
-			"copyright": "Copyright (c) 2015 - 2024 Dr. Ralf S. Engelschall",
-			"purl": "pkg:npm/tokenizr@1.7.0",
+			"copyright": "Copyright (c) 2015 - 2025 Dr. Ralf S. Engelschall",
+			"purl": "pkg:npm/tokenizr@2.2.1",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -12016,7 +12016,7 @@
 				"pkg:npm/source-map-js",
 				"pkg:npm/tinymce-i18n@8",
 				"pkg:npm/tinymce@8.10.2",
-				"pkg:npm/tokenizr@1.7.0",
+				"pkg:npm/tokenizr@2.2.1",
 				"pkg:npm/video.js@8.24.1",
 				"pkg:npm/videojs-font@4.2.0",
 				"vendored:viewerjs@0.5.8+grommunio.0.7.0",

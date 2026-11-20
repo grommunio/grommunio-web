@@ -3,9 +3,9 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.2",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-ef1893fad52e9332",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-fefffb10f1db7eb4",
 	"creationInfo": {
-		"created": "2026-11-20T09:18:13Z",
+		"created": "2026-11-20T10:43:12Z",
 		"creators": [
 			"Tool: tools/build-bom.mjs",
 			"Organization: grommunio GmbH"
@@ -5930,19 +5930,19 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-vendored-tokenizr-1.7.0",
+			"SPDXID": "SPDXRef-vendored-tokenizr-2.2.1",
 			"name": "tokenizr",
-			"versionInfo": "1.7.0",
+			"versionInfo": "2.2.1",
 			"downloadLocation": "https://github.com/rse/tokenizr",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
 			"licenseDeclared": "MIT",
-			"copyrightText": "Copyright (c) 2015 - 2024 Dr. Ralf S. Engelschall",
+			"copyrightText": "Copyright (c) 2015 - 2025 Dr. Ralf S. Engelschall",
 			"externalRefs": [
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/tokenizr@1.7.0"
+					"referenceLocator": "pkg:npm/tokenizr@2.2.1"
 				}
 			]
 		},
@@ -7848,7 +7848,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-vendored-tokenizr-1.7.0",
+			"spdxElementId": "SPDXRef-vendored-tokenizr-2.2.1",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
