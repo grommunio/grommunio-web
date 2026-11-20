@@ -10022,46 +10022,6 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/css-tree@2.3.1",
-			"type": "library",
-			"name": "css-tree",
-			"version": "2.3.1",
-			"scope": "required",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"copyright": "Copyright (c) 2016 - present Roman Dvornov",
-			"purl": "pkg:npm/css-tree@2.3.1",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "runtime"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "vendored"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "true"
-				},
-				{
-					"name": "grommunio:path",
-					"value": "client/third-party/csstree/csstree.js"
-				}
-			],
-			"externalReferences": [
-				{
-					"type": "website",
-					"url": "https://github.com/csstree/csstree"
-				}
-			]
-		},
-		{
 			"bom-ref": "pkg:npm/docx-preview@0.4.1",
 			"type": "library",
 			"name": "docx-preview",
@@ -10804,45 +10764,6 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/mdn-data@2.0.30",
-			"type": "library",
-			"name": "mdn-data",
-			"version": "2.0.30",
-			"scope": "required",
-			"licenses": [
-				{
-					"license": {
-						"id": "CC0-1.0"
-					}
-				}
-			],
-			"purl": "pkg:npm/mdn-data@2.0.30",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "runtime"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "vendored"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "true"
-				},
-				{
-					"name": "grommunio:path",
-					"value": "client/third-party/csstree/csstree.js"
-				}
-			],
-			"externalReferences": [
-				{
-					"type": "website",
-					"url": "https://github.com/mdn/data"
-				}
-			]
-		},
-		{
 			"bom-ref": "vendored:nemid-php@0.1+git20120512.8bd9249",
 			"type": "library",
 			"name": "nemid-php",
@@ -11501,46 +11422,6 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/source-map-js",
-			"type": "library",
-			"name": "source-map-js",
-			"version": "NOASSERTION",
-			"scope": "required",
-			"licenses": [
-				{
-					"license": {
-						"id": "BSD-3-Clause"
-					}
-				}
-			],
-			"copyright": "Copyright (c) 2009 - 2011 Mozilla Foundation and contributors",
-			"purl": "pkg:npm/source-map-js",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "runtime"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "vendored"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "true"
-				},
-				{
-					"name": "grommunio:path",
-					"value": "client/third-party/csstree/csstree.js"
-				}
-			],
-			"externalReferences": [
-				{
-					"type": "website",
-					"url": "https://github.com/7rulnik/source-map-js"
-				}
-			]
-		},
-		{
 			"bom-ref": "pkg:npm/tinymce-i18n@8",
 			"type": "library",
 			"name": "tinymce-i18n",
@@ -11985,7 +11866,6 @@
 				"pkg:npm/%40videojs%2Fthemes@1.0.1",
 				"vendored:adobe-cmap-resources@snapshot-20140317",
 				"vendored:compact-icc-profiles@bdd8466",
-				"pkg:npm/css-tree@2.3.1",
 				"pkg:npm/docx-preview@0.4.1",
 				"pkg:npm/dompurify@3.4.12",
 				"pkg:npm/dompurify@3.4.18",
@@ -12001,7 +11881,6 @@
 				"pkg:npm/leaflet-geosearch@5.3.0",
 				"pkg:npm/leaflet@1.9.4",
 				"vendored:liberation-fonts@1.07.4",
-				"pkg:npm/mdn-data@2.0.30",
 				"vendored:nemid-php@0.1+git20120512.8bd9249",
 				"vendored:open-iconic@1.1.0",
 				"vendored:openjpeg@2.5.4",
@@ -12013,7 +11892,6 @@
 				"vendored:quickjs@2026-06-04",
 				"vendored:roboto@2.137",
 				"vendored:sheetjs-xlsx@0.20.3",
-				"pkg:npm/source-map-js",
 				"pkg:npm/tinymce-i18n@8",
 				"pkg:npm/tinymce@8.10.2",
 				"pkg:npm/tokenizr@2.2.1",

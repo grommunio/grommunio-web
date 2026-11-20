@@ -3,7 +3,7 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.2",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-ecc4da91b62c1f21",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-e9e64a17764e68c9",
 	"creationInfo": {
 		"created": "2026-11-20T10:43:13Z",
 		"creators": [
@@ -5529,23 +5529,6 @@
 			"copyrightText": "NOASSERTION"
 		},
 		{
-			"SPDXID": "SPDXRef-vendored-css-tree-2.3.1",
-			"name": "css-tree",
-			"versionInfo": "2.3.1",
-			"downloadLocation": "https://github.com/csstree/csstree",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "Copyright (c) 2016 - present Roman Dvornov",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/css-tree@2.3.1"
-				}
-			]
-		},
-		{
 			"SPDXID": "SPDXRef-vendored-docx-preview-0.4.1",
 			"name": "docx-preview",
 			"versionInfo": "0.4.1",
@@ -5745,23 +5728,6 @@
 			"copyrightText": "Copyright (c) 2007 Red Hat, Inc."
 		},
 		{
-			"SPDXID": "SPDXRef-vendored-mdn-data-2.0.30",
-			"name": "mdn-data",
-			"versionInfo": "2.0.30",
-			"downloadLocation": "https://github.com/mdn/data",
-			"filesAnalyzed": false,
-			"licenseConcluded": "CC0-1.0",
-			"licenseDeclared": "CC0-1.0",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/mdn-data@2.0.30"
-				}
-			]
-		},
-		{
 			"SPDXID": "SPDXRef-vendored-nemid-php-0.1-git20120512.8bd9249",
 			"name": "nemid-php",
 			"versionInfo": "0.1+git20120512.8bd9249",
@@ -5877,23 +5843,6 @@
 			"licenseConcluded": "Apache-2.0",
 			"licenseDeclared": "Apache-2.0",
 			"copyrightText": "Copyright (C) 2012-present SheetJS LLC"
-		},
-		{
-			"SPDXID": "SPDXRef-vendored-source-map-js-NOASSERTION",
-			"name": "source-map-js",
-			"versionInfo": "NOASSERTION",
-			"downloadLocation": "https://github.com/7rulnik/source-map-js",
-			"filesAnalyzed": false,
-			"licenseConcluded": "BSD-3-Clause",
-			"licenseDeclared": "BSD-3-Clause",
-			"copyrightText": "Copyright (c) 2009 - 2011 Mozilla Foundation and contributors",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/source-map-js"
-				}
-			]
 		},
 		{
 			"SPDXID": "SPDXRef-vendored-tinymce-i18n-8",
@@ -7693,11 +7642,6 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-vendored-css-tree-2.3.1",
-			"relationshipType": "RUNTIME_DEPENDENCY_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
 			"spdxElementId": "SPDXRef-vendored-docx-preview-0.4.1",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
@@ -7773,11 +7717,6 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-vendored-mdn-data-2.0.30",
-			"relationshipType": "RUNTIME_DEPENDENCY_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
 			"spdxElementId": "SPDXRef-vendored-nemid-php-0.1-git20120512.8bd9249",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
@@ -7829,11 +7768,6 @@
 		},
 		{
 			"spdxElementId": "SPDXRef-vendored-sheetjs-xlsx-0.20.3",
-			"relationshipType": "RUNTIME_DEPENDENCY_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
-			"spdxElementId": "SPDXRef-vendored-source-map-js-NOASSERTION",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},

@@ -400,47 +400,6 @@
 		{
 			"type": "library",
 			"ecosystem": "vendored",
-			"name": "css-tree",
-			"version": "2.3.1",
-			"license": "MIT",
-			"scope": "runtime",
-			"paths": [
-				"client/third-party/csstree/csstree.js"
-			],
-			"copyright": "Copyright (c) 2016 - present Roman Dvornov",
-			"purl": "pkg:npm/css-tree@2.3.1",
-			"website": "https://github.com/csstree/csstree"
-		},
-		{
-			"type": "library",
-			"ecosystem": "vendored",
-			"name": "mdn-data",
-			"version": "2.0.30",
-			"license": "CC0-1.0",
-			"scope": "runtime",
-			"paths": [
-				"client/third-party/csstree/csstree.js"
-			],
-			"purl": "pkg:npm/mdn-data@2.0.30",
-			"website": "https://github.com/mdn/data"
-		},
-		{
-			"type": "library",
-			"ecosystem": "vendored",
-			"name": "source-map-js",
-			"version": "NOASSERTION",
-			"license": "BSD-3-Clause",
-			"scope": "runtime",
-			"paths": [
-				"client/third-party/csstree/csstree.js"
-			],
-			"copyright": "Copyright (c) 2009 - 2011 Mozilla Foundation and contributors",
-			"purl": "pkg:npm/source-map-js",
-			"website": "https://github.com/7rulnik/source-map-js"
-		},
-		{
-			"type": "library",
-			"ecosystem": "vendored",
 			"name": "tokenizr",
 			"version": "2.2.1",
 			"license": "MIT",
