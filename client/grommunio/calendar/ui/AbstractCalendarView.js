@@ -1182,11 +1182,22 @@ Grommunio.calendar.ui.AbstractCalendarView = Ext.extend(Grommunio.core.ui.View, 
 	 */
 	onKeyPress: function(event)
 	{
-		// If the key is not alphanumeric (a-z, A-Z, 0-9) ignore the event
-		if (!Ext.form.VTypes.alphanum(String.fromCharCode(event.getKey()))) {
+		// If the key is not alphanumeric (a-z, A-Z, 0-9) ignore the event. Shortcuts
+		// such as Ctrl+C type no text, Ctrl+V is handled by the KeyMapping. AltGr
+		// comes as Ctrl+Alt and does type letters (Polish ą).
+		if (!Ext.form.VTypes.alphanum(String.fromCharCode(event.getKey())) || (event.ctrlKey && !event.altKey)) {
 			return;
 		}
 
+		this.startTextEdit();
+	},
+
+	/**
+	 * Opens the {@link #textEditView} on the selected time range, so whatever is typed
+	 * or pasted next becomes the subject of a quick-appointment.
+	 */
+	startTextEdit: function()
+	{
 		if (this.rangeSelectionModel.isActive() && this.rangeSelectionModel.getCalendarView() == this && !this.textEditView.isVisible())
 		{
 			var range = this.rangeSelectionModel.getDateRange();
@@ -1200,7 +1211,6 @@ Grommunio.calendar.ui.AbstractCalendarView = Ext.extend(Grommunio.core.ui.View, 
 			this.textEditView.setDateRange(range);
 			this.textEditView.select();
 		}
-
 	},
 
 	/**

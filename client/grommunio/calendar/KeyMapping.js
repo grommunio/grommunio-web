@@ -80,7 +80,8 @@ Grommunio.calendar.KeyMapping = Ext.extend(Object, {
 			ctrl:true,
 			alt: false,
 			shift: false,
-			stopEvent: true,
+			// The handler stops the event only when it pastes an appointment
+			stopEvent: false,
 			enableGlobally: true,
 			settingsCfg: {
 				description: _('Paste selected item'),
@@ -187,8 +188,16 @@ Grommunio.calendar.KeyMapping = Ext.extend(Object, {
 	onPaste: function (key, event, component)
 	{
 		if(Ext.isEmpty(component.clipBoardData)) {
+			// No copied appointment: let the browser paste the clipboard text into
+			// a new appointment on the selected time range.
+			var rangeSelectionModel = component.rangeSelectionModel;
+			var view = rangeSelectionModel && rangeSelectionModel.isActive() ? rangeSelectionModel.getCalendarView() : null;
+			if (view && Ext.isFunction(view.startTextEdit)) {
+				view.startTextEdit();
+			}
 			return;
 		}
+		event.stopEvent();
 		var record = component.clipBoardData.copy();
 		if (component.isClipBoardDataRecurring) {
 			var config = {
