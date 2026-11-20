@@ -231,14 +231,14 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "docx-preview",
-			"version": "0.3.7",
+			"version": "0.4.1",
 			"license": "Apache-2.0",
 			"scope": "runtime",
 			"paths": [
 				"client/filepreviewer/ViewerJS/vendor/docx-preview.min.js"
 			],
 			"copyright": "Copyright (c) Volodymyr Baydalka and the docx-preview contributors",
-			"purl": "pkg:npm/docx-preview@0.3.7",
+			"purl": "pkg:npm/docx-preview@0.4.1",
 			"website": "https://github.com/VolodymyrBaydalka/docxjs"
 		},
 		{

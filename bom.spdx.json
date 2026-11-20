@@ -3,7 +3,7 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.2",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-8e18a15b467c66ef",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-97651dfd1b1f2389",
 	"creationInfo": {
 		"created": "2026-11-20T09:18:13Z",
 		"creators": [
@@ -5546,9 +5546,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-vendored-docx-preview-0.3.7",
+			"SPDXID": "SPDXRef-vendored-docx-preview-0.4.1",
 			"name": "docx-preview",
-			"versionInfo": "0.3.7",
+			"versionInfo": "0.4.1",
 			"downloadLocation": "https://github.com/VolodymyrBaydalka/docxjs",
 			"filesAnalyzed": false,
 			"licenseConcluded": "Apache-2.0",
@@ -5558,7 +5558,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/docx-preview@0.3.7"
+					"referenceLocator": "pkg:npm/docx-preview@0.4.1"
 				}
 			]
 		},
@@ -7698,7 +7698,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-vendored-docx-preview-0.3.7",
+			"spdxElementId": "SPDXRef-vendored-docx-preview-0.4.1",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},

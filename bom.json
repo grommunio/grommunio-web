@@ -10062,10 +10062,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/docx-preview@0.3.7",
+			"bom-ref": "pkg:npm/docx-preview@0.4.1",
 			"type": "library",
 			"name": "docx-preview",
-			"version": "0.3.7",
+			"version": "0.4.1",
 			"scope": "required",
 			"licenses": [
 				{
@@ -10075,7 +10075,7 @@
 				}
 			],
 			"copyright": "Copyright (c) Volodymyr Baydalka and the docx-preview contributors",
-			"purl": "pkg:npm/docx-preview@0.3.7",
+			"purl": "pkg:npm/docx-preview@0.4.1",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -11986,7 +11986,7 @@
 				"vendored:adobe-cmap-resources@snapshot-20140317",
 				"vendored:compact-icc-profiles@bdd8466",
 				"pkg:npm/css-tree@2.3.1",
-				"pkg:npm/docx-preview@0.3.7",
+				"pkg:npm/docx-preview@0.4.1",
 				"pkg:npm/dompurify@3.4.12",
 				"pkg:npm/dompurify@3.4.18",
 				"vendored:ext-ux-form-field-passwordmeter@0.1",
