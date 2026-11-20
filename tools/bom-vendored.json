@@ -142,13 +142,15 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "pdf.js",
-			"version": "6.4.299",
+			"version": "6.5.438",
 			"license": "Apache-2.0",
 			"scope": "runtime",
 			"paths": [
 				"client/filepreviewer/pdfjs/LICENSE",
 				"client/filepreviewer/pdfjs/build/pdf.mjs",
 				"client/filepreviewer/pdfjs/build/pdf.mjs.map",
+				"client/filepreviewer/pdfjs/build/pdf.renderer.mjs",
+				"client/filepreviewer/pdfjs/build/pdf.renderer.mjs.map",
 				"client/filepreviewer/pdfjs/build/pdf.sandbox.mjs",
 				"client/filepreviewer/pdfjs/build/pdf.sandbox.mjs.map",
 				"client/filepreviewer/pdfjs/build/pdf.worker.mjs",
@@ -161,7 +163,7 @@
 				"client/filepreviewer/pdfjs/web/locale/"
 			],
 			"copyright": "Copyright 2012, 2014, 2024 Mozilla Foundation",
-			"purl": "pkg:npm/pdfjs-dist@6.4.299",
+			"purl": "pkg:npm/pdfjs-dist@6.5.438",
 			"website": "https://mozilla.github.io/pdf.js/"
 		},
 		{
@@ -283,7 +285,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "foxit-standard-pdf-fonts",
-			"version": "6.4.299",
+			"version": "6.5.438",
 			"license": "BSD-3-Clause",
 			"scope": "runtime",
 			"paths": [
@@ -388,7 +390,9 @@
 			"scope": "runtime",
 			"paths": [
 				"client/filepreviewer/pdfjs/web/wasm/quickjs-eval.js",
-				"client/filepreviewer/pdfjs/web/wasm/quickjs-eval.wasm"
+				"client/filepreviewer/pdfjs/web/wasm/quickjs-eval.wasm",
+				"client/filepreviewer/pdfjs/web/wasm/LICENSE_QUICKJS",
+				"client/filepreviewer/pdfjs/web/wasm/LICENSE_PDFJS_QUICKJS"
 			],
 			"copyright": "Copyright (c) 2017 - 2025 Fabrice Bellard and Charlie Gordon",
 			"website": "https://bellard.org/quickjs/"

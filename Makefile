@@ -234,7 +234,8 @@ $(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.html: client/filepreviewer/pdfj
 $(DESTDIR)/client/filepreviewer/pdfjs/web/viewer.mjs: client/filepreviewer/pdfjs/web/viewer.mjs
 	mkdir -p $(JSDEPLOY)/filepreviewer/pdfjs/web
 	sed -e 's#"../build/pdf.worker.mjs"#"../build/pdf.worker.mjs?version=$(WEBAPPVERSION)"#' \
-	    -e 's#"../build/pdf.sandbox.mjs"#"../build/pdf.sandbox.mjs?version=$(WEBAPPVERSION)"#' $< > $@
+	    -e 's#"../build/pdf.sandbox.mjs"#"../build/pdf.sandbox.mjs?version=$(WEBAPPVERSION)"#' \
+	    -e 's#"../build/pdf.renderer.mjs"#"../build/pdf.renderer.mjs?version=$(WEBAPPVERSION)"#' $< > $@
 
 $(DESTDIR)/client/filepreviewer/ViewerJS/index.html: client/filepreviewer/ViewerJS/index.html
 	mkdir -p $(JSDEPLOY)/filepreviewer/ViewerJS

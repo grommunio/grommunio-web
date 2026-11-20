@@ -10520,10 +10520,10 @@
 			]
 		},
 		{
-			"bom-ref": "vendored:foxit-standard-pdf-fonts@6.4.299",
+			"bom-ref": "vendored:foxit-standard-pdf-fonts@6.5.438",
 			"type": "library",
 			"name": "foxit-standard-pdf-fonts",
-			"version": "6.4.299",
+			"version": "6.5.438",
 			"scope": "required",
 			"licenses": [
 				{
@@ -11100,10 +11100,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/pdfjs-dist@6.4.299",
+			"bom-ref": "pkg:npm/pdfjs-dist@6.5.438",
 			"type": "library",
 			"name": "pdf.js",
-			"version": "6.4.299",
+			"version": "6.5.438",
 			"scope": "required",
 			"licenses": [
 				{
@@ -11113,7 +11113,7 @@
 				}
 			],
 			"copyright": "Copyright 2012, 2014, 2024 Mozilla Foundation",
-			"purl": "pkg:npm/pdfjs-dist@6.4.299",
+			"purl": "pkg:npm/pdfjs-dist@6.5.438",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -11138,6 +11138,14 @@
 				{
 					"name": "grommunio:path",
 					"value": "client/filepreviewer/pdfjs/build/pdf.mjs.map"
+				},
+				{
+					"name": "grommunio:path",
+					"value": "client/filepreviewer/pdfjs/build/pdf.renderer.mjs"
+				},
+				{
+					"name": "grommunio:path",
+					"value": "client/filepreviewer/pdfjs/build/pdf.renderer.mjs.map"
 				},
 				{
 					"name": "grommunio:path",
@@ -11317,6 +11325,14 @@
 				{
 					"name": "grommunio:path",
 					"value": "client/filepreviewer/pdfjs/web/wasm/quickjs-eval.wasm"
+				},
+				{
+					"name": "grommunio:path",
+					"value": "client/filepreviewer/pdfjs/web/wasm/LICENSE_QUICKJS"
+				},
+				{
+					"name": "grommunio:path",
+					"value": "client/filepreviewer/pdfjs/web/wasm/LICENSE_PDFJS_QUICKJS"
 				}
 			],
 			"externalReferences": [
@@ -11980,7 +11996,7 @@
 				"pkg:generic/extjs@3.4.1.1",
 				"vendored:fira-mono@3.201",
 				"vendored:fluentui-system-icons@1.1.159",
-				"vendored:foxit-standard-pdf-fonts@6.4.299",
+				"vendored:foxit-standard-pdf-fonts@6.5.438",
 				"pkg:npm/jszip@3.10.1",
 				"pkg:npm/leaflet-geosearch@3.11.1",
 				"pkg:npm/leaflet@1.9.4",
@@ -11991,7 +12007,7 @@
 				"vendored:openjpeg@2.5.4",
 				"vendored:outfit@1.100",
 				"vendored:pako@NOASSERTION",
-				"pkg:npm/pdfjs-dist@6.4.299",
+				"pkg:npm/pdfjs-dist@6.5.438",
 				"vendored:pdfium-jbig2-decoder@0455e82",
 				"vendored:qcms@0.3.0",
 				"vendored:quickjs@2026-06-04",
