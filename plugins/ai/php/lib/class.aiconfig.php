@@ -7,7 +7,8 @@
 
 /**
  * AIConfig — resolves the admin-central plugin configuration (the PLUGIN_AI_*
- * constants from config.php) into a single immutable object.
+ * constants from config.php, overridden by the profile PLUGIN_AI_PROFILE_MAP
+ * assigns to the user) into a single immutable object.
  *
  * The API key lives ONLY in this object on the server and is never serialized
  * to the client. Use getPublicInfo() for anything that may reach the browser.
@@ -25,6 +26,17 @@ class AIConfig {
 	 */
 	private const CLOUD_PROVIDERS = ['openai', 'anthropic', 'gemini', 'groq', 'openrouter', 'ionos'];
 
+	// display type of a domain container in the gromox address book
+	private const DT_CONTAINER = 0x100;
+
+	/**
+	 * The provider-specific settings, unset, for a profile that names its own provider.
+	 */
+	private const PROVIDER_UNSET = [
+		'API_BASE' => '', 'API_KEY' => '', 'MODEL' => '', 'MODEL_FAST' => '', 'API_MODE' => 'auto',
+		'REASONING_EFFORT' => '', 'REASONING_EFFORT_FAST' => '', 'REASONING_MODEL' => 'auto',
+	];
+
 	private function __construct(
 		public readonly bool $enabled,
 		public readonly string $provider,
@@ -41,44 +53,149 @@ class AIConfig {
 		public readonly string $apiMode,
 		public readonly string $reasoningEffort,
 		public readonly string $fastReasoningEffort,
-		public readonly ?bool $reasoningModel
+		public readonly ?bool $reasoningModel,
+		private readonly array $profile = [],
+		private readonly string $profileError = ''
 	) {}
 
 	/**
-	 * Build the configuration from the plugin's config.php constants.
+	 * Build the configuration for the logged-on user.
 	 */
 	public static function get(): self {
-		$provider = (string) self::readConst('PLUGIN_AI_PROVIDER', 'ollama');
+		$session = $GLOBALS['mapisession'] ?? null;
+		$user = '';
+		if ($session instanceof MAPISession) {
+			$user = (string) ($session->getSMTPAddress() ?: $session->getUserName());
+		}
+
+		return self::forUser($user, static fn () => self::orgDomains($session));
+	}
+
+	/**
+	 * Build the configuration for a user; $orgDomains lists the domains of the
+	 * user's organisation and is only called when the map has org: entries.
+	 */
+	public static function forUser(string $user, callable $orgDomains): self {
+		$profileError = '';
+		$profile = self::profileFor($user, $orgDomains, $profileError);
+		$read = static fn (string $name, mixed $default): mixed => self::readSetting($profile, $name, $default);
+
+		$provider = (string) $read('PLUGIN_AI_PROVIDER', 'ollama');
 		$dialect = $provider === 'anthropic' ? self::DIALECT_ANTHROPIC : self::DIALECT_OPENAI;
 
-		$apiBase = trim((string) self::readConst('PLUGIN_AI_API_BASE', ''));
+		$apiBase = trim((string) $read('PLUGIN_AI_API_BASE', ''));
 		if ($apiBase === '') {
 			$apiBase = self::defaultBaseFor($provider);
 		}
 
-		$model = trim((string) self::readConst('PLUGIN_AI_MODEL', ''));
+		$model = trim((string) $read('PLUGIN_AI_MODEL', ''));
 		if ($model === '') {
 			$model = self::defaultModelFor($provider);
 		}
 
 		return new self(
-			enabled: (bool) self::readConst('PLUGIN_AI_ENABLE', false),
+			enabled: $profileError === '' && (bool) $read('PLUGIN_AI_ENABLE', false),
 			provider: $provider,
 			dialect: $dialect,
 			apiBase: $apiBase,
-			apiKey: trim((string) self::readConst('PLUGIN_AI_API_KEY', '')),
+			apiKey: trim((string) $read('PLUGIN_AI_API_KEY', '')),
 			model: $model,
-			fastModel: trim((string) self::readConst('PLUGIN_AI_MODEL_FAST', '')),
-			maxInputChars: max(500, (int) self::readConst('PLUGIN_AI_MAX_INPUT_CHARS', 24000)),
-			maxOutputTokens: max(64, (int) self::readConst('PLUGIN_AI_MAX_OUTPUT_TOKENS', 4096)),
-			temperature: (float) self::readConst('PLUGIN_AI_TEMPERATURE', 0.3),
-			timeout: max(5, (int) self::readConst('PLUGIN_AI_TIMEOUT', 120)),
-			streaming: (bool) self::readConst('PLUGIN_AI_STREAMING', true),
-			apiMode: strtolower(trim((string) self::readConst('PLUGIN_AI_API_MODE', 'auto'))),
-			reasoningEffort: strtolower(trim((string) self::readConst('PLUGIN_AI_REASONING_EFFORT', ''))),
-			fastReasoningEffort: strtolower(trim((string) self::readConst('PLUGIN_AI_REASONING_EFFORT_FAST', ''))),
-			reasoningModel: self::readTristate('PLUGIN_AI_REASONING_MODEL')
+			fastModel: trim((string) $read('PLUGIN_AI_MODEL_FAST', '')),
+			maxInputChars: max(500, (int) $read('PLUGIN_AI_MAX_INPUT_CHARS', 24000)),
+			maxOutputTokens: max(64, (int) $read('PLUGIN_AI_MAX_OUTPUT_TOKENS', 4096)),
+			temperature: (float) $read('PLUGIN_AI_TEMPERATURE', 0.3),
+			timeout: max(5, (int) $read('PLUGIN_AI_TIMEOUT', 120)),
+			streaming: (bool) $read('PLUGIN_AI_STREAMING', true),
+			apiMode: strtolower(trim((string) $read('PLUGIN_AI_API_MODE', 'auto'))),
+			reasoningEffort: strtolower(trim((string) $read('PLUGIN_AI_REASONING_EFFORT', ''))),
+			fastReasoningEffort: strtolower(trim((string) $read('PLUGIN_AI_REASONING_EFFORT_FAST', ''))),
+			reasoningModel: self::readTristate($read('PLUGIN_AI_REASONING_MODEL', 'auto')),
+			profile: $profile,
+			profileError: $profileError
 		);
+	}
+
+	/**
+	 * The overrides of the profile PLUGIN_AI_PROFILE_MAP assigns to the user:
+	 * by address, else by domain, else by "org:<domain>" for any domain of the
+	 * user's organisation. Keys are upper-cased setting names without the
+	 * PLUGIN_AI_ prefix.
+	 */
+	private static function profileFor(string $user, callable $orgDomains, string &$error): array {
+		$map = self::readConst('PLUGIN_AI_PROFILE_MAP', []);
+		$user = strtolower(trim($user));
+		if (!is_array($map) || $map === [] || $user === '') {
+			return [];
+		}
+		$map = array_change_key_case($map, CASE_LOWER);
+		$at = strrpos($user, '@');
+		$name = $map[$user] ?? ($at === false ? null : $map[substr($user, $at + 1)] ?? null);
+		if ($name === null) {
+			$org = null;
+			foreach ($map as $key => $value) {
+				if (!str_starts_with($key, 'org:')) {
+					continue;
+				}
+				$org ??= array_map('strtolower', $orgDomains());
+				if (in_array(substr($key, 4), $org, true)) {
+					$name = $value;
+					break;
+				}
+			}
+		}
+		if ($name === null) {
+			return [];
+		}
+		$name = (string) $name;
+		$profiles = self::readConst('PLUGIN_AI_PROFILES', []);
+		if (!is_array($profiles) || !is_array($profiles[$name] ?? null)) {
+			$error = $name;
+			error_log(sprintf('AI plugin: profile "%s" for %s is not defined in PLUGIN_AI_PROFILES', $name, $user));
+
+			return [];
+		}
+
+		$profile = array_change_key_case($profiles[$name], CASE_UPPER);
+		// another provider keeps nothing of the default provider's connection
+		if (isset($profile['PROVIDER'])) {
+			$profile += self::PROVIDER_UNSET;
+		}
+
+		return $profile;
+	}
+
+	/**
+	 * The domains of the user's organisation, which are the domain containers
+	 * of the global address book. Cached in the session.
+	 */
+	private static function orgDomains(?MAPISession $session): array {
+		if (isset($_SESSION['ai_org_domains']) && is_array($_SESSION['ai_org_domains'])) {
+			return $_SESSION['ai_org_domains'];
+		}
+		if ($session === null) {
+			return [];
+		}
+		$domains = [];
+
+		try {
+			$ab = $session->getAddressbook(true);
+			// keep the root referenced while its table is read
+			$root = mapi_ab_openentry($ab);
+			$table = mapi_folder_gethierarchytable($root, CONVENIENT_DEPTH);
+			foreach (mapi_table_queryallrows($table, [PR_DISPLAY_NAME, PR_DISPLAY_TYPE]) as $row) {
+				if (($row[PR_DISPLAY_TYPE] ?? null) === self::DT_CONTAINER && isset($row[PR_DISPLAY_NAME])) {
+					$domains[] = $row[PR_DISPLAY_NAME];
+				}
+			}
+		}
+		catch (Throwable $e) {
+			error_log('AI plugin: cannot list the organisation domains: ' . $e->getMessage());
+
+			return [];
+		}
+		$_SESSION['ai_org_domains'] = $domains;
+
+		return $domains;
 	}
 
 	/**
@@ -141,6 +258,12 @@ class AIConfig {
 	 * contains the key.
 	 */
 	public function missingReason(): string {
+		if ($this->profileError !== '') {
+			return sprintf(_('The AI profile "%s" is not defined. Check PLUGIN_AI_PROFILE_MAP and PLUGIN_AI_PROFILES in the plugin config.php.'), $this->profileError);
+		}
+		if (!$this->enabled && array_key_exists('ENABLE', $this->profile)) {
+			return _('The AI assistant is not enabled for your account.');
+		}
 		if (!$this->enabled) {
 			return _('The AI assistant is not enabled yet. Set PLUGIN_AI_ENABLE to true in the plugin config.php.');
 		}
@@ -234,11 +357,11 @@ class AIConfig {
 	 */
 	public function featureEnabled(string $feature): bool {
 		return match ($feature) {
-			'summarize' => (bool) self::readConst('PLUGIN_AI_ENABLE_SUMMARIZE', true),
-			'translate' => (bool) self::readConst('PLUGIN_AI_ENABLE_TRANSLATE', true),
-			'compose' => (bool) self::readConst('PLUGIN_AI_ENABLE_COMPOSE', true),
-			'actions', 'suggest_actions' => (bool) self::readConst('PLUGIN_AI_ENABLE_ACTIONS', true),
-			'draft_reply' => (bool) self::readConst('PLUGIN_AI_ENABLE_ACTIONS', true) && $this->actionEnabled('reply'),
+			'summarize' => (bool) $this->setting('PLUGIN_AI_ENABLE_SUMMARIZE', true),
+			'translate' => (bool) $this->setting('PLUGIN_AI_ENABLE_TRANSLATE', true),
+			'compose' => (bool) $this->setting('PLUGIN_AI_ENABLE_COMPOSE', true),
+			'actions', 'suggest_actions' => (bool) $this->setting('PLUGIN_AI_ENABLE_ACTIONS', true),
+			'draft_reply' => (bool) $this->setting('PLUGIN_AI_ENABLE_ACTIONS', true) && $this->actionEnabled('reply'),
 			default => false,
 		};
 	}
@@ -248,10 +371,10 @@ class AIConfig {
 	 */
 	public function actionEnabled(string $action): bool {
 		return match ($action) {
-			'meeting' => (bool) self::readConst('PLUGIN_AI_ACTION_MEETING', true),
-			'task' => (bool) self::readConst('PLUGIN_AI_ACTION_TASK', true),
-			'contact' => (bool) self::readConst('PLUGIN_AI_ACTION_CONTACT', true),
-			'reply' => (bool) self::readConst('PLUGIN_AI_ACTION_REPLY', true),
+			'meeting' => (bool) $this->setting('PLUGIN_AI_ACTION_MEETING', true),
+			'task' => (bool) $this->setting('PLUGIN_AI_ACTION_TASK', true),
+			'contact' => (bool) $this->setting('PLUGIN_AI_ACTION_CONTACT', true),
+			'reply' => (bool) $this->setting('PLUGIN_AI_ACTION_REPLY', true),
 			default => false,
 		};
 	}
@@ -283,10 +406,29 @@ class AIConfig {
 	}
 
 	/**
-	 * Read a constant that is true, false or 'auto' (null).
+	 * Whether the plugin is on for a user who has not chosen.
 	 */
-	private static function readTristate(string $name): ?bool {
-		$value = self::readConst($name, 'auto');
+	public function userDefaultEnabled(): bool {
+		return (bool) $this->setting('PLUGIN_AI_USER_DEFAULT_ENABLE', false);
+	}
+
+	/**
+	 * A setting of the user's profile, else its constant.
+	 */
+	private function setting(string $name, mixed $default): mixed {
+		return self::readSetting($this->profile, $name, $default);
+	}
+
+	private static function readSetting(array $profile, string $name, mixed $default): mixed {
+		$key = substr($name, strlen('PLUGIN_AI_'));
+
+		return array_key_exists($key, $profile) ? $profile[$key] : self::readConst($name, $default);
+	}
+
+	/**
+	 * Interpret a value that is true, false or 'auto' (null).
+	 */
+	private static function readTristate(mixed $value): ?bool {
 		if (is_bool($value)) {
 			return $value;
 		}

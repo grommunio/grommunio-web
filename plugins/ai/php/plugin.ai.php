@@ -49,7 +49,7 @@ class Pluginai extends Plugin {
 		// AND the per-user default opts the user in. Until then this default is
 		// false, so PluginMetaData.isEnabled() returns false and the plugin is not
 		// instantiated at all (no toolbar buttons, no settings category, no calls).
-		$userDefault = defined('PLUGIN_AI_USER_DEFAULT_ENABLE') ? (bool) PLUGIN_AI_USER_DEFAULT_ENABLE : false;
+		$userDefault = $config->userDefaultEnabled();
 
 		$defaults = [
 			'enable' => $config->enabled && $userDefault,

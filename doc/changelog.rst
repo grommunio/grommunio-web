@@ -10,6 +10,8 @@ Enhancements:
 
 * AI assistant: IONOS AI Model Hub, OpenAI Responses API and reasoning
   effort settings; presets on current models
+* AI assistant: provider, model and features can be set per user, domain
+  or organisation (PLUGIN_AI_PROFILES, PLUGIN_AI_PROFILE_MAP)
 
 Changes:
 
