@@ -35,10 +35,10 @@
 	},
 	"components": [
 		{
-			"bom-ref": "pkg:composer/paragonie/constant_time_encoding@3.1.3",
+			"bom-ref": "pkg:composer/paragonie/constant_time_encoding@3.1.5",
 			"type": "library",
 			"name": "paragonie/constant_time_encoding",
-			"version": "3.1.3",
+			"version": "3.1.5",
 			"scope": "required",
 			"licenses": [
 				{
@@ -47,7 +47,7 @@
 					}
 				}
 			],
-			"purl": "pkg:composer/paragonie/constant_time_encoding@3.1.3",
+			"purl": "pkg:composer/paragonie/constant_time_encoding@3.1.5",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -152,10 +152,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:composer/phpseclib/phpseclib@3.0.57",
+			"bom-ref": "pkg:composer/phpseclib/phpseclib@3.0.59",
 			"type": "library",
 			"name": "phpseclib/phpseclib",
-			"version": "3.0.57",
+			"version": "3.0.59",
 			"scope": "required",
 			"licenses": [
 				{
@@ -164,7 +164,7 @@
 					}
 				}
 			],
-			"purl": "pkg:composer/phpseclib/phpseclib@3.0.57",
+			"purl": "pkg:composer/phpseclib/phpseclib@3.0.59",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -542,10 +542,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:composer/symfony/polyfill-iconv@1.37.0",
+			"bom-ref": "pkg:composer/symfony/polyfill-iconv@1.43.0",
 			"type": "library",
 			"name": "symfony/polyfill-iconv",
-			"version": "1.37.0",
+			"version": "1.43.0",
 			"scope": "required",
 			"licenses": [
 				{
@@ -554,7 +554,7 @@
 					}
 				}
 			],
-			"purl": "pkg:composer/symfony/polyfill-iconv@1.37.0",
+			"purl": "pkg:composer/symfony/polyfill-iconv@1.43.0",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -11926,10 +11926,10 @@
 		{
 			"ref": "pkg:generic/grommunio-web@5.2",
 			"dependsOn": [
-				"pkg:composer/paragonie/constant_time_encoding@3.1.3",
+				"pkg:composer/paragonie/constant_time_encoding@3.1.5",
 				"pkg:composer/paragonie/random_compat@9.99.100",
 				"pkg:composer/phpfastcache/phpfastcache@9.2.4",
-				"pkg:composer/phpseclib/phpseclib@3.0.57",
+				"pkg:composer/phpseclib/phpseclib@3.0.59",
 				"pkg:composer/psr/cache@3.0.0",
 				"pkg:composer/psr/log@1.1.4",
 				"pkg:composer/psr/simple-cache@3.0.0",
@@ -11939,7 +11939,7 @@
 				"pkg:composer/sabre/uri@2.3.4",
 				"pkg:composer/sabre/vobject@4.6.1",
 				"pkg:composer/sabre/xml@2.2.11",
-				"pkg:composer/symfony/polyfill-iconv@1.37.0",
+				"pkg:composer/symfony/polyfill-iconv@1.43.0",
 				"external:gromox-php-mapi@NOASSERTION",
 				"external:mapi-header-php@2.4",
 				"pkg:npm/%40eslint/js@10.0.1",
