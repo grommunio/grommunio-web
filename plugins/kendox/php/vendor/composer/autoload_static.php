@@ -7,17 +7,18 @@ namespace Composer\Autoload;
 class ComposerStaticInit5b20f148b0225e8ccbfb5657292600ee
 {
     public static $files = array (
-        'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
+        '5897ea0ac4cccf14d323035e65887801' => __DIR__ . '/..' . '/symfony/polyfill-php82/bootstrap.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'p' =>
         array (
-            'phpseclib3\\' => 11,
+            'phpseclib4\\' => 11,
         ),
         'S' =>
         array (
+            'Symfony\\Polyfill\\Php82\\' => 23,
             'Symfony\\Polyfill\\Iconv\\' => 23,
         ),
         'P' =>
@@ -27,9 +28,13 @@ class ComposerStaticInit5b20f148b0225e8ccbfb5657292600ee
     );
 
     public static $prefixDirsPsr4 = array (
-        'phpseclib3\\' =>
+        'phpseclib4\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
+        ),
+        'Symfony\\Polyfill\\Php82\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php82',
         ),
         'Symfony\\Polyfill\\Iconv\\' =>
         array (
@@ -42,7 +47,16 @@ class ComposerStaticInit5b20f148b0225e8ccbfb5657292600ee
     );
 
     public static $classMap = array (
+        'AllowDynamicProperties' => __DIR__ . '/..' . '/symfony/polyfill-php82/Resources/stubs/AllowDynamicProperties.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Random\\BrokenRandomEngineError' => __DIR__ . '/..' . '/symfony/polyfill-php82/Resources/stubs/Random/BrokenRandomEngineError.php',
+        'Random\\CryptoSafeEngine' => __DIR__ . '/..' . '/symfony/polyfill-php82/Resources/stubs/Random/CryptoSafeEngine.php',
+        'Random\\Engine' => __DIR__ . '/..' . '/symfony/polyfill-php82/Resources/stubs/Random/Engine.php',
+        'Random\\Engine\\Secure' => __DIR__ . '/..' . '/symfony/polyfill-php82/Resources/stubs/Random/Engine/Secure.php',
+        'Random\\RandomError' => __DIR__ . '/..' . '/symfony/polyfill-php82/Resources/stubs/Random/RandomError.php',
+        'Random\\RandomException' => __DIR__ . '/..' . '/symfony/polyfill-php82/Resources/stubs/Random/RandomException.php',
+        'SensitiveParameter' => __DIR__ . '/..' . '/symfony/polyfill-php82/Resources/stubs/SensitiveParameter.php',
+        'SensitiveParameterValue' => __DIR__ . '/..' . '/symfony/polyfill-php82/Resources/stubs/SensitiveParameterValue.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

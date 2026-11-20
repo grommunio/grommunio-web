@@ -6,7 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'phpseclib3\\' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
+    'phpseclib4\\' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
+    'Symfony\\Polyfill\\Php82\\' => array($vendorDir . '/symfony/polyfill-php82'),
     'Symfony\\Polyfill\\Iconv\\' => array($vendorDir . '/symfony/polyfill-iconv'),
     'ParagonIE\\ConstantTime\\' => array($vendorDir . '/paragonie/constant_time_encoding/src'),
 );

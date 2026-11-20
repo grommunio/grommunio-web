@@ -74,45 +74,6 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:composer/paragonie/random_compat@9.99.100",
-			"type": "library",
-			"name": "paragonie/random_compat",
-			"version": "9.99.100",
-			"scope": "required",
-			"licenses": [
-				{
-					"license": {
-						"id": "MIT"
-					}
-				}
-			],
-			"purl": "pkg:composer/paragonie/random_compat@9.99.100",
-			"properties": [
-				{
-					"name": "grommunio:dependencyScope",
-					"value": "runtime"
-				},
-				{
-					"name": "grommunio:ecosystem",
-					"value": "composer"
-				},
-				{
-					"name": "grommunio:direct",
-					"value": "true"
-				},
-				{
-					"name": "grommunio:path",
-					"value": "plugins/kendox/php/vendor/paragonie/random_compat"
-				}
-			],
-			"externalReferences": [
-				{
-					"type": "website",
-					"url": "https://github.com/paragonie/random_compat.git"
-				}
-			]
-		},
-		{
 			"bom-ref": "pkg:composer/phpfastcache/phpfastcache@9.2.4",
 			"type": "library",
 			"name": "phpfastcache/phpfastcache",
@@ -152,10 +113,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:composer/phpseclib/phpseclib@3.0.59",
+			"bom-ref": "pkg:composer/phpseclib/phpseclib@4.0.4",
 			"type": "library",
 			"name": "phpseclib/phpseclib",
-			"version": "3.0.59",
+			"version": "4.0.4",
 			"scope": "required",
 			"licenses": [
 				{
@@ -164,7 +125,7 @@
 					}
 				}
 			],
-			"purl": "pkg:composer/phpseclib/phpseclib@3.0.59",
+			"purl": "pkg:composer/phpseclib/phpseclib@4.0.4",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -186,7 +147,7 @@
 			"externalReferences": [
 				{
 					"type": "website",
-					"url": "http://phpseclib.sourceforge.net"
+					"url": "https://phpseclib.com/"
 				}
 			]
 		},
@@ -571,6 +532,45 @@
 				{
 					"name": "grommunio:path",
 					"value": "plugins/kendox/php/vendor/symfony/polyfill-iconv"
+				}
+			],
+			"externalReferences": [
+				{
+					"type": "website",
+					"url": "https://symfony.com"
+				}
+			]
+		},
+		{
+			"bom-ref": "pkg:composer/symfony/polyfill-php82@1.43.0",
+			"type": "library",
+			"name": "symfony/polyfill-php82",
+			"version": "1.43.0",
+			"scope": "required",
+			"licenses": [
+				{
+					"license": {
+						"id": "MIT"
+					}
+				}
+			],
+			"purl": "pkg:composer/symfony/polyfill-php82@1.43.0",
+			"properties": [
+				{
+					"name": "grommunio:dependencyScope",
+					"value": "runtime"
+				},
+				{
+					"name": "grommunio:ecosystem",
+					"value": "composer"
+				},
+				{
+					"name": "grommunio:direct",
+					"value": "true"
+				},
+				{
+					"name": "grommunio:path",
+					"value": "plugins/kendox/php/vendor/symfony/polyfill-php82"
 				}
 			],
 			"externalReferences": [
@@ -11808,9 +11808,8 @@
 			"ref": "pkg:generic/grommunio-web@5.2",
 			"dependsOn": [
 				"pkg:composer/paragonie/constant_time_encoding@3.1.5",
-				"pkg:composer/paragonie/random_compat@9.99.100",
 				"pkg:composer/phpfastcache/phpfastcache@9.2.4",
-				"pkg:composer/phpseclib/phpseclib@3.0.59",
+				"pkg:composer/phpseclib/phpseclib@4.0.4",
 				"pkg:composer/psr/cache@3.0.0",
 				"pkg:composer/psr/log@1.1.4",
 				"pkg:composer/psr/simple-cache@3.0.0",
@@ -11821,6 +11820,7 @@
 				"pkg:composer/sabre/vobject@4.6.1",
 				"pkg:composer/sabre/xml@2.2.11",
 				"pkg:composer/symfony/polyfill-iconv@1.43.0",
+				"pkg:composer/symfony/polyfill-php82@1.43.0",
 				"external:gromox-php-mapi@NOASSERTION",
 				"external:mapi-header-php@2.4",
 				"pkg:npm/%40eslint/js@10.0.1",

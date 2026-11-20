@@ -3,7 +3,7 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.2",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-e9e64a17764e68c9",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-b80474e276410756",
 	"creationInfo": {
 		"created": "2026-11-20T10:43:13Z",
 		"creators": [
@@ -40,23 +40,6 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-composer-paragonie-random-compat-9.99.100",
-			"name": "paragonie/random_compat",
-			"versionInfo": "9.99.100",
-			"downloadLocation": "https://github.com/paragonie/random_compat.git",
-			"filesAnalyzed": false,
-			"licenseConcluded": "MIT",
-			"licenseDeclared": "MIT",
-			"copyrightText": "NOASSERTION",
-			"externalRefs": [
-				{
-					"referenceCategory": "PACKAGE-MANAGER",
-					"referenceType": "purl",
-					"referenceLocator": "pkg:composer/paragonie/random_compat@9.99.100"
-				}
-			]
-		},
-		{
 			"SPDXID": "SPDXRef-composer-phpfastcache-phpfastcache-9.2.4",
 			"name": "phpfastcache/phpfastcache",
 			"versionInfo": "9.2.4",
@@ -74,10 +57,10 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-composer-phpseclib-phpseclib-3.0.59",
+			"SPDXID": "SPDXRef-composer-phpseclib-phpseclib-4.0.4",
 			"name": "phpseclib/phpseclib",
-			"versionInfo": "3.0.59",
-			"downloadLocation": "http://phpseclib.sourceforge.net",
+			"versionInfo": "4.0.4",
+			"downloadLocation": "https://phpseclib.com/",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
 			"licenseDeclared": "MIT",
@@ -86,7 +69,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:composer/phpseclib/phpseclib@3.0.59"
+					"referenceLocator": "pkg:composer/phpseclib/phpseclib@4.0.4"
 				}
 			]
 		},
@@ -257,6 +240,23 @@
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
 					"referenceLocator": "pkg:composer/symfony/polyfill-iconv@1.43.0"
+				}
+			]
+		},
+		{
+			"SPDXID": "SPDXRef-composer-symfony-polyfill-php82-1.43.0",
+			"name": "symfony/polyfill-php82",
+			"versionInfo": "1.43.0",
+			"downloadLocation": "https://symfony.com",
+			"filesAnalyzed": false,
+			"licenseConcluded": "MIT",
+			"licenseDeclared": "MIT",
+			"copyrightText": "NOASSERTION",
+			"externalRefs": [
+				{
+					"referenceCategory": "PACKAGE-MANAGER",
+					"referenceType": "purl",
+					"referenceLocator": "pkg:composer/symfony/polyfill-php82@1.43.0"
 				}
 			]
 		},
@@ -5972,17 +5972,12 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-composer-paragonie-random-compat-9.99.100",
-			"relationshipType": "RUNTIME_DEPENDENCY_OF",
-			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
-		},
-		{
 			"spdxElementId": "SPDXRef-composer-phpfastcache-phpfastcache-9.2.4",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-composer-phpseclib-phpseclib-3.0.59",
+			"spdxElementId": "SPDXRef-composer-phpseclib-phpseclib-4.0.4",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
@@ -6033,6 +6028,11 @@
 		},
 		{
 			"spdxElementId": "SPDXRef-composer-symfony-polyfill-iconv-1.43.0",
+			"relationshipType": "RUNTIME_DEPENDENCY_OF",
+			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
+		},
+		{
+			"spdxElementId": "SPDXRef-composer-symfony-polyfill-php82-1.43.0",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},

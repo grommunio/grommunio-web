@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "098d50b864c60cda4c79f68b64b641d6",
+    "content-hash": "e066bcaaf0f0f424ead5ce0bc362017d",
     "packages": [
         {
             "name": "paragonie/constant_time_encoding",
@@ -76,91 +76,42 @@
             "time": "2026-11-18T13:55:22+00:00"
         },
         {
-            "name": "paragonie/random_compat",
-            "version": "v9.99.100",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/996434e5492cb4c3edcb9168db6fbb1359ef965a",
-                "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">= 7"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*|5.*",
-                "vimeo/psalm": "^1"
-            },
-            "suggest": {
-                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Paragon Initiative Enterprises",
-                    "email": "security@paragonie.com",
-                    "homepage": "https://paragonie.com"
-                }
-            ],
-            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
-            "keywords": [
-                "csprng",
-                "polyfill",
-                "pseudorandom",
-                "random"
-            ],
-            "support": {
-                "email": "info@paragonie.com",
-                "issues": "https://github.com/paragonie/random_compat/issues",
-                "source": "https://github.com/paragonie/random_compat"
-            },
-            "time": "2020-10-15T08:29:30+00:00"
-        },
-        {
             "name": "phpseclib/phpseclib",
-            "version": "3.0.59",
+            "version": "4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "527959f6f26591d532c07cf1c426585ef7279fa9"
+                "reference": "44303c95a83b6071229cdea56cdcd52712730476"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/527959f6f26591d532c07cf1c426585ef7279fa9",
-                "reference": "527959f6f26591d532c07cf1c426585ef7279fa9",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/44303c95a83b6071229cdea56cdcd52712730476",
+                "reference": "44303c95a83b6071229cdea56cdcd52712730476",
                 "shasum": ""
             },
             "require": {
-                "paragonie/constant_time_encoding": "^1|^2|^3",
-                "paragonie/random_compat": "^1.4|^2.0|^9.99.99",
-                "php": ">=5.6.1"
+                "paragonie/constant_time_encoding": "^2|^3",
+                "php": ">=8.1",
+                "symfony/polyfill-php82": "^1.26"
             },
             "require-dev": {
-                "phpunit/phpunit": "*"
+                "brianium/paratest": "7.27.5",
+                "ext-xml": "*",
+                "php-parallel-lint/php-parallel-lint": "1.4.0",
+                "phpunit/phpunit": "13.4.6",
+                "squizlabs/php_codesniffer": "4.0.4",
+                "vimeo/psalm": "7.6.0"
             },
             "suggest": {
                 "ext-dom": "Install the DOM extension to load XML formatted public keys.",
                 "ext-gmp": "Install the GMP (GNU Multiple Precision) extension in order to speed up arbitrary precision integer arithmetic operations.",
                 "ext-libsodium": "SSH2/SFTP can make use of some algorithms provided by the libsodium-php extension.",
-                "ext-mcrypt": "Install the Mcrypt extension in order to speed up a few other cryptographic operations.",
                 "ext-openssl": "Install the OpenSSL extension in order to speed up a wide variety of cryptographic operations."
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "phpseclib/bootstrap.php"
-                ],
                 "psr-4": {
-                    "phpseclib3\\": "phpseclib/"
+                    "phpseclib4\\": "phpseclib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -192,10 +143,15 @@
                     "name": "Graham Campbell",
                     "email": "graham@alt-three.com",
                     "role": "Developer"
+                },
+                {
+                    "name": "Jack Worman",
+                    "email": "jack.worman@proton.me",
+                    "role": "Developer"
                 }
             ],
             "description": "PHP Secure Communications Library - Pure-PHP implementations of RSA, AES, SSH2, SFTP, X.509 etc.",
-            "homepage": "http://phpseclib.sourceforge.net",
+            "homepage": "https://phpseclib.com/",
             "keywords": [
                 "BigInteger",
                 "aes",
@@ -217,7 +173,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.59"
+                "source": "https://github.com/phpseclib/phpseclib/tree/4.0.4"
             },
             "funding": [
                 {
@@ -233,7 +189,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-11-20T07:39:42+00:00"
+            "time": "2026-11-20T07:41:04+00:00"
         },
         {
             "name": "symfony/polyfill-iconv",
@@ -318,6 +274,86 @@
                 }
             ],
             "time": "2026-09-29T06:25:14+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php82",
+            "version": "v1.43.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php82.git",
+                "reference": "843bbe8b2a7934307b749751eede0f111f5d1cfc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php82/zipball/843bbe8b2a7934307b749751eede0f111f5d1cfc",
+                "reference": "843bbe8b2a7934307b749751eede0f111f5d1cfc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php82\\": ""
+                },
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.2+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php82/tree/v1.43.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-09-25T15:50:05+00:00"
         }
     ],
     "packages-dev": [],
