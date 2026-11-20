@@ -10394,10 +10394,10 @@
 			]
 		},
 		{
-			"bom-ref": "vendored:fira-mono@3.201",
+			"bom-ref": "vendored:fira-mono@3.206",
 			"type": "library",
 			"name": "fira-mono",
-			"version": "3.201",
+			"version": "3.206",
 			"scope": "required",
 			"licenses": [
 				{
@@ -11874,7 +11874,7 @@
 				"vendored:ext-ux-form-tinymcetextarea@4.0.1",
 				"vendored:ext-ux-printer@NOASSERTION",
 				"pkg:generic/extjs@3.4.1.1",
-				"vendored:fira-mono@3.201",
+				"vendored:fira-mono@3.206",
 				"vendored:fluentui-system-icons@1.1.159",
 				"vendored:foxit-standard-pdf-fonts@6.5.438",
 				"pkg:npm/jszip@3.10.2",

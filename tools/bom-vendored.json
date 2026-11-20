@@ -449,7 +449,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "fira-mono",
-			"version": "3.201",
+			"version": "3.206",
 			"license": "OFL-1.1",
 			"scope": "runtime",
 			"paths": [

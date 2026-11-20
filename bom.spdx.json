@@ -3,9 +3,9 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.2",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-fd025c03e2981222",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-55d7f1d3dc8876e5",
 	"creationInfo": {
-		"created": "2026-11-20T11:08:20Z",
+		"created": "2026-11-20T11:08:21Z",
 		"creators": [
 			"Tool: tools/build-bom.mjs",
 			"Organization: grommunio GmbH"
@@ -5637,9 +5637,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-vendored-fira-mono-3.201",
+			"SPDXID": "SPDXRef-vendored-fira-mono-3.206",
 			"name": "fira-mono",
-			"versionInfo": "3.201",
+			"versionInfo": "3.206",
 			"downloadLocation": "https://github.com/mozilla/Fira",
 			"filesAnalyzed": false,
 			"licenseConcluded": "OFL-1.1",
@@ -7682,7 +7682,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-vendored-fira-mono-3.201",
+			"spdxElementId": "SPDXRef-vendored-fira-mono-3.206",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
