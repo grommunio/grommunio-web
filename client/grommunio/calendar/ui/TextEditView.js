@@ -114,6 +114,15 @@ Grommunio.calendar.ui.TextEditView = Ext.extend(Grommunio.core.ui.View, {
 		this.mon(this.header, 'blur', this.onBlur, this);
 		this.mon(this.header, 'keyup', this.onKeyUp, this);
 
+		// Keys typed here are text editing. Keep them from the calendar's shortcuts,
+		// which would take Ctrl+V, Ctrl+A or Delete for the selected appointments.
+		Ext.each([this.body, this.header], function(el) {
+			el.addClass('grommunio-contextmenu-enabled');
+			this.mon(el, 'keydown', function(event) {
+				event.stopPropagation();
+			});
+		}, this);
+
 		Grommunio.calendar.ui.TextEditView.superclass.render.call(this, container);
 
 		this.hide();
