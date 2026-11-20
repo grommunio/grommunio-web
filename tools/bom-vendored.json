@@ -483,7 +483,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "fluentui-system-icons",
-			"version": "1.1.159",
+			"version": "1.1.347",
 			"license": "MIT",
 			"scope": "runtime",
 			"paths": [

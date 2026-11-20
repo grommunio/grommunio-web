@@ -3,7 +3,7 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.2",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-55d7f1d3dc8876e5",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-994d6fe27b3c16a5",
 	"creationInfo": {
 		"created": "2026-11-20T11:08:21Z",
 		"creators": [
@@ -5647,9 +5647,9 @@
 			"copyrightText": "Copyright (c) The Mozilla Foundation and Telefonica S.A."
 		},
 		{
-			"SPDXID": "SPDXRef-vendored-fluentui-system-icons-1.1.159",
+			"SPDXID": "SPDXRef-vendored-fluentui-system-icons-1.1.347",
 			"name": "fluentui-system-icons",
-			"versionInfo": "1.1.159",
+			"versionInfo": "1.1.347",
 			"downloadLocation": "https://github.com/microsoft/fluentui-system-icons",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT",
@@ -7687,7 +7687,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-vendored-fluentui-system-icons-1.1.159",
+			"spdxElementId": "SPDXRef-vendored-fluentui-system-icons-1.1.347",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},

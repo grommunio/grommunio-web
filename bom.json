@@ -10433,10 +10433,10 @@
 			]
 		},
 		{
-			"bom-ref": "vendored:fluentui-system-icons@1.1.159",
+			"bom-ref": "vendored:fluentui-system-icons@1.1.347",
 			"type": "library",
 			"name": "fluentui-system-icons",
-			"version": "1.1.159",
+			"version": "1.1.347",
 			"scope": "required",
 			"licenses": [
 				{
@@ -11875,7 +11875,7 @@
 				"vendored:ext-ux-printer@NOASSERTION",
 				"pkg:generic/extjs@3.4.1.1",
 				"vendored:fira-mono@3.206",
-				"vendored:fluentui-system-icons@1.1.159",
+				"vendored:fluentui-system-icons@1.1.347",
 				"vendored:foxit-standard-pdf-fonts@6.5.438",
 				"pkg:npm/jszip@3.10.2",
 				"pkg:npm/leaflet-geosearch@5.3.0",
