@@ -213,6 +213,18 @@ async function main() {
 	check(byCid['logo@qa'] && byCid['logo@qa'].get('hidden') === true && byCid['report@qa'] && byCid['report@qa'].get('hidden') === false, 'Only a body-referenced Content-ID makes a decrypted file inline');
 	check(purifiers.length === 1 && purifiers[0].calls > 0 && purifiers[0].config.FORBID_TAGS.includes('form') && purifiers[0].config.FORBID_TAGS.includes('iframe') && purifiers[0].config.ADD_TAGS.length === 0 && purifiers[0].config.FORBID_ATTR.includes('srcset'), 'Decrypted HTML uses a dedicated sanitizer built on the application policy without SVG or forms');
 	check(cidRecord.data.html_body.includes('<img src="cid:logo@qa">'), 'Remote-content blocking is left to the renderer so pictures can be shown on request');
+	// eM Client encrypts a whole message, envelope headers included
+	const emSource = BrowserCrypto.utf8('From: Jörg Spoof <ceo@example.test>\r\nTo: qa@example.test\r\nSubject: Inner subject\r\nDate: Fri, 20 Nov 2026 14:07:54 +0000\r\n' +
+		'Message-Id: <em1@example.test>\r\nContent-Type: multipart/mixed;\r\n boundary="------=_MB1"\r\n\r\n--------=_MB1\r\nContent-Type: multipart/alternative;\r\n boundary="------=_MB2"\r\n\r\n' +
+		'--------=_MB2\r\nContent-Type: text/plain; charset=utf-8; format=flowed\r\nContent-Transfer-Encoding: quoted-printable\r\n\r\nem body text\r\n' +
+		'--------=_MB2\r\nContent-Type: text/html; charset=utf-8\r\n\r\n<p>em body html</p>\r\n--------=_MB2--\r\n\r\n' +
+		'--------=_MB1\r\nContent-Type: application/pgp-keys; name="qa@example.test.asc"\r\nContent-Disposition: attachment; filename="qa@example.test.asc"\r\n\r\nkey\r\n--------=_MB1--\r\n');
+	const emRecord = readRecord(Mime.encrypted(await crypto.encrypt(emSource, [own.public_key])), true, false);
+	const emBefore = JSON.stringify(Object.keys(emRecord.data).sort());
+	await transport.open(emRecord);
+	check(emRecord.data.pgp.decrypted && !emRecord.data.pgp.error && emRecord.data.body.trim() === 'em body text' && emRecord.data.html_body.includes('em body html'), 'eM Client message entity decrypts to its text and HTML body');
+	check(emRecord.attachments.records.length === 1 && emRecord.attachments.records[0].get('name') === 'qa@example.test.asc', 'eM Client message entity keeps its attached key');
+	check(JSON.stringify(Object.keys(emRecord.data).filter(key => !JSON.parse(emBefore).includes(key)).sort()) === '["hasattach","isHTML"]', 'Headers inside the encrypted message never replace the outer envelope');
 	const publicFetches = () => calls.filter(call => call.operation === 'public').length;
 	check(publicFetches() === 1, 'Verification bundle is fetched once per keyring state');
 	transport.keysChanged();

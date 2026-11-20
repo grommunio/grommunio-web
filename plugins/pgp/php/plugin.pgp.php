@@ -467,6 +467,33 @@ class Pluginpgp extends Plugin {
 		return $this->readStream(mapi_openproperty($attachment, PR_ATTACH_DATA_BIN, IID_IStream, 0, 0), $limit);
 	}
 
+	/**
+	 * eM Client sends over Exchange Web Services a plain mail whose only part is
+	 * the encrypted message as "encrypted.eml.pgp". Anything that does not fit
+	 * exactly stays an ordinary attachment.
+	 */
+	private function attachedCiphertext($message): ?string {
+		try {
+			$table = mapi_message_getattachmenttable($message);
+			$rows = $table ? mapi_table_queryallrows($table, [PR_ATTACH_NUM, PR_ATTACH_METHOD, PR_ATTACH_LONG_FILENAME, PR_ATTACH_MIME_TAG]) : false;
+			if (!is_array($rows) || count($rows) !== 1 || ($rows[0][PR_ATTACH_METHOD] ?? null) !== ATTACH_BY_VALUE ||
+				strcasecmp($rows[0][PR_ATTACH_LONG_FILENAME] ?? '', 'encrypted.eml.pgp') !== 0 ||
+				strcasecmp($rows[0][PR_ATTACH_MIME_TAG] ?? '', 'application/octet-stream') !== 0) {
+				return null;
+			}
+			if (!preg_match('/\A\s*-----BEGIN PGP MESSAGE-----\r?\n/', $this->attachmentData($message, $rows[0][PR_ATTACH_NUM], 64))) {
+				return null;
+			}
+			$ciphertext = $this->attachmentData($message, $rows[0][PR_ATTACH_NUM]);
+			// Leave room for the envelope around it, which must stay within the limit too
+			return strlen($ciphertext) <= PLUGIN_PGP_MAX_MESSAGE_BYTES - 1024 ? $ciphertext : null;
+		}
+		catch (Throwable $error) {
+			// Oversized or unreadable: it stays a file the user can download
+			return null;
+		}
+	}
+
 	private function messageId($message): string {
 		return is_object($message) ? 'o' . spl_object_id($message) : 'r' . (int) $message;
 	}
@@ -539,6 +566,11 @@ class Pluginpgp extends Plugin {
 					$kind = $match[1] === 'MESSAGE' ? 'encrypted' : 'signed';
 					$mime = $body;
 					$inline = true;
+				}
+				elseif (!$kind && trim($body) === '' && strcasecmp($class, 'IPM.Note') === 0 &&
+					($ciphertext = $this->attachedCiphertext($message)) !== null) {
+					$kind = 'encrypted';
+					$mime = PgpMime::encrypted($ciphertext);
 				}
 			}
 			if ($mime !== null && strlen($mime) > PLUGIN_PGP_MAX_MESSAGE_BYTES) {
