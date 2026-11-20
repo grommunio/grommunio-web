@@ -1375,7 +1375,8 @@ class HierarchyModule extends Module {
 			$entryids[] = $row[PR_ENTRYID];
 		}
 
-		mapi_folder_deletemessages($folder, $entryids, DELETE_HARD_DELETE);
+		// soft, like the unbatched emptyFolder(), so the items stay recoverable
+		mapi_folder_deletemessages($folder, $entryids, 0);
 
 		$remaining = $totalCount - $deletedCount;
 		$done = $remaining <= 0;
