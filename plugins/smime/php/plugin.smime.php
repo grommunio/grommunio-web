@@ -780,6 +780,16 @@ class Pluginsmime extends Plugin {
 			PR_SENT_REPRESENTING_SMTP_ADDRESS,
 			PR_REPLY_RECIPIENT_ENTRIES,
 			PR_SUBJECT,
+			// Protected content carries no envelope headers, like Outlook's
+			PR_CLIENT_SUBMIT_TIME,
+			PR_INTERNET_MESSAGE_ID,
+			PR_IN_REPLY_TO_ID,
+			PR_INTERNET_REFERENCES,
+			PR_IMPORTANCE,
+			PR_SENSITIVITY,
+			PR_READ_RECEIPT_REQUESTED,
+			PR_CONVERSATION_TOPIC,
+			PR_CONVERSATION_INDEX,
 		];
 	}
 
@@ -1125,6 +1135,11 @@ class Pluginsmime extends Plugin {
 			$messageClass === 'IPM.Note.SMIME.SignedEncrypt' ||
 			$messageClass === 'IPM.Note.SMIME.MultipartSigned') &&
 			!$encryptionStore->get('smime')) {
+			// A message composed for signing must not leave unsigned
+			if (class_match_prefix($messageClass, 'IPM.Note.deferSMIME')) {
+				$this->failSend($message, $messageClass, [], '[smime] No unlocked certificate to sign the message');
+			}
+
 			return;
 		}
 		// Temporarily set IPM.Note so mapi_inetmapi_imtoinet produces
@@ -1145,27 +1160,22 @@ class Pluginsmime extends Plugin {
 
 		$fhandle = fopen($tmpSendEmail, 'w');
 		if ($fhandle === false) {
-			mapi_setprops($message, [PR_MESSAGE_CLASS => $origMessageClass]);
-			mapi_savechanges($message);
-			$this->cleanupTempFiles([$tmpSendEmail, $tmpSendSmimeEmail]);
-			Log::Write(LOGLEVEL_ERROR, '[smime] Unable to open temporary message file');
-
-			return;
+			$this->failSend($message, $origMessageClass, [$tmpSendEmail, $tmpSendSmimeEmail], '[smime] Unable to open temporary message file');
 		}
 		for ($i = 0; $i < $stat["cb"]; $i += BLOCK_SIZE) {
 			// Write stream
 			$buffer = mapi_stream_read($emlMessageStream, BLOCK_SIZE);
-			if ($buffer === false || fwrite($fhandle, $buffer, strlen($buffer)) === false) {
+			if ($buffer === false || fwrite($fhandle, $buffer, strlen($buffer)) !== strlen($buffer)) {
 				fclose($fhandle);
-				mapi_setprops($message, [PR_MESSAGE_CLASS => $origMessageClass]);
-				mapi_savechanges($message);
-				$this->cleanupTempFiles([$tmpSendEmail, $tmpSendSmimeEmail]);
-				Log::Write(LOGLEVEL_ERROR, '[smime] Unable to save the message stream');
-
-				return;
+				$this->failSend($message, $origMessageClass, [$tmpSendEmail, $tmpSendSmimeEmail], '[smime] Unable to save the message stream');
 			}
 		}
 		fclose($fhandle);
+
+		// Protect the MIME entity only, see smimeMimeEntityFile()
+		if (!smimeMimeEntityFile($tmpSendEmail)) {
+			$this->failSend($message, $origMessageClass, [$tmpSendEmail, $tmpSendSmimeEmail], '[smime] Unable to extract the MIME entity of the message');
+		}
 
 		// Remove all attachments, since they are stored in the attached signed message
 		$atable = mapi_message_getattachmenttable($message);
@@ -1212,11 +1222,7 @@ class Pluginsmime extends Plugin {
 		}
 
 		if ($ok === false) {
-			mapi_setprops($message, [PR_MESSAGE_CLASS => $origMessageClass]);
-			mapi_savechanges($message);
-			$this->cleanupTempFiles(array_merge([$tmpSendEmail, $tmpSendSmimeEmail], $tmpExtra));
-
-			return;
+			$this->failSend($message, $origMessageClass, array_merge([$tmpSendEmail, $tmpSendSmimeEmail], $tmpExtra), '[smime] Unable to sign or encrypt the message');
 		}
 
 		// Save the signed message as attachment of the send email
@@ -1234,6 +1240,29 @@ class Pluginsmime extends Plugin {
 
 		mapi_savechanges($signedAttach);
 		mapi_savechanges($message);
+	}
+
+	/**
+	 * Stop the submission. Anything else would send the message without the
+	 * protection the user chose; the draft stays, only the outbox copy goes.
+	 *
+	 * @param object $message          outgoing MAPI message
+	 * @param string $origMessageClass message class to restore
+	 * @param array  $files            temporary files to remove
+	 * @param string $log              reason for the log
+	 *
+	 * @throws MAPIException always
+	 */
+	private function failSend($message, $origMessageClass, $files, $log) {
+		mapi_setprops($message, [PR_MESSAGE_CLASS => $origMessageClass]);
+		mapi_savechanges($message);
+		$this->cleanupTempFiles($files);
+		Log::Write(LOGLEVEL_ERROR, $log);
+		$error = new MAPIException($log, MAPI_E_CALL_FAILED);
+		$error->setTitle(_('S/MIME'));
+		$error->setDisplayMessage(_('The message could not be signed or encrypted with S/MIME and was not sent.'));
+
+		throw $error;
 	}
 
 	/**
@@ -1272,6 +1301,10 @@ class Pluginsmime extends Plugin {
 				$opensslError = @openssl_error_string();
 				Log::Write(LOGLEVEL_ERROR, sprintf("[smime] Unable to sign message, openssl error: '%s'", $opensslError === false ? 'unknown error' : $opensslError));
 			}
+		}
+		if ($ok && !smimeCrlfFile($outfile)) {
+			Log::Write(LOGLEVEL_ERROR, '[smime] Unable to store the signed message');
+			$ok = false;
 		}
 
 		return $ok;

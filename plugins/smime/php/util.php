@@ -1273,3 +1273,83 @@ function withPHPSession($func, $sessionOpened = false) {
 		session_write_close();
 	}
 }
+
+/**
+ * Reduce an RFC 822 message file to the MIME entity that S/MIME signs or
+ * encrypts: its Content-* headers and the unchanged body. Outlook protects the
+ * same entity. The envelope headers stay outside, because inside the protected
+ * part every recipient would see them, Bcc included.
+ *
+ * @param string $path message as exported by mapi_inetmapi_imtoinet(), rewritten in place
+ *
+ * @return bool false when the file has no header/body separator or cannot be rewritten
+ */
+function smimeMimeEntityFile(string $path): bool {
+	$entity = $path . '.entity';
+	$in = fopen($path, 'rb');
+	$out = fopen($entity, 'wb');
+	$content = [];
+	$keep = false;
+	$separated = false;
+	while ($in && $out && ($line = fgets($in)) !== false) {
+		if ($line === "\r\n" || $line === "\n") {
+			$separated = true;
+			break;
+		}
+		$line = rtrim($line, "\r\n");
+		if ($line !== '' && ($line[0] === ' ' || $line[0] === "\t")) {
+			if ($keep) {
+				$content[count($content) - 1] .= "\r\n" . $line;
+			}
+			continue;
+		}
+		$keep = preg_match('/^Content-[A-Za-z-]+:/i', $line) === 1;
+		if ($keep) {
+			$content[] = $line;
+		}
+	}
+	$ok = false;
+	if ($separated) {
+		$headers = implode("\r\n", $content ?: ['Content-Type: text/plain; charset=utf-8']) . "\r\n\r\n";
+		$remaining = filesize($path) - ftell($in);
+		$ok = fwrite($out, $headers) === strlen($headers) && stream_copy_to_stream($in, $out) === $remaining;
+	}
+	$in && fclose($in);
+	$ok = $out && fclose($out) && $ok && rename($entity, $path);
+	if (!$ok && file_exists($entity)) {
+		unlink($entity);
+	}
+
+	return $ok;
+}
+
+/**
+ * OpenSSL writes the S/MIME envelope with bare LF line ends around content
+ * that has CRLF. Mail is CRLF on the wire, and gromox finds the header end of
+ * the stored envelope by its CRLF blank line. The signature is unaffected: it
+ * covers the content in canonical CRLF form.
+ *
+ * @param string $path S/MIME output of OpenSSL, rewritten in place
+ *
+ * @return bool false when the file cannot be rewritten
+ */
+function smimeCrlfFile(string $path): bool {
+	$converted = $path . '.crlf';
+	$in = fopen($path, 'rb');
+	$out = fopen($converted, 'wb');
+	$ok = $in && $out;
+	while ($ok && ($line = fgets($in)) !== false) {
+		if (str_ends_with($line, "\n") && !str_ends_with($line, "\r\n")) {
+			$line = substr($line, 0, -1) . "\r\n";
+		}
+		$ok = fwrite($out, $line) === strlen($line);
+	}
+	$ok = $ok && feof($in);
+	$in && fclose($in);
+	$ok = $out && fclose($out) && $ok && rename($converted, $path);
+	if (!$ok && file_exists($converted)) {
+		unlink($converted);
+	}
+
+	return $ok;
+}
