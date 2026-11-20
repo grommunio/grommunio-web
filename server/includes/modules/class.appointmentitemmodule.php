@@ -65,7 +65,7 @@ class AppointmentItemModule extends ItemModule {
 				$message = $GLOBALS['operations']->openMessage($store, $entryid, $attachNum);
 
 				if (empty($message)) {
-					return;
+					throw new GrommunioException('attachment ' . implode('.', (array) $attachNum) . ' holds no message', 0, null, _("Could not open the attachment."));
 				}
 
 				$data['item'] = $GLOBALS['operations']->getEmbeddedMessageProps($store, $message, $this->properties, $parentMessage, $attachNum);
@@ -242,6 +242,50 @@ class AppointmentItemModule extends ItemModule {
 	}
 
 	/**
+	 * Files an invitation opened from a calendar file: the item is created from
+	 * the file itself, so organizer, attendees, meeting id and exceptions stay as
+	 * sent, and only what the user changed in the dialog is left in $action.
+	 *
+	 * @param resource $store         store of the target calendar
+	 * @param string   $parententryid entryid of the target calendar
+	 * @param array    $action        the save action, reduced to the user's changes
+	 *
+	 * @return string entryid of the new appointment
+	 */
+	private function importInvitation($store, $parententryid, &$action) {
+		$src = $action['message_action']['source_ics'];
+		unset($action['message_action']['source_ics']);
+
+		$attachNum = array_values((array) $src['attach_num']);
+		$last = array_pop($attachNum);
+		$event = false;
+		$srcStore = $GLOBALS['mapisession']->openMessageStore(hex2bin((string) $src['store_entryid']));
+		$parent = $srcStore ? $GLOBALS['operations']->openMessage($srcStore, hex2bin((string) $src['entryid']), $attachNum ?: false) : false;
+		if ($parent) {
+			$ics = readMapiPropStream(mapi_message_openattach($parent, $last), PR_ATTACH_DATA_BIN);
+			$event = convertIcsToMessage($ics, mapi_msgstore_openentry($store, $parententryid));
+		}
+		if (!$event) {
+			throw new GrommunioException('attachment ' . implode('.', (array) $src['attach_num']) . ' holds no event', 0, null, _("Could not open the attachment."));
+		}
+		mapi_savechanges($event);
+
+		$imported = $GLOBALS['operations']->getMessageProps($store, $event, $this->properties, true, true)['props'] ?? [];
+		// A new record sends every field, so a field the file does not have
+		// only counts as changed when it carries a value.
+		foreach ($action['props'] as $key => $value) {
+			$unchanged = array_key_exists($key, $imported) ? $imported[$key] == $value : in_array($value, [null, '', false, []], true);
+			if ($unchanged || preg_match('/^(sender_|sent_representing_|recurr|timezone|tzdef)/', (string) $key)) {
+				unset($action['props'][$key]);
+			}
+		}
+		// the dialog shows the file's attendees and cannot change them
+		unset($action['recipients']);
+
+		return mapi_getprops($event, [PR_ENTRYID])[PR_ENTRYID];
+	}
+
+	/**
 	 * Save the give appointment or meeting request to the calendar.
 	 *
 	 * @param resource  $store         MAPI store of the message
@@ -272,6 +316,10 @@ class AppointmentItemModule extends ItemModule {
 
 				return true;
 			}
+		}
+
+		if (!$entryid && !empty($action['message_action']['source_ics'])) {
+			$entryid = $this->importInvitation($store, $parententryid, $action);
 		}
 
 		// Save appointment (saveAppointment takes care of creating/modifying exceptions to recurring

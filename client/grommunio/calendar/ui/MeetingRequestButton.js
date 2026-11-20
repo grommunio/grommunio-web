@@ -112,8 +112,9 @@ Grommunio.calendar.ui.MeetingRequestButton = Ext.extend(Ext.Button, {
 		// Check whether message was sent to himself
 		var senderIsStoreOwner = record.senderIsStoreOwner();
 
-		// Check if this was a received meeting
-		var requestReceived = record.isMeetingReceived();
+		// Check if this was a received meeting; one not saved yet comes from a
+		// calendar file and is answered once it is in the calendar.
+		var requestReceived = record.isMeetingReceived() && !record.phantom;
 
 		if (record instanceof Grommunio.calendar.MeetingRequestRecord) {
 			isMeeting = record.isMeetingRequest();

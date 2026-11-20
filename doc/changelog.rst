@@ -13,6 +13,8 @@ Fixes:
 
 Enhancements:
 
+* Calendar files (.ics) attached to a mail open as an appointment that can be
+  reviewed and edited before it is saved to a calendar
 * AI assistant: IONOS AI Model Hub, OpenAI Responses API and reasoning
   effort settings; presets on current models
 * AI assistant: provider, model and features can be set per user, domain

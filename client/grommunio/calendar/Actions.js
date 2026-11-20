@@ -602,5 +602,101 @@ Grommunio.calendar.Actions = {
 			newAppointmentRecord.endEdit();
 		}
 		Grommunio.core.data.UIFactory.openCreateRecord(newAppointmentRecord);
+	},
+
+	/**
+	 * Opens a calendar file attached to a message as a new appointment, filled
+	 * in from the file. The server reads the file, nothing is saved until the
+	 * user saves the dialog.
+	 *
+	 * @param {Grommunio.core.data.IPMAttachmentRecord} attachment the .ics attachment
+	 */
+	openICSAttachment: function(attachment)
+	{
+		var source = attachment.convertToIPMRecord('IPM.Appointment');
+		if (!source) {
+			return;
+		}
+
+		var shadowStore = container.getShadowStore();
+		var done = function() {
+			shadowStore.un('open', onOpen, this);
+			shadowStore.un('exception', onException, this);
+			shadowStore.remove(shadowStore.getById(source.id) || source, true);
+		};
+		var onOpen = function(store, record) {
+			if (record.id === source.id) {
+				done.call(this);
+				Grommunio.core.data.UIFactory.openCreateRecord(this.createAppointmentFromICS(record));
+			}
+		};
+		// The store reports the failure itself.
+		var onException = function(proxy, type, action, options, response, args) {
+			var records = [].concat(args && args.sendRecords);
+			if (records.some(function(r) { return r && r.id === source.id; })) {
+				done.call(this);
+			}
+		};
+
+		shadowStore.on('open', onOpen, this);
+		shadowStore.on('exception', onException, this);
+		shadowStore.add(source);
+		source.open();
+	},
+
+	/**
+	 * Copies an appointment read from a calendar file into a new appointment
+	 * in the default calendar.
+	 *
+	 * @param {Grommunio.calendar.AppointmentRecord} source the opened file
+	 * @return {Grommunio.calendar.AppointmentRecord} the new appointment
+	 * @private
+	 */
+	createAppointmentFromICS: function(source)
+	{
+		var folder = container.getHierarchyStore().getDefaultFolder('calendar');
+		var data = Ext.apply({}, source.data);
+		Ext.each(['entryid', 'attach_num', 'parent_entryid', 'store_entryid', 'hasattach'], function(key) {
+			delete data[key];
+		});
+		data.parent_entryid = folder.get('entryid');
+		data.store_entryid = folder.get('store_entryid');
+		data.html_body = source.getBody(true);
+		data.isHTML = true;
+
+		var record = Grommunio.core.data.RecordFactory.createRecordObjectByMessageClass('IPM.Appointment', data);
+		if (record.isMeetingReceived()) {
+			// A new record takes the user as sender; an invitation keeps its own.
+			record.beginEdit();
+			Ext.iterate(data, function(key, value) {
+				if (key.indexOf('sender_') === 0) {
+					record.set(key, value);
+				}
+			});
+			record.endEdit();
+			// Someone else's invitation is filed from the file itself on the server.
+			record.addMessageAction('source_ics', {
+				store_entryid: source.get('store_entryid'),
+				entryid: source.get('entryid'),
+				attach_num: source.get('attach_num')
+			});
+		}
+		if (record.get('recurring') && Ext.isEmpty(record.get('recurring_pattern'))) {
+			record.set('recurring_pattern', record.generateRecurringPattern());
+		}
+		if (!record.isMeeting() || record.isMeetingOrganized()) {
+			// The file's own events become the user's appointments.
+			Grommunio.core.data.MessageRecordPhantomHandler(record);
+		}
+		record.afterOpen();
+
+		var recipients = record.getRecipientStore();
+		source.getRecipientStore().each(function(recipient) {
+			var copy = recipient.copy(Ext.id());
+			copy.phantom = true;
+			recipients.add(copy);
+		});
+
+		return record;
 	}
 };

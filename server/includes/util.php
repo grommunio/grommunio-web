@@ -1031,8 +1031,23 @@ function isEmlAttachment($attachProps) {
 }
 
 /**
+ * Whether an attachment is a calendar file (.ics, .vcs).
+ *
+ * @param array $attachProps properties of the attachment
+ */
+function isIcsAttachment($attachProps) {
+	if (strcasecmp(trim((string) ($attachProps[PR_ATTACH_MIME_TAG] ?? '')), 'text/calendar') === 0) {
+		return true;
+	}
+
+	$name = (string) ($attachProps[PR_ATTACH_LONG_FILENAME] ?? $attachProps[PR_ATTACH_FILENAME] ?? '');
+
+	return in_array(strtolower((string) pathinfo($name, PATHINFO_EXTENSION)), ['ics', 'vcs'], true);
+}
+
+/**
  * Opens the message an attachment holds: the embedded message of a
- * message-in-message attachment, or an .eml file turned into one.
+ * message-in-message attachment, or an .eml or calendar file turned into one.
  *
  * The converted message is created but never saved, so it exists for this
  * request only and leaves nothing behind in the mailbox.
@@ -1048,12 +1063,13 @@ function openAttachedMessage($attachment) {
 	if (($props[PR_ATTACH_METHOD] ?? ATTACH_BY_VALUE) == ATTACH_EMBEDDED_MSG) {
 		return mapi_attach_openobj($attachment);
 	}
-	if (!isEmlAttachment($props)) {
+	$ics = isIcsAttachment($props);
+	if (!$ics && !isEmlAttachment($props)) {
 		return false;
 	}
 
 	try {
-		$eml = readMapiPropStream($attachment, PR_ATTACH_DATA_BIN);
+		$data = readMapiPropStream($attachment, PR_ATTACH_DATA_BIN);
 	}
 	catch (MAPIException $e) {
 		$e->setHandled();
@@ -1061,7 +1077,51 @@ function openAttachedMessage($attachment) {
 		return false;
 	}
 
-	return convertEmlToMessage($eml);
+	return $ics ? convertIcsToMessage($data) : convertEmlToMessage($data);
+}
+
+/**
+ * Turns the first event of a calendar file into an appointment, by default in
+ * the user's calendar. Like convertEmlToMessage(), the message is not saved.
+ *
+ * @param string        $ics    the calendar file
+ * @param null|resource $folder the folder to create the appointment in
+ *
+ * @return false|resource
+ */
+function convertIcsToMessage($ics, $folder = null) {
+	if (empty($ics) || !preg_match('/VCALENDAR(\r\n|\n|\r)/i', $ics)) {
+		return false;
+	}
+
+	try {
+		if ($folder === null) {
+			$store = $GLOBALS['mapisession']->getDefaultMessageStore();
+			$rootProps = mapi_getprops(mapi_msgstore_openentry($store), [PR_IPM_APPOINTMENT_ENTRYID]);
+			if (empty($rootProps[PR_IPM_APPOINTMENT_ENTRYID])) {
+				return false;
+			}
+			$folder = mapi_msgstore_openentry($store, $rootProps[PR_IPM_APPOINTMENT_ENTRYID]);
+		}
+		$events = mapi_icaltomapi2($GLOBALS['mapisession']->getAddressbook(), $folder, $ics);
+	}
+	catch (MAPIException $e) {
+		$e->setHandled();
+
+		return false;
+	}
+
+	if (empty($events)) {
+		return false;
+	}
+
+	// An invitation opens as the calendar item it would become.
+	$props = mapi_getprops($events[0], [PR_MESSAGE_CLASS]);
+	if (str_starts_with((string) ($props[PR_MESSAGE_CLASS] ?? ''), 'IPM.Schedule.Meeting.')) {
+		mapi_setprops($events[0], [PR_MESSAGE_CLASS => 'IPM.Appointment']);
+	}
+
+	return $events[0];
 }
 
 /**

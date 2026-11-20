@@ -1263,7 +1263,10 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 			this.record.set('parent_entryid', record.get('entryid'));
 			this.record.set('store_entryid', record.get('store_entryid'));
 			this.record.endEdit();
-			this.resetOrganizer();
+			// an invitation keeps the organizer it came with
+			if (!this.record.isMeetingReceived()) {
+				this.resetOrganizer();
+			}
 		} else {
 			this.record.moveTo(record);
 		}
@@ -1558,7 +1561,8 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 
 		// Collect the most relevant notice first: in the collapsed state only
 		// the first line is visible.
-		if(this.record.isMeeting() && !this.record.phantom) {
+		// An unsaved received meeting is an invitation opened from a calendar file.
+		if(this.record.isMeeting() && (!this.record.phantom || this.record.isMeetingReceived())) {
 			if (this.record.isMeetingOrganized()) {
 				// set information for organizer
 				if (!this.record.isMeetingSent()) {
@@ -1572,7 +1576,7 @@ Grommunio.calendar.dialogs.AppointmentTab = Ext.extend(Ext.form.FormPanel, {
 				if (this.record.isMeetingCanceled()) {
 					// set information for canceled meeting in attendee's calendar
 					this.setMeetingCanceledInfo(notices);
-				} else if (this.record.isMeetingResponseRequired()) {
+				} else if (this.record.isMeetingResponseRequired() && !this.record.phantom) {
 					// set information for attendees
 					this.setReplyTimeInfo(responseStatus, notices);
 				}
