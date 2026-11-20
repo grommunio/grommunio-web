@@ -3,6 +3,9 @@ grommunio-web 5.2.x (development)
 
 Fixes:
 
+* Rules that move or copy messages into another mailbox ran only when
+  their own mailbox had been given access there by hand; saving such a rule
+  now grants it the right to create items in the target folder
 * AI assistant: GPT-6 and current Claude models work again; the connection
   test checks the fast model; streamed errors are translated
 
