@@ -11689,10 +11689,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/video.js@8.24.0",
+			"bom-ref": "pkg:npm/video.js@8.24.1",
 			"type": "library",
 			"name": "video.js",
-			"version": "8.24.0",
+			"version": "8.24.1",
 			"scope": "required",
 			"licenses": [
 				{
@@ -11702,7 +11702,7 @@
 				}
 			],
 			"copyright": "Copyright (c) Brightcove, Inc. and the Video.js contributors",
-			"purl": "pkg:npm/video.js@8.24.0",
+			"purl": "pkg:npm/video.js@8.24.1",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -12017,7 +12017,7 @@
 				"pkg:npm/tinymce-i18n@8",
 				"pkg:npm/tinymce@8.10.2",
 				"pkg:npm/tokenizr@1.7.0",
-				"pkg:npm/video.js@8.24.0",
+				"pkg:npm/video.js@8.24.1",
 				"pkg:npm/videojs-font@4.2.0",
 				"vendored:viewerjs@0.5.8+grommunio.0.7.0",
 				"vendored:vtt.js@NOASSERTION",

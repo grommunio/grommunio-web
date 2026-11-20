@@ -199,7 +199,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "video.js",
-			"version": "8.24.0",
+			"version": "8.24.1",
 			"license": "Apache-2.0",
 			"scope": "runtime",
 			"paths": [
@@ -211,7 +211,7 @@
 				"client/filepreviewer/ViewerJS/video-js/lang/"
 			],
 			"copyright": "Copyright (c) Brightcove, Inc. and the Video.js contributors",
-			"purl": "pkg:npm/video.js@8.24.0",
+			"purl": "pkg:npm/video.js@8.24.1",
 			"website": "https://videojs.com/"
 		},
 		{

@@ -3,7 +3,7 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.2",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-c9b1f087965c454f",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-8e18a15b467c66ef",
 	"creationInfo": {
 		"created": "2026-11-20T09:18:13Z",
 		"creators": [
@@ -5947,9 +5947,9 @@
 			]
 		},
 		{
-			"SPDXID": "SPDXRef-vendored-video.js-8.24.0",
+			"SPDXID": "SPDXRef-vendored-video.js-8.24.1",
 			"name": "video.js",
-			"versionInfo": "8.24.0",
+			"versionInfo": "8.24.1",
 			"downloadLocation": "https://videojs.com/",
 			"filesAnalyzed": false,
 			"licenseConcluded": "Apache-2.0",
@@ -5959,7 +5959,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/video.js@8.24.0"
+					"referenceLocator": "pkg:npm/video.js@8.24.1"
 				}
 			]
 		},
@@ -7853,7 +7853,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-vendored-video.js-8.24.0",
+			"spdxElementId": "SPDXRef-vendored-video.js-8.24.1",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
