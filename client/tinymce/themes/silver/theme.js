@@ -1,5 +1,5 @@
 /**
- * TinyMCE version 8.9.3 (2026-10-06)
+ * TinyMCE version 8.10.2 (2026-11-11)
  */
 
 (function () {
@@ -20715,6 +20715,7 @@
 
     const viewSchema = objOf([
         defaultedArrayOf('buttons', [], viewButtonSchema),
+        defaultedBoolean('keepToolbar', false),
         requiredFunction('onShow'),
         requiredFunction('onHide')
     ]);
@@ -24706,7 +24707,8 @@
                 Optional.some(iconSpec)
             ]),
             matchWidth: true,
-            useMinWidth: true,
+            useMinWidth: spec.useMinWidth ?? true,
+            sandboxClasses: spec.sandboxClasses ?? [],
             // When the dropdown opens, if we are in search mode, then we want to
             // focus our searcher.
             onOpen: (anchor, dropdownComp, tmenuComp) => {
@@ -25028,6 +25030,8 @@
                     columns: 1,
                     presets: 'normal',
                     classes: [],
+                    useMinWidth: false,
+                    sandboxClasses: ['tox-listbox__menu'],
                     dropdownBehaviours: [
                         Tabstopping.config({}),
                         withComp(initialItem.map((item) => item.value), (comp) => get$g(comp.element, dataAttribute), (comp, data) => {
@@ -28131,6 +28135,12 @@
             });
         });
     };
+    const closeSidebar = (sidebar) => {
+        Composing.getCurrent(sidebar).each((slider) => {
+            Sliding.immediateShrink(slider);
+            updateSidebarRoleOnToggle(sidebar.element, "presentation" /* SidebarStateRoleAttr.Shrunk */);
+        });
+    };
     const whichSidebar = (sidebar) => {
         const optSlider = Composing.getCurrent(sidebar);
         return optSlider.bind((slider) => {
@@ -28787,8 +28797,10 @@
     const runOnShow = (slotContainer, name) => runOnPaneWithInstanceApi(slotContainer, name, View.getOnShow);
     const runOnHide = (slotContainer, name) => runOnPaneWithInstanceApi(slotContainer, name, View.getOnHide);
     const factory$1 = (detail, spec) => {
-        const setViews = (comp, viewConfigs) => {
-            Replacing.set(comp, [makeSlotContainer(viewConfigs, spec.backstage.shared.providers)]);
+        let viewConfigs = {};
+        const setViews = (comp, configs) => {
+            viewConfigs = configs;
+            Replacing.set(comp, [makeSlotContainer(configs, spec.backstage.shared.providers)]);
         };
         const whichView = (comp) => {
             return Composing.getCurrent(comp).bind(getCurrentName);
@@ -28801,7 +28813,7 @@
                 if (exists) {
                     SlotContainer.hideAllSlots(slotContainer);
                     if (!isTogglingCurrentView) {
-                        hideMainView();
+                        hideMainView(viewConfigs[name]?.keepToolbar === true);
                         showContainer(comp);
                         SlotContainer.showSlot(slotContainer, name);
                         runOnShow(slotContainer, name);
@@ -28856,18 +28868,28 @@
         }
     });
 
+    const keepToolbarClass = 'tox-editor-container--keep-toolbar';
+    const setHidden = (element, hidden) => {
+        if (hidden) {
+            set$7(element, 'display', 'none');
+            set$9(element, 'aria-hidden', 'true');
+        }
+        else {
+            remove$6(element, 'display');
+            remove$8(element, 'aria-hidden');
+        }
+    };
     const factory = (detail, components, _spec) => {
         let toolbarDrawerOpenState = false;
-        const toggleStatusbar = (editorContainer) => {
+        let toolbarVisible = true;
+        const setStatusbarHidden = (editorContainer, hidden) => {
             sibling(editorContainer, '.tox-statusbar').each((statusBar) => {
-                if (get$e(statusBar, 'display') === 'none' && get$g(statusBar, 'aria-hidden') === 'true') {
-                    remove$6(statusBar, 'display');
-                    remove$8(statusBar, 'aria-hidden');
-                }
-                else {
-                    set$7(statusBar, 'display', 'none');
-                    set$9(statusBar, 'aria-hidden', 'true');
-                }
+                setHidden(statusBar, hidden);
+            });
+        };
+        const setSidebarWrapHidden = (editorContainer, hidden) => {
+            descendant(editorContainer, '.tox-sidebar-wrap').each((wrap) => {
+                setHidden(wrap, hidden);
             });
         };
         const apis = {
@@ -28950,32 +28972,54 @@
                 }
             },
             toggleView: (comp, name) => {
-                return parts$g.getPart(comp, detail, 'viewWrapper').exists((wrapper) => ViewWrapper.toggleView(wrapper, () => apis.showMainView(comp), () => apis.hideMainView(comp), name));
+                return parts$g.getPart(comp, detail, 'viewWrapper').exists((wrapper) => ViewWrapper.toggleView(wrapper, () => apis.showMainView(comp), (keepToolbar) => apis.hideMainView(comp, keepToolbar), name));
             },
             whichView: (comp) => {
                 return parts$g.getPart(comp, detail, 'viewWrapper').bind(ViewWrapper.whichView).getOrNull();
             },
-            hideMainView: (comp) => {
-                toolbarDrawerOpenState = apis.isToolbarDrawerToggled(comp);
-                if (toolbarDrawerOpenState) {
-                    apis.toggleToolbarDrawer(comp);
+            hideMainView: (comp, keepToolbar) => {
+                const restoreDrawer = keepToolbar && !toolbarVisible && toolbarDrawerOpenState;
+                if (keepToolbar) {
+                    toolbarDrawerOpenState = false;
                 }
+                else if (toolbarVisible) {
+                    toolbarDrawerOpenState = apis.isToolbarDrawerToggled(comp);
+                    if (toolbarDrawerOpenState) {
+                        apis.toggleToolbarDrawer(comp);
+                    }
+                }
+                toolbarVisible = keepToolbar;
                 parts$g.getPart(comp, detail, 'editorContainer').each((editorContainer) => {
                     const element = editorContainer.element;
-                    toggleStatusbar(element);
-                    set$7(element, 'display', 'none');
-                    set$9(element, 'aria-hidden', 'true');
+                    setStatusbarHidden(element, !keepToolbar);
+                    if (keepToolbar) {
+                        parts$g.getPart(comp, detail, 'sidebar').each(closeSidebar);
+                        add$2(element, keepToolbarClass);
+                        setHidden(element, false);
+                        setSidebarWrapHidden(element, true);
+                    }
+                    else {
+                        remove$3(element, keepToolbarClass);
+                        setSidebarWrapHidden(element, false);
+                        setHidden(element, true);
+                    }
                 });
+                if (restoreDrawer) {
+                    apis.toggleToolbarDrawerWithoutFocusing(comp);
+                }
             },
             showMainView: (comp) => {
                 if (toolbarDrawerOpenState) {
                     apis.toggleToolbarDrawer(comp);
+                    toolbarDrawerOpenState = false;
                 }
+                toolbarVisible = true;
                 parts$g.getPart(comp, detail, 'editorContainer').each((editorContainer) => {
                     const element = editorContainer.element;
-                    toggleStatusbar(element);
-                    remove$6(element, 'display');
-                    remove$8(element, 'aria-hidden');
+                    remove$3(element, keepToolbarClass);
+                    setSidebarWrapHidden(element, false);
+                    setStatusbarHidden(element, false);
+                    setHidden(element, false);
                 });
             }
         };
@@ -30954,6 +30998,7 @@
         });
         editor.addQueryValueHandler('ToggleSidebar', () => OuterContainer.whichSidebar(outerContainer) ?? '');
         editor.addCommand('ToggleView', (_ui, value) => {
+            const sidebarBefore = OuterContainer.whichSidebar(outerContainer);
             if (OuterContainer.toggleView(outerContainer, value)) {
                 const target = outerContainer.element;
                 mainUi.mothership.broadcastOn([dismissPopups()], { target });
@@ -30962,9 +31007,12 @@
                 });
                 // Switching back to main view should focus the editor and update any UIs
                 if (isNull(OuterContainer.whichView(outerContainer))) {
-                    editor.focus();
+                    editor.focus({ scrollToSelection: false });
                     editor.nodeChanged();
                     OuterContainer.refreshToolbar(outerContainer);
+                }
+                if (sidebarBefore !== OuterContainer.whichSidebar(outerContainer)) {
+                    fireToggleSidebar(editor);
                 }
                 fireToggleView(editor);
             }
@@ -31985,9 +32033,9 @@
         .filter((elem) => inBody(elem) && isHTMLElement(elem))
         .map(absolute$2)
         .getOrThunk(() => getSelectionBounds(editor));
-    const getHorizontalBounds = (contentAreaBox, viewportBounds, margin) => {
-        const x = Math.max(contentAreaBox.x + margin, viewportBounds.x);
-        const right = Math.min(contentAreaBox.right - margin, viewportBounds.right);
+    const getHorizontalBounds = (contentAreaBox, viewportBounds) => {
+        const x = Math.max(contentAreaBox.x, viewportBounds.x);
+        const right = Math.min(contentAreaBox.right, viewportBounds.right);
         return { x, width: right - x };
     };
     const getVerticalBounds = (editor, contentAreaBox, viewportBounds, isToolbarLocationTop, toolbarType, margin) => {
@@ -32029,7 +32077,7 @@
         const viewportBounds = getBounds$1(window);
         const contentAreaBox = box$1(SugarElement.fromDom(editor.getContentAreaContainer()));
         const toolbarOrMenubarEnabled = isMenubarEnabled(editor) || isToolbarEnabled(editor) || isMultipleToolbars(editor);
-        const { x, width } = getHorizontalBounds(contentAreaBox, viewportBounds, margin);
+        const { x, width } = getHorizontalBounds(contentAreaBox, viewportBounds);
         // Create bounds that lets the context toolbar overflow outside the content area, but remains in the viewport
         if (editor.inline && !toolbarOrMenubarEnabled) {
             return bounds(x, viewportBounds.y, width, viewportBounds.height);
@@ -32524,7 +32572,8 @@
         }, 17); // 17ms is used as that's about 1 frame at 60fps
         editor.on('init', () => {
             editor.on('remove', close);
-            editor.on('ScrollContent ScrollWindow ObjectResized ResizeEditor longpress', hideOrRepositionIfNecessary);
+            editor.on('ScrollContent ScrollWindow longpress', hideOrRepositionIfNecessary);
+            editor.on('ObjectResized ResizeEditor', instantReposition);
             // FIX: Make it go away when the action makes it go away. E.g. deleting a column deletes the table.
             editor.on('click focus SetContent', launchContextToolbar.throttle);
             editor.on('keyup', (e) => {
@@ -33569,6 +33618,12 @@
     const isHidden = (elm) => elm.nodeName === 'BR' || !!elm.getAttribute('data-mce-bogus') || elm.getAttribute('data-mce-type') === 'bookmark';
     const renderElementPath = (editor, settings, providersBackstage) => {
         const delimiter = settings.delimiter ?? '\u203A';
+        const isViewOpen = () => editor.queryCommandValue('ToggleView') !== '';
+        const isDisabled = () => providersBackstage.isDisabled() || isViewOpen();
+        const getContext = () => {
+            const context = providersBackstage.checkUiComponentContext('any');
+            return { contextType: context.contextType, shouldDisable: context.shouldDisable || isViewOpen() };
+        };
         const renderElement = (name, element, index) => Button.sketch({
             dom: {
                 tag: 'div',
@@ -33597,8 +33652,8 @@
                         }
                     }),
                 }),
-                DisablingConfigs.button(providersBackstage.isDisabled),
-                toggleOnReceive(() => providersBackstage.checkUiComponentContext('any'))
+                DisablingConfigs.button(isDisabled),
+                toggleOnReceive(getContext)
             ])
         });
         const renderDivider = () => ({
@@ -33654,9 +33709,9 @@
                     selector: 'div[role=button]'
                 }),
                 Disabling.config({
-                    disabled: providersBackstage.isDisabled
+                    disabled: isDisabled
                 }),
-                toggleOnReceive(() => providersBackstage.checkUiComponentContext('any')),
+                toggleOnReceive(getContext),
                 Tabstopping.config({}),
                 Replacing.config({}),
                 config('elementPathEvents', [
@@ -33667,6 +33722,15 @@
                             const newPath = updatePath(e.parents);
                             const newChildren = newPath.length > 0 ? renderPathData(newPath) : [];
                             Replacing.set(comp, newChildren);
+                        });
+                        editor.on('ToggleView', () => {
+                            const disabled = isDisabled();
+                            Disabling.set(comp, disabled);
+                            each$1(Replacing.contents(comp), (child) => {
+                                if (child.hasConfigured(Disabling)) {
+                                    Disabling.set(child, disabled);
+                                }
+                            });
                         });
                     })
                 ])

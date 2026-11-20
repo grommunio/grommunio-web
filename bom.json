@@ -11565,10 +11565,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/tinymce@8.9.1",
+			"bom-ref": "pkg:npm/tinymce@8.10.2",
 			"type": "library",
 			"name": "tinymce",
-			"version": "8.9.1",
+			"version": "8.10.2",
 			"scope": "required",
 			"licenses": [
 				{
@@ -11578,7 +11578,7 @@
 				}
 			],
 			"copyright": "Copyright (c) Tiny Technologies, Inc.",
-			"purl": "pkg:npm/tinymce@8.9.1",
+			"purl": "pkg:npm/tinymce@8.10.2",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -11999,7 +11999,7 @@
 				"vendored:sheetjs-xlsx@0.20.3",
 				"pkg:npm/source-map-js",
 				"pkg:npm/tinymce-i18n@8",
-				"pkg:npm/tinymce@8.9.1",
+				"pkg:npm/tinymce@8.10.2",
 				"pkg:npm/tokenizr@1.7.0",
 				"pkg:npm/video.js@8.24.0",
 				"pkg:npm/videojs-font@4.2.0",

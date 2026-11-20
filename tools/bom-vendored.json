@@ -78,7 +78,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "tinymce",
-			"version": "8.9.1",
+			"version": "8.10.2",
 			"license": "GPL-2.0-or-later",
 			"scope": "runtime",
 			"paths": [
@@ -91,7 +91,7 @@
 				"client/tinymce/plugins/ (29 upstream plugins: accordion, advlist, anchor, autolink, autoresize, autosave, charmap, code, codesample, directionality, emoticons, fullscreen, help, image, importcss, insertdatetime, link, lists, media, nonbreaking, pagebreak, preview, quickbars, save, searchreplace, table, visualblocks, visualchars, wordcount)"
 			],
 			"copyright": "Copyright (c) Tiny Technologies, Inc.",
-			"purl": "pkg:npm/tinymce@8.9.1",
+			"purl": "pkg:npm/tinymce@8.10.2",
 			"website": "https://www.tiny.cloud/"
 		},
 		{
