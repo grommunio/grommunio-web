@@ -10599,10 +10599,10 @@
 			]
 		},
 		{
-			"bom-ref": "pkg:npm/jszip@3.10.1",
+			"bom-ref": "pkg:npm/jszip@3.10.2",
 			"type": "library",
 			"name": "jszip",
-			"version": "3.10.1",
+			"version": "3.10.2",
 			"scope": "required",
 			"licenses": [
 				{
@@ -10610,7 +10610,7 @@
 				}
 			],
 			"copyright": "Copyright (c) 2009 - 2016 Stuart Knightley and the JSZip contributors",
-			"purl": "pkg:npm/jszip@3.10.1",
+			"purl": "pkg:npm/jszip@3.10.2",
 			"properties": [
 				{
 					"name": "grommunio:dependencyScope",
@@ -11997,7 +11997,7 @@
 				"vendored:fira-mono@3.201",
 				"vendored:fluentui-system-icons@1.1.159",
 				"vendored:foxit-standard-pdf-fonts@6.5.438",
-				"pkg:npm/jszip@3.10.1",
+				"pkg:npm/jszip@3.10.2",
 				"pkg:npm/leaflet-geosearch@3.11.1",
 				"pkg:npm/leaflet@1.9.4",
 				"vendored:liberation-fonts@1.07.4",

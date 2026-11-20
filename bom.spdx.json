@@ -3,7 +3,7 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.2",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-97651dfd1b1f2389",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-ef1893fad52e9332",
 	"creationInfo": {
 		"created": "2026-11-20T09:18:13Z",
 		"creators": [
@@ -5684,9 +5684,9 @@
 			"copyrightText": "Copyright 2014 PDFium Authors; original code copyright 2014 Foxit Software Inc."
 		},
 		{
-			"SPDXID": "SPDXRef-vendored-jszip-3.10.1",
+			"SPDXID": "SPDXRef-vendored-jszip-3.10.2",
 			"name": "jszip",
-			"versionInfo": "3.10.1",
+			"versionInfo": "3.10.2",
 			"downloadLocation": "https://stuk.github.io/jszip/",
 			"filesAnalyzed": false,
 			"licenseConcluded": "MIT OR GPL-3.0-only",
@@ -5696,7 +5696,7 @@
 				{
 					"referenceCategory": "PACKAGE-MANAGER",
 					"referenceType": "purl",
-					"referenceLocator": "pkg:npm/jszip@3.10.1"
+					"referenceLocator": "pkg:npm/jszip@3.10.2"
 				}
 			]
 		},
@@ -7753,7 +7753,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-vendored-jszip-3.10.1",
+			"spdxElementId": "SPDXRef-vendored-jszip-3.10.2",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
