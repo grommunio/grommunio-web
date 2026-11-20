@@ -750,9 +750,10 @@ Grommunio.calendar.dialogs.AppointmentToolbar = Ext.extend(Grommunio.core.ui.Con
 						this.addressbookBtn.setVisible(false);
 						this.inviteAttendees.setVisible(false);
 						this.cancelInvitation.setVisible(false);
-						this.replyMeeting.setVisible(true);
-						this.replyAllMeeting.setVisible(true);
-						this.forwardMeeting.setVisible(true);
+						// not offered before an invitation from a calendar file is saved
+						this.replyMeeting.setVisible(!record.phantom);
+						this.replyAllMeeting.setVisible(!record.phantom);
+						this.forwardMeeting.setVisible(!record.phantom);
 						break;
 					case Grommunio.core.mapi.MeetingStatus.MEETING_CANCELED:
 					case Grommunio.core.mapi.MeetingStatus.MEETING_RECEIVED_AND_CANCELED:

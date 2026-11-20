@@ -1435,6 +1435,10 @@ Grommunio.common.Actions = {
 			this.downloadAttachment(record);
 			return;
 		}
+		if (record.isICSAttachment() && !record.isTmpFile() && container.getServerConfig().isVCfImportSupported()) {
+			Grommunio.calendar.Actions.openICSAttachment(record);
+			return;
+		}
 		if(record.isEmbeddedMessage() || record.isEmlAttachment()) {
 			// An embedded message opens as a mail record; an .eml attachment is a
 			// mail in a file, which the server converts along the same path.

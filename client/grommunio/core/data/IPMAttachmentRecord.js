@@ -360,11 +360,13 @@ Grommunio.core.data.IPMAttachmentRecord = Ext.extend(Ext.data.Record, {
 	/**
 	 * Convert this attachment into a {@link Grommunio.core.data.IPMRecord record}.
 	 *
+	 * @param {String} messageClass (optional) the class to open the attachment as,
+	 * defaults to its attach_message_class
 	 * @return {Grommunio.core.data.IPMRecord} The IPMRecord which is an embedded message as attachment.
 	 */
-	convertToIPMRecord: function()
+	convertToIPMRecord: function(messageClass)
 	{
-		var messageClass = this.get('attach_message_class');
+		messageClass = messageClass || this.get('attach_message_class');
 
 		if(Ext.isEmpty(messageClass)) {
 			// no messageclass then we can't do anything
