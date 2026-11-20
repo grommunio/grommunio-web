@@ -85,6 +85,29 @@ are recognized by name: they get `max_completion_tokens` and no custom
 temperature, which they would refuse. For a name that does not tell — an Azure
 deployment, say — set `PLUGIN_AI_REASONING_MODEL` to `true` or `false`.
 
+### Per user, domain or organisation
+
+`PLUGIN_AI_PROFILES` defines named sets of overrides, and
+`PLUGIN_AI_PROFILE_MAP` assigns them to a user address, a domain, or
+`org:<domain>` for the whole organisation that domain belongs to (in that
+order of precedence). A profile can override any setting of `config.php`,
+written without the `PLUGIN_AI_` prefix — a different provider and key, a
+larger model, `enable` to switch the assistant on or off, or single features.
+A profile that names its own `provider` does not inherit the default
+provider's key, endpoint or models. A map entry that names an undefined
+profile switches the assistant off for those users.
+
+```php
+define('PLUGIN_AI_PROFILES', [
+	'ionos' => ['provider' => 'ionos', 'api_key' => 'eyJ...'],
+	'off' => ['enable' => false],
+]);
+define('PLUGIN_AI_PROFILE_MAP', [
+	'example.com' => 'ionos',
+	'org:example.org' => 'off',
+]);
+```
+
 End users can choose summary length, translation target language, compose tone,
 and which enabled features they use — but never see or set the API key.
 

@@ -123,6 +123,25 @@ define('PLUGIN_AI_MODEL_FAST', 'gemini-3.5-flash-lite');
 // define('PLUGIN_AI_MODEL', 'your-model-name');
 // define('PLUGIN_AI_MODEL_FAST', '');
 
+// --- Per user, domain or organisation ---------------------------------------
+// Everything in this file is the server default. A profile overrides any of
+// these settings, named without PLUGIN_AI_, for the users it is assigned to.
+// A profile naming its own provider starts from that provider's defaults, so
+// it needs its own key and model rather than inheriting the ones above.
+// define('PLUGIN_AI_PROFILES', [
+// 	'ionos' => ['provider' => 'ionos', 'api_key' => 'eyJ...', 'model' => 'meta-llama/Llama-3.3-70B-Instruct'],
+// 	'local' => ['provider' => 'ollama', 'model' => 'llama3.1:8b', 'enable_compose' => false],
+// 	'off' => ['enable' => false],
+// ]);
+// Which users get which profile: a user's address wins over the domain, a
+// domain over "org:<domain>", which covers every domain of the organisation
+// that domain belongs to. Users who match nothing keep the server default.
+// define('PLUGIN_AI_PROFILE_MAP', [
+// 	'ceo@example.com' => 'ionos',
+// 	'lab.example.com' => 'local',
+// 	'org:example.org' => 'off',
+// ]);
+
 // --- Generation limits -----------------------------------------------------
 // Email bodies longer than this many characters are truncated before sending.
 define('PLUGIN_AI_MAX_INPUT_CHARS', 24000);
