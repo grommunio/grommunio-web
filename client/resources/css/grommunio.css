@@ -1297,6 +1297,35 @@ body.Safari input[type="radio"] {
   top: 0;
   margin-left: 6px; }
 
+/* A label that has to wrap continues beside its button, not underneath it. */
+.x-form-check-wrap.k-choice {
+  display: flex;
+  align-items: flex-start; }
+  .x-form-check-wrap.k-choice > input {
+    flex: 0 0 auto; }
+  .x-form-check-wrap.k-choice > .x-form-cb-label {
+    flex: 0 1 auto;
+    min-width: 0; }
+
+/* Choice groups size their columns to the labels instead of splitting a fixed width. */
+.k-choice-columns {
+  width: auto !important;
+  max-width: 100%; }
+  .k-choice-columns > .x-column-inner {
+    display: grid;
+    grid-template-columns: repeat(var(--k-choice-columns), auto);
+    justify-content: start;
+    column-gap: 16px;
+    width: auto !important; }
+    .k-choice-columns > .x-column-inner > .x-column {
+      float: none;
+      width: auto !important;
+      min-width: 0; }
+    .k-choice-columns > .x-column-inner > .x-clear {
+      display: none; }
+    .k-choice-columns .x-form-check-wrap {
+      width: auto !important; }
+
 .grommunio-delayeddelivery-invalid-date {
   color: var(--color-error); }
 

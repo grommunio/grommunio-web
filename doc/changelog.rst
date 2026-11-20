@@ -8,6 +8,8 @@ Fixes:
   now grants it the right to create items in the target folder
 * AI assistant: GPT-6 and current Claude models work again; the connection
   test checks the fast model; streamed errors are translated
+* Option labels no longer wrap under their button in longer translations
+  (e.g. the 12h/24h clock setting in Dutch)
 
 Enhancements:
 
@@ -15,6 +17,8 @@ Enhancements:
   effort settings; presets on current models
 * AI assistant: provider, model and features can be set per user, domain
   or organisation (PLUGIN_AI_PROFILES, PLUGIN_AI_PROFILE_MAP)
+* The text of checkbox and option labels can be selected and copied;
+  clicking a label still toggles its option
 
 Changes:
 

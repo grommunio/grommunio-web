@@ -53,12 +53,27 @@
 			// Add x-form-item CSS class to the wrap element
 			this.wrap.addClass('x-form-item');
 
-			// Make the text in the label unselectable
+			// The label stays selectable: a drag selects its text instead of
+			// toggling the box, and a double click toggles it only once.
 			if(this.boxLabel && this.el) {
+				this.wrap.addClass('k-choice');
 				var lbl = Ext.query('.x-form-cb-label', this.el.parent().dom)[0];
 				if (lbl) {
-					Ext.get(lbl).unselectable();
+					this.mon(Ext.get(lbl), {
+						mousedown: function(e) { this.boxLabelDownXY = e.getXY(); },
+						click: this.onBoxLabelClick,
+						scope: this
+					});
 				}
+			}
+		},
+
+		onBoxLabelClick: function(e)
+		{
+			var down = this.boxLabelDownXY;
+			var xy = e.getXY();
+			if (e.browserEvent.detail > 1 || (down && Math.abs(xy[0] - down[0]) + Math.abs(xy[1] - down[1]) > 3)) {
+				e.preventDefault();
 			}
 		}
 	});
