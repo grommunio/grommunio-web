@@ -3,9 +3,9 @@
 	"dataLicense": "CC0-1.0",
 	"SPDXID": "SPDXRef-DOCUMENT",
 	"name": "grommunio-web-5.2",
-	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-b80474e276410756",
+	"documentNamespace": "https://github.com/grommunio/grommunio-web/spdx/5.2-fd025c03e2981222",
 	"creationInfo": {
-		"created": "2026-11-20T10:43:13Z",
+		"created": "2026-11-20T11:08:20Z",
 		"creators": [
 			"Tool: tools/build-bom.mjs",
 			"Organization: grommunio GmbH"
@@ -5825,9 +5825,9 @@
 			"copyrightText": "Copyright (c) 2017 - 2025 Fabrice Bellard and Charlie Gordon"
 		},
 		{
-			"SPDXID": "SPDXRef-vendored-roboto-2.137",
+			"SPDXID": "SPDXRef-vendored-roboto-3.015",
 			"name": "roboto",
-			"versionInfo": "2.137",
+			"versionInfo": "3.015",
 			"downloadLocation": "https://fonts.google.com/specimen/Roboto",
 			"filesAnalyzed": false,
 			"licenseConcluded": "Apache-2.0",
@@ -7762,7 +7762,7 @@
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},
 		{
-			"spdxElementId": "SPDXRef-vendored-roboto-2.137",
+			"spdxElementId": "SPDXRef-vendored-roboto-3.015",
 			"relationshipType": "RUNTIME_DEPENDENCY_OF",
 			"relatedSpdxElement": "SPDXRef-Package-grommunio-web"
 		},

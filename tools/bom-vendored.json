@@ -416,7 +416,7 @@
 			"type": "library",
 			"ecosystem": "vendored",
 			"name": "roboto",
-			"version": "2.137",
+			"version": "3.015",
 			"license": "Apache-2.0",
 			"scope": "runtime",
 			"paths": [

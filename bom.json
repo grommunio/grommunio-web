@@ -11264,10 +11264,10 @@
 			]
 		},
 		{
-			"bom-ref": "vendored:roboto@2.137",
+			"bom-ref": "vendored:roboto@3.015",
 			"type": "library",
 			"name": "roboto",
-			"version": "2.137",
+			"version": "3.015",
 			"scope": "required",
 			"licenses": [
 				{
@@ -11890,7 +11890,7 @@
 				"vendored:pdfium-jbig2-decoder@0455e82",
 				"vendored:qcms@0.3.0",
 				"vendored:quickjs@2026-06-04",
-				"vendored:roboto@2.137",
+				"vendored:roboto@3.015",
 				"vendored:sheetjs-xlsx@0.20.3",
 				"pkg:npm/tinymce-i18n@8",
 				"pkg:npm/tinymce@8.10.2",
