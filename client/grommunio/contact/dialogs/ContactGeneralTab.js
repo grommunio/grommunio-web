@@ -801,8 +801,12 @@ Grommunio.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 			this.editorField.setValue(record.getBody(this.editorField.isHtmlEditor()));
 		}
 
-		if (record.isModifiedSinceLastUpdate('display_name') || record.isModifiedSinceLastUpdate('company_name')) {
-			// display_name or company_name has been changed, regenerate options and select according to previous selection
+		var nameChanged = ['display_name', 'company_name', 'given_name', 'middle_name', 'surname'].some(function(field) {
+			return record.isModifiedSinceLastUpdate(field);
+		});
+		if (nameChanged) {
+			// A name field or company_name changed. Make the items again and keep the selection.
+			// The full name dialog can change the surname but keep the same display_name.
 			this.generateFileAsItems();
 			this.updateFileas();
 		}
@@ -1161,32 +1165,40 @@ Grommunio.contact.dialogs.ContactGeneralTab = Ext.extend(Ext.form.FormPanel, {
 		var comboStore = this.fileAsField.getStore();
 
 		if(!Ext.isEmpty(displayName)) {
-			// Remove prefix and suffix from display name
-			displayName = displayName.replace(displayNamePrefix, '').replace(displayNameSuffix, '').replace(',', '');
-			var displayNameArray = displayName.trim().split(new RegExp(Grommunio.contact.data.config.SP + '|' + Grommunio.contact.data.config.NBSP, 'g'));
+			var NBSP = Grommunio.contact.data.config.NBSP;
+			var spaces = new RegExp('[' + Grommunio.contact.data.config.SP + NBSP + ']+', 'g');
+			var splitName = function(value) {
+				return Ext.isString(value) ? Grommunio.core.Util.trimStringArray(value.split(spaces)) : [];
+			};
 
-			// remove whitespaces from array
-			displayNameArray = Grommunio.core.Util.trimStringArray(displayNameArray);
+			// Use the name fields. A surname can have more than 1 word, for example "Svensson Berg".
+			var surnameArray = splitName(record.get('surname'));
+			var givenNameArray = splitName(record.get('given_name')).concat(splitName(record.get('middle_name')));
+
+			if (surnameArray.length === 0 && givenNameArray.length === 0) {
+				// The name fields are empty. Use the words of the display name.
+				// The last word is the surname.
+				displayName = displayName.replace(displayNamePrefix, '').replace(displayNameSuffix, '').replace(',', '');
+				givenNameArray = splitName(displayName);
+				if (givenNameArray.length > 1) {
+					surnameArray = [givenNameArray.pop()];
+				}
+			}
 
 			// two options based on name fields only
 			// surname, givenname middlename and givenname middlename surname
 			var contactName = '';
-			if(displayNameArray.length > 0) {
-				if(displayNameArray.length === 1) {
-					// givenname
-					contactName = displayNameArray[0];
-					fileasOptions.push([contactName]);
-				} else {
-					// surname, givenname middlename
-					var surname = displayNameArray[displayNameArray.length - 1] + ',' + Grommunio.contact.data.config.NBSP;
-					var remainder = displayNameArray.slice(0, displayNameArray.length - 1);
+			if (surnameArray.length > 0 && givenNameArray.length > 0) {
+				// surname, givenname middlename
+				contactName = surnameArray.join(NBSP) + ',' + NBSP + givenNameArray.join(NBSP);
+				fileasOptions.push([contactName]);
 
-					contactName = surname + remainder.join(Grommunio.contact.data.config.NBSP);
-					fileasOptions.push([contactName]);
-
-					// givenname middlename surname
-					fileasOptions.push([displayNameArray.join(Grommunio.contact.data.config.NBSP)]);
-				}
+				// givenname middlename surname
+				fileasOptions.push([givenNameArray.concat(surnameArray).join(NBSP)]);
+			} else if (surnameArray.length > 0 || givenNameArray.length > 0) {
+				// only 1 name
+				contactName = givenNameArray.concat(surnameArray).join(NBSP);
+				fileasOptions.push([contactName]);
 			}
 
 			// two options based on company name and name fields
