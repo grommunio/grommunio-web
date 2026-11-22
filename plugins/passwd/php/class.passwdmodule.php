@@ -136,11 +136,28 @@ class PasswdModule extends Module {
 						"old" => $data['current_password'],
 						"new" => $newPassword,
 					]),
+					// read the response body on 4xx too, so policy messages reach the user
+					'ignore_errors' => true,
 				],
 			]));
+			$headers = function_exists('http_get_last_response_headers') ?
+				(http_get_last_response_headers() ?? []) :
+				($http_response_header ?? []);
+			$status = 0;
+			if (isset($headers[0]) && preg_match('#^HTTP/\S+\s+(\d{3})#', $headers[0], $m)) {
+				$status = (int) $m[1];
+			}
 
-			if ($result === false) {
-				$errorMessage = _('Error changing password. Please verify your password or contact the system administrator.');
+			if ($result === false || $status < 200 || $status >= 300) {
+				$response = is_string($result) ? json_decode($result, true) : null;
+				// For a request with "user", the Admin API verifies the current password
+				// before it returns 400 or 403. Thus, these messages are for the user.
+				if (in_array($status, [400, 403], true) && is_array($response) && !empty($response['message'])) {
+					$errorMessage = sprintf(_('Password is not changed: %s'), $response['message']);
+				}
+				else {
+					$errorMessage = _('Error changing password. Please verify your password or contact the system administrator.');
+				}
 			}
 			else {
 				$this->sendFeedback(true, [
