@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2026-11-25 19:51+0000\n"
-"Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
+"Last-Translator: Milo Ivir <milotype@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/hr/>\n"
 "Language: hr_HR\n"
@@ -1263,10 +1263,10 @@ msgid "Mark this appointment as high priority"
 msgstr "Označite ovaj sastanak kao visoki prioritet"
 
 msgid "Low priority"
-msgstr "Nizak prioritet"
+msgstr "Niski prioritet"
 
 msgid "Mark this appointment as low priority"
-msgstr "Označite ovaj sastanak kao nizak prioritet"
+msgstr "Označite ovaj sastanak kao niski prioritet"
 
 msgid "Categories"
 msgstr "Kategorije"
@@ -1285,7 +1285,7 @@ msgid "Use Reply All to reply to all attendees of your meeting."
 msgstr "Upotrijebite Odgovori svima da odgovorite svim sudionicima vašeg sastanka."
 
 msgid "Re"
-msgstr "Ponovno"
+msgstr "Re"
 
 msgid "Message Options"
 msgstr "Mogućnosti poruke"
@@ -1992,7 +1992,7 @@ msgstr[1] "Spremljena su {0} privitka."
 msgstr[2] "Spremljeno je {0} privitaka."
 
 msgid "Save attachments"
-msgstr "Spremanje privitaka"
+msgstr "Spremi privitke"
 
 msgid "Insert item"
 msgstr "Umetni stavku"
@@ -2049,7 +2049,7 @@ msgid "Download all as ZIP"
 msgstr "Preuzmite sve kao ZIP"
 
 msgid "Save selection to folder"
-msgstr "Sačuvaj odabir u mapu"
+msgstr "Spremi odabir u mapu"
 
 msgid "Import to folder"
 msgstr "Uvezi u mapu"
@@ -2061,7 +2061,7 @@ msgid "In order to use the ICS / VCS import feature, upgrade your Gromox to vers
 msgstr "Kako biste koristili značajku uvoza ICS/VCS, nadogradite svoj Gromox na verziju 0 ili noviju."
 
 msgid "Preview in a grommunio Web tab"
-msgstr "Pregledaj u kartici grommunio Web"
+msgstr "Pregledaj u grommunio Web kartici"
 
 msgid "Preview in a browser window"
 msgstr "Pregledaj u prozoru preglednika"
@@ -5646,7 +5646,7 @@ msgid "Dialog"
 msgstr "Dijaloški okvir"
 
 msgid "Open a preview in a"
-msgstr "Otvori pretpregled u"
+msgstr "Otvori pregled u"
 
 msgid "File previewing"
 msgstr "Pregled datoteke"
@@ -8543,7 +8543,7 @@ msgid "The TLS certificate of the file server could not be verified."
 msgstr "TLS certifikat datotečnog poslužitelja nije moguće provjeriti."
 
 msgid "Unknown backend"
-msgstr "Nepoznat backend"
+msgstr "Nepoznat pozadinski sustav"
 
 msgid "Account is ready to use."
 msgstr "Račun je spreman za korištenje."
@@ -8558,7 +8558,7 @@ msgid "This file is no longer available. Please reload the folder."
 msgstr "Ova datoteka više nije dostupna. Molimo ponovno učitajte mapu."
 
 msgid "Recipient search is not supported by this backend"
-msgstr "Ovaj backend ne podržava pretraživanje primatelja"
+msgstr "Ovaj pozadinski sustav ne podržava pretraživanje primatelja"
 
 msgid "Unable to look up recipients"
 msgstr "Nije moguće pretražiti primatelje"
