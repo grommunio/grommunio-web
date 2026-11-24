@@ -5646,7 +5646,7 @@ msgid "Dialog"
 msgstr "Dijaloški okvir"
 
 msgid "Open a preview in a"
-msgstr "Mjesto otvaranja pregleda"
+msgstr "Otvori pretpregled u"
 
 msgid "File previewing"
 msgstr "Pregled datoteke"
