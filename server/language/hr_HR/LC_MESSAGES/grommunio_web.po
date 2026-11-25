@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: dev@grommunio.com\n"
 "POT-Creation-Date: 2026-10-09 23:48+0200\n"
 "PO-Revision-Date: 2026-11-26 20:51+0000\n"
-"Last-Translator: DeepL <noreply-mt-deepl@weblate.org>\n"
+"Last-Translator: Milo Ivir <milotype@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/grommunio/"
 "grommunio-web/hr/>\n"
 "Language: hr_HR\n"
@@ -904,7 +904,7 @@ msgid "l jS F Y {0}"
 msgstr "l j. n. Y. {0}"
 
 msgid "Fwd"
-msgstr "Fwd"
+msgstr "﻿﻿Prosl"
 
 #. TRANSLATORS: joins two items of an enumeration, {0} is what came before, {1} the next item
 msgid "{0}, {1}"
@@ -1530,7 +1530,7 @@ msgid "Copy/Move"
 msgstr "Kopiraj/Premjesti"
 
 msgid "Mark Read"
-msgstr "Mark Read"
+msgstr "Označi kao pročitano"
 
 msgid "Mark Unread"
 msgstr "Označi kao nepročitano"
@@ -2193,10 +2193,10 @@ msgid "Task"
 msgstr "Zadatak"
 
 msgid "Inbox"
-msgstr "Pristigla pošta"
+msgstr "Dolazna pošta"
 
 msgid "Entire Inbox"
-msgstr "Cijeli Inbox"
+msgstr "Sva dolazna pošta"
 
 msgid "Owner"
 msgstr "Vlasnik"
@@ -2514,7 +2514,7 @@ msgid "Item data"
 msgstr "Podaci o predmetu"
 
 msgid "INSERT"
-msgstr "UMETNUTI"
+msgstr "UMETNI"
 
 msgid "Sort by: context.mail.griddefaultcolumn"
 msgstr "Razvrstaj po: context.mail.griddefaultcolumn"
@@ -2711,7 +2711,7 @@ msgid "Occurrence duration: {D} {H} {M}"
 msgstr "Trajanje pojavljivanja: {D} {H} {M}"
 
 msgid "Every {A} week(s) on"
-msgstr "Svakih {A} tjedan(a)."
+msgstr "Svakih {A} tjedana na"
 
 msgid "Regenerate new task {A} week(s) after each task is completed"
 msgstr "Ponovno generirajte novi zadatak {A} tjedan(a) nakon što je svaki zadatak dovršen"
@@ -3126,7 +3126,8 @@ msgid "Folder does not exist"
 msgstr "Mapa ne postoji"
 
 msgid "The folder you are searching through no longer exists. Please select another folder"
-msgstr "Mapu koju pretražujete više ne postoji. Molimo odaberite drugu mapu."
+msgstr ""
+"Mapa koju pretražujete više ne postoji. Molimo odaberite jednu drugu mapu"
 
 msgid "Add/Edit sender"
 msgstr "Dodaj/uredi pošiljatelja"
@@ -3147,7 +3148,7 @@ msgid "Add/Edit From recipient"
 msgstr "Dodaj/uredi od primatelja"
 
 msgid "Manage the recipients used in the 'From' field"
-msgstr "Upravljajte primateljima koji se koriste u polju \"Od\"."
+msgstr "Upravljajte primateljima koji se koriste u polju „Šalje”"
 
 msgid "View"
 msgstr "Pogled"
@@ -4448,9 +4449,9 @@ msgstr "Problem s vezom"
 
 msgid "Could not connect to server, retrying in {0} second"
 msgid_plural "Could not connect to server, retrying in {0} seconds"
-msgstr[0] "Nije moguće povezati se s poslužiteljem, ponovni pokušaj za{0}sekundi"
-msgstr[1] "Nije moguće povezati se s poslužiteljem, ponovni pokušaj za{0}sekundi"
-msgstr[2] "Nije moguće povezati se s poslužiteljem, ponovni pokušaj za{0}sekundi"
+msgstr[0] "Neuspjelo povezivanje sa serverom, ponovni pokušaj za {0} sekundu"
+msgstr[1] "Neuspjelo povezivanje sa serverom, ponovni pokušaj za {0} sekunde"
+msgstr[2] "Neuspjelo povezivanje sa serverom, ponovni pokušaj za {0} sekundi"
 
 msgid "Click to retry now"
 msgstr "Kliknite za ponovni pokušaj"
@@ -4485,7 +4486,7 @@ msgstr "Moguće je da zbog toga ne rade ispravno sve funkcionalnosti grommunio W
 
 msgctxt "hierarchy.foldername"
 msgid "Inbox"
-msgstr "Inbox"
+msgstr "Dolazna pošta"
 
 msgctxt "hierarchy.foldername"
 msgid "Outbox"
@@ -5833,24 +5834,30 @@ msgstr "Promjene dodijeljenog zadatka"
 
 msgid "Please note that the assigned task will be overwritten when the assignee makes changes."
 msgid_plural "Please note that the assigned tasks will be overwritten when the assignee makes changes."
-msgstr[0] "Imajte na umu da će dodijeljeni zadaci biti prebrisani kada primatelj izvrši promjene."
-msgstr[1] "Imajte na umu da će dodijeljeni zadaci biti prebrisani kada primatelj izvrši promjene."
-msgstr[2] "Imajte na umu da će dodijeljeni zadaci biti prebrisani kada primatelj izvrši promjene."
+msgstr[0] ""
+"Imajte na umu da će se dodijeljeni zadatak prepisati kada dodijeljena osoba "
+"izvrši promjene."
+msgstr[1] ""
+"Imajte na umu da će se dodijeljeni zadaci prepisati kada dodijeljena osoba "
+"izvrši promjene."
+msgstr[2] ""
+"Imajte na umu da će se dodijeljeni zadaci prepisati kada dodijeljena osoba "
+"izvrši promjene."
 
 msgid "Delete confirmation"
 msgstr "Izbriši potvrdu"
 
 msgid "Deleting the item will also delete the original item."
 msgid_plural "Deleting the items will also delete the original items."
-msgstr[0] "Brisanjem stavke(a) izbrisat ćete i originalnu(e) stavku(e)."
-msgstr[1] "Brisanjem stavke(a) izbrisat ćete i originalnu(e) stavku(e)."
-msgstr[2] "Brisanjem stavke(a) izbrisat ćete i originalnu(e) stavku(e)."
+msgstr[0] "Brisanjem stavke izbrisat ćete i originalnu stavku."
+msgstr[1] "Brisanjem stavaka izbrisat ćete i originalne stavke."
+msgstr[2] "Brisanjem stavaka izbrisat ćete i originalne stavke."
 
 msgid "Do you want to delete the item?"
 msgid_plural "Do you want to delete the items?"
-msgstr[0] "Želite li izbrisati stavku(e)?"
-msgstr[1] "Želite li izbrisati stavku(e)?"
-msgstr[2] "Želite li izbrisati stavku(e)?"
+msgstr[0] "Želite li izbrisati stavku?"
+msgstr[1] "Želite li izbrisati stavke?"
+msgstr[2] "Želite li izbrisati stavke?"
 
 msgid "Sort by: Priority"
 msgstr "Razvrstaj po: Prioritet"
@@ -6812,7 +6819,8 @@ msgid "Edit share"
 msgstr "Uredi dijeljenje"
 
 msgid "There are no accounts added. Go to settings, Files tab and add an account"
-msgstr "Nema dodanih računa. Idite na Postavke, karticu Datoteke i dodajte račun."
+msgstr ""
+"Nema dodanih računa. Idite na Postavke, karticu Datoteke i dodajte račun"
 
 msgid "File ({0})"
 msgstr "Datoteka ({0})"
@@ -6854,7 +6862,7 @@ msgid "Archive to InfoShare"
 msgstr "Arhivirajte na InfoShare"
 
 msgid "Kendox InfoShare plugin"
-msgstr "Kendox InfoShare plugin"
+msgstr "Kendox InfoShare dodatak"
 
 msgid "Kendox InfoShare"
 msgstr "Kendox InfoShare"
@@ -6881,7 +6889,7 @@ msgid "URLs for production environment"
 msgstr "URL-ovi za proizvodno okruženje"
 
 msgid "Kendox InfoShare API URL"
-msgstr "Kendox InfoShare API URL"
+msgstr "URL Kendox InfoShare API-ja"
 
 msgid "Kendox InfoShare Web dialog URL"
 msgstr "URL Kendox InfoShare web dijaloškog okvira"
@@ -8322,7 +8330,9 @@ msgstr "U config.php dodatka nije konfiguriran nijedan AI model ni krajnja točk
 
 #, php-format
 msgid "No API key is set for the \"%s\" provider. Add your key to PLUGIN_AI_API_KEY in the plugin config.php."
-msgstr "Za davatelja \"%s\" nije postavljen API ključ. Dodajte svoj ključ u PLUGIN_AI_API_KEY u config.php dodatka."
+msgstr ""
+"Za davatelja „%s” nije postavljen API ključ. Dodajte svoj ključ u "
+"PLUGIN_AI_API_KEY u config.php dodatka."
 
 msgid "The selected message could not be opened."
 msgstr "Odabranu poruku nije moguće otvoriti."
@@ -8634,10 +8644,10 @@ msgid "Unable to read certificates"
 msgstr "Nije moguće pročitati certifikate"
 
 msgid "Unable to generate certs-only message"
-msgstr "Nije moguće generirati poruku samo s certifikatima"
+msgstr "Nije moguće generirati poruku „Samo certifikati”"
 
 msgid "Unable to read certs-only message"
-msgstr "Nije moguće pročitati certs-only poruku"
+msgstr "Nije moguće pročitati poruku „Samo certifikati”"
 
 msgid "LDAP not configured"
 msgstr "LDAP nije konfiguriran"
@@ -8741,14 +8751,14 @@ msgstr "Nije moguće pretražiti ovaj poštanski sandučić radi kategorija."
 
 #, php-format
 msgid "Unknown module '%s' with id '%s'"
-msgstr "Nepoznati modul '%s' s ID-om '%s'"
+msgstr "Nepoznati modul „%s” s ID-om „%s”"
 
 msgid "Server encountered some problem, so it was not able to handle the request."
 msgstr "Poslužitelj je naišao na problem pa nije mogao obraditi zahtjev."
 
 #, php-format
 msgid "Unknown notifier '%s'"
-msgstr "Nepoznati nositelj obavijesti '%s'"
+msgstr "Nepoznati nositelj obavijesti „%s”"
 
 msgid "An unexpected error has occurred"
 msgstr "Došlo je do neočekivane pogreške"
@@ -8757,7 +8767,7 @@ msgid "Could not forward meeting request."
 msgstr "Nije moguće proslijediti zahtjev za sastanak."
 
 msgid "Your meeting has been forwarded"
-msgstr "Vaš je sastanak proslijeđen."
+msgstr "Vaš je sastanak proslijeđen"
 
 msgid "has forwarded your meeting request to others."
 msgstr "Proslijedio je vaš zahtjev za sastanak drugima."
@@ -8862,7 +8872,7 @@ msgstr "Radnja nije ispravno izvedena."
 
 #, php-format
 msgid "Unable to import '%s' to '%s'. "
-msgstr "Nije moguće uvesti '%s' u '%s'. "
+msgstr "Nije moguće uvesti „%s” u „%s”. "
 
 msgid "The file is corrupt."
 msgstr "Datoteka je oštećena."
@@ -8872,7 +8882,7 @@ msgstr "Datoteka je nevažeća."
 
 #, php-format
 msgid "Unable to import '%s'. "
-msgstr "Nije moguće uvesti '%s'. "
+msgstr "Nije moguće uvesti „%s”. "
 
 msgid "Tentatively accepted"
 msgstr "Uvjetno prihvaćeno"
@@ -8962,26 +8972,38 @@ msgid "You have insufficient privileges to move an appointment in this calendar.
 msgstr "Nemate dovoljno ovlasti za premještanje termina u ovom kalendaru. Vlasnik kalendara može ih postaviti na kartici 'Dozvole' u svojstvima mape (desni klik na mapu kalendara > Svojstva > Dozvole)"
 
 msgid "Cannot set a reminder to appear before the previous occurrence. Reset reminder to save the change"
-msgstr "Ne može se postaviti podsjetnik da se pojavi prije prethodnog događaja. Ponovno postavite podsjetnik kako biste spremili promjenu."
+msgstr ""
+"Ne može se postaviti podsjetnik da se pojavi prije prethodnog događaja. "
+"Ponovno postavite podsjetnik kako biste spremili promjenu"
 
 msgid "Two occurrences cannot occur on the same day"
 msgstr "Dva događaja se ne mogu dogoditi u istom danu"
 
 #, php-format
 msgid "You marked '%s' as a resource. You cannot schedule a meeting with '%s' because you do not have the appropriate permissions for that account. Either enter the name as a required or optional attendee or talk to your administrator about giving you permission to schedule '%s'."
-msgstr "Označili ste '%s' kao resurs. Ne možete zakazati sastanak s '%s' jer nemate odgovarajuća ovlaštenja za taj račun. Ili unesite ime kao obaveznog ili neobaveznog sudionika ili razgovarajte sa svojim administratorom o dobivanju dopuštenja za zakazivanje '%s'."
+msgstr ""
+"Označili ste „%s” kao resurs. Ne možete zakazati sastanak s „%s” jer nemate "
+"odgovarajuća ovlaštenja za taj račun. Ili unesite ime kao obaveznog ili "
+"neobaveznog sudionika ili razgovarajte sa svojim administratorom o dobivanju "
+"dopuštenja za zakazivanje „%s”."
 
 #, php-format
 msgid "'%s' has declined your meeting because '%s' does not automatically accept meeting requests."
-msgstr "'%s' je odbio vaš sastanak jer '%s' ne prihvaća automatski zahtjeve za sastanke."
+msgstr ""
+"„%s” je odbio vaš sastanak jer „%s” ne prihvaća automatski zahtjeve za "
+"sastanke."
 
 #, php-format
 msgid "'%s' has declined your meeting because it is recurring. You must book each meeting separately with this resource."
-msgstr "'%s' je odbio vaš sastanak jer se ponavlja. Svaki sastanak s ovim resursom morate rezervirati zasebno."
+msgstr ""
+"„%s” je odbio vaš sastanak jer se ponavlja. Svaki sastanak s ovim resursom "
+"morate rezervirati zasebno."
 
 #, php-format
 msgid "'%s' is already booked for this specified time. You must use another time or find another resource."
-msgstr "'%s' je već rezerviran za ovo određeno vrijeme. Morate odabrati drugo vrijeme ili pronaći drugi resurs."
+msgstr ""
+"„%s” je već rezerviran za ovo određeno vrijeme. Morate odabrati drugo "
+"vrijeme ili pronaći drugi resurs."
 
 msgid "Meeting was not scheduled."
 msgstr "Sastanak nije zakazan."
@@ -8995,9 +9017,9 @@ msgstr "Sastanak nije moguće spremiti."
 #, php-format
 msgid "There was %d skipped appointment:"
 msgid_plural "There were %d skipped appointments:"
-msgstr[0] "Preskočeni termini (%d):"
-msgstr[1] "Preskočeni termini (%d):"
-msgstr[2] "Preskočeni termini (%d):"
+msgstr[0] "Preskočen je %d termin:"
+msgstr[1] "Preskočen su %d termina:"
+msgstr[2] "Preskočeno je %d termina:"
 
 msgid "More skipped appointments are not shown."
 msgstr "Ostali preskočeni termini nisu prikazani."
@@ -9018,7 +9040,9 @@ msgstr "Obljetnica: %s"
 
 #, php-format
 msgid "Unable to add store: '%s'. Please check if you have the necessary permissions."
-msgstr "Nije moguće dodati poštanski sandučić: '%s'. Provjerite imate li potrebna dopuštenja."
+msgstr ""
+"Nije moguće dodati poštanski sandučić: „%s”. Provjerite imate li potrebna "
+"dopuštenja."
 
 msgid "You don't have the permission to complete this action"
 msgstr "Nemate dopuštenje za dovršetak ove radnje"
@@ -9287,7 +9311,7 @@ msgstr "Nije moguće pravilno obraditi podatke zahtjeva."
 
 #, php-format
 msgid "Unknown action type specified - %s"
-msgstr "Navedena je nepoznata vrsta akcije -%s"
+msgstr "Navedena je nepoznata vrsta akcije – %s"
 
 msgid "Cannot snooze the reminder. You may be reminded again."
 msgstr "Nije moguće odgoditi podsjetnik. Možda ćete se ponovno podsjetiti."
@@ -9388,21 +9412,22 @@ msgstr ""
 
 msgid "Move to Junk Folder and add the Email to blacklist"
 msgstr ""
-"Premjesti u mapu „Neželjena pošta” i dodaj e-mail adresu u popis blokirane "
-"pošte"
+"Premjesti u mapu „Neželjena pošta” i dodaj e-mail adresu u popis blokiranih "
+"adresa"
 
 msgid "Move to Junk Folder and add the domain to blacklist"
-msgstr "Premjesti u mapu za smeće i dodaj domenu na crnu listu"
+msgstr ""
+"Premjesti u mapu „Neželjena pošta” i dodaj domenu u popis blokiranih adresa"
 
 msgid "Blacklist rule created successfully"
-msgstr "Pravilo za blokiranu poštu je uspješno stvoreno"
+msgstr "Pravilo za blokirane adrese je uspješno stvoreno"
 
 msgid "Unable to create the blacklist rule."
-msgstr "Stvaranje pravila za blokiranu poštu nije uspjelo."
+msgstr "Nije moguće stvoriti pravilo za blokirane adrese."
 
 msgid "Unable to create a blacklist rule for this sender."
-msgstr "Stvaranje pravila za blokiranu poštu za ovog pošiljatelja nije uspjelo."
+msgstr "Nije moguće stvoriti pravilo za blokirane adrese za ovog pošiljatelja."
 
 #, php-format
 msgid "Some problem encountered when encoding/decoding JSON data: - %s"
-msgstr "Neki problemi naišli prilikom kodiranja/dekodiranja JSON podataka: -%s"
+msgstr "Došlo je do problema prilikom kodiranja/dekodiranja JSON podataka: – %s"
