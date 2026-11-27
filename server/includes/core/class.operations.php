@@ -83,7 +83,7 @@ class Operations {
 		}
 
 		foreach ($storelist as $store) {
-			$msgstore_props = mapi_getprops($store, [PR_ENTRYID, PR_DISPLAY_NAME, PR_IPM_SUBTREE_ENTRYID, PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID, PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_PUBLIC_FOLDERS_ENTRYID, PR_IPM_FAVORITES_ENTRYID, PR_OBJECT_TYPE, PR_STORE_SUPPORT_MASK, PR_MAILBOX_OWNER_ENTRYID, PR_MAILBOX_OWNER_NAME, PR_USER_ENTRYID, PR_USER_NAME, PR_QUOTA_WARNING_THRESHOLD, PR_QUOTA_SEND_THRESHOLD, PR_QUOTA_RECEIVE_THRESHOLD, PR_MESSAGE_SIZE_EXTENDED, PR_COMMON_VIEWS_ENTRYID, PR_FINDER_ENTRYID]);
+			$msgstore_props = mapi_getprops($store, [PR_ENTRYID, PR_DISPLAY_NAME, PR_IPM_SUBTREE_ENTRYID, PR_IPM_OUTBOX_ENTRYID, PR_IPM_SENTMAIL_ENTRYID, PR_IPM_WASTEBASKET_ENTRYID, PR_MDB_PROVIDER, PR_IPM_PUBLIC_FOLDERS_ENTRYID, PR_IPM_FAVORITES_ENTRYID, PR_OBJECT_TYPE, PR_STORE_SUPPORT_MASK, PR_MAILBOX_OWNER_ENTRYID, PR_MAILBOX_OWNER_NAME, PR_USER_ENTRYID, PR_USER_NAME, PR_QUOTA_WARNING_THRESHOLD, PR_PROHIBIT_SEND_QUOTA, PR_PROHIBIT_RECEIVE_QUOTA, PR_MESSAGE_SIZE_EXTENDED, PR_COMMON_VIEWS_ENTRYID, PR_FINDER_ENTRYID]);
 
 			$inboxProps = [];
 			$storeType = $msgstore_props[PR_MDB_PROVIDER];
@@ -117,8 +117,8 @@ class Operations {
 					"user_name" => $storeUserName,
 					"store_size" => round($msgstore_props[PR_MESSAGE_SIZE_EXTENDED] / 1024),
 					"quota_warning" => $msgstore_props[PR_QUOTA_WARNING_THRESHOLD] ?? 0,
-					"quota_soft" => $msgstore_props[PR_QUOTA_SEND_THRESHOLD] ?? 0,
-					"quota_hard" => $msgstore_props[PR_QUOTA_RECEIVE_THRESHOLD] ?? 0,
+					"quota_soft" => $msgstore_props[PR_PROHIBIT_SEND_QUOTA] ?? 0,
+					"quota_hard" => $msgstore_props[PR_PROHIBIT_RECEIVE_QUOTA] ?? 0,
 					"common_view_entryid" => isset($msgstore_props[PR_COMMON_VIEWS_ENTRYID]) ? bin2hex((string) $msgstore_props[PR_COMMON_VIEWS_ENTRYID]) : "",
 					"finder_entryid" => isset($msgstore_props[PR_FINDER_ENTRYID]) ? bin2hex((string) $msgstore_props[PR_FINDER_ENTRYID]) : "",
 					"todolist_entryid" => $todoListEntryId === false ? "" : bin2hex($todoListEntryId),

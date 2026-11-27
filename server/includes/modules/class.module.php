@@ -223,13 +223,13 @@ class Module {
 			$store = $GLOBALS['mapisession']->getDefaultMessageStore();
 		}
 
-		$storeProps = mapi_getprops($store, [PR_QUOTA_WARNING_THRESHOLD, PR_QUOTA_SEND_THRESHOLD, PR_QUOTA_RECEIVE_THRESHOLD, PR_MESSAGE_SIZE_EXTENDED]);
+		$storeProps = mapi_getprops($store, [PR_QUOTA_WARNING_THRESHOLD, PR_PROHIBIT_SEND_QUOTA, PR_PROHIBIT_RECEIVE_QUOTA, PR_MESSAGE_SIZE_EXTENDED]);
 
 		$quotaDetails = [
 			'store_size' => round($storeProps[PR_MESSAGE_SIZE_EXTENDED] / 1024),
-			'quota_warning' => $storeProps[PR_QUOTA_WARNING_THRESHOLD],
-			'quota_soft' => $storeProps[PR_QUOTA_SEND_THRESHOLD],
-			'quota_hard' => $storeProps[PR_QUOTA_RECEIVE_THRESHOLD],
+			'quota_warning' => $storeProps[PR_QUOTA_WARNING_THRESHOLD] ?? 0,
+			'quota_soft' => $storeProps[PR_PROHIBIT_SEND_QUOTA] ?? 0,
+			'quota_hard' => $storeProps[PR_PROHIBIT_RECEIVE_QUOTA] ?? 0,
 		];
 
 		if ($quotaDetails['quota_hard'] !== 0 && $quotaDetails['store_size'] > $quotaDetails['quota_hard']) {
